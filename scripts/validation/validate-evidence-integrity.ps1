@@ -4,8 +4,9 @@ $ErrorActionPreference = "Stop"
 Write-Host "Validating evidence integrity..."
 
 $HtmlFiles = Get-ChildItem -Path . -Recurse -Filter "*.html" -File | Where-Object {
-  $_.DirectoryName -notmatch "node_modules" -and
-  $_.DirectoryName -notmatch "\\.git"
+  $_.FullName -notmatch '[\\/]node_modules[\\/]' -and
+  $_.FullName -notmatch '[\\/]archive[\\/]' -and
+  $_.FullName -notmatch '[\\/]evidence-library[\\/]preserved-sharepoint[\\/]source[\\/]'
 }
 
 $Failures = @()
@@ -16,9 +17,13 @@ foreach ($File in $HtmlFiles) {
   foreach ($Reference in $References) {
     foreach ($Match in $Reference.Matches) {
       $RawPath = $Match.Groups[1].Value
-      $RelativePath = ($RawPath -split "\?")[0]
+      $RelativePath = ($RawPath -split '[?#]')[0]
 
-      if ($RelativePath.StartsWith("http") -or $RelativePath.StartsWith("#")) {
+      if (
+        [string]::IsNullOrWhiteSpace($RelativePath) -or
+        $RelativePath.StartsWith("http") -or
+        $RelativePath.StartsWith("#")
+      ) {
         continue
       }
 

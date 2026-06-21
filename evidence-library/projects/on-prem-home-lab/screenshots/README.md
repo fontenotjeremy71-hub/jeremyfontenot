@@ -129,16 +129,6 @@ evidence-library/projects/on-prem-home-lab/screenshots
 - Proof: Documentation source staging validation showing proof summary, manifest files, and final ZIP SHA256 verification.
 - SHA256: `CE77AD3C0ED5F63DC28492391BDBE7AD99C75F6D79469DBCE4DAEB696997EA98`
 
-## Suggested PowerShell Copy Command
+## Publication note
 
-```powershell
-$Repo = "C:\Users\jeremy\Documents\projects\jeremyfontenot"
-$Source = "C:\EvidencePack\on-prem-home-lab\screenshots-for-repo\screenshots"
-$Destination = Join-Path $Repo "evidence-library\projects\on-prem-home-lab\screenshots"
-New-Item -Path $Destination -ItemType Directory -Force | Out-Null
-Copy-Item "$Source\*.png" -Destination $Destination -Force
-Copy-Item "C:\EvidencePack\on-prem-home-lab\screenshots-for-repo\screenshots-manifest.csv" -Destination (Split-Path $Destination) -Force
-Copy-Item "C:\EvidencePack\on-prem-home-lab\screenshots-for-repo\README.md" -Destination (Split-Path $Destination) -Force
-Set-Location $Repo
-git status --short
-```
+These screenshots remain as the reviewed June 12 historical proof set. The June 21 validation evidence is indexed separately in `../validated-2026-06-21/` and is the current primary review path.

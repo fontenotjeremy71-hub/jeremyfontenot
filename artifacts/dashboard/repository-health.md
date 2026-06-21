@@ -1,15 +1,15 @@
 # Repository Health Dashboard
 
-Generated: 2026-05-30 00:07:08 UTC
+Generated: 2026-06-21 23:20:01 UTC
 
 ## Governance Coverage
 
 | Area | Count |
 |---|---:|
 | Validation scripts | 15 |
-| Lighthouse reports | 11 |
-| Evidence index entries | 29 |
-| Evidence hash entries | 72 |
+| Lighthouse reports | 19 |
+| Evidence index entries | 31 |
+| Evidence hash entries | 1027 |
 
 ## Validation Scripts
 
@@ -31,7 +31,15 @@ Generated: 2026-05-30 00:07:08 UTC
 
 ## Lighthouse Reports
 
+- lighthouse_certifications_home_desktop_20260531.json: performance=0.99 accessibility=1 best-practices=1 seo=1
+- lighthouse_certifications_home_mobile_20260531.json: performance=0.99 accessibility=1 best-practices=1 seo=1
+- lighthouse_enterprise_home_20260531.json: performance=0.99 accessibility=1 best-practices=1 seo=1
+- lighthouse_enterprise_projects_20260531.json: performance=0.98 accessibility=1 best-practices=1 seo=1
+- lighthouse_enterprise_proof_20260531.json: performance=0.97 accessibility=1 best-practices=1 seo=1
 - lighthouse_home_after.json: performance=1 accessibility=1 best-practices=1 seo=1
+- lighthouse_homelab_case_desktop_20260531.json: performance=1 accessibility=1 best-practices=1 seo=1
+- lighthouse_homelab_home_desktop_20260531.json: performance=1 accessibility=1 best-practices=1 seo=1
+- lighthouse_homelab_home_mobile_20260531.json: performance=0.85 accessibility=1 best-practices=1 seo=1
 - lighthouse_local_-desktop.json: performance=0.98 accessibility=1 best-practices=1 seo=1
 - lighthouse_projects_desktop.json: performance=0.98 accessibility=1 best-practices=1 seo=1
 - lighthouse_projects_mobile.json: performance=1 accessibility=1 best-practices=1 seo=1

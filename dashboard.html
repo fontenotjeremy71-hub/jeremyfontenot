@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="./assets/css/site.css">
 <script src="./assets/js/site.js" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Evidence Dashboard","url":"https://jeremyfontenot.online/dashboard.html","description":"Verified evidence inventory dashboard summarizing Microsoft 365, Entra, and On-Prem Home Lab proof counts from repository exports, manifests, screenshots, and SHA256 records.","about":["Microsoft 365 evidence","Microsoft Entra evidence","On-Prem Home Lab evidence","Portfolio proof inventory","Technical documentation","Evidence governance"]}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Evidence Dashboard","url":"https://jeremyfontenot.online/dashboard.html","dateModified":"2026-06-21","description":"Verified evidence inventory dashboard summarizing Microsoft 365, Entra, and validated On-Premises Home Lab proof from repository exports, manifests, screenshots, documents, and SHA-256 records.","about":["Microsoft 365 evidence","Microsoft Entra evidence","On-Premises Home Lab evidence","Portfolio proof inventory","Technical documentation","Evidence governance"]}
 </script>
 </head>
 <body class="dashboard-page">
@@ -27,7 +27,7 @@
 <main id="main" class="page page-shell">
   <section class="page-hero" aria-labelledby="dashboard-title">
     <div class="page-hero-grid">
-      <div class="hero-copy reveal"><p class="eyebrow">Captured evidence counts</p><h1 id="dashboard-title">Governance metrics are proof inventory counts.</h1><p class="lead">The dashboard summarizes records exported from the personal Microsoft 365 / Entra cloud administration lab and the On-Prem Home Lab evidence pack. These counts are evidence records, not employment results, external environment statistics, uptime figures, or impact metrics.</p><div class="actions"><a class="button primary" href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv">M365 Proof Inventory</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest-Summary.txt">Home Lab Manifest Summary</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/Final-ZIP-SHA256.txt">Home Lab SHA256</a></div></div>
+      <div class="hero-copy reveal"><p class="eyebrow">Captured evidence counts</p><h1 id="dashboard-title">Governance metrics are proof inventory counts.</h1><p class="lead">The dashboard summarizes records exported from the personal Microsoft 365 / Entra cloud administration lab and the validated On-Premises Home Lab. These are reproducible evidence counts, not employment results, external environment statistics, uptime figures, or impact metrics.</p><div class="actions"><a class="button primary" href="./on-prem-home-lab.html">Open validated home lab</a><a class="button" href="./proof.html#home-lab-proof">Review home lab proof</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json">Home lab manifest</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx">APA validation document (.docx)</a></div></div>
       <aside class="review-console evidence-rail reveal" aria-label="Dashboard governance scope">
         <h2>Dashboard scope</h2>
         <ul class="check-list">
@@ -42,7 +42,7 @@
       <span class="status-pill">CI/CD surface documented</span>
       <span class="status-pill">Lighthouse review path</span>
       <span class="status-pill">Evidence integrity mapped</span>
-      <span class="status-pill">On-Prem Home Lab evidence pack</span>
+      <span class="status-pill">Home Lab validated June 21, 2026</span>
       <span class="status-pill">Local links reviewed</span>
     </div>
   </section>
@@ -61,11 +61,26 @@
       <div class="metric"><strong>68</strong><span>service plans</span></div>
       <div class="metric"><strong>104</strong><span>sign-in export rows</span></div>
       <div class="metric"><strong>46</strong><span>directory audit export rows</span></div>
-      <div class="metric feature-card"><strong>127</strong><span>On-Prem Home Lab evidence files</span></div>
-      <div class="metric"><strong>60</strong><span>DC01 evidence files</span></div>
-      <div class="metric"><strong>47</strong><span>WS01 evidence files</span></div>
-      <div class="metric"><strong>8</strong><span>Proxmox evidence files</span></div>
-      <div class="metric"><strong>SHA256</strong><span>On-Prem Home Lab evidence ZIP validated</span></div>
+      <div class="metric feature-card"><strong>Validated</strong><span>On-Premises Home Lab status</span></div>
+      <div class="metric"><strong>2026-06-21</strong><span>validation date</span></div>
+      <div class="metric"><strong>1</strong><span>physical server</span></div>
+      <div class="metric"><strong>1</strong><span>hypervisor</span></div>
+      <div class="metric"><strong>4</strong><span>primary VMs</span></div>
+      <div class="metric"><strong>4</strong><span>VMs in scheduled backup job</span></div>
+      <div class="metric"><strong>4</strong><span>VM snapshot listings</span></div>
+      <div class="metric"><strong>Linux01</strong><span>command validation published</span></div>
+      <div class="metric"><strong>SHA-256</strong><span>nested and complete evidence verified</span></div>
+      <div class="metric"><strong>916 GB</strong><span>dedicated backup filesystem capacity</span></div>
+      <div class="metric"><strong>DOCX</strong><span>APA-formatted proof available</span></div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="home-lab-dashboard-title">
+    <div class="section-head reveal"><p class="eyebrow">Validated home lab snapshot</p><h2 id="home-lab-dashboard-title">Every home-lab value resolves to the June 21 evidence set.</h2><p>Counts refer to one Dell PowerEdge R710, one Proxmox VE hypervisor, and primary VMs 100, 200, 300, and 400. Snapshot and backup coverage are listed separately because a snapshot is not an independent backup.</p></div>
+    <div class="dashboard-grid reveal">
+      <article><span class="tile-code">LAB</span><h2>Case study</h2><p>Architecture, addressing, Windows Server, Linux01, backups, integrity, limitations, and next steps.</p><a class="evidence-link" href="./on-prem-home-lab.html"><span>validated</span>Open page</a></article>
+      <article><span class="tile-code">PROOF</span><h2>Proof section</h2><p>Command evidence, selected screenshots, archive hashes, claim boundaries, and personal-lab disclaimer.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>proof</span>Review</a></article>
+      <article><span class="tile-code">MAN</span><h2>Evidence manifest</h2><p>Machine-readable file size, MIME type, SHA-256, publication date, description, and redaction metadata.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json"><span>json</span>Open manifest</a></article>
+      <article><span class="tile-code">DOCX</span><h2>APA validation document</h2><p>Original content preserved and published as a 1,400,031-byte Office Open XML document.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx"><span>docx</span>Download</a></article>
     </div>
   </section>
   <section class="section" aria-labelledby="governance-title">
@@ -82,7 +97,7 @@
     <div class="snapshot-grid reveal">
       <article><span class="tile-code">LINK</span><h3>Link validation</h3><p>Internal links, images, CSS, JavaScript, PDFs, and proof references are checked by the local link validator.</p><a class="evidence-link" href="./scripts/validation/validate-links.ps1"><span>script</span>Open</a></article>
       <article><span class="tile-code">MAP</span><h3>Evidence claim control</h3><p>Claim wording is compared against repository-local evidence boundaries and approved proof routing.</p><a class="evidence-link" href="./scripts/validation/validate-evidence-claims.ps1"><span>script</span>Open</a></article>
-      <article><span class="tile-code">SITE</span><h3>Sitemap and SEO status</h3><p>The public sitemap lists the six active recruiter pages; retired routes remain outside the indexable sitemap.</p><a class="evidence-link" href="./sitemap.xml"><span>sitemap</span>Open</a></article>
+      <article><span class="tile-code">SITE</span><h3>Sitemap and SEO status</h3><p>The public sitemap lists the seven active recruiter pages; retired routes remain outside the indexable sitemap.</p><a class="evidence-link" href="./sitemap.xml"><span>sitemap</span>Open</a></article>
       <article><span class="tile-code">SHOT</span><h3>Screenshot review</h3><p>Visual review artifacts are captured locally for desktop, tablet, and mobile inspection across the active public surface.</p><a class="evidence-link" href="./scripts/validation/validate-screenshots.ps1"><span>script</span>Open</a></article>
     </div>
   </section>
@@ -93,8 +108,9 @@
       <article><span class="tile-code">HASH</span><h2>Proof hashes</h2><p>SHA-256 hash records for proof integrity review.</p><a class="evidence-link" href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-hashes-20260605.csv"><span>hash available</span>Open file</a></article>
       <article><span class="tile-code">EXP</span><h2>New export manifest</h2><p>Manifest for the 2026-06-05 Microsoft 365 / Entra export folder.</p><a class="evidence-link" href="./evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/microsoft-365-lab-evidence-manifest-20260605.csv"><span>hash available</span>Open file</a></article>
       <article><span class="tile-code">MAP</span><h2>Site proof map</h2><p>Public claims mapped to files, proof type, supported wording, and wording to avoid.</p><a class="evidence-link" href="./evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.md"><span>control file</span>Open file</a></article>
-      <article><span class="tile-code">LAB</span><h2>On-Prem Home Lab manifest</h2><p>Manifest summary for the 127-file personal lab evidence pack, including DC01, WS01, and Proxmox evidence counts.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest-Summary.txt"><span>summary</span>Open file</a></article>
-      <article><span class="tile-code">LABSHA</span><h2>On-Prem Home Lab SHA256</h2><p>Final evidence ZIP integrity record for the home lab evidence package.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/Final-ZIP-SHA256.txt"><span>sha file</span>Open file</a></article>
+      <article><span class="tile-code">LAB</span><h2>On-Premises Home Lab manifest</h2><p>Curated June 21 public evidence inventory with file sizes, SHA-256 hashes, descriptions, and redaction notes.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.csv"><span>csv</span>Open file</a></article>
+      <article><span class="tile-code">LABSHA</span><h2>Home lab integrity record</h2><p>Known Linux01 and complete-archive hashes plus the calculated Word-document hash.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/evidence-integrity-validation.txt"><span>sha-256</span>Open file</a></article>
+      <article><span class="tile-code">LABDOC</span><h2>APA validation document</h2><p>Download the new June 21 home-lab validation document.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx"><span>docx</span>Download</a></article>
     </div>
   </section>
 </main>
@@ -128,8 +144,8 @@
       <h2 class="footer-heading">Evidence Links</h2>
       <a href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv">Microsoft 365 / Entra proof inventory</a>
       <a href="./on-prem-home-lab.html">On-Prem Home Lab case study</a>
-      <a href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest.csv">On-Prem Home Lab evidence manifest</a>
-      <a href="./evidence-library/projects/on-prem-home-lab/Final-ZIP-SHA256.txt">On-Prem Home Lab SHA256</a>
+      <a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json">On-Premises Home Lab evidence manifest</a>
+      <a href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx">APA-formatted Home Lab validation document (.docx)</a>
     </div>
   </div>
 

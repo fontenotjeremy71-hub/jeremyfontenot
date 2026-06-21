@@ -1,0 +1,6 @@
+Home Lab Evidence: VM 200 Snapshot Validation
+Collection Time: 2026-06-21T03:44:43-05:00
+Proxmox Host: proxmox.jeremyfontenot.local
+
+`-> dc01-fileshare-it-ok        2026-06-12 17:59:42     DC01 after IT SMB share validation. AD groups GG-FS-IT-RW and GG-FS-IT-RO configured. SMB and NTFS permissions validated from WS01 using sd.tech and standard.user.
+ `-> current                                            You are here!

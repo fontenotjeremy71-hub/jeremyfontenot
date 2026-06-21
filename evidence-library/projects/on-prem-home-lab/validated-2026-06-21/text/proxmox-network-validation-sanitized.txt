@@ -1,0 +1,31 @@
+Home Lab Evidence: Proxmox Network Validation (Public Excerpt)
+Collection Date: 2026-06-21
+Host: proxmox.jeremyfontenot.local
+
+=== Management Address and Route ===
+vmbr0: 192.168.0.242/24
+default via 192.168.0.1 dev vmbr0
+192.168.0.0/24 dev vmbr0 src 192.168.0.242
+
+=== /etc/network/interfaces Excerpt ===
+auto vmbr0
+iface vmbr0 inet static
+    address 192.168.0.242/24
+    gateway 192.168.0.1
+    bridge-ports nic0
+    bridge-stp off
+    bridge-fd 0
+
+auto vmbr1
+iface vmbr1 inet manual
+    bridge-ports none
+    bridge-stp off
+    bridge-fd 0
+    bridge-vlan-aware yes
+    bridge-vids 2-4094
+
+=== Bridge Membership ===
+vmbr0: physical upstream interface and pfSense WAN tap
+vmbr1: pfSense LAN, DC01, WS01, and Linux01 virtual interfaces
+
+Privacy note: link-local IPv6 addresses, interface hardware addresses, and unrelated command output were excluded from this public excerpt. The complete source archive was retained outside the repository and verified by SHA-256.

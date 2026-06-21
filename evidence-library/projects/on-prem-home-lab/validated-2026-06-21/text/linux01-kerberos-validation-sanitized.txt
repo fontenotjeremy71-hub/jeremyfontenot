@@ -1,0 +1,11 @@
+Home Lab Evidence: Linux01 Kerberos Validation (Sanitized)
+Collection Time: 2026-06-21T14:51:10+00:00
+Logged-In User: jeremy.fontenot@ad.jeremyfontenot.online
+
+=== Current Kerberos Ticket ===
+Ticket cache: [REDACTED: temporary cache identifier]
+Default principal: jeremy.fontenot@AD.JEREMYFONTENOT.ONLINE
+
+Valid starting       Expires              Service principal
+06/21/2026 14:47:14  06/22/2026 00:47:14  krbtgt/AD.JEREMYFONTENOT.ONLINE@AD.JEREMYFONTENOT.ONLINE
+    renew until 06/22/2026 14:47:14

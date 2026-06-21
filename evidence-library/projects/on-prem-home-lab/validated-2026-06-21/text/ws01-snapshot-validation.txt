@@ -1,0 +1,6 @@
+Home Lab Evidence: VM 300 Snapshot Validation
+Collection Time: 2026-06-21T03:44:45-05:00
+Proxmox Host: proxmox.jeremyfontenot.local
+
+`-> ws01-localadmin-gpo-ok      2026-06-12 15:44:45     WS01 after Controlled Local Admins GPO validation. JFAD\GG-Workstation-Admins confirmed in local Administrators. DC01 GPO/SYSVOL proof captured.
+ `-> current                                            You are here!

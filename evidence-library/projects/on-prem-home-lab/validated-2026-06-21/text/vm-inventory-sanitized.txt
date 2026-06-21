@@ -1,0 +1,30 @@
+Home Lab Evidence: Safe VM Configuration Summary
+Collection Date: 2026-06-21
+Host: proxmox.jeremyfontenot.local
+
+VM 100 - pfsense-fw
+- 2 CPU cores, host CPU type
+- 4096 MB memory
+- 32 GB disk
+- WAN on vmbr0; LAN on vmbr1
+
+VM 200 - dc01
+- 2 CPU cores, host CPU type
+- 4096 MB memory
+- 80 GB disk
+- network on vmbr1
+
+VM 300 - ws01
+- 2 CPU cores, host CPU type
+- 4096 MB memory
+- 80 GB disk
+- network on vmbr1
+
+VM 400 - linux01
+- 2 CPU cores, host CPU type
+- 2048 MB memory
+- 40 GB disk
+- network on vmbr1 with VM firewall integration enabled
+- QEMU guest agent enabled
+
+Privacy note: virtual MAC addresses, SMBIOS UUIDs, VM generation identifiers, and creation timestamps were excluded from this public summary.

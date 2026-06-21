@@ -1,0 +1,6 @@
+Home Lab Evidence: VM 400 Snapshot Validation
+Collection Time: 2026-06-21T03:44:47-05:00
+Proxmox Host: proxmox.jeremyfontenot.local
+
+`-> linux01-domain-joined-hardened-agent 2026-06-20 22:19:55     Ubuntu Server installed, static IP 10.10.20.20, AD joined, forward and reverse DNS verified, AD sudo configured, updates applied, UFW restricted to 10.10.20.0/24, and QEMU guest agent verified.
+ `-> current                                            You are here!

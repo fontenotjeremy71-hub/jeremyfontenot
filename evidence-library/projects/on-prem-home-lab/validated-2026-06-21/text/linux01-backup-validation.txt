@@ -1,0 +1,9 @@
+=== VM 400 Scheduled Backup Inclusion ===
+│ vmid           │ 100,200,300,400                             │
+
+=== VM 400 Backup Files ===
+-rw-r--r-- 1 root root 3.1K Jun 21 00:58 vzdump-qemu-400-2026_06_21-00_57_05.log
+-rw-r--r-- 1 root root 2.8G Jun 21 00:58 vzdump-qemu-400-2026_06_21-00_57_05.vma.zst
+-rw-r--r-- 1 root root 3.2K Jun 21 02:15 vzdump-qemu-400-2026_06_21-02_14_03.log
+-rw-r--r-- 1 root root 2.8G Jun 21 02:15 vzdump-qemu-400-2026_06_21-02_14_03.vma.zst
+-rw-r--r-- 1 root root   37 Jun 21 02:15 vzdump-qemu-400-2026_06_21-02_14_03.vma.zst.notes

@@ -1,0 +1,25 @@
+Home Lab Evidence: Linux01 DNS Validation
+Collection Time: 2026-06-21T14:45:00+00:00
+Logged-In User: jeremy.fontenot@ad.jeremyfontenot.online
+
+=== Forward Lookup: Linux01 ===
+10.10.20.20     linux01.ad.jeremyfontenot.online linux01
+
+=== Reverse Lookup: 10.10.20.20 ===
+10.10.20.20     linux01.ad.jeremyfontenot.online linux01
+
+=== Domain Controller Lookup ===
+10.10.20.10     dc01.ad.jeremyfontenot.online
+
+=== Resolver Configuration ===
+Global
+         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+  resolv.conf mode: stub
+
+Link 2 (ens18)
+    Current Scopes: DNS
+         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 10.10.20.10
+       DNS Servers: 10.10.20.10
+        DNS Domain: ad.jeremyfontenot.online
+     Default Route: yes

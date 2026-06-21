@@ -2806,6 +2806,39 @@ body.home-lab-page .artifact-card strong {
   margin-top: .15rem;
 }
 
+.evidence-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(15, 23, 42, .72);
+}
+
+.evidence-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 44rem;
+}
+
+.evidence-table caption {
+  padding: 1rem;
+  color: var(--muted);
+  text-align: left;
+  font-weight: 700;
+}
+
+.evidence-table th,
+.evidence-table td {
+  padding: .85rem 1rem;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.evidence-table thead th {
+  color: var(--cyan);
+  background: rgba(34, 211, 238, .08);
+}
+
 body.home-lab-page .topology-node,
 body.home-lab-page .topology-bus {
   gap: .5rem;

@@ -1,29 +1,5 @@
 [
   {
-    "path": "evidence-library\\evidence-source-map.csv",
-    "sha256": "F7B2EF5654579487963B7B60C5CD259320B68C1CD377DFDA6919B3DD1285614F",
-    "size": 6674,
-    "lastModified": "2026-05-31T06:40:10Z"
-  },
-  {
-    "path": "evidence-library\\index.html",
-    "sha256": "DC7BC7F72E694CF07551138C93060AA26D51FBBCEF13A9F10AB9D67ACA15EC21",
-    "size": 5392,
-    "lastModified": "2026-06-13T08:14:31.2018607Z"
-  },
-  {
-    "path": "evidence-library\\README.md",
-    "sha256": "17C538A912D226C6D83C836D29C858AF55E5994649972A0971683B4E038D3956",
-    "size": 2532,
-    "lastModified": "2026-05-31T23:58:20Z"
-  },
-  {
-    "path": "evidence-library\\architecture\\microsoft-365-architecture-overview.md",
-    "sha256": "FBA4596B3166F0BC90417FCCFAAAAA10C5544DCC2449EE803142FFEB05CCE411",
-    "size": 658,
-    "lastModified": "2026-06-02T02:27:26Z"
-  },
-  {
     "path": "evidence-library\\architecture-diagrams\\.gitkeep",
     "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B",
     "size": 2,
@@ -114,6 +90,12 @@
     "lastModified": "2026-06-02T02:09:26Z"
   },
   {
+    "path": "evidence-library\\architecture\\microsoft-365-architecture-overview.md",
+    "sha256": "FBA4596B3166F0BC90417FCCFAAAAA10C5544DCC2449EE803142FFEB05CCE411",
+    "size": 658,
+    "lastModified": "2026-06-02T02:27:26Z"
+  },
+  {
     "path": "evidence-library\\archive\\README.md",
     "sha256": "168A5ABC5FB94EBAE5E96723BAB8F9425069958FAF3E6DC60C9BD0C3971784D6",
     "size": 536,
@@ -156,6 +138,12 @@
     "lastModified": "2026-06-02T01:05:08Z"
   },
   {
+    "path": "evidence-library\\evidence-source-map.csv",
+    "sha256": "9A6F8A03F53677FE6F04A83D584B764908A4B711576A2673AB095751CF215B09",
+    "size": 7264,
+    "lastModified": "2026-06-21T23:28:53.1935543Z"
+  },
+  {
     "path": "evidence-library\\experience\\.gitkeep",
     "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B",
     "size": 2,
@@ -178,6 +166,12 @@
     "sha256": "14C325597C118C353FCD780D4974B169D941EC7981EF5339B8EC3536814B15DB",
     "size": 2041,
     "lastModified": "2026-06-05T06:41:13.6519034Z"
+  },
+  {
+    "path": "evidence-library\\index.html",
+    "sha256": "DC7BC7F72E694CF07551138C93060AA26D51FBBCEF13A9F10AB9D67ACA15EC21",
+    "size": 5392,
+    "lastModified": "2026-06-13T08:14:31.2018607Z"
   },
   {
     "path": "evidence-library\\network\\dhcp-dns-validation-report-2026.md",
@@ -5028,12 +5022,6 @@
     "lastModified": "2026-06-13T08:14:31.2018607Z"
   },
   {
-    "path": "evidence-library\\projects\\README.md",
-    "sha256": "1021A819EBEDE8B30656872F424AF927671D0F2A935054AF87A79407EA794CEF",
-    "size": 1379,
-    "lastModified": "2026-05-25T06:46:14Z"
-  },
-  {
     "path": "evidence-library\\projects\\backup-disaster-recovery\\.gitkeep",
     "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B",
     "size": 2,
@@ -5109,48 +5097,6 @@
     "path": "evidence-library\\projects\\microsoft-365-lab\\.gitkeep",
     "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B",
     "size": 2,
-    "lastModified": "2026-05-25T06:46:14Z"
-  },
-  {
-    "path": "evidence-library\\projects\\microsoft-365-lab\\historical-microsoft-365-tenant-summary-2026.md",
-    "sha256": "77A50F89C5E0A64B4DB8CD21A46C840957544F8D54DC9B50C6A238C73E05E55E",
-    "size": 1149,
-    "lastModified": "2026-06-05T06:41:13.9781646Z"
-  },
-  {
-    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-live-proof-summary-20260605.md",
-    "sha256": "B0632C7BFE06655F7AD4D2EA8B6DD7E87A7BDC6D7296187E3915AEA16A4C30B3",
-    "size": 3127,
-    "lastModified": "2026-06-05T11:40:19.1409053Z"
-  },
-  {
-    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-proof-hashes-20260605.csv",
-    "sha256": "B0545D95681EEEB6E3522A6AAFBA35BC5E5AFCED70BFDE01CF116B033F12A945",
-    "size": 23490,
-    "lastModified": "2026-06-05T11:39:01.9651838Z"
-  },
-  {
-    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-proof-inventory-20260605.csv",
-    "sha256": "4BD4530872210AFEC2DBFE9CEABCC0973D13E1D11782DA0AC3B45C1EDCD88D93",
-    "size": 19582,
-    "lastModified": "2026-06-05T11:37:47.1538956Z"
-  },
-  {
-    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-site-proof-map-20260605.md",
-    "sha256": "7D8A4025EAF5DFD2FFE6ED50DD8679BC5372279E5F3A3FF9527DB8371347771B",
-    "size": 14328,
-    "lastModified": "2026-06-15T03:01:44.8630248Z"
-  },
-  {
-    "path": "evidence-library\\projects\\microsoft-365-lab\\microsoft-365-lab-architecture-overview-2026.md",
-    "sha256": "50CF5E0C99328A536277AE5B13F9CE354A1C6ACE7B5193D146EA9772E4ED9335",
-    "size": 5275,
-    "lastModified": "2026-05-25T06:46:14Z"
-  },
-  {
-    "path": "evidence-library\\projects\\microsoft-365-lab\\microsoft-365-lab-conditional-access-baseline-configuration-2026.yaml",
-    "sha256": "7CE07405BFE1816142A4DD0CB0E37C33F18DC69A5705BC6748C91B5073DEC5B5",
-    "size": 1273,
     "lastModified": "2026-05-25T06:46:14Z"
   },
   {
@@ -5592,6 +5538,12 @@
     "lastModified": "2026-06-05T13:26:59.5901355Z"
   },
   {
+    "path": "evidence-library\\projects\\microsoft-365-lab\\historical-microsoft-365-tenant-summary-2026.md",
+    "sha256": "77A50F89C5E0A64B4DB8CD21A46C840957544F8D54DC9B50C6A238C73E05E55E",
+    "size": 1149,
+    "lastModified": "2026-06-05T06:41:13.9781646Z"
+  },
+  {
     "path": "evidence-library\\projects\\microsoft-365-lab\\intune-managed-device-proof-fallback-20260605-044051\\intune-access-limitation-review-notes.md",
     "sha256": "38DD0825EE1EB56384240DD7DE8AEDC8024DB4643D52E16DC9891B7ADFC0C3E8",
     "size": 1482,
@@ -5622,6 +5574,42 @@
     "lastModified": "2026-06-05T09:40:52.4458228Z"
   },
   {
+    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-live-proof-summary-20260605.md",
+    "sha256": "B0632C7BFE06655F7AD4D2EA8B6DD7E87A7BDC6D7296187E3915AEA16A4C30B3",
+    "size": 3127,
+    "lastModified": "2026-06-05T11:40:19.1409053Z"
+  },
+  {
+    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-proof-hashes-20260605.csv",
+    "sha256": "B0545D95681EEEB6E3522A6AAFBA35BC5E5AFCED70BFDE01CF116B033F12A945",
+    "size": 23490,
+    "lastModified": "2026-06-05T11:39:01.9651838Z"
+  },
+  {
+    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-proof-inventory-20260605.csv",
+    "sha256": "4BD4530872210AFEC2DBFE9CEABCC0973D13E1D11782DA0AC3B45C1EDCD88D93",
+    "size": 19582,
+    "lastModified": "2026-06-05T11:37:47.1538956Z"
+  },
+  {
+    "path": "evidence-library\\projects\\microsoft-365-lab\\m365-entra-site-proof-map-20260605.md",
+    "sha256": "7D8A4025EAF5DFD2FFE6ED50DD8679BC5372279E5F3A3FF9527DB8371347771B",
+    "size": 14328,
+    "lastModified": "2026-06-15T03:01:44.8630248Z"
+  },
+  {
+    "path": "evidence-library\\projects\\microsoft-365-lab\\microsoft-365-lab-architecture-overview-2026.md",
+    "sha256": "50CF5E0C99328A536277AE5B13F9CE354A1C6ACE7B5193D146EA9772E4ED9335",
+    "size": 5275,
+    "lastModified": "2026-05-25T06:46:14Z"
+  },
+  {
+    "path": "evidence-library\\projects\\microsoft-365-lab\\microsoft-365-lab-conditional-access-baseline-configuration-2026.yaml",
+    "sha256": "7CE07405BFE1816142A4DD0CB0E37C33F18DC69A5705BC6748C91B5073DEC5B5",
+    "size": 1273,
+    "lastModified": "2026-05-25T06:46:14Z"
+  },
+  {
     "path": "evidence-library\\projects\\monitoring-logging\\.gitkeep",
     "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B",
     "size": 2,
@@ -5634,46 +5622,10 @@
     "lastModified": "2026-05-25T06:46:14Z"
   },
   {
-    "path": "evidence-library\\projects\\on-prem-home-lab\\Final-ZIP-SHA256.txt",
-    "sha256": "52BC63B27D7F9D020EE03A1B24E0848E1A85F0B2A6FFBC0247D5046175537ECF",
-    "size": 235,
-    "lastModified": "2026-06-13T02:19:08.8981429Z"
-  },
-  {
-    "path": "evidence-library\\projects\\on-prem-home-lab\\HomeLab-Evidence-Export-20260612-184743.zip",
-    "sha256": "864CD48F80E08FC45676D30B209D2ADFE8DC9569D32E80ED9BF17236D5893F28",
-    "size": 132508,
-    "lastModified": "2026-06-13T02:01:12.165449Z"
-  },
-  {
-    "path": "evidence-library\\projects\\on-prem-home-lab\\HomeLab-Evidence-Manifest-Summary.txt",
-    "sha256": "384927251DC90CBA68E71E3313D0E92D9F5657028DFE0F74464713BA6A73C17C",
-    "size": 420,
-    "lastModified": "2026-06-13T00:01:02Z"
-  },
-  {
-    "path": "evidence-library\\projects\\on-prem-home-lab\\HomeLab-Evidence-Manifest.csv",
-    "sha256": "D09620D1588473EA311FCFC13641C5D56BB323C028469D058F32EED05C7D8C4E",
-    "size": 43522,
-    "lastModified": "2026-06-13T00:01:02Z"
-  },
-  {
-    "path": "evidence-library\\projects\\on-prem-home-lab\\Jeremy_Fontenot_Home_Lab_Documentation.docx",
-    "sha256": "FD9C13D633F74DD6880298D50EE45F6E35771A58CBA98490BC119FA86218CAFB",
-    "size": 8685202,
-    "lastModified": "2026-06-14T00:28:07.0524588Z"
-  },
-  {
-    "path": "evidence-library\\projects\\on-prem-home-lab\\Jeremy_Fontenot_On_Prem_Home_Lab_APA_Proof_Documentation_Updated_2026-06-12.docx",
-    "sha256": "8D26C2092F32D1388758A82DCD83537C21902B4938FB65E5749DFE841F488265",
-    "size": 2028367,
-    "lastModified": "2026-06-13T02:41:53.0338728Z"
-  },
-  {
-    "path": "evidence-library\\projects\\on-prem-home-lab\\on-prem-home-lab-proof-summary.md",
-    "sha256": "007CE7BAF1F594D50C13411DF937D1BF0AD4E600474F14B4766048C1ACACDC54",
-    "size": 2289,
-    "lastModified": "2026-06-13T02:16:29.3749458Z"
+    "path": "evidence-library\\projects\\on-prem-home-lab\\jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx",
+    "sha256": "03A605517E2A6EBEB805B7E0F74BD1EC06C664DEBBDB39B99E09AECC62E4845A",
+    "size": 1400031,
+    "lastModified": "2026-06-21T17:05:42.4697001Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\screenshots\\figure-01-initial-rdp-connection-failure.png",
@@ -5779,15 +5731,183 @@
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\screenshots\\README.md",
-    "sha256": "E80C623CD47C6A9703F0AB4D152598D1047118AD2FC29F3E6E8B5E08C2EEDA1B",
-    "size": 6785,
-    "lastModified": "2026-06-13T07:43:52Z"
+    "sha256": "CDE94B7DBAAA51026A66C954A1B643815B55E8C4F619054F6B2BB19CE86E01F3",
+    "size": 6297,
+    "lastModified": "2026-06-21T17:53:14.9274946Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\screenshots\\screenshots-manifest.csv",
     "sha256": "2B6A7C1A35B960A4CC564DB947BEB4F647CEE5331BA6CEF51C3D80B2D7452D0B",
     "size": 6805,
     "lastModified": "2026-06-13T07:43:52Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\manifest.csv",
+    "sha256": "B82A2EC8BA4ED3A41642D81FA061B4819FA2B2892EF58EC82D1D2901CCD98BF9",
+    "size": 15235,
+    "lastModified": "2026-06-21T23:32:34.8920295Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\README.md",
+    "sha256": "A4BD04B5B211BF9A99571884F879965BE901BFF88CADEF257EF63BF9EC9BC559",
+    "size": 1957,
+    "lastModified": "2026-06-21T23:12:30.7457702Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\redaction-log.md",
+    "sha256": "F85BC3F52C78140D3D6C23724E6A02E99E2A0421324934F4E1F5DA5F3877454A",
+    "size": 2341,
+    "lastModified": "2026-06-21T23:29:34.3067303Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\dc01-active-directory-fsmo-validation.png",
+    "sha256": "E2AF4D71C1E362A432198465EFB658C50292BF1AABB72246318AE9A27D565A1D",
+    "size": 123975,
+    "lastModified": "2026-06-21T22:04:38Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\dc01-dhcp-scope-options-leases-redacted.png",
+    "sha256": "F72E3BFFE78E07532CDA19CA7B9D4DA5D77A2A68AECF2E9C2A0D5E93F3553ED9",
+    "size": 144641,
+    "lastModified": "2026-06-21T17:42:05.8523082Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\dc01-dns-forward-reverse-validation.png",
+    "sha256": "44D89012F3F975EE2713B1B8B4C5990C9A1FEF5862810B1AF9B9F8E340B01883",
+    "size": 233823,
+    "lastModified": "2026-06-21T22:04:38Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\dc01-group-policy-validation.png",
+    "sha256": "B70FF8E6FD7FFECA6C70016E0E109DAB4B0CFFE37F3FBF7A6C53C512529E8D2A",
+    "size": 568597,
+    "lastModified": "2026-06-21T22:04:38Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\linux01-evidence-archive-sha256-redacted.png",
+    "sha256": "E0C7FF62A1E324BCD57B9F24CE0CA73A7965030A7DC9223403905F4689B9612E",
+    "size": 73752,
+    "lastModified": "2026-06-21T17:42:05.8999141Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\linux01-login-system-state.png",
+    "sha256": "AE82A68CAE0B3F1325F4C3ACEF3476F7B8970F5AE790D5C8D19037511C7D4C2A",
+    "size": 96138,
+    "lastModified": "2026-06-21T22:03:40Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\linux01-scp-transfer-validation.png",
+    "sha256": "B009B48FC3F329FC5DA1DA5B14517A77DA88B8DA2988A193176D9FD5E8CB986A",
+    "size": 48564,
+    "lastModified": "2026-06-21T22:04:38Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\linux01-ubuntu-server-installation-type.png",
+    "sha256": "C99C9BD0BFD778781EAA2D323DDEF3192D18388968581EB3F98269D14CBD2F5B",
+    "size": 63873,
+    "lastModified": "2026-06-21T22:03:40Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\screenshots\\linux01-vm-configuration-confirmation.png",
+    "sha256": "F74225A4745D0F1250A469058595F808FA35C0923C158E451B7CCCE895CC17BC",
+    "size": 38548,
+    "lastModified": "2026-06-21T22:03:40Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\dc01-snapshot-validation.txt",
+    "sha256": "AAA037EC62BE23CDB883F42ECEA310FDC8C20D8F7607347ADC1D3BAE72A913D8",
+    "size": 423,
+    "lastModified": "2026-06-21T08:44:45Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\evidence-integrity-validation.txt",
+    "sha256": "429EA153239472E01B2F08A9B35FBDAB79EEC1ADAD990BD52EABCBFF468A9FA5",
+    "size": 999,
+    "lastModified": "2026-06-21T17:43:15.2288639Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\linux01-ad-integration-validation.txt",
+    "sha256": "8CEDDD17BC05C05134F63EB957B32EEDC743B1A85FBAC8E8D880F5CE16422A04",
+    "size": 1595,
+    "lastModified": "2026-06-21T08:53:08Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\linux01-backup-validation.txt",
+    "sha256": "10FEA94003C1F5F1DCA434BECEF824A96B5AB7E40478F7058284591E510FC429",
+    "size": 565,
+    "lastModified": "2026-06-21T08:46:57Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\linux01-dns-validation.txt",
+    "sha256": "0D4DBBCA322F8CE0C17EE6D298E62D947D65C85D00A7101DB3740DF031D748C7",
+    "size": 791,
+    "lastModified": "2026-06-21T14:45:00Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\linux01-kerberos-validation-sanitized.txt",
+    "sha256": "66639CBED2E4D30F3A6B25DCCA5C84D86AF527338DEE264C4731CD1170CA007A",
+    "size": 501,
+    "lastModified": "2026-06-21T17:43:14.1073725Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\linux01-maintenance-agent-validation.txt",
+    "sha256": "EA798ECA586798B6038D0ABAC8D6F89B8EF6ADE375DA76642AAA3F518EFF6F7E",
+    "size": 1017,
+    "lastModified": "2026-06-21T14:49:18Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\linux01-security-validation.txt",
+    "sha256": "02009AF7F1910E3D2318C4AC99979EEBAAB40A9757BA2AA22101A3478744D5B2",
+    "size": 608,
+    "lastModified": "2026-06-21T23:31:57.8756656Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\linux01-snapshot-validation.txt",
+    "sha256": "966FBDB2D5D113BB4B67E783354D33044A825F7F7381FEBBCD5A3C001C098C72",
+    "size": 462,
+    "lastModified": "2026-06-21T08:44:48Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\pfsense-snapshot-validation-sanitized.txt",
+    "sha256": "8F22A8E6158D39D2B03A8D9E27C173E70B25DCDA5CE9F98FB7A98BA62234EC73",
+    "size": 636,
+    "lastModified": "2026-06-21T23:11:17.0372446Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\proxmox-backup-validation.txt",
+    "sha256": "9F3C1DACA14CBEBB41A5408223E465E6D71FB4ACB58D3BF48C0651FD83D4C35A",
+    "size": 12573,
+    "lastModified": "2026-06-21T08:45:38Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\proxmox-host-validation.txt",
+    "sha256": "6A44E34AC2C317C56B20DA40BF0E4D0AB3FA5C9275C76B4DFBC8F07ADF636448",
+    "size": 7931,
+    "lastModified": "2026-06-21T23:31:57.8806506Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\proxmox-network-validation-sanitized.txt",
+    "sha256": "DE396193C43F990352EC75F9F676251385093470E43553724B14714DEFA697E8",
+    "size": 968,
+    "lastModified": "2026-06-21T17:43:11.8813105Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\proxmox-storage-validation.txt",
+    "sha256": "91D946679DC85D1ECB8F1DD7BB3A451E26BCEFBF2D509307DB4A90DE5C0AB04C",
+    "size": 5307,
+    "lastModified": "2026-06-21T23:31:57.8826498Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\vm-inventory-sanitized.txt",
+    "sha256": "66919D18E0B2F7277D6332BAA412B10BCEA87D5794363AE4976715FFFFCC8E5A",
+    "size": 710,
+    "lastModified": "2026-06-21T17:43:12.9932122Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-21\\text\\ws01-snapshot-validation.txt",
+    "sha256": "2F20A955DC3AA4BC7BC906E72FD9F17DFE7A6590C92C68B0A3F953B710963FD0",
+    "size": 404,
+    "lastModified": "2026-06-21T08:44:47Z"
   },
   {
     "path": "evidence-library\\projects\\powershell-automation\\.gitkeep",
@@ -5805,6 +5925,12 @@
     "path": "evidence-library\\projects\\powershell-automation\\provisioning-change-log-2026.md",
     "sha256": "B2953394032CE961D0B9D14AFF5049D22818F0F7DFCFF0F12CB585F0C68B7EDB",
     "size": 2141,
+    "lastModified": "2026-05-25T06:46:14Z"
+  },
+  {
+    "path": "evidence-library\\projects\\README.md",
+    "sha256": "1021A819EBEDE8B30656872F424AF927671D0F2A935054AF87A79407EA794CEF",
+    "size": 1379,
     "lastModified": "2026-05-25T06:46:14Z"
   },
   {
@@ -5868,6 +5994,12 @@
     "lastModified": "2026-06-05T06:41:13.9791647Z"
   },
   {
+    "path": "evidence-library\\README.md",
+    "sha256": "17C538A912D226C6D83C836D29C858AF55E5994649972A0971683B4E038D3956",
+    "size": 2532,
+    "lastModified": "2026-05-31T23:58:20Z"
+  },
+  {
     "path": "evidence-library\\screenshots\\.gitkeep",
     "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B",
     "size": 2,
@@ -5890,12 +6022,6 @@
     "sha256": "E2973C825D16813E67CD1437B6AD7761138744EA6EB32E7DAD5DEECCF20D2774",
     "size": 5392,
     "lastModified": "2026-06-02T02:27:26Z"
-  },
-  {
-    "path": "evidence-library\\skills\\README.md",
-    "sha256": "F8CBA1B9C6C2F5B892996B848083F23B9ADC7077530997DCA206259022B51868",
-    "size": 498,
-    "lastModified": "2026-05-25T06:46:14Z"
   },
   {
     "path": "evidence-library\\skills\\active-directory\\.gitkeep",
@@ -5967,6 +6093,12 @@
     "path": "evidence-library\\skills\\powershell\\.gitkeep",
     "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B",
     "size": 2,
+    "lastModified": "2026-05-25T06:46:14Z"
+  },
+  {
+    "path": "evidence-library\\skills\\README.md",
+    "sha256": "F8CBA1B9C6C2F5B892996B848083F23B9ADC7077530997DCA206259022B51868",
+    "size": 498,
     "lastModified": "2026-05-25T06:46:14Z"
   },
   {

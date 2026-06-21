@@ -1,0 +1,8 @@
+Home Lab Evidence: VM 100 Snapshot Validation (Sanitized)
+Collection Time: 2026-06-21T03:44:42-05:00
+Proxmox Host: proxmox.jeremyfontenot.local
+
+`-> pfsense-rdp-nat-restricted  2026-06-08 15:07:19     Baseline after the pfSense RDP NAT rule was configured for a specific administrative source, forwarding WAN TCP 3389 to DC01 10.10.20.10.
+ `-> current                                            You are here!
+
+Privacy note: the upstream administrative-source address was omitted because it is not required to validate snapshot presence. This listing records configuration intent; exclusive source behavior was not independently tested.

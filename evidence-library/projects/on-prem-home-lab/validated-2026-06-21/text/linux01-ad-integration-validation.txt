@@ -1,0 +1,33 @@
+Home Lab Evidence: Linux01 Active Directory Integration Validation
+Collection Time: 2026-06-21T08:53:07+00:00
+Logged-In User: jeremy.fontenot@ad.jeremyfontenot.online
+
+=== Realm Membership ===
+ad.jeremyfontenot.online
+  type: kerberos
+  realm-name: AD.JEREMYFONTENOT.ONLINE
+  domain-name: ad.jeremyfontenot.online
+  configured: kerberos-member
+  server-software: active-directory
+  client-software: sssd
+  required-package: sssd-tools
+  required-package: sssd
+  required-package: libnss-sss
+  required-package: libpam-sss
+  required-package: adcli
+  required-package: samba-common-bin
+  login-formats: %U@ad.jeremyfontenot.online
+  login-policy: allow-realm-logins
+
+=== Domain User Identity ===
+uid=1125601115(jeremy.fontenot@ad.jeremyfontenot.online) gid=1125600513(domain users@ad.jeremyfontenot.online) groups=1125600513(domain users@ad.jeremyfontenot.online),1125601103(gg-lab-admins@ad.jeremyfontenot.online),1125601107(gg-rdp-allowed@ad.jeremyfontenot.online),1125600572(denied rodc password replication group@ad.jeremyfontenot.online),1125600512(domain admins@ad.jeremyfontenot.online)
+
+=== NSS User Lookup ===
+jeremy.fontenot@ad.jeremyfontenot.online:*:1125601115:1125600513:Jeremy Fontenot:/home/jeremy.fontenot@ad.jeremyfontenot.online:/bin/bash
+
+=== Domain Group Membership ===
+jeremy.fontenot@ad.jeremyfontenot.online : domain users@ad.jeremyfontenot.online gg-lab-admins@ad.jeremyfontenot.online gg-rdp-allowed@ad.jeremyfontenot.online denied rodc password replication group@ad.jeremyfontenot.online domain admins@ad.jeremyfontenot.online
+
+=== SSSD Service State ===
+enabled
+active

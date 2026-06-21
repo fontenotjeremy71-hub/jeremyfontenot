@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>On-Prem Home Lab | Proxmox, pfSense, Windows Server, AD, GPO Proof</title>
-<meta name="description" content="On-prem home lab case study proving Proxmox, pfSense, Windows Server 2022, Active Directory, GPO, file services, backups, and validation evidence.">
+<title>Validated On-Premises Home Lab | Proxmox, AD, Linux, Backups</title>
+<meta name="description" content="Validated personal on-premises home lab case study covering Proxmox, pfSense, Windows Server 2022, Active Directory, Linux01, backups, and SHA-256 evidence integrity.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://jeremyfontenot.online/on-prem-home-lab.html">
 <meta property="og:site_name" content="Jeremy Fontenot">
-<meta property="og:title" content="On-Prem Home Lab | Proxmox, pfSense, Windows Server, AD, GPO Proof">
-<meta property="og:description" content="Personal on-premises SMB-style lab evidence with validated screenshots, manifests, SHA256 hash, backup artifacts, and APA proof documentation.">
+<meta property="og:title" content="Validated On-Premises Home Lab | Proxmox, AD, Linux, Backups">
+<meta property="og:description" content="Command-verified and screenshot-supported personal lab documentation with a curated public evidence set and APA-formatted validation document.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jeremyfontenot.online/on-prem-home-lab.html">
 <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="./assets/css/site.css">
 <script src="./assets/js/site.js" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"On-Prem Home Lab","url":"https://jeremyfontenot.online/on-prem-home-lab.html","author":{"@type":"Person","name":"Jeremy Fontenot"},"about":["Proxmox VE","pfSense","Windows Server 2022","Active Directory Domain Services","Group Policy","SMB file services","PowerShell evidence collection"],"description":"Evidence-first personal on-premises home lab proof page with manifests, screenshots, backup validation, and SHA256 integrity records."}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Validated On-Premises Home Lab","url":"https://jeremyfontenot.online/on-prem-home-lab.html","dateModified":"2026-06-21","author":{"@type":"Person","name":"Jeremy Fontenot"},"about":["Dell PowerEdge R710","Proxmox VE","pfSense","Windows Server 2022","Active Directory Domain Services","Ubuntu Server 26.04 LTS","Backup validation","SHA-256 evidence integrity"],"description":"Validated personal nonproduction home lab with command evidence, curated screenshots, limitations, and an APA-formatted Word validation document."}
 </script>
 </head>
 <body class="home-lab-page">
@@ -34,233 +34,129 @@
   <section class="page-hero home-lab-hero" aria-labelledby="home-lab-title">
     <div class="page-hero-grid">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Evidence-first infrastructure case study</p>
-        <h1 id="home-lab-title">On-Prem Home Lab</h1>
-        <p class="lead">Proxmox, pfSense, Windows Server, Active Directory, GPO, file services, backups, and evidence validation.</p>
+        <p class="eyebrow">Validated June 21, 2026 · personal nonproduction lab</p>
+        <h1 id="home-lab-title">On-Premises Home Lab</h1>
+        <p class="lead">One Dell PowerEdge R710, Proxmox VE, pfSense, Windows Server 2022, Active Directory, WS01, Linux01, snapshots, scheduled backups, and SHA-256 verified evidence.</p>
         <div class="actions">
-          <a class="button primary" href="./evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_Home_Lab_Documentation.docx">APA Proof Documentation</a>
-          <a class="button" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Export-20260612-184743.zip">Download Evidence ZIP</a>
-          <a class="button" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest.csv">Open Manifest</a>
+          <a class="button primary" href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx">Download the APA-Formatted Home Lab Validation Document (.docx)</a>
+          <a class="button" href="./proof.html#home-lab-proof">Review proof</a>
+          <a class="button" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json">Open evidence manifest</a>
         </div>
       </div>
-      <aside class="review-console evidence-console verification-glow reveal" aria-label="On-prem home lab proof snapshot">
-        <div class="console-bar"><span>home lab proof</span><span>2026-06-12</span></div>
+      <aside class="review-console evidence-console verification-glow reveal" aria-label="Home lab validation summary">
+        <div class="console-bar"><span>validation snapshot</span><span>2026-06-21</span></div>
         <div class="lab-proof-stack">
-          <a href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest-Summary.txt"><b>127</b><span>Files manifested</span><em>60 DC01, 47 WS01, 8 Proxmox files</em></a>
-          <a href="./evidence-library/projects/on-prem-home-lab/Final-ZIP-SHA256.txt"><b>SHA</b><span>ZIP integrity validated</span><em>SHA256 matches final evidence record</em></a>
-          <a href="./evidence-library/projects/on-prem-home-lab/screenshots/screenshots-manifest.csv"><b>17</b><span>Screenshot proof set</span><em>Captioned figure manifest included</em></a>
-          <a href="./evidence-library/projects/on-prem-home-lab/on-prem-home-lab-proof-summary.md"><b>APA</b><span>Proof summary and documentation</span><em>Repository-local reviewer path</em></a>
+          <a href="#architecture"><b>1</b><span>Physical server</span><em>Dell PowerEdge R710</em></a>
+          <a href="#virtual-machines"><b>4</b><span>Primary VMs</span><em>100, 200, 300, and 400</em></a>
+          <a href="#backup"><b>4</b><span>VMs in backup job</span><em>Snapshot mode, zstd, Sunday 02:00</em></a>
+          <a href="#integrity"><b>SHA</b><span>Evidence integrity</span><em>Nested and complete archive hashes matched</em></a>
         </div>
       </aside>
     </div>
-    <div class="command-band lab-command-band reveal" role="group" aria-label="On-prem home lab proof status">
-      <span class="status-pill">Evidence Pack Verified</span>
-      <span class="status-pill">127 Files Manifested</span>
-      <span class="status-pill">SHA256 Validated</span>
-      <span class="status-pill">DC01 / WS01 / Proxmox Evidence</span>
-      <span class="status-pill">APA Proof Documentation</span>
+    <div class="command-band lab-command-band reveal" role="group" aria-label="Validation status">
+      <span class="status-pill">Validated</span><span class="status-pill">Command-verified</span><span class="status-pill">Screenshot-supported</span><span class="status-pill">Limitations preserved</span><span class="status-pill">APA document available</span>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="summary-title">
-    <div class="section-head reveal">
-      <p class="eyebrow">Executive summary</p>
-      <h2 id="summary-title">A real on-premises SMB-style lab built around inspectable proof.</h2>
-      <p>This personal lab validates infrastructure operations skills across virtualization, network segmentation, Windows Server administration, identity, file services, endpoint validation, logging, backup, and evidence packaging. The public claims on this page are backed by command output, screenshots, manifests, hashes, backup records, and the APA proof document staged in the repository evidence library.</p>
-    </div>
+  <section class="section" aria-labelledby="overview-title">
+    <div class="section-head reveal"><p class="eyebrow">Executive overview</p><h2 id="overview-title">A coherent infrastructure stack, documented at the level the evidence supports.</h2><p>The lab demonstrates practical virtualization, routing, identity, Windows administration, Linux administration, security controls, backup operations, and evidence handling. Configuration files prove configured state; service queries prove service state at collection time; archive listings prove backup presence but not a successful restore.</p></div>
     <div class="bento-grid reveal">
-      <article class="bento-card feature-card"><span class="evidence-chip">Scope</span><h3>Personal infrastructure lab</h3><p>Domain <code>ad.jeremyfontenot.online</code> with NetBIOS <code>JFAD</code>. This page does not claim client, employer, or production environment work.</p></article>
-      <article class="bento-card"><span class="evidence-chip">Validation</span><h3>Artifact-backed claims</h3><p>The evidence pack includes manifests, screenshots, command output, backup notes, exported files, and SHA256 validation records.</p></article>
-      <article class="bento-card boundary-card"><span class="evidence-chip">Boundary</span><h3>Reviewer-safe wording</h3><p>The lab is presented as personal proof of systems administration practice, not business impact, uptime, external organization administration, or live production support.</p></article>
+      <article class="bento-card feature-card"><span class="evidence-chip">Validated</span><h3>Infrastructure and identity</h3><p>Proxmox host, bridges, storage, four VM configurations, a single-domain AD forest, DC01 global catalog status, and all five FSMO roles.</p></article>
+      <article class="bento-card"><span class="evidence-chip">Command-verified</span><h3>Linux01 integration</h3><p>Ubuntu Server 26.04 LTS, static networking, realmd, SSSD, Kerberos, SSH, UFW, sudo delegation, and QEMU guest-agent state.</p></article>
+      <article class="bento-card boundary-card"><span class="evidence-chip">Boundary</span><h3>No restore or exclusive-source claim</h3><p>Backups were inventoried and hashed; an isolated restore remains outstanding. Firewall intent is documented without claiming an independently tested exclusive source restriction.</p></article>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="architecture-title">
-    <div class="section-head reveal">
-      <p class="eyebrow">Architecture overview</p>
-      <h2 id="architecture-title">Segmented virtual lab with Proxmox, pfSense, DC01, and WS01.</h2>
-    </div>
+  <section class="section" id="architecture" aria-labelledby="architecture-title">
+    <div class="section-head reveal"><p class="eyebrow">Architecture summary</p><h2 id="architecture-title">Upstream management and an isolated internal lab bridge.</h2></div>
     <div class="lab-topology reveal">
-      <div class="topology-node upstream"><span>Cox gateway / upstream LAN</span><strong>192.168.0.0/24</strong></div>
+      <div class="topology-node upstream"><span>Upstream LAN</span><strong>192.168.0.0/24</strong><em>Gateway 192.168.0.1</em></div>
       <div class="topology-link" aria-hidden="true"></div>
-      <div class="topology-node proxmox"><span>Proxmox VE 9.2.3 host</span><strong>192.168.0.242/24</strong><em>backup-hdd mounted at /mnt/pve/backup-hdd</em></div>
+      <div class="topology-node proxmox"><span>Proxmox VE</span><strong>proxmox.jeremyfontenot.local</strong><em>vmbr0 · 192.168.0.242/24</em></div>
       <div class="topology-link" aria-hidden="true"></div>
-      <div class="topology-node firewall"><span>pfSense VM 100</span><strong>WAN 192.168.0.205/24</strong><strong>LAN 10.10.20.1/24</strong></div>
-      <div class="topology-bus"><span>Internal lab subnet</span><strong>10.10.20.0/24</strong></div>
+      <div class="topology-node firewall"><span>pfSense · VM 100</span><strong>WAN 192.168.0.205/24</strong><strong>LAN 10.10.20.1/24</strong></div>
+      <div class="topology-bus"><span>vmbr1 isolated internal bridge</span><strong>10.10.20.0/24</strong></div>
       <div class="topology-endpoints">
-        <div class="topology-node server"><span>DC01 - VM 200</span><strong>Windows Server 2022</strong><em>10.10.20.10/24, AD DS, DNS, DHCP, GPO, file services</em></div>
-        <div class="topology-node workstation"><span>WS01 - VM 300</span><strong>Windows 10 Pro</strong><em>10.10.20.100/24, domain joined validation endpoint</em></div>
+        <div class="topology-node server"><span>DC01 · VM 200</span><strong>10.10.20.10/24</strong><em>AD DS, DNS, DHCP, GPO</em></div>
+        <div class="topology-node workstation"><span>WS01 · VM 300</span><strong>DHCP client</strong><em>Domain validation workstation</em></div>
+        <div class="topology-node server"><span>Linux01 · VM 400</span><strong>10.10.20.20/24</strong><em>Ubuntu, SSSD, Kerberos, SSH</em></div>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="timeline-title">
-    <div class="section-head reveal"><p class="eyebrow">Build timeline</p><h2 id="timeline-title">Major phases captured in the evidence pack.</h2></div>
-    <ol class="lab-timeline reveal">
-      <li><b>01</b><span>Proxmox setup and VM administration</span></li>
-      <li><b>02</b><span>pfSense WAN/LAN segmentation</span></li>
-      <li><b>03</b><span>DC01 AD DS, DNS, DHCP, GPO, and file services</span></li>
-      <li><b>04</b><span>OU, user, group, and baseline GPO structure</span></li>
-      <li><b>05</b><span>WS01 rebuild, domain join, and local admin validation</span></li>
-      <li><b>06</b><span>File services, NTFS permissions, SMB access, and GPO mapped drive</span></li>
-      <li><b>07</b><span>Monitoring, logging, time synchronization repair, backups, evidence export, and APA documentation</span></li>
-    </ol>
+  <section class="section" aria-labelledby="inventory-title">
+    <div class="section-head reveal"><p class="eyebrow">Physical and virtual inventory</p><h2 id="inventory-title">One physical host, one hypervisor, four primary VMs.</h2></div>
+    <div class="evidence-table-wrap reveal"><table class="evidence-table"><caption>Validated system inventory</caption><thead><tr><th scope="col">Component</th><th scope="col">Role</th><th scope="col">Identifier</th><th scope="col">Status</th></tr></thead><tbody><tr><th scope="row">Dell PowerEdge R710</th><td>Physical virtualization host</td><td>PowerEdge R710</td><td>Implemented</td></tr><tr><th scope="row">Proxmox VE</th><td>Hypervisor, storage, snapshots, backup</td><td>192.168.0.242</td><td>Validated</td></tr><tr><th scope="row">pfSense VM 100</th><td>Firewall, routing, NAT, segmentation</td><td>192.168.0.205 / 10.10.20.1</td><td>Validated configuration</td></tr><tr><th scope="row">DC01 VM 200</th><td>AD DS, DNS, DHCP, Group Policy</td><td>10.10.20.10</td><td>Validated</td></tr><tr><th scope="row">WS01 VM 300</th><td>Windows domain workstation</td><td>DHCP client</td><td>Screenshot-supported</td></tr><tr><th scope="row">Linux01 VM 400</th><td>Ubuntu server and domain member</td><td>10.10.20.20</td><td>Validated</td></tr></tbody></table></div>
   </section>
 
-  <section class="section" aria-labelledby="metrics-title">
-    <div class="section-head reveal"><p class="eyebrow">Evidence metrics</p><h2 id="metrics-title">Manifested proof counts and final ZIP integrity.</h2></div>
-    <div class="metric-grid bento-grid lab-metrics reveal">
-      <div class="metric"><strong>127</strong><span>total files in the validated evidence pack</span></div>
-      <div class="metric"><strong>60</strong><span>DC01 evidence files</span></div>
-      <div class="metric"><strong>47</strong><span>WS01 evidence files</span></div>
-      <div class="metric"><strong>8</strong><span>Proxmox evidence files</span></div>
-      <div class="metric hash-metric"><strong>864CD48F80E08FC45676D30B209D2ADFE8DC9569D32E80ED9BF17236D5893F28</strong><span>final evidence ZIP SHA256</span></div>
+  <section class="section" aria-labelledby="network-title">
+    <div class="section-head reveal"><p class="eyebrow">Network addressing</p><h2 id="network-title">Addresses reproduced from command and configuration evidence.</h2></div>
+    <div class="evidence-table-wrap reveal"><table class="evidence-table"><caption>Validated network addressing</caption><thead><tr><th scope="col">System or service</th><th scope="col">Address</th><th scope="col">Gateway / DNS</th><th scope="col">Evidence strength</th></tr></thead><tbody><tr><th scope="row">Proxmox management</th><td>192.168.0.242/24 on vmbr0</td><td>Gateway 192.168.0.1</td><td>Command-verified</td></tr><tr><th scope="row">pfSense WAN</th><td>192.168.0.205/24</td><td>Upstream via vmbr0</td><td>Configuration evidence</td></tr><tr><th scope="row">pfSense LAN</th><td>10.10.20.1/24</td><td>Internal gateway</td><td>Configuration evidence</td></tr><tr><th scope="row">DC01</th><td>10.10.20.10/24</td><td>DNS 10.10.20.10</td><td>Command-verified</td></tr><tr><th scope="row">Linux01</th><td>10.10.20.20/24</td><td>Gateway 10.10.20.1; DNS 10.10.20.10</td><td>Command-verified</td></tr><tr><th scope="row">DHCP scope</th><td>10.10.20.0/24</td><td>Pool 10.10.20.100–10.10.20.200</td><td>Command-verified</td></tr></tbody></table></div>
+    <div class="proof-links reveal"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-network-validation-sanitized.txt">Open sanitized Proxmox network excerpt</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-dns-validation.txt">Open Linux01 DNS evidence</a></div>
+  </section>
+
+  <section class="section" id="virtual-machines" aria-labelledby="platform-title">
+    <div class="section-head reveal"><p class="eyebrow">Proxmox platform and VM inventory</p><h2 id="platform-title">Proxmox VE 9.2.3 with four evidence-backed primary VMs.</h2><p>The host export identifies Proxmox VE 9.2.3, vmbr0 as the management/upstream bridge, vmbr1 as the internal bridge, local and thin-provisioned storage, and a dedicated ext4 backup disk mounted at <code>/mnt/pve/backup-hdd</code>.</p></div>
+    <div class="evidence-table-wrap reveal"><table class="evidence-table"><caption>Safe VM configuration summary</caption><thead><tr><th scope="col">VM</th><th scope="col">CPU</th><th scope="col">Memory</th><th scope="col">Disk</th><th scope="col">Network</th></tr></thead><tbody><tr><th scope="row">100 · pfsense-fw</th><td>2 cores</td><td>4096 MB</td><td>32 GB</td><td>vmbr0 and vmbr1</td></tr><tr><th scope="row">200 · dc01</th><td>2 cores</td><td>4096 MB</td><td>80 GB</td><td>vmbr1</td></tr><tr><th scope="row">300 · ws01</th><td>2 cores</td><td>4096 MB</td><td>80 GB</td><td>vmbr1</td></tr><tr><th scope="row">400 · linux01</th><td>2 cores</td><td>2048 MB</td><td>40 GB</td><td>vmbr1, firewall enabled</td></tr></tbody></table></div>
+    <div class="proof-links reveal"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-host-validation.txt">Proxmox host evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-storage-validation.txt">Storage evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/vm-inventory-sanitized.txt">Safe VM inventory</a></div>
+  </section>
+
+  <section class="section" aria-labelledby="pfsense-title"><div class="section-head reveal"><p class="eyebrow">pfSense segmentation</p><h2 id="pfsense-title">Dual-interface VM separates upstream and internal networks.</h2><p>VM 100 connects its WAN adapter to vmbr0 and its LAN adapter to vmbr1. This supports the segmented topology and routing role. A retained snapshot is named <code>pfsense-rdp-nat-restricted</code>; the snapshot description is configuration evidence, not an independent end-to-end test of exclusive source restriction.</p></div></section>
+
+  <section class="section" aria-labelledby="windows-title">
+    <div class="section-head reveal"><p class="eyebrow">Windows Server, identity, and administration</p><h2 id="windows-title">DC01 is the command-verified center of the lab domain.</h2></div>
+    <div class="capability-grid reveal">
+      <article class="capability-card"><span>Windows Server 2022</span><h3>Primary domain controller and global catalog</h3><p>DC01 runs Windows Server 2022 Standard Evaluation, build 20348, for <code>ad.jeremyfontenot.online</code> with NetBIOS name <code>JFAD</code>.</p></article>
+      <article class="capability-card"><span>Active Directory</span><h3>All five FSMO roles on DC01</h3><p>Schema Master, Domain Naming Master, PDC Emulator, RID Master, and Infrastructure Master were returned by command output.</p></article>
+      <article class="capability-card"><span>DNS</span><h3>AD-integrated forward and reverse zones</h3><p>The DNS service was running with secure dynamic updates for the domain zone and an AD-integrated reverse zone. Forward and reverse tests returned DC01 and Linux01.</p></article>
+      <article class="capability-card"><span>DHCP</span><h3>Authorized 10.10.20.0/24 scope</h3><p>Pool <code>10.10.20.100–10.10.20.200</code>; router <code>10.10.20.1</code>; DNS <code>10.10.20.10</code>; domain <code>ad.jeremyfontenot.online</code>.</p></article>
+      <article class="capability-card"><span>Group Policy</span><h3>Domain- and OU-linked controls</h3><p>Evidence lists password, lockout, firewall, RDP, PowerShell logging, audit, update, server, workstation, controlled-local-admin, and user-drive-map GPOs.</p></article>
+      <article class="capability-card"><span>Role-based access</span><h3>Group-scoped administration and file access</h3><p>Evidence supports controlled local administrators and AD-group-based SMB permissions. Permissions are described as lab validation, not production access governance.</p></article>
+      <article class="capability-card"><span>Remote administration</span><h3>RDP configuration and connectivity evidence</h3><p>Earlier screenshots support RDP enablement and a successful DC01-to-WS01 TCP/DNS test. The current evidence does not prove exclusive external source restriction.</p></article>
     </div>
-  </section>
-
-  <section class="section" aria-labelledby="skills-validation-title">
-    <div class="section-head reveal"><p class="eyebrow">Skill validation</p><h2 id="skills-validation-title">Technical skills grouped by evidence-backed workstream.</h2></div>
-    <div class="capability-grid lab-skill-grid reveal">
-      <article class="capability-card"><span>Virtualization and networking</span><h3>Proxmox, bridge design, pfSense segmentation</h3><p>Validated Proxmox VM administration, virtual networking, pfSense firewall segmentation, internal subnet routing, VM snapshots, and backup target usage.</p></article>
-      <article class="capability-card"><span>Identity and Windows Server</span><h3>AD DS, DNS, DHCP, OU, user, and group administration</h3><p>Built DC01 on Windows Server 2022 with AD DS, DNS, DHCP, Group Policy Management, and operational validation output.</p></article>
-      <article class="capability-card"><span>Group Policy and endpoint control</span><h3>GPO creation, linking, mapped drive deployment</h3><p>Validated domain GPO application to WS01, including <code>GPO - Users - Map IT Share Drive</code> and user-side mapped drive behavior.</p></article>
-      <article class="capability-card"><span>File services and access control</span><h3>SMB, NTFS, AD security groups, least privilege</h3><p>Validated <code>\\DC01\IT</code>, <code>I:</code> drive mapping, <code>JFAD\GG-FS-IT-RW</code>, <code>JFAD\GG-FS-IT-RO</code>, read/write access, and write-denied testing.</p></article>
-      <article class="capability-card"><span>Monitoring, logging, and backup</span><h3>Windows event evidence, PowerShell logging, time repair, Proxmox backups</h3><p>Captured operational logging, time synchronization repair evidence, DC01 and WS01 backup records, and Proxmox storage validation.</p></article>
-      <article class="capability-card"><span>Evidence and documentation</span><h3>Manifesting, hashing, export packaging, APA documentation</h3><p>Packaged 127 evidence files, screenshot manifests, SHA256 validation, proof summary, and APA-formatted technical documentation.</p></article>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="file-services-title">
-    <div class="section-head reveal"><p class="eyebrow">File services proof</p><h2 id="file-services-title">Mapped-drive and least-privilege validation from WS01.</h2><p>The file services phase validates the IT share path, mapped drive, security-group access model, GPO deployment, and separate read/write and read-only user outcomes.</p></div>
-    <div class="lab-proof-detail reveal">
-      <article class="proof-chip verified">
-        <span class="chip-kind">Configuration facts</span>
-        <h3>Share and access model</h3>
-        <ul class="lab-fact-list">
-          <li><strong>Share:</strong> <code>\\DC01\IT</code></li>
-          <li><strong>Mapped drive:</strong> <code>I:</code></li>
-          <li><strong>Read/write group:</strong> <code>JFAD\GG-FS-IT-RW</code></li>
-          <li><strong>Read-only group:</strong> <code>JFAD\GG-FS-IT-RO</code></li>
-          <li><strong>Drive map GPO:</strong> <code>GPO - Users - Map IT Share Drive</code></li>
-        </ul>
-        <div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest.csv">Open evidence manifest</a><a href="./evidence-library/projects/on-prem-home-lab/on-prem-home-lab-proof-summary.md">Open proof summary</a></div>
-      </article>
-      <figure class="screenshot-card">
-        <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-13-sdtech-it-share-read-write-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-13-sdtech-it-share-read-write-validation.png" width="674" height="1100" loading="lazy" decoding="async" alt="WS01 sd.tech validation showing applied GPO, I: mapped drive to DC01 IT share, and read write success."></a>
-        <figcaption><strong>sd.tech read/write validation.</strong> Proves applied GPO, <code>I:</code> mapped drive to <code>\\DC01\IT</code>, and read/write access for the authorized user.</figcaption>
-      </figure>
-      <figure class="screenshot-card">
-        <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-14-standard-user-it-share-read-only-write-denial.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-14-standard-user-it-share-read-only-write-denial.png" width="414" height="1155" loading="lazy" decoding="async" alt="WS01 standard.user validation showing applied GPO, I: mapped drive, read access success, and write denied result."></a>
-        <figcaption><strong>standard.user read-only validation.</strong> Proves mapped-drive access, successful read behavior, and expected write denial for least-privilege testing.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="backup-integrity-title">
-    <div class="section-head reveal"><p class="eyebrow">Backup and integrity proof</p><h2 id="backup-integrity-title">Final backup artifacts and ZIP validation are source-linked.</h2></div>
-    <div class="dashboard-grid lab-integrity-grid reveal">
-      <article class="bento-card feature-card"><span class="tile-code">DC01</span><h3>Final DC01 backup</h3><p><code>vzdump-qemu-200-2026_06_12-20_29_46.vma.zst</code></p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest.csv"><span>manifest</span>Open</a></article>
-      <article class="bento-card"><span class="tile-code">WS01</span><h3>Final WS01 backup</h3><p><code>vzdump-qemu-300-2026_06_12-20_34_53.vma.zst</code></p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest.csv"><span>manifest</span>Open</a></article>
-      <article class="bento-card"><span class="tile-code">SHA</span><h3>Final evidence ZIP SHA256</h3><p class="hash-text"><code>864CD48F80E08FC45676D30B209D2ADFE8DC9569D32E80ED9BF17236D5893F28</code></p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/Final-ZIP-SHA256.txt"><span>sha file</span>Open</a></article>
-      <article class="bento-card"><span class="tile-code">DOC</span><h3>APA proof documentation</h3><p>Word document staged as the formal narrative proof artifact for the lab build and validation sequence.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_Home_Lab_Documentation.docx"><span>docx</span>Open</a></article>
-    </div>
-    <figure class="screenshot-card screenshot-wide reveal">
-      <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-16-final-evidence-zip-manifest-sha256-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-16-final-evidence-zip-manifest-sha256-validation.png" width="975" height="1120" loading="lazy" decoding="async" alt="Final evidence ZIP validation showing manifest counts and SHA256 hash for the exported home lab evidence package."></a>
-      <figcaption><strong>Final evidence ZIP manifest and SHA256 validation.</strong> Proves exported evidence package counts and integrity hash for the public artifact download.</figcaption>
-    </figure>
-  </section>
-
-  <section class="section" aria-labelledby="gallery-title">
-    <div class="section-head reveal"><p class="eyebrow">Evidence gallery</p><h2 id="gallery-title">Selected screenshots used only where they prove a specific claim.</h2></div>
     <div class="evidence-gallery reveal">
-      <figure class="screenshot-card">
-        <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-04-ws01-dns-dhcp-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-04-ws01-dns-dhcp-validation.png" width="1113" height="1099" loading="lazy" decoding="async" alt="WS01 DNS and DHCP validation output after domain join and DNS registration."></a>
-        <figcaption><strong>WS01 DNS and DHCP validation.</strong> Supports endpoint network configuration and domain-service validation.</figcaption>
-      </figure>
-      <figure class="screenshot-card">
-        <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-05-active-directory-ws01-ou-placement.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-05-active-directory-ws01-ou-placement.png" width="979" height="324" loading="lazy" decoding="async" alt="Active Directory output showing WS01 organizational unit placement after OU movement."></a>
-        <figcaption><strong>Active Directory OU placement.</strong> Supports endpoint organization and AD administration claims.</figcaption>
-      </figure>
-      <figure class="screenshot-card">
-        <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-12-ws01-snapshot-backup-evidence-note.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-12-ws01-snapshot-backup-evidence-note.png" width="1400" height="992" loading="lazy" decoding="async" alt="Proxmox evidence note documenting WS01 snapshot, backup file, scheduled job, VM inventory, and storage status."></a>
-        <figcaption><strong>WS01 snapshot and backup evidence note.</strong> Supports snapshot, backup, job, VM inventory, and storage validation claims.</figcaption>
-      </figure>
-      <figure class="screenshot-card">
-        <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-15-dc01-central-evidence-export-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-15-dc01-central-evidence-export-validation.png" width="972" height="800" loading="lazy" decoding="async" alt="DC01 central evidence export validation showing copied folders and exported file counts."></a>
-        <figcaption><strong>Central evidence export validation.</strong> Supports the repository evidence packaging and file-count claims.</figcaption>
-      </figure>
-      <figure class="screenshot-card">
-        <a href="./evidence-library/projects/on-prem-home-lab/screenshots/figure-17-documentation-source-hash-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/screenshots/figure-17-documentation-source-hash-validation.png" width="1477" height="610" loading="lazy" decoding="async" alt="Documentation source staging validation showing proof summary, manifest files, and final ZIP SHA256 verification."></a>
-        <figcaption><strong>Documentation source hash validation.</strong> Supports the proof summary, manifest files, and SHA256 documentation source chain.</figcaption>
-      </figure>
+      <figure class="screenshot-card"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png" width="977" height="1403" loading="lazy" decoding="async" alt="PowerShell output validating the Active Directory forest, domain, DC01 global catalog status, and FSMO roles."></a><figcaption><strong>Active Directory and FSMO validation.</strong> Command output supports the forest, domain, global catalog, operating system, and role-holder claims.</figcaption></figure>
+      <figure class="screenshot-card"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png" width="977" height="1740" loading="lazy" decoding="async" alt="Redacted PowerShell output validating the authorized DHCP server, scope, options, statistics, and leases."></a><figcaption><strong>DHCP service and scope validation.</strong> Virtual NIC client identifiers are redacted; the scope, options, lease addresses, hostnames, and states remain visible.</figcaption></figure>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="artifact-title">
-    <div class="section-head reveal"><p class="eyebrow">Proof links and artifact downloads</p><h2 id="artifact-title">Repository-local artifacts for reviewer inspection.</h2></div>
-    <div class="artifact-grid reveal">
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Export-20260612-184743.zip"><span>ZIP</span><strong>HomeLab-Evidence-Export-20260612-184743.zip</strong><em>Final exported evidence package</em></a>
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_Home_Lab_Documentation.docx"><span>DOCX</span><strong>APA Proof Documentation</strong><em>Formal proof documentation</em></a>
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/on-prem-home-lab-proof-summary.md"><span>MD</span><strong>on-prem-home-lab-proof-summary.md</strong><em>Proof summary and evidence counts</em></a>
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest.csv"><span>CSV</span><strong>HomeLab-Evidence-Manifest.csv</strong><em>File-level manifest and hashes</em></a>
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest-Summary.txt"><span>TXT</span><strong>HomeLab-Evidence-Manifest-Summary.txt</strong><em>Folder and file count summary</em></a>
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/Final-ZIP-SHA256.txt"><span>TXT</span><strong>Final-ZIP-SHA256.txt</strong><em>Final ZIP integrity record</em></a>
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/screenshots/README.md"><span>MD</span><strong>screenshots/README.md</strong><em>Screenshot figure index and SHA256 entries</em></a>
-      <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/screenshots/screenshots-manifest.csv"><span>CSV</span><strong>screenshots-manifest.csv</strong><em>Screenshot manifest for figure proof</em></a>
+  <section class="section" aria-labelledby="linux-title">
+    <div class="section-head reveal"><p class="eyebrow">Linux01</p><h2 id="linux-title">Ubuntu Server 26.04 LTS joined to Active Directory and hardened for the lab subnet.</h2></div>
+    <div class="capability-grid reveal">
+      <article class="capability-card"><span>System and networking</span><h3>Static address and domain resolver</h3><p>Linux01 uses <code>10.10.20.20/24</code>, gateway <code>10.10.20.1</code>, DNS <code>10.10.20.10</code>, and search domain <code>ad.jeremyfontenot.online</code>.</p></article>
+      <article class="capability-card"><span>AD integration</span><h3>realmd, SSSD, Kerberos, NSS, and PAM</h3><p>The realm is configured as a Kerberos member; the domain user resolves through NSS; SSSD was enabled and active.</p></article>
+      <article class="capability-card"><span>Kerberos</span><h3>Ticket-granting ticket present</h3><p>A valid TGT for the documented domain principal was listed at collection time. The temporary ticket-cache identifier is redacted in the public text copy.</p></article>
+      <article class="capability-card"><span>SSH and UFW</span><h3>SSH active; TCP 22 allowed from 10.10.20.0/24</h3><p>UFW was active with default deny for incoming traffic and a rule allowing SSH from the internal subnet. This proves the displayed rule, not exhaustive external testing.</p></article>
+      <article class="capability-card"><span>Delegated sudo</span><h3>Syntax checks and root result</h3><p>The base sudoers file and domain-admin drop-in parsed successfully; the delegated sudo validation returned <code>root</code>.</p></article>
+      <article class="capability-card"><span>QEMU guest agent</span><h3>Installed and active</h3><p>The package was installed, the service was active, and no reboot was required at collection time.</p></article>
     </div>
+    <figure class="screenshot-card screenshot-wide reveal"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-login-system-state.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-login-system-state.png" width="1373" height="663" loading="lazy" decoding="async" alt="Linux01 console after login showing Ubuntu Server 26.04 LTS, kernel 7.0.0-22-generic, and IPv4 address 10.10.20.20."></a><figcaption><strong>Linux01 login and system state.</strong> Screenshot supports the operating-system, kernel, hostname, and IPv4 claims.</figcaption></figure>
+    <div class="proof-links reveal"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-ad-integration-validation.txt">AD and SSSD evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-kerberos-validation-sanitized.txt">Sanitized Kerberos evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-security-validation.txt">SSH, UFW, and sudo evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-maintenance-agent-validation.txt">Guest-agent evidence</a></div>
   </section>
 
-  <section class="section" aria-labelledby="reviewer-notes-title">
-    <div class="scope-note-card reveal">
-      <p class="eyebrow">Reviewer notes</p>
-      <h2 id="reviewer-notes-title">This page is a portfolio proof page for a personal lab.</h2>
-      <p>It does not claim client work, employer infrastructure, production service ownership, uptime, enterprise scale, or active managed services. It documents a personal on-premises home lab used to validate systems administration workflows and evidence collection discipline.</p>
-    </div>
+  <section class="section" id="backup" aria-labelledby="backup-title">
+    <div class="section-head reveal"><p class="eyebrow">Snapshots and backup job</p><h2 id="backup-title">All four primary VMs have retained snapshots and scheduled-backup coverage.</h2><p>Snapshot listings exist for VMs 100, 200, 300, and 400. The enabled <code>backup-critical-lab-vms</code> job runs Sunday at 02:00 in snapshot mode, uses zstd compression, targets <code>backup-hdd</code>, and includes VMs 100, 200, 300, and 400.</p></div>
+    <div class="metric-grid bento-grid lab-metrics reveal"><div class="metric"><strong>4</strong><span>VM snapshot listings</span></div><div class="metric"><strong>4</strong><span>VMs in scheduled job</span></div><div class="metric"><strong>02:00</strong><span>Sunday schedule</span></div><div class="metric"><strong>zstd</strong><span>compression</span></div></div>
+    <div class="proof-links reveal"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-backup-validation.txt">Backup job and archive evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-backup-validation.txt">Linux01 backup evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/pfsense-snapshot-validation-sanitized.txt">Sanitized pfSense snapshot evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/dc01-snapshot-validation.txt">DC01 snapshot evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/ws01-snapshot-validation.txt">WS01 snapshot evidence</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-snapshot-validation.txt">Linux01 snapshot evidence</a></div>
   </section>
 
-  <section class="section" aria-labelledby="cta-title">
-    <div class="section-head reveal"><p class="eyebrow">Review path</p><h2 id="cta-title">Continue through the proof-backed portfolio.</h2></div>
-    <div class="route-grid reveal">
-      <article><span>Proof</span><h3>Open the proof index</h3><p>Review the broader repository evidence library and source-file routing.</p><a class="evidence-link" href="./proof.html"><span>page</span>Proof</a></article>
-      <article><span>Projects</span><h3>Return to project overview</h3><p>Compare the on-prem lab with the Microsoft 365 / Entra proof surface.</p><a class="evidence-link" href="./projects.html"><span>page</span>Projects</a></article>
-      <article><span>Resume</span><h3>Review role positioning</h3><p>See how the lab supports systems administration and service desk readiness.</p><a class="evidence-link" href="./resume.html"><span>page</span>Resume</a></article>
-      <article><span>Contact</span><h3>Contact Jeremy</h3><p>Use the contact page for recruiter or hiring-manager follow-up.</p><a class="evidence-link" href="./contact.html"><span>page</span>Contact</a></article>
+  <section class="section" id="integrity" aria-labelledby="integrity-title">
+    <div class="section-head reveal"><p class="eyebrow">Evidence integrity</p><h2 id="integrity-title">Evidence was packaged, transferred with SCP, and reverified with SHA-256.</h2></div>
+    <div class="dashboard-grid lab-integrity-grid reveal">
+      <article class="bento-card"><span class="tile-code">LNX</span><h3>Linux01 archive</h3><p class="hash-text"><code>5c1eff369a0055338808a93c025847cc5997db4f04614a56ede33b43f9e9b8db</code></p><p>Matched the supplied known hash.</p></article>
+      <article class="bento-card"><span class="tile-code">ALL</span><h3>Complete archive</h3><p class="hash-text"><code>e8a5a40a6960557383ccb152af2da71053e50382d8287d632b9ed5ad85cb7060</code></p><p>Matched the supplied known hash and was recorded on dedicated backup storage.</p></article>
+      <article class="bento-card feature-card"><span class="tile-code">DOCX</span><h3>Validation document</h3><p>1,400,031 bytes</p><p class="hash-text"><code>03a605517e2a6ebeb805b7e0f74bd1ec06c664debbdb39b99e09aecc62e4845a</code></p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx"><span>docx</span>Download</a></article>
     </div>
+    <figure class="screenshot-card screenshot-wide reveal"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-evidence-archive-sha256-redacted.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-evidence-archive-sha256-redacted.png" width="977" height="355" loading="lazy" decoding="async" alt="Linux terminal showing the Linux01 evidence archive contents and SHA-256 digest with the local home path redacted."></a><figcaption><strong>Linux01 archive and hash validation.</strong> The command, archive name, file listing, and digest remain visible; the local home path is redacted.</figcaption></figure>
+    <div class="proof-links reveal"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/README.md">Curated evidence index</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json">Machine-readable manifest</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.csv">Manifest CSV</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/redaction-log.md">Redaction and exclusion log</a></div>
   </section>
+
+  <section class="section" aria-labelledby="skills-title"><div class="section-head reveal"><p class="eyebrow">Skills demonstrated</p><h2 id="skills-title">Infrastructure work tied directly to reviewable evidence.</h2></div><div class="proof-chip-row reveal"><span>Proxmox VE</span><span>pfSense</span><span>Windows Server 2022</span><span>Active Directory</span><span>DNS</span><span>DHCP</span><span>Group Policy</span><span>Ubuntu Server</span><span>SSSD</span><span>Kerberos</span><span>SSH</span><span>UFW</span><span>sudo</span><span>QEMU guest agent</span><span>Snapshots</span><span>Backups</span><span>SHA-256</span><span>Evidence curation</span></div></section>
+
+  <section class="section" aria-labelledby="limitations-title"><div class="section-head reveal"><p class="eyebrow">Limitations</p><h2 id="limitations-title">The validation boundary is part of the result.</h2></div><div class="proof-stream reveal"><article class="proof-chip limitation"><div><span class="chip-kind">Outstanding</span><h3>Restore testing</h3><p>Backup archive presence and job membership are validated. A successful isolated restore has not been demonstrated.</p></div></article><article class="proof-chip limitation"><div><span class="chip-kind">Partially validated</span><h3>Firewall source restriction</h3><p>The displayed configuration and snapshot description support restriction intent; exclusive source behavior was not independently tested.</p></div></article><article class="proof-chip limitation"><div><span class="chip-kind">Scope</span><h3>Single domain controller</h3><p>DC01 holds all FSMO roles and is the only domain controller. The lab is not designed for production availability.</p></div></article></div></section>
+
+  <section class="section" aria-labelledby="next-title"><div class="section-head reveal"><p class="eyebrow">Next steps</p><h2 id="next-title">Strengthen recovery, access, and operational depth.</h2></div><ol class="lab-timeline reveal"><li><b>01</b><span>Perform and document an isolated restore to alternate VM IDs.</span></li><li><b>02</b><span>Export and retain a current pfSense configuration and rule inventory.</span></li><li><b>03</b><span>Replace direct RDP forwarding with VPN-based administration where practical.</span></li><li><b>04</b><span>Add centralized Windows, Linux, pfSense, and Proxmox log collection.</span></li><li><b>05</b><span>Add a second domain controller only when testing replication and resilience.</span></li></ol><div class="actions reveal"><a class="button primary" href="./proof.html#home-lab-proof">Review the proof index</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/README.md">Browse curated evidence</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx">Download the APA-Formatted Home Lab Validation Document (.docx)</a></div></section>
 </main>
-<footer class="site-footer premium-footer" aria-label="Site footer">
-  <div class="footer-proof-band" role="group" aria-label="On-prem home lab proof footer status">
-    <span><strong>On-Prem Lab</strong> personal proof</span>
-    <span><strong>127 files</strong> manifested</span>
-    <span><strong>SHA256</strong> validated</span>
-    <span><strong>APA</strong> document linked</span>
-  </div>
-  <div class="footer-divider" aria-hidden="true"></div>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="56" height="56" decoding="async">
-      <p><strong>Jeremy Fontenot</strong></p>
-      <p>Evidence-first IT support and systems administration portfolio focused on Microsoft 365, Entra, Windows Server, Active Directory, troubleshooting, automation, and documentation.</p>
-    </div>
-    <div class="footer-links">
-      <h2 class="footer-heading">Primary Navigation</h2>
-      <a href="./index.html">Home</a>
-      <a href="./projects.html">Projects</a>
-      <a href="./on-prem-home-lab.html">On-Prem Home Lab</a>
-      <a href="./proof.html">Proof</a>
-      <a href="./dashboard.html">Dashboard</a>
-      <a href="./resume.html">Resume</a>
-      <a href="./contact.html">Contact</a>
-    </div>
-    <div class="footer-links">
-      <h2 class="footer-heading">Evidence Links</h2>
-      <a href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv">Microsoft 365 / Entra proof inventory</a>
-      <a href="./on-prem-home-lab.html">On-Prem Home Lab case study</a>
-      <a href="./evidence-library/projects/on-prem-home-lab/HomeLab-Evidence-Manifest.csv">On-Prem Home Lab evidence manifest</a>
-      <a href="./evidence-library/projects/on-prem-home-lab/Final-ZIP-SHA256.txt">On-Prem Home Lab SHA256</a>
-    </div>
-  </div>
-  <p class="footer-meta">Personal on-premises home lab proof. Client, employer, production, and external organization administration claims are not made.</p>
-</footer>
+<footer class="site-footer premium-footer" aria-label="Site footer"><div class="footer-proof-band" role="group" aria-label="Home lab footer proof status"><span><strong>Validated</strong> June 21, 2026</span><span><strong>4 VMs</strong> backup coverage</span><span><strong>SHA-256</strong> verified</span><span><strong>Limitations</strong> preserved</span></div><div class="footer-divider" aria-hidden="true"></div><div class="footer-grid"><div class="footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="56" height="56" decoding="async"><p><strong>Jeremy Fontenot</strong></p><p>Evidence-first systems administration portfolio.</p></div><div class="footer-links"><h2 class="footer-heading">Primary Navigation</h2><a href="./index.html">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">On-Prem Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a></div><div class="footer-links"><h2 class="footer-heading">Home Lab Evidence</h2><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/README.md">Curated evidence index</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json">Evidence manifest</a><a href="./evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx">APA-formatted validation document (.docx)</a></div></div><p class="footer-meta">Personal nonproduction lab. Claims stop where the retained evidence stops.</p></footer>
 </body>
 </html>

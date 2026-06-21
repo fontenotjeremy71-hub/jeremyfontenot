@@ -1,0 +1,162 @@
+Home Lab Evidence: Proxmox Host Validation
+Collection Time: 2026-06-21T03:35:42-05:00
+Hostname: proxmox.jeremyfontenot.local
+
+=== Proxmox Version ===
+proxmox-ve: 9.2.0 (running kernel: 7.0.6-2-pve)
+pve-manager: 9.2.3 (running version: 9.2.3/d0fde103346cf89a)
+proxmox-kernel-helper: 9.2.0
+proxmox-kernel-7.0: 7.0.6-2
+proxmox-kernel-7.0.6-2-pve-signed: 7.0.6-2
+proxmox-kernel-7.0.2-6-pve-signed: 7.0.2-6
+ceph-fuse: 19.2.3-pve4
+corosync: 3.1.10-pve2
+criu: 4.1.1-1
+frr-pythontools: 10.6.1-1+pve2
+ifupdown2: 3.3.0-1+pmx12
+intel-microcode: 3.20251111.1~deb13u1
+ksm-control-daemon: 1.5-1
+libjs-extjs: 7.0.0-5
+libproxmox-acme-perl: 1.7.1
+libproxmox-backup-qemu0: 2.0.2
+libproxmox-rs-perl: 0.4.1
+libpve-access-control: 9.1.1
+libpve-apiclient-perl: 3.4.2
+libpve-cluster-api-perl: 9.1.6
+libpve-cluster-perl: 9.1.6
+libpve-common-perl: 9.1.13
+libpve-guest-common-perl: 6.0.3
+libpve-http-server-perl: 6.0.5
+libpve-network-perl: 1.6.6
+libpve-notify-perl: 9.1.6
+libpve-rs-perl: 0.15.3
+libpve-storage-perl: 9.1.5
+libspice-server1: 0.15.2-1+b1
+lvm2: 2.03.31-2+pmx1
+lxc-pve: 7.0.0-2
+lxcfs: 7.0.0-pve1
+novnc-pve: 1.7.0-1
+proxmox-backup-client: 4.2.1-1
+proxmox-backup-file-restore: 4.2.1-1
+proxmox-backup-restore-image: 1.0.0
+proxmox-firewall: 1.2.3
+proxmox-kernel-helper: 9.2.0
+proxmox-mail-forward: 1.0.3
+proxmox-mini-journalreader: 1.6
+proxmox-offline-mirror-helper: 0.7.4
+proxmox-widget-toolkit: 5.2.3
+pve-cluster: 9.1.6
+pve-container: 6.1.10
+pve-docs: 9.2.2
+pve-edk2-firmware: 4.2025.05-2
+pve-esxi-import-tools: 1.0.1
+pve-firewall: 6.0.4
+pve-firmware: 3.18-4
+pve-ha-manager: 5.2.4
+pve-i18n: 3.7.5
+pve-qemu-kvm: 11.0.0-4
+pve-xtermjs: 6.0.0-1
+qemu-server: 9.1.16
+smartmontools: 7.5-pve2
+spiceterm: 3.4.2
+swtpm: 0.8.0+pve3
+vncterm: 1.9.2
+zfsutils-linux: 2.4.2-pve1
+
+=== Operating System ===
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.5
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+=== CPU Information ===
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           40 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  16
+On-line CPU(s) list:                     0-15
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) CPU           L5520  @ 2.27GHz
+CPU family:                              6
+Model:                                   26
+Thread(s) per core:                      2
+Core(s) per socket:                      4
+Socket(s):                               2
+Stepping:                                5
+BogoMIPS:                                4521.98
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 popcnt lahf_lm pti ssbd ibrs ibpb stibp tpr_shadow flexpriority ept vpid dtherm ida vnmi flush_l1d
+Virtualization:                          VT-x
+L1d cache:                               256 KiB (8 instances)
+L1i cache:                               256 KiB (8 instances)
+L2 cache:                                2 MiB (8 instances)
+L3 cache:                                16 MiB (2 instances)
+NUMA node(s):                            2
+NUMA node0 CPU(s):                       0,2,4,6,8,10,12,14
+NUMA node1 CPU(s):                       1,3,5,7,9,11,13,15
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             KVM: Mitigation: Split huge pages
+Vulnerability L1tf:                      Mitigation; PTE Inversion; VMX conditional cache flushes, SMT vulnerable
+Vulnerability Mds:                       Vulnerable: Clear CPU buffers attempted, no microcode; SMT vulnerable
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Not affected
+
+=== Memory Status ===
+               total        used        free      shared  buff/cache   available
+Mem:            23Gi        15Gi       471Mi        57Mi       7.9Gi       7.9Gi
+Swap:          8.0Gi        12Ki       8.0Gi
+
+=== Block Devices ===
+NAME                         MODEL                   SIZE FSTYPE      TYPE MOUNTPOINTS
+sda                          PERC 6/i              557.8G             disk
+├─sda1                                              1007K             part
+├─sda2                                                 1G vfat        part
+└─sda3                                             556.7G LVM2_member part
+  ├─pve-swap                                           8G swap        lvm  [SWAP]
+  ├─pve-root                                          96G ext4        lvm  /
+  ├─pve-data_tmeta                                   4.4G             lvm
+  │ └─pve-data-tpool                                 428G             lvm
+  │   ├─pve-data                                     428G             lvm
+  │   ├─pve-vm--100--disk--0                          32G             lvm
+  │   ├─pve-vm--200--disk--1                          80G             lvm
+  │   ├─pve-vm--200--disk--0                           4M             lvm
+  │   ├─pve-vm--300--disk--1                          80G             lvm
+  │   ├─pve-vm--300--disk--0                           4M             lvm
+  │   └─pve-vm--400--disk--0                          40G             lvm
+  └─pve-data_tdata                                   428G             lvm
+    └─pve-data-tpool                                 428G             lvm
+      ├─pve-data                                     428G             lvm
+      ├─pve-vm--100--disk--0                          32G             lvm
+      ├─pve-vm--200--disk--1                          80G             lvm
+      ├─pve-vm--200--disk--0                           4M             lvm
+      ├─pve-vm--300--disk--1                          80G             lvm
+      ├─pve-vm--300--disk--0                           4M             lvm
+      └─pve-vm--400--disk--0                          40G             lvm
+sdb                          PERC 6/i                931G             disk
+└─sdb1                                               931G ext4        part /mnt/pve/backup-hdd
+sdc                          LCDRIVE                   0B             disk
+sdd                          Virtual Floppy            0B             disk
+sr0                          PLDS DVD-ROM DS-8D3SH  1024M             rom
+sr1                          Virtual CD             1024M             rom
+
+=== Host Uptime ===
+ 03:35:45 up 10:07,  1 user,  load average: 0.21, 0.21, 0.24

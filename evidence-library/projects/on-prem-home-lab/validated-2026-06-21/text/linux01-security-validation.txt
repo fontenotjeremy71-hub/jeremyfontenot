@@ -1,0 +1,25 @@
+Home Lab Evidence: Linux01 Security Validation
+Collection Time: 2026-06-21T14:46:58+00:00
+Logged-In User: jeremy.fontenot@ad.jeremyfontenot.online
+
+=== UFW Firewall Status ===
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    10.10.20.0/24
+
+
+=== SSH Service State ===
+enabled
+active
+
+=== Sudoers Syntax Validation ===
+/etc/sudoers: parsed OK
+/etc/sudoers.d/domain-admins: parsed OK
+
+=== Sudo Privilege Test ===
+root

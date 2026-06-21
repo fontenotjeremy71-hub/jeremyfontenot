@@ -1,0 +1,82 @@
+Home Lab Evidence: Proxmox Storage Validation
+Collection Time: 2026-06-21T03:42:22-05:00
+Hostname: proxmox.jeremyfontenot.local
+
+=== Proxmox Storage Status ===
+Name              Type     Status     Total (KiB)      Used (KiB) Available (KiB)        %
+backup-hdd         dir     active       959774756       162933668       748013544   16.98%
+local              dir     active        98497780        27159880        66288352   27.57%
+local-lvm      lvmthin     active       448798720        94517010       354281709   21.06%
+
+=== Logical Volumes and Thin-Pool Usage ===
+  LV                                                      VG  LSize    Data%  Meta%
+  data                                                    pve <428.01g 21.06  1.22
+  root                                                    pve   96.00g
+  snap_vm-100-disk-0_pfsense-rdp-nat-restricted           pve   32.00g
+  snap_vm-200-disk-0_dc01-fileshare-it-ok                 pve    4.00m
+  snap_vm-200-disk-1_dc01-fileshare-it-ok                 pve   80.00g
+  snap_vm-300-disk-0_ws01-localadmin-gpo-ok               pve    4.00m
+  snap_vm-300-disk-1_ws01-localadmin-gpo-ok               pve   80.00g
+  snap_vm-400-disk-0_linux01-domain-joined-hardened-agent pve   40.00g
+  swap                                                    pve    8.00g
+  vm-100-disk-0                                           pve   32.00g 53.33
+  vm-200-disk-0                                           pve    4.00m 14.06
+  vm-200-disk-1                                           pve   80.00g 30.14
+  vm-300-disk-0                                           pve    4.00m 14.06
+  vm-300-disk-1                                           pve   80.00g 34.49
+  vm-400-disk-0                                           pve   40.00g 15.65
+
+=== Volume Group Capacity ===
+  VG  #PV #LV #SN Attr   VSize    VFree
+  pve   1  15   0 wz--n- <556.75g 16.00g
+
+=== Physical Volumes ===
+  PV         VG  Fmt  Attr PSize    PFree
+  /dev/sda3  pve lvm2 a--  <556.75g 16.00g
+
+=== Filesystem Capacity ===
+Filesystem           Type      Size  Used Avail Use% Mounted on
+udev                 devtmpfs   11G     0   11G   0% /dev
+tmpfs                tmpfs     2.4G  4.0M  2.4G   1% /run
+/dev/mapper/pve-root ext4       94G   26G   64G  30% /
+tmpfs                tmpfs      12G   49M   12G   1% /dev/shm
+tmpfs                tmpfs     5.0M     0  5.0M   0% /run/lock
+tmpfs                tmpfs     1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs                tmpfs      12G     0   12G   0% /tmp
+/dev/sdb1            ext4      916G  156G  714G  18% /mnt/pve/backup-hdd
+/dev/fuse            fuse      128M   20K  128M   1% /etc/pve
+tmpfs                tmpfs     1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs                tmpfs     2.4G  4.0K  2.4G   1% /run/user/0
+
+=== Block Device Layout ===
+NAME                         MODEL                   SIZE FSTYPE      TYPE MOUNTPOINTS
+sda                          PERC 6/i              557.8G             disk
+├─sda1                                              1007K             part
+├─sda2                                                 1G vfat        part
+└─sda3                                             556.7G LVM2_member part
+  ├─pve-swap                                           8G swap        lvm  [SWAP]
+  ├─pve-root                                          96G ext4        lvm  /
+  ├─pve-data_tmeta                                   4.4G             lvm
+  │ └─pve-data-tpool                                 428G             lvm
+  │   ├─pve-data                                     428G             lvm
+  │   ├─pve-vm--100--disk--0                          32G             lvm
+  │   ├─pve-vm--200--disk--1                          80G             lvm
+  │   ├─pve-vm--200--disk--0                           4M             lvm
+  │   ├─pve-vm--300--disk--1                          80G             lvm
+  │   ├─pve-vm--300--disk--0                           4M             lvm
+  │   └─pve-vm--400--disk--0                          40G             lvm
+  └─pve-data_tdata                                   428G             lvm
+    └─pve-data-tpool                                 428G             lvm
+      ├─pve-data                                     428G             lvm
+      ├─pve-vm--100--disk--0                          32G             lvm
+      ├─pve-vm--200--disk--1                          80G             lvm
+      ├─pve-vm--200--disk--0                           4M             lvm
+      ├─pve-vm--300--disk--1                          80G             lvm
+      ├─pve-vm--300--disk--0                           4M             lvm
+      └─pve-vm--400--disk--0                          40G             lvm
+sdb                          PERC 6/i                931G             disk
+└─sdb1                                               931G ext4        part /mnt/pve/backup-hdd
+sdc                          LCDRIVE                   0B             disk
+sdd                          Virtual Floppy            0B             disk
+sr0                          PLDS DVD-ROM DS-8D3SH  1024M             rom
+sr1                          Virtual CD             1024M             rom

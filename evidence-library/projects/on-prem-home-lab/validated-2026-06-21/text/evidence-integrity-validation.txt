@@ -1,0 +1,21 @@
+On-Premises Home Lab Evidence Integrity
+Publication date: 2026-06-21
+
+Linux01 evidence archive
+Filename: linux01-evidence-2026-06-21.tar.gz
+SHA-256: 5c1eff369a0055338808a93c025847cc5997db4f04614a56ede33b43f9e9b8db
+Verification: matched the supplied known hash
+
+Complete evidence archive
+Filename: homelab-evidence-complete-2026-06-21.tar.gz
+SHA-256: e8a5a40a6960557383ccb152af2da71053e50382d8287d632b9ed5ad85cb7060
+Verification: matched the supplied known hash
+
+Published validation document
+Original filename: Jeremy_Fontenot_On_Premises_Home_Lab_Validation_2026-06-21.docx
+Published filename: jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx
+Size: 1,400,031 bytes
+SHA-256: 03a605517e2a6ebeb805b7e0f74bd1ec06c664debbdb39b99e09aecc62e4845a
+MIME type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+
+The raw chat-image ZIP and complete evidence archive are not published. Only reviewed screenshots and text records are included in the public evidence library.
