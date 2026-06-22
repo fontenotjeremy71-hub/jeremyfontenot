@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="./assets/logos/favicon_64x64.png">
-<link rel="stylesheet" href="./assets/css/site.css?v=home-lab-spacing-20260622">
+<link rel="stylesheet" href="./assets/css/site.css?v=home-lab-windows-grid-20260622">
 <script src="./assets/js/site.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"TechArticle","headline":"Validated On-Premises Home Lab","url":"https://jeremyfontenot.online/on-prem-home-lab.html","dateModified":"2026-06-21","author":{"@type":"Person","name":"Jeremy Fontenot"},"about":["Dell PowerEdge R710","Proxmox VE","pfSense","Windows Server 2022","Active Directory Domain Services","Ubuntu Server 26.04 LTS","Backup validation","SHA-256 evidence integrity"],"description":"Validated personal nonproduction home lab with command evidence, curated screenshots, limitations, and an APA-formatted Word validation document."}
@@ -112,9 +112,9 @@
       <article class="capability-card"><span>DHCP</span><h3>Authorized 10.10.20.0/24 scope</h3><p>Pool <code>10.10.20.100–10.10.20.200</code>; router <code>10.10.20.1</code>; DNS <code>10.10.20.10</code>; domain <code>ad.jeremyfontenot.online</code>.</p></article>
       <article class="capability-card"><span>Group Policy</span><h3>Domain- and OU-linked controls</h3><p>Evidence lists password, lockout, firewall, RDP, PowerShell logging, audit, update, server, workstation, controlled-local-admin, and user-drive-map GPOs.</p></article>
       <article class="capability-card"><span>Role-based access</span><h3>Group-scoped administration and file access</h3><p>Evidence supports controlled local administrators and AD-group-based SMB permissions. Permissions are described as lab validation, not production access governance.</p></article>
-      <article class="capability-card"><span>Remote administration</span><h3>RDP configuration and connectivity evidence</h3><p>Earlier screenshots support RDP enablement and a successful DC01-to-WS01 TCP/DNS test. The current evidence does not prove exclusive external source restriction.</p></article>
+      <article class="capability-card remote-admin-card"><span>Remote administration</span><h3>RDP configuration and connectivity evidence</h3><p>Earlier screenshots support RDP enablement and a successful DC01-to-WS01 TCP/DNS test. The current evidence does not prove exclusive external source restriction.</p></article>
     </div>
-    <div class="evidence-gallery reveal">
+    <div class="evidence-gallery windows-evidence-gallery reveal">
       <figure class="screenshot-card"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png" width="977" height="1403" loading="lazy" decoding="async" alt="PowerShell output validating the Active Directory forest, domain, DC01 global catalog status, and FSMO roles."></a><figcaption><strong>Active Directory and FSMO validation.</strong> Command output supports the forest, domain, global catalog, operating system, and role-holder claims.</figcaption></figure>
       <figure class="screenshot-card"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png" width="977" height="1740" loading="lazy" decoding="async" alt="Redacted PowerShell output validating the authorized DHCP server, scope, options, statistics, and leases."></a><figcaption><strong>DHCP service and scope validation.</strong> Virtual NIC client identifiers are redacted; the scope, options, lease addresses, hostnames, and states remain visible.</figcaption></figure>
     </div>

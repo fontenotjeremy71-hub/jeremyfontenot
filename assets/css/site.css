@@ -2468,6 +2468,29 @@ body {
   max-width: 58ch;
 }
 
+.remote-admin-card {
+  grid-column: 1 / -1;
+}
+
+.remote-admin-card p {
+  max-width: 78ch;
+}
+
+body.home-lab-page .evidence-gallery.windows-evidence-gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+body.home-lab-page .windows-evidence-gallery .screenshot-card a {
+  aspect-ratio: 977 / 1403;
+}
+
+body.home-lab-page .windows-evidence-gallery .screenshot-card img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 body.home-lab-page .actions {
   column-gap: 1.1rem;
   row-gap: 1.15rem;
@@ -2919,6 +2942,10 @@ body.home-page .home-lab-highlight-section .evidence-link {
   body.home-lab-page .actions,
   body.home-lab-page .proof-links {
     row-gap: 1rem;
+  }
+
+  body.home-lab-page .evidence-gallery.windows-evidence-gallery {
+    grid-template-columns: 1fr;
   }
 
   .lab-timeline,
