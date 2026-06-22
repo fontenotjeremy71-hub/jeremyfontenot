@@ -2468,6 +2468,18 @@ body {
   max-width: 58ch;
 }
 
+body.home-lab-page .actions {
+  column-gap: 1.1rem;
+  row-gap: 1.15rem;
+  margin-top: 1.25rem;
+}
+
+body.home-lab-page .proof-links {
+  column-gap: .85rem;
+  row-gap: 1rem;
+  margin-top: 1.1rem;
+}
+
 .lab-command-band {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
@@ -2902,6 +2914,11 @@ body.home-page .home-lab-highlight-section .evidence-link {
   .home-lab-page h1 {
     max-width: 100%;
     font-size: 2.7rem;
+  }
+
+  body.home-lab-page .actions,
+  body.home-lab-page .proof-links {
+    row-gap: 1rem;
   }
 
   .lab-timeline,
