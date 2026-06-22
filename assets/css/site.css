@@ -2481,6 +2481,16 @@ body.home-lab-page .evidence-gallery.windows-evidence-gallery {
   margin-top: 1rem;
 }
 
+body.home-lab-page .windows-evidence-gallery .screenshot-card a {
+  aspect-ratio: 977 / 1403;
+}
+
+body.home-lab-page .windows-evidence-gallery .screenshot-card img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 body.home-lab-page .actions {
   column-gap: 1.1rem;
   row-gap: 1.15rem;
