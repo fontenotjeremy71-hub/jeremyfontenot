@@ -1615,6 +1615,31 @@ body.proof-page .relationship-grid article span + h3 {
   margin-top: .15rem;
 }
 
+body.proof-page .evidence-gallery.proof-evidence-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+body.proof-page .proof-evidence-gallery .screenshot-card {
+  height: 100%;
+}
+
+body.proof-page .proof-evidence-gallery .screenshot-card:nth-child(3) {
+  grid-column: auto;
+}
+
+body.proof-page .proof-evidence-gallery .screenshot-card a {
+  aspect-ratio: 4 / 3;
+}
+
+body.proof-page .proof-evidence-gallery .screenshot-card img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 body.resume-page .bento-card .evidence-chip,
 body.resume-page .capability-card > span,
 body.resume-page .route-grid article > span {
@@ -1666,6 +1691,10 @@ body.contact-page .dashboard-grid .bento-card .evidence-link { margin-top: auto;
     grid-template-columns: 1fr;
   }
 
+  body.proof-page .evidence-gallery.proof-evidence-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   body.proof-page .page-hero h1 {
     max-width: 18ch;
   }
@@ -1684,6 +1713,10 @@ body.contact-page .dashboard-grid .bento-card .evidence-link { margin-top: auto;
 @media (max-width: 760px) {
   body.proof-page .page {
     padding-block-start: 1.5rem;
+  }
+
+  body.proof-page .evidence-gallery.proof-evidence-gallery {
+    grid-template-columns: 1fr;
   }
 
   body.proof-page .page-hero h1 {
