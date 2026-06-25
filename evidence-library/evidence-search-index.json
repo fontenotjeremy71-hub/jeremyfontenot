@@ -1,19 +1,19 @@
 [
   {
-    "id": "projects-on-prem-home-lab-validation-document-2026-06-21",
+    "id": "projects-on-prem-home-lab-validation-document-2026-06-24",
     "title": "On-Premises Home Lab Infrastructure Validation",
-    "summary": "APA-formatted Word document validating the personal Proxmox, pfSense, Windows Server, Active Directory, Linux01, backup, and evidence-integrity work completed through June 21, 2026.",
-    "path": "evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx",
-    "originalSourcePath": "Jeremy_Fontenot_On_Premises_Home_Lab_Validation_2026-06-21.docx",
+    "summary": "IP-verified APA-formatted Word document validating the personal Proxmox, pfSense, Windows Server, Active Directory, VLAN 30 Linux01 segmentation, OpenVPN VPN-only RDP, centralized pfSense logging, restore checks, thin-pool monitoring, backup, and evidence-integrity work completed through June 24, 2026.",
+    "path": "evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx",
+    "originalSourcePath": "Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx",
     "category": "projects",
     "subcategory": "on-prem-home-lab",
     "proofType": "document",
     "status": "AUTHORITATIVE",
     "relatedProject": "On-Premises Home Lab",
     "relatedSkill": "Infrastructure",
-    "tags": ["home-lab", "proxmox", "active-directory", "linux", "backup", "sha-256"],
+    "tags": ["home-lab", "proxmox", "active-directory", "linux", "vlan-30", "openvpn", "vpn-only-rdp", "centralized-logging", "backup", "sha-256"],
     "fileType": "docx",
-    "confidenceLevel": "validated-2026-06-21",
+    "confidenceLevel": "validated-2026-06-24",
     "preservationStatus": "VALIDATED PUBLIC PROOF"
   },
   {
@@ -30,7 +30,7 @@
     "relatedSkill": "Evidence Governance",
     "tags": ["home-lab", "manifest", "sha-256", "sanitized-evidence"],
     "fileType": "json",
-    "confidenceLevel": "validated-2026-06-21",
+    "confidenceLevel": "validated-2026-06-24",
     "preservationStatus": "VALIDATED PUBLIC PROOF"
   },
   {
