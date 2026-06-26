@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Lab Operations Validation | Inventory, Testing, SSSD</title>
+<meta name="description" content="Sanitized June 26, 2026 operations validation for Jeremy Fontenot's personal home lab, including authenticated inventories, repository tests, current-state reconciliation, and Linux01 SSSD remediation.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://jeremyfontenot.online/home-lab-operations-proof.html">
+<meta property="og:site_name" content="Jeremy Fontenot">
+<meta property="og:title" content="Home Lab Operations Validation | Inventory, Testing, SSSD">
+<meta property="og:description" content="Public-safe operations proof for authenticated DC01, WS01, and Linux01 inventories, read-only repository validation, and controlled Linux01 SSSD remediation.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jeremyfontenot.online/home-lab-operations-proof.html">
+<meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="./assets/logos/favicon_64x64.png">
+<link rel="stylesheet" href="./assets/css/site.css">
+<script src="./assets/js/site.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Home Lab Operations Validation","url":"https://jeremyfontenot.online/home-lab-operations-proof.html","dateModified":"2026-06-26","author":{"@type":"Person","name":"Jeremy Fontenot"},"about":["Proxmox VE","Active Directory","Windows Server 2022","Windows 10 Pro","Ubuntu 26.04 LTS","SSSD remediation","Read-only operations validation","Home lab evidence"],"description":"Sanitized public proof of June 26, 2026 home-lab operations validation, authenticated inventories, repository tests, current-state reconciliation, and Linux01 SSSD remediation."}
+</script>
+</head>
+<body class="home-lab-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="./index.html"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Evidence-first IT portfolio</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+    <div class="nav-links" id="primary-menu"><a href="./index.html">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div>
+  </nav>
+</header>
+<main id="main" class="page page-shell">
+  <section class="page-hero home-lab-hero" aria-labelledby="operations-title">
+    <div class="page-hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Validated June 26, 2026</p>
+        <h1 id="operations-title">Home Lab Operations Validation</h1>
+        <p class="lead">Personal nonproduction-lab proof from authenticated DC01, WS01, and Linux01 inventories, a tested read-only operations framework, current-state reconciliation, and controlled Linux01 SSSD remediation.</p>
+        <div class="actions">
+          <a class="button primary" href="./on-prem-home-lab.html">Open case study</a>
+          <a class="button" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.md">Open public README</a>
+          <a class="button" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-26/operations-validation-summary.json">Open JSON summary</a>
+        </div>
+      </div>
+      <aside class="review-console evidence-console verification-glow reveal" aria-label="June 26 operations validation summary">
+        <div class="console-bar"><span>operations proof</span><span>2026-06-26</span></div>
+        <div class="lab-proof-stack">
+          <a href="#inventory"><b>INV</b><span>Authenticated inventories</span><em>DC01, WS01, and Linux01</em></a>
+          <a href="#validation"><b>TEST</b><span>Read-only framework</span><em>Repository, baseline, and drift checks</em></a>
+          <a href="#sssd"><b>SSSD</b><span>Controlled remediation</span><em>Rollback-first, validated after change</em></a>
+          <a href="#boundaries"><b>SAFE</b><span>Claim boundaries</span><em>Public summary only, raw evidence excluded</em></a>
+        </div>
+      </aside>
+    </div>
+    <div class="command-band lab-command-band reveal" role="group" aria-label="Operations proof status">
+      <span class="status-pill">Authenticated inventory</span>
+      <span class="status-pill">Read-only framework</span>
+      <span class="status-pill">Current-state reconciliation</span>
+      <span class="status-pill">SSSD remediated</span>
+      <span class="status-pill">Raw private data excluded</span>
+    </div>
+  </section>
+
+  <section class="section" id="inventory" aria-labelledby="inventory-title">
+    <div class="section-head reveal"><p class="eyebrow">Current-state inventory</p><h2 id="inventory-title">Sanitized public architecture supported by June 26 evidence.</h2><p>The private operations repository validated target-local guest state, then this page publishes only the bounded facts that are safe for public portfolio review.</p></div>
+    <div class="evidence-table-wrap reveal"><table class="evidence-table"><caption>June 26 current-state inventory</caption><thead><tr><th scope="col">Component</th><th scope="col">Role</th><th scope="col">Supported public state</th><th scope="col">Evidence class</th></tr></thead><tbody><tr><th scope="row">Proxmox</th><td>Hypervisor on Dell PowerEdge R710</td><td>Proxmox VE 9.2.3; pfSense VM 100; scheduled backup job includes VMs 100, 200, 300, and 400.</td><td>Current operations evidence and API-backed reconciliation</td></tr><tr><th scope="row">DC01</th><td>Domain controller</td><td>VM 200, Windows Server 2022, 10.10.20.10/24, AD domain <code>ad.jeremyfontenot.online</code>, NetBIOS <code>JFAD</code>.</td><td>Authenticated target-local inventory</td></tr><tr><th scope="row">WS01</th><td>Domain workstation</td><td>VM 300, Windows 10 Pro version 10.0.19045 build 19045, 10.10.20.100/24.</td><td>Authenticated target-local inventory</td></tr><tr><th scope="row">Linux01</th><td>Ubuntu domain member and log collector</td><td>VM 400, Ubuntu 26.04 LTS, kernel 7.0.0-22-generic, 10.10.30.20/24, VLAN tag 30, gateway 10.10.30.1, DNS 10.10.20.10.</td><td>Authenticated target-local inventory plus remediation evidence</td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="validation" aria-labelledby="validation-title">
+    <div class="section-head reveal"><p class="eyebrow">Operations validation</p><h2 id="validation-title">A tested read-only framework supports the public claims.</h2><p>The operations repository uses structured documentation, read-only collectors, target-local packages, monitoring scripts, timestamped evidence, explicit claim boundaries, and rollback documentation.</p></div>
+    <div class="capability-grid reveal">
+      <article class="capability-card feature-card"><span>PASS</span><h3>Repository structure test</h3><p><code>pwsh -NoProfile -File .\tests\Test-RepositoryStructure.ps1</code> passed against the validated operations repository.</p></article>
+      <article class="capability-card"><span>PASS</span><h3>Read-only baseline framework</h3><p><code>pwsh -NoProfile -File .\tests\Test-HomeLabBaselineFramework.ps1</code> passed and validates the reusable baseline framework behavior.</p></article>
+      <article class="capability-card"><span>PASS</span><h3>Portfolio drift validation</h3><p><code>pwsh -NoProfile -File .\tests\Test-PortfolioHomeLabDrift.ps1</code> passed, tying website claims back to the operations evidence model.</p></article>
+      <article class="capability-card"><span>PASS</span><h3>Parser and syntax checks</h3><p>JSON parse validation, PowerShell parser validation, Bash syntax validation, repository validation, policy-aware connectivity validation, and Git whitespace validation were included in the validated workflow.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="sssd" aria-labelledby="sssd-title">
+    <div class="section-head reveal"><p class="eyebrow">Linux01 SSSD remediation</p><h2 id="sssd-title">Responder activation conflict corrected with a rollback-first change.</h2><p>The initial classification was <strong>SSSD responder activation conflict</strong>. Direct responders were configured, three responder sockets were enabled and failed, and <code>config_file_version = 2</code> was rejected by SSSD 2.12 validation.</p></div>
+    <div class="bento-grid reveal">
+      <article class="bento-card"><span class="evidence-chip">Control</span><h3>Backup and rollback first</h3><p>A preserved backup and rollback path were created before changing Linux01. The public page does not expose the root backup path.</p></article>
+      <article class="bento-card"><span class="evidence-chip">Change</span><h3>Smallest justified change</h3><p>Only the rejected directive was removed. Conflicting NSS, PAM, and PAC responder sockets were disabled, SSSD was restarted, and historical failed-unit state was cleared.</p></article>
+      <article class="bento-card feature-card"><span class="evidence-chip">Validation</span><h3>Identity and SSH passed</h3><p><code>sssd.service</code> was enabled and active, zero failed systemd units remained, SSSD configuration validation passed, AD identity lookup passed, and a completely new AD-authenticated SSH session passed.</p></article>
+    </div>
+    <div class="evidence-table-wrap reveal"><table class="evidence-table"><caption>SSSD remediation traceability</caption><thead><tr><th scope="col">Artifact</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Pre-remediation SHA-256</th><td><code>3CAD0FB73202D777D41DEE40D6F4D19D4019B9AD30552B37970B55A5CA5AB3BB</code></td></tr><tr><th scope="row">Post-remediation SHA-256</th><td><code>FD55604BFB94487B86FBF631703FA995B9726471689385CCB2D277492AA7CBEE</code></td></tr><tr><th scope="row">Linux01 remediation commit</th><td><code>f2a8802</code></td></tr><tr><th scope="row">Validated operations endpoint</th><td><code>3d42a48</code></td></tr></tbody></table></div>
+  </section>
+
+  <section class="section" id="boundaries" aria-labelledby="boundaries-title">
+    <div class="section-head reveal"><p class="eyebrow">Claim boundaries</p><h2 id="boundaries-title">The public proof is intentionally narrow.</h2></div>
+    <div class="proof-stream reveal">
+      <article class="proof-chip limitation"><div><span class="chip-kind">Scope</span><h3>Personal lab only</h3><p>This is a personal, nonproduction home lab. No client, employer, production, business, enterprise-scale, or operational-impact claim is made.</p></div></article>
+      <article class="proof-chip limitation"><div><span class="chip-kind">Privacy</span><h3>Raw private material excluded</h3><p>Raw target-local inventories, raw event logs, complete SSSD configuration files, authentication attempt details, local user paths, ticket-cache identifiers, secrets, keys, and tokens are not public.</p></div></article>
+      <article class="proof-chip limitation"><div><span class="chip-kind">Testing boundary</span><h3>Reachability is not full service validation</h3><p>TCP reachability can support a narrow network observation, but it is not complete application, authentication, firewall-policy, or service-correctness validation.</p></div></article>
+      <article class="proof-chip limitation"><div><span class="chip-kind">Recovery boundary</span><h3>Restore startup checks are not recurring DR assurance</h3><p>Retained June 24 isolated WS01 and Linux01 startup restore checks do not establish recurring disaster-recovery assurance, RTO, or RPO.</p></div></article>
+    </div>
+    <div class="actions reveal"><a class="button primary" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.md">Read the public summary</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-26/operations-validation-summary.json">Open structured JSON</a><a class="button" href="./proof.html#home-lab-proof">Return to proof index</a></div>
+  </section>
+</main>
+<footer class="site-footer premium-footer" aria-label="Site footer"><div class="footer-proof-band" role="group" aria-label="Operations proof footer status"><span><strong>Validated</strong> June 26, 2026</span><span><strong>Inventory</strong> authenticated</span><span><strong>SSSD</strong> remediated</span><span><strong>Claims</strong> bounded</span></div><div class="footer-divider" aria-hidden="true"></div><div class="footer-grid"><div class="footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="56" height="56" decoding="async"><p><strong>Jeremy Fontenot</strong></p><p>Sanitized operations proof for a personal nonproduction home lab.</p></div><div class="footer-links"><h2 class="footer-heading">Primary Navigation</h2><a href="./index.html">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">On-Prem Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a></div><div class="footer-links"><h2 class="footer-heading">Operations Evidence</h2><a href="./on-prem-home-lab.html">Home lab case study</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.md">June 26 public README</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-26/operations-validation-summary.json">June 26 JSON summary</a></div></div><p class="footer-meta">Personal nonproduction lab. Raw private inventories and sensitive operational materials are intentionally excluded.</p></footer>
+</body>
+</html>

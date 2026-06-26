@@ -1,0 +1,149 @@
+{
+  "title": "Home Lab Operations Validation - June 26, 2026",
+  "scope": {
+    "environment": "Personal nonproduction on-premises home lab",
+    "publicUse": "Recruiter-readable sanitized portfolio summary",
+    "excludedMaterials": [
+      "passwords",
+      "password attempts",
+      "tokens",
+      "API keys",
+      "cookies",
+      "session data",
+      "private keys",
+      "Kerberos ticket-cache identifiers",
+      "recovery codes",
+      "private user details",
+      "raw target-local JSON inventories",
+      "raw event logs",
+      "complete SSSD configuration files",
+      "local Windows user paths"
+    ]
+  },
+  "validationDate": "2026-06-26",
+  "currentSupportedState": {
+    "physicalHost": "Dell PowerEdge R710",
+    "hypervisor": "Proxmox VE 9.2.3",
+    "pfsense": {
+      "vmId": 100
+    },
+    "networking": {
+      "coreLanGateway": "10.10.20.1/24",
+      "linuxVlanGateway": "10.10.30.1/24",
+      "openVpnNetwork": "10.10.40.0/24"
+    },
+    "dc01": {
+      "vmId": 200,
+      "operatingSystem": "Windows Server 2022",
+      "address": "10.10.20.10/24",
+      "adDomain": "ad.jeremyfontenot.online",
+      "netbiosDomain": "JFAD"
+    },
+    "ws01": {
+      "vmId": 300,
+      "operatingSystem": "Windows 10 Pro",
+      "version": "10.0.19045",
+      "build": "19045",
+      "address": "10.10.20.100/24"
+    },
+    "linux01": {
+      "vmId": 400,
+      "operatingSystem": "Ubuntu 26.04 LTS",
+      "kernel": "7.0.0-22-generic",
+      "address": "10.10.30.20/24",
+      "vlanTag": 30,
+      "gateway": "10.10.30.1",
+      "dns": "10.10.20.10",
+      "ssh": "active and listening",
+      "rsyslog": "active with TCP and UDP 514 listening on 10.10.30.20",
+      "qemuGuestAgent": "configured and responding",
+      "adIdentityResolution": "validated"
+    },
+    "backupJob": {
+      "includedVms": [
+        100,
+        200,
+        300,
+        400
+      ],
+      "boundary": "Retained June 24 isolated startup restore checks do not establish recurring DR assurance, RTO, or RPO."
+    }
+  },
+  "validationCategories": [
+    {
+      "name": "Authenticated DC01 inventory",
+      "result": "PASS",
+      "summary": "Target-local inventory supports Windows Server 2022, AD domain, NetBIOS domain, DNS, DHCP, GPO, critical service, disk, and summary event-health claims."
+    },
+    {
+      "name": "Authenticated WS01 inventory",
+      "result": "PASS",
+      "summary": "Target-local inventory supports Windows 10 Pro, domain membership, secure channel, address, gateway, DNS, critical service, disk, and summary event-health claims."
+    },
+    {
+      "name": "Authenticated Linux01 inventory",
+      "result": "PASS",
+      "summary": "Target-local inventory supports Ubuntu, VLAN 30 addressing, DNS, gateway, time sync, SSH, rsyslog, QEMU guest agent, AD integration indicators, AppArmor, and update-state claims."
+    },
+    {
+      "name": "Repository structure test",
+      "result": "PASS",
+      "command": "pwsh -NoProfile -File .\\tests\\Test-RepositoryStructure.ps1"
+    },
+    {
+      "name": "Read-only baseline framework test",
+      "result": "PASS",
+      "command": "pwsh -NoProfile -File .\\tests\\Test-HomeLabBaselineFramework.ps1"
+    },
+    {
+      "name": "Portfolio drift validation",
+      "result": "PASS",
+      "command": "pwsh -NoProfile -File .\\tests\\Test-PortfolioHomeLabDrift.ps1"
+    },
+    {
+      "name": "Parser and syntax validation",
+      "result": "PASS",
+      "summary": "JSON parse validation, PowerShell parser validation, and Bash syntax validation were included in the validated operations workflow."
+    }
+  ],
+  "sssdRemediationSummary": {
+    "classification": "SSSD responder activation conflict",
+    "initialCondition": [
+      "Direct responders were configured.",
+      "sssd-nss.socket, sssd-pam.socket, and sssd-pac.socket were enabled and failed.",
+      "config_file_version = 2 was rejected by SSSD 2.12 validation."
+    ],
+    "controlledRemediation": [
+      "A preserved backup and rollback path were created first.",
+      "Only the rejected directive was removed.",
+      "Conflicting responder sockets were disabled.",
+      "SSSD was restarted.",
+      "Historical failed-unit state was cleared."
+    ],
+    "postRemediationValidation": [
+      "sssd.service enabled",
+      "sssd.service active",
+      "Zero failed systemd units",
+      "NSS, PAM, and PAC responder sockets disabled as intended",
+      "SSSD configuration validation passed",
+      "AD identity lookup passed",
+      "A completely new AD-authenticated SSH session passed"
+    ]
+  },
+  "diagnosticHashes": {
+    "preRemediationSha256": "3CAD0FB73202D777D41DEE40D6F4D19D4019B9AD30552B37970B55A5CA5AB3BB",
+    "postRemediationSha256": "FD55604BFB94487B86FBF631703FA995B9726471689385CCB2D277492AA7CBEE"
+  },
+  "repositoryCommitTraceability": {
+    "operationsRepositoryValidatedCommit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+    "linux01SssdRemediationCommit": "f2a8802"
+  },
+  "publicClaimBoundaries": [
+    "Personal lab only.",
+    "No client, employer, production, business, or enterprise-scale claim.",
+    "Raw private inventories are not public.",
+    "TCP reachability is not complete service validation.",
+    "Isolated restore startup checks are not recurring disaster-recovery assurance.",
+    "Historical June 21 evidence and retained June 24 isolated startup restore checks remain separate from the June 26 operations validation."
+  ]
+}
