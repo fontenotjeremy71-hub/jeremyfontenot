@@ -3,153 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Evidence Dashboard | Verified Portfolio Proof Counts</title>
-<meta name="description" content="Evidence dashboard showing verified Microsoft 365, Entra, and On-Prem Home Lab proof counts from repository exports, manifests, screenshots, and SHA256 records.">
+<title>Dashboard | Repository-Derived Evidence Status</title>
+<meta name="description" content="Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f172a">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://jeremyfontenot.online/dashboard.html">
 <meta property="og:site_name" content="Jeremy Fontenot">
-<meta property="og:title" content="Evidence Dashboard | Verified Portfolio Proof Counts">
-<meta property="og:description" content="Verified evidence inventory counts from Microsoft 365, Entra, and On-Prem Home Lab repository exports.">
+<meta property="og:title" content="Dashboard | Repository-Derived Evidence Status">
+<meta property="og:description" content="Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jeremyfontenot.online/dashboard.html">
 <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+<meta property="og:image:alt" content="Evidence-first IT support and infrastructure operations portfolio for Jeremy Fontenot">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dashboard | Repository-Derived Evidence Status">
+<meta name="twitter:description" content="Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.">
+<meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
 <link rel="icon" href="./assets/logos/favicon_64x64.png">
 <link rel="stylesheet" href="./assets/css/site.css">
 <script src="./assets/js/site.js" defer></script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Evidence Dashboard","url":"https://jeremyfontenot.online/dashboard.html","dateModified":"2026-06-24","description":"Verified evidence inventory dashboard summarizing Microsoft 365, Entra, and validated On-Premises Home Lab proof from repository exports, manifests, screenshots, documents, and SHA-256 records.","about":["Microsoft 365 evidence","Microsoft Entra evidence","On-Premises Home Lab evidence","Portfolio proof inventory","Technical documentation","Evidence governance"]}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Dashboard | Repository-Derived Evidence Status","headline":"Dashboard | Repository-Derived Evidence Status","description":"Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.","url":"https://jeremyfontenot.online/dashboard.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Service desk support","Microsoft 365 administration","Active Directory","Windows Server","Proxmox VE","pfSense","PowerShell","Evidence governance"]}</script>
 </head>
 <body class="dashboard-page">
+
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="./index.html"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Evidence-first IT portfolio</small></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button><div class="nav-links" id="primary-menu"><a href="./index.html">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html" aria-current="page">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div></nav></header>
-<main id="main" class="page page-shell">
-  <section class="page-hero" aria-labelledby="dashboard-title">
-    <div class="page-hero-grid">
-      <div class="hero-copy reveal"><p class="eyebrow">Captured evidence counts</p><h1 id="dashboard-title">Governance metrics are proof inventory counts.</h1><p class="lead">The dashboard summarizes records exported from the personal Microsoft 365 / Entra cloud administration lab and the validated On-Premises Home Lab. These are reproducible evidence counts, not employment results, external environment statistics, uptime figures, or impact metrics.</p><div class="actions"><a class="button primary" href="./on-prem-home-lab.html">Open validated home lab</a><a class="button" href="./proof.html#home-lab-proof">Review home lab proof</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json">Home lab manifest</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx">IP-verified APA documentation (.docx)</a></div></div>
-      <aside class="review-console evidence-rail reveal" aria-label="Dashboard governance scope">
-        <h2>Dashboard scope</h2>
-        <ul class="check-list">
-          <li>Repository evidence counts only</li>
-          <li>No live telemetry claim</li>
-          <li>No uptime or production impact claim</li>
-          <li>Counts resolve to proof files</li>
-        </ul>
-      </aside>
-    </div>
-    <div class="command-band reveal" role="group" aria-label="Governance validation status">
-      <span class="status-pill">CI/CD surface documented</span>
-      <span class="status-pill">Lighthouse review path</span>
-      <span class="status-pill">Evidence integrity mapped</span>
-      <span class="status-pill">Home Lab validated June 24, 2026</span>
-      <span class="status-pill">Local links reviewed</span>
-    </div>
-  </section>
-  <section class="section" aria-labelledby="counts-title">
-    <div class="section-head reveal"><p class="eyebrow">Verified numbers</p><h2 id="counts-title">Repository-backed evidence inventory.</h2></div>
-    <div class="metric-grid bento-grid reveal">
-      <div class="metric"><strong>87</strong><span>indexed proof files</span></div>
-      <div class="metric"><strong>87</strong><span>SHA-256 hash records</span></div>
-      <div class="metric"><strong>10</strong><span>evidence folders</span></div>
-      <div class="metric"><strong>8</strong><span>app registrations</span></div>
-      <div class="metric"><strong>247</strong><span>service principals</span></div>
-      <div class="metric"><strong>16</strong><span>OAuth grants</span></div>
-      <div class="metric"><strong>8</strong><span>groups</span></div>
-      <div class="metric"><strong>19</strong><span>group membership rows</span></div>
-      <div class="metric"><strong>3</strong><span>subscribed SKUs</span></div>
-      <div class="metric"><strong>68</strong><span>service plans</span></div>
-      <div class="metric"><strong>104</strong><span>sign-in export rows</span></div>
-      <div class="metric"><strong>46</strong><span>directory audit export rows</span></div>
-      <div class="metric feature-card"><strong>Validated</strong><span>On-Premises Home Lab status</span></div>
-      <div class="metric"><strong>2026-06-21</strong><span>validation date</span></div>
-      <div class="metric"><strong>1</strong><span>physical server</span></div>
-      <div class="metric"><strong>1</strong><span>hypervisor</span></div>
-      <div class="metric"><strong>4</strong><span>primary VMs</span></div>
-      <div class="metric"><strong>4</strong><span>VMs in scheduled backup job</span></div>
-      <div class="metric"><strong>4</strong><span>VM snapshot listings</span></div>
-      <div class="metric"><strong>Linux01</strong><span>command validation published</span></div>
-      <div class="metric"><strong>SHA-256</strong><span>nested and complete evidence verified</span></div>
-      <div class="metric"><strong>916 GB</strong><span>dedicated backup filesystem capacity</span></div>
-      <div class="metric"><strong>DOCX</strong><span>APA-formatted proof available</span></div>
-    </div>
-  </section>
-  <section class="section" aria-labelledby="home-lab-dashboard-title">
-    <div class="section-head reveal"><p class="eyebrow">Validated home lab snapshot</p><h2 id="home-lab-dashboard-title">Every home-lab value resolves to the June 24 IP-verified evidence set.</h2><p>Counts refer to one Dell PowerEdge R710, one Proxmox VE hypervisor, and primary VMs 100, 200, 300, and 400. Snapshot and backup coverage are listed separately because a snapshot is not an independent backup.</p></div>
-    <div class="dashboard-grid reveal">
-      <article><span class="tile-code">LAB</span><h2>Case study</h2><p>Architecture, corrected addressing, VLAN 30 Linux01, OpenVPN VPN-only RDP, centralized pfSense logging, isolated restores, thin-pool monitoring, integrity, limitations, and next steps.</p><a class="evidence-link" href="./on-prem-home-lab.html"><span>validated</span>Open page</a></article>
-      <article><span class="tile-code">PROOF</span><h2>Proof section</h2><p>Command evidence, selected screenshots, archive hashes, claim boundaries, and personal-lab disclaimer.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>proof</span>Review</a></article>
-      <article><span class="tile-code">MAN</span><h2>Evidence manifest</h2><p>Machine-readable file size, MIME type, SHA-256, publication date, description, and redaction metadata.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json"><span>json</span>Open manifest</a></article>
-      <article><span class="tile-code">DOCX</span><h2>APA validation document</h2><p>Original content preserved and published as a 5,498,778-byte Office Open XML document.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx"><span>docx</span>Download</a></article>
-    </div>
-  </section>
-  <section class="section" aria-labelledby="governance-title">
-    <div class="section-head reveal"><p class="eyebrow">Repository governance</p><h2 id="governance-title">Validation signals kept honest.</h2></div>
-    <div class="dashboard-grid reveal">
-      <article class="bento-card"><span class="tile-code">CI</span><h2>Static validation posture</h2><p>Repository workflow and local validation paths are treated as quality gates for public HTML, links, and evidence routing.</p><a class="evidence-link" href="./scripts/validation/validate-html.ps1"><span>script</span>HTML</a></article>
-      <article class="bento-card"><span class="tile-code">LH</span><h2>Lighthouse review language</h2><p>Lighthouse is presented as a validation surface, not as a permanent live performance metric.</p><a class="evidence-link" href="./scripts/lighthouse/validate-lighthouse-scores.ps1"><span>script</span>Lighthouse</a></article>
-      <article class="bento-card"><span class="tile-code">SHA</span><h2>Evidence integrity</h2><p>Hash records provide reviewer inspection support for preserved proof files.</p><a class="evidence-link" href="./scripts/validation/validate-evidence-hashes.ps1"><span>script</span>Hashes</a></article>
-      <article class="bento-card"><span class="tile-code">SEO</span><h2>Recruiter-readable metadata</h2><p>Page titles, descriptions, canonical URLs, Open Graph metadata, and sitemap entries support concise professional discovery.</p><a class="evidence-link" href="./scripts/validation/validate-seo.ps1"><span>script</span>SEO</a></article>
-    </div>
-  </section>
-  <section class="section dashboard-snapshot-section" aria-labelledby="snapshot-title">
-    <div class="section-head reveal"><p class="eyebrow">Repository snapshot data</p><h2 id="snapshot-title">Governance panels are static file-backed signals.</h2><p>These panels point to repository scripts and artifacts. They do not claim live telemetry, active production monitoring, or current external service state.</p></div>
-    <div class="snapshot-grid reveal">
-      <article><span class="tile-code">LINK</span><h3>Link validation</h3><p>Internal links, images, CSS, JavaScript, PDFs, and proof references are checked by the local link validator.</p><a class="evidence-link" href="./scripts/validation/validate-links.ps1"><span>script</span>Open</a></article>
-      <article><span class="tile-code">MAP</span><h3>Evidence claim control</h3><p>Claim wording is compared against repository-local evidence boundaries and approved proof routing.</p><a class="evidence-link" href="./scripts/validation/validate-evidence-claims.ps1"><span>script</span>Open</a></article>
-      <article><span class="tile-code">SITE</span><h3>Sitemap and SEO status</h3><p>The public sitemap lists the seven active recruiter pages; retired routes remain outside the indexable sitemap.</p><a class="evidence-link" href="./sitemap.xml"><span>sitemap</span>Open</a></article>
-      <article><span class="tile-code">SHOT</span><h3>Screenshot review</h3><p>Visual review artifacts are captured locally for desktop, tablet, and mobile inspection across the active public surface.</p><a class="evidence-link" href="./scripts/validation/validate-screenshots.ps1"><span>script</span>Open</a></article>
-    </div>
-  </section>
-  <section class="section" aria-labelledby="source-title">
-    <div class="section-head reveal"><p class="eyebrow">Source controls</p><h2 id="source-title">Counts resolve to evidence files.</h2></div>
-    <div class="dashboard-grid reveal">
-      <article><span class="tile-code">INV</span><h2>Proof inventory</h2><p>CSV index for the 87-file Microsoft 365 / Entra proof set.</p><a class="evidence-link" href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv"><span>verified export</span>Open file</a></article>
-      <article><span class="tile-code">HASH</span><h2>Proof hashes</h2><p>SHA-256 hash records for proof integrity review.</p><a class="evidence-link" href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-hashes-20260605.csv"><span>hash available</span>Open file</a></article>
-      <article><span class="tile-code">EXP</span><h2>New export manifest</h2><p>Manifest for the 2026-06-05 Microsoft 365 / Entra export folder.</p><a class="evidence-link" href="./evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/microsoft-365-lab-evidence-manifest-20260605.csv"><span>hash available</span>Open file</a></article>
-      <article><span class="tile-code">MAP</span><h2>Site proof map</h2><p>Public claims mapped to files, proof type, supported wording, and wording to avoid.</p><a class="evidence-link" href="./evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.md"><span>control file</span>Open file</a></article>
-      <article><span class="tile-code">LAB</span><h2>On-Premises Home Lab manifest</h2><p>Curated June 21 public evidence inventory with file sizes, SHA-256 hashes, descriptions, and redaction notes.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.csv"><span>csv</span>Open file</a></article>
-      <article><span class="tile-code">LABSHA</span><h2>Home lab integrity record</h2><p>Known Linux01 and complete-archive hashes plus the calculated Word-document hash.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/evidence-integrity-validation.txt"><span>sha-256</span>Open file</a></article>
-      <article><span class="tile-code">LABDOC</span><h2>APA validation document</h2><p>Download the current June 24 IP-verified home-lab documentation.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx"><span>docx</span>Download</a></article>
-    </div>
-  </section>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="./index.html"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Evidence-first IT portfolio</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+    <div class="nav-links" id="primary-menu"><a href="./index.html">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html" aria-current="page">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div>
+  </nav>
+</header>
+<main id="main">
+
+  <section class="page page-hero" aria-labelledby="dashboard-title"><div class="section-head reveal"><p class="eyebrow">Repository-Derived Dashboard</p><h1 id="dashboard-title">Evidence counts are inventory, not live telemetry.</h1><p class="lead">This dashboard summarizes static repository artifacts generated from manifests, screenshot review, claim mapping, link validation, document integrity, and source commits.</p></div><div class="metric-grid reveal"><article class="metric"><strong>4</strong><span>Systems: Primary VMs in current supported state</span></article><article class="metric"><strong>6</strong><span>Artifacts: Current-state manifest records</span></article><article class="metric"><strong>9</strong><span>Screenshots: Home-lab public screenshot files</span></article><article class="metric"><strong>737630d7182e</strong><span>DOCX: Published document hash prefix</span></article></div></section>
+  <section class="section" aria-labelledby="dash-details"><div class="section-head reveal"><p class="eyebrow">Validation Coverage</p><h2 id="dash-details">Current review status.</h2></div><div class="dashboard-grid reveal"><article><span class="tile-code">SRC</span><h3>Source commit</h3><p>Website source a95259d; home-lab source 3d42a48.</p><a class="evidence-link" href="./artifacts/site-audit/live-repository-drift.md"><span>audit</span>Open</a></article><article><span class="tile-code">MAP</span><h3>Screenshot audit status</h3><p>Screenshot map and review records were regenerated from public HTML references and inspected source dimensions.</p><a class="evidence-link" href="./artifacts/site-audit/screenshot-review.md"><span>review</span>Open</a></article><article><span class="tile-code">DOC</span><h3>Document integrity status</h3><p>New DOCX is published to assets/documents and mirrored in the evidence library with a SHA-256 manifest entry.</p><a class="evidence-link" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"><span>docx</span>Download</a></article><article><span class="tile-code">LIM</span><h3>Unresolved limitations</h3><p>Backup restore assurance, production scale, employer administration, and broad security assurance are intentionally excluded.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>proof</span>Open</a></article></div></section>
 </main>
+
 <footer class="site-footer premium-footer" aria-label="Site footer">
-  <div class="footer-proof-band" role="group" aria-label="Dashboard footer proof status">
-    <span><strong>Dashboard</strong> evidence counts</span>
-    <span><strong>No live telemetry</strong> claimed</span>
-    <span><strong>M365 / Entra</strong> inventory linked</span>
-    <span><strong>Home Lab</strong> manifest linked</span>
+  <div class="footer-proof-band" role="group" aria-label="Portfolio proof status">
+    <span><strong>Evidence</strong> source mapped</span>
+    <span><strong>Claims</strong> classified</span>
+    <span><strong>Documents</strong> hashed</span>
+    <span><strong>Limits</strong> visible</span>
   </div>
-
   <div class="footer-divider" aria-hidden="true"></div>
-
   <div class="footer-grid">
     <div class="footer-brand">
       <img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="56" height="56" decoding="async">
       <p><strong>Jeremy Fontenot</strong></p>
-      <p>Evidence-first IT support and systems administration portfolio focused on Microsoft 365, Entra, Windows Server, Active Directory, troubleshooting, automation, and documentation.</p>
+      <p>Experienced Service Desk and IT Support professional building toward systems administration and infrastructure operations through evidence-backed lab work, documentation, and validation.</p>
     </div>
     <div class="footer-links">
       <h2 class="footer-heading">Primary Navigation</h2>
-      <a href="./index.html">Home</a>
-      <a href="./projects.html">Projects</a>
-      <a href="./on-prem-home-lab.html">On-Prem Home Lab</a>
-      <a href="./proof.html">Proof</a>
-      <a href="./dashboard.html">Dashboard</a>
-      <a href="./resume.html">Resume</a>
-      <a href="./contact.html">Contact</a>
+      <a href="./index.html">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a>
     </div>
     <div class="footer-links">
       <h2 class="footer-heading">Evidence Links</h2>
-      <a href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv">Microsoft 365 / Entra proof inventory</a>
-      <a href="./on-prem-home-lab.html">On-Prem Home Lab case study</a>
-      <a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/manifest.json">On-Premises Home Lab evidence manifest</a>
-      <a href="./evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx">IP-Verified APA Home Lab documentation (.docx)</a>
+      <a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json">Current home-lab manifest</a>
+      <a href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx">Download the Professional Home Lab Documentation (.docx)</a>
+      <a href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv">Microsoft 365 proof inventory</a>
+      <a href="./artifacts/site-audit/screenshot-review.md">Screenshot evidence review</a>
     </div>
   </div>
-
-  <p class="footer-meta">Dashboard metrics are captured evidence counts only; live telemetry and production impact are not claimed.</p>
+  <p class="credibility">Proof boundary: public claims are limited to sanitized repository artifacts, screenshots, inventories, validation summaries, document hashes, and stated limitations. Personal lab evidence is not presented as employer production administration.</p>
+  <p class="footer-meta">Service Desk / IT Support / Microsoft 365 / Entra ID / Active Directory / Windows Server / Linux / PowerShell / Evidence Governance</p>
 </footer>
 </body>
 </html>

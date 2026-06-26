@@ -1,10 +1,10 @@
 [
   {
-    "id": "projects-on-prem-home-lab-validation-document-2026-06-24",
-    "title": "On-Premises Home Lab Infrastructure Validation",
-    "summary": "IP-verified APA-formatted Word document validating the personal Proxmox, pfSense, Windows Server, Active Directory, VLAN 30 Linux01 segmentation, OpenVPN VPN-only RDP, centralized pfSense logging, restore checks, thin-pool monitoring, backup, and evidence-integrity work completed through June 24, 2026.",
-    "path": "evidence-library/projects/on-prem-home-lab/Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx",
-    "originalSourcePath": "Jeremy_Fontenot_On_Premises_Home_Lab_Documentation_IP_Verified_2026-06-24.docx",
+    "id": "projects-on-prem-home-lab-professional-documentation",
+    "title": "Professional Home Lab Documentation",
+    "summary": "New APA-formatted Word document summarizing the personal Proxmox, pfSense, Windows Server, Active Directory, VLAN 30 Linux01 segmentation, OpenVPN management path, logging, backup configuration, retained restore checks, evidence integrity, and known limitations.",
+    "path": "assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
+    "originalSourcePath": "newly authored from current validated state evidence",
     "category": "projects",
     "subcategory": "on-prem-home-lab",
     "proofType": "document",
@@ -13,8 +13,8 @@
     "relatedSkill": "Infrastructure",
     "tags": ["home-lab", "proxmox", "active-directory", "linux", "vlan-30", "openvpn", "vpn-only-rdp", "centralized-logging", "backup", "sha-256"],
     "fileType": "docx",
-    "confidenceLevel": "validated-2026-06-24",
-    "preservationStatus": "VALIDATED PUBLIC PROOF"
+    "confidenceLevel": "Technical Proof",
+    "preservationStatus": "CURRENT PUBLIC PROOF"
   },
   {
     "id": "projects-on-prem-home-lab-evidence-manifest-2026-06-21",

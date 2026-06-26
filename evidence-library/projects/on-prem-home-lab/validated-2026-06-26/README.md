@@ -122,4 +122,4 @@ The public site does not publish the root backup path, raw diagnostic JSON, comp
 - TCP reachability is not complete service validation.
 - The read-only baseline does not authenticate to remote systems or prove administrative access.
 - Retained isolated restore startup checks do not prove recurring disaster-recovery assurance, RTO, or RPO.
-- Historical June 21 evidence and retained June 24 documentation remain separate evidence layers from this June 26 operations validation.
+- Historical June 21 evidence and retained June 24 documentation remain separate evidence layers from this Current operations validation.

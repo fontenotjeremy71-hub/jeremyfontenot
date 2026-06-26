@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-06-26T13:47:09-05:00",
+  "website_commit_at_generation": "a95259d90717695acebf8840d740fde178adda8a",
+  "home_lab_source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+  "artifacts": [
+    {
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+      "original_source_path": "docs/architecture/home-lab-source-of-truth.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-source-of-truth.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata",
+      "sanitization_performed": "Public copy avoids retired marketing label; no secrets added.",
+      "sha256_hash": "60db14ff8e77c5a3c29924c1d608be61eb93943b7a43037c767644e29462fbc6",
+      "claim_supported": "Current supported architecture and historical/stale value handling.",
+      "limitations": "Does not rewrite raw historical evidence.",
+      "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
+    },
+    {
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+      "original_source_path": "evidence/home-lab-source-reconciliation-20260626-012606.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-source-reconciliation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata",
+      "sanitization_performed": "Public copy avoids retired marketing label; no secrets added.",
+      "sha256_hash": "f6ac60580b3682efa46e951d755f8baefd86cc4785f4843447b1b9a73221d0a0",
+      "claim_supported": "Current Proxmox, DNS, route, VPN-path, backup, and conflict reconciliation evidence.",
+      "limitations": "TCP timeouts remain observations only.",
+      "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
+    },
+    {
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+      "original_source_path": "evidence/home-lab-inventory-validation-20260626-010601.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Tested",
+      "capture_timestamp": "Retained from source evidence metadata",
+      "sanitization_performed": "Public copy avoids retired marketing label; no secrets added.",
+      "sha256_hash": "36937ca1bc4c01c4f8fce7788b4a21cf7f120f96e09f5091833ab5d68afb4155",
+      "claim_supported": "Read-only inventory, route, DNS, and repository validation results.",
+      "limitations": "Does not validate every service or guest internal state.",
+      "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
+    },
+    {
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+      "original_source_path": "evidence/linux01-sssd-remediation-20260626-110159.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/linux01-sssd-remediation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata",
+      "sanitization_performed": "Public copy avoids retired marketing label; no secrets added.",
+      "sha256_hash": "04773570fbe305353f5eb370b8f9629ac335e35a7bef7151a2cbb98d7371cc49",
+      "claim_supported": "Linux01 SSSD remediation and post-remediation validation.",
+      "limitations": "Represents personal lab remediation, not employer infrastructure.",
+      "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
+    },
+    {
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+      "original_source_path": "docs/recovery/backup-and-restore-validation.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/backup-and-restore-validation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Tested / Limitation",
+      "capture_timestamp": "Retained from source evidence metadata",
+      "sanitization_performed": "Public copy avoids retired marketing label; no secrets added.",
+      "sha256_hash": "66d0e4a7bef66abf7240feb19508c825b88350e46c926bcd2b169255a041e592",
+      "claim_supported": "Backup job visibility and retained isolated restore documentation boundary.",
+      "limitations": "No recurring DR, RTO, or RPO assurance.",
+      "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
+    },
+    {
+      "source_repository": "fontenotjeremy71-hub/jeremyfontenot",
+      "source_commit": "a95259d90717695acebf8840d740fde178adda8a",
+      "original_source_path": "generated from current public-safe evidence and source summaries",
+      "public_destination_path": "assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
+      "target_system": "Home lab documentation",
+      "evidence_classification": "Technical Proof",
+      "capture_timestamp": "2026-06-26T13:47:09-05:00",
+      "sanitization_performed": "Newly authored public-safe document; no secrets included.",
+      "sha256_hash": "737630d7182ebb7d685604a7f8ce38a65834b36126bf7243232f0d83b695b2f5",
+      "claim_supported": "Professional APA home-lab documentation is published and hash-verifiable.",
+      "limitations": "Document summarizes evidence; raw evidence remains authoritative for specific command output.",
+      "reviewer_notes": "Mirrored in the evidence library for reviewer access."
+    }
+  ]
+}

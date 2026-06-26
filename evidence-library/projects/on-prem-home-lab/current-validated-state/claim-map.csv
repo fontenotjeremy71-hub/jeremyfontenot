@@ -1,0 +1,6 @@
+claim,classification,supporting_artifact,limitation
+Proxmox VE 9.2.3 and four primary VMs are current supported state.,Validated,evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-source-of-truth.md,"Current records are repository evidence, not live public telemetry."
+Linux01 is currently treated as VLAN 30 at 10.10.30.20/24.,Validated,evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-source-reconciliation.md,Older 10.10.20.x Linux evidence is historical.
+Backup job configuration is visible for VMs 100/200/300/400 on backup-hdd.,Tested,evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/backup-and-restore-validation.md,"Does not prove recurring restore assurance, RTO, or RPO."
+Linux01 SSSD remediation is documented as remediated and validated.,Validated,evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/linux01-sssd-remediation.md,Personal lab only.
+Jeremy has employer production systems-administrator experience.,Limitation,Not claimed,Professional positioning remains Service Desk and IT Support progressing toward infrastructure operations.

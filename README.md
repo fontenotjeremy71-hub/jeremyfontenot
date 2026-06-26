@@ -1,62 +1,22 @@
-# Jeremy Fontenot Portfolio Repository
+# Jeremy Fontenot Portfolio
 
-![Repository Validation](https://github.com/jeremyfontenot/JeremyFontenot.github.io/actions/workflows/validation.yml/badge.svg)
+Static, evidence-first professional portfolio for Jeremy Fontenot.
 
-Production portfolio and engineering repository for Jeremy Fontenot.
+## Source of Truth
 
-## Overview
+- Website repository: `https://github.com/fontenotjeremy71-hub/jeremyfontenot`
+- Public site: `https://jeremyfontenot.online`
+- Deployment: GitHub Pages workflow from `main`
+- Home-lab source material: private operations repository, copied only as sanitized public evidence
 
-This repository contains:
-- public portfolio website assets
-- technical project documentation
-- evidence-backed implementation examples
-- validation automation
-- GitHub Actions CI workflows
-- operational engineering scripts
+## Current Public Evidence
 
-## Repository Structure
+- Home-lab case study: `on-prem-home-lab.html`
+- Proof index: `proof.html`
+- Repository-derived dashboard: `dashboard.html`
+- Current home-lab manifest: `evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json`
+- Professional DOCX: `assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx`
 
-| Folder | Purpose |
-|---|---|
-| .github | GitHub Actions and repository automation |
-| assets | Production frontend assets |
-| docs | Technical project documentation |
-| evidence-library | Public proof and evidence artifacts |
-| scripts | Validation, automation, deployment, and tooling scripts |
+## Validation
 
-## Validation Framework
-
-Validation scripts are located in:
-
-```text
-scripts/validation/
-```
-
-Current validation coverage:
-- repository structure
-- JSON validation
-- HTML validation
-- internal link validation
-- PowerShell syntax validation
-
-## GitHub Actions
-
-Repository validation workflow:
-
-```text
-.github/workflows/validation.yml
-```
-
-## Website
-
-Public site:
-
-https://jeremyfontenot.online
-
-## Standards
-
-- Small focused commits
-- Validation before deployment
-- Structured automation
-- Evidence-backed technical documentation
-- CI/CD-first workflow design
+Use the repo-local scripts in `scripts/validation` for HTML, JSON, sitemap, SEO, accessibility, link, evidence, screenshot, PowerShell, and repository-structure checks.
