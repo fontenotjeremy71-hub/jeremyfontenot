@@ -245,7 +245,7 @@ def build_pages() -> None:
     ])}</div>
   </section>
   <section class="section" aria-labelledby="projects-title">
-    <div class="section-head reveal"><p class="eyebrow">Selected Evidence-Backed Projects</p><h2 id="projects-title">Five projects, each tied to proof instead of placeholder claims.</h2></div>
+    <div class="section-head reveal"><p class="eyebrow">Selected Evidence-Backed Projects</p><h2 id="projects-title">Five projects, each tied to reviewer-ready proof.</h2></div>
     <div class="evidence-focus-grid reveal">{cards([
       ("01", "On-Premises Home Lab and Operations Validation", "Current supported state includes Proxmox VE 9.2.3, pfSense, DC01, WS01, Linux01 on VLAN 30, OpenVPN management path, backup configuration, and documented limitations.", '<a class="evidence-link" href="./on-prem-home-lab.html"><span>case study</span>Open</a>'),
       ("02", "Microsoft 365 and Entra Administration Evidence", "Repository-local exports and screenshots support tenant, domain, user, group, role, license, sign-in, audit, and Conditional Access review claims.", '<a class="evidence-link" href="./proof.html#m365-proof"><span>proof</span>Open</a>'),
