@@ -341,7 +341,7 @@ def screenshot_figures() -> str:
     html = []
     for file, title, caption in shots:
         path = f"./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/{file}"
-        html.append(f'<figure class="screenshot-card"><a href="{path}"><img src="{path}" loading="lazy" decoding="async" alt="{caption}"></a><figcaption><strong>{title}.</strong> {caption} <a href="{path}">Open full evidence</a>.</figcaption></figure>')
+        html.append(f'<figure class="screenshot-card"><a class="screenshot-preview" href="{path}"><img src="{path}" loading="lazy" decoding="async" alt="{caption}"></a><figcaption><strong>{title}.</strong> {caption} <a class="evidence-open-link" href="{path}">Open full evidence</a>.</figcaption></figure>')
     return "".join(html)
 
 
@@ -365,14 +365,21 @@ def proof_entries() -> str:
 def metrics() -> str:
     manifest_count = len(json.loads((CURRENT / "manifest.json").read_text(encoding="utf-8"))["artifacts"])
     shot_count = len(list((PUBLIC_EVIDENCE / "validated-2026-06-21" / "screenshots").glob("*.png")))
-    doc_hash = sha256(PUBLIC_DOCX)[:12]
+    full_doc_hash = sha256(PUBLIC_DOCX)
+    doc_hash = full_doc_hash[:12]
     items = [
         ("Systems", "4", "Primary VMs in current supported state"),
         ("Artifacts", str(manifest_count), "Current-state manifest records"),
         ("Screenshots", str(shot_count), "Home-lab public screenshot files"),
         ("DOCX", doc_hash, "Published document hash prefix"),
     ]
-    return "".join(f'<article class="metric"><strong>{value}</strong><span>{label}: {note}</span></article>' for label, value, note in items)
+    html = []
+    for label, value, note in items:
+        if label == "DOCX":
+            html.append(f'<article class="metric technical-metric"><strong class="metric-identifier" title="Full SHA-256: {full_doc_hash}"><span aria-hidden="true">{value}</span><span class="sr-only">Full DOCX SHA-256: {full_doc_hash}</span></strong><span>{label}: {note}</span></article>')
+        else:
+            html.append(f'<article class="metric"><strong>{value}</strong><span>{label}: {note}</span></article>')
+    return "".join(html)
 
 
 def build_evidence() -> list[dict]:
