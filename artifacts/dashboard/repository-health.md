@@ -1,6 +1,6 @@
 # Repository Health Dashboard
 
-Generated: 2026-06-21 23:20:01 UTC
+Generated: 2026-06-27 01:53:41 UTC
 
 ## Governance Coverage
 
@@ -9,7 +9,7 @@ Generated: 2026-06-21 23:20:01 UTC
 | Validation scripts | 15 |
 | Lighthouse reports | 19 |
 | Evidence index entries | 31 |
-| Evidence hash entries | 1027 |
+| Evidence hash entries | 1040 |
 
 ## Validation Scripts
 
@@ -36,20 +36,20 @@ Generated: 2026-06-21 23:20:01 UTC
 - lighthouse_enterprise_home_20260531.json: performance=0.99 accessibility=1 best-practices=1 seo=1
 - lighthouse_enterprise_projects_20260531.json: performance=0.98 accessibility=1 best-practices=1 seo=1
 - lighthouse_enterprise_proof_20260531.json: performance=0.97 accessibility=1 best-practices=1 seo=1
-- lighthouse_home_after.json: performance=1 accessibility=1 best-practices=1 seo=1
 - lighthouse_homelab_case_desktop_20260531.json: performance=1 accessibility=1 best-practices=1 seo=1
 - lighthouse_homelab_home_desktop_20260531.json: performance=1 accessibility=1 best-practices=1 seo=1
 - lighthouse_homelab_home_mobile_20260531.json: performance=0.85 accessibility=1 best-practices=1 seo=1
+- lighthouse_home_after.json: performance=1 accessibility=1 best-practices=1 seo=1
 - lighthouse_local_-desktop.json: performance=0.98 accessibility=1 best-practices=1 seo=1
 - lighthouse_projects_desktop.json: performance=0.98 accessibility=1 best-practices=1 seo=1
 - lighthouse_projects_mobile.json: performance=1 accessibility=1 best-practices=1 seo=1
+- lighthouse_proof_desktop.json: performance=0.75 accessibility=0.98 best-practices=1 seo=1
 - lighthouse_proof_desktop_after.json: performance=0.74 accessibility=0.98 best-practices=1 seo=1
 - lighthouse_proof_desktop_after2.json: performance=0.75 accessibility=0.98 best-practices=1 seo=1
 - lighthouse_proof_desktop_latest.json: performance=1 accessibility=1 best-practices=0.77 seo=1
-- lighthouse_proof_desktop.json: performance=0.75 accessibility=0.98 best-practices=1 seo=1
+- lighthouse_proof_mobile.json: performance=0.75 accessibility=0.98 best-practices=1 seo=1
 - lighthouse_proof_mobile_after.json: performance=0.75 accessibility=0.98 best-practices=1 seo=1
 - lighthouse_proof_mobile_after2.json: performance=0.67 accessibility=0.98 best-practices=1 seo=1
-- lighthouse_proof_mobile.json: performance=0.75 accessibility=0.98 best-practices=1 seo=1
 
 ## Status
 

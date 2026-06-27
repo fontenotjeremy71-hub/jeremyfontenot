@@ -1,10 +1,17 @@
 # Current Validated State
 
-This public evidence folder summarizes reviewer-safe records from the private home-lab operations repository without exposing private repository links. Public claims use stable classifications instead of month-based proof labels.
+This public evidence folder summarizes reviewer-safe records from the private home-lab operations repository without exposing private repository links. Public claims use stable classifications instead of date-based proof labels.
+
+## Document
+
+- Title: Jeremy Fontenot’s On-Premises Home Lab Documentation
+- Filename: `Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx`
+- Download description: Download the Professional Home Lab Documentation (.docx)
+- SHA-256: `D7E81A06DCFBD2E91EB8F52A02BDC795AC5B7084A70F343233F1104CCD297BDB`
 
 ## Source Commits
 
-- Website source commit at audit start: `a95259d90717695acebf8840d740fde178adda8a`
+- Website source commit at generation: `effdbeb0ed8d632a0b0c93328cd593cf85c3eb46`
 - Home-lab source commit: `3d42a4808a6a0607d78f4f4e7fd1e71783729a6b`
 
 ## Supported Public Claims

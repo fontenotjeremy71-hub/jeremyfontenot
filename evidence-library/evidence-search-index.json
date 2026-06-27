@@ -1,7 +1,7 @@
 [
   {
     "id": "projects-on-prem-home-lab-professional-documentation",
-    "title": "Professional Home Lab Documentation",
+    "title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
     "summary": "New APA-formatted Word document summarizing the personal Proxmox, pfSense, Windows Server, Active Directory, VLAN 30 Linux01 segmentation, OpenVPN management path, logging, backup configuration, retained restore checks, evidence integrity, and known limitations.",
     "path": "assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
     "originalSourcePath": "newly authored from current validated state evidence",

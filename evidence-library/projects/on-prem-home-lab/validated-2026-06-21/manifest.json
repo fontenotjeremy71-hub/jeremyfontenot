@@ -11,9 +11,11 @@
     "publication_date": "2026-06-21",
     "project": "On-Premises Home Lab",
     "category": "document",
-    "status": "validated",
-    "description": "APA-formatted infrastructure validation document covering architecture, Windows Server, Linux01, backups, limitations, and evidence integrity.",
-    "redactions": "None; published byte-for-byte from the supplied source document."
+    "status": "historical",
+    "description": "Historical compatibility copy retained for audit chronology. Current reviewers should use Jeremy Fontenot\u2019s On-Premises Home Lab Documentation.",
+    "redactions": "None; published byte-for-byte from the supplied source document.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-readme-md",
@@ -29,7 +31,9 @@
     "category": "index",
     "status": "validated",
     "description": "Human-readable index for the June 21, 2026 curated home-lab evidence set.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-redaction-log-md",
@@ -45,7 +49,9 @@
     "category": "index",
     "status": "validated",
     "description": "Record of public-release redactions, exclusions, and claim boundaries.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-dc01-active-directory-fsmo-validation-png",
@@ -61,7 +67,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "DC01 command output validating the AD forest, domain, global catalog role, and all five FSMO roles.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-dc01-dhcp-scope-options-leases-redacted-png",
@@ -77,7 +85,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "DC01 DHCP service, authorized server, scope, options, statistics, and lease validation with client identifiers redacted.",
-    "redactions": "Virtual NIC client identifiers redacted."
+    "redactions": "Virtual NIC client identifiers redacted.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-dc01-dns-forward-reverse-validation-png",
@@ -93,7 +103,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "DC01 DNS service, AD-integrated zone, and forward/reverse lookup validation.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-dc01-group-policy-validation-png",
@@ -109,7 +121,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "DC01 Group Policy Object inventory and domain/OU link validation.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-linux01-evidence-archive-sha256-redacted-png",
@@ -125,7 +139,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "Linux01 evidence archive creation and SHA-256 verification with the local home path redacted.",
-    "redactions": "Local home-directory path redacted."
+    "redactions": "Local home-directory path redacted.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-linux01-login-system-state-png",
@@ -141,7 +157,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "Linux01 successful login screen showing Ubuntu Server, kernel, and current IPv4 address.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-linux01-scp-transfer-validation-png",
@@ -157,7 +175,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "Successful SCP transfer of the Linux01 evidence archive to the Proxmox host; no entered credential is visible.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-linux01-ubuntu-server-installation-type-png",
@@ -173,7 +193,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "Ubuntu Server installation type selected for Linux01 VM 400.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-screenshots-linux01-vm-configuration-confirmation-png",
@@ -189,7 +211,9 @@
     "category": "screenshot",
     "status": "validated",
     "description": "Linux01 VM 400 configuration confirmation without a displayed MAC address.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-dc01-snapshot-validation-txt",
@@ -205,7 +229,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "DC01 snapshot listing and retained milestone description.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-pfsense-snapshot-validation-sanitized-txt",
@@ -221,7 +247,9 @@
     "category": "text evidence",
     "status": "partially validated",
     "description": "Sanitized pfSense snapshot listing recording a retained firewall and NAT configuration milestone.",
-    "redactions": "Upstream administrative-source address omitted; exclusive source behavior was not independently tested."
+    "redactions": "Upstream administrative-source address omitted; exclusive source behavior was not independently tested.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-evidence-integrity-validation-txt",
@@ -237,7 +265,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Known archive hashes and the calculated Word-document hash, size, and MIME type.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-linux01-ad-integration-validation-txt",
@@ -253,7 +283,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Linux01 realm membership, domain-user resolution, group membership, and SSSD service state.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-linux01-backup-validation-txt",
@@ -269,7 +301,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Linux01 scheduled-backup membership and archive inventory.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-linux01-dns-validation-txt",
@@ -285,7 +319,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Linux01 forward/reverse DNS, domain-controller lookup, and resolver configuration.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-linux01-kerberos-validation-sanitized-txt",
@@ -301,7 +337,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Linux01 Kerberos ticket validation with the temporary cache identifier redacted.",
-    "redactions": "Temporary Kerberos cache identifier redacted."
+    "redactions": "Temporary Kerberos cache identifier redacted.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-linux01-maintenance-agent-validation-txt",
@@ -317,7 +355,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Linux01 kernel, update, reboot, and QEMU guest-agent validation.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-linux01-security-validation-txt",
@@ -333,7 +373,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Linux01 UFW, SSH, sudoers syntax, and delegated sudo validation.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-linux01-snapshot-validation-txt",
@@ -349,7 +391,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Linux01 snapshot listing and retained milestone description.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-proxmox-backup-validation-txt",
@@ -365,7 +409,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Scheduled backup job configuration, storage capacity, and archive inventory for VMs 100, 200, 300, and 400.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-proxmox-host-validation-txt",
@@ -381,7 +427,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Command-generated Proxmox host, version, operating-system, CPU, memory, storage, and uptime validation.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-proxmox-network-validation-sanitized-txt",
@@ -397,7 +445,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Public excerpt of Proxmox management addressing, routing, and vmbr0/vmbr1 bridge configuration.",
-    "redactions": "Link-local IPv6, MAC addresses, and unrelated output omitted."
+    "redactions": "Link-local IPv6, MAC addresses, and unrelated output omitted.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-proxmox-storage-validation-txt",
@@ -413,7 +463,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Command-generated Proxmox storage, thin-pool, volume, and backup-disk validation.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-vm-inventory-sanitized-txt",
@@ -429,7 +481,9 @@
     "category": "text evidence",
     "status": "validated",
     "description": "Safe VM inventory summary for VMs 100, 200, 300, and 400.",
-    "redactions": "MAC addresses, UUIDs, VM generation identifiers, and creation timestamps omitted."
+    "redactions": "MAC addresses, UUIDs, VM generation identifiers, and creation timestamps omitted.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   },
   {
     "id": "validated-2026-06-21-text-ws01-snapshot-validation-txt",
@@ -445,6 +499,8 @@
     "category": "text evidence",
     "status": "validated",
     "description": "WS01 snapshot listing and retained milestone description.",
-    "redactions": "None."
+    "redactions": "None.",
+    "current_document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+    "current_document_url": "https://jeremyfontenot.online/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"
   }
 ]

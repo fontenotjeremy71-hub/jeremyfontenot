@@ -1,15 +1,23 @@
-# Screenshot Review
+# Screenshot Evidence Review
 
-Reviewed public home-lab screenshots referenced by the rebuilt HTML and evidence manifests. Full-size originals remain unchanged under `evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/`.
+Responsive website captures are excluded from technical evidence counts.
 
-## Result
+## Totals
 
-- Screenshot records mapped: 9
-- Relevant images are used as proof, not decoration.
-- Tall terminal screenshots are linked to full-size originals from previews.
-- Captions and alt text were rewritten to avoid claiming more than the visible command output supports.
-- Redacted filenames and manifest notes remain respected.
+- Total Technical Screenshots Reviewed: 26
+- Exact Support Count: 12
+- Partial Support Count: 6
+- Contextual Only Count: 8
+- Historical Count: 26
+- Stale Count: 0
+- Duplicate Count: 0
+- Irrelevant Count: 0
+- Unsafe To Publish Count: 0
+- Unable To Validate Count: 0
+- Previews Created: 26
+- Screenshots Removed: 0
+- Screenshots Replaced: 0
 
-## Limitation
+## Review Method
 
-This review is source-image and page-placement based. It does not create new screenshots of private infrastructure and does not alter raw evidence.
+Each technical screenshot was opened at full raster resolution through the image pipeline, dimensions were recorded, and a reviewer preview was generated. Claims were scoped to visible command or UI context and current-state summaries were preferred where historical screenshots conflict with current evidence.

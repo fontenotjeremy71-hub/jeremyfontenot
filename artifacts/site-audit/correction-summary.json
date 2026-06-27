@@ -1,0 +1,53 @@
+{
+  "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+  "document_filename": "Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
+  "page_count": 19,
+  "docx_sha256": "d7e81a06dcfbd2e91eb8f52a02bdc795ac5b7084a70f343233f1104ccd297bdb",
+  "rendered_pages": [
+    "artifacts/site-audit/docx-render-final/page-1.png",
+    "artifacts/site-audit/docx-render-final/page-10.png",
+    "artifacts/site-audit/docx-render-final/page-11.png",
+    "artifacts/site-audit/docx-render-final/page-12.png",
+    "artifacts/site-audit/docx-render-final/page-13.png",
+    "artifacts/site-audit/docx-render-final/page-14.png",
+    "artifacts/site-audit/docx-render-final/page-15.png",
+    "artifacts/site-audit/docx-render-final/page-16.png",
+    "artifacts/site-audit/docx-render-final/page-17.png",
+    "artifacts/site-audit/docx-render-final/page-18.png",
+    "artifacts/site-audit/docx-render-final/page-19.png",
+    "artifacts/site-audit/docx-render-final/page-2.png",
+    "artifacts/site-audit/docx-render-final/page-3.png",
+    "artifacts/site-audit/docx-render-final/page-4.png",
+    "artifacts/site-audit/docx-render-final/page-5.png",
+    "artifacts/site-audit/docx-render-final/page-6.png",
+    "artifacts/site-audit/docx-render-final/page-7.png",
+    "artifacts/site-audit/docx-render-final/page-8.png",
+    "artifacts/site-audit/docx-render-final/page-9.png"
+  ],
+  "section_coverage_count": 46,
+  "screenshot_totals": {
+    "total_technical_screenshots_reviewed": 26,
+    "exact_support_count": 12,
+    "partial_support_count": 6,
+    "contextual_only_count": 8,
+    "historical_count": 26,
+    "stale_count": 0,
+    "duplicate_count": 0,
+    "irrelevant_count": 0,
+    "unsafe_to_publish_count": 0,
+    "unable_to_validate_count": 0,
+    "previews_created": 26,
+    "screenshots_removed": 0,
+    "screenshots_replaced": 0
+  },
+  "lighthouse_report_count": 35,
+  "structure": {
+    "core_title_exact": true,
+    "heading_style_count": 46,
+    "bookmark_count": 46,
+    "internal_hyperlink_count": 90,
+    "toc_hyperlinks_to_headings": 90,
+    "external_relationships": 0,
+    "prohibited_title_present": false
+  }
+}

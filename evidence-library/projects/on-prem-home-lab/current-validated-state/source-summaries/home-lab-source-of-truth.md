@@ -10,7 +10,7 @@ Current as of the 2026-06-26 read-only reconciliation run.
 2. New timestamped evidence collected during this run.
 3. Current `jeremy-homelab-ops` inventories and evidence.
 4. Current `main` branch of `fontenotjeremy71-hub/jeremyfontenot`.
-5. June 24, 2026 retained portfolio documentation.
+5. June 24, 2026 IP-address-documented portfolio documentation.
 6. June 21, 2026 curated historical evidence.
 7. Currently deployed website content.
 8. Old prompts, summaries, assumptions, or undocumented memory.

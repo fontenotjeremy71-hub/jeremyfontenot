@@ -17,7 +17,7 @@ Read-only Proxmox inventory observed an enabled scheduled backup job:
 
 Storage inventory observed backup storage named `backup-hdd` at `/mnt/pve/backup-hdd`.
 
-The June 24 retained portfolio documentation records isolated startup restore checks for:
+The June 24 IP-address-documented portfolio documentation records isolated startup restore checks for:
 
 - WS01 restored temporarily as VM 500, with the NIC link down before startup.
 - Linux01 restored temporarily as VM 600, with the NIC link down before startup.

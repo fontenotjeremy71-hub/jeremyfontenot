@@ -1,0 +1,278 @@
+[
+  {
+    "required_topic": "Title page",
+    "document_section": "Title page",
+    "page": 1,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Abstract",
+    "document_section": "Abstract",
+    "page": 4,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Purpose and scope",
+    "document_section": "Purpose and Scope",
+    "page": 4,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Environment boundaries",
+    "document_section": "Environment Boundaries",
+    "page": 4,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Evidence methodology",
+    "document_section": "Evidence Methodology",
+    "page": 4,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Evidence classification",
+    "document_section": "Evidence Classification",
+    "page": 5,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Physical server architecture",
+    "document_section": "Physical Server Architecture",
+    "page": 6,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Proxmox virtualization",
+    "document_section": "Proxmox Virtualization",
+    "page": 6,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Storage architecture",
+    "document_section": "Storage Architecture",
+    "page": 7,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "pfSense",
+    "document_section": "pfSense",
+    "page": 7,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Network bridges",
+    "document_section": "Network Bridges",
+    "page": 7,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "VLANs",
+    "document_section": "VLANs",
+    "page": 8,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "VPN and management routing",
+    "document_section": "VPN and Management Routing",
+    "page": 8,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "DC01",
+    "document_section": "DC01",
+    "page": 8,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Active Directory Domain Services",
+    "document_section": "Active Directory Domain Services",
+    "page": 9,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "FSMO roles",
+    "document_section": "FSMO Roles",
+    "page": 9,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "DNS",
+    "document_section": "DNS",
+    "page": 9,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "DHCP",
+    "document_section": "DHCP",
+    "page": 9,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Group Policy",
+    "document_section": "Group Policy",
+    "page": 10,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "File services",
+    "document_section": "File Services",
+    "page": 10,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Security groups and permissions",
+    "document_section": "Security Groups and Permissions",
+    "page": 10,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "WS01",
+    "document_section": "WS01",
+    "page": 10,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Linux01",
+    "document_section": "Linux01",
+    "page": 11,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Linux VLAN placement",
+    "document_section": "Linux VLAN Placement",
+    "page": 11,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Active Directory integration",
+    "document_section": "Active Directory Integration",
+    "page": 11,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "SSSD",
+    "document_section": "SSSD",
+    "page": 11,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Kerberos",
+    "document_section": "Kerberos",
+    "page": 12,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "SSH",
+    "document_section": "SSH",
+    "page": 12,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "UFW",
+    "document_section": "UFW",
+    "page": 12,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "sudo controls",
+    "document_section": "sudo Controls",
+    "page": 12,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "QEMU guest agent",
+    "document_section": "QEMU Guest Agent",
+    "page": 13,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Centralized logging",
+    "document_section": "Centralized Logging",
+    "page": 13,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Backup architecture",
+    "document_section": "Backup Architecture",
+    "page": 13,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Snapshots",
+    "document_section": "Snapshots",
+    "page": 14,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Archive integrity",
+    "document_section": "Archive Integrity",
+    "page": 14,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Restore testing",
+    "document_section": "Restore Testing",
+    "page": 15,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Storage monitoring",
+    "document_section": "Storage Monitoring",
+    "page": 15,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "PowerShell automation",
+    "document_section": "PowerShell Automation",
+    "page": 15,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Read-only operations framework",
+    "document_section": "Read-Only Operations Framework",
+    "page": 15,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Authenticated target-local inventories",
+    "document_section": "Authenticated Target-Local Inventories",
+    "page": 16,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Troubleshooting and remediation",
+    "document_section": "Troubleshooting and Remediation",
+    "page": 16,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Known limitations",
+    "document_section": "Known Limitations",
+    "page": 16,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Skills demonstrated",
+    "document_section": "Skills Demonstrated",
+    "page": 17,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Conclusion",
+    "document_section": "Conclusion",
+    "page": 17,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "References",
+    "document_section": "References",
+    "page": 17,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  },
+  {
+    "required_topic": "Appendices",
+    "document_section": "Appendices",
+    "page": 17,
+    "coverage_note": "Covered as a main heading or appendix matrix entry."
+  }
+]

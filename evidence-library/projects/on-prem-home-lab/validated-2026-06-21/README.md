@@ -1,6 +1,12 @@
 # Validated On-Premises Home Lab Evidence — June 21, 2026
 
-This curated public set supports the [On-Prem Home Lab case study](../../../../on-prem-home-lab.html) with reviewed command output, screenshots, integrity records, and the APA-formatted Word validation document.
+This historical public set supports the [On-Prem Home Lab case study](../../../../on-prem-home-lab.html) with reviewed command output, screenshots, integrity records, and an earlier Word validation document. Current reviewers should use the current professional documentation linked below.
+
+## Current document
+
+- Current title: Jeremy Fontenot’s On-Premises Home Lab Documentation
+- Current file: [`Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx`](../Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx)
+- Current public download: [`./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx`](../../../../assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx)
 
 ## Validation status
 
@@ -11,10 +17,11 @@ This curated public set supports the [On-Prem Home Lab case study](../../../../o
 - Hypervisor: Proxmox VE
 - Primary VMs: pfSense VM 100, DC01 VM 200, WS01 VM 300, and Linux01 VM 400
 
-## Primary document
+## Historical document
 
 - Title: On-Premises Home Lab Infrastructure Validation
 - Public file: `../jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx`
+- Status: historical compatibility copy; use the current document above for public review.
 - Size: 1,400,031 bytes
 - SHA-256: `03a605517e2a6ebeb805b7e0f74bd1ec06c664debbdb39b99e09aecc62e4845a`
 

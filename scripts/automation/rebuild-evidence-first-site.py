@@ -91,7 +91,7 @@ def nav(active: str) -> str:
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href="./index.html"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Evidence-first IT portfolio</small></a>
+    <a class="brand" href="./index.html"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>IT support and infrastructure portfolio</small></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
     <div class="nav-links" id="primary-menu">{links}</div>
   </nav>
@@ -153,7 +153,7 @@ def page(active: str, title: str, description: str, body: str, kind: str = "WebP
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{DOMAIN}/assets/og/og-portfolio.png">
-<meta property="og:image:alt" content="Evidence-first IT support and infrastructure operations portfolio for Jeremy Fontenot">
+<meta property="og:image:alt" content="IT support and infrastructure operations portfolio for Jeremy Fontenot">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{escape(title)}">
 <meta name="twitter:description" content="{escape(description)}">
@@ -225,12 +225,12 @@ def build_pages() -> None:
         <div class="proof-chain" role="group" aria-label="Evidence status"><span>Validated Home Lab</span><span>Current Operations Validation</span><span>Evidence Manifest</span><span>Known Limitations</span></div>
       </div>
       <aside class="review-console evidence-console verification-glow reveal is-visible" aria-label="Infrastructure evidence visual">
-        <div class="console-bar"><span>current verified state</span><span>repo-derived</span></div>
+        <div class="console-bar"><span>supported lab state</span><span>portfolio proof</span></div>
         <div class="lab-proof-stack">
           <a href="./on-prem-home-lab.html"><b>LAB</b><span>Personal on-prem environment</span><em>Proxmox, pfSense, AD DS, Windows, Linux, backups</em></a>
           <a href="./proof.html"><b>MAP</b><span>Claim-to-artifact proof index</span><em>Every strong claim routes to evidence and limitations</em></a>
-          <a href="{DOC_URL}"><b>DOC</b><span>Professional home-lab documentation</span><em>New APA 7 technical portfolio document</em></a>
-          <a href="./dashboard.html"><b>QA</b><span>Repository-derived validation dashboard</span><em>Counts are evidence inventory, not live telemetry</em></a>
+          <a href="{DOC_URL}"><b>DOC</b><span>Professional home-lab documentation</span><em>{DISPLAY_TITLE}</em></a>
+          <a href="./dashboard.html"><b>QA</b><span>Portfolio evidence dashboard</span><em>A concise status view for public artifacts</em></a>
         </div>
       </aside>
     </div>
@@ -256,14 +256,14 @@ def build_pages() -> None:
   <section class="section scope-note-section" aria-labelledby="method-title">
     <div class="scope-note-card reveal"><p class="eyebrow">Evidence Methodology</p><h2 id="method-title">Dates are metadata. Proof comes from artifacts.</h2><p>The site prioritizes commands, authenticated inventories, manifests, hashes, screenshot review, repository validation, source paths, and limitations. Historical timestamps remain in raw evidence where they matter, but public labels use stable proof classifications.</p></div>
   </section>"""
-    write(ROOT / "index.html", page("Home", "Jeremy Fontenot | Service Desk, IT Support, and Infrastructure Evidence", "Evidence-first portfolio for Jeremy Fontenot, an experienced Service Desk and IT Support professional progressing toward systems administration and infrastructure operations.", home, "Person"))
+    write(ROOT / "index.html", page("Home", "Jeremy Fontenot | Service Desk and Infrastructure Operations", "Experienced Service Desk professional actively building evidence and validation toward Systems Administration and Infrastructure Operations.", home, "Person"))
 
     project_items = [
         ("infrastructure operations security", "On-Premises Home Lab and Operations Validation", "Personal nonproduction lab with Proxmox VE 9.2.3, pfSense VM 100, DC01 Windows Server 2022, WS01 Windows workstation, Linux01 Ubuntu 26.04 LTS on VLAN 30, OpenVPN management path evidence, backup job configuration, and current operations reconciliation.", "Validated / Tested / Limitation", "./on-prem-home-lab.html"),
         ("m365 identity cloud", "Microsoft 365 and Entra Administration Evidence", "Personal cloud lab evidence includes tenant/domain exports, users, groups, directory roles, license records, Conditional Access summaries, sign-in activity, audit activity, device inventory, application inventory, and admin-center screenshots.", "Validated / Historical where marked", "./proof.html#m365-proof"),
         ("service desk rca troubleshooting", "Service Desk Troubleshooting and Root Cause Analysis", "Support-oriented incident records emphasize symptoms, scope, troubleshooting steps, root-cause framing, remediation planning, and limits without inventing unsupported impact metrics.", "Implemented / Tested where recorded", "./evidence-library/projects/troubleshooting-rca/rca-report.md"),
         ("automation powershell validation", "PowerShell Automation and Validation", "Repository validation scripts, evidence hash generation, link checks, and read-only baseline tooling show practical automation habits tied to reviewable outputs.", "Tested / Validated", "./evidence-library/projects/powershell-automation/operational-handoff-2026.txt"),
-        ("governance deployment quality", "Repository Governance and Deployment Quality", "Static-site validation, sitemap checks, structured data, document hash records, screenshot review, and deployment workflow records support maintainable publication quality.", "Tested / Repository-derived", "./dashboard.html"),
+        ("governance deployment quality", "Repository Governance and Deployment Quality", "Static-site validation, sitemap checks, structured data, document hash records, screenshot review, and deployment workflow records support maintainable publication quality.", "Tested", "./dashboard.html"),
     ]
     projects = '<section class="page page-hero" aria-labelledby="projects-title"><div class="section-head reveal"><p class="eyebrow">Projects</p><h1 id="projects-title">Evidence-backed work, ordered for hiring review.</h1><p class="lead">Each project states the objective, environment, validation method, exact proof path, classification, limitation, outcome, and professional skill demonstrated.</p></div><div class="project-filter-bar" role="group" aria-label="Project filters"><button class="filter-button is-active" type="button" data-filter="all">All</button><button class="filter-button" type="button" data-filter="infrastructure">Infrastructure</button><button class="filter-button" type="button" data-filter="m365">Microsoft 365</button><button class="filter-button" type="button" data-filter="service">Service Desk</button><button class="filter-button" type="button" data-filter="automation">Automation</button></div><div class="project-systems">'
     for tags, name, summary, classification, link in project_items:
@@ -287,7 +287,7 @@ def build_pages() -> None:
   <section class="section" aria-labelledby="layers-title"><div class="section-head reveal"><p class="eyebrow">Architecture Layers</p><h2 id="layers-title">Current supported state, from hardware to evidence workflow.</h2></div><ol class="lab-timeline reveal"><li><b>01</b><span>Physical host: Dell PowerEdge R710.</span></li><li><b>02</b><span>Hypervisor: Proxmox VE 9.2.3.</span></li><li><b>03</b><span>Storage: backup-hdd at /mnt/pve/backup-hdd.</span></li><li><b>04</b><span>pfSense: VM 100 with LAN and VPN documentation.</span></li><li><b>05</b><span>DC01: Windows Server 2022, AD DS, DNS, DHCP, FSMO roles.</span></li><li><b>06</b><span>WS01 and Linux01: workstation and Ubuntu domain-member evidence.</span></li><li><b>07</b><span>Operations repository: inventories, validation, limitations, and source mapping.</span></li></ol></section>
   <section class="section" aria-labelledby="current-title"><div class="section-head reveal"><p class="eyebrow">Current Verified State</p><h2 id="current-title">What current records support.</h2><p>Linux01 is treated as VLAN 30 at 10.10.30.20/24. Older Linux01 10.10.20.x evidence is historical. Backup storage is shown as backup-hdd. Restore evidence is retained as isolated startup checks, not recurring disaster-recovery assurance.</p></div><div class="lab-proof-detail reveal"><article class="proof-chip verified"><span class="chip-kind">Validated</span><h3>Identity and Windows services</h3><p>DC01 evidence supports AD DS, DNS, DHCP, Group Policy, FSMO roles, and Windows Server 2022 context.</p></article><article class="proof-chip verified"><span class="chip-kind">Validated</span><h3>Linux01 integration</h3><p>Linux01 records support Ubuntu Server 26.04 LTS, VLAN 30 placement, domain membership, SSSD remediation, Kerberos, SSH, UFW, sudo, and QEMU guest agent claims where cited.</p></article><article class="proof-chip limitation"><span class="chip-kind">Limitation</span><h3>Backup and restore</h3><p>Current records validate backup job visibility and retained isolated restore checks. They do not establish recurring restore success, RTO, RPO, or production disaster recovery readiness.</p></article></div></section>
   <section class="section" aria-labelledby="screens-title"><div class="section-head reveal"><p class="eyebrow">Supporting Evidence</p><h2 id="screens-title">Screenshots are placed as evidence, not decoration.</h2></div><div class="evidence-gallery windows-evidence-gallery reveal">{screenshot_figures()}</div></section>
-  <section class="section" aria-labelledby="artifacts-title"><div class="section-head reveal"><p class="eyebrow">Reviewer Artifacts</p><h2 id="artifacts-title">Stable links for current review.</h2></div><div class="artifact-grid reveal"><a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/README.md"><span>README</span><strong>Current validated state</strong><em>Public-safe evidence summary and boundaries.</em></a><a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json"><span>JSON</span><strong>Evidence manifest</strong><em>Hashes, provenance, and classifications.</em></a><a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv"><span>CSV</span><strong>Claim map</strong><em>Claims linked to artifacts and limits.</em></a><a class="artifact-card" href="{DOC_URL}"><span>DOCX</span><strong>{DOC_CTA}</strong><em>New professional APA home-lab paper.</em></a></div></section>"""
+  <section class="section" aria-labelledby="artifacts-title"><div class="section-head reveal"><p class="eyebrow">Reviewer Artifacts</p><h2 id="artifacts-title">Stable links for current review.</h2></div><div class="artifact-grid reveal"><a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/README.md"><span>README</span><strong>Current validated state</strong><em>Public-safe evidence summary and boundaries.</em></a><a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json"><span>JSON</span><strong>Evidence manifest</strong><em>Hashes, provenance, and classifications.</em></a><a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv"><span>CSV</span><strong>Claim map</strong><em>Claims linked to artifacts and limits.</em></a><a class="artifact-card" href="{DOC_URL}"><span>DOCX</span><strong>{DOC_CTA}</strong><em>{DISPLAY_TITLE}</em></a></div></section>"""
     write(ROOT / "on-prem-home-lab.html", page("Home Lab", "Validated Home Lab | Jeremy Fontenot Infrastructure Case Study", "Polished evidence-backed infrastructure case study for Jeremy Fontenot's personal on-premises home lab.", lab, "TechArticle"))
 
     proof = f"""
@@ -298,14 +298,14 @@ def build_pages() -> None:
     write(ROOT / "proof.html", page("Proof", "Proof Index | Jeremy Fontenot Evidence-First Portfolio", "Reviewer-focused proof index organized around claims, classifications, source systems, evidence links, and limitations.", proof, "CollectionPage"))
 
     dashboard = f"""
-  <section class="page page-hero" aria-labelledby="dashboard-title"><div class="section-head reveal"><p class="eyebrow">Repository-Derived Dashboard</p><h1 id="dashboard-title">Evidence counts are inventory, not live telemetry.</h1><p class="lead">This dashboard summarizes static repository artifacts generated from manifests, screenshot review, claim mapping, link validation, document integrity, and source commits.</p></div><div class="metric-grid reveal">{metrics()}</div></section>
+  <section class="page page-hero" aria-labelledby="dashboard-title"><div class="section-head reveal"><p class="eyebrow">Portfolio Evidence Dashboard</p><h1 id="dashboard-title">A concise status view for public artifacts.</h1><p class="lead">This dashboard summarizes static repository artifacts generated from manifests, screenshot review, claim mapping, link validation, document integrity, and source commits.</p></div><div class="metric-grid reveal">{metrics()}</div></section>
   <section class="section" aria-labelledby="dash-details"><div class="section-head reveal"><p class="eyebrow">Validation Coverage</p><h2 id="dash-details">Current review status.</h2></div><div class="dashboard-grid reveal">{cards([
       ("SRC", "Source commit", f"Website source {LOCAL_COMMIT[:7]}; home-lab source {OPS_COMMIT[:7]}.", '<a class="evidence-link" href="./artifacts/site-audit/live-repository-drift.md"><span>audit</span>Open</a>'),
       ("MAP", "Screenshot audit status", "Screenshot map and review records were regenerated from public HTML references and inspected source dimensions.", '<a class="evidence-link" href="./artifacts/site-audit/screenshot-review.md"><span>review</span>Open</a>'),
       ("DOC", "Document integrity status", "New DOCX is published to assets/documents and mirrored in the evidence library with a SHA-256 manifest entry.", f'<a class="evidence-link" href="{DOC_URL}"><span>docx</span>Download</a>'),
       ("LIM", "Unresolved limitations", "Backup restore assurance, production scale, employer administration, and broad security assurance are intentionally excluded.", '<a class="evidence-link" href="./proof.html#home-lab-proof"><span>proof</span>Open</a>'),
     ])}</div></section>"""
-    write(ROOT / "dashboard.html", page("Dashboard", "Dashboard | Repository-Derived Evidence Status", "Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.", dashboard, "WebPage"))
+    write(ROOT / "dashboard.html", page("Dashboard", "Dashboard | Portfolio Evidence Status", "Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.", dashboard, "WebPage"))
 
     resume = """
   <section class="page page-hero" aria-labelledby="resume-title"><div class="section-head reveal"><p class="eyebrow">Resume</p><h1 id="resume-title">Service Desk and IT Support experience with infrastructure growth.</h1><p class="lead">Jeremy is positioned as an experienced support professional moving toward systems administration and infrastructure operations. Personal lab work is clearly separated from professional employment.</p><div class="actions"><a class="button primary" href="./assets/resume/jeremy-fontenot-resume.pdf">Download Resume PDF</a><a class="button" href="./contact.html">Contact</a><a class="button" href="./on-prem-home-lab.html">Review Home Lab</a></div></div></section>
@@ -709,7 +709,7 @@ def build_audit_docs() -> None:
 def update_readme_sitemap() -> None:
     write(ROOT / "README.md", f"""# Jeremy Fontenot Portfolio
 
-Static, evidence-first professional portfolio for Jeremy Fontenot.
+Static professional portfolio for Jeremy Fontenot.
 
 ## Source of Truth
 
@@ -722,8 +722,9 @@ Static, evidence-first professional portfolio for Jeremy Fontenot.
 
 - Home-lab case study: `on-prem-home-lab.html`
 - Proof index: `proof.html`
-- Repository-derived dashboard: `dashboard.html`
+- Portfolio evidence dashboard: `dashboard.html`
 - Current home-lab manifest: `evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json`
+- Document title: {DISPLAY_TITLE}
 - Professional DOCX: `assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx`
 
 ## Validation
