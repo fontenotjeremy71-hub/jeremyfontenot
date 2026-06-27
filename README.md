@@ -4,7 +4,7 @@ Static professional portfolio for Jeremy Fontenot.
 
 ## Source of Truth
 
-- Website repository: `https://github.com/fontenotjeremy71-hub/JeremyFontenot.github.io`
+- Website repository: `https://github.com/fontenotjeremy71-hub/jeremyfontenot`
 - Public site: `https://jeremyfontenot.online`
 - Deployment: GitHub Pages workflow from `main`
 - Home-lab source material: private operations repository, copied only as sanitized public evidence

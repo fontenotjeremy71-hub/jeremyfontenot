@@ -440,7 +440,7 @@ SECTIONS = [
     ]),
     ("References", 1, [
         f"Fontenot, J. (2026). Home lab source-of-truth repository records. fontenotjeremy71-hub/jeremy-homelab-ops, commit {HOME_LAB_COMMIT}.",
-        f"Fontenot, J. (2026). Public evidence library and portfolio repository. fontenotjeremy71-hub/JeremyFontenot.github.io, working source {WEBSITE_START_COMMIT}.",
+        f"Fontenot, J. (2026). Public evidence library and portfolio repository. fontenotjeremy71-hub/jeremyfontenot, working source {WEBSITE_START_COMMIT}.",
         "American Psychological Association. (2020). Publication manual of the American Psychological Association (7th ed.).",
     ]),
     ("Appendices", 1, [
@@ -770,7 +770,7 @@ def generate_current_state_artifacts(doc_hash: str) -> None:
         })
     artifacts.append({
         "document_title": DOC_TITLE,
-        "source_repository": "fontenotjeremy71-hub/JeremyFontenot.github.io",
+        "source_repository": "fontenotjeremy71-hub/jeremyfontenot",
         "source_commit": WEBSITE_START_COMMIT,
         "original_source_path": "generated from current public-safe evidence and source summaries",
         "public_destination_path": rel(DOC_PATH),
@@ -890,7 +890,7 @@ def screenshot_records() -> list[dict]:
             "page": "on-prem-home-lab.html / documentation evidence",
             "section": item["section"],
             "image_path": rel(path),
-            "source_repository": "fontenotjeremy71-hub/JeremyFontenot.github.io",
+            "source_repository": "fontenotjeremy71-hub/jeremyfontenot",
             "source_commit": WEBSITE_START_COMMIT,
             "target_system": "WS01/DC01/Proxmox evidence set",
             "claim_supported": item["description"],
@@ -917,7 +917,7 @@ def screenshot_records() -> list[dict]:
             "page": "on-prem-home-lab.html / proof.html",
             "section": "Supporting Evidence",
             "image_path": rel(path),
-            "source_repository": "fontenotjeremy71-hub/JeremyFontenot.github.io",
+            "source_repository": "fontenotjeremy71-hub/jeremyfontenot",
             "source_commit": WEBSITE_START_COMMIT,
             "target_system": target,
             "claim_supported": claim,
@@ -1038,8 +1038,8 @@ def update_integrity_hashes(doc_hash: str) -> None:
 
 def update_html_and_readme(doc_hash: str) -> None:
     replacements = {
-        "fontenotjeremy71-hub/jeremyfontenot": "fontenotjeremy71-hub/JeremyFontenot.github.io",
-        "https://github.com/fontenotjeremy71-hub/jeremyfontenot": "https://github.com/fontenotjeremy71-hub/JeremyFontenot.github.io",
+        "fontenotjeremy71-hub/JeremyFontenot.github.io": "fontenotjeremy71-hub/jeremyfontenot",
+        "https://github.com/fontenotjeremy71-hub/JeremyFontenot.github.io": "https://github.com/fontenotjeremy71-hub/jeremyfontenot",
         "Jeremy Fontenot | Service Desk, IT Support, and Infrastructure Evidence": "Jeremy Fontenot | Service Desk and Infrastructure Operations",
         "Dashboard | Repository-Derived Evidence Status": "Dashboard | Portfolio Evidence Status",
         "Evidence-first portfolio for Jeremy Fontenot, an experienced Service Desk and IT Support professional progressing toward systems administration and infrastructure operations.": "Experienced Service Desk professional actively building evidence and validation toward Systems Administration and Infrastructure Operations.",
