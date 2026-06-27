@@ -3242,29 +3242,34 @@ body.home-lab-page main > .section:last-child {
 
 /* Home Lab supporting evidence gallery normalization 2026-06-26 */
 body.home-lab-page .evidence-gallery.windows-evidence-gallery {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 1.25rem;
-  align-items: start;
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card,
 body.home-lab-page .windows-evidence-gallery .screenshot-card:nth-child(3),
 body.home-lab-page .windows-evidence-gallery .screenshot-card:nth-child(5) {
-  grid-column: auto;
-}
-
-body.home-lab-page .windows-evidence-gallery .screenshot-card {
   display: flex;
+  flex: 0 1 calc(50% - .625rem);
   flex-direction: column;
-  align-self: start;
-  height: auto;
+  align-self: flex-start;
+  grid-column: auto;
+  width: calc(50% - .625rem);
+  min-width: 0;
+  min-height: 0 !important;
+  height: fit-content !important;
+  margin: 0;
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card > a {
   display: block;
+  flex: 0 0 auto;
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 4 / 3 !important;
   overflow: hidden;
   background: #020617;
 }
@@ -3272,18 +3277,25 @@ body.home-lab-page .windows-evidence-gallery .screenshot-card > a {
 body.home-lab-page .windows-evidence-gallery .screenshot-card img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
   object-position: top center;
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card figcaption {
+  display: block;
+  flex: 0 0 auto;
+  min-height: 0 !important;
   margin: 0;
   padding: .75rem .15rem .2rem;
 }
 
 @media (max-width: 760px) {
-  body.home-lab-page .evidence-gallery.windows-evidence-gallery {
-    grid-template-columns: 1fr;
+  body.home-lab-page .windows-evidence-gallery .screenshot-card,
+  body.home-lab-page .windows-evidence-gallery .screenshot-card:nth-child(3),
+  body.home-lab-page .windows-evidence-gallery .screenshot-card:nth-child(5) {
+    flex-basis: 100%;
+    width: 100%;
   }
 }
