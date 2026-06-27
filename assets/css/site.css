@@ -2514,7 +2514,7 @@ body.home-lab-page .evidence-gallery.windows-evidence-gallery {
   margin-top: 1rem;
 }
 
-body.home-lab-page .windows-evidence-gallery .screenshot-card a {
+body.home-lab-page .windows-evidence-gallery .screenshot-card > a {
   aspect-ratio: 977 / 1403;
 }
 
@@ -2755,7 +2755,7 @@ body.home-lab-page .proof-links {
   overflow: hidden;
 }
 
-.screenshot-card a {
+.screenshot-card > a {
   display: block;
   border-radius: 14px;
   overflow: hidden;
@@ -3298,4 +3298,16 @@ body.home-lab-page .windows-evidence-gallery .screenshot-card figcaption {
     flex-basis: 100%;
     width: 100%;
   }
+}
+/* Home Lab evidence caption-link reset 2026-06-27 */
+body.home-lab-page .windows-evidence-gallery .screenshot-card figcaption a {
+  display: inline;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
 }
