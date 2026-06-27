@@ -3244,7 +3244,7 @@ body.home-lab-page main > .section:last-child {
 body.home-lab-page .evidence-gallery.windows-evidence-gallery {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card,
@@ -3254,38 +3254,36 @@ body.home-lab-page .windows-evidence-gallery .screenshot-card:nth-child(5) {
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  height: auto;
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card > a {
-  display: grid;
-  place-items: center;
+  display: block;
   width: 100%;
-  height: clamp(22rem, 38vw, 30rem);
-  aspect-ratio: auto;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
   background: #020617;
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: top center;
 }
 
 body.home-lab-page .windows-evidence-gallery .screenshot-card figcaption {
   margin: 0;
-  padding: 0 .15rem .15rem;
+  padding: .75rem .15rem .2rem;
 }
 
 @media (max-width: 760px) {
   body.home-lab-page .evidence-gallery.windows-evidence-gallery {
     grid-template-columns: 1fr;
-  }
-
-  body.home-lab-page .windows-evidence-gallery .screenshot-card > a {
-    height: clamp(20rem, 105vw, 32rem);
   }
 }
