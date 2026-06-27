@@ -159,7 +159,7 @@ def page(active: str, title: str, description: str, body: str, kind: str = "WebP
 <meta name="twitter:description" content="{escape(description)}">
 <meta name="twitter:image" content="{DOMAIN}/assets/og/og-portfolio.png">
 <link rel="icon" href="./assets/logos/favicon_64x64.png">
-<link rel="stylesheet" href="./assets/css/site.css">
+<link rel="stylesheet" href="./assets/css/site.css?v=20260627-layout-cache">
 <script src="./assets/js/site.js" defer></script>
 <script type="application/ld+json">{json.dumps(schema(kind, title, description, canonical), separators=(",", ":"))}</script>
 </head>
