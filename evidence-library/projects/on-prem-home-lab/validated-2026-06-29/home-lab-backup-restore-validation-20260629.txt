@@ -1,0 +1,37 @@
+Home Lab Backup and Restore Validation
+Date: 2026-06-29T18:21:57-05:00
+
+VM state:
+      VMID NAME                 STATUS     MEM(MB)    BOOTDISK(GB) PID       
+       100 pfsense-fw           running    4096              32.00 2169124   
+       200 dc01                 running    4096              80.00 1716607   
+       300 ws01                 running    4096              80.00 1759670   
+       400 linux01              running    2048              40.00 2586      
+
+Backup job:
+vzdump: backup-critical-lab-vms
+	compress zstd
+	enabled 1
+	mode snapshot
+	notes-template {{guestname}} backup to internal backup-hdd
+	prune-backups keep-last=4
+	schedule sun 02:00
+	storage backup-hdd
+	vmid 100,200,300,400
+
+
+Backup counts:
+VM 100: 4
+VM 200: 4
+VM 300: 4
+VM 400: 4
+
+Storage:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdb1       916G  127G  743G  15% /mnt/pve/backup-hdd
+
+Restore drill:
+VM 400 backup restored to temporary VM 401
+Temporary VM network isolated before boot
+Ubuntu 26.04 LTS boot and QEMU Guest Agent validated
+Temporary VM 401 shut down and purged successfully
