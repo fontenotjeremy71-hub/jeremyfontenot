@@ -57,6 +57,10 @@ jobs:
         shell: pwsh
         run: .\scripts\validation\validate-html.ps1
 
+      - name: Run automated portfolio discoverability review
+        shell: pwsh
+        run: pwsh -NoProfile -File .\tests\Test-HiringManagerPortfolioReview.ps1
+
       - name: Install screenshot dependencies
         shell: pwsh
         run: |

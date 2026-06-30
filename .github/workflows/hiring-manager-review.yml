@@ -1,0 +1,44 @@
+name: Weekly Portfolio Discoverability Review
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * 1'
+
+jobs:
+  review:
+    name: Run portfolio discoverability review
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Run automated portfolio discoverability review
+        shell: pwsh
+        run: pwsh -NoProfile -File .\tests\Test-HiringManagerPortfolioReview.ps1
+
+      - name: Verify portfolio discoverability reports exist
+        if: always()
+        shell: pwsh
+        run: |
+          $RequiredReports = @(
+            '.\logs\hiring-manager-review\hiring-manager-review.json',
+            '.\logs\hiring-manager-review\hiring-manager-review.csv',
+            '.\logs\hiring-manager-review\hiring-manager-review.md'
+          )
+          $MissingReports = @($RequiredReports | Where-Object { -not (Test-Path -Path $_) })
+          if ($MissingReports.Count -gt 0) {
+            Write-Host 'Missing required hiring-manager review report(s):' -ForegroundColor Red
+            $MissingReports | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+            exit 1
+          }
+          Write-Host 'All required hiring-manager review reports exist.' -ForegroundColor Green
+
+      - name: Upload portfolio discoverability reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hiring-manager-review
+          path: logs/hiring-manager-review
+          if-no-files-found: error
