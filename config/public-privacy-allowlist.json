@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "approvedValues": [
+    {
+      "value": "jeremy_fontenot@outlook.com",
+      "allowedPaths": [
+        "contact.html",
+        "resume.html",
+        "assets/resume/"
+      ],
+      "purpose": "Public professional contact address"
+    },
+    {
+      "value": "jeremyfontenot.online",
+      "allowedPaths": [
+        "contact.html",
+        "resume.html",
+        "assets/resume/"
+      ],
+      "purpose": "Public portfolio domain"
+    }
+  ]
+}
