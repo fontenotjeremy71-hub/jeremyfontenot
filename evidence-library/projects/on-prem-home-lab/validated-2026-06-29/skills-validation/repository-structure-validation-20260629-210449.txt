@@ -1,0 +1,58 @@
+
+[32;1mStatus [0m[32;1m Check                        [0m[32;1m Detail[0m
+[32;1m------ [0m [32;1m-----                        [0m [32;1m------[0m
+PASS    Required repository structure AGENTS.md exists.
+PASS    Required repository structure README.md exists.
+PASS    Required repository structure docs exists.
+PASS    Required repository structure docs/architecture exists.
+PASS    Required repository structure docs/change-plans exists.
+PASS    Required repository structure docs/recovery exists.
+PASS    Required repository structure docs/runbooks exists.
+PASS    Required repository structure evidence exists.
+PASS    Required repository structure inventories exists.
+PASS    Required repository structure logs exists.
+PASS    Required repository structure scripts exists.
+PASS    Required repository structure scripts/active-directory exists.
+PASS    Required repository structure scripts/backup exists.
+PASS    Required repository structure scripts/linux exists.
+PASS    Required repository structure scripts/monitoring exists.
+PASS    Required repository structure scripts/pfsense exists.
+PASS    Required repository structure scripts/proxmox exists.
+PASS    Required repository structure scripts/windows-server exists.
+PASS    Required repository structure tests exists.
+PASS    Required repository structure .github/workflows/validation.yml exists.
+PASS    Required repository structure tests/Test-PortfolioHomeLabDrift.ps1 exists.
+PASS    PowerShell parser             artifacts\target-local-collection\DC01\Invoke-DC01LocalReadOnlyCollection.p.
+PASS    PowerShell parser             artifacts\target-local-collection\WS01\Invoke-WS01LocalReadOnlyCollection.p.
+PASS    PowerShell parser             evidence\framework-validation\validation\test-targets.psd1 parsed without e.
+PASS    PowerShell parser             scripts\active-directory\Get-ADReadOnlyInventory.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\active-directory\Invoke-DC01LocalReadOnlyCollection.ps1 parsed with.
+PASS    PowerShell parser             scripts\backup\Get-BackupStatus.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\linux\Get-LinuxReadOnlyInventory.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\monitoring\Compare-GuestHypervisorState.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\monitoring\HomeLabConnectivityTargets.psd1 parsed without errors.
+PASS    PowerShell parser             scripts\monitoring\Invoke-HomeLabReadOnlyBaseline.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\monitoring\Test-CoreHomeLabServices.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\monitoring\Test-HomeLabConnectivity.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\pfsense\Get-PfSenseReadOnlyInventory.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\proxmox\Get-ProxmoxReadOnlyInventory.ps1 parsed without errors.
+PASS    PowerShell parser             scripts\windows-server\Get-WindowsReadOnlyInventory.ps1 parsed without erro.
+PASS    PowerShell parser             scripts\windows-server\Invoke-WS01LocalReadOnlyCollection.ps1 parsed withou.
+PASS    PowerShell parser             tests\Test-HomeLabBaselineFramework.ps1 parsed without errors.
+PASS    PowerShell parser             tests\Test-PortfolioHomeLabDrift.ps1 parsed without errors.
+PASS    PowerShell parser             tests\Test-RepositoryStructure.ps1 parsed without errors.
+PASS    Git whitespace                git diff --check completed without whitespace errors.
+PASS    Potential-secret detection    No potential secret patterns were detected.
+WARNING Evidence hygiene              evidence\framework-validation does not include a manifest or summary file.
+WARNING Evidence hygiene              evidence\read-only-baseline-20260625-201253 does not include a manifest or .
+PASS    Evidence hygiene              evidence\read-only-baseline-20260625-201313 includes a manifest or summary.
+PASS    Evidence hygiene              evidence\read-only-baseline-20260625-201453 includes a manifest or summary.
+PASS    Evidence hygiene              evidence\read-only-baseline-20260625-201707 includes a manifest or summary.
+WARNING Claim-boundary review         evidence\home-lab-backup-restore-validation-20260629.txt; evidence\linux01-.
+PASS    GitHub Actions workflow       Runs baseline framework validation passed.
+PASS    GitHub Actions workflow       Uses PowerShell 7 passed.
+PASS    GitHub Actions workflow       Runs git diff --check passed.
+PASS    GitHub Actions workflow       Runs portfolio drift validation passed.
+PASS    GitHub Actions workflow       Runs repository validation passed.
+PASS    GitHub Actions workflow       Does not contain tabs passed.
+

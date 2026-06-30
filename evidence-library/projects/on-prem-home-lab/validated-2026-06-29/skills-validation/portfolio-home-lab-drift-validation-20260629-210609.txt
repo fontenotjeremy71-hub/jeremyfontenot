@@ -1,0 +1,16 @@
+
+[32;1mFact                     [0m[32;1m OperationsValue                                                    [0m[32;1m PortfolioValue [0m[32;1m Clas[0m
+[32;1m                         [0m[32;1m                                                                    [0m[32;1m                [0m[32;1m sifi[0m
+[32;1m                         [0m[32;1m                                                                    [0m[32;1m                [0m[32;1m cati[0m
+[32;1m                         [0m[32;1m                                                                    [0m[32;1m                [0m[32;1m on[0m
+[32;1m----                     [0m [32;1m---------------                                                    [0m [32;1m-------------- [0m [32;1m----[0m
+Primary VM IDs            100,200,300,400                                                     100,200,300,400 MAT.
+Linux01 current IP        10.10.30.20/24                                                      10.10.30.20/24  MAT.
+Linux01 VLAN              VLAN 30                                                             VLAN 30         MAT.
+Backup storage identifier backup-hdd                                                          backup-hdd      MAT.
+Backup job target VMs     100,200,300,400                                                     100,200,300,400 MAT.
+Restore-test status       isolated restore checks documented by June 24; not re-run           not found       INS.
+OpenVPN network           10.10.40.0/24                                                       not found       OPE.
+Direct RDP status         direct WAN RDP disabled                                             not found       INS.
+Centralized logging       pfSense selected logs to Linux01 documented; not freshly re-queried not found       INS.
+

@@ -1,0 +1,20 @@
+
+Connectivity summary
+Total tests: 1
+Successful tests: 0
+Unsuccessful tests: 1
+JSON output: logs/framework-validation/<run-id>/validation/connectivity-results-validation.json
+CSV output: logs/framework-validation/<run-id>/validation/connectivity-results-validation.csv
+Markdown output: logs/framework-validation/<run-id>/validation/connectivity-results-validation.md
+
+[32;1mParserValidation            : [0mPassed
+[32;1mTargetConfigurationLoading  : [0mPassed
+[32;1mRequiredResultProperties    : [0mPassed
+[32;1mEvidenceOutputPaths         : [0mPassed
+[32;1mJsonGeneration              : [0mPassed
+[32;1mCsvGeneration               : [0mPassed
+[32;1mMarkdownGeneration          : [0mPassed
+[32;1mTargetOmissionCheck         : [0mPassed
+[32;1mTimeoutDoesNotFailFramework : [0mPassed
+
+
