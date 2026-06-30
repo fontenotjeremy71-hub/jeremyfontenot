@@ -1,0 +1,5 @@
+PublicPath,ArtifactType,CaptureDate,Scope,Classification,ContainsRawIdentifiers,ReviewerPurpose
+public-safe/README.md,Markdown,2026-06-05,Personal Microsoft 365 tenant,Reviewer README,False,Scope boundaries and withholding policy
+public-safe/m365-public-evidence-summary.json,JSON,2026-06-05,Personal Microsoft 365 tenant,Public-safe aggregate summary,False,Machine-readable aggregate evidence
+public-safe/m365-public-evidence-summary.csv,CSV,2026-06-05,Personal Microsoft 365 tenant,Public-safe aggregate summary,False,Recruiter-readable counts and limitations
+public-safe/m365-public-evidence-manifest.csv,CSV,2026-06-05,Personal Microsoft 365 tenant,Manifest,False,Public evidence inventory
