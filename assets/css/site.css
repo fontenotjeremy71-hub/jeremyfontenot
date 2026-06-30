@@ -3342,3 +3342,23 @@ body.home-lab-page main > .section:last-child {
     text-align: left;
   }
 }
+
+/* Projects page: anchor variable-height action groups to the card bottom */
+body.projects-page .project-systems {
+  align-items: stretch;
+}
+
+body.projects-page .project-systems > .project-panel {
+  display: grid;
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  height: 100%;
+}
+
+body.projects-page .project-systems > .project-panel > .evidence-dl {
+  align-self: start;
+}
+
+body.projects-page .project-systems > .project-panel > .proof-links {
+  align-self: end;
+  margin-top: 1.25rem;
+}
