@@ -2338,6 +2338,7 @@ body {
 .contact-route-grid {
   display: grid;
   gap: 1rem;
+  align-items: stretch;
 }
 
 .signal-matrix,
@@ -2362,6 +2363,8 @@ body {
 .route-grid article,
 .contact-route-grid a {
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
   padding: 1rem;
   border: 1px solid rgba(148, 163, 184, .16);
@@ -2412,7 +2415,6 @@ body {
 }
 
 .contact-route-grid a {
-  display: grid;
   gap: .25rem;
   color: var(--text);
 }
@@ -2436,6 +2438,46 @@ body {
 
 .evidence-focus-grid .evidence-link,
 .snapshot-grid .evidence-link {
+  margin-top: auto;
+}
+
+.capability-grid,
+.metric-grid,
+.dashboard-grid,
+.bento-grid,
+.project-systems,
+.proof-stream,
+.lab-proof-detail,
+.artifact-grid {
+  align-items: stretch;
+}
+
+.capability-grid > article,
+.metric-grid > article,
+.dashboard-grid > article,
+.bento-grid > article,
+.project-systems > article,
+.proof-stream > article,
+.lab-proof-detail > article,
+.artifact-grid > a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.proof-stream > article > div {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.capability-card > a:last-child,
+.bento-card > a:last-child,
+.dashboard-grid .evidence-link,
+.project-panel .proof-links,
+.proof-chip .proof-links,
+.contact-route-grid a > em:last-child,
+.artifact-card > em:last-child {
   margin-top: auto;
 }
 
@@ -2554,6 +2596,12 @@ body.home-lab-page .proof-links {
   column-gap: .85rem;
   row-gap: 1rem;
   margin-top: 1.1rem;
+}
+
+body.home-lab-page .lab-proof-detail .proof-links,
+body.home-lab-page .proof-stream .proof-links,
+body.home-lab-page .bento-card > a:last-child {
+  margin-top: auto;
 }
 
 .lab-command-band {
