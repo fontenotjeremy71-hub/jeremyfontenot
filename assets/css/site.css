@@ -3362,3 +3362,49 @@ body.projects-page .project-systems > .project-panel > .proof-links {
   align-self: end;
   margin-top: 1.25rem;
 }
+
+/* Home Lab validation cards: equal-size action buttons */
+body.home-lab-page #powershell-validation .proof-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+body.home-lab-page #powershell-validation .proof-links a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 4rem;
+  padding: 0.8rem 1rem;
+  line-height: 1.35;
+}
+
+/* Proof page: equal-size, bottom-aligned card action regions */
+body.proof-page .proof-stream {
+  align-items: stretch;
+}
+
+body.proof-page .proof-stream > article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body.proof-page .proof-stream .proof-links {
+  display: grid;
+  grid-auto-rows: minmax(2.75rem, auto);
+  align-content: end;
+  gap: 0.65rem;
+  width: 100%;
+  min-height: 9.45rem;
+  margin-top: auto;
+}
+
+body.proof-page .proof-stream .proof-links a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.85rem;
+  line-height: 1.3;
+}
