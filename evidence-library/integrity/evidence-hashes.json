@@ -1,9 +1,9 @@
 [
   {
     "path": "evidence-library\\evidence-source-map.csv",
-    "sha256": "738377C73C25C905F3C4C2E1CDC7311382C55B41F845603B1EBC774666C6444E",
-    "size": 7230,
-    "lastModified": "2026-06-27T03:23:58.9789958Z"
+    "sha256": "714495708EF1BA290B6F903BC76BA5CF4BDC88553BC1678173B843A50C83B796",
+    "size": 10940,
+    "lastModified": "2026-06-30T07:14:13.9243741Z"
   },
   {
     "path": "evidence-library\\index.html",
@@ -5647,33 +5647,81 @@
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\claim-map.csv",
-    "sha256": "4AE6011C6E8CD6E6BFA722A06007C6B93BCCCAB751572DB2957825CB57D12E87",
-    "size": 1503,
-    "lastModified": "2026-06-27T03:23:58.9829963Z"
+    "sha256": "BBFC6D2B42A13C6F8D19151E6CACE239AA6AD5D23745B32F79486D719B6110DF",
+    "size": 5158,
+    "lastModified": "2026-06-30T07:14:40.6896478Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\manifest.csv",
-    "sha256": "3DB8D335325F1C29FF9CF5A0BB7682F70A143044275B891CBA916DC7EFDB94BC",
-    "size": 5223,
-    "lastModified": "2026-06-27T03:23:58.9839960Z"
+    "sha256": "0DC5087DCE8892357E74BDD4A0A056DB385CA8E63AF114CA3546B96A246BF11C",
+    "size": 14556,
+    "lastModified": "2026-06-30T07:14:40.6828927Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\provenance.csv",
-    "sha256": "090030242119717B5742C371C90A4DC0613D97271836B19EB73AEC80C5CD37CC",
-    "size": 571,
-    "lastModified": "2026-06-27T03:23:58.9849955Z"
+    "sha256": "37786C0642CC79215EE566A8585FCCE9FBA3FC859DC802717E4EA178EC532465",
+    "size": 999,
+    "lastModified": "2026-06-30T07:14:40.6856230Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\README.md",
-    "sha256": "DEC3D342B1E870DDDE3818B7132465F04EA0B8B528B763E1802D68FA7A3D5462",
-    "size": 1586,
-    "lastModified": "2026-06-27T03:23:58.9820146Z"
+    "sha256": "ECC6036442AA63018C0CD25A251E89FEC1B51154FF4CD4B098BCB209E2976B06",
+    "size": 3146,
+    "lastModified": "2026-06-30T07:14:55.0974410Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\redaction-log.md",
-    "sha256": "4B03DE3659058CE068CD1F018BF2E4E1736CACBDF0C3B7787AB8EB31E3A781E1",
-    "size": 181,
-    "lastModified": "2026-06-27T03:23:58.9864546Z"
+    "sha256": "A6A58A8855DC306C2E5E72CA2706C21CCC3F78F75B62265C117B1A0A73D81D1E",
+    "size": 723,
+    "lastModified": "2026-06-30T07:14:55.0974410Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\dc01-system-and-role-validation.md",
+    "sha256": "A31DC8DF44FBFB7F71D3F8BFD67B909E09E7CB7ED797A240AD2152AE76CB6CAB",
+    "size": 2306,
+    "lastModified": "2026-06-30T07:07:36.5467987Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\linux01-sssd-remediation-validation.md",
+    "sha256": "18148AEBBBDD89AD9862BDDB3746F585F76235C8193135C6790B4F723F8B924F",
+    "size": 2539,
+    "lastModified": "2026-06-30T07:09:15.4016508Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\linux01-system-network-domain-validation.md",
+    "sha256": "9AD5DC1E939569960DD1EDD58925800086AA6CFD580FDB96964BD6566A78651C",
+    "size": 3080,
+    "lastModified": "2026-06-30T07:07:36.5488114Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\proxmox-backup-configuration.md",
+    "sha256": "6ABA8F7CE403A3EB2E7435B56ED81D19061915B97F89B01FDF3ABC39B2AA75B3",
+    "size": 1961,
+    "lastModified": "2026-06-30T07:07:36.5408718Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\proxmox-backup-inventory.md",
+    "sha256": "CED693C3A156A4BE67811ABE90B7D885FE836EE1AB22A505DD61FF737EEF78DE",
+    "size": 3440,
+    "lastModified": "2026-06-30T07:07:36.5408718Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\proxmox-platform-inventory.md",
+    "sha256": "FB62FA08C780A70011C1E5E2EC1A38C50CC8CBA780BDD1E7DEBCC744E2EFC867",
+    "size": 2621,
+    "lastModified": "2026-06-30T07:07:36.5408718Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\proxmox-restore-validation.md",
+    "sha256": "3CF853A617A72B4322B75D3A82E705D64775047124372AFFE8764D91DA036CA0",
+    "size": 2235,
+    "lastModified": "2026-06-30T07:07:36.5467987Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\direct-evidence\\ws01-system-and-domain-validation.md",
+    "sha256": "F8BEFBF8F8B7210C13A8AFC5057070A56840F6981DB986B97CAD384A5190F557",
+    "size": 2359,
+    "lastModified": "2026-06-30T07:07:36.5488114Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\current-validated-state\\source-summaries\\backup-and-restore-validation.md",
@@ -5998,6 +6046,30 @@
     "sha256": "A329824870352F3D09D1FA8B2BD9D9F6859A7600AA1CEA555E15E01F743E7D31",
     "size": 5717,
     "lastModified": "2026-06-26T18:47:36.4090833Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-29\\home-lab-backup-restore-validation-20260629.txt",
+    "sha256": "4637E848C9B318B8C74BB9C6E4569B3CC03E6686CE64FA367CF6DEC05FA52E13",
+    "size": 1086,
+    "lastModified": "2026-06-29T23:23:24.5264780Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-29\\skills-validation\\home-lab-baseline-framework-validation-20260629-210527.txt",
+    "sha256": "499E683BA5CD18F2F6C5871099BC948E0E43445C488C4752A8856D89A0AC3723",
+    "size": 822,
+    "lastModified": "2026-06-30T06:36:26.7129026Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-29\\skills-validation\\portfolio-home-lab-drift-validation-20260629-210609.txt",
+    "sha256": "4476C893768401CFF913A0B2C75AC71B178E713B14ADDFF5DAD189CD2E87CB79",
+    "size": 1846,
+    "lastModified": "2026-06-30T02:06:09.9449849Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\validated-2026-06-29\\skills-validation\\repository-structure-validation-20260629-210449.txt",
+    "sha256": "F71B00DD26698CC16C9D8C522DDD28046C8FAE81EA9BB896E6F4E28827C719BD",
+    "size": 4880,
+    "lastModified": "2026-06-30T02:04:50.6622333Z"
   },
   {
     "path": "evidence-library\\projects\\powershell-automation\\.gitkeep",

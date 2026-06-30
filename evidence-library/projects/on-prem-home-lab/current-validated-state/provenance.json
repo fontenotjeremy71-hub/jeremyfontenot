@@ -1,10 +1,23 @@
 {
-  "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+  "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
   "document_filename": "Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
   "docx_sha256": "d7e81a06dcfbd2e91eb8f52a02bdc795ac5b7084a70f343233f1104ccd297bdb",
   "download_description": "Download the Professional Home Lab Documentation (.docx)",
   "home_lab_source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
   "website_source_commit_at_generation": "effdbeb0ed8d632a0b0c93328cd593cf85c3eb46",
-  "generated_at": "2026-06-27T01:41:49+00:00",
-  "claim_boundary": "Public claims are limited to sanitized artifacts and explicit limitations."
+  "generated_at": "2026-06-26T20:41:49-05:00",
+  "claim_boundary": "Public claims are limited to sanitized artifacts and explicit limitations.",
+  "latest_direct_evidence_source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+  "latest_direct_evidence_generated_at": "2026-06-30T02:14:13-05:00",
+  "direct_evidence_paths": [
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md",
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.md",
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.md",
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.md",
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.md",
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.md",
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md",
+    "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md"
+  ],
+  "direct_evidence_claim_boundary": "Direct public artifacts validate captured personal nonproduction home-lab source state only; no production, employer-system, recurring restore, RTO, RPO, SLA, or full firewall assurance claim is made."
 }

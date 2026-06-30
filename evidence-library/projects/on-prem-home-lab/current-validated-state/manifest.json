@@ -1,13 +1,13 @@
 {
-  "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+  "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
   "document_filename": "Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
   "download_description": "Download the Professional Home Lab Documentation (.docx)",
-  "generated_at": "2026-06-27T01:41:49+00:00",
+  "generated_at": "2026-06-30T02:14:13-05:00",
   "website_commit_at_generation": "effdbeb0ed8d632a0b0c93328cd593cf85c3eb46",
-  "home_lab_source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
+  "home_lab_source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
   "artifacts": [
     {
-      "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
       "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
       "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
       "original_source_path": "docs/architecture/home-lab-source-of-truth.md",
@@ -22,7 +22,7 @@
       "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
     },
     {
-      "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
       "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
       "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
       "original_source_path": "evidence/home-lab-source-reconciliation-20260626-012606.md",
@@ -37,7 +37,7 @@
       "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
     },
     {
-      "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
       "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
       "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
       "original_source_path": "evidence/home-lab-inventory-validation-20260626-010601.md",
@@ -52,7 +52,7 @@
       "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
     },
     {
-      "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
       "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
       "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
       "original_source_path": "evidence/linux01-sssd-remediation-20260626-110159.md",
@@ -67,7 +67,7 @@
       "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
     },
     {
-      "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
       "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
       "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
       "original_source_path": "docs/recovery/backup-and-restore-validation.md",
@@ -82,7 +82,7 @@
       "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
     },
     {
-      "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
       "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
       "source_commit": "3d42a4808a6a0607d78f4f4e7fd1e71783729a6b",
       "original_source_path": "docs/change-plans/centralized-logging-expansion.md",
@@ -97,19 +97,140 @@
       "reviewer_notes": "Copied from the authoritative operations repository without modifying that repository."
     },
     {
-      "document_title": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation",
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
       "source_repository": "fontenotjeremy71-hub/JeremyFontenot.github.io",
       "source_commit": "effdbeb0ed8d632a0b0c93328cd593cf85c3eb46",
       "original_source_path": "generated from current public-safe evidence and source summaries",
       "public_destination_path": "assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
       "target_system": "Home lab documentation",
       "evidence_classification": "Technical Proof",
-      "capture_timestamp": "2026-06-27T01:41:49+00:00",
+      "capture_timestamp": "2026-06-26T20:41:49-05:00",
       "sanitization_performed": "Newly authored public-safe document; no secrets included.",
       "sha256_hash": "d7e81a06dcfbd2e91eb8f52a02bdc795ac5b7084a70f343233f1104ccd297bdb",
-      "claim_supported": "Jeremy Fontenot\u2019s On-Premises Home Lab Documentation is published and hash-verifiable.",
+      "claim_supported": "Jeremy Fontenot’s On-Premises Home Lab Documentation is published and hash-verifiable.",
       "limitations": "Document summarizes evidence; raw evidence remains authoritative for specific command output.",
       "reviewer_notes": "Mirrored in the evidence library for reviewer access."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "inventories/proxmox-inventory-20260626-010601.json; evidence/home-lab-source-reconciliation-20260626-012606.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "fb62fa08c780a70011c1e5e2ec1a38c50cc8cba780bdd1e7debcc744e2efc867",
+      "claim_supported": "Proxmox VE 9.2.3, primary VM inventory, guest-agent state, and Linux01 VLAN tag where captured.",
+      "limitations": "Captured-state evidence only; does not prove guest OS health, firewall policy, AD health, or ongoing availability.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "inventories/proxmox-inventory-20260626-010601.json; evidence/home-lab-backup-restore-validation-20260629.txt",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Configured",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "6aba8f7ce403a3eb2e7435b56ed81d19061915b97f89b01fdf3abc39b2aa75b3",
+      "claim_supported": "Configured Proxmox backup job backup-critical-lab-vms, schedule, mode, compression, retention, storage, and target VMs.",
+      "limitations": "Configuration presence does not prove every recent backup task succeeded, restore integrity, RTO, RPO, or recurring restore assurance.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "inventories/proxmox-inventory-20260626-010601.json; evidence/home-lab-backup-restore-validation-20260629.txt; evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-storage-validation.txt",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Documented / Limitation",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "ced693c3a156a4be67811abe90b7d885fe836ee1ab22a505dd61ff737eef78de",
+      "claim_supported": "Active backup-hdd storage and retained backup counts for VMs 100, 200, 300, and 400, with thin-pool limitations retained.",
+      "limitations": "Archive count does not prove backup integrity; no all-recent-backups-succeeded claim; thin-pool warning is an operational limitation, not a failed restore.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "evidence/home-lab-backup-restore-validation-20260629.txt",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Tested",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "3cf853a617a72b4322b75d3a82e705d64775047124372affe8764d91da036ca0",
+      "claim_supported": "One isolated Linux01 restore drill from VM 400 to temporary VM 401 with guest identity, QEMU Guest Agent response, shutdown, and purge.",
+      "limitations": "One isolated restore drill only; no recurring restore assurance, RTO, RPO, full DR, SLA, production, or employer-system claim.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "inventories/dc01-inventory-20260626-022543.json",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "a31dc8df44fbfb7f71d3f8bfd67b909e09e7cb7ed797a240ad2152ae76cb6cab",
+      "claim_supported": "DC01 Windows Server 2022, AD DS, DNS, DHCP, Group Policy Management, domain, Global Catalog, FSMO role ownership, and IP.",
+      "limitations": "Captured inventory only; does not prove ongoing AD health, production readiness, or service availability beyond captured state.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "inventories/ws01-inventory-20260626-012952.json; inventories/proxmox-inventory-20260626-010601.json",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "f8befbf8f8b7210c13a8afc5057070a56840f6981db986b97cad384a5190f557",
+      "claim_supported": "WS01 VM 300 association, Windows 10 Pro 10.0.19045 build 19045, domain membership, secure channel, and network state.",
+      "limitations": "Captured inventory only; does not claim complete endpoint hardening or complete application/service validation.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "inventories/linux01-inventory-20260626-084312.json; inventories/proxmox-inventory-20260626-010601.json; evidence/home-lab-source-reconciliation-20260626-012606.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "9ad5dc1e939569960dd1edd58925800086aa6cfd580fdb96964bd6566a78651c",
+      "claim_supported": "Linux01 VM 400, Ubuntu 26.04 LTS, kernel, VLAN 30, 10.10.30.20/24, gateway, DNS, current-versus-historical address boundary, and domain integration indicators.",
+      "limitations": "Does not claim all Linux domain-authentication paths were tested; timeout/listener observations are not complete firewall validation.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
+    },
+    {
+      "document_title": "Jeremy Fontenot’s On-Premises Home Lab Documentation",
+      "source_repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
+      "original_source_path": "evidence/linux01-sssd-remediation-20260626-110159.md",
+      "public_destination_path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md",
+      "target_system": "Home lab operations repository",
+      "evidence_classification": "Validated",
+      "capture_timestamp": "Retained from source evidence metadata; public artifact validated 2026-06-30",
+      "sanitization_performed": "Public-safe direct evidence excerpt; usernames, executing accounts, MAC addresses, UUIDs, PIDs, SIDs, GUIDs, tokens, secrets, local user paths, unrelated inventory, and unnecessary raw command output omitted.",
+      "sha256_hash": "18148aebbbdd89ad9862bddb3746f585f76235c8193135c6790b4f723f8b924f",
+      "claim_supported": "Linux01-only SSSD responder/socket conflict remediation and post-remediation validation, including AD identity lookup and new AD-authenticated SSH session.",
+      "limitations": "Linux01 only; does not claim all Linux domain-authentication paths were tested or recurring assurance.",
+      "reviewer_notes": "Direct public artifact created from inspected source evidence without modifying the operations repository."
     }
-  ]
+  ],
+  "latest_direct_evidence_source_commit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36"
 }
