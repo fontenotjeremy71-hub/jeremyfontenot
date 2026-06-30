@@ -1,0 +1,16 @@
+Category,Metric,Value,CaptureDate,Scope,Limitation
+Identity,Identity records reviewed,7,2026-06-05,Personal tenant,Names and UPNs withheld
+Identity,Group records reviewed,8,2026-06-05,Personal tenant,Group identities and object IDs withheld
+Identity,Group membership rows reviewed,19,2026-06-05,Personal tenant,Named membership withheld
+Roles,Directory role definitions reviewed,17,2026-06-05,Personal tenant,Role identifiers withheld
+Roles,Directory role assignments reviewed,4,2026-06-05,Personal tenant,Named identities withheld
+Roles,Global Administrator assignments reviewed,3,2026-06-05,Personal tenant,Named identities withheld
+Tenant,Verified domain records reviewed,2,2026-06-05,Personal tenant,Domain and tenant identifiers withheld
+Licensing,Subscribed SKU records reviewed,3,2026-06-05,Personal tenant,Does not assert current paid subscription status
+Activity,Sign-in records reviewed,104,2026-06-05,30-day export,Users IP addresses event IDs devices and locations withheld
+Activity,Interactive sign-in records,104,2026-06-05,30-day export,Aggregate only
+Activity,Noninteractive sign-in records,0,2026-06-05,30-day export,Aggregate only
+Activity,Directory audit records reviewed,46,2026-06-05,30-day export,Initiators targets and event IDs withheld
+Applications,Application registrations reviewed,8,2026-06-05,Personal tenant,Application and client IDs withheld
+Applications,Service principal records reviewed,247,2026-06-05,Personal tenant,Service-principal and publisher identifiers withheld
+Consent,Consent records reviewed,16,2026-06-05,Personal tenant,Client resource principal and tenant identifiers withheld
