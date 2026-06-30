@@ -1,8 +1,0 @@
-"Id","DisplayName","UserPrincipalName","Mail","AccountEnabled","UserType","CreatedDateTime","Department","JobTitle","AssignedLicenseSkuIds"
-"e384b54b-30f9-4334-ab2b-484b468f8ad9","Arturo Torres","Arturo.Torres@jeremyfontenot.online",,"True","Member","2/20/2026 1:14:36 AM",,,""
-"dfdc4adc-415b-4006-bbf9-b6c73f233519","Jeremy Fontenot","Jeremy.Fontenot-Admin@jeremyfontenot.online","Jeremy.Fontenot-Admin@jeremyfontenot.online","True","Member","3/17/2026 9:06:08 PM",,,""
-"6bd62521-b7b1-4139-a2ca-4d6952d27e4c","jeremy fontenot","jeremyfontenot@jeremyfontenot.online","jeremyfontenot@jeremyfontenot.online","True","Member","2/2/2026 6:29:05 PM",,,"5b631642-bd26-49fe-bd20-1daaa972ef80;f30db892-07e9-47e9-837c-80727f46fd3d;cbdc14ab-d96c-4c30-b9f4-6ada7cdc1d46"
-"79189112-d458-4f62-ac4b-e079feb97623","Lab Shared Mailbox","labshared@jeremyfontenot.online","labshared@jeremyfontenot.online","False","Member","2/19/2026 3:26:52 AM",,,""
-"d4f9a9fe-894d-4600-8015-85725a50239b","Passion Fontenot","Passion.Fontenot@jeremyfontenot.online","Passion.Fontenot@jeremyfontenot.online","True","Member","3/17/2026 4:27:01 PM",,,""
-"7eb6d0f6-8634-4a39-bb73-04dcddf61658","User One","user1@jeremyfontenot.online","user1@jeremyfontenot.online","True","Member","2/19/2026 3:11:38 AM",,,""
-"eea4cece-82af-46b8-8533-2d9eee4558db","User Two","user2@jeremyfontenot.online","user2@jeremyfontenot.online","True","Member","2/19/2026 3:11:38 AM",,,""
