@@ -1,5 +1,0 @@
-"RoleDisplayName","RoleId","MemberId","MemberType","DisplayName","UserPrincipalName","Mail"
-"Global Reader","46b2ac18-4b02-40ba-aaf7-ea97547c85c0","e384b54b-30f9-4334-ab2b-484b468f8ad9","#microsoft.graph.user","Arturo Torres","Arturo.Torres@jeremyfontenot.online",
-"Global Administrator","c533aa8c-d44d-4d0d-a176-753b12ad6b5d","6bd62521-b7b1-4139-a2ca-4d6952d27e4c","#microsoft.graph.user","jeremy fontenot","jeremyfontenot@jeremyfontenot.online","jeremyfontenot@jeremyfontenot.online"
-"Global Administrator","c533aa8c-d44d-4d0d-a176-753b12ad6b5d","d4f9a9fe-894d-4600-8015-85725a50239b","#microsoft.graph.user","Passion Fontenot","Passion.Fontenot@jeremyfontenot.online","Passion.Fontenot@jeremyfontenot.online"
-"Global Administrator","c533aa8c-d44d-4d0d-a176-753b12ad6b5d","dfdc4adc-415b-4006-bbf9-b6c73f233519","#microsoft.graph.user","Jeremy Fontenot","Jeremy.Fontenot-Admin@jeremyfontenot.online","Jeremy.Fontenot-Admin@jeremyfontenot.online"
