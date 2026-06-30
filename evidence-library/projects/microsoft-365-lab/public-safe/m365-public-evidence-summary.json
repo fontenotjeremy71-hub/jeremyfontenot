@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "captureDate": "2026-06-05",
+  "scope": "personal Microsoft 365 tenant",
+  "publicationType": "public-safe aggregate summary derived from private raw exports",
+  "liveTelemetry": false,
+  "identityReview": {
+    "identityRecords": 7,
+    "groupRecords": 8,
+    "groupMembershipRows": 19,
+    "directoryRoleDefinitions": 17,
+    "directoryRoleAssignmentsReviewed": 4,
+    "globalAdministratorAssignmentsReviewed": 3,
+    "namedIdentities": "withheld"
+  },
+  "tenantReview": {
+    "verifiedDomainCount": 2,
+    "subscribedSkuRecordCount": 3,
+    "tenantIdentifiers": "withheld",
+    "domainNames": "withheld from this aggregate"
+  },
+  "activityReview": {
+    "capturePeriod": "30-day export ending 2026-06-05",
+    "signInRecordCount": 104,
+    "interactiveCount": 104,
+    "nonInteractiveCount": 0,
+    "applicationCategories": [
+      "browser and account portals",
+      "Microsoft 365 administration portals",
+      "Windows sign-in",
+      "authentication broker",
+      "command-line and automation clients"
+    ],
+    "conditionalAccessResultCategories": ["notApplied"],
+    "directoryAuditRecordCount": 46,
+    "directoryAuditCategories": [
+      "ApplicationManagement",
+      "Authentication",
+      "Device",
+      "DirectoryManagement",
+      "GroupManagement",
+      "Policy",
+      "PolicyManagement",
+      "UserManagement"
+    ]
+  },
+  "applicationReview": {
+    "applicationRegistrationCount": 8,
+    "servicePrincipalRecordCount": 247,
+    "consentRecordCount": 16,
+    "permissionCategories": ["Directory", "Sites", "Files", "Devices", "Audit", "Applications"],
+    "rawIdentifiers": "withheld"
+  },
+  "withheldFields": [
+    "names",
+    "user principal names",
+    "email addresses",
+    "IP addresses",
+    "event identifiers",
+    "tenant identifiers",
+    "object identifiers",
+    "application and client identifiers",
+    "service-principal identifiers",
+    "resource and principal identifiers",
+    "device identifiers",
+    "precise location data",
+    "named privileged identities"
+  ],
+  "limitations": [
+    "Captured-state evidence only; not live telemetry.",
+    "Aggregate counts do not prove production ownership, enterprise scale, employer-system administration, recurring assurance, or current subscription status.",
+    "Raw exports remain private and are intentionally not published."
+  ]
+}
