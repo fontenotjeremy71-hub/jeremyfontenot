@@ -1,74 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard | Portfolio Evidence Status</title>
-<meta name="description" content="Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0f172a">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="canonical" href="https://jeremyfontenot.online/dashboard.html">
-<meta property="og:site_name" content="Jeremy Fontenot">
-<meta property="og:title" content="Dashboard | Portfolio Evidence Status">
-<meta property="og:description" content="Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://jeremyfontenot.online/dashboard.html">
-<meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
-<meta property="og:image:alt" content="IT support and infrastructure operations portfolio for Jeremy Fontenot">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dashboard | Portfolio Evidence Status">
-<meta name="twitter:description" content="Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.">
-<meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
-<link rel="icon" href="./assets/logos/favicon_64x64.png">
-<link rel="stylesheet" href="./assets/css/site.css?v=20260627-layout-cache">
-<script src="./assets/js/site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Dashboard | Portfolio Evidence Status","headline":"Dashboard | Portfolio Evidence Status","description":"Static portfolio dashboard for evidence counts, source commits, screenshot review, claim maps, link validation, and document integrity.","url":"https://jeremyfontenot.online/dashboard.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Service desk support","Microsoft 365 administration","Active Directory","Windows Server","Proxmox VE","pfSense","PowerShell","Evidence governance"]}</script>
-</head>
-<body class="dashboard-page">
-
-<a class="skip-link" href="#main">Skip to content</a>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Evidence Dashboard | Jeremy Fontenot Portfolio</title>
+      <meta name="description" content="Current summary of portfolio claims, artifacts, screenshots, source records, document integrity, validation coverage, and unresolved limitations.">
+      <meta name="robots" content="index, follow">
+      <meta name="theme-color" content="#0f172a">
+      <meta name="referrer" content="strict-origin-when-cross-origin">
+      <link rel="canonical" href="https://jeremyfontenot.online/dashboard.html">
+      <meta property="og:site_name" content="Jeremy Fontenot">
+      <meta property="og:title" content="Evidence Dashboard | Jeremy Fontenot Portfolio">
+      <meta property="og:description" content="Current summary of portfolio claims, artifacts, screenshots, source records, document integrity, validation coverage, and unresolved limitations.">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://jeremyfontenot.online/dashboard.html">
+      <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+      <meta property="og:image:alt" content="IT support and infrastructure operations portfolio for Jeremy Fontenot">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Evidence Dashboard | Jeremy Fontenot Portfolio">
+      <meta name="twitter:description" content="Current summary of portfolio claims, artifacts, screenshots, source records, document integrity, validation coverage, and unresolved limitations.">
+      <meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+      <link rel="icon" href="./assets/logos/favicon_64x64.png">
+      <link rel="stylesheet" href="./assets/css/site.css?v=20260630-layout">
+      <link rel="stylesheet" href="./assets/css/content-refinements.css?v=20260630">
+      <script src="./assets/js/site.js" defer></script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Evidence Dashboard | Jeremy Fontenot Portfolio","headline":"Evidence Dashboard | Jeremy Fontenot Portfolio","description":"Current summary of portfolio claims, artifacts, screenshots, source records, document integrity, validation coverage, and unresolved limitations.","url":"https://jeremyfontenot.online/dashboard.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Service desk support","Microsoft 365 administration","Active Directory","Windows Server","Proxmox VE","pfSense","PowerShell","Evidence governance"]}</script>
+    </head>
+    <body class="dashboard-page">
+    <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href="/"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>IT support and infrastructure portfolio</small></a>
+    <a class="brand" href="/">
+      <img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async">
+      <span>Jeremy Fontenot</span>
+      <small>IT support and infrastructure portfolio</small>
+    </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
     <div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html" aria-current="page">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div>
   </nav>
 </header>
-<main id="main">
-
-  <section class="page page-hero" aria-labelledby="dashboard-title"><div class="section-head reveal"><p class="eyebrow">Portfolio Evidence Dashboard</p><h1 id="dashboard-title">A concise status view for public artifacts.</h1><p class="lead">This dashboard summarizes static repository artifacts generated from manifests, direct evidence, screenshot review, claim mapping, link validation, document integrity, and source commits.</p></div><div class="metric-grid reveal"><article class="metric"><strong>4</strong><span>Systems: Primary VMs in current supported state</span></article><article class="metric"><strong>15</strong><span>Artifacts: Current-state manifest records</span></article><article class="metric"><strong>9</strong><span>Screenshots: Home-lab public screenshot files</span></article><article class="metric technical-metric"><strong class="metric-identifier" title="Full SHA-256: d7e81a06dcfbd2e91eb8f52a02bdc795ac5b7084a70f343233f1104ccd297bdb"><span aria-hidden="true">d7e81a06dcfb</span><span class="sr-only">Full DOCX SHA-256: d7e81a06dcfbd2e91eb8f52a02bdc795ac5b7084a70f343233f1104ccd297bdb</span></strong><span>DOCX: Published document hash prefix</span></article></div></section>
-  <section class="section" aria-labelledby="dash-details"><div class="section-head reveal"><p class="eyebrow">Validation Coverage</p><h2 id="dash-details">Current review status.</h2></div><div class="dashboard-grid reveal"><article><span class="tile-code">SRC</span><h3>Source commit</h3><p>Direct infrastructure evidence traces to home-lab source commit fb6c286 and current public artifacts in this website release.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/provenance.json"><span>provenance</span>Open</a></article><article><span class="tile-code">DIR</span><h3>Direct evidence status</h3><p>Primary infrastructure claims now link to direct public artifacts for Proxmox, DC01, WS01, Linux01, SSSD, backup, and restore evidence.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md"><span>direct</span>Open</a></article><article><span class="tile-code">DOC</span><h3>Document integrity status</h3><p>New DOCX is published to assets/documents and mirrored in the evidence library with a SHA-256 manifest entry.</p><a class="evidence-link" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"><span>docx</span>Download</a></article><article><span class="tile-code">LIM</span><h3>Unresolved limitations</h3><p>Recurring restore assurance, RTO/RPO, production scale, employer administration, full firewall assurance, and broad security assurance are intentionally excluded.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>proof</span>Open</a></article></div></section>
-</main>
-
-<footer class="site-footer premium-footer" aria-label="Site footer">
-  <div class="footer-proof-band" role="group" aria-label="Portfolio proof status">
-    <span><strong>Evidence</strong> source mapped</span>
-    <span><strong>Claims</strong> classified</span>
-    <span><strong>Documents</strong> hashed</span>
-    <span><strong>Limits</strong> visible</span>
+    <main id="main">
+    <section class="page page-hero compact-hero" aria-labelledby="dashboard-title">
+  <div class="section-head reveal is-visible"><p class="eyebrow">Portfolio Evidence Dashboard</p><h1 id="dashboard-title">Current validation status for portfolio evidence.</h1><p class="lead">A concise summary of systems represented, mapped claims, artifact coverage, screenshot records, manifest freshness, document integrity, and unresolved limitations.</p></div>
+  <div class="metric-grid reveal is-visible">
+    <article class="metric"><span class="metric-kicker">Systems</span><strong>4</strong><span>Primary lab virtual machines represented</span></article>
+    <article class="metric"><span class="metric-kicker">Mapped claims</span><strong>13</strong><span>Claims linked to evidence and limitations</span></article>
+    <article class="metric"><span class="metric-kicker">Artifacts</span><strong>15</strong><span>Records in the current-state manifest</span></article>
+    <article class="metric"><span class="metric-kicker">Last generated</span><strong class="date-metric"><time datetime="2026-06-30">Jun 30</time></strong><span>Current direct-evidence manifest date</span></article>
   </div>
-  <div class="footer-divider" aria-hidden="true"></div>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="56" height="56" decoding="async">
-      <p><strong>Jeremy Fontenot</strong></p>
-      <p>Experienced Service Desk and IT Support professional building toward systems administration and infrastructure operations through evidence-backed lab work, documentation, and validation.</p>
+</section>
+<section class="section" aria-labelledby="coverage-title">
+  <div class="section-head reveal"><p class="eyebrow">Claim Classification</p><h2 id="coverage-title">Coverage from the current claim map.</h2><p>These counts summarize the 13 entries in the current public claim map.</p></div>
+  <div class="classification-grid reveal">
+    <article><strong>8</strong><span><i class="status-dot validated"></i>Validated</span><p>Directly supported by current source or direct evidence.</p></article>
+    <article><strong>2</strong><span><i class="status-dot tested"></i>Tested</span><p>Behavior was exercised within a documented scope.</p></article>
+    <article><strong>1</strong><span><i class="status-dot configured"></i>Configured</span><p>Configuration is present without a broader behavior claim.</p></article>
+    <article><strong>2</strong><span><i class="status-dot limitation"></i>Limitations</span><p>One explicit limitation and one documented-with-limitation entry.</p></article>
+  </div>
+</section>
+<section class="section" aria-labelledby="dash-details">
+  <div class="section-head reveal"><p class="eyebrow">Validation Coverage</p><h2 id="dash-details">What is current and where to verify it.</h2></div>
+  <div class="dashboard-grid reveal">
+    <article><span class="tile-code">SRC</span><h3>Source provenance</h3><p>Direct infrastructure evidence traces to home-lab source commit <code>fb6c286</code>. The public provenance file records source and publication context.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/provenance.json"><span>provenance</span>Open</a></article>
+    <article><span class="tile-code">DIR</span><h3>Direct evidence coverage</h3><p>Primary claims link to direct records for Proxmox, DC01, WS01, Linux01, SSSD remediation, backup configuration, backup inventory, and restore validation.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>claim index</span>Review</a></article>
+    <article><span class="tile-code">DOC</span><h3>Document integrity</h3><p>The published DOCX is mirrored in the evidence library and represented by a SHA-256 manifest entry.</p><div class="integrity-detail"><span>Hash prefix</span><code>d7e81a06dcfb</code></div><a class="evidence-link" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"><span>docx</span>Download</a></article>
+    <article><span class="tile-code">IMG</span><h3>Screenshot records</h3><p>Nine public screenshot files cover Active Directory, DNS, DHCP, Group Policy, Linux system state, evidence transfer, installation type, VM configuration, and archive integrity.</p><a class="evidence-link" href="./on-prem-home-lab.html#screenshots"><span>screenshots</span>Review</a></article>
+    <article class="boundary-card"><span class="tile-code">LIM</span><h3>Unresolved limitations</h3><p>Recurring restore assurance, RTO/RPO, production scale, employer administration, full firewall assurance, and broad security assurance remain intentionally excluded.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>evidence boundary</span>Review</a></article>
+    <article><span class="tile-code">MAN</span><h3>Current manifest</h3><p>The manifest records generation time, source commits, public destination paths, classifications, hashes, supported claims, and reviewer notes.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json"><span>json</span>Open</a></article>
+  </div>
+</section>
+<section class="section dashboard-method" aria-labelledby="dashboard-method-title"><div class="scope-note-card reveal"><p class="eyebrow">Dashboard Use</p><h2 id="dashboard-method-title">Summary first; source artifacts remain authoritative.</h2><p>Counts and dates make the evidence set easier to scan. The linked manifest, claim map, provenance file, validation outputs, and direct inventories provide the underlying detail.</p><div class="inline-actions"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json">Open manifest</a><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv">Open claim map</a></div></div></section>
+
+    </main>
+    <footer class="site-footer compact-footer" aria-label="Site footer">
+  <div class="compact-footer-grid">
+    <div class="compact-footer-brand">
+      <img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async">
+      <div>
+        <strong>Jeremy Fontenot</strong>
+        <p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p>
+      </div>
     </div>
-    <div class="footer-links">
-      <h2 class="footer-heading">Primary Navigation</h2>
-      <a href="/">Home</a><a href="./projects.html">Projects</a><a href="./on-prem-home-lab.html">Home Lab</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a>
-    </div>
-    <div class="footer-links">
-      <h2 class="footer-heading">Evidence Links</h2>
-      <a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json">Current home-lab manifest</a>
-      <a href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx">Download the Professional Home Lab Documentation (.docx)</a>
-      <a href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv">Microsoft 365 proof inventory</a>
-      <a href="./artifacts/site-audit/screenshot-review.md">Screenshot evidence review</a>
+    <nav class="compact-footer-links" aria-label="Footer navigation">
+      <a href="./projects.html">Projects</a>
+      <a href="./on-prem-home-lab.html">Home Lab</a>
+      <a href="./proof.html">Proof</a>
+      <a href="./resume.html">Resume</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+    <div class="compact-footer-contact" aria-label="Professional contact links">
+      <a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a>
+      <a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a>
+      <a href="https://github.com/fontenotjeremy71-hub">GitHub</a>
     </div>
   </div>
-  <p class="credibility">Proof boundary: public claims are limited to sanitized repository artifacts, screenshots, inventories, validation summaries, document hashes, and stated limitations. Personal lab evidence is not presented as employer production administration.</p>
-  <p class="footer-meta">Service Desk / IT Support / Microsoft 365 / Entra ID / Active Directory / Windows Server / Linux / PowerShell / Evidence Governance</p>
+  <p class="credibility">Public claims are limited to sanitized repository artifacts, screenshots, inventories, validation summaries, document hashes, and stated limitations. Personal lab evidence is not presented as employer production administration.</p>
+  <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
 </footer>
-</body>
-</html>
+    </body>
+    </html>

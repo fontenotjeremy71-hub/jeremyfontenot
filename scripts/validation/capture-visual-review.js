@@ -77,6 +77,8 @@ async function inspectPage(page) {
 
       const url = `${baseUrl}${route}`;
       const response = await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
+      const inspection = await inspectPage(page);
+
       await page.screenshot({
         path: path.join(outputDir, `${name}-${width}.png`),
         fullPage: true
@@ -87,7 +89,7 @@ async function inspectPage(page) {
         route,
         width,
         status: response ? response.status() : null,
-        ...(await inspectPage(page))
+        ...inspection
       });
 
       await page.close();
