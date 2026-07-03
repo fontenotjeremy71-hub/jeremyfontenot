@@ -44,7 +44,7 @@
   <div class="section-head reveal is-visible">
     <p class="eyebrow">Projects</p>
     <h1 id="projects-title">Projects that demonstrate troubleshooting, administration, and automation.</h1>
-    <p class="lead">Each project summarizes the environment, work completed, validation approach, supporting evidence, and known limitations.</p>
+    <p class="lead">Each project below shows the environment, what I actually did, how I checked it, and what it doesn't prove.</p>
   </div>
   <div class="project-filter-bar reveal is-visible" role="group" aria-label="Project filters">
     <button class="filter-button is-active" type="button" data-filter="all">All</button>
@@ -62,7 +62,7 @@
       <p class="project-summary">Built and documented a personal lab using Proxmox, pfSense, Windows Server, Windows and Linux guests, Active Directory, DNS, DHCP, Group Policy, backups, and validation tooling.</p>
       <div class="technology-tags" aria-label="Environment"><span>Proxmox VE</span><span>pfSense</span><span>Windows Server</span><span>Ubuntu</span><span>PowerShell</span></div>
       <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Captured direct platform and guest inventories, reconciled current state, documented Linux01 SSSD remediation, and recorded backup and isolated restore evidence.</dd></div>
+        <div><dt>Work completed</dt><dd>Diagnosed and fixed a Linux01 domain-authentication failure (SSSD), then rebuilt and verified the full platform and guest inventory, backup configuration, and an isolated restore drill.</dd></div>
         <div><dt>Validated with</dt><dd>Source-linked inventories, manifests, hashes, screenshots, scripts, and direct validation records.</dd></div>
         <div><dt>Limitation</dt><dd>Personal nonproduction environment; no enterprise scale, production availability, RTO/RPO, or recurring restore claim.</dd></div>
       </dl>
@@ -74,7 +74,7 @@
       <p class="project-summary">Collected and organized personal-tenant evidence for domains, users, groups, licenses, directory roles, Conditional Access, sign-ins, audit activity, devices, applications, and service principals.</p>
       <div class="technology-tags" aria-label="Environment"><span>Microsoft 365</span><span>Entra ID</span><span>PowerShell</span><span>CSV / JSON</span></div>
       <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Generated tenant exports, admin-center screenshots, proof inventories, and source maps for structured technical review.</dd></div>
+        <div><dt>Work completed</dt><dd>Administered users, groups, licensing, and Conditional Access in a personal tenant, then documented all of it with exports and admin-center screenshots so the work is independently checkable.</dd></div>
         <div><dt>Validated with</dt><dd>Repository-local CSV, JSON, Markdown, screenshot, manifest, and hash records.</dd></div>
         <div><dt>Limitation</dt><dd>Personal cloud lab evidence only; it does not represent employer or client administration.</dd></div>
       </dl>
@@ -86,7 +86,7 @@
       <p class="project-summary">Structured incident records around symptoms, scope, troubleshooting steps, root-cause framing, remediation planning, and escalation-ready documentation.</p>
       <div class="technology-tags" aria-label="Skills"><span>Incident Triage</span><span>RCA</span><span>Documentation</span><span>Escalation</span></div>
       <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Created support-oriented records that separate observed facts, likely causes, corrective actions, and unresolved questions.</dd></div>
+        <div><dt>Work completed</dt><dd>Wrote root-cause analyses the way I would for a real ticket — separating what I observed, what likely caused it, what I fixed, and what's still an open question.</dd></div>
         <div><dt>Validated with</dt><dd>Sanitized RCA documentation and supporting repository artifacts.</dd></div>
         <div><dt>Limitation</dt><dd>No unsupported business-impact, production-availability, or resolution-metric claims are added.</dd></div>
       </dl>
@@ -98,7 +98,7 @@
       <p class="project-summary">Built and executed PowerShell tooling for repository structure, parser integrity, evidence generation, timeout handling, Git hygiene, secret-pattern detection, and portfolio-to-operations drift analysis.</p>
       <div class="technology-tags" aria-label="Environment"><span>PowerShell</span><span>Git</span><span>JSON</span><span>CSV</span><span>Markdown</span></div>
       <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Validated required paths, script parsing, whitespace, secret patterns, output generation, expected timeout behavior, and documented drift.</dd></div>
+        <div><dt>Work completed</dt><dd>Wrote PowerShell tooling that checks its own work — catching bad paths, exposed secrets, and drift between what the site claims and what the lab actually shows.</dd></div>
         <div><dt>Validated with</dt><dd>Three preserved validation outputs covering repository structure, the baseline framework, and portfolio drift.</dd></div>
         <div><dt>Limitation</dt><dd>Timeout handling does not prove service availability; documented drift gaps are not infrastructure failures.</dd></div>
       </dl>
@@ -109,7 +109,7 @@
       <div class="wide-project-layout">
         <div><h2>Repository Governance and Deployment Quality</h2><p class="project-summary">Maintained the portfolio as a validated static-site repository with structured metadata, internal-link checks, sitemap validation, document integrity records, screenshot review, and GitHub Pages deployment workflows.</p><div class="technology-tags" aria-label="Environment"><span>GitHub Actions</span><span>HTML / CSS</span><span>PowerShell</span><span>SEO</span><span>Accessibility</span></div></div>
         <dl class="project-facts">
-          <div><dt>Work completed</dt><dd>Automated repository, HTML, accessibility, content, SEO, sitemap, internal-link, evidence, screenshot, and Lighthouse checks.</dd></div>
+          <div><dt>Work completed</dt><dd>Set up automated checks that catch broken links, accessibility issues, and SEO problems before they ship — so the site stays reliable without manual review every time it changes.</dd></div>
           <div><dt>Validated with</dt><dd>Version-controlled workflow definitions, validation scripts, audit reports, and deployment records.</dd></div>
           <div><dt>Limitation</dt><dd>Static checks support maintainability and publication quality but do not replace independent security testing.</dd></div>
         </dl>
@@ -142,7 +142,7 @@
       <a href="https://github.com/fontenotjeremy71-hub">GitHub</a>
     </div>
   </div>
-  <p class="credibility">Public claims are limited to sanitized repository artifacts, screenshots, inventories, validation summaries, document hashes, and stated limitations. Personal lab evidence is not presented as employer production administration.</p>
+  <p class="credibility">Every public claim here traces back to a real artifact — see the <a href="./proof.html">proof index</a> for sourcing and limitations.</p>
   <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
 </footer>
     </body>

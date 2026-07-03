@@ -45,7 +45,7 @@
     <div class="hero-copy reveal is-visible">
       <p class="eyebrow">Home Lab · Infrastructure Operations</p>
       <h1 id="lab-title">A working home lab for systems administration practice.</h1>
-      <p class="lead">A personal nonproduction environment used to practice Windows Server, Active Directory, DNS, DHCP, Group Policy, Linux integration, pfSense networking, Proxmox virtualization, backups, PowerShell validation, and operational documentation.</p>
+      <p class="lead">I built this lab to break things safely before I break them at work. It runs Windows Server and Active Directory, a Linux domain member, pfSense networking, and Proxmox virtualization — close enough to a real environment that the mistakes, and the fixes, actually transfer.</p>
       <div class="actions"><a class="button primary" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx">Download Documentation</a><a class="button" href="./proof.html#home-lab-proof">Review Proof</a><a class="button" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json">Open Manifest</a></div>
     </div>
     <aside class="lab-topology reveal is-visible" aria-label="Home lab topology summary">
@@ -67,7 +67,7 @@
   </div>
 </section>
 <section class="section" id="current-state" aria-labelledby="state-title">
-  <div class="section-head reveal"><p class="eyebrow">Current Supported State</p><h2 id="state-title">The environment at a glance.</h2><p>Current records treat Linux01 as VLAN 30 at 10.10.30.20/24 and backup storage as <code>backup-hdd</code>. Older Linux01 10.10.20.x records are retained as historical evidence.</p></div>
+  <div class="section-head reveal"><p class="eyebrow">Current Supported State</p><h2 id="state-title">The environment at a glance.</h2><p>Linux01 currently runs on VLAN 30 at 10.10.30.20/24, with backups stored on <code>backup-hdd</code>. Earlier 10.10.20.x records are kept for history, not treated as current.</p></div>
   <div class="lab-state-grid reveal">
     <article><span class="tile-code">HOST</span><h3>Platform</h3><p>Dell PowerEdge R710 running Proxmox VE 9.2.3 with four primary virtual machines.</p></article>
     <article><span class="tile-code">NET</span><h3>Network</h3><p>pfSense routing, lab LAN services, VLAN 30 placement for Linux01, and a documented OpenVPN management path.</p></article>
@@ -147,7 +147,7 @@
       <a href="https://github.com/fontenotjeremy71-hub">GitHub</a>
     </div>
   </div>
-  <p class="credibility">Public claims are limited to sanitized repository artifacts, screenshots, inventories, validation summaries, document hashes, and stated limitations. Personal lab evidence is not presented as employer production administration.</p>
+  <p class="credibility">Every public claim here traces back to a real artifact — see the <a href="./proof.html">proof index</a> for sourcing and limitations.</p>
   <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
 </footer>
     </body>
