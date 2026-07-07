@@ -278,9 +278,9 @@ foreach ($Link in $PrimaryNavLinks) {
 $RequiredNav = @(
   @{ label = 'Projects'; target = 'projects.html' },
   @{ label = 'Proof'; target = 'proof.html' },
+  @{ label = 'Dashboard'; target = 'dashboard.html' },
   @{ label = 'Resume'; target = 'resume.html' },
-  @{ label = 'Contact'; target = 'contact.html' },
-  @{ label = 'Home Lab'; target = 'on-prem-home-lab.html' }
+  @{ label = 'Contact'; target = 'contact.html' }
 )
 
 foreach ($Item in $RequiredNav) {
