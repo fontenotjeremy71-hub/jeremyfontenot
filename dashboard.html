@@ -41,13 +41,29 @@
 </header>
     <main id="main">
     <section class="page page-hero compact-hero" aria-labelledby="dashboard-title">
-  <div class="section-head reveal is-visible"><p class="eyebrow">Portfolio Evidence Dashboard</p><h1 id="dashboard-title">Current validation status for portfolio evidence.</h1><p class="lead">A concise summary of systems represented, mapped claims, artifact coverage, screenshot records, manifest freshness, document integrity, and unresolved limitations.</p></div>
+  <div class="section-head reveal is-visible"><p class="eyebrow">Portfolio Evidence Dashboard</p><h1 id="dashboard-title">Current validation status for portfolio evidence.</h1><p class="lead">A concise summary of systems represented, mapped claims, artifact coverage, the completed July restore cycle, document integrity, and unresolved limitations.</p></div>
   <div class="metric-grid reveal is-visible">
     <article class="metric"><span class="metric-kicker">Systems</span><strong>4</strong><span>Primary lab virtual machines represented</span></article>
     <article class="metric"><span class="metric-kicker">Mapped claims</span><strong>13</strong><span>Claims linked to evidence and limitations</span></article>
     <article class="metric"><span class="metric-kicker">Artifacts</span><strong>15</strong><span>Records in the current-state manifest</span></article>
     <article class="metric"><span class="metric-kicker">Last generated</span><strong class="date-metric"><time datetime="2026-06-30">Jun 30</time></strong><span>Current direct-evidence manifest date</span></article>
   </div>
+</section>
+<section class="section" id="restore-cycle" aria-labelledby="restore-cycle-title">
+  <div class="section-head reveal"><p class="eyebrow">July 2026 Restore Cycle</p><h2 id="restore-cycle-title">Four isolated restores completed with mixed final classifications.</h2><p>These are static results from the merged evidence package, not live monitoring data or a recovery success percentage.</p></div>
+  <div class="metric-grid reveal">
+    <article class="metric"><span class="metric-kicker">Systems included</span><strong>4</strong><span>Linux01, WS01, DC01, and pfSense</span></article>
+    <article class="metric"><span class="metric-kicker">Restores completed</span><strong>4</strong><span>Selected archives restored to temporary VMs</span></article>
+    <article class="metric"><span class="metric-kicker">Narrow PASS</span><strong>2</strong><span>Linux01 PASS; pfSense narrow PASS</span></article>
+    <article class="metric"><span class="metric-kicker">INCONCLUSIVE</span><strong>2</strong><span>WS01 and DC01 overall</span></article>
+    <article class="metric"><span class="metric-kicker">Production VMs affected</span><strong>0</strong><span>No production impact observed</span></article>
+    <article class="metric"><span class="metric-kicker">Temporary VMs remaining</span><strong>0</strong><span>Temporary VMs and restored disks removed</span></article>
+    <article class="metric"><span class="metric-kicker">Restore evidence PR</span><strong class="date-metric">Merged</strong><span>jeremy-homelab-ops PR #1</span></article>
+    <article class="metric"><span class="metric-kicker">Integrity manifest</span><strong class="date-metric">Complete</strong><span>Source manifest and SHA-256 records</span></article>
+    <article class="metric"><span class="metric-kicker">RTO measured</span><strong class="date-metric">No</strong><span>Temporary task time is not production RTO</span></article>
+    <article class="metric"><span class="metric-kicker">RPO measured</span><strong class="date-metric">No</strong><span>Archive timestamp is not measured RPO</span></article>
+  </div>
+  <div class="inline-actions"><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Open restore evidence</a><a href="./on-prem-home-lab.html#restore-validation">Read methodology and limits</a></div>
 </section>
 <section class="section" aria-labelledby="coverage-title">
   <div class="section-head reveal"><p class="eyebrow">Claim Classification</p><h2 id="coverage-title">Coverage from the current claim map.</h2><p>These counts summarize the 13 entries in the current public claim map.</p></div>
@@ -65,7 +81,7 @@
     <article><span class="tile-code">DIR</span><h3>Direct evidence coverage</h3><p>Primary claims link to direct records for Proxmox, DC01, WS01, Linux01, SSSD remediation, backup configuration, backup inventory, and restore validation.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>claim index</span>Review</a></article>
     <article><span class="tile-code">DOC</span><h3>Document integrity</h3><p>The published DOCX is mirrored in the evidence library and represented by a SHA-256 manifest entry.</p><div class="integrity-detail"><span>Hash prefix</span><code>d7e81a06dcfb</code></div><a class="evidence-link" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"><span>docx</span>Download</a></article>
     <article><span class="tile-code">IMG</span><h3>Screenshot records</h3><p>Nine public screenshot files cover Active Directory, DNS, DHCP, Group Policy, Linux system state, evidence transfer, installation type, VM configuration, and archive integrity.</p><a class="evidence-link" href="./on-prem-home-lab.html#screenshots"><span>screenshots</span>Review</a></article>
-    <article class="boundary-card"><span class="tile-code">LIM</span><h3>Unresolved limitations</h3><p>Recurring restore assurance, RTO/RPO, production scale, employer administration, full firewall assurance, and broad security assurance remain intentionally excluded.</p><a class="evidence-link" href="./proof.html#home-lab-proof"><span>evidence boundary</span>Review</a></article>
+    <article class="boundary-card"><span class="tile-code">LIM</span><h3>Unresolved limitations</h3><p>Full disaster recovery, measured RTO/RPO, production failover, live pfSense service recovery, complete AD recovery, production scale, and employer administration remain unproven or excluded.</p><a class="evidence-link" href="./proof.html#restore-validation-proof"><span>evidence boundary</span>Review</a></article>
     <article><span class="tile-code">MAN</span><h3>Current manifest</h3><p>The manifest records generation time, source commits, public destination paths, classifications, hashes, supported claims, and reviewer notes.</p><a class="evidence-link" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json"><span>json</span>Open</a></article>
   </div>
 </section>

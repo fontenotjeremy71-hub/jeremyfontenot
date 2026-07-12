@@ -57,16 +57,17 @@
 <section class="section project-catalog" aria-label="Technical project catalog">
   <div class="project-systems">
     <article id="home-lab" class="project-panel feature-card reveal" data-project="infrastructure operations security">
-      <div class="project-card-head"><span class="status-label validated">Validated and tested</span><span class="project-number">01</span></div>
+      <div class="project-card-head"><span class="status-label validated">Validated with mixed restore results</span><span class="project-number">01</span></div>
       <h2>On-Premises Home Lab and Operations Validation</h2>
-      <p class="project-summary">Built and documented a personal lab using Proxmox, pfSense, Windows Server, Windows and Linux guests, Active Directory, DNS, DHCP, Group Policy, backups, and validation tooling.</p>
-      <div class="technology-tags" aria-label="Environment"><span>Proxmox VE</span><span>pfSense</span><span>Windows Server</span><span>Ubuntu</span><span>PowerShell</span></div>
+      <p class="project-summary">Built and documented a personal lab, then validated selected Linux, Windows workstation, Active Directory domain controller, and pfSense backup archives through isolated Proxmox restore exercises with preboot NIC isolation, bounded local verification, evidence capture, checksum manifests, and controlled cleanup.</p>
+      <div class="technology-tags" aria-label="Environment"><span>Proxmox VE</span><span>pfSense / FreeBSD</span><span>Windows Server / AD DS</span><span>Windows</span><span>Ubuntu</span><span>SHA-256</span><span>Git / PR Review</span></div>
       <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Diagnosed and fixed a Linux01 domain-authentication failure (SSSD), then rebuilt and verified the full platform and guest inventory, backup configuration, and an isolated restore drill.</dd></div>
-        <div><dt>Validated with</dt><dd>Source-linked inventories, manifests, hashes, screenshots, scripts, and direct validation records.</dd></div>
-        <div><dt>Limitation</dt><dd>Personal nonproduction environment; no enterprise scale, production availability, RTO/RPO, or recurring restore claim.</dd></div>
+        <div><dt>Work completed</dt><dd>Diagnosed and fixed a Linux01 SSSD failure; rebuilt platform, guest, and backup evidence; and completed multi-platform isolated restore testing for Linux01, WS01, DC01, and pfSense with production-safe cleanup.</dd></div>
+        <div><dt>Validated with</dt><dd>Source-linked reviews, restore summaries, selected screenshots, evidence manifests, SHA-256 checksums, and a merged Git branch/PR workflow.</dd></div>
+        <div><dt>Final classifications</dt><dd>Linux01 PASS; WS01 INCONCLUSIVE; DC01 INCONCLUSIVE; pfSense narrow PASS.</dd></div>
+        <div><dt>Limitation</dt><dd>Personal nonproduction environment; complete production recovery, full disaster recovery, RTO, and RPO were not proven or measured.</dd></div>
       </dl>
-      <div class="proof-links"><a href="./on-prem-home-lab.html">View case study</a><a href="./proof.html#home-lab-proof">Open proof index</a><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md">Direct inventory</a></div>
+      <div class="proof-links"><a href="./on-prem-home-lab.html">View case study</a><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Open restore evidence</a><a href="./proof.html#home-lab-proof">Open proof index</a><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md">Direct inventory</a></div>
     </article>
     <article id="microsoft" class="project-panel feature-card reveal" data-project="m365 identity cloud">
       <div class="project-card-head"><span class="status-label validated">Validated; historical items marked</span><span class="project-number">02</span></div>

@@ -1,9 +1,9 @@
 [
   {
     "path": "evidence-library\\evidence-source-map.csv",
-    "sha256": "714495708EF1BA290B6F903BC76BA5CF4BDC88553BC1678173B843A50C83B796",
-    "size": 10940,
-    "lastModified": "2026-06-30T07:14:13.9243741Z"
+    "sha256": "B363CDF85591FD794B7CD2A27A1E93D0BD5BC3BC7962761BB3F0081056D92B25",
+    "size": 12230,
+    "lastModified": "2026-07-12T22:25:26.3320161Z"
   },
   {
     "path": "evidence-library\\index.html",
@@ -5210,8 +5210,8 @@
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\entra-application-proof-20260605-063206\\oauth2-permission-grants-summary.csv",
     "sha256": "B7ABE144794AE8EEB1D9B56EDB3032EC29A76F34458723BDF6E306CD849D8106",
-    "size": 3648,
-    "lastModified": "2026-06-16T23:12:51.5713244Z"
+    "size": 3631,
+    "lastModified": "2026-06-30T16:00:48.9940660Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\entra-application-proof-20260605-063206\\README.md",
@@ -5444,8 +5444,8 @@
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-applications.csv",
     "sha256": "56102B8DCD8C158BDEAD1B21B1DCB99EA90F8374F0632C2F7DD6A346BB17F155",
-    "size": 1355,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 1346,
+    "lastModified": "2026-06-30T16:00:48.9940660Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-conditional-access-named-locations-summary.csv",
@@ -5468,14 +5468,14 @@
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-directory-audit-last-30-days.csv",
     "sha256": "9A4527580A2E5E81196A257EEF4351B6C6E48FA92E62B55A03A7FE20BCCD70F4",
-    "size": 14969,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 14922,
+    "lastModified": "2026-06-30T16:00:48.9965164Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-directory-role-assignments.csv",
     "sha256": "7F9990FA2C9F0B3304E7CB2394793DF22FC810C8F7C6D3A6B952688217380B3D",
-    "size": 952,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 947,
+    "lastModified": "2026-06-30T16:00:48.9965164Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-directory-roles.csv",
@@ -5486,8 +5486,8 @@
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-group-membership.csv",
     "sha256": "5EFA8E99AA7B70BD7821E70F62565790ADFADF81F86DC9093730D2F67EB00C65",
-    "size": 3930,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 3910,
+    "lastModified": "2026-06-30T16:00:48.9975229Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-groups.csv",
@@ -5498,8 +5498,8 @@
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-service-principals.csv",
     "sha256": "E735557198BCEFAD2180D99948506DBF2C8AAE21A2682B05F93E4DAEDA738851",
-    "size": 41780,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 41532,
+    "lastModified": "2026-06-30T16:00:48.9975229Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-sg-block-legacy-auth-group.csv",
@@ -5510,20 +5510,20 @@
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-sg-block-legacy-auth-members.csv",
     "sha256": "9637375902FAAAFC7BBF3D9DE1B05358CF76BE2CB57EB197309623120503A42E",
-    "size": 317,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 315,
+    "lastModified": "2026-06-30T16:00:48.9985155Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-signins-last-30-days.csv",
     "sha256": "14A74E9CD985DFE4791CF3F2EAD0A73BA683876106C68B3090D30F67D5E9E576",
-    "size": 30198,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 30093,
+    "lastModified": "2026-06-30T16:00:48.9985155Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\entra-users-license-state.csv",
     "sha256": "F9E4147D55A968523796D60132DB6051D09E5850B28ED3DC690F55BBC68E976B",
-    "size": 1432,
-    "lastModified": "2026-06-16T23:12:51.5923647Z"
+    "size": 1424,
+    "lastModified": "2026-06-30T16:00:48.9985155Z"
   },
   {
     "path": "evidence-library\\projects\\microsoft-365-lab\\evidence\\entra-exports-20260605-073748\\exchange-admin-center-microsoft-365-groups-20260605.png",
@@ -5758,6 +5758,36 @@
     "sha256": "92755727A576981972A701E92CED629F062F26FCD290BFA7CD4287AB29697326",
     "size": 1655,
     "lastModified": "2026-06-27T01:42:13.8040216Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\infrastructure-validation-2026-07\\checksums.sha256",
+    "sha256": "EDA438DC49A69390D1B2034DE50F1FD212E52EDB46B2EF3C7AEDB76A6BDF3364",
+    "size": 262,
+    "lastModified": "2026-07-12T22:21:57.6744220Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\infrastructure-validation-2026-07\\evidence-manifest.csv",
+    "sha256": "3CE3CAEB2C71C0F8AFDBB03001FB048AB288F9A0B134F617F304ACA3D21B1592",
+    "size": 811,
+    "lastModified": "2026-07-12T22:21:57.6744220Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\infrastructure-validation-2026-07\\index.html",
+    "sha256": "376DE5E998F1F2F092E90416988CE9A75385C09B54BE5DA2C1B78E596DE83BDB",
+    "size": 20863,
+    "lastModified": "2026-07-12T22:31:39.2185829Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\infrastructure-validation-2026-07\\screenshots\\proxmox-dc01-rerun-rootdse-validation-2026-07-11.png",
+    "sha256": "66E4AA3E6D76B83FAA854ADED3A4720A7BB6FC88F44AF5E3BF2B7E5CA31B1F38",
+    "size": 137548,
+    "lastModified": "2026-07-12T19:01:54.0482565Z"
+  },
+  {
+    "path": "evidence-library\\projects\\on-prem-home-lab\\infrastructure-validation-2026-07\\screenshots\\proxmox-dc01-rerun-service-validation-2026-07-11.png",
+    "sha256": "196E96A0DE89322B918B5C19FC5140802ED671493B1A6C516992FC5E24FE6B16",
+    "size": 151720,
+    "lastModified": "2026-07-12T19:01:54.0520004Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\screenshots\\figure-01-initial-rdp-connection-failure.png",

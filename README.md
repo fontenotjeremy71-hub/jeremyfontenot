@@ -31,6 +31,7 @@ The site is intentionally structured so public claims trace back to reviewable a
 | `index.html`                     | Main landing page and professional positioning                                               |
 | `projects.html`                  | Technical project catalog                                                                    |
 | `on-prem-home-lab.html`          | Proxmox, pfSense, Windows Server, Active Directory, Linux, backup, and validation case study |
+| `evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html` | July 2026 four-system isolated restore-validation evidence index |
 | `proof.html`                     | Claim-to-artifact proof index                                                                |
 | `dashboard.html`                 | Evidence status dashboard                                                                    |
 | `resume.html`                    | Resume page                                                                                  |
@@ -55,6 +56,7 @@ Personal systems-administration lab using:
 * Ubuntu Linux domain integration
 * Backup configuration
 * Restore validation records
+* Four-system isolated restore validation with scoped PASS and INCONCLUSIVE outcomes
 * PowerShell-based validation and evidence collection
 
 This is a personal nonproduction lab. It does not claim enterprise scale, production availability, formal RTO/RPO assurance, or employer/client administration.
