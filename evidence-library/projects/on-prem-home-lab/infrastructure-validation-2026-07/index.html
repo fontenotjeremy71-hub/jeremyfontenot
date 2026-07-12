@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proxmox Isolated Restore Validation Evidence | Jeremy Fontenot</title>
+  <meta name="description" content="Evidence-backed Proxmox isolated restore validation covering Linux, Windows, Active Directory, and pfSense with production-safe isolation, conservative result classifications, and SHA-256 integrity records.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">
+  <meta property="og:site_name" content="Jeremy Fontenot">
+  <meta property="og:title" content="Proxmox Isolated Restore Validation Evidence">
+  <meta property="og:description" content="Scoped restore results for Linux01, WS01, DC01, and pfSense with production protection, evidence integrity, and explicit recovery limitations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">
+  <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+  <meta property="og:image:alt" content="IT support and infrastructure operations portfolio for Jeremy Fontenot">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Proxmox Isolated Restore Validation Evidence">
+  <meta name="twitter:description" content="Scoped restore results for Linux01, WS01, DC01, and pfSense with explicit claim boundaries.">
+  <meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+  <link rel="icon" href="../../../../assets/logos/favicon_64x64.png">
+  <link rel="stylesheet" href="../../../../assets/css/site.css?v=20260712-restore-validation">
+  <link rel="stylesheet" href="../../../../assets/css/content-refinements.css?v=20260712">
+  <script src="../../../../assets/js/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Proxmox Isolated Restore Validation — Linux, Windows, Active Directory, and pfSense","description":"Evidence-backed Proxmox isolated restore validation with conservative result classifications and explicit recovery limitations.","datePublished":"2026-07-12","url":"https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Proxmox VE","backup restore validation","Linux","Windows","Active Directory","pfSense","evidence integrity"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jeremyfontenot.online/"},{"@type":"ListItem","position":2,"name":"On-Premises Home Lab","item":"https://jeremyfontenot.online/on-prem-home-lab.html"},{"@type":"ListItem","position":3,"name":"Infrastructure Restore Validation","item":"https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/"}]}]}</script>
+</head>
+<body class="home-lab-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../../../../">
+        <img src="../../../../assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async">
+        <span>Jeremy Fontenot</span>
+        <small>IT support and infrastructure portfolio</small>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+      <div class="nav-links" id="primary-menu"><a href="../../../../">Home</a><a href="../../../../projects.html" aria-current="page">Projects</a><a href="../../../../proof.html">Proof</a><a href="../../../../dashboard.html">Dashboard</a><a href="../../../../resume.html">Resume</a><a href="../../../../contact.html">Contact</a></div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page page-hero compact-hero" aria-labelledby="validation-title">
+      <div class="section-head reveal is-visible">
+        <p class="eyebrow">Completed July 12, 2026 · Personal nonproduction lab</p>
+        <h1 id="validation-title">Proxmox isolated restore validation across four systems.</h1>
+        <p class="lead">I restored Linux01, WS01, DC01, and pfSense backup archives to temporary Proxmox VMs, isolated every restored NIC before first boot, performed bounded local checks, shut each guest down cleanly, removed the temporary resources, and verified that production VMs 100, 200, 300, and 400 remained protected.</p>
+        <div class="actions"><a class="button primary" href="../../../../on-prem-home-lab.html#restore-validation">Read the case study</a><a class="button" href="../../../../proof.html#restore-validation-proof">Open proof summary</a><a class="button" href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/commit/65899f08cb8d19207c5edad7723368ed04f1f1c4" target="_blank" rel="noopener noreferrer">Review source commit</a></div>
+      </div>
+    </section>
+
+    <nav class="section-jump-nav page-shell" aria-label="Restore evidence sections"><a href="#overview">Overview</a><a href="#scope">Scope</a><a href="#controls">Safety controls</a><a href="#workflow">Workflow</a><a href="#outcomes">Outcomes</a><a href="#evidence">Evidence</a><a href="#integrity">Integrity</a><a href="#limitations">Limitations</a><a href="#source">Source</a></nav>
+
+    <section class="section" id="overview" aria-labelledby="overview-title">
+      <div class="section-head reveal"><p class="eyebrow">Validation Overview</p><h2 id="overview-title">A completed restore exercise with conservative classifications.</h2><p>The final source reviews classify Linux01 as PASS, pfSense as a narrow PASS, and WS01 and DC01 as INCONCLUSIVE. Every label describes only the isolated objectives directly supported by the evidence.</p></div>
+      <div class="lab-state-grid reveal">
+        <article><span class="tile-code">4</span><h3>Systems included</h3><p>Linux01, WS01, DC01, and pfSense.</p></article>
+        <article><span class="tile-code">4</span><h3>Restores completed</h3><p>Each selected archive restored to a temporary VM.</p></article>
+        <article><span class="tile-code">2</span><h3>Narrow PASS</h3><p>Linux01 PASS and pfSense narrow PASS.</p></article>
+        <article><span class="tile-code">2</span><h3>INCONCLUSIVE</h3><p>WS01 and DC01 retained explicit validation gaps.</p></article>
+        <article><span class="tile-code">0</span><h3>Production VMs affected</h3><p>No production impact was observed during the documented exercises.</p></article>
+        <article><span class="tile-code">0</span><h3>Temporary VMs remaining</h3><p>All temporary VMs and their restored disks were removed.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="scope" aria-labelledby="scope-title">
+      <div class="section-head reveal"><p class="eyebrow">Scope</p><h2 id="scope-title">What I set out to validate.</h2><p>The exercise tested whether specific backup archives could be restored safely, isolated before boot, inspected locally within authorization boundaries, shut down, and removed without changing the four production VMs.</p></div>
+      <div class="proof-matrix reveal">
+        <article class="proof-chip verified"><span class="chip-kind">Included</span><h3>Environment</h3><p>A personal Proxmox VE lab with pfSense, Windows Server/Active Directory, a Windows workstation, and Ubuntu Linux workloads.</p></article>
+        <article class="proof-chip verified"><span class="chip-kind">Included</span><h3>Integrity and traceability</h3><p>Supported archive checks, screenshot review, evidence manifests, SHA-256 records, Git branch review, and source pull request completion.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="controls" aria-labelledby="controls-title">
+      <div class="section-head reveal"><p class="eyebrow">Safety Controls</p><h2 id="controls-title">Production protection was part of the test design.</h2></div>
+      <div class="signal-matrix reveal">
+        <article><span class="tile-code">ID</span><h3>Temporary VM IDs</h3><p>I used VM 401 for Linux01, 301 for WS01, 201 for DC01, and 101 for pfSense after verifying each ID was available.</p></article>
+        <article><span class="tile-code">NIC</span><h3>Preboot isolation</h3><p>I applied and verified <code>link_down=1</code> before first boot; both restored pfSense NICs remained isolated.</p></article>
+        <article><span class="tile-code">LOC</span><h3>Bounded local checks</h3><p>Guest inspection remained local and read-only. No password reset, credential capture, network reconnection, or configuration workaround was used.</p></article>
+        <article><span class="tile-code">DEL</span><h3>Controlled cleanup</h3><p>I shut down each restored guest cleanly, verified temporary ownership, removed the temporary VM and disks, and rechecked production state.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-head reveal"><p class="eyebrow">Restore Workflow</p><h2 id="workflow-title">The same safety sequence bounded every exercise.</h2></div>
+      <div class="pipeline reveal" aria-label="Restore validation workflow"><article><span>01</span><h3>Precheck</h3><p>Confirm archive, capacity, temporary ID availability, and production state.</p></article><article><span>02</span><h3>Restore stopped</h3><p>Restore to temporary storage without starting the guest.</p></article><article><span>03</span><h3>Isolate</h3><p>Apply and verify NIC link-down controls before first boot.</p></article><article><span>04</span><h3>Inspect locally</h3><p>Boot and perform only authorized, bounded guest-local checks.</p></article><article><span>05</span><h3>Clean up</h3><p>Shut down, remove temporary resources, and verify production protection.</p></article></div>
+    </section>
+
+    <section class="section" id="outcomes" aria-labelledby="outcomes-title">
+      <div class="section-head reveal"><p class="eyebrow">System-by-System Outcomes</p><h2 id="outcomes-title">Two narrow PASS results and two INCONCLUSIVE results.</h2><p><strong>PASS indicates only the scoped isolated-restore objectives that were directly validated. It does not indicate complete production recovery or full disaster recovery.</strong></p></div>
+      <div class="evidence-table-wrap reveal">
+        <table class="evidence-table">
+          <caption>Final isolated restore-validation results from the source evidence baseline</caption>
+          <thead><tr><th scope="col">System</th><th scope="col">Production VM</th><th scope="col">Temporary VM</th><th scope="col">Restore</th><th scope="col">Isolation</th><th scope="col">Boot</th><th scope="col">Local validation</th><th scope="col">Cleanup</th><th scope="col">Overall result</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Linux01</th><td>400</td><td>401</td><td>PASS</td><td>PASS</td><td>PASS</td><td>PASS within scope</td><td>PASS</td><td><strong>PASS</strong></td></tr>
+            <tr><th scope="row">WS01</th><td>300</td><td>301</td><td>PASS</td><td>PASS</td><td>PASS to sign-in</td><td>NOT TESTED</td><td>PASS</td><td><strong>INCONCLUSIVE</strong></td></tr>
+            <tr><th scope="row">DC01</th><td>200</td><td>201</td><td>PASS</td><td>PASS</td><td>PASS</td><td>Selected checks PASS; LDAP checks INCONCLUSIVE</td><td>PASS</td><td><strong>INCONCLUSIVE</strong></td></tr>
+            <tr><th scope="row">pfSense</th><td>100</td><td>101</td><td>PASS</td><td>PASS on both NICs</td><td>PASS</td><td>PASS within scope</td><td>PASS</td><td><strong>Narrow PASS</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="lab-proof-detail reveal">
+        <article class="proof-chip verified"><span class="chip-kind">Linux01 · PASS</span><h3>Linux archive restored and passed bounded local checks.</h3><p>The isolated guest reached Ubuntu 26.04 LTS, reported the expected hostname, running system state, restored disk and filesystems, disconnected interface, and no failed systemd units. Network, AD authentication, application recovery, RTO, RPO, and full DR were not tested.</p></article>
+        <article class="proof-chip limitation"><span class="chip-kind">WS01 · INCONCLUSIVE</span><h3>Boot passed; authorized in-guest validation did not occur.</h3><p>The VM restored, remained isolated, booted to the Windows sign-in screen, shut down cleanly, and was removed without affecting production. In-guest validation was not completed because an authorized local Windows account was unavailable.</p></article>
+        <article class="proof-chip limitation"><span class="chip-kind">DC01 · INCONCLUSIVE</span><h3>Selected directory-service checks passed; LDAP-dependent checks did not.</h3><p>The domain controller restored and booted while isolated. Elevated validation confirmed NTDS, selected core services, SYSVOL, and NETLOGON. Local LDAP/RootDSE, localhost AD cmdlets, and LDAP-dependent <code>dcdiag</code> remained inconclusive while strict NIC isolation remained enforced.</p></article>
+        <article class="proof-chip verified"><span class="chip-kind">pfSense · Narrow PASS</span><h3>The newest retained archive passed the scoped objective.</h3><p>Archive <code>vzdump-qemu-100-2026_07_12-02_00_01.vma.zst</code> passed supported integrity checks, restored to VM 101, and booted pfSense 2.8.1-RELEASE with both NICs isolated. Authorized local console-shell access supported FreeBSD, hostname, ZFS/disk, disconnected-interface, selected-process, and configuration-metadata checks. No password reset or credential capture occurred; shutdown and cleanup completed successfully.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="evidence" aria-labelledby="evidence-title">
+      <div class="section-head reveal"><p class="eyebrow">Evidence Categories</p><h2 id="evidence-title">Selected public screenshots support specific DC01 claims.</h2><p>I excluded screenshots that displayed unnecessary account names or local workstation paths. The source repository retains the complete evidence package and final reviews.</p></div>
+      <div class="evidence-gallery windows-evidence-gallery">
+        <figure class="screenshot-card"><a class="screenshot-preview" href="./screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png" aria-label="Open full-size DC01 NTDS and core-service validation screenshot"><img src="./screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png" loading="lazy" decoding="async" width="1593" height="670" alt="Elevated PowerShell output on isolated DC01 showing NTDS and selected core services running."></a><figcaption><strong>DC01 elevated NTDS and core-service validation</strong><span>DC01 · July 11, 2026 · Supports narrow PASS checkpoints for NTDS, ADWS, DNS, Netlogon, KDC, DFSR, and W32Time.</span><a href="./screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png">Open full image</a></figcaption></figure>
+        <figure class="screenshot-card"><a class="screenshot-preview" href="./screenshots/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png" aria-label="Open full-size DC01 RootDSE limitation screenshot"><img src="./screenshots/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png" loading="lazy" decoding="async" width="768" height="402" alt="PowerShell output on isolated DC01 showing the local RootDSE query did not complete while network isolation remained enforced."></a><figcaption><strong>DC01 local RootDSE limitation</strong><span>DC01 · July 11, 2026 · Supports the INCONCLUSIVE classification for local LDAP and RootDSE binding.</span><a href="./screenshots/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png">Open full image</a></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="integrity" aria-labelledby="integrity-title">
+      <div class="section-head reveal"><p class="eyebrow">Evidence Integrity</p><h2 id="integrity-title">Source and publication artifacts remain traceable.</h2><p>The final source package includes an evidence manifest and master SHA-256 checksums. This public subset retains original screenshot filenames and records their hashes in a focused publication manifest.</p></div>
+      <div class="artifact-grid reveal"><a class="artifact-card" href="./evidence-manifest.csv"><span>CSV</span><strong>Public evidence manifest</strong><em>Filename, hash, date, supported claim, classification, and source commit.</em></a><a class="artifact-card" href="./checksums.sha256"><span>SHA-256</span><strong>Published screenshot checksums</strong><em>Integrity records for the selected public images.</em></a><a class="artifact-card" href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/tree/65899f08cb8d19207c5edad7723368ed04f1f1c4/evidence/infrastructure-validation/2026-07-10/11-results" target="_blank" rel="noopener noreferrer"><span>SOURCE</span><strong>Final result files</strong><em>Executive summary, findings matrix, gaps, assurance, RTO/RPO, and source manifest.</em></a></div>
+    </section>
+
+    <section class="section" id="limitations" aria-labelledby="limitations-title">
+      <div class="section-head reveal"><p class="eyebrow">Limitations</p><h2 id="limitations-title">The evidence stops before production or full disaster recovery.</h2></div>
+      <div class="scope-note-card reveal">
+        <p>pfSense testing did not exercise live WAN/LAN connectivity, routing, NAT, firewall policy, DHCP clients, DNS forwarding, VPN tunnels, identity integration, certificate workflows, application connectivity, or business-service recovery. DC01 testing did not prove replication, production DNS or Kerberos, client authentication, or forest recovery. WS01 in-guest health was not tested.</p>
+        <p><strong>RTO: NOT MEASURED · RPO: NOT MEASURED · Full disaster recovery: NOT PROVEN</strong></p>
+      </div>
+    </section>
+
+    <section class="section" id="source" aria-labelledby="source-title">
+      <div class="section-head reveal"><p class="eyebrow">Source and Traceability</p><h2 id="source-title">The final merged source commit is the authority.</h2><p>This portfolio summary traces to <code>jeremy-homelab-ops</code> commit <code>65899f08cb8d19207c5edad7723368ed04f1f1c4</code>, merged through PR #1. The source reviews and result files take precedence over this presentation layer.</p></div>
+      <div class="inline-actions"><a href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops" target="_blank" rel="noopener noreferrer">Open source repository</a><a href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/commit/65899f08cb8d19207c5edad7723368ed04f1f1c4" target="_blank" rel="noopener noreferrer">Open final source commit</a><a href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/pull/1" target="_blank" rel="noopener noreferrer">Review source PR #1</a><a href="../../../../on-prem-home-lab.html">Back to home lab</a><a href="../../../../proof.html">Open proof index</a></div>
+    </section>
+  </main>
+  <footer class="site-footer compact-footer" aria-label="Site footer">
+    <div class="compact-footer-grid">
+      <div class="compact-footer-brand"><img src="../../../../assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async"><div><strong>Jeremy Fontenot</strong><p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p></div></div>
+      <nav class="compact-footer-links" aria-label="Footer navigation"><a href="../../../../projects.html">Projects</a><a href="../../../../proof.html">Proof</a><a href="../../../../dashboard.html">Dashboard</a><a href="../../../../resume.html">Resume</a><a href="../../../../contact.html">Contact</a><a href="../../../../sitemap.xml">Sitemap</a></nav>
+      <div class="compact-footer-contact" aria-label="Professional contact links"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div>
+    </div>
+    <p class="credibility">PASS is limited to directly validated isolated objectives. No production recovery, RTO, RPO, or full disaster recovery claim is made.</p>
+    <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
+  </footer>
+</body>
+</html>

@@ -197,7 +197,7 @@ function Get-InternalPageName {
 function Test-NegatedSentence {
   param([Parameter(Mandatory)][string]$Sentence)
 
-  return ($Sentence -match '(?i)\b(no|not|does not|do not|without|excluded|not presented|not claimed|intentionally excluded|no [^.?!]* claim)\b')
+  return ($Sentence -match '(?i)\b(no|not|does not|do not|without|excluded|unproven|not proven|not measured|not presented|not claimed|intentionally excluded|no [^.?!]* claim)\b')
 }
 
 function Get-ContainingSentences {
@@ -514,9 +514,9 @@ if ($ForbiddenFindings.Count -eq 0) {
 
 $LimitationChecks = @(
   @{ name = 'Personal or nonproduction home-lab scope visible'; pattern = '(?i)\b(personal\b.{0,80}\bnonproduction|nonproduction\b.{0,80}\bhome lab|personal\b.{0,80}\bhome lab)\b' },
-  @{ name = 'One isolated restore drill bounded'; pattern = '(?i)\bone isolated Linux01 restore drill\b.{0,220}\b(does not claim|does not establish|not recurring|RTO|RPO|recurring restore assurance)\b' },
+  @{ name = 'Four-system isolated restore cycle bounded'; pattern = '(?i)\b(four-system isolated restore|four isolated restores|Linux01, WS01, DC01, and pfSense archives)\b.{0,300}\b(INCONCLUSIVE|does not establish|not proven|not measured|RTO|RPO|full disaster recovery)\b' },
   @{ name = 'No recurring restore assurance claimed'; pattern = '(?i)\b(no recurring restore assurance|does not establish recurring disaster-recovery assurance|does not claim .{0,80}recurring restore assurance)\b' },
-  @{ name = 'RTO/RPO limitations visible'; pattern = '(?i)\b(no RTO/RPO|does not claim RTO, RPO|does not establish .{0,80}RTO, RPO|RTO/RPO.{0,80}excluded)\b' },
+  @{ name = 'RTO/RPO limitations visible'; pattern = '(?i)\b(no RTO/RPO|does not claim RTO, RPO|does not establish .{0,80}RTO, RPO|RTO/RPO.{0,80}excluded|RTO:\s*NOT MEASURED.{0,80}RPO:\s*NOT MEASURED)\b' },
   @{ name = 'Timeout handling is not service availability proof'; pattern = '(?i)\bTimeout-handling validation does not prove service availability\b' },
   @{ name = 'SSSD validation remains Linux01-specific'; pattern = '(?i)\b(Linux01-only SSSD|Linux01-specific SSSD)\b' }
 )
