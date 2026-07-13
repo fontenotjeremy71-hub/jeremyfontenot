@@ -4,7 +4,8 @@ $ErrorActionPreference = 'Stop'
 Write-Host 'Validating HTML files...'
 
 $HtmlFiles = Get-ChildItem -Path . -Recurse -Filter '*.html' -File | Where-Object {
-  $_.FullName -notmatch '[\\/]node_modules[\\/]'
+  $_.FullName -notmatch '[\\/]node_modules[\\/]' -and
+  $_.FullName -notmatch '[\\/]artifacts[\\/]playwright[\\/]'
 }
 
 if (-not $HtmlFiles) {

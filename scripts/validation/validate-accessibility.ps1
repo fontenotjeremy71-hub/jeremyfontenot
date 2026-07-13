@@ -5,7 +5,8 @@ Write-Host "Validating accessibility basics..."
 
 $HtmlFiles = Get-ChildItem -Path . -Recurse -Filter "*.html" -File | Where-Object {
   $_.DirectoryName -notmatch "node_modules" -and
-  $_.DirectoryName -notmatch "\\.git"
+  $_.DirectoryName -notmatch "\\.git" -and
+  $_.FullName -notmatch '[\\/]artifacts[\\/]playwright[\\/]'
 }
 
 $Failures = @()

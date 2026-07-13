@@ -3,9 +3,12 @@ $ErrorActionPreference = 'Stop'
 
 Write-Host 'Validating internal links...'
 
+$RepositoryRoot = (Resolve-Path -Path (Join-Path -Path $PSScriptRoot -ChildPath '..\..')).Path
+
 $HtmlFiles = Get-ChildItem -Path . -Recurse -Filter '*.html' -File | Where-Object {
   $_.FullName -notmatch '[\\/]node_modules[\\/]' -and
   $_.FullName -notmatch '[\\/]archive[\\/]' -and
+  $_.FullName -notmatch '[\\/]artifacts[\\/]playwright[\\/]' -and
   $_.FullName -notmatch '[\\/]evidence-library[\\/]preserved-sharepoint[\\/]source[\\/]'
 }
 
@@ -33,7 +36,11 @@ foreach ($File in $HtmlFiles) {
       continue
     }
 
-    $ResolvedPath = Join-Path -Path $File.DirectoryName -ChildPath $RelativePath
+    if ($RelativePath.StartsWith('/')) {
+      $ResolvedPath = Join-Path -Path $RepositoryRoot -ChildPath $RelativePath.TrimStart('/')
+    } else {
+      $ResolvedPath = Join-Path -Path $File.DirectoryName -ChildPath $RelativePath
+    }
 
     if (-not (Test-Path -Path $ResolvedPath)) {
       $Failures.Add("$($File.FullName) => $RelativePath")
