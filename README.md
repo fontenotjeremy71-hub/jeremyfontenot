@@ -167,6 +167,7 @@ The GitHub Actions workflow runs on pushes and pull requests to `main`.
 
 Validation includes:
 
+* Generated evidence-page freshness checks
 * PowerShell syntax checks
 * Repository health dashboard generation
 * Repository structure validation
@@ -189,6 +190,15 @@ Validation includes:
 ## Local Validation
 
 Run validation from the repository root using PowerShell.
+
+```powershell
+npm ci
+npm run check:evidence
+npx playwright install chromium
+npm run test:browser
+```
+
+The Playwright suite starts its own loopback-only static server, reads the generated evidence-page allowlist and sitemap from the repository, and performs Chromium DOM, network, XSLT, safety, and responsive-overflow checks. Failure-only screenshots, traces, videos, and the HTML report are written beneath `artifacts/playwright/`; no success screenshot review is required.
 
 ```powershell
 pwsh -NoProfile -File .\scripts\validation\validate-powershell.ps1

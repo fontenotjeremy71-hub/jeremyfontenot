@@ -1,0 +1,110 @@
+[
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/README.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "title": "Current Validated State",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "title": "Proxmox Platform Inventory",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "title": "DC01 System and Role Validation",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "title": "WS01 System and Domain Validation",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "title": "Linux01 System, Network, and Domain Validation",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "title": "Linux01 SSSD Remediation Validation",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "title": "Proxmox Backup Configuration",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "title": "Proxmox Backup Inventory",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.md",
+    "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "title": "Proxmox Restore Validation",
+    "category": "Home Lab Evidence",
+    "parentLabel": "Home Lab Proof",
+    "returnUrl": "/proof.html#home-lab-proof",
+    "returnLabel": "Back to Home Lab Proof"
+  },
+  {
+    "source": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.md",
+    "output": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "title": "Home Lab Operations Validation - June 26, 2026",
+    "category": "Home Lab Operations Evidence",
+    "parentLabel": "Operations Proof",
+    "returnUrl": "/home-lab-operations-proof.html",
+    "returnLabel": "Back to Operations Proof"
+  },
+  {
+    "source": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.md",
+    "output": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "title": "Microsoft 365 / Entra Site Proof Map",
+    "category": "Microsoft 365 and Entra Evidence",
+    "parentLabel": "Microsoft 365 Proof",
+    "returnUrl": "/proof.html#m365-proof",
+    "returnLabel": "Back to Microsoft 365 Proof"
+  },
+  {
+    "source": "evidence-library/projects/troubleshooting-rca/rca-report.md",
+    "output": "evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "title": "Troubleshooting RCA Report",
+    "category": "Troubleshooting and RCA Evidence",
+    "parentLabel": "Service Desk Projects",
+    "returnUrl": "/projects.html#service",
+    "returnLabel": "Back to Service Desk Projects"
+  }
+]

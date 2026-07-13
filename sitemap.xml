@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/assets/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jeremyfontenot.online/</loc></url>
   <url><loc>https://jeremyfontenot.online/projects.html</loc></url>
@@ -8,4 +9,16 @@
   <url><loc>https://jeremyfontenot.online/dashboard.html</loc></url>
   <url><loc>https://jeremyfontenot.online/resume.html</loc></url>
   <url><loc>https://jeremyfontenot.online/contact.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence-library/projects/troubleshooting-rca/rca-report.html</loc></url>
 </urlset>

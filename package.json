@@ -1,0 +1,20 @@
+{
+  "name": "jeremyfontenot-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio build and validation tooling.",
+  "scripts": {
+    "build:evidence": "node scripts/build/generate-evidence-pages.js",
+    "check:evidence": "node scripts/build/generate-evidence-pages.js --check",
+    "build": "npm run build:evidence",
+    "serve:test": "node scripts/testing/serve-static-site.js",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "markdown-it": "14.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.60.0",
+    "playwright": "1.60.0"
+  }
+}

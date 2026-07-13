@@ -64,6 +64,7 @@ node_modules/
 
 playwright-report/
 test-results/
+/artifacts/playwright/
 artifacts/screenshots/temp/
 *.log
 
