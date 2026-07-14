@@ -6,7 +6,10 @@
   "scripts": {
     "build:evidence": "node scripts/build/generate-evidence-pages.js",
     "check:evidence": "node scripts/build/generate-evidence-pages.js --check",
-    "build": "npm run build:evidence",
+    "build:dashboard": "node scripts/build/generate-dashboard-data.js",
+    "check:dashboard": "node scripts/build/generate-dashboard-data.js --check",
+    "build": "npm run build:evidence && npm run build:dashboard",
+    "check": "npm run check:evidence && npm run check:dashboard",
     "serve:test": "node scripts/testing/serve-static-site.js",
     "test:browser": "playwright test"
   },

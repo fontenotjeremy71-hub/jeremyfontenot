@@ -46,11 +46,11 @@
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   background:
     radial-gradient(circle at 100% 0%, rgba(217, 70, 239, .11), transparent 18rem),
     linear-gradient(180deg, rgba(30, 41, 59, .82), rgba(15, 23, 42, .9));
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
 }
 
 .generated-evidence-page .evidence-introduction::before,

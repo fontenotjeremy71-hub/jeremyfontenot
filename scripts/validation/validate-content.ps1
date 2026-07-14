@@ -24,9 +24,21 @@ $Failures = @()
 
 foreach ($File in $TargetFiles) {
   $Content = Get-Content $File.FullName -Raw
+  $SearchContent = $Content
+
+  # A valid HTML placeholder attribute is interface guidance, not unfinished content.
+  # Remove only the complete attribute before scanning; visible uses of the word
+  # "placeholder" remain blocked.
+  if ($File.Extension -eq ".html") {
+    $SearchContent = [regex]::Replace(
+      $SearchContent,
+      '(?is)\splaceholder\s*=\s*(?:"[^"]*"|''[^'']*'')',
+      ''
+    )
+  }
 
   foreach ($Term in $BlockedTerms) {
-    if ($Content -match [regex]::Escape($Term)) {
+    if ($SearchContent -match [regex]::Escape($Term)) {
       $Failures += "$($File.FullName) contains blocked term: $Term"
       Write-Host "Blocked content found: $($File.FullName) -> $Term" -ForegroundColor Red
     }

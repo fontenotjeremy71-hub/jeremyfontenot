@@ -1,0 +1,1262 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 320,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 360,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 375,
+    "height": 812,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 390,
+    "height": 844,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 414,
+    "height": 896,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 768,
+    "height": 1024,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 1024,
+    "height": 768,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 1280,
+    "height": 800,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/projects.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/on-prem-home-lab.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/proof.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/dashboard.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/resume.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/contact.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  },
+  {
+    "route": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+    "width": 1440,
+    "height": 900,
+    "h1": 1,
+    "overflow": false
+  }
+]

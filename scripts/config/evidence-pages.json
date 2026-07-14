@@ -2,7 +2,8 @@
   {
     "source": "evidence-library/projects/on-prem-home-lab/current-validated-state/README.md",
     "output": "evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
-    "title": "Current Validated State",
+    "title": "Supported Home Lab State",
+    "sourceTitle": "Current Validated State",
     "category": "Home Lab Evidence",
     "parentLabel": "Home Lab Proof",
     "returnUrl": "/proof.html#home-lab-proof",
@@ -83,7 +84,8 @@
   {
     "source": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.md",
     "output": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
-    "title": "Home Lab Operations Validation - June 26, 2026",
+    "title": "Home Lab Operations Validation",
+    "sourceTitle": "Home Lab Operations Validation - June 26, 2026",
     "category": "Home Lab Operations Evidence",
     "parentLabel": "Operations Proof",
     "returnUrl": "/home-lab-operations-proof.html",

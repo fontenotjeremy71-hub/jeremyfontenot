@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Jeremy Fontenot support and infrastructure portfolio</title>
+  <desc id="desc">Editorial operator-field-manual social card with support, systems, and evidence positioning.</desc>
+  <rect width="1200" height="630" fill="#08111f"/>
+  <rect x="40" y="40" width="1120" height="550" rx="28" fill="#0d192b" stroke="#29405d" stroke-width="2"/>
+  <path d="M40 174h1120M790 40v550" stroke="#29405d" stroke-width="2"/>
+  <path d="M790 174h370M790 310h370M790 446h370" stroke="#1b304b" stroke-width="1"/>
+  <rect x="76" y="78" width="176" height="34" rx="17" fill="#271128" stroke="#ef4ca5"/>
+  <text x="164" y="101" text-anchor="middle" fill="#ff8bc6" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">OPERATOR PROFILE</text>
+  <text x="76" y="238" fill="#f6f8fc" font-family="Georgia, serif" font-size="64" font-weight="700">Jeremy Fontenot</text>
+  <text x="76" y="294" fill="#70d8ff" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">SERVICE DESK → INFRASTRUCTURE OPERATIONS</text>
+  <text x="76" y="382" fill="#d9e2ef" font-family="Georgia, serif" font-size="29">“I fix what’s broken, then figure out</text>
+  <text x="76" y="423" fill="#d9e2ef" font-family="Georgia, serif" font-size="29">why it broke.”</text>
+  <text x="76" y="526" fill="#93a6bd" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">PROJECTS  ·  PROOF  ·  SYSTEMS</text>
+  <circle cx="975" cy="241" r="92" fill="#101f35" stroke="#ef4ca5" stroke-width="4"/>
+  <circle cx="975" cy="241" r="72" fill="none" stroke="#70d8ff" stroke-width="2" stroke-dasharray="7 8"/>
+  <text x="975" y="264" text-anchor="middle" fill="#f6f8fc" font-family="Georgia, serif" font-size="70" font-weight="700">JF</text>
+  <circle cx="856" cy="378" r="8" fill="#53d79b"/><circle cx="975" cy="378" r="8" fill="#70d8ff"/><circle cx="1094" cy="378" r="8" fill="#f4bc65"/>
+  <path d="M856 378h238" stroke="#405775" stroke-width="2"/>
+  <text x="856" y="421" text-anchor="middle" fill="#93a6bd" font-family="Arial, sans-serif" font-size="14">SUPPORT</text>
+  <text x="975" y="421" text-anchor="middle" fill="#93a6bd" font-family="Arial, sans-serif" font-size="14">SYSTEMS</text>
+  <text x="1094" y="421" text-anchor="middle" fill="#93a6bd" font-family="Arial, sans-serif" font-size="14">EVIDENCE</text>
+  <text x="975" y="522" text-anchor="middle" fill="#d9e2ef" font-family="Arial, sans-serif" font-size="18">jeremyfontenot.online</text>
+</svg>

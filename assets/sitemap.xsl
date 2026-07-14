@@ -16,7 +16,7 @@
       <xsl:when test="$url = 'https://jeremyfontenot.online/resume.html'">Resume</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/contact.html'">Contact</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/'">Proxmox Isolated Restore Validation Evidence</xsl:when>
-      <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html'">Current Validated Home Lab State</xsl:when>
+      <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html'">Supported Home Lab State</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html'">Proxmox Platform Inventory</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html'">DC01 System and Role Validation</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html'">WS01 System and Domain Validation</xsl:when>
@@ -25,7 +25,7 @@
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html'">Proxmox Backup Configuration</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html'">Proxmox Backup Inventory</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html'">Proxmox Restore Validation</xsl:when>
-      <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html'">Home Lab Operations Validation - June 26, 2026</xsl:when>
+      <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html'">Home Lab Operations Validation</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html'">Microsoft 365 / Entra Site Proof Map</xsl:when>
       <xsl:when test="$url = 'https://jeremyfontenot.online/evidence-library/projects/troubleshooting-rca/rca-report.html'">Troubleshooting RCA Report</xsl:when>
       <xsl:otherwise><xsl:value-of select="$url"/></xsl:otherwise>
@@ -43,9 +43,8 @@
         <meta name="theme-color" content="#0f172a"/>
         <meta name="referrer" content="strict-origin-when-cross-origin"/>
         <link rel="icon" href="/assets/logos/favicon_64x64.png"/>
-        <link rel="stylesheet" href="/assets/css/site.css?v=20260630-layout"/>
-        <link rel="stylesheet" href="/assets/css/content-refinements.css?v=20260713-footer-align"/>
-        <link rel="stylesheet" href="/assets/css/sitemap.css?v=20260713"/>
+        <link rel="stylesheet" href="/assets/css/site.css"/>
+        <link rel="stylesheet" href="/assets/css/sitemap.css"/>
         <script src="/assets/js/site.js" defer="defer"></script>
       </head>
       <body class="sitemap-page">
@@ -74,7 +73,6 @@
                 <a href="{sm:loc}">
                   <span class="sitemap-label"><xsl:call-template name="route-label"><xsl:with-param name="url" select="sm:loc"/></xsl:call-template></span>
                   <span class="sitemap-url"><xsl:value-of select="sm:loc"/></span>
-                  <xsl:if test="sm:lastmod"><span class="sitemap-lastmod">Last modified: <xsl:value-of select="sm:lastmod"/></span></xsl:if>
                 </a>
               </li>
             </xsl:for-each>

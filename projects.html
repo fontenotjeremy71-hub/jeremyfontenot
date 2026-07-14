@@ -1,151 +1,39 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Projects | Jeremy Fontenot IT Support Portfolio</title>
-      <meta name="description" content="Technical projects demonstrating Service Desk troubleshooting, Microsoft 365 administration, systems administration, PowerShell automation, and repository quality.">
-      <meta name="robots" content="index, follow">
-      <meta name="theme-color" content="#0f172a">
-      <meta name="referrer" content="strict-origin-when-cross-origin">
-      <link rel="canonical" href="https://jeremyfontenot.online/projects.html">
-      <meta property="og:site_name" content="Jeremy Fontenot">
-      <meta property="og:title" content="Projects | Jeremy Fontenot IT Support Portfolio">
-      <meta property="og:description" content="Technical projects demonstrating Service Desk troubleshooting, Microsoft 365 administration, systems administration, PowerShell automation, and repository quality.">
-      <meta property="og:type" content="website">
-      <meta property="og:url" content="https://jeremyfontenot.online/projects.html">
-      <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
-      <meta property="og:image:alt" content="IT support and infrastructure operations portfolio for Jeremy Fontenot">
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Projects | Jeremy Fontenot IT Support Portfolio">
-      <meta name="twitter:description" content="Technical projects demonstrating Service Desk troubleshooting, Microsoft 365 administration, systems administration, PowerShell automation, and repository quality.">
-      <meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
-      <link rel="icon" href="./assets/logos/favicon_64x64.png">
-      <link rel="stylesheet" href="./assets/css/site.css?v=20260630-layout">
-      <link rel="stylesheet" href="./assets/css/content-refinements.css?v=20260713-footer-align">
-      <script src="./assets/js/site.js" defer></script>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Projects | Jeremy Fontenot IT Support Portfolio","headline":"Projects | Jeremy Fontenot IT Support Portfolio","description":"Technical projects demonstrating Service Desk troubleshooting, Microsoft 365 administration, systems administration, PowerShell automation, and repository quality.","url":"https://jeremyfontenot.online/projects.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Service desk support","Microsoft 365 administration","Active Directory","Windows Server","Proxmox VE","pfSense","PowerShell","Evidence governance"]}</script>
-    </head>
-    <body class="projects-page">
-    <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href="/">
-      <img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async">
-      <span>Jeremy Fontenot</span>
-      <small>IT support and infrastructure portfolio</small>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
-    <div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./projects.html" aria-current="page">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div>
-  </nav>
-</header>
-    <main id="main">
-    <section class="page page-hero compact-hero" aria-labelledby="projects-title">
-  <div class="section-head reveal is-visible">
-    <p class="eyebrow">Projects</p>
-    <h1 id="projects-title">Projects that demonstrate troubleshooting, administration, and automation.</h1>
-    <p class="lead">Each project below shows the environment, what I actually did, how I checked it, and what it doesn't prove.</p>
-  </div>
-  <div class="project-filter-bar reveal is-visible" role="group" aria-label="Project filters">
-    <button class="filter-button is-active" type="button" data-filter="all">All</button>
-    <button class="filter-button" type="button" data-filter="infrastructure">Infrastructure</button>
-    <button class="filter-button" type="button" data-filter="m365">Microsoft 365</button>
-    <button class="filter-button" type="button" data-filter="service">Service Desk</button>
-    <button class="filter-button" type="button" data-filter="automation">Automation</button>
-  </div>
-</section>
-<section class="section project-catalog" aria-label="Technical project catalog">
-  <div class="project-systems">
-    <article id="home-lab" class="project-panel feature-card reveal" data-project="infrastructure operations security">
-      <div class="project-card-head"><span class="status-label validated">Validated with mixed restore results</span><span class="project-number">01</span></div>
-      <h2>On-Premises Home Lab and Operations Validation</h2>
-      <p class="project-summary">Built and documented a personal lab, then validated selected Linux, Windows workstation, Active Directory domain controller, and pfSense backup archives through isolated Proxmox restore exercises with preboot NIC isolation, bounded local verification, evidence capture, checksum manifests, and controlled cleanup.</p>
-      <div class="technology-tags" aria-label="Environment"><span>Proxmox VE</span><span>pfSense / FreeBSD</span><span>Windows Server / AD DS</span><span>Windows</span><span>Ubuntu</span><span>SHA-256</span><span>Git / PR Review</span></div>
-      <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Diagnosed and fixed a Linux01 SSSD failure; rebuilt platform, guest, and backup evidence; and completed multi-platform isolated restore testing for Linux01, WS01, DC01, and pfSense with production-safe cleanup.</dd></div>
-        <div><dt>Validated with</dt><dd>Source-linked reviews, restore summaries, selected screenshots, evidence manifests, SHA-256 checksums, and a merged Git branch/PR workflow.</dd></div>
-        <div><dt>Final classifications</dt><dd>Linux01 PASS; WS01 INCONCLUSIVE; DC01 INCONCLUSIVE; pfSense narrow PASS.</dd></div>
-        <div><dt>Limitation</dt><dd>Personal nonproduction environment; complete production recovery, full disaster recovery, RTO, and RPO were not proven or measured.</dd></div>
-      </dl>
-      <div class="proof-links"><a href="./on-prem-home-lab.html">View case study</a><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Open restore evidence</a><a href="./proof.html#home-lab-proof">Open proof index</a><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html">Direct inventory</a></div>
-    </article>
-    <article id="microsoft" class="project-panel feature-card reveal" data-project="m365 identity cloud">
-      <div class="project-card-head"><span class="status-label validated">Validated; historical items marked</span><span class="project-number">02</span></div>
-      <h2>Microsoft 365 and Entra Administration</h2>
-      <p class="project-summary">Collected and organized personal-tenant evidence for domains, users, groups, licenses, directory roles, Conditional Access, sign-ins, audit activity, devices, applications, and service principals.</p>
-      <div class="technology-tags" aria-label="Environment"><span>Microsoft 365</span><span>Entra ID</span><span>PowerShell</span><span>CSV / JSON</span></div>
-      <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Administered users, groups, licensing, and Conditional Access in a personal tenant, then documented all of it with exports and admin-center screenshots so the work is independently checkable.</dd></div>
-        <div><dt>Validated with</dt><dd>Repository-local CSV, JSON, Markdown, screenshot, manifest, and hash records.</dd></div>
-        <div><dt>Limitation</dt><dd>Personal cloud lab evidence only; it does not represent employer or client administration.</dd></div>
-      </dl>
-      <div class="proof-links"><a href="./proof.html#m365-proof">View evidence</a><a href="./evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv">Open proof inventory</a></div>
-    </article>
-    <article id="service" class="project-panel reveal" data-project="service desk rca troubleshooting">
-      <div class="project-card-head"><span class="status-label documented">Implemented; testing noted where recorded</span><span class="project-number">03</span></div>
-      <h2>Service Desk Troubleshooting and Root Cause Analysis</h2>
-      <p class="project-summary">Structured incident records around symptoms, scope, troubleshooting steps, root-cause framing, remediation planning, and escalation-ready documentation.</p>
-      <div class="technology-tags" aria-label="Skills"><span>Incident Triage</span><span>RCA</span><span>Documentation</span><span>Escalation</span></div>
-      <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Wrote root-cause analyses the way I would for a real ticket — separating what I observed, what likely caused it, what I fixed, and what's still an open question.</dd></div>
-        <div><dt>Validated with</dt><dd>Sanitized RCA documentation and supporting repository artifacts.</dd></div>
-        <div><dt>Limitation</dt><dd>No unsupported business-impact, production-availability, or resolution-metric claims are added.</dd></div>
-      </dl>
-      <div class="proof-links"><a href="./evidence-library/projects/troubleshooting-rca/rca-report.html">Open RCA record</a><a href="./proof.html">Review evidence method</a></div>
-    </article>
-    <article id="powershell" class="project-panel reveal" data-project="automation powershell validation">
-      <div class="project-card-head"><span class="status-label tested">Tested; partial drift match</span><span class="project-number">04</span></div>
-      <h2>PowerShell Validation and Evidence Automation</h2>
-      <p class="project-summary">Built and executed PowerShell tooling for repository structure, parser integrity, evidence generation, timeout handling, Git hygiene, secret-pattern detection, and portfolio-to-operations drift analysis.</p>
-      <div class="technology-tags" aria-label="Environment"><span>PowerShell</span><span>Git</span><span>JSON</span><span>CSV</span><span>Markdown</span></div>
-      <dl class="project-facts">
-        <div><dt>Work completed</dt><dd>Wrote PowerShell tooling that checks its own work — catching bad paths, exposed secrets, and drift between what the site claims and what the lab actually shows.</dd></div>
-        <div><dt>Validated with</dt><dd>Three preserved validation outputs covering repository structure, the baseline framework, and portfolio drift.</dd></div>
-        <div><dt>Limitation</dt><dd>Timeout handling does not prove service availability; documented drift gaps are not infrastructure failures.</dd></div>
-      </dl>
-      <div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/repository-structure-validation-20260629-210449.txt">Repository validation</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/home-lab-baseline-framework-validation-20260629-210527.txt">Framework validation</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/portfolio-home-lab-drift-validation-20260629-210609.txt">Drift analysis</a></div>
-    </article>
-    <article id="repository" class="project-panel project-panel-wide reveal" data-project="automation governance deployment">
-      <div class="project-card-head"><span class="status-label tested">Tested</span><span class="project-number">05</span></div>
-      <div class="wide-project-layout">
-        <div><h2>Repository Governance and Deployment Quality</h2><p class="project-summary">Maintained the portfolio as a validated static-site repository with structured metadata, internal-link checks, sitemap validation, document integrity records, screenshot review, and GitHub Pages deployment workflows.</p><div class="technology-tags" aria-label="Environment"><span>GitHub Actions</span><span>HTML / CSS</span><span>PowerShell</span><span>SEO</span><span>Accessibility</span></div></div>
-        <dl class="project-facts">
-          <div><dt>Work completed</dt><dd>Set up automated checks that catch broken links, accessibility issues, and SEO problems before they ship — so the site stays reliable without manual review every time it changes.</dd></div>
-          <div><dt>Validated with</dt><dd>Version-controlled workflow definitions, validation scripts, audit reports, and deployment records.</dd></div>
-          <div><dt>Limitation</dt><dd>Static checks support maintainability and publication quality but do not replace independent security testing.</dd></div>
-        </dl>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Jeremy Fontenot Technical Case Studies</title>
+  <meta name="description" content="Curated IT case studies covering infrastructure operations, Microsoft 365, Service Desk troubleshooting, PowerShell validation, and repository governance.">
+  <meta name="robots" content="index, follow"><meta name="theme-color" content="#0f172a"><meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://jeremyfontenot.online/projects.html">
+  <meta property="og:site_name" content="Jeremy Fontenot"><meta property="og:title" content="Projects | Jeremy Fontenot Technical Case Studies"><meta property="og:description" content="Curated technical work with objectives, implementation, validation, results, and limitations."><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/projects.html"><meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png"><meta property="og:image:alt" content="Jeremy Fontenot technical project case studies">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Projects | Jeremy Fontenot"><meta name="twitter:description" content="Technical case studies built for fast role-fit review and deeper engineering inspection."><meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+  <link rel="icon" href="./assets/logos/favicon_64x64.png"><link rel="stylesheet" href="./assets/css/site.css"><script src="./assets/js/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Jeremy Fontenot Technical Case Studies","url":"https://jeremyfontenot.online/projects.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"}}</script>
+</head>
+<body class="projects-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button><div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./projects.html" aria-current="page">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div></nav></header>
+  <main id="main">
+    <section class="page page-hero" aria-labelledby="projects-title">
+      <div class="section-head reveal is-visible"><p class="eyebrow kicker-line">Case-study library</p><h1 id="projects-title">Different problems. Different shapes. One operating method.</h1><p class="lead">The strongest project leads. Supporting workstreams follow with the level of detail their evidence can sustain.</p></div>
+      <div class="project-filter-bar reveal is-visible" role="group" aria-label="Project filters"><button class="filter-button is-active" type="button" data-filter="all">All work</button><button class="filter-button" type="button" data-filter="infrastructure">Infrastructure</button><button class="filter-button" type="button" data-filter="m365">Microsoft 365</button><button class="filter-button" type="button" data-filter="service">Service Desk</button><button class="filter-button" type="button" data-filter="automation">Automation</button></div>
+    </section>
+    <section class="section project-catalog" aria-label="Technical project catalog">
+      <div class="project-systems">
+        <article id="home-lab" class="project-panel flagship-project reveal" data-project="infrastructure">
+          <div><div class="project-card-head"><span class="status-label tested">Tested with mixed results</span><span class="project-number">01</span></div><p class="eyebrow">Flagship case study</p><h2>On-Premises Home Lab and Isolated Restore Validation</h2><p class="project-summary">Built and documented a personal Proxmox environment, then exercised selected Linux, Windows workstation, Active Directory domain controller, and pfSense backup archives through isolated restore workflows with preboot NIC isolation and controlled cleanup.</p><div class="technology-tags" aria-label="Environment"><span>Proxmox VE</span><span>pfSense</span><span>Windows Server</span><span>Active Directory</span><span>Ubuntu</span><span>PowerShell</span><span>SHA-256</span></div><div class="proof-links"><a href="./on-prem-home-lab.html">Open full case study</a><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Review restore evidence</a><a href="./proof.html#home-lab-proof">Trace claims to proof</a></div></div>
+          <dl class="project-facts"><div><dt>Objective</dt><dd>Test whether selected archives could be restored and inspected without connecting temporary guests to production networks.</dd></div><div><dt>Implementation</dt><dd>Created temporary VMs, verified <code>link_down=1</code> before first boot, performed only authorized local checks, and removed temporary resources.</dd></div><div><dt>Result</dt><dd>Linux01 PASS; pfSense narrow PASS; WS01 and DC01 INCONCLUSIVE overall.</dd></div><div><dt>Boundary</dt><dd>Personal nonproduction environment. Full disaster recovery, RTO, RPO, application recovery, and production assurance were not proven.</dd></div></dl>
+        </article>
+        <div class="project-supporting-grid">
+          <article id="microsoft" class="project-panel reveal" data-project="m365"><div class="project-card-head"><span class="status-label validated">Artifact-backed</span><span class="project-number">02</span></div><h2>Microsoft 365 and Entra Administration</h2><p>Organized personal-tenant evidence for identity, groups, licensing, roles, Conditional Access, sign-ins, audit activity, devices, applications, and service principals.</p><dl class="project-facts"><div><dt>Evidence</dt><dd>CSV, JSON, screenshots, manifests, and hash records.</dd></div><div><dt>Boundary</dt><dd>Personal cloud lab only; no employer or client administration is implied.</dd></div></dl><div class="proof-links"><a href="./proof.html#m365-proof">Review Microsoft 365 proof</a><a href="./evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html">Open claim map</a></div></article>
+          <article id="service" class="project-panel reveal" data-project="service"><div class="project-card-head"><span class="status-label documented">Documented</span><span class="project-number">03</span></div><h2>Service Desk Troubleshooting and RCA</h2><p>Structured incident records around symptoms, impact, troubleshooting decisions, root-cause framing, remediation, follow-through, and escalation-ready notes.</p><dl class="project-facts"><div><dt>Method</dt><dd>Separate observations from assumptions, record actions, and keep unresolved questions visible.</dd></div><div><dt>Boundary</dt><dd>No unsupported production impact, availability, or resolution metrics are claimed.</dd></div></dl><div class="proof-links"><a href="./evidence-library/projects/troubleshooting-rca/rca-report.html">Review RCA record</a><a href="./proof.html">Inspect evidence method</a></div></article>
+          <article id="powershell" class="project-panel reveal" data-project="automation"><div class="project-card-head"><span class="status-label tested">Executed and reviewed</span><span class="project-number">04</span></div><h2>PowerShell Validation and Evidence Automation</h2><p>Built checks for repository structure, parser integrity, evidence output, timeout handling, Git hygiene, secret patterns, and portfolio-to-operations drift.</p><dl class="project-facts"><div><dt>Result</dt><dd>Repository and framework checks passed; drift analysis returned a partial match with named gaps.</dd></div><div><dt>Boundary</dt><dd>Timeout handling does not prove service availability, and drift gaps are not infrastructure failures.</dd></div></dl><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/repository-structure-validation-20260629-210449.txt">Open repository validation</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/home-lab-baseline-framework-validation-20260629-210527.txt">Open framework validation</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/portfolio-home-lab-drift-validation-20260629-210609.txt">Open drift analysis</a></div></article>
+          <article id="repository" class="project-panel reveal" data-project="automation"><div class="project-card-head"><span class="status-label configured">Governed</span><span class="project-number">05</span></div><h2>Repository and Deployment Quality</h2><p>Maintained the portfolio as a static publication system with generated evidence pages, sitemap presentation, link checks, HTML and SEO validation, browser tests, and deployment workflows.</p><dl class="project-facts"><div><dt>Validation</dt><dd>Repository scripts and browser checks cover generation consistency, links, metadata, responsive overflow, and evidence paths.</dd></div><div><dt>Boundary</dt><dd>Static quality checks do not replace independent security testing.</dd></div></dl><div class="proof-links"><a href="./dashboard.html">Review coverage dashboard</a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/.github/workflows/validation.yml">Inspect validation workflow</a></div></article>
+        </div>
       </div>
-      <div class="proof-links"><a href="./dashboard.html">Open dashboard</a><a href="./proof.html">Review proof index</a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/.github/workflows/validation.yml" target="_blank" rel="noopener noreferrer">View validation workflow</a></div>
-    </article>
-  </div>
-</section>
-
-    </main>
-    <footer class="site-footer compact-footer" aria-label="Site footer">
-  <div class="compact-footer-grid">
-    <div class="compact-footer-brand">
-      <img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async">
-      <div>
-        <strong>Jeremy Fontenot</strong>
-        <p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p>
-      </div>
-    </div>
-    <nav class="compact-footer-links" aria-label="Footer navigation">
-      <a href="./projects.html">Projects</a>
-      <a href="./proof.html">Proof</a>
-      <a href="./dashboard.html">Dashboard</a>
-      <a href="./resume.html">Resume</a>
-      <a href="./contact.html">Contact</a>
-      <a href="./sitemap.xml">Sitemap</a>
-    </nav>
-    <div class="compact-footer-contact" aria-label="Professional contact links">
-      <a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a>
-      <a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a>
-      <a href="https://github.com/fontenotjeremy71-hub">GitHub</a>
-    </div>
-  </div>
-  <p class="credibility">Every public claim here traces back to a real artifact — see the <a href="./proof.html">proof index</a> for sourcing and limitations.</p>
-  <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
-</footer>
-    </body>
-    </html>
+    </section>
+  </main>
+  <footer class="site-footer compact-footer" aria-label="Site footer"><div class="compact-footer-grid"><div class="compact-footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async"><div><strong>Jeremy Fontenot</strong><p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p></div></div><nav class="compact-footer-links" aria-label="Footer navigation"><a href="./projects.html">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a><a href="./sitemap.xml">Sitemap</a></nav><div class="compact-footer-contact"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div></div><p class="credibility">Project status reflects demonstrated actions and results, never file or publication dates.</p><p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p></footer>
+</body>
+</html>

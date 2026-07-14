@@ -239,7 +239,7 @@ function renderMarkdown(markdown, entry, sourceToOutput) {
     tokens[0].type === "heading_open" &&
     tokens[0].tag === "h1" &&
     tokens[1].type === "inline" &&
-    headingText(tokens[1]) === entry.title &&
+    headingText(tokens[1]) === (entry.sourceTitle || entry.title) &&
     tokens[2].type === "heading_close"
   ) {
     tokens = tokens.slice(3);
@@ -266,7 +266,7 @@ function generatedComment(entry) {
 
 function renderPage(entry, renderedMarkdown) {
   const canonical = canonicalUrl(entry.output);
-  const description = `Branded HTML presentation of the authoritative Markdown evidence source: ${entry.title}.`;
+  const description = `Generated HTML presentation of the Markdown evidence record: ${entry.title}.`;
   const sourceFilename = path.basename(entry.source);
   const sourceHref = `./${sourceFilename}`;
   const pageTitle = `${entry.title} | Jeremy Fontenot`;
@@ -316,9 +316,8 @@ function renderPage(entry, renderedMarkdown) {
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${SITE_ORIGIN}/assets/og/og-portfolio.png">
   <link rel="icon" href="/assets/logos/favicon_64x64.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260630-layout">
-  <link rel="stylesheet" href="/assets/css/content-refinements.css?v=20260713-footer-align">
-  <link rel="stylesheet" href="/assets/css/evidence-document.css?v=20260713">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/evidence-document.css">
   <script src="/assets/js/site.js" defer></script>
   <script type="application/ld+json">${safeJson(jsonLd)}</script>
 </head>
@@ -329,7 +328,7 @@ function renderPage(entry, renderedMarkdown) {
       <a class="brand" href="/">
         <img src="/assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async">
         <span>Jeremy Fontenot</span>
-        <small>IT support and infrastructure portfolio</small>
+        <small>Support · systems · evidence</small>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
       <div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="/projects.html">Projects</a><a href="/proof.html" aria-current="page">Proof</a><a href="/dashboard.html">Dashboard</a><a href="/resume.html">Resume</a><a href="/contact.html">Contact</a></div>
@@ -346,10 +345,10 @@ function renderPage(entry, renderedMarkdown) {
     <section class="evidence-introduction" aria-labelledby="evidence-title">
       <p class="eyebrow">${escapeHtml(entry.category)}</p>
       <h1 id="evidence-title">${escapeHtml(entry.title)}</h1>
-      <p class="lead">This branded page is generated from the authoritative Markdown evidence source. Use the source link below for repository-level review.</p>
+      <p class="lead">This page renders a Markdown evidence record for accessible browser review. Inspect the method, captured output, result, scope, and limitations before using it to support a claim.</p>
       <dl class="evidence-metadata">
         <div><dt>Evidence category</dt><dd>${escapeHtml(entry.category)}</dd></div>
-        <div><dt>Source filename</dt><dd><code>${escapeHtml(sourceFilename)}</code></dd></div>
+        <div><dt>Source file</dt><dd><code>${escapeHtml(sourceFilename)}</code></dd></div>
         <div><dt>Source format</dt><dd>Markdown</dd></div>
         <div><dt>Presentation format</dt><dd>Generated HTML</dd></div>
         <div class="evidence-source-path"><dt>Repository-relative source</dt><dd><code>${escapeHtml(entry.source)}</code></dd></div>
@@ -362,9 +361,9 @@ function renderPage(entry, renderedMarkdown) {
     <article class="evidence-document" aria-label="Rendered evidence document">
 ${renderedMarkdown.trimEnd()}
     </article>
-    <aside class="source-integrity-notice" aria-label="Source integrity notice">
-      <h2>Source integrity</h2>
-      <p>Markdown is authoritative; this HTML page is a generated presentation and must not be edited directly. Evidence limitations and classifications remain controlled by the source record.</p>
+    <aside class="source-integrity-notice" aria-label="Source relationship notice">
+      <h2>Source relationship</h2>
+      <p>The linked Markdown controls this rendered copy. Evidence strength depends on the commands, captured output, result, reproducibility, scope, and limitations in that record.</p>
       <div class="actions">
         <a class="button primary" href="${escapeHtml(sourceHref)}">View source Markdown</a>
         <a class="button" href="${escapeHtml(entry.returnUrl)}">${escapeHtml(entry.returnLabel)}</a>
@@ -377,7 +376,7 @@ ${renderedMarkdown.trimEnd()}
       <nav class="compact-footer-links" aria-label="Footer navigation"><a href="/projects.html">Projects</a><a href="/proof.html">Proof</a><a href="/dashboard.html">Dashboard</a><a href="/resume.html">Resume</a><a href="/contact.html">Contact</a><a href="/sitemap.xml">Sitemap</a></nav>
       <div class="compact-footer-contact" aria-label="Professional contact links"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div>
     </div>
-    <p class="credibility">This generated page preserves the wording and limitations of its authoritative Markdown source; it does not expand the source record's claims.</p>
+    <p class="credibility">This generated page preserves the source record's wording and limitations; it does not expand the source claim.</p>
     <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
   </footer>
 </body>
@@ -417,7 +416,7 @@ function main() {
     if (detectedTitle === "") {
       throw new Error(`A required level-one title could not be determined: ${entry.source}`);
     }
-    if (detectedTitle !== entry.title) {
+    if (detectedTitle !== (entry.sourceTitle || entry.title)) {
       throw new Error(`Configured title does not match the Markdown title: ${entry.source}`);
     }
 

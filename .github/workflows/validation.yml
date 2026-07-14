@@ -27,7 +27,11 @@ jobs:
         run: npm ci
 
       - name: Validate generated evidence pages
-        run: npm run check:evidence
+        run: npm run check
+
+      - name: Validate no-date proof policy
+        shell: pwsh
+        run: .\scripts\validation\validate-no-date-proof.ps1
 
       - name: Validate PowerShell syntax
         shell: pwsh
@@ -80,6 +84,44 @@ jobs:
       - name: Validate public pages in Chromium
         shell: pwsh
         run: npm run test:browser
+
+      - name: Capture responsive visual review
+        shell: pwsh
+        run: |
+          $server = Start-Process node -ArgumentList "scripts/testing/serve-static-site.js" -PassThru -NoNewWindow
+          try {
+            $ready = $false
+            $deadline = (Get-Date).AddSeconds(30)
+            do {
+              try {
+                Invoke-WebRequest -Uri "http://127.0.0.1:4174/sitemap.xml" -UseBasicParsing | Out-Null
+                $ready = $true
+              }
+              catch {
+                Start-Sleep -Milliseconds 500
+              }
+            } until ($ready -or (Get-Date) -ge $deadline)
+
+            if (-not $ready) {
+              throw "Static review server did not become ready."
+            }
+
+            node .\scripts\validation\capture-redesign-review.js
+          }
+          finally {
+            if ($server -and -not $server.HasExited) {
+              Stop-Process -Id $server.Id -Force
+            }
+          }
+
+      - name: Upload visual review captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-visual-review
+          path: artifacts/redesign/final
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Validate Lighthouse scores
         shell: pwsh
