@@ -5,7 +5,7 @@ This file is completed from command output after the final build. Results descri
 ## Responsive review
 
 - Required viewport set: 320, 360, 375, 390, 414, 768, 1024, 1280, and 1440 CSS pixels.
-- Baseline and final captures are stored beside this report; the final mobile home capture was visually inspected after generation.
+- Baseline and final captures are stored beside this report. The final matrix contains all 20 sitemap routes at all nine required widths (180 combinations); primary desktop and mobile screens plus a generated evidence page were manually inspected after generation.
 - The Playwright suite checked all sitemap and generated evidence pages at 390×844, 768×1024, 1024×768, and 1440×900, plus 200% text reflow.
 
 ## Quality gates
