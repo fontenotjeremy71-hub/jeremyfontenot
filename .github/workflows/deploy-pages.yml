@@ -29,7 +29,7 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
       - name: Verify committed evidence pages are current
-        run: npm run check:evidence
+        run: npm run check
       - name: Prepare static files
         run: |
           mkdir site

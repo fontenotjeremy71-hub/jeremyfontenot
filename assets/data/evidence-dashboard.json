@@ -1,0 +1,27 @@
+{
+  "claims": {
+    "total": 13,
+    "direct": 8,
+    "boundaries": 2,
+    "classifications": {
+      "Validated": 8,
+      "Tested": 2,
+      "Limitation": 1,
+      "Configured": 1,
+      "Documented / Limitation": 1
+    }
+  },
+  "integrity": {
+    "verified": 1057,
+    "failed": 0
+  },
+  "generatedPages": {
+    "configured": 12,
+    "consistent": 12
+  },
+  "sources": {
+    "claimMap": "evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv",
+    "hashes": "evidence-library/integrity/evidence-hashes.json",
+    "generatedPageConfig": "scripts/config/evidence-pages.json"
+  }
+}

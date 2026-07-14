@@ -27,7 +27,11 @@ jobs:
         run: npm ci
 
       - name: Validate generated evidence pages
-        run: npm run check:evidence
+        run: npm run check
+
+      - name: Validate no-date proof policy
+        shell: pwsh
+        run: .\scripts\validation\validate-no-date-proof.ps1
 
       - name: Validate PowerShell syntax
         shell: pwsh
