@@ -11,6 +11,18 @@ const CHECK = process.argv.includes("--check");
 const VERBOSE = process.argv.includes("--verbose");
 const TEXT_EXTENSIONS = new Set([".md", ".txt", ".csv", ".json", ".yaml", ".yml", ".ps1", ".svg", ".html", ".xml", ".gitkeep"]);
 
+function resolveRepositoryPath(relativePath) {
+  const normalized = String(relativePath).replace(/[\\/]+/g, path.sep);
+  const resolved = path.resolve(ROOT, normalized);
+  const rootPrefix = `${ROOT}${path.sep}`;
+
+  if (resolved !== ROOT && !resolved.startsWith(rootPrefix)) {
+    throw new Error(`Repository path escapes the project root: ${relativePath}`);
+  }
+
+  return resolved;
+}
+
 function parseCsv(text) {
   const rows = [];
   let row = [];
@@ -61,14 +73,14 @@ function buildData() {
   let hashVerified = 0;
   let hashFailed = 0;
   hashRecords.forEach((entry) => {
-    const filePath = path.join(ROOT, entry.path);
+    const filePath = resolveRepositoryPath(entry.path);
     if (fs.existsSync(filePath) && normalizedHash(filePath) === String(entry.sha256).toUpperCase()) hashVerified += 1;
     else { hashFailed += 1; if (VERBOSE) console.error(`Hash check failed: ${entry.path}`); }
   });
 
   const generated = JSON.parse(fs.readFileSync(EVIDENCE_CONFIG, "utf8"));
   const generatedConsistent = generated.filter((entry) => {
-    const output = path.join(ROOT, entry.output);
+    const output = resolveRepositoryPath(entry.output);
     return fs.existsSync(output) && fs.readFileSync(output, "utf8").includes("GENERATED FILE — DO NOT EDIT DIRECTLY.");
   }).length;
 
