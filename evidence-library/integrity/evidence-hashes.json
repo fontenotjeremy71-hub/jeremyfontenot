@@ -5773,9 +5773,9 @@
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\infrastructure-validation-2026-07\\index.html",
-    "sha256": "1804913F397B8511746ADA521CACB670342F003DAA8275B694003C30E33C0B14",
-    "size": 20689,
-    "lastModified": "2026-07-14T22:50:40.1863934Z"
+    "sha256": "961168CBE02263945565F0868FC019800F99872818EC8C6C7D92E9818E71EE85",
+    "size": 20646,
+    "lastModified": "2026-07-15T01:48:44.1863915Z"
   },
   {
     "path": "evidence-library\\projects\\on-prem-home-lab\\infrastructure-validation-2026-07\\screenshots\\proxmox-dc01-rerun-rootdse-validation-2026-07-11.png",

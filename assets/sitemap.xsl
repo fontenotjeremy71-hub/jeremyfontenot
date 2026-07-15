@@ -86,7 +86,7 @@
             <div class="compact-footer-contact" aria-label="Professional contact links"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div>
           </div>
           <p class="credibility">The URL list on this page is generated from sitemap.xml; no separate route list is maintained.</p>
-          <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
+          <p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
         </footer>
       </body>
     </html>

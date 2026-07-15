@@ -66,6 +66,9 @@
 .classification-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .classification-grid article > strong { display: block; font-size: 2.5rem; line-height: 1; }
 .chart-panel { padding: clamp(1.25rem, 4vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius-lg); background: rgba(7, 16, 31, .56); }
+.dashboard-page .split-layout { grid-template-columns: minmax(30rem, 1.2fr) minmax(23rem, .8fr); gap: clamp(1.5rem, 3vw, 3rem); }
+.dashboard-page .scope-note-card h2 { max-width: 12ch; font-size: clamp(2rem, 1.45rem + 1.8vw, 3rem); overflow-wrap: normal; word-break: normal; }
+.dashboard-page .scope-note-card p { max-width: 38ch; }
 .bar-chart { display: grid; gap: .8rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
 .bar-chart li { display: grid; grid-template-columns: minmax(7rem, .45fr) minmax(12rem, 1fr) auto; gap: .8rem; align-items: center; }
 .bar-chart .bar-track { height: .7rem; overflow: hidden; border-radius: 999px; background: rgba(148, 163, 184, .14); }
@@ -78,7 +81,7 @@
 .experience-card::before { content: ""; position: absolute; top: .25rem; left: -.4rem; width: .75rem; height: .75rem; border: .15rem solid var(--navy); border-radius: 50%; background: var(--cyan); }
 .experience-heading { display: flex; justify-content: space-between; gap: 1rem; }
 .experience-heading p { color: var(--cyan); font-weight: 750; }
-.experience-heading time { flex: 0 0 auto; color: var(--muted); font-size: .82rem; }
+.experience-heading time { flex: 0 0 auto; max-width: 18rem; color: var(--muted); font-size: .82rem; text-align: right; }
 .credentials-grid article { padding: 1.2rem; }
 .certification-card { grid-column: 1 / -1; }
 .credential-list { columns: 2; padding-left: 1.2rem; }
@@ -95,6 +98,15 @@
   .metric-grid, .classification-grid, .route-link-grid, .artifact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-panel.flagship-project { grid-template-columns: 1fr; }
   .case-study-sidebar { position: static; }
+}
+@media (max-width: 980px) {
+  .dashboard-page .split-layout { grid-template-columns: 1fr; }
+  .dashboard-page .scope-note-card h2 { max-width: 18ch; }
+  .dashboard-page .scope-note-card p { max-width: var(--measure); }
+}
+@media (max-width: 900px) {
+  .evidence-focus-grid, .evidence-gallery { grid-template-columns: 1fr; }
+  .evidence-focus-grid article:first-child { grid-row: auto; }
 }
 @media (max-width: 760px) {
   .signal-matrix, .evidence-focus-grid, .project-supporting-grid, .lab-state-grid, .resume-focus-grid, .credentials-grid, .dashboard-grid, .capability-grid, .lab-proof-detail, .proof-matrix, .m365-proof-grid, .evidence-gallery { grid-template-columns: 1fr; }
