@@ -50,25 +50,30 @@ async function checkInternalLinks(urls, cache) {
   }
 
   const browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await context.newPage();
   const results = [];
   const internalLinkCache = new Map();
   const matrix = viewports.flatMap(([width, height]) => routes.map((route) => ({ route, width, height, fullPage: fullPageWidths.has(width) })))
     .concat(dashboardOnlyViewports.map(([width, height]) => ({ route: "/dashboard.html", width, height, fullPage: true })));
 
+  let consoleMessages = [];
+  let failedAssets = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleMessages.push(message.text());
+  });
+  page.on("pageerror", (error) => consoleMessages.push(error.message));
+  page.on("response", (response) => {
+    const resourceType = response.request().resourceType();
+    if (response.status() >= 400 && ["document", "stylesheet", "script", "image", "font"].includes(resourceType)) {
+      failedAssets.push({ url: response.url(), status: response.status(), resourceType });
+    }
+  });
+
   for (const { route, width, height, fullPage } of matrix) {
-    const page = await browser.newPage({ viewport: { width, height }, reducedMotion: "reduce" });
-    const consoleMessages = [];
-    const failedAssets = [];
-    page.on("console", (message) => {
-      if (message.type() === "error") consoleMessages.push(message.text());
-    });
-    page.on("pageerror", (error) => consoleMessages.push(error.message));
-    page.on("response", (response) => {
-      const resourceType = response.request().resourceType();
-      if (response.status() >= 400 && ["document", "stylesheet", "script", "image", "font"].includes(resourceType)) {
-        failedAssets.push({ url: response.url(), status: response.status(), resourceType });
-      }
-    });
+    consoleMessages = [];
+    failedAssets = [];
+    await page.setViewportSize({ width, height });
 
     const pageUrl = `${origin}${route}`;
     const response = await page.goto(pageUrl, { waitUntil: "networkidle" });
@@ -328,9 +333,9 @@ async function checkInternalLinks(urls, cache) {
     });
 
     await page.screenshot({ path: path.join(output, `${slugFor(route)}-${width}x${height}.png`), fullPage });
-    await page.close();
   }
 
+  await context.close();
   await browser.close();
   fs.writeFileSync(path.join(output, "responsive-qa.json"), `${JSON.stringify(results, null, 2)}\n`);
   const failures = results.filter((result) => result.responseStatus >= 400 || result.h1Count !== 1 || result.pageOverflowState || issueCount(result) > 0);
