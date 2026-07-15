@@ -370,9 +370,11 @@ test.describe("generated evidence pages", () => {
       await expect(breadcrumbs.locator('[aria-current="page"]')).toHaveText(entry.title);
       await expect(page.locator(".evidence-introduction .eyebrow")).toHaveText(entry.category);
 
-      await expect(await metadataValue(page, "Source file")).toHaveText(path.posix.basename(entry.source));
+      await expect(await metadataValue(page, "Source record")).toHaveText("Authoritative Markdown artifact");
       await expect(await metadataValue(page, "Source format")).toHaveText("Markdown");
       await expect(await metadataValue(page, "Presentation format")).toHaveText("Generated HTML");
+      await expect(page.locator(".evidence-introduction")).not.toContainText(entry.source);
+      await expect(page.locator(".evidence-introduction")).not.toContainText(path.posix.basename(entry.source));
 
       const sourceLinks = page.getByRole("link", { name: "View source Markdown" });
       expect(await sourceLinks.count()).toBeGreaterThan(0);

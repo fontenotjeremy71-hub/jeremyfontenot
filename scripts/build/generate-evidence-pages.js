@@ -348,10 +348,9 @@ function renderPage(entry, renderedMarkdown) {
       <p class="lead">This page renders a Markdown evidence record for accessible browser review. Inspect the method, captured output, result, scope, and limitations before using it to support a claim.</p>
       <dl class="evidence-metadata">
         <div><dt>Evidence category</dt><dd>${escapeHtml(entry.category)}</dd></div>
-        <div><dt>Source file</dt><dd><code>${escapeHtml(sourceFilename)}</code></dd></div>
+        <div><dt>Source record</dt><dd>Authoritative Markdown artifact</dd></div>
         <div><dt>Source format</dt><dd>Markdown</dd></div>
         <div><dt>Presentation format</dt><dd>Generated HTML</dd></div>
-        <div class="evidence-source-path"><dt>Repository-relative source</dt><dd><code>${escapeHtml(entry.source)}</code></dd></div>
       </dl>
       <div class="actions evidence-actions">
         <a class="button primary" href="${escapeHtml(sourceHref)}">View source Markdown</a>
@@ -377,7 +376,7 @@ ${renderedMarkdown.trimEnd()}
       <div class="compact-footer-contact" aria-label="Professional contact links"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div>
     </div>
     <p class="credibility">This generated page preserves the source record's wording and limitations; it does not expand the source claim.</p>
-    <p class="footer-meta">© 2026 Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
+    <p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
   </footer>
 </body>
 </html>

@@ -124,18 +124,22 @@ jobs:
           retention-days: 14
 
       - name: Validate Lighthouse scores
+        if: always()
         shell: pwsh
         run: .\scripts\lighthouse\validate-lighthouse-scores.ps1
 
       - name: Validate SEO metadata
+        if: always()
         shell: pwsh
         run: .\scripts\validation\validate-seo.ps1
 
       - name: Validate sitemap
+        if: always()
         shell: pwsh
         run: .\scripts\validation\validate-sitemap.ps1
 
       - name: Validate internal links
+        if: always()
         shell: pwsh
         run: .\scripts\validation\validate-links.ps1
 

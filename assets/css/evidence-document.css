@@ -92,10 +92,6 @@
   background: rgba(15, 23, 42, .56);
 }
 
-.generated-evidence-page .evidence-metadata .evidence-source-path {
-  grid-column: 1 / -1;
-}
-
 .generated-evidence-page .evidence-metadata dt {
   margin-bottom: .25rem;
   color: var(--cyan);
@@ -281,12 +277,12 @@
 }
 
 @media (max-width: 640px) {
-  .generated-evidence-page .evidence-metadata {
-    grid-template-columns: 1fr;
+  .generated-evidence-page .evidence-introduction h1 {
+    font-size: clamp(2rem, 10vw, 2.25rem);
   }
 
-  .generated-evidence-page .evidence-metadata .evidence-source-path {
-    grid-column: auto;
+  .generated-evidence-page .evidence-metadata {
+    grid-template-columns: 1fr;
   }
 
   .generated-evidence-page .evidence-breadcrumbs li:last-child {
