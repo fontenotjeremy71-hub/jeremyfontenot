@@ -138,3 +138,23 @@ jobs:
       - name: Validate internal links
         shell: pwsh
         run: .\scripts\validation\validate-links.ps1
+
+  linux-build-preflight:
+    name: Validate deployment build on Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Validate generated assets on Linux
+        run: npm run check
