@@ -8,8 +8,9 @@
     "check:evidence": "node scripts/build/generate-evidence-pages.js --check",
     "build:dashboard": "node scripts/build/generate-dashboard-data.js",
     "check:dashboard": "node scripts/build/generate-dashboard-data.js --check",
+    "check:readiness": "node scripts/validation/validate-job-readiness.js",
     "build": "npm run build:evidence && npm run build:dashboard",
-    "check": "npm run check:evidence && npm run check:dashboard",
+    "check": "npm run check:evidence && npm run check:dashboard && npm run check:readiness",
     "serve:test": "node scripts/testing/serve-static-site.js",
     "test:browser": "playwright test"
   },
