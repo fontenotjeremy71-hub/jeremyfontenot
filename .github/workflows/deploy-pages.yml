@@ -28,18 +28,10 @@ jobs:
           cache: npm
       - name: Install Node.js dependencies
         run: npm ci
-      - name: Verify committed evidence pages are current
+      - name: Verify committed generated pages and architecture
         run: npm run check
-      - name: Prepare static files
-        run: |
-          mkdir site
-          rsync -a \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='legacy-site-backup' \
-            --exclude='sorted-documents' \
-            --exclude='site' \
-            ./ site/
+      - name: Prepare allowlisted public site
+        run: npm run build:site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
