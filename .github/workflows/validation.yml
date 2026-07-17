@@ -26,8 +26,26 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Validate generated pages, site architecture, and publication contract
-        run: npm run check
+      - name: Generate foundation routes
+        run: npm run build:foundation
+
+      - name: Validate generated evidence pages
+        run: npm run check:evidence
+
+      - name: Validate dashboard data
+        run: npm run check:dashboard
+
+      - name: Validate job-readiness presentation
+        run: npm run check:readiness
+
+      - name: Validate foundation generation drift
+        run: npm run check:foundation
+
+      - name: Validate site architecture contract
+        run: npm run validate:foundation
+
+      - name: Validate publication allowlist
+        run: npm run check:publication
 
       - name: Validate no-date proof policy
         shell: pwsh
@@ -160,8 +178,26 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Validate generated assets and architecture on Linux
-        run: npm run check
+      - name: Generate foundation routes on Linux
+        run: npm run build:foundation
+
+      - name: Validate generated evidence pages on Linux
+        run: npm run check:evidence
+
+      - name: Validate dashboard data on Linux
+        run: npm run check:dashboard
+
+      - name: Validate job-readiness presentation on Linux
+        run: npm run check:readiness
+
+      - name: Validate foundation generation drift on Linux
+        run: npm run check:foundation
+
+      - name: Validate site architecture contract on Linux
+        run: npm run validate:foundation
+
+      - name: Validate publication allowlist on Linux
+        run: npm run check:publication
 
       - name: Build allowlisted public site on Linux
         run: npm run build:site -- --output .site-preflight
