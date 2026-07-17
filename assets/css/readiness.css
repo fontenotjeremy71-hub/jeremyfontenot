@@ -7,6 +7,14 @@
   word-break: normal;
 }
 
+.foundation-page .page-hero h1 {
+  max-width: 100%;
+  font-size: clamp(2rem, 1.45rem + 2.2vw, 3.5rem);
+  line-height: 1.06;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 .readiness-page #foundation .split-layout {
   grid-template-columns: minmax(0, 1fr) minmax(20rem, .6fr);
   gap: clamp(2rem, 4vw, 3rem);
