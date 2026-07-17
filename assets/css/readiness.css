@@ -34,3 +34,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 400px) {
+  .foundation-page .page-hero h1 {
+    font-size: 1.65rem;
+    line-height: 1.08;
+  }
+}
