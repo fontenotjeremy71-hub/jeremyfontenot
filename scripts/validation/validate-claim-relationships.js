@@ -21,26 +21,42 @@ for (const [index, relationship] of relationshipFixture.relationships.entries())
 
   if (!supportLevels.has(relationship.supportLevel)) failures.push(`${context}: unsupported supportLevel ${relationship.supportLevel}`);
 
-  for (const evidenceId of relationship.evidenceIds || []) {
+  if (!Array.isArray(relationship.evidenceIds) || relationship.evidenceIds.length === 0) {
+    failures.push(`${context}: evidenceIds must contain at least one evidence record`);
+    continue;
+  }
+
+  const uniqueEvidenceIds = new Set(relationship.evidenceIds);
+  if (uniqueEvidenceIds.size !== relationship.evidenceIds.length) failures.push(`${context}: evidenceIds must not contain duplicates`);
+
+  for (const evidenceId of relationship.evidenceIds) {
     const evidence = evidenceById.get(evidenceId);
     if (!evidence) {
       failures.push(`${context}: unknown evidence id ${evidenceId}`);
       continue;
     }
-    if (!(evidence.supportedClaims || []).includes(relationship.claimId)) {
+    if (!Array.isArray(evidence.supportedClaims) || !evidence.supportedClaims.includes(relationship.claimId)) {
       failures.push(`${context}: evidence ${evidenceId} does not list claim ${relationship.claimId}`);
     }
   }
 }
 
 for (const [evidenceId, evidence] of evidenceById.entries()) {
-  for (const claimId of evidence.supportedClaims || []) {
+  if (!Array.isArray(evidence.supportedClaims) || evidence.supportedClaims.length === 0) {
+    failures.push(`evidence ${evidenceId}: supportedClaims must contain at least one claim`);
+    continue;
+  }
+
+  const uniqueClaimIds = new Set(evidence.supportedClaims);
+  if (uniqueClaimIds.size !== evidence.supportedClaims.length) failures.push(`evidence ${evidenceId}: supportedClaims must not contain duplicates`);
+
+  for (const claimId of evidence.supportedClaims) {
     const relationship = relationshipByClaim.get(claimId);
     if (!relationship) {
       failures.push(`evidence ${evidenceId}: supported claim ${claimId} has no relationship`);
       continue;
     }
-    if (!(relationship.evidenceIds || []).includes(evidenceId)) {
+    if (!Array.isArray(relationship.evidenceIds) || !relationship.evidenceIds.includes(evidenceId)) {
       failures.push(`evidence ${evidenceId}: claim ${claimId} does not list the evidence record`);
     }
   }
