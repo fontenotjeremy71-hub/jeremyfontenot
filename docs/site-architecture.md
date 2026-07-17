@@ -109,6 +109,7 @@ The generator renders these fields consistently so later phases can add one tech
 - `sourceRepository`
 - `sourcePath`
 - `sourceCommit`
+- `collectionContext`
 - `hashAlgorithm`
 - `hash`
 - `supportedClaims`
@@ -119,6 +120,8 @@ The generator renders these fields consistently so later phases can add one tech
 - `limitations`
 - `publicationClassification`
 - `publicRoute`
+
+`collectionContext` records how, where, and under what reviewed circumstances the artifact was collected, exported, generated, or derived. Repository, path, commit, and hash identify the source object; collection context explains its acquisition and transformation boundaries.
 
 Supported publication classifications:
 
@@ -203,12 +206,14 @@ The deployment copies only:
 
 Repository source folders such as `.github`, `artifacts`, `config`, `content`, `docs`, `schemas`, `scripts`, `tests`, and `node_modules` are excluded.
 
-`scripts/build/prepare-public-site.js` builds the publication output and validates:
+`script/build/prepare-public-site.js` builds the publication output and validates:
 
 - sitemap routes;
 - compatibility routes;
-- internal root-relative links;
+- root-relative and relative internal links against the built artifact;
 - forbidden output roots.
+
+Repository-only configuration links must point to an approved public copy or to the repository review surface; they must not depend on excluded source roots.
 
 The GitHub Pages root and CNAME behavior remain unchanged.
 
@@ -222,7 +227,11 @@ The GitHub Pages root and CNAME behavior remain unchanged.
 - unsupported status values;
 - missing proof and public-link targets;
 - missing source files;
-- integrity mismatches for fixture records;
+- missing collection context;
+- unsupported publication classifications;
+- unsupported hash algorithms;
+- missing source blobs at recorded commits;
+- SHA-256 and Git-blob integrity mismatches against the recorded source commit;
 - unknown evidence-to-claim relationships;
 - missing generated pages;
 - forbidden date-driven public labels;
@@ -236,7 +245,7 @@ The GitHub Pages root and CNAME behavior remain unchanged.
 For each approved technology:
 
 1. inventory source artifacts;
-2. record source repository, path, commit, and integrity identifier;
+2. record source repository, path, commit, collection context, and integrity identifier;
 3. review sensitive information;
 4. choose publication classification;
 5. copy or derive only approved public material;
