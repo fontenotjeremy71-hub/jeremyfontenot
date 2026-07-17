@@ -62,6 +62,20 @@ function validateLegacyRoutes() {
   }
 }
 
+function localLinkTarget(link, sourceFile) {
+  if (!link || link.startsWith('#')) return null;
+  const sourceRelative = path.relative(outputDirectory, sourceFile).split(path.sep).join('/');
+  const base = new URL(`https://publication.invalid/${sourceRelative}`);
+  let resolved;
+  try {
+    resolved = new URL(link, base);
+  } catch {
+    return null;
+  }
+  if (resolved.protocol !== 'https:' || resolved.origin !== base.origin) return null;
+  return routeToFile(resolved.pathname);
+}
+
 function validateInternalLinks() {
   const htmlFiles = new Set();
 
@@ -85,8 +99,8 @@ function validateInternalLinks() {
     const html = fs.readFileSync(file, 'utf8');
     const links = [...html.matchAll(/\b(?:href|src)\s*=\s*["']([^"']+)["']/gi)].map((match) => match[1]);
     for (const link of links) {
-      if (!link.startsWith('/') || link.startsWith('//')) continue;
-      const target = routeToFile(link);
+      const target = localLinkTarget(link, file);
+      if (!target) continue;
       assertOutputFile(target, `${path.relative(outputDirectory, file)} link ${link}`);
     }
   }
