@@ -11,9 +11,26 @@ const args = process.argv.slice(2);
 const checkMode = args.includes('--check');
 const outputIndex = args.indexOf('--output');
 const outputArg = outputIndex >= 0 ? args[outputIndex + 1] : null;
-const outputDirectory = checkMode
-  ? fs.mkdtempSync(path.join(os.tmpdir(), 'jeremyfontenot-site-'))
-  : path.resolve(root, outputArg || manifest.outputDirectory);
+
+function resolveOwnedOutputDirectory() {
+  if (checkMode) return fs.mkdtempSync(path.join(os.tmpdir(), 'jeremyfontenot-site-'));
+
+  const requested = outputArg || manifest.outputDirectory;
+  if (!requested || path.isAbsolute(requested) || requested === '.' || requested === '..' || requested.includes('/') || requested.includes('\\')) {
+    throw new Error(`Unsafe publication output path: ${requested || '<empty>'}`);
+  }
+  if (!/^\.?site(?:-[a-z0-9-]+)?$/i.test(requested)) {
+    throw new Error(`Publication output must be an owned top-level site directory: ${requested}`);
+  }
+
+  const resolved = path.resolve(root, requested);
+  if (path.dirname(resolved) !== root) throw new Error(`Publication output must remain directly under the repository root: ${requested}`);
+  if (resolved === root) throw new Error('Publication output cannot be the repository root.');
+  if (fs.existsSync(resolved) && fs.lstatSync(resolved).isSymbolicLink()) throw new Error(`Publication output cannot be a symbolic link: ${requested}`);
+  return resolved;
+}
+
+const outputDirectory = resolveOwnedOutputDirectory();
 
 function copyFile(relativePath, required) {
   const source = path.join(root, relativePath);
@@ -113,9 +130,6 @@ function validateForbiddenRoots() {
 }
 
 try {
-  const resolvedRoot = path.resolve(root);
-  const resolvedOutput = path.resolve(outputDirectory);
-  if (resolvedOutput === resolvedRoot) throw new Error('Publication output cannot be the repository root.');
   if (!checkMode) fs.rmSync(outputDirectory, {recursive: true, force: true});
   fs.mkdirSync(outputDirectory, {recursive: true});
 
