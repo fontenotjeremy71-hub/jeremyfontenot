@@ -12,6 +12,11 @@ const checkMode = args.includes('--check');
 const outputIndex = args.indexOf('--output');
 const outputArg = outputIndex >= 0 ? args[outputIndex + 1] : null;
 
+function isDescendant(parent, candidate) {
+  const relative = path.relative(parent, candidate);
+  return relative !== '' && !relative.startsWith(`..${path.sep}`) && relative !== '..' && !path.isAbsolute(relative);
+}
+
 function resolveOwnedOutputDirectory() {
   if (checkMode) return fs.mkdtempSync(path.join(os.tmpdir(), 'jeremyfontenot-site-'));
 
@@ -32,22 +37,53 @@ function resolveOwnedOutputDirectory() {
 
 const outputDirectory = resolveOwnedOutputDirectory();
 
+function normalizeManifestPath(value, context) {
+  if (typeof value !== 'string' || !value.trim()) throw new Error(`${context} must be a nonempty relative path.`);
+  if (value.includes('\0') || path.isAbsolute(value) || /^[A-Za-z]:[\\/]/.test(value)) throw new Error(`${context} must not be absolute: ${value}`);
+
+  const slashPath = value.replaceAll('\\', '/');
+  const normalized = path.posix.normalize(slashPath);
+  if (normalized !== slashPath || normalized === '.' || normalized === '..' || normalized.startsWith('../') || normalized.startsWith('/')) {
+    throw new Error(`${context} must be a normalized repository-relative path without traversal: ${value}`);
+  }
+
+  const source = path.resolve(root, ...normalized.split('/'));
+  const target = path.resolve(outputDirectory, ...normalized.split('/'));
+  if (!isDescendant(root, source)) throw new Error(`${context} escapes the repository root: ${value}`);
+  if (!isDescendant(outputDirectory, target)) throw new Error(`${context} escapes the publication output: ${value}`);
+
+  return {relativePath: normalized, source, target};
+}
+
+function resolveOutputPath(relativePath, context) {
+  if (typeof relativePath !== 'string' || !relativePath) throw new Error(`${context} has an empty output path.`);
+  const slashPath = relativePath.replaceAll('\\', '/');
+  const normalized = path.posix.normalize(slashPath);
+  if (normalized !== slashPath || normalized === '.' || normalized === '..' || normalized.startsWith('../') || normalized.startsWith('/')) {
+    throw new Error(`${context} contains an unsafe output path: ${relativePath}`);
+  }
+  const absolute = path.resolve(outputDirectory, ...normalized.split('/'));
+  if (!isDescendant(outputDirectory, absolute)) throw new Error(`${context} escapes the publication output: ${relativePath}`);
+  return absolute;
+}
+
 function copyFile(relativePath, required) {
-  const source = path.join(root, relativePath);
-  const target = path.join(outputDirectory, relativePath);
-  if (!fs.existsSync(source)) {
-    if (required) throw new Error(`Required public file is missing: ${relativePath}`);
+  const resolved = normalizeManifestPath(relativePath, `Publication file ${relativePath}`);
+  if (!fs.existsSync(resolved.source)) {
+    if (required) throw new Error(`Required public file is missing: ${resolved.relativePath}`);
     return;
   }
-  fs.mkdirSync(path.dirname(target), {recursive: true});
-  fs.copyFileSync(source, target);
+  if (!fs.statSync(resolved.source).isFile()) throw new Error(`Publication file is not a regular file: ${resolved.relativePath}`);
+  if (fs.lstatSync(resolved.source).isSymbolicLink()) throw new Error(`Publication file cannot be a symbolic link: ${resolved.relativePath}`);
+  fs.mkdirSync(path.dirname(resolved.target), {recursive: true});
+  fs.copyFileSync(resolved.source, resolved.target);
 }
 
 function copyDirectory(relativePath) {
-  const source = path.join(root, relativePath);
-  const target = path.join(outputDirectory, relativePath);
-  if (!fs.existsSync(source) || !fs.statSync(source).isDirectory()) throw new Error(`Required public directory is missing: ${relativePath}`);
-  fs.cpSync(source, target, {recursive: true, force: true});
+  const resolved = normalizeManifestPath(relativePath, `Publication directory ${relativePath}`);
+  if (!fs.existsSync(resolved.source) || !fs.statSync(resolved.source).isDirectory()) throw new Error(`Required public directory is missing: ${resolved.relativePath}`);
+  if (fs.lstatSync(resolved.source).isSymbolicLink()) throw new Error(`Publication directory cannot be a symbolic link: ${resolved.relativePath}`);
+  fs.cpSync(resolved.source, resolved.target, {recursive: true, force: true});
 }
 
 function routeToFile(route) {
@@ -58,7 +94,7 @@ function routeToFile(route) {
 }
 
 function assertOutputFile(relativePath, context) {
-  const absolute = path.join(outputDirectory, relativePath);
+  const absolute = resolveOutputPath(relativePath, context);
   if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) throw new Error(`${context} is missing from the publication output: ${relativePath}`);
 }
 
@@ -90,7 +126,7 @@ function localLinkTarget(link, sourceFile) {
     return null;
   }
   if (resolved.protocol !== 'https:' || resolved.origin !== base.origin) return null;
-  return routeToFile(resolved.pathname);
+  return routeToFile(decodeURIComponent(resolved.pathname));
 }
 
 function validateInternalLinks() {
@@ -125,11 +161,17 @@ function validateInternalLinks() {
 
 function validateForbiddenRoots() {
   for (const forbidden of manifest.forbiddenOutputRoots) {
-    if (fs.existsSync(path.join(outputDirectory, forbidden))) throw new Error(`Forbidden source root was published: ${forbidden}`);
+    const resolved = normalizeManifestPath(forbidden, `Forbidden output root ${forbidden}`);
+    if (fs.existsSync(resolved.target)) throw new Error(`Forbidden source root was published: ${resolved.relativePath}`);
   }
 }
 
 try {
+  for (const file of manifest.requiredRootFiles) normalizeManifestPath(file, `requiredRootFiles entry ${file}`);
+  for (const file of manifest.optionalRootFiles) normalizeManifestPath(file, `optionalRootFiles entry ${file}`);
+  for (const directory of manifest.directories) normalizeManifestPath(directory, `directories entry ${directory}`);
+  for (const forbidden of manifest.forbiddenOutputRoots) normalizeManifestPath(forbidden, `forbiddenOutputRoots entry ${forbidden}`);
+
   if (!checkMode) fs.rmSync(outputDirectory, {recursive: true, force: true});
   fs.mkdirSync(outputDirectory, {recursive: true});
 
