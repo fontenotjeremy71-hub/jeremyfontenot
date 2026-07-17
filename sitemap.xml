@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="/assets/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jeremyfontenot.online/</loc></url>
+  <url><loc>https://jeremyfontenot.online/systems-administration.html</loc></url>
   <url><loc>https://jeremyfontenot.online/projects.html</loc></url>
   <url><loc>https://jeremyfontenot.online/on-prem-home-lab.html</loc></url>
   <url><loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/</loc></url>
