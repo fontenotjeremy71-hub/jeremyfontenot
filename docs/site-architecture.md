@@ -206,7 +206,7 @@ The deployment copies only:
 
 Repository source folders such as `.github`, `artifacts`, `config`, `content`, `docs`, `schemas`, `scripts`, `tests`, and `node_modules` are excluded.
 
-`script/build/prepare-public-site.js` builds the publication output and validates:
+`scripts/build/prepare-public-site.js` builds the publication output and validates:
 
 - sitemap routes;
 - compatibility routes;
