@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "outputDirectory": "site",
+  "requiredRootFiles": [
+    "CNAME",
+    "robots.txt",
+    "sitemap.xml"
+  ],
+  "optionalRootFiles": [
+    ".nojekyll",
+    "favicon.ico"
+  ],
+  "rootExtensions": [
+    ".html"
+  ],
+  "directories": [
+    "assets",
+    "evidence-library",
+    "systems-skills",
+    "microsoft-365",
+    "home-lab",
+    "evidence"
+  ],
+  "forbiddenOutputRoots": [
+    ".git",
+    ".github",
+    "artifacts",
+    "config",
+    "content",
+    "schemas",
+    "scripts",
+    "tests",
+    "legacy-site-backup",
+    "sorted-documents",
+    "node_modules"
+  ]
+}
