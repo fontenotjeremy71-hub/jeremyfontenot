@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "m365-entra-proof-map",
+      "lab": "microsoft-365",
+      "technology": "entra-id",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+      "sourceCommit": "ec09894afe339daf160a117ff1d42c7c8e023819",
+      "hashAlgorithm": "git-blob-sha1",
+      "hash": "cbb6341ac364fe6594b24f6cc8d832753344463d",
+      "supportedClaims": ["m365-tenant-review-capability"],
+      "skill": "Microsoft 365 and Entra administration",
+      "task": "Mapped tenant, identity, policy, application, sign-in, and audit claims to public evidence.",
+      "result": "The public proof map provides bounded claim-to-artifact relationships.",
+      "scope": "Personal Microsoft 365 tenant.",
+      "limitations": "Does not prove client, production, or enterprise-scale tenant ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html"
+    },
+    {
+      "id": "home-lab-dc01-validation",
+      "lab": "home-lab",
+      "technology": "windows-server",
+      "evidenceType": "validation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+      "sourceCommit": "ec09894afe339daf160a117ff1d42c7c8e023819",
+      "hashAlgorithm": "git-blob-sha1",
+      "hash": "3c2c0a79f58d217875da7bd7f85a313b13238128",
+      "supportedClaims": ["windows-server-administration-capability"],
+      "skill": "Windows Server and Active Directory administration",
+      "task": "Collected authenticated server, role, directory, DNS, DHCP, Group Policy, service, storage, and event-summary evidence.",
+      "result": "The record supports bounded personal-lab server and directory administration capability.",
+      "scope": "Personal nonproduction domain-controller lab.",
+      "limitations": "Does not prove enterprise scale, continuous service health, or production ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html"
+    }
+  ]
+}
