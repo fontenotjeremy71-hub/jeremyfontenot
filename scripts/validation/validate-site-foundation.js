@@ -4,12 +4,13 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const {execFileSync} = require('node:child_process');
 
 const root = path.resolve(__dirname, '..', '..');
 const failures = [];
 const datePatterns = [
   /\b(?:19|20)\d{2}\b/,
-  /\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\b/i,
+  /\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\b/,
   /\b(?:recent|recently|latest|newest|fresh|freshness)\b/i,
   /\b(?:date|dates|dated|year|years|month|months|timestamp|timestamps)\b/i
 ];
@@ -154,7 +155,7 @@ if (legacyRoutes) {
 
 const schema = readJson('schemas/site-foundation.schema.json');
 if (schema) {
-  const requiredEvidenceFields = ['id', 'lab', 'technology', 'evidenceType', 'sourceRepository', 'sourcePath', 'sourceCommit', 'hashAlgorithm', 'hash', 'supportedClaims', 'skill', 'task', 'result', 'scope', 'limitations', 'publicationClassification', 'publicRoute'];
+  const requiredEvidenceFields = ['id', 'lab', 'technology', 'evidenceType', 'sourceRepository', 'sourcePath', 'sourceCommit', 'collectionContext', 'hashAlgorithm', 'hash', 'supportedClaims', 'skill', 'task', 'result', 'scope', 'limitations', 'publicationClassification', 'publicRoute'];
   const actual = schema.$defs?.evidenceRecord?.required || [];
   for (const field of requiredEvidenceFields) {
     if (!actual.includes(field)) failures.push(`schemas/site-foundation.schema.json: evidenceRecord must require ${field}`);
@@ -183,23 +184,56 @@ function gitBlobSha(buffer) {
   return crypto.createHash('sha1').update(header).update(buffer).digest('hex');
 }
 
+function sha256(buffer) {
+  return crypto.createHash('sha256').update(buffer).digest('hex');
+}
+
+function readRecordedSource(record, context) {
+  const objectSpec = `${record.sourceCommit}:${record.sourcePath.replaceAll('\\', '/')}`;
+  try {
+    return execFileSync('git', ['show', objectSpec], {
+      cwd: root,
+      encoding: null,
+      maxBuffer: 256 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+  } catch {
+    failures.push(`${context}: source blob does not exist at recorded commit: ${objectSpec}`);
+    return null;
+  }
+}
+
+function calculateRecordedHash(buffer, algorithm, context) {
+  if (algorithm === 'git-blob-sha1') return gitBlobSha(buffer);
+  if (algorithm === 'sha256') return sha256(buffer);
+  failures.push(`${context}: unsupported hashAlgorithm ${algorithm}`);
+  return null;
+}
+
 const evidenceFixtures = readJson('tests/fixtures/site-foundation/evidence-records.json');
 const relationshipFixtures = readJson('tests/fixtures/site-foundation/claim-relationships.json');
 const evidenceIds = new Set();
 if (evidenceFixtures) {
   requireFields(evidenceFixtures, ['schemaVersion', 'records'], 'tests/fixtures/site-foundation/evidence-records.json');
-  const requiredEvidenceFields = schema?.$defs?.evidenceRecord?.required || [];
+  const evidenceDefinition = schema?.$defs?.evidenceRecord;
+  const requiredEvidenceFields = evidenceDefinition?.required || [];
+  const publicationClassifications = new Set(evidenceDefinition?.properties?.publicationClassification?.enum || []);
+  const hashAlgorithms = new Set(evidenceDefinition?.properties?.hashAlgorithm?.enum || []);
   for (const [index, record] of evidenceFixtures.records.entries()) {
     const context = `tests/fixtures/site-foundation/evidence-records.json records[${index}]`;
     requireFields(record, requiredEvidenceFields, context);
     if (evidenceIds.has(record.id)) failures.push(`${context}: duplicate evidence id ${record.id}`);
     evidenceIds.add(record.id);
+    if (typeof record.collectionContext !== 'string' || record.collectionContext.trim().length < 8) failures.push(`${context}: collectionContext must describe the evidence collection or derivation circumstances`);
+    if (!publicationClassifications.has(record.publicationClassification)) failures.push(`${context}: unsupported publicationClassification ${record.publicationClassification}`);
+    if (!hashAlgorithms.has(record.hashAlgorithm)) failures.push(`${context}: unsupported hashAlgorithm ${record.hashAlgorithm}`);
     if (record.sourceRepository === 'fontenotjeremy71-hub/jeremyfontenot') {
-      const source = path.join(root, record.sourcePath);
-      if (!fs.existsSync(source)) failures.push(`${context}: sourcePath does not exist: ${record.sourcePath}`);
-      else if (record.hashAlgorithm === 'git-blob-sha1') {
-        const actualHash = gitBlobSha(fs.readFileSync(source));
-        if (actualHash !== record.hash) failures.push(`${context}: git blob hash mismatch for ${record.sourcePath}; expected ${record.hash}, actual ${actualHash}`);
+      const currentSource = path.join(root, record.sourcePath);
+      if (!fs.existsSync(currentSource)) failures.push(`${context}: sourcePath does not exist in the working tree: ${record.sourcePath}`);
+      const recordedSource = readRecordedSource(record, context);
+      if (recordedSource) {
+        const actualHash = calculateRecordedHash(recordedSource, record.hashAlgorithm, context);
+        if (actualHash && actualHash.toLowerCase() !== String(record.hash).toLowerCase()) failures.push(`${context}: ${record.hashAlgorithm} mismatch at ${record.sourceCommit}:${record.sourcePath}; expected ${record.hash}, actual ${actualHash}`);
       }
     }
     if (record.publicRoute) assertRouteExists(record.publicRoute, `${context} publicRoute`);
