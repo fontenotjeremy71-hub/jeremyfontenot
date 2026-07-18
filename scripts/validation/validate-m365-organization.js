@@ -78,10 +78,12 @@ if (catalog) {
     if (!Array.isArray(record.supportedClaims) || record.supportedClaims.length === 0) failures.push(`${context}: supportedClaims must be nonempty`);
     for (const claimId of record.supportedClaims || []) if (!config.claims?.[claimId]) failures.push(`${context}: unknown supported claim ${claimId}`);
     if (!/^[a-f0-9]{64}$/i.test(record.hash || '')) failures.push(`${context}: invalid SHA-256`);
-    if ('recordedSourceHash' in record) {
-      if (!/^[a-f0-9]{64}$/i.test(record.recordedSourceHash || '')) failures.push(`${context}: invalid recorded source SHA-256`);
-      if (typeof record.recordedSourceHashMatch !== 'boolean') failures.push(`${context}: recordedSourceHashMatch must be boolean`);
+    if (record.recordedSourceHash !== undefined && record.recordedSourceHash !== null) {
+      if (!/^[a-f0-9]{64}$/i.test(record.recordedSourceHash)) failures.push(`${context}: invalid recorded source SHA-256`);
+      if (typeof record.recordedSourceHashMatch !== 'boolean') failures.push(`${context}: recordedSourceHashMatch must be boolean when a recorded source hash exists`);
       if (record.recordedSourceHashMatch === false && record.publicationClassification !== 'sanitized-derivative') failures.push(`${context}: byte-different public files must be classified as sanitized-derivative`);
+    } else if (record.recordedSourceHashMatch !== undefined && record.recordedSourceHashMatch !== null) {
+      failures.push(`${context}: recordedSourceHashMatch must be null when no recorded source hash exists`);
     }
     if (!record.publicRoute?.startsWith('/')) failures.push(`${context}: invalid publicRoute`);
     else requireFile(record.publicRoute.replace(/^\//, ''), context);
