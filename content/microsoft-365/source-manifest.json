@@ -104,6 +104,9 @@
     {"path":"microsoft-365/sensitive-data-review.json","reason":"Generated sensitive-data report validated as an output contract."},
     {"path":"content/microsoft-365/generated-output-hashes.json","reason":"Generated deterministic integrity contract, not collected evidence."},
     {"path":"evidence-library/preserved-sharepoint/index.html","reason":"Generated public index validated as an output contract."},
+    {"path":"evidence-library/evidence-relationships.json","reason":"Cross-cutting generated relationship index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."},
+    {"path":"evidence-library/evidence-search-index.json","reason":"Cross-cutting generated search index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."},
+    {"path":"evidence-file-list-sorted.txt","reason":"Cross-cutting generated sorted inventory that duplicates the separately cataloged physical file inventory."},
     {"path":"evidence-library/projects/microsoft-365-lab/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/projects/troubleshooting-rca/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/entra-identity/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
@@ -116,6 +119,7 @@
     {"path":"scripts/build/generate-m365-evidence-organization.js","reason":"Phase generator implementation, not collected evidence."},
     {"path":"scripts/build/sync-m365-generated-integrity.js","reason":"Generated-integrity tooling, not collected evidence."},
     {"path":"scripts/build/sync-m365-seo.js","reason":"Generated-SEO tooling, not collected evidence."},
+    {"path":"scripts/validation/validate-m365-sensitive-formats.js","reason":"Supplemental high-severity scanner implementation, not collected evidence."},
     {"path":"tests/m365-evidence-organization.test.js","reason":"Phase validation test, not collected evidence."}
   ]
 }
