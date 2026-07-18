@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "phase": "3A",
+  "sources": {
+    "currentPortfolio": {
+      "repository": "fontenotjeremy71-hub/jeremyfontenot",
+      "commit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "root": "evidence-library/projects/microsoft-365-lab"
+    },
+    "preservedSharePoint": {
+      "repository": "jeremyfontenot/JeremyFontenot.github.io",
+      "commit": "5581bd7bf9c61ff77000ac04aa39fcbb04ed004f",
+      "inventory": "evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv",
+      "publicRoot": "evidence-library/preserved-sharepoint/source"
+    }
+  },
+  "technologies": [
+    {
+      "slug": "tenant-administration",
+      "label": "Tenant Administration",
+      "destination": "content/microsoft-365/tenant-administration",
+      "claimId": "m365-tenant-administration-review",
+      "claim": "Reviewed personal-tenant organization settings, domains, subscriptions, licensing state, users, groups, and administrative context.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "entra-id",
+      "label": "Entra ID",
+      "destination": "content/microsoft-365/entra-id",
+      "claimId": "m365-entra-identity-review",
+      "claim": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, directory audits, and identity-policy state in a personal tenant.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "intune",
+      "label": "Intune",
+      "destination": "content/microsoft-365/intune",
+      "claimId": "m365-intune-workflow-documentation",
+      "claim": "Documented endpoint-management concepts and a bounded managed-device validation attempt.",
+      "supportLevel": "documented-only"
+    },
+    {
+      "slug": "exchange-online",
+      "label": "Exchange Online",
+      "destination": "content/microsoft-365/exchange-online",
+      "claimId": "m365-exchange-support-familiarity",
+      "claim": "Reviewed Microsoft 365 group evidence and documented Exchange Online connection and support workflows with explicit limitations.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "sharepoint",
+      "label": "SharePoint",
+      "destination": "content/microsoft-365/sharepoint",
+      "claimId": "m365-sharepoint-export-preservation",
+      "claim": "Preserved and indexed an offline SharePoint documentation export with source paths, file sizes, SHA-256 values, excerpts, and public navigation.",
+      "supportLevel": "directly-proven"
+    },
+    {
+      "slug": "teams",
+      "label": "Teams",
+      "destination": "content/microsoft-365/teams",
+      "claimId": "m365-teams-documentation",
+      "claim": "Preserved personal-lab Teams and Microsoft 365 group administration documentation without claiming live organizational ownership.",
+      "supportLevel": "documented-only"
+    },
+    {
+      "slug": "security-compliance",
+      "label": "Security and Compliance",
+      "destination": "content/microsoft-365/security-compliance",
+      "claimId": "m365-security-policy-review",
+      "claim": "Reviewed Conditional Access, named locations, authentication methods, authorization settings, security-default state, and related targeting records.",
+      "supportLevel": "configured-not-behavior-tested"
+    },
+    {
+      "slug": "applications",
+      "label": "Applications and Service Principals",
+      "destination": "content/microsoft-365/applications",
+      "claimId": "m365-application-governance-review",
+      "claim": "Reviewed app registrations, enterprise applications, service principals, and OAuth permission grants in structured exports.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "automation",
+      "label": "Automation",
+      "destination": "content/microsoft-365/automation",
+      "claimId": "m365-evidence-automation",
+      "claim": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
+      "supportLevel": "supported-with-limitations"
+    }
+  ],
+  "boundaries": [
+    "Personal Microsoft 365 tenant only.",
+    "No client, production, or enterprise-scale tenant ownership claim.",
+    "No Intune fleet-management claim.",
+    "No Exchange mail-flow or transport ownership claim.",
+    "Preserved SharePoint exports are offline source artifacts, not live SharePoint resources.",
+    "Referenced scripts are not treated as authored or executed unless the raw source is present and verified."
+  ]
+}
