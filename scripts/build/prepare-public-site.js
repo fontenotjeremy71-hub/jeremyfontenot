@@ -67,23 +67,43 @@ function resolveOutputPath(relativePath, context) {
   return absolute;
 }
 
+function assertNoSymlinks(absolutePath, relativePath, context) {
+  const status = fs.lstatSync(absolutePath);
+  if (status.isSymbolicLink()) throw new Error(`${context} cannot contain a symbolic link: ${relativePath}`);
+  if (!status.isDirectory()) return;
+
+  for (const entry of fs.readdirSync(absolutePath, {withFileTypes: true})) {
+    const childAbsolute = path.join(absolutePath, entry.name);
+    const childRelative = relativePath ? `${relativePath}/${entry.name}` : entry.name;
+    const childStatus = fs.lstatSync(childAbsolute);
+    if (entry.isSymbolicLink() || childStatus.isSymbolicLink()) {
+      throw new Error(`${context} cannot contain a symbolic link: ${childRelative}`);
+    }
+    if (childStatus.isDirectory()) assertNoSymlinks(childAbsolute, childRelative, context);
+  }
+}
+
 function copyFile(relativePath, required) {
   const resolved = normalizeManifestPath(relativePath, `Publication file ${relativePath}`);
   if (!fs.existsSync(resolved.source)) {
     if (required) throw new Error(`Required public file is missing: ${resolved.relativePath}`);
     return;
   }
-  if (!fs.statSync(resolved.source).isFile()) throw new Error(`Publication file is not a regular file: ${resolved.relativePath}`);
-  if (fs.lstatSync(resolved.source).isSymbolicLink()) throw new Error(`Publication file cannot be a symbolic link: ${resolved.relativePath}`);
+  const status = fs.lstatSync(resolved.source);
+  if (status.isSymbolicLink()) throw new Error(`Publication file cannot be a symbolic link: ${resolved.relativePath}`);
+  if (!status.isFile()) throw new Error(`Publication file is not a regular file: ${resolved.relativePath}`);
   fs.mkdirSync(path.dirname(resolved.target), {recursive: true});
   fs.copyFileSync(resolved.source, resolved.target);
 }
 
 function copyDirectory(relativePath) {
   const resolved = normalizeManifestPath(relativePath, `Publication directory ${relativePath}`);
-  if (!fs.existsSync(resolved.source) || !fs.statSync(resolved.source).isDirectory()) throw new Error(`Required public directory is missing: ${resolved.relativePath}`);
-  if (fs.lstatSync(resolved.source).isSymbolicLink()) throw new Error(`Publication directory cannot be a symbolic link: ${resolved.relativePath}`);
-  fs.cpSync(resolved.source, resolved.target, {recursive: true, force: true});
+  if (!fs.existsSync(resolved.source)) throw new Error(`Required public directory is missing: ${resolved.relativePath}`);
+  const status = fs.lstatSync(resolved.source);
+  if (status.isSymbolicLink()) throw new Error(`Publication directory cannot be a symbolic link: ${resolved.relativePath}`);
+  if (!status.isDirectory()) throw new Error(`Required public directory is missing: ${resolved.relativePath}`);
+  assertNoSymlinks(resolved.source, resolved.relativePath, 'Publication directory');
+  fs.cpSync(resolved.source, resolved.target, {recursive: true, force: true, dereference: false});
 }
 
 function routeToFile(route) {
@@ -185,6 +205,7 @@ try {
 
   for (const directory of manifest.directories) copyDirectory(directory);
 
+  assertNoSymlinks(outputDirectory, path.basename(outputDirectory), 'Publication output');
   validateForbiddenRoots();
   validateSitemap();
   validateLegacyRoutes();
