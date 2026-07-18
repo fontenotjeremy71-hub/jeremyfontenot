@@ -192,15 +192,18 @@ function verifyFile(publicPath, expectedHash, context, verifyRecordedCommit = fa
   const absolute = path.join(root, publicPath);
   if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) {
     failures.push(`${context}: missing file ${publicPath}`);
-    return {actualHash: null, sizeBytes: null};
+    return {actualHash: null, sizeBytes: null, recordedHash: expectedHash ? expectedHash.toLowerCase() : null, recordedHashMatch: false};
   }
   const buffer = fs.readFileSync(absolute);
   if (verifyRecordedCommit) verifyCurrentSourceCommit(publicPath, buffer, context);
   const actualHash = sha256(buffer);
-  if (expectedHash && actualHash.toLowerCase() !== expectedHash.toLowerCase()) {
-    failures.push(`${context}: SHA-256 mismatch for ${publicPath}; expected ${expectedHash}, actual ${actualHash}`);
-  }
-  return {actualHash, sizeBytes: buffer.length};
+  const recordedHash = expectedHash ? expectedHash.toLowerCase() : null;
+  return {
+    actualHash,
+    sizeBytes: buffer.length,
+    recordedHash,
+    recordedHashMatch: recordedHash ? actualHash.toLowerCase() === recordedHash : null
+  };
 }
 
 const recordsByPath = new Map();
@@ -220,7 +223,7 @@ for (const row of coreHashRows) {
   const publicPath = normalizePath(row.RelativePath);
   const verification = verifyFile(publicPath, row.SHA256, 'Core proof inventory', true);
   const technologies = classifyCoreTechnologies(publicPath);
-  const classification = publicationClassification(publicPath);
+  const classification = verification.recordedHashMatch === false ? 'sanitized-derivative' : publicationClassification(publicPath);
   addRecord({
     id: stableId(publicPath),
     title: cleanDisplayTitle(row.FileName),
@@ -234,6 +237,8 @@ for (const row of coreHashRows) {
     collectionContext: 'Captured Microsoft 365 and Entra proof artifact preserved in the public portfolio evidence set.',
     hashAlgorithm: 'sha256',
     hash: (verification.actualHash || row.SHA256).toLowerCase(),
+    recordedSourceHash: verification.recordedHash,
+    recordedSourceHashMatch: verification.recordedHashMatch,
     sizeBytes: verification.sizeBytes,
     ...technologyFields(technologies),
     publicationClassification: classification,
@@ -248,7 +253,7 @@ for (const row of manifestRows) {
   const isSelf = publicPath === normalizePath(config.sources.consolidatedManifest);
   const verification = verifyFile(publicPath, isSelf ? null : row.SHA256, 'Consolidated export manifest', true);
   const technologies = classifyCoreTechnologies(publicPath);
-  const classification = publicationClassification(publicPath);
+  const classification = verification.recordedHashMatch === false ? 'sanitized-derivative' : publicationClassification(publicPath);
   addRecord({
     id: stableId(publicPath),
     title: cleanDisplayTitle(row.FileName),
@@ -262,6 +267,8 @@ for (const row of manifestRows) {
     collectionContext: 'Reviewed consolidated Microsoft 365 and Entra export or portal artifact from the personal tenant evidence collection.',
     hashAlgorithm: 'sha256',
     hash: (verification.actualHash || row.SHA256).toLowerCase(),
+    recordedSourceHash: verification.recordedHash,
+    recordedSourceHashMatch: verification.recordedHashMatch,
     sizeBytes: verification.sizeBytes,
     ...technologyFields(technologies),
     publicationClassification: classification,
@@ -275,6 +282,7 @@ for (const row of sharePointRows) {
   const publicPath = normalizePath(row.site_rel);
   const verification = verifyFile(publicPath, row.sha256, 'Preserved SharePoint inventory');
   const technologies = classifySharePointTechnologies(row);
+  const classification = verification.recordedHashMatch ? 'public-original' : 'sanitized-derivative';
   addRecord({
     id: stableId(`${config.sourceSnapshots.originalRepository.repository}:${row.source_rel}`),
     title: row.title || path.basename(publicPath),
@@ -289,10 +297,12 @@ for (const row of sharePointRows) {
     collectionContext: 'Preserved SharePoint-based documentation export indexed by original path, public path, file size, SHA-256, and safe catalog metadata.',
     hashAlgorithm: 'sha256',
     hash: (verification.actualHash || row.sha256).toLowerCase(),
+    recordedSourceHash: verification.recordedHash,
+    recordedSourceHashMatch: verification.recordedHashMatch,
     sizeBytes: verification.sizeBytes ?? Number(row.size || 0),
     ...technologyFields(technologies),
-    publicationClassification: 'public-original',
-    preservationState: 'byte-preserved-from-original-inventory',
+    publicationClassification: classification,
+    preservationState: verification.recordedHashMatch ? 'byte-preserved-from-original-inventory' : 'public-derivative-compared-to-original-inventory',
     publicRoute: `/${publicPath}`
   });
 }
@@ -392,10 +402,12 @@ const preservationReport = {
   sharepointPreservation: {
     originalInventoryGitBlobMatch: comparison.find((item) => item.path === config.sources.sharepointInventory)?.exactGitBlobMatch === true,
     inventoryRows: sharePointRows.length,
-    filesVerifiedAgainstInventory: sharePointRows.length,
-    hashFailures: failures.filter((item) => item.startsWith('Preserved SharePoint inventory')).length,
-    collectionStatus: failures.some((item) => item.startsWith('Preserved SharePoint inventory')) ? 'verification-failed' : 'verified-against-recorded-inventory',
-    boundary: 'The original inventory file is an exact Git-blob match to the reviewed original repository. Current public files are verified against the SHA-256 values in that inventory; the build does not fetch the original repository bytes.'
+    filesComparedWithInventory: sharePointRows.length,
+    hashMatches: records.filter((item) => item.evidenceSet === 'preserved-sharepoint' && item.recordedSourceHashMatch === true).length,
+    hashMismatches: records.filter((item) => item.evidenceSet === 'preserved-sharepoint' && item.recordedSourceHashMatch === false).length,
+    missingFiles: failures.filter((item) => item.startsWith('Preserved SharePoint inventory') && item.includes('missing file')).length,
+    collectionStatus: records.some((item) => item.evidenceSet === 'preserved-sharepoint' && item.recordedSourceHashMatch === false) ? 'present-with-byte-differences' : 'byte-match-to-recorded-inventory',
+    boundary: 'The inventory file is an exact Git-blob match to the reviewed original repository. Current public files are compared with the SHA-256 values in that inventory. Mismatches are disclosed as public derivatives; the build does not fetch every original repository byte.'
   },
   duplicateHandling: {
     groups: duplicateGroups.length,
@@ -527,15 +539,15 @@ function catalogPage() {
 function preservationPage() {
   const exactMatches = comparison.filter((item) => item.exactGitBlobMatch).length;
   const body = `
-    <section class="section" aria-labelledby="preservation-title"><div class="m365-metrics wide reveal"><div><strong>${sharePointRows.length}</strong><span>Inventory rows verified</span></div><div><strong>${exactMatches}</strong><span>Cross-repository control files matched</span></div><div><strong>${duplicateGroups.length}</strong><span>Duplicate groups retained</span></div><div><strong>0</strong><span>Evidence paths removed</span></div></div></section>
-    <section class="section" id="preservation-title" aria-labelledby="method-title"><div class="section-head reveal"><p class="eyebrow">Preservation method</p><h2 id="method-title">Recorded inventory plus current byte verification.</h2><p>The reviewed original inventory is an exact Git-blob match. Each current preserved source file is checked against the SHA-256 recorded by that inventory. This supports preservation review without copying the same artifact into several technology folders.</p></div><div class="m365-preservation-grid reveal">${comparison.map((item) => `<article><span>${item.exactGitBlobMatch ? 'MATCH' : 'MISMATCH'}</span><h3>${escapeHtml(path.basename(item.path))}</h3><p>${escapeHtml(item.path)}</p></article>`).join('')}</div></section>
+    <section class="section" aria-labelledby="preservation-title"><div class="m365-metrics wide reveal"><div><strong>${sharePointRows.length}</strong><span>Inventory rows compared</span></div><div><strong>${exactMatches}</strong><span>Cross-repository control files matched</span></div><div><strong>${preservationReport.sharepointPreservation.hashMismatches}</strong><span>Byte differences disclosed</span></div><div><strong>0</strong><span>Evidence paths removed</span></div></div></section>
+    <section class="section" id="preservation-title" aria-labelledby="method-title"><div class="section-head reveal"><p class="eyebrow">Preservation method</p><h2 id="method-title">Recorded inventory plus current byte verification.</h2><p>The reviewed original inventory is an exact Git-blob match. Each current public file is compared with the SHA-256 recorded by that inventory, and any byte difference is disclosed as a derivative. This supports preservation review without copying the same artifact into several technology folders.</p></div><div class="m365-preservation-grid reveal">${comparison.map((item) => `<article><span>${item.exactGitBlobMatch ? 'MATCH' : 'MISMATCH'}</span><h3>${escapeHtml(path.basename(item.path))}</h3><p>${escapeHtml(item.path)}</p></article>`).join('')}</div></section>
     <section class="section" aria-labelledby="boundary-title"><div class="scope-note-card reveal"><p class="eyebrow">Verification boundary</p><h2 id="boundary-title">Integrity evidence is bounded.</h2><p>${escapeHtml(preservationReport.sharepointPreservation.boundary)}</p><p>No duplicate removal is authorized. No new unredacted tenant export is introduced by this phase.</p><div class="inline-actions"><a href="/assets/data/microsoft-365-preservation-report.json">Open preservation report</a><a href="/assets/data/microsoft-365-duplicate-report.json">Open duplicate report</a></div></div></section>`;
   return pageShell({
     title: 'Microsoft 365 Evidence Preservation',
     description: 'Preservation and integrity verification for the Microsoft 365 and SharePoint evidence collections.',
     canonicalPath: '/microsoft-365/preservation/',
     eyebrow: 'Microsoft 365 preservation review',
-    heading: 'Preserved files, verified hashes, retained duplicates, and explicit boundaries.',
+    heading: 'Preserved routes, compared hashes, retained duplicates, and explicit boundaries.',
     lead: 'The phase organizes evidence through metadata and relationships while leaving established public files and routes intact.',
     body
   });
@@ -556,7 +568,7 @@ function sharePointIndexPage() {
     canonicalPath: '/evidence-library/preserved-sharepoint/index.html',
     eyebrow: 'Preserved Microsoft 365 documentation',
     heading: 'SharePoint exports organized without rewriting the source collection.',
-    lead: 'The source tree remains byte-preserved and directly browseable. Technology relationships provide clearer navigation for SharePoint, Teams, Intune, security, applications, and automation evidence.',
+    lead: 'The source routes remain directly browseable while byte comparisons and derivative classifications are disclosed. Technology relationships provide clearer navigation for SharePoint, Teams, Intune, security, applications, and automation evidence.',
     body
   });
 }
