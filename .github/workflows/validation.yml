@@ -64,7 +64,18 @@ jobs:
         run: npm run validate:foundation
 
       - name: Validate Microsoft 365 organization contract
-        run: npm run validate:m365
+        shell: pwsh
+        run: |
+          npm run validate:m365 *>&1 | Tee-Object -FilePath m365-validation-windows.log
+          exit $LASTEXITCODE
+
+      - name: Upload Microsoft 365 validation diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m365-validation-windows
+          path: m365-validation-windows.log
+          if-no-files-found: error
 
       - name: Validate publication allowlist
         run: npm run check:publication
@@ -240,7 +251,20 @@ jobs:
         run: npm run validate:foundation
 
       - name: Validate Microsoft 365 organization contract on Linux
-        run: npm run validate:m365
+        shell: bash
+        run: |
+          set +e
+          npm run validate:m365 2>&1 | tee m365-validation-linux.log
+          status=${PIPESTATUS[0]}
+          exit "$status"
+
+      - name: Upload Microsoft 365 validation diagnostics on Linux
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m365-validation-linux
+          path: m365-validation-linux.log
+          if-no-files-found: error
 
       - name: Validate publication allowlist on Linux
         run: npm run check:publication
