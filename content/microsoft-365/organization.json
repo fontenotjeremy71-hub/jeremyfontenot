@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "phase": "3A",
+  "sourceSnapshots": {
+    "currentRepository": {
+      "repository": "fontenotjeremy71-hub/jeremyfontenot",
+      "commit": "c88894f089e82dba5eb851c82aad703c1af34af2"
+    },
+    "originalRepository": {
+      "repository": "jeremyfontenot/JeremyFontenot.github.io",
+      "commit": "5581bd7bf9c61ff77000ac04aa39fcbb04ed004f"
+    }
+  },
+  "sources": {
+    "coreInventory": "evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv",
+    "coreHashes": "evidence-library/projects/microsoft-365-lab/m365-entra-proof-hashes-20260605.csv",
+    "consolidatedManifest": "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/microsoft-365-lab-evidence-manifest-20260605.csv",
+    "sharepointInventory": "evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv",
+    "sharepointSummary": "evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md"
+  },
+  "originalComparison": [
+    {
+      "path": "evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv",
+      "originalGitBlobSha": "e3908e3771ee3070890c4c434680fce0a1f53bd0"
+    },
+    {
+      "path": "evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md",
+      "originalGitBlobSha": "0bdbb74014584bd27a5e10e00d35c4ab870d90d1"
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.md",
+      "originalGitBlobSha": "ba71e4c59890cd4d4f030aa8d2b592c7cfd1b327"
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/README.md",
+      "originalGitBlobSha": "27038311ab2abac89e2d1885753e294239802ec3"
+    }
+  ],
+  "technologies": {
+    "tenant-administration": {
+      "jobRelevance": "Supports user, group, license, domain, and tenant-review tasks commonly assigned to Microsoft 365 support administrators.",
+      "claimIds": [
+        "m365-tenant-review",
+        "m365-domain-review",
+        "m365-license-review",
+        "m365-admin-center-navigation"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/tenant-organization-domains-skus.json",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/m365-admin-center-homepage-20260605.png",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/m365-admin-center-licenses-20260605.png"
+      ]
+    },
+    "entra-id": {
+      "jobRelevance": "Supports identity inventory, group membership, directory-role awareness, device review, and audit-triage responsibilities.",
+      "claimIds": [
+        "m365-user-group-review",
+        "m365-role-review",
+        "m365-device-review",
+        "m365-activity-review"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-users-license-state.csv",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-directory-role-assignments.csv",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-directory-audit-last-30-days.csv"
+      ]
+    },
+    "intune": {
+      "jobRelevance": "Shows how an administrator records an endpoint-management validation attempt and preserves the access or licensing boundary instead of overstating the result.",
+      "claimIds": [
+        "m365-intune-validation-attempt"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/README.md",
+        "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-device-proof-summary.json",
+        "/evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Intune-Setup-5e7f303d.html"
+      ]
+    },
+    "exchange-online": {
+      "jobRelevance": "Supports bounded Exchange Online group review, admin-center navigation, and connection-troubleshooting documentation.",
+      "claimIds": [
+        "m365-exchange-group-review",
+        "m365-exchange-connection-documentation"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-20260605.png",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-online-powershell-connection-attempt.md"
+      ]
+    },
+    "sharepoint": {
+      "jobRelevance": "Demonstrates documentation governance, export preservation, content cataloging, integrity review, and public-safe navigation for a SharePoint-based knowledge collection.",
+      "claimIds": [
+        "m365-sharepoint-preservation",
+        "m365-documentation-governance"
+      ],
+      "featuredProofs": [
+        "/evidence-library/preserved-sharepoint/index.html",
+        "/evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv",
+        "/evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md"
+      ]
+    },
+    "teams": {
+      "jobRelevance": "Supports collaboration-service documentation and Microsoft 365 group or Teams review without claiming ownership of a live organizational environment.",
+      "claimIds": [
+        "m365-teams-group-review",
+        "m365-collaboration-documentation"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/m365-admin-center-active-teams-groups-20260605.png",
+        "/evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Teams-Setup-8f0edd8e.html",
+        "/evidence-library/preserved-sharepoint/source/projects/collaboration-sharepoint.html"
+      ]
+    },
+    "security-compliance": {
+      "jobRelevance": "Supports Conditional Access, authentication-policy, named-location, security-default, and targeted-group review tasks.",
+      "claimIds": [
+        "m365-conditional-access-review",
+        "m365-authentication-policy-review",
+        "m365-security-group-targeting"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-conditional-access-policies-summary.csv",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-authentication-methods-policy.json",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-sg-block-legacy-auth-members.csv"
+      ]
+    },
+    "applications": {
+      "jobRelevance": "Supports app-registration, enterprise-application, service-principal, and delegated-permission inventory review.",
+      "claimIds": [
+        "m365-application-review",
+        "m365-service-principal-review",
+        "m365-oauth-grant-review"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-applications.csv",
+        "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-service-principals.csv",
+        "/evidence-library/projects/microsoft-365-lab/entra-application-proof-20260605-063206/oauth2-permission-grants-summary.csv"
+      ]
+    },
+    "automation": {
+      "jobRelevance": "Supports repeatable read-only evidence collection, structured export, integrity indexing, and claim-governance workflows.",
+      "claimIds": [
+        "m365-graph-evidence-capture",
+        "m365-integrity-indexing",
+        "m365-claim-governance"
+      ],
+      "featuredProofs": [
+        "/evidence-library/projects/microsoft-365-lab/m365-entra-live-proof-summary-20260605.md",
+        "/evidence-library/projects/microsoft-365-lab/m365-entra-proof-hashes-20260605.csv",
+        "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html"
+      ]
+    }
+  },
+  "supplementalArtifacts": [
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/m365-entra-live-proof-summary-20260605.md",
+      "title": "Microsoft 365 and Entra evidence-capture summary",
+      "technologies": [
+        "tenant-administration",
+        "entra-id",
+        "automation"
+      ],
+      "evidenceType": "reports"
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.md",
+      "title": "Microsoft 365 and Entra claim-to-proof map",
+      "technologies": [
+        "tenant-administration",
+        "entra-id",
+        "security-compliance",
+        "applications",
+        "exchange-online",
+        "intune",
+        "automation"
+      ],
+      "evidenceType": "documentation"
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/m365-entra-proof-inventory-20260605.csv",
+      "title": "Microsoft 365 proof inventory",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "inventories"
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/m365-entra-proof-hashes-20260605.csv",
+      "title": "Microsoft 365 proof hash index",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "manifests"
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
+      "title": "Microsoft 365 and Entra claim-to-proof presentation",
+      "technologies": [
+        "tenant-administration",
+        "entra-id",
+        "security-compliance",
+        "applications",
+        "exchange-online",
+        "intune",
+        "automation"
+      ],
+      "evidenceType": "documentation"
+    }
+  ],
+  "publication": {
+    "catalogRoute": "/microsoft-365/evidence-catalog/",
+    "preservationRoute": "/microsoft-365/preservation/",
+    "publicDataRoot": "assets/data"
+  },
+  "claims": {
+    "m365-tenant-review": {
+      "claimText": "Reviewed organization, tenant, domain, and subscription records from a personal Microsoft 365 tenant.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant export review.",
+      "limitations": "Does not prove production or client tenant ownership."
+    },
+    "m365-domain-review": {
+      "claimText": "Reviewed verified-domain records and custom-domain visibility.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant domain inventory.",
+      "limitations": "Does not prove production DNS or domain-program ownership."
+    },
+    "m365-license-review": {
+      "claimText": "Reviewed subscribed SKU, service-plan, and user license-state records.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant licensing inventory.",
+      "limitations": "Does not prove procurement, budget, or enterprise licensing ownership."
+    },
+    "m365-admin-center-navigation": {
+      "claimText": "Navigated Microsoft 365 admin-center areas for tenant, domain, license, user, and group review.",
+      "supportLevel": "supported-with-limitations",
+      "scope": "Browser screenshots from a personal tenant.",
+      "limitations": "Screenshots do not prove ongoing production administration."
+    },
+    "m365-user-group-review": {
+      "claimText": "Reviewed users, groups, and group-membership exports.",
+      "supportLevel": "directly-proven",
+      "scope": "Read-only personal tenant identity inventory.",
+      "limitations": "Does not prove workforce lifecycle ownership at scale."
+    },
+    "m365-role-review": {
+      "claimText": "Reviewed directory roles and role-assignment records.",
+      "supportLevel": "directly-proven",
+      "scope": "Read-only privileged-access awareness review.",
+      "limitations": "Does not prove production privileged-access program ownership."
+    },
+    "m365-device-review": {
+      "claimText": "Reviewed Entra device inventory records.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant device inventory.",
+      "limitations": "Does not prove Intune fleet management."
+    },
+    "m365-activity-review": {
+      "claimText": "Reviewed exported sign-in and directory-audit records.",
+      "supportLevel": "directly-proven",
+      "scope": "Read-only exported activity review.",
+      "limitations": "Does not prove SOC ownership or enterprise detection coverage."
+    },
+    "m365-intune-validation-attempt": {
+      "claimText": "Documented an Intune managed-device validation attempt and the access or licensing boundary.",
+      "supportLevel": "supported-with-limitations",
+      "scope": "Personal-lab validation attempt.",
+      "limitations": "Does not prove enrolled-device or compliance-policy administration."
+    },
+    "m365-exchange-group-review": {
+      "claimText": "Reviewed Exchange admin-center Microsoft 365 group evidence and an exported group list.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant group review.",
+      "limitations": "Does not prove production mail-flow ownership."
+    },
+    "m365-exchange-connection-documentation": {
+      "claimText": "Documented an Exchange Online PowerShell connection attempt and troubleshooting context.",
+      "supportLevel": "documented-only",
+      "scope": "Personal tenant connection documentation.",
+      "limitations": "Does not prove successful production Exchange automation."
+    },
+    "m365-sharepoint-preservation": {
+      "claimText": "Preserved and hash-verified the indexed SharePoint export collection at stable public paths.",
+      "supportLevel": "directly-proven",
+      "scope": "Preserved public source exports.",
+      "limitations": "Does not prove a live SharePoint service or current tenant state."
+    },
+    "m365-documentation-governance": {
+      "claimText": "Created inventory, hash, duplicate, provenance, and technology-relationship records for Microsoft 365 documentation.",
+      "supportLevel": "directly-proven",
+      "scope": "Repository evidence-governance workflow.",
+      "limitations": "Integrity records do not establish technical correctness beyond captured files."
+    },
+    "m365-teams-group-review": {
+      "claimText": "Reviewed Microsoft 365 Teams or group visibility through portal evidence and preserved documentation.",
+      "supportLevel": "supported-with-limitations",
+      "scope": "Personal tenant and preserved documentation.",
+      "limitations": "Does not prove live Teams service ownership."
+    },
+    "m365-collaboration-documentation": {
+      "claimText": "Preserved Teams, SharePoint, OneDrive, and collaboration setup documentation.",
+      "supportLevel": "documented-only",
+      "scope": "Preserved personal-lab documentation.",
+      "limitations": "Documentation does not prove exercised administrative behavior."
+    },
+    "m365-conditional-access-review": {
+      "claimText": "Reviewed exported Conditional Access policy and named-location records.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant policy-state review.",
+      "limitations": "Does not prove organization-wide enforcement or security assurance."
+    },
+    "m365-authentication-policy-review": {
+      "claimText": "Reviewed authentication-method and authorization or security-default policy state.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant policy export review.",
+      "limitations": "Does not prove production security-program ownership."
+    },
+    "m365-security-group-targeting": {
+      "claimText": "Reviewed the security group and membership used for legacy-auth policy targeting.",
+      "supportLevel": "directly-proven",
+      "scope": "Personal tenant group-targeting evidence.",
+      "limitations": "Does not prove enterprise-wide enforcement outcomes."
+    },
+    "m365-application-review": {
+      "claimText": "Reviewed app-registration and enterprise-application inventory records.",
+      "supportLevel": "directly-proven",
+      "scope": "Read-only personal tenant application inventory.",
+      "limitations": "Does not prove application development or production ownership."
+    },
+    "m365-service-principal-review": {
+      "claimText": "Reviewed service-principal inventory records for governance awareness.",
+      "supportLevel": "directly-proven",
+      "scope": "Read-only personal tenant inventory.",
+      "limitations": "Does not prove remediation or consent-program ownership."
+    },
+    "m365-oauth-grant-review": {
+      "claimText": "Reviewed exported OAuth permission-grant records.",
+      "supportLevel": "directly-proven",
+      "scope": "Read-only delegated-permission inventory.",
+      "limitations": "Does not prove enterprise consent governance ownership."
+    },
+    "m365-graph-evidence-capture": {
+      "claimText": "Performed read-only Microsoft Graph PowerShell evidence capture for a personal tenant.",
+      "supportLevel": "directly-proven",
+      "scope": "Repository-backed personal-lab collection.",
+      "limitations": "Does not prove client or production tenant administration."
+    },
+    "m365-integrity-indexing": {
+      "claimText": "Maintained SHA-256 inventories and manifests for Microsoft 365 evidence review.",
+      "supportLevel": "directly-proven",
+      "scope": "Repository integrity records.",
+      "limitations": "Hashes are not a tamper-proof guarantee."
+    },
+    "m365-claim-governance": {
+      "claimText": "Mapped public Microsoft 365 claims to reviewable artifacts and explicit limitations.",
+      "supportLevel": "directly-proven",
+      "scope": "Portfolio claim-governance documentation.",
+      "limitations": "The map does not upgrade documentation into behavior testing."
+    }
+  }
+}

@@ -31,6 +31,9 @@ jobs:
       - name: Generate foundation routes
         run: npm run build:foundation
 
+      - name: Generate Microsoft 365 organization
+        run: npm run build:m365
+
       - name: Validate generated evidence pages
         run: npm run check:evidence
 
@@ -43,8 +46,14 @@ jobs:
       - name: Validate foundation generation drift
         run: npm run check:foundation
 
+      - name: Validate Microsoft 365 generation drift
+        run: npm run check:m365
+
       - name: Validate site architecture contract
         run: npm run validate:foundation
+
+      - name: Validate Microsoft 365 organization contract
+        run: npm run validate:m365
 
       - name: Validate publication allowlist
         run: npm run check:publication
@@ -185,6 +194,9 @@ jobs:
       - name: Generate foundation routes on Linux
         run: npm run build:foundation
 
+      - name: Generate Microsoft 365 organization on Linux
+        run: npm run build:m365
+
       - name: Validate generated evidence pages on Linux
         run: npm run check:evidence
 
@@ -197,8 +209,14 @@ jobs:
       - name: Validate foundation generation drift on Linux
         run: npm run check:foundation
 
+      - name: Validate Microsoft 365 generation drift on Linux
+        run: npm run check:m365
+
       - name: Validate site architecture contract on Linux
         run: npm run validate:foundation
+
+      - name: Validate Microsoft 365 organization contract on Linux
+        run: npm run validate:m365
 
       - name: Validate publication allowlist on Linux
         run: npm run check:publication
