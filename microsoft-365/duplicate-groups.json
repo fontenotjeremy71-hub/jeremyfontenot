@@ -1,0 +1,1203 @@
+{
+  "schemaVersion": 2,
+  "note": "Original-source and published-byte duplicate groups are calculated independently. No files are removed.",
+  "sourceGroups": [
+    {
+      "algorithm": "sha256",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "count": 11,
+      "evidenceIds": [
+        "m365-microsoft-365-core-37ff842a97ba306f",
+        "m365-microsoft-365-core-545e4b47a4e2fb8a",
+        "m365-microsoft-365-core-6bc1d7a1b3e41c28",
+        "m365-microsoft-365-core-7217ece8ee1f9183",
+        "m365-microsoft-365-core-858cc9663fb2cae5",
+        "m365-microsoft-365-core-ae9eb437093d10c2",
+        "m365-microsoft-365-core-b61d7d43a94ffb56",
+        "m365-microsoft-365-core-c664ca16aa04ac89",
+        "m365-microsoft-365-core-c8a9a384d2753a49",
+        "m365-microsoft-365-core-cf79d1e00f7a6a23",
+        "m365-preserved-sharepoint-604682d695c4b4fe"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6cce6e46d3c2a5f44da9695fc8deed0c92b896a78bd7216a74975dd9cbecd9f0",
+      "count": 6,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0f99a79532f3da01",
+        "m365-preserved-sharepoint-944cacf535357227",
+        "m365-preserved-sharepoint-9febf7daca60104b",
+        "m365-preserved-sharepoint-d489c03dada13a5d",
+        "m365-preserved-sharepoint-ec271fe6e13bd780",
+        "m365-preserved-sharepoint-fb053f7695cac6a3"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "count": 4,
+      "evidenceIds": [
+        "m365-microsoft-365-core-2b21248f53c774e8",
+        "m365-microsoft-365-core-4f4e7b41e03c92a0",
+        "m365-microsoft-365-core-5b2a458c072846ea",
+        "m365-microsoft-365-core-96b032460ec00e41"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "004ba7771ef26e43d1f88ff69530f85c217dbf6d5537396db2003bbacc1d4203",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-551ebf8d2b560141",
+        "m365-preserved-sharepoint-756aa08d25ac2cce"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "010cbc27327c6a5f48b782addb395ec35a6e128b6c23d3c93b3cff3038c76095",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-09747248f116ec0a",
+        "m365-preserved-sharepoint-d4e389afbffe20ed"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "0668cf491757ad87f6436c2c4318403221ddb2dba67ec368448b8bd47da17816",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-4bb17b63f1ffe48e",
+        "m365-preserved-sharepoint-d3beefcb3bb82410"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "088a2c18a10b79899c3586e4abd89bcfe16dab182637e678d94b655306e105e7",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-d6104cd79ff8d3b7",
+        "m365-preserved-sharepoint-f7fb8df8053aa4b1"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "0a925aa9ae7cb169889f7b084e67fa305df4dd8a0c5d91f57e06765e274ab8f0",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-a71734c8594d4277",
+        "m365-preserved-sharepoint-dd00aceb6be0081d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "0ac22dac53d2ab9a77e9ae5c1b47ce0378ddf6543cb2c3a23f9bcff8542975a4",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-6f93bb6944b527e8",
+        "m365-preserved-sharepoint-780f06cc6b0bca3d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "0f5b1adcc453f780a5dcabbc69108edb2974fafdcbb9377f621758ae73cd56bc",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-22de72d23408d757",
+        "m365-preserved-sharepoint-272dc1a41140155b"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "11f9d0a47bac1e437777510c14ad0002dadc4aec503cb946642318d91a92909a",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-668f3abe85b4bf63",
+        "m365-preserved-sharepoint-6a0bc7cfc6e5e480"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "127416187fa4bed116708caa8e47e3a8b25512a262a4bc704f9e117a3d3967cd",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-344757a5fa62038c",
+        "m365-preserved-sharepoint-a0aed44362c0dcec"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "13542abecada22dc8e22150f345febec6c69861d3d4787d0a5f273b9f4017238",
+      "count": 2,
+      "evidenceIds": [
+        "m365-microsoft-365-core-6f22d2ac5cf13cb4",
+        "m365-microsoft-365-core-a9ce37b4484f8dcf"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "18e321980c59cef9c01c2f924cc28febf84726559181a74b5ced2024fce99db3",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-a75291570b53263f",
+        "m365-preserved-sharepoint-a9eba9272eb98709"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "1b28e032ee14801f3bcf288e165a936870b2394faa2bf3e5357176b1cf4c3c35",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0e25d8db64f475cf",
+        "m365-preserved-sharepoint-1c898fca3ef99c48"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "1bbcabe2c75c7c8f181d8e7f52401d17bafd6e2a706c24de0ac8d9ccfce21253",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-60bf7ac6a6cd8426",
+        "m365-preserved-sharepoint-e583dd65eb4a51a6"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "1e3fa36fdd6e034e27e3e3d2f42cd013428acc8e24e181e87417cfe7a73d1bdf",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-a3867fd981751b8b",
+        "m365-preserved-sharepoint-d6c270a31da86f90"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "213212997ea1780b963ecb4c76d2f5feab1f8563d840d4b41fcc611ec434ad32",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-7756b47bf1b92339",
+        "m365-preserved-sharepoint-fcc865e8a0f35410"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "218da196912b4816f7f129f67ae469840677fc66e2224ca8783444487d711223",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2f8144587eb22200",
+        "m365-preserved-sharepoint-e6adaa8782dd7706"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "265a75cd49ef143d4e33306e46b8acf1246da4bc4dd97b80f8ad2879f9f5d7a4",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0223b970d0ea6a7c",
+        "m365-preserved-sharepoint-11b8e32e5cabc92d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "28b4334b4aaebed7218e9a2e9d9aa04201b64baa9e7ba4ec8f05c83846b66602",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0f8100e0a4a301f9",
+        "m365-preserved-sharepoint-9ad24aafcf96523e"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "29916f3a2892720f742aa920d98b9ec34d82542d62e230e0de414c789c396ab7",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-24c20f74b7189532",
+        "m365-preserved-sharepoint-4d73f7e35ab88aa0"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "2d4727f5819f0f335cc9c01f18a5733f5dbb81f7d7fe1890b924e47bc4b14ddc",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-9ff65f6ab0e74625",
+        "m365-preserved-sharepoint-cb2aa941b2a242aa"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "2ede9c0669195b055a7f0c91ef43faf3778195c4c95c583a90ae13965292df3b",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-48c2136e1b21d5da",
+        "m365-preserved-sharepoint-a5a008ed3673feb2"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "2f836c67faca507aa543425652e61b1410d6c6caaa8ec8e82a7c6394e44331b5",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-a46c33a9c573a4e2",
+        "m365-preserved-sharepoint-c1cc88beceed63d0"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3079a378c41b551c6e46cebf583d5216e263075a62bfcd118b34413e99589181",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-994994751db3d3f6",
+        "m365-preserved-sharepoint-aa60aa610ba6a366"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3178f498c6d566ec2d69e29ed07914906bf96640ca3198148c762a2c8f4bc855",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-3e6280d6fd8f9b7b",
+        "m365-preserved-sharepoint-a50e850bc9e96ea8"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3657d8f933722e3db766e30d326dd22b48693c9807cb0caa581fb1e306b454dc",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2a5a28011d2e5978",
+        "m365-preserved-sharepoint-e9d3c5e7595b4eea"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3688ccfd0824b1bf946cc5fca7cc9df8e60475ab1caf8dcb2c952fba09641917",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-71efa1f24bb6a6c1",
+        "m365-preserved-sharepoint-d5ddb2bd800510c2"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "37af06bb48febe268a88a1f39b6d039d80693efe6206a84f29ff42eae39aec38",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0a57cfe94cfc8a6c",
+        "m365-preserved-sharepoint-52343ea188330e1c"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3af0d4d669792430dbc678072af2723d9bd6f44985f3309a77b5b64e2f2b96ab",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0871609ce4c33a70",
+        "m365-preserved-sharepoint-13aecaa4961673c0"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3bf666301246bfc6c0d53fa3db7353b2ec7f4c7163e95e660a980d7e705044ea",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-8f167764972ebb8b",
+        "m365-preserved-sharepoint-c214d92b953aa98a"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3c0b80433215baa70997c33cc22c3bd7f40dc98939306847fab15e0ae1c10770",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-4133649408223509",
+        "m365-preserved-sharepoint-64aab73a5a7b7083"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "3d790162d2282a098af5c7b694fd09bf299b6a86006469f75e99f87b01634de6",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0b0eebd2946198d2",
+        "m365-preserved-sharepoint-d5f0f154f8ce5c8d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "4275064d05fe7423d9a9d5c8a74ff46f61ce33a15276679fcc67d43dc62f3025",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-227daef0945436f1",
+        "m365-preserved-sharepoint-b257a7172075f758"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "43151ea9eeb53800f8e522da8d439fceba0d27ac3008d80e29475d18609dd9ba",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-67018d5628b4ee7e",
+        "m365-preserved-sharepoint-e1022e30635050d3"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "46c1ec0a074ef3a43b509f643b5945e094b9eafa085b487da3f28dd9a64d09be",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-46a47bf4f80054ff",
+        "m365-preserved-sharepoint-668f413d473fc5d1"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "4d11c8c4e35ee7f0fb7c823f79e31c248ae6e2c43ecd95b5f4b0ececc7482b66",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-7028b0dbd18a63fb",
+        "m365-preserved-sharepoint-e2755464c958ecc0"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "4eca189934b598b3cf797b653b41171d24024f5f361aa46e899c666577324de7",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-65e0e946432d7131",
+        "m365-preserved-sharepoint-69d8c94dc097e296"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "500b142a119a3d46459987dd0a7c5df8f376d435d5b53c38f1c44e44d915f4d2",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-61595b69804d4096",
+        "m365-preserved-sharepoint-8d549f5d93c7a22f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "51755b37561cc795f6097a060499fbfbc76c2f11f1ab9e08428a48c472b0c9bd",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-47c67fbdd3758a23",
+        "m365-preserved-sharepoint-af9f5f61ac9e8e01"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "51d766164d9133945c1de71fd7b2ce604d9d5b695494912514b99b17f6888b4c",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-46d3b37d808221bc",
+        "m365-preserved-sharepoint-a532cd98229a078f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "52434424cc37e68bee5d2b65d082aeb75b1297fc6bf6583e5386136ee5c8a275",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-663096000de7469c",
+        "m365-preserved-sharepoint-e926932fdb0c34a3"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "58db4a6537a6f83793af51a4790b8dc4ed0e2688124eba69c20b9186a3e75eb2",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-62c79961aaf21ecc",
+        "m365-preserved-sharepoint-e17c77e6db10a7ce"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "5bd5485e07ba100b6594ee1c396d8f8cc9894f703f2ebd060147876434f8e863",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-74f4b32d7831b117",
+        "m365-preserved-sharepoint-f2405490c5e5a013"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "5ccc6c46aa5900573945805203a9ca91dad1cf05b0585008df0a19cc3ce34b2e",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-1b751ddfbd7fdc4b",
+        "m365-preserved-sharepoint-b84c08fd1e3ccede"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "5f19e885bc868afec9e6e3d3f148180c4c0b679781b1bd9db400328a259f5449",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-479426ee75542c38",
+        "m365-preserved-sharepoint-8eb0ca1eea6d6444"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "5fcaf5bbba6fbaf8a217ddce38fd13dd6d14164aaf44b947183d9cf3e290d29a",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-1b74f6ab7e8bc9f4",
+        "m365-preserved-sharepoint-35060c40193c09de"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6015270367800ae06e281d53556b84b902ce792d70c2b6cd66077c5d7d8be862",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-7a375e61d3c6c990",
+        "m365-preserved-sharepoint-800f43d92684f873"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "61e7356592a672c0716c68732a01a7780ec7efad8710d7b805840661ae9b98bb",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-19f0056533f85986",
+        "m365-preserved-sharepoint-6eebffd31209fc97"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6662cea611c0355bde2e69db2738602c4087e663255554597a98457584aa58af",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-b55e7855a91163ac",
+        "m365-preserved-sharepoint-cc6812a9d0091aee"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "679a61b05790c7beb81144246261e0adc712ace61671afd9cc8bdeab41515b08",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0af91b9db34e83dd",
+        "m365-preserved-sharepoint-eb2e72bea5d75bff"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "69e0241eda9ebb57ff4fdb57ca99348f4039ff3a6c8cb1e956c667b61df055bd",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-526d4ebc98e2e268",
+        "m365-preserved-sharepoint-6ed7cc05c7108f34"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6aefb2836a2dfedf5829f6e0ca3490919f2523cfad9689181cb238c43d000a40",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-89eb864db3cc4c57",
+        "m365-preserved-sharepoint-c8bd4f4ad36b9e73"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6b0374a800e861b10908d5d17c458c886b12e0aceb32fbc3345a47525f39c039",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-fd837fad399fe450",
+        "m365-preserved-sharepoint-fe6dbf55494be7e1"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6b851e7fa72bcd22ec904c638ab272af582904bd85502fbb7561ef467b76be40",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-4378afe0cdee7d2a",
+        "m365-preserved-sharepoint-fc90d7f9d892cbc2"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6d8bfbe804691876bd78376924a933fb67a3b769d18f42769b8daaa5ea5fe9f7",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-220bfc951fe20583",
+        "m365-preserved-sharepoint-3c29e53e3d3ed26d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6ebc9f36c156658bd2859e28d9a074d252f0ca8c2faf4b7a0ae92000b1c53a89",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-4ba11e5a7f13ee50",
+        "m365-preserved-sharepoint-ad893b6b4e261963"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "6f3d85dfd8f4f255aa2c06e250cae01512d8a1c65ee673339129f86cde6add1d",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2dc65fde108de22d",
+        "m365-preserved-sharepoint-57ad0b830842616f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "713c00d3852e5bdfe6a1e51840b3adbbbdba0a8b1eea4a7e9ed3eba9fd002cc2",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-31b82ec4a1c3279a",
+        "m365-preserved-sharepoint-6e0af89b59027f7f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "739197b7b945a130f895c9335e66ac09400095f6c9a296c6912876e1b206abda",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-950022dfe5508d43",
+        "m365-preserved-sharepoint-cfa0ae1bdd8c50bd"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "760f951ea55b94b532e2954b64ce5b1c6609acca3eefb4f6092bbd519c62469b",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-3d1f738cac8bf003",
+        "m365-preserved-sharepoint-d9f839462b5c0e2a"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "7894bdb8dd48d0daf65b6b3d950f2a8a19e55d10d23abfa14470341e03751fc6",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-84f87bb4ebccf433",
+        "m365-preserved-sharepoint-c224f42698abb91c"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "7965c5287bff7d94b9b653d99f00d9b7bfec34238e74842a050771c1b148dca4",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-b382de9e61313404",
+        "m365-preserved-sharepoint-b413664212d3e2c1"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "79810246efaa7e1a840acf7b2531b2203133e8246e68ce5f980de0e9018325e2",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-1fec1db9848d11dc",
+        "m365-preserved-sharepoint-81bb285d1340b19d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "79eac5964b9d3cdf0e57d82233d70b96336c519ce898d61ddbba53690bb40da8",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-77fd82854f0e5022",
+        "m365-preserved-sharepoint-d17fa314e61e067a"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "79f52f9c7b8a9e1f3c6031d2c977d7147318c4d9aae6fe17080536d6c8ed43d5",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0d72c802eae36f22",
+        "m365-preserved-sharepoint-11e27e7eabc36f46"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "7ce07405bfe1816142a4dd0cb0e37c33f18dc69a5705bc6748c91b5073dec5b5",
+      "count": 2,
+      "evidenceIds": [
+        "m365-m365-project-documentation-6c46a2fcadabec73",
+        "m365-microsoft-365-core-d88ce184aecf2013"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "7fc550c40a0e6c8948f7061df8afbaf59aebb7a2a9f821627b0519a18d7b32a3",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-87b035448653fef8",
+        "m365-preserved-sharepoint-9886369e86ecca44"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "8009786ce0e11443e35f0ae7eb54cb178bdda56affe792c6edc3331907cb276c",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-82d8d9eeb829ab87",
+        "m365-preserved-sharepoint-d0d89b3f73528b3b"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "87db5be80a62281167269675ff5b9470c143130d586b687fff304222e9f551a1",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-1fa34dfa29986675",
+        "m365-preserved-sharepoint-bf9deddc3c8a43c6"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "8bcce01a675daa3a77ae509d61473e070b8d6cab92e99f9103325e2a6c2f7b60",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-1425375848c2adb5",
+        "m365-preserved-sharepoint-1ffb5263873606d5"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "8db9a76e41550e9de4910dcea434f589078c56158e3ac78aacdb7734d617b3ad",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-befb97f27e8ad8b4",
+        "m365-preserved-sharepoint-f2dbe386bfffdc3f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "8f1cff71da1e4dc345811f2cadc46dc424b1c1f6b57f73d1210ce2b34ada0498",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-09b3283b8c085d14",
+        "m365-preserved-sharepoint-347614c69bee408d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "90c646cec26ae6aee9b17ded304ad7a29619555c9de3a57d2cff3891fceedb86",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-08618fac44bcd162",
+        "m365-preserved-sharepoint-7d0da49a9e0b11b8"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "9180b37d1d5ce707ef851375ef648ba50735dd6778f071babe00c4d459c1d03c",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-354531bec50cc142",
+        "m365-preserved-sharepoint-477b11ca4bb8ac32"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "925f68029125170283468fa2015531783d9bf4997e6f9ec53dda8aa70025b026",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-6d3678db8041d0f6",
+        "m365-preserved-sharepoint-c7a34e4904566eae"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "96f5bb28762bc9101f2ea8fb3b15819bd42d1dc1afa90ea5b9d6b838605f5918",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0cc0d2c4c81790c7",
+        "m365-preserved-sharepoint-3ac85d8f8551e649"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "9887409b8089fc0d041af215f26029278c7e951f825b0fd33e6503eee14171cc",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-334fb9741214ba85",
+        "m365-preserved-sharepoint-b902c27d3e84d7b3"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "9bc8c323c266ecd00992a4453693a5efbb458c869e5a3f063a0dc7ca53392f03",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-6b8320db9fa81c12",
+        "m365-preserved-sharepoint-899aa46d510d0417"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "9c81abe16897e9f3134f5baf76dcb5cda025505f1debeee0ff78bafa171a87bb",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-4ea662fa0f90ab87",
+        "m365-preserved-sharepoint-f993cb8221e46d52"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "a01c1bd051ad9a21069b37d196da2f2405e326c2572507f9ed0409d31742ec59",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-7f77a754bdb9f7c2",
+        "m365-preserved-sharepoint-d39eb30ad14793ad"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "a15bdf171eb11b3f62322ff0dcf5abcb894cb412be44d314a2ad913f250bab2d",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-3eb37c9ff766fd11",
+        "m365-preserved-sharepoint-a9151a104672b6a3"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "a1885c1730dd742855b1b7d8d740f4d96c49eccfedad250eb752b467af6865a6",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2464f0062fe9db50",
+        "m365-preserved-sharepoint-295a51fb3a054054"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "a28e67892e65aa5024cff421cfab0dadba5d5572522dc1570141ab1ddda90753",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-6b1ebea06126c7f6",
+        "m365-preserved-sharepoint-bc6672dc9666416b"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "a9867e2b14f3faa8cd85f30add84a71ad3a8222e209c8bb68b6478021ffa6909",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-014efee3fdec451a",
+        "m365-preserved-sharepoint-ff611afa7b18426f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "abc0a956edcdcce0ccfa16bd3df7f98e10954fcc1df761ef30815ae0b1acc8bb",
+      "count": 2,
+      "evidenceIds": [
+        "m365-microsoft-365-core-32736c67f6190dcd",
+        "m365-microsoft-365-core-77f0557ab69a172f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "ad37f9be373918cdd5bdc4e3f04f4e61a3387affb30bc491730e628746292bac",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-153b5696b95fe003",
+        "m365-preserved-sharepoint-29a03b624c39316b"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "b0edac430c1f5823fb9135b42b76a5a652dee654dde6002e3b1892dbd22504fb",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-3d43f7b3410d99a6",
+        "m365-preserved-sharepoint-43c51a226ff71dd8"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "b3cf2229f77a2046198671fe21097e041ea1ad2ef57afa6cd0bada66c3b09715",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-da99e5b692a5a673",
+        "m365-preserved-sharepoint-ef41b85c1cf6e9e8"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "b4446cb6786eb14b50f125b8e52e235feb48f598fb34c1a638b33ff1ab72c680",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-171180cfa6222e6f",
+        "m365-preserved-sharepoint-81204ca407d6a25f"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "b8b5d43ff470edcc31b076d4ee3497fb6483a004b22432d61f3fe5b4b5fa5881",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-22b7d7da73405d25",
+        "m365-preserved-sharepoint-4a229b6609f6aadc"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "ba3c1ec6fe810bfe9f177beb9755aacb128ab5ac3fd7744b8905f35033db14c0",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2538730b95ca4c80",
+        "m365-preserved-sharepoint-4637e1dd9d93cd5c"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "bbddc951808e83fc449b725c3dfe519fe1f73ed264da4b617aefe35f3322c0a7",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-60e5169a2defd9f2",
+        "m365-preserved-sharepoint-cd07442494f8dfb1"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "bc295d736f02889e9eb37eaf849f16c0191a1109a41521ccf807176d5e5ca5d6",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-6ed14af32b6bdb64",
+        "m365-preserved-sharepoint-a16d34472306d96d"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "bdb5768c6618c640bc26fbdeef1879c375f8032742c457d6619e0ec66531835c",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-8e6f03ccdeffaf07",
+        "m365-preserved-sharepoint-b16f99a709bc3261"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "beb15e0c4e5315090f163dd0f89c003221a5765e8547b49901922d35acc725fd",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-6a65a2332ed2d5be",
+        "m365-preserved-sharepoint-d149d5850c0f7d5b"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "bedfbbc1ac21b97e0d72fdf41b19c1246ed0de22538054a99baf563dacac4df5",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-5f6ff1f27de8ca7b",
+        "m365-preserved-sharepoint-ad51cb84a630f376"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c0fdd1c17aad56e16fe4b9495cd66ac2491848dcbde325c01865461fd65c6048",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-7b097da6a9ead280",
+        "m365-preserved-sharepoint-b6b839486eb672b9"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c11aae9b7357adb831eab3b08a2a6d7d0195dd7e81f7d4841eefd04577c62616",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-a9e31b7ea721cab3",
+        "m365-preserved-sharepoint-bba392767f085744"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c144ffb814f0b92d3fe1297e8762ff01dfc3132f7d0ce2df67d9571e5a33bf34",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-5d1cc104acafc3d3",
+        "m365-preserved-sharepoint-cfbc9e226b897576"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c4377c98d853971a4fbb513ed3396b1848d4ac68c9b86e406eba77dbfa94f9ac",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-45055e4a990a7642",
+        "m365-preserved-sharepoint-caade997f1474747"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c44ab66fd380114afc3f04de2c155a4a2b389eee4bf6a9fbf8cce38487b25531",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-8be9bab4315ba29f",
+        "m365-preserved-sharepoint-e274c5953be818a6"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c49c5c125743c8e5220faf61f762d181123c360f038be7be902b6b02d8e97038",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-1462de0d18166fdb",
+        "m365-preserved-sharepoint-8847cbcecb3faf4b"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c4f03a12729b69404a09bf7318a4afc69088dc577ca472a822104a6e9dfe0714",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-005f2bef073acc0f",
+        "m365-preserved-sharepoint-3f4e3855a8b1dae7"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c602733a92606ee1edef2eb1a3267fc3fe170bbf27d126ffb0fa8ba9fb2e6b7c",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-76146a9b06ec2745",
+        "m365-preserved-sharepoint-a133f52361b70a67"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "c9cd19bc61d438b2cbe228ac0a012be1d4b0edf03932cb29759546ce2fdd6071",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-f46f70eb63e32f36",
+        "m365-preserved-sharepoint-f66c273b30d8f9b9"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "cb51a13df29861d109f3c45be0c23de022232469ae12e8e1f5bd9a424226c633",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2723c0b004ff4fb4",
+        "m365-preserved-sharepoint-7e9817cfbbe45a53"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "d2d49e82978375052905980fa7a9c228aa8fc281408da81e32bcb39af79ef25b",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-19f453761d09a466",
+        "m365-preserved-sharepoint-27cca87346477b46"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "d4142bf8a9d593226cb29e7eb001cd0866ecff72680e485cd7b720c24e2c0def",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-69e16c2402620b98",
+        "m365-preserved-sharepoint-a5ea28e313e4f71c"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "d50db426cb9f6b6a94e0a0474260b728f190fb2284270608c17f13fb505b52b4",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-b46f6d3335aab1ca",
+        "m365-preserved-sharepoint-becca0a8247ab8d7"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "d97bdc7ab1529f63eeb5a2d5a64e7ca2315d4e62c15f31b69ca6fb3d4b746006",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-26f9ed3f5c07a8a6",
+        "m365-preserved-sharepoint-67eeb1078ec8c550"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "dbec906fb877fe6b7afdcaf39de6b9da0ba1673188b8e2f6d3dcb0a19b98a3e7",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-64c64bcf2e4e783c",
+        "m365-preserved-sharepoint-adab46b76fed7ebd"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "dd59650146861eaa55c43f103cb75722084765d0ead1ed5e12f2c5e8bdc391a4",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-67bb3f3188e41d34",
+        "m365-preserved-sharepoint-86f757e7d1333bce"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "df153b42d534728d57990f7b190e8a77dbb8e0e66409944dd8914b23a8ed6b31",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-a1f45953dec4ee90",
+        "m365-preserved-sharepoint-d285e80c51627c39"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "e1fc4c3949a301fe3ce4839718414168f741065d67220be3c4280d97f41da210",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-7beb71bd19589afd",
+        "m365-preserved-sharepoint-aaefebe67f49add0"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "e2bc3959ee6304f4b9a6828cbe62f6730e03e340aebcc3495202d34d6002b6ed",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2279560334cdddf4",
+        "m365-preserved-sharepoint-33475cff38bf9787"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "e833546db94e915737371cb244205ba6624902a2f6484952f1b11a0697d8dda7",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-0edf4bf57ca0ded7",
+        "m365-preserved-sharepoint-c2d441dd31efca55"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "eb52182b001f01ded6d90175f34db4b2b0cacf93f65b05e16c335c7fbd73ebb3",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-4d386d107a3f9afc",
+        "m365-preserved-sharepoint-cb9bfa3451fa6028"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "ededcc0bba39e828fc1290886b2a4070786192bf59913c8588a7ba4d4af7b50c",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-10db3dd8a1dd36ec",
+        "m365-preserved-sharepoint-2b60e3004e962771"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "f2648aebcbda8cf8dd34fa536d3befca71bd1a386a4dffbf002f36a732c1399a",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-3e8a269348512deb",
+        "m365-preserved-sharepoint-e36e87a3560367f0"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "f3d27c350bd7e4e7e95eeffe6f752e1ad7ee383e1df065fd4a8ab3320146de91",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-cbf62bdabc276104",
+        "m365-preserved-sharepoint-f382416bbbfb5de8"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "f7d61d3d6d9cacdf4f289c35bc7e076af72efff26096619ed508e89a730ab13b",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-2affaae594ac8f32",
+        "m365-preserved-sharepoint-30b7949c02b92da6"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "f9d13d4faa1eb95df7d2e7fed1b6ee069296ab5ae22fae9404608d1289774ec9",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-25c6f77c976ee479",
+        "m365-preserved-sharepoint-f3de5530fadff5a2"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "fbcf610eea712268030ed4b7d9e9ccd70941be605882e86ddc2e137876fcf34e",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-9322ded20d418ffe",
+        "m365-preserved-sharepoint-d2494f9d27c7c894"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "ffec3ccd5a3939fefb690767d2b168ea2436e6afd674c94add1ee34a63e35aa4",
+      "count": 2,
+      "evidenceIds": [
+        "m365-preserved-sharepoint-96efcfa9670750da",
+        "m365-preserved-sharepoint-ec6a938e11990a06"
+      ]
+    }
+  ],
+  "publicGroups": [
+    {
+      "algorithm": "sha256",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "count": 10,
+      "evidenceIds": [
+        "m365-microsoft-365-core-37ff842a97ba306f",
+        "m365-microsoft-365-core-545e4b47a4e2fb8a",
+        "m365-microsoft-365-core-6bc1d7a1b3e41c28",
+        "m365-microsoft-365-core-7217ece8ee1f9183",
+        "m365-microsoft-365-core-858cc9663fb2cae5",
+        "m365-microsoft-365-core-ae9eb437093d10c2",
+        "m365-microsoft-365-core-b61d7d43a94ffb56",
+        "m365-microsoft-365-core-c664ca16aa04ac89",
+        "m365-microsoft-365-core-c8a9a384d2753a49",
+        "m365-microsoft-365-core-cf79d1e00f7a6a23"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "count": 4,
+      "evidenceIds": [
+        "m365-microsoft-365-core-2b21248f53c774e8",
+        "m365-microsoft-365-core-4f4e7b41e03c92a0",
+        "m365-microsoft-365-core-5b2a458c072846ea",
+        "m365-microsoft-365-core-96b032460ec00e41"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "13542abecada22dc8e22150f345febec6c69861d3d4787d0a5f273b9f4017238",
+      "count": 2,
+      "evidenceIds": [
+        "m365-microsoft-365-core-6f22d2ac5cf13cb4",
+        "m365-microsoft-365-core-a9ce37b4484f8dcf"
+      ]
+    },
+    {
+      "algorithm": "sha256",
+      "hash": "abc0a956edcdcce0ccfa16bd3df7f98e10954fcc1df761ef30815ae0b1acc8bb",
+      "count": 2,
+      "evidenceIds": [
+        "m365-microsoft-365-core-32736c67f6190dcd",
+        "m365-microsoft-365-core-77f0557ab69a172f"
+      ]
+    }
+  ]
+}

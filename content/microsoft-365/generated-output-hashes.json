@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "sha256",
+  "outputs": [
+    {
+      "path": "assets/data/m365-evidence-catalog.json",
+      "size": 3318049,
+      "hash": "109d4b72e840428af8cfb353bf7fcfd3d3c4bf4adcdba0e101d90d0d57fc584c",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "microsoft-365/evidence-catalog.html",
+      "size": 8888,
+      "hash": "88c3453cc13f01cdaa2916319d5a5408e83f2cc46043f6745035d33ffe27f16c",
+      "metadataCoverage": [
+        "integrity",
+        "seo"
+      ]
+    },
+    {
+      "path": "microsoft-365/source-to-destination-matrix.csv",
+      "size": 933235,
+      "hash": "ffeaaf1c2424dc4c2f0ca11eed76f4840410c4a92ecf11911554307c82dc0a38",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "microsoft-365/duplicate-groups.json",
+      "size": 37874,
+      "hash": "d4f88d6a79ecd63a0195e69127ba9d225a94a836cb699a4aced39ee1a8dd0b47",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "microsoft-365/sensitive-data-review.json",
+      "size": 336724,
+      "hash": "7851442d10d3118c2edf06704be8b3871b53638f61e1dec012bd0aeac4f5c7bf",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "evidence-library/preserved-sharepoint/index.html",
+      "size": 21855,
+      "hash": "0b9b1b15d6afad99ec6293d980b223426dad81a52ffda5988fb920b935bc3fcd",
+      "metadataCoverage": [
+        "integrity",
+        "seo"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 {
   "schemaVersion": 1,
   "phase": "3A",
+  "sourceManifest": "content/microsoft-365/source-manifest.json",
+  "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json",
+  "generatedOutputHashes": "content/microsoft-365/generated-output-hashes.json",
   "sources": {
     "currentPortfolio": {
       "repository": "fontenotjeremy71-hub/jeremyfontenot",

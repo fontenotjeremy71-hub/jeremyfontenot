@@ -10,8 +10,18 @@ const root = path.resolve(__dirname, '..', '..');
 const currentRepository = 'fontenotjeremy71-hub/jeremyfontenot';
 const schema = JSON.parse(fs.readFileSync(path.join(root, 'schemas/site-foundation.schema.json'), 'utf8'));
 const fixture = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/site-foundation/evidence-records.json'), 'utf8'));
+const catalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/m365-evidence-catalog.json'), 'utf8'));
+const {build: buildM365Catalog} = require('../build/generate-m365-evidence-organization.js');
 const publicationManifest = JSON.parse(fs.readFileSync(path.join(root, 'config/publication-manifest.json'), 'utf8'));
 const failures = [];
+
+const expectedCatalog = buildM365Catalog().summary;
+if (JSON.stringify(expectedCatalog.records) !== JSON.stringify(catalog.records)) {
+  failures.push('assets/data/m365-evidence-catalog.json: generated provenance records do not match the complete expected catalog');
+}
+if (catalog.records.length !== expectedCatalog.totals.artifacts) {
+  failures.push('assets/data/m365-evidence-catalog.json: artifact total does not match complete provenance record count');
+}
 
 function gitBlobSha(buffer) {
   const header = Buffer.from(`blob ${buffer.length}\0`, 'utf8');
@@ -194,7 +204,8 @@ function validateAttestation(record, context) {
   if (sectionValue(sections, 'Source repository', context) !== record.sourceRepository) failures.push(`${context}: attested repository mismatch`);
   if (sectionValue(sections, 'Source commit', context) !== record.sourceCommit) failures.push(`${context}: attested commit mismatch`);
   if (sectionValue(sections, 'Source path', context) !== record.sourcePath) failures.push(`${context}: attested path mismatch`);
-  if (sourceHash !== String(record.hash).toLowerCase()) failures.push(`${context}: attested source hash mismatch`);
+  const expectedSourceHash = record.sourceIntegrity?.hash || record.hash;
+  if (sourceHash !== String(expectedSourceHash).toLowerCase()) failures.push(`${context}: attested source hash mismatch`);
 
   if (record.publicationClassification === 'public-original') {
     const publicArtifact = routeToRepositoryPath(record.publicRoute, context);
@@ -210,6 +221,22 @@ function validateAttestation(record, context) {
     if (publicHash && publicHash.toLowerCase() !== String(record.hash).toLowerCase()) {
       failures.push(`${context}: public-original artifact is not byte-for-byte identical to the attested source`);
     }
+  }
+
+  if (record.publicationClassification === 'sanitized-derivative') {
+    if (!record.sourceIntegrity || !record.publicIntegrity) {
+      failures.push(`${context}: sanitized-derivative requires sourceIntegrity and publicIntegrity`);
+      return;
+    }
+    if (String(record.hash).toLowerCase() !== String(record.publicIntegrity.hash).toLowerCase()) failures.push(`${context}: hash must describe the linked public derivative`);
+    const publicArtifact = routeToRepositoryPath(record.publicRoute, context);
+    if (!publicArtifact) return;
+    if (!isPublishedByManifest(publicArtifact.relativePath)) failures.push(`${context}: sanitized derivative route is not included by the publication manifest: ${record.publicRoute}`);
+    const publicBuffer = readGitObject('HEAD', publicArtifact.relativePath, `${context} public derivative`);
+    if (!publicBuffer) return;
+    const publicHash = sha256(publicBuffer);
+    if (publicHash !== String(record.publicIntegrity.hash).toLowerCase()) failures.push(`${context}: public derivative hash mismatch`);
+    if (publicBuffer.length !== record.publicIntegrity.size) failures.push(`${context}: public derivative size mismatch`);
   }
 }
 
@@ -232,4 +259,4 @@ if (failures.length) {
   for (const failure of [...new Set(failures)].sort()) console.error(failure);
   process.exit(1);
 }
-console.log('Evidence provenance validation passed.');
+console.log(`Evidence provenance validation passed, including ${catalog.records.length} generated Microsoft 365 records.`);

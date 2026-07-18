@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "exceptions": [
+    {
+      "id": "public-portfolio-email",
+      "findingType": "personal-email-or-upn",
+      "pattern": "^[A-Za-z0-9._%+-]+@jeremyfontenot\\.online$",
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": ["evidence-library/projects/microsoft-365-lab", "evidence-library/preserved-sharepoint/source", "evidence/public", "evidence-library/architecture", "evidence-library/conditional-access"],
+      "reviewerNote": "Allow only addresses on the established public portfolio domain; matched values remain redacted from the generated report."
+    },
+    {
+      "id": "documentation-example-identities",
+      "findingType": "personal-email-or-upn",
+      "pattern": "^[A-Za-z0-9._%+-]+@(contoso|example|exampletenant)\\.(com|onmicrosoft\\.com)$",
+      "reason": "Microsoft documentation examples use non-personal demonstration domains.",
+      "scope": ["evidence-library/preserved-sharepoint/source", "evidence-library/projects/microsoft-365-lab"],
+      "reviewerNote": "Example-domain identities are documentation placeholders, not live account disclosures."
+    },
+    {
+      "id": "reviewed-personal-tenant-object-identifiers",
+      "findingType": "tenant-or-object-identifier",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$",
+      "reason": "Pre-existing personal-lab tenant and object identifiers are retained only in already-public reviewed evidence.",
+      "scope": ["evidence-library/projects/microsoft-365-lab", "evidence-library/preserved-sharepoint/source", "evidence/public"],
+      "reviewerNote": "Medium-severity identifiers remain reported by type and count; values are not copied into generated outputs."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-identities",
+      "findingType": "personal-email-or-upn",
+      "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+      "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/authentication-method-policy.json",
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/authentication-method-policy-graph-request.json",
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request-beta.json",
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request.json",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-authentication-methods-policy.json",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-groups.csv",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv"
+      ],
+      "reviewerNote": "The exception is file-scoped, values are not reproduced in the generated report, and any new file or path requires a separate review."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-domains",
+      "findingType": "tenant-domain-identifier",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]*\\.onmicrosoft\\.com$",
+      "reason": "These specific already-public tenant and group exports retain reviewed personal-lab tenant-domain identifiers.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-domains.csv",
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-organization.json",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-groups.csv",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/tenant-organization-domains-skus.json"
+      ],
+      "reviewerNote": "The exception is file-scoped and preserves review visibility without copying the identifier values into generated reports."
+    }
+  ]
+}
