@@ -17,14 +17,14 @@
     "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json"
   },
   "totals": {
-    "artifacts": 956,
+    "artifacts": 957,
     "preservedSharePointArtifacts": 802,
     "sourceDuplicateGroups": 126,
     "publicDuplicateGroups": 4,
     "sensitiveDataReview": {
-      "artifactsReviewed": 956,
+      "artifactsReviewed": 957,
       "textArtifactsInspected": 934,
-      "manualReviewRequired": 22,
+      "manualReviewRequired": 23,
       "highSeveritySecretFindings": 0,
       "identifierFindings": 4577,
       "unresolvedPublicIdentifierFindings": 0
@@ -604,15 +604,16 @@
       "claimId": "m365-exchange-support-familiarity",
       "claim": "Reviewed Microsoft 365 group evidence and documented Exchange Online connection and support workflows with explicit limitations.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 25,
+      "evidenceCount": 26,
       "counts": {
+        "screenshots": 2,
         "validation": 1,
-        "screenshots": 1,
         "testing": 1,
         "inventories": 1,
         "exports": 21
       },
       "evidenceIds": [
+        "m365-exchange-architecture-4380c30e4b1b6a5b",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-4d661d704c370161",
         "m365-microsoft-365-core-5a2594eb904d81d0",
@@ -2757,6 +2758,7 @@
       "claimId": "m365-exchange-support-familiarity",
       "claimText": "Reviewed Microsoft 365 group evidence and documented Exchange Online connection and support workflows with explicit limitations.",
       "evidenceIds": [
+        "m365-exchange-architecture-4380c30e4b1b6a5b",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-4d661d704c370161",
         "m365-microsoft-365-core-5a2594eb904d81d0",
@@ -4388,6 +4390,54 @@
         "highSeverityFindings": 0,
         "identifierFindings": 0,
         "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-architecture-4380c30e4b1b6a5b",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published Exchange Online mail-flow troubleshooting evidence preview. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "0b6f2b943fd4aa8c322dddca5334ae7399c3c56918bcfa32d2ad476add9b1dd7",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
+      "collection": "exchange-architecture",
+      "publicPath": "evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
+      "size": 3841,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/exchange-architecture/evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "0b6f2b943fd4aa8c322dddca5334ae7399c3c56918bcfa32d2ad476add9b1dd7",
+        "size": 3841,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "0b6f2b943fd4aa8c322dddca5334ae7399c3c56918bcfa32d2ad476add9b1dd7",
+        "size": 3841,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true
       }
     },
     {

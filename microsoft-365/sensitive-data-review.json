@@ -7,9 +7,9 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 956,
+    "artifactsReviewed": 957,
     "textArtifactsInspected": 934,
-    "manualReviewRequired": 22,
+    "manualReviewRequired": 23,
     "highSeveritySecretFindings": 0,
     "identifierFindings": 4577,
     "unresolvedPublicIdentifierFindings": 0
@@ -164,6 +164,13 @@
     {
       "evidenceId": "m365-m365-architecture-59ca909afc274b5d",
       "path": "evidence-library/architecture-diagrams/m365-lab-baseline-preview.svg",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-exchange-architecture-4380c30e4b1b6a5b",
+      "path": "evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
       "publicationClassification": "public-original",
       "status": "manual-review-required",
       "findings": []

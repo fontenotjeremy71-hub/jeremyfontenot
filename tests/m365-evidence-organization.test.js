@@ -5,7 +5,8 @@ const assert = require('node:assert/strict');
 const {
   technologiesFor,
   logicalDestination,
-  normalizeForTechnologyMatching
+  normalizeForTechnologyMatching,
+  scanText
 } = require('../scripts/build/generate-m365-evidence-organization.js');
 
 function relationships(value) {
@@ -58,4 +59,25 @@ test('logical destinations retain collection and relative source context', () =>
 
 test('logical destinations reject traversal', () => {
   assert.throws(() => logicalDestination('entra-id', 'exports', 'proof-set', '../entra-groups.csv'), /Unsafe logical destination/);
+});
+
+test('quoted structured-data keys still trigger high-severity secret detection', () => {
+  const content = JSON.stringify({
+    clientSecret: 'abcdefghijklmnop',
+    access_token: 'abcdefghijklmnopqrstuvwx',
+    refreshToken: 'zyxwvutsrqponmlkjihgfedc',
+    password: 'not-a-real-password',
+    apiKey: '1234567890abcdef',
+    Authorization: 'Bearer abcdefghijklmnopqrstuvwx'
+  });
+  const findings = scanText(Buffer.from(content), 'evidence/public/probe.json', {exceptions: []}, true);
+  const types = new Set(findings.filter((finding) => finding.severity === 'high').map((finding) => finding.type));
+  for (const expected of ['client-secret', 'access-token', 'refresh-token', 'password-or-connection-secret', 'api-key', 'bearer-authorization-header']) {
+    assert.ok(types.has(expected), 'missing detection for ' + expected);
+  }
+});
+
+test('connection-string secret material is detected', () => {
+  const findings = scanText(Buffer.from('Endpoint=x;AccountKey=abcdefghijklmnop;'), 'evidence/public/probe.txt', {exceptions: []}, true);
+  assert.ok(findings.some((finding) => finding.type === 'connection-string-secret' && finding.severity === 'high'));
 });

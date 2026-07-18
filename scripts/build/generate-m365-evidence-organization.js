@@ -11,13 +11,14 @@ const TEXT_EXTENSIONS = new Set(['.csv', '.json', '.xml', '.html', '.htm', '.md'
 const BINARY_RESTRICTED_EXTENSIONS = new Set(['.pfx', '.p12', '.key', '.pem', '.kdbx']);
 const HIGH_SEVERITY_PATTERNS = [
   {type: 'private-key', regex: /-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----/gim},
-  {type: 'client-secret', regex: /\b(?:client[_-]?secret|clientsecret)\b\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{12,})/gim, valueGroup: 1},
-  {type: 'access-token', regex: /\baccess[_-]?token\b\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
-  {type: 'refresh-token', regex: /\brefresh[_-]?token\b\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
-  {type: 'bearer-authorization-header', regex: /\bauthorization\s*:\s*bearer\s+([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
+  {type: 'client-secret', regex: /\b(?:client[_-]?secret|clientsecret)\b["']?\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{12,})/gim, valueGroup: 1},
+  {type: 'access-token', regex: /\baccess[_-]?token\b["']?\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
+  {type: 'refresh-token', regex: /\brefresh[_-]?token\b["']?\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
+  {type: 'bearer-authorization-header', regex: /\bauthorization\b["']?\s*:\s*["']?\s*bearer\s+([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
   {type: 'jwt-like-value', regex: /\b(eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,})\b/gm, valueGroup: 1},
-  {type: 'password-or-connection-secret', regex: /\b(?:password|pwd)\b\s*[:=]\s*["']?([^"'\s;,]{8,})/gim, valueGroup: 1},
-  {type: 'api-key', regex: /\b(?:api[_-]?key|subscription[_-]?key)\b\s*[:=]\s*["']?([A-Za-z0-9+/_=-]{16,})/gim, valueGroup: 1}
+  {type: 'password-or-connection-secret', regex: /\b(?:password|pwd)\b["']?\s*[:=]\s*["']?([^"'\s;,]{8,})/gim, valueGroup: 1},
+  {type: 'connection-string-secret', regex: /\b(?:accountkey|sharedaccesskey|sharedaccesssignature)\b\s*=\s*([^;"'\s]{8,})/gim, valueGroup: 1},
+  {type: 'api-key', regex: /\b(?:api[_-]?key|subscription[_-]?key)\b["']?\s*[:=]\s*["']?([A-Za-z0-9+/_=-]{16,})/gim, valueGroup: 1}
 ];
 const IDENTIFIER_PATTERNS = [
   {type: 'personal-email-or-upn', regex: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gim},
@@ -667,15 +668,19 @@ function build() {
     record.publicationClassification, record.supportedClaims.join('|'), record.collectionContext
   ].map(csvCell).join(','))].join('\n') + '\n';
 
-  const technologyCards = [...technologyMap.values()].map((technology) => [
-    '<article class="capability-card" id="' + escapeHtml(technology.slug) + '">',
-    '<span class="tile-code">' + escapeHtml(String(new Set(technology.evidenceIds).size)) + '</span>',
-    '<h2>' + escapeHtml(technology.label) + '</h2>',
-    '<p>' + escapeHtml(technology.claim) + '</p>',
-    '<dl class="claim-details"><div><dt>Support</dt><dd>' + escapeHtml(technology.supportLevel) + '</dd></div><div><dt>Logical destination</dt><dd><code>' + escapeHtml(technology.destination) + '</code></dd></div></dl>',
-    '<div class="proof-links"><a href="/assets/data/m365-evidence-catalog.json">Inspect catalog records</a></div>',
-    '</article>'
-  ].join('')).join('');
+  const technologyCards = [...technologyMap.values()].map((technology) => {
+    const capability = technologyBySlug.get(technology.slug);
+    return [
+      '<article class="capability-card" id="' + escapeHtml(technology.slug) + '">',
+      '<span class="tile-code">' + escapeHtml(String(new Set(technology.evidenceIds).size)) + '</span>',
+      '<h2>' + escapeHtml(technology.label) + '</h2>',
+      '<dl class="claim-details"><div><dt>Skill</dt><dd>' + escapeHtml(capability.skill) + '</dd></div><div><dt>Task</dt><dd>' + escapeHtml(capability.task) + '</dd></div><div><dt>Result</dt><dd>' + escapeHtml(capability.result) + '</dd></div></dl>',
+      '<p><strong>Supporting claim:</strong> ' + escapeHtml(technology.claim) + '</p>',
+      '<div class="proof-links"><a href="/assets/data/m365-evidence-catalog.json">Inspect supporting catalog records</a></div>',
+      '<dl class="claim-details"><div><dt>Scope</dt><dd>' + escapeHtml(capability.scope) + '</dd></div><div><dt>Limitations</dt><dd>' + escapeHtml(capability.limitations) + '</dd></div><div><dt>Support level</dt><dd>' + escapeHtml(technology.supportLevel) + '</dd></div></dl>',
+      '</article>'
+    ].join('');
+  }).join('');
   const catalogTitle = 'Microsoft 365 Evidence Catalog | Jeremy Fontenot';
   const catalogDescription = 'Technology-first catalog of Microsoft 365, Entra, SharePoint, Exchange, Intune, Teams, application, security, and automation evidence with provenance and limitations.';
   const reviewWording = 'No high-severity secret patterns were detected. ' + reviewSummary.identifierFindings + ' identifier findings were reviewed through explicit exceptions or kept outside the public build. ' + reviewSummary.manualReviewRequired + ' binary artifacts remain subject to documented manual-review limitations; OCR was not used.';
@@ -688,8 +693,9 @@ function build() {
     '<link rel="icon" href="/assets/logos/favicon_64x64.png"><link rel="stylesheet" href="/assets/css/site.css"><script src="/assets/js/site.js" defer></script></head>',
     '<body class="foundation-page microsoft-365-page"><!-- GENERATED FILE — DO NOT EDIT DIRECTLY. --><a class="skip-link" href="#main">Skip to content</a>',
     '<header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/"><img src="/assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button><div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="/systems-administration.html">Readiness</a><a href="/systems-skills/">Skills</a><a href="/microsoft-365/" aria-current="page">Microsoft 365</a><a href="/evidence/">Evidence</a><a href="/resume.html">Resume</a><a href="/contact.html">Contact</a></div></nav></header>',
-    '<main id="main"><section class="page page-hero"><div class="section-head reveal is-visible"><p class="eyebrow">Microsoft 365 evidence organization</p><h1>Technology-first proof with preserved source paths.</h1><p class="lead">' + summary.totals.artifacts + ' physical artifacts are cataloged across personal-tenant administration, identity, security, applications, Exchange, Intune, SharePoint, Teams, and automation. Existing evidence files and URLs remain unchanged.</p><div class="actions"><a class="button primary" href="/assets/data/m365-evidence-catalog.json">Open complete JSON catalog</a><a class="button" href="/microsoft-365/source-to-destination-matrix.csv">Open source matrix</a><a class="button text-button" href="/microsoft-365/duplicate-groups.json">Review retained duplicates</a></div></div></section>',
-    '<section class="section"><div class="section-head reveal"><p class="eyebrow">Coverage</p><h2>Skill, task, result, proof, scope, and limitations remain connected.</h2><p>The organization is logical rather than destructive: every record points from one physical source to one unique destination and one or more reciprocal supported claims.</p></div><div class="capability-grid reveal">' + technologyCards + '</div></section>',
+    '<main id="main"><section class="page page-hero"><div class="section-head reveal is-visible"><p class="eyebrow">Microsoft 365 evidence organization</p><h1>Technology-first proof with preserved source paths.</h1><p class="lead">' + summary.totals.artifacts + ' physical artifacts are cataloged across personal-tenant administration, identity, security, applications, Exchange, Intune, SharePoint, Teams, and automation. Review the demonstrated capability, task, result, proof, scope, and limitation before opening raw artifacts.</p><div class="actions"><a class="button primary" href="#capabilities">Review demonstrated capabilities</a><a class="button text-button" href="/microsoft-365/">Return to Microsoft 365 overview</a></div></div></section>',
+    '<section class="section" id="capabilities"><div class="section-head reveal"><p class="eyebrow">Capability context</p><h2>Skill, task, result, proof, scope, and limitations remain connected.</h2><p>The organization is logical rather than destructive: every record points from one physical source to one unique destination and one or more reciprocal supported claims.</p></div><div class="capability-grid reveal">' + technologyCards + '</div></section>',
+    '<section class="section"><div class="section-head reveal"><p class="eyebrow">Evidence contract downloads</p><h2>Inspect the complete generated contract after reviewing capability context.</h2><p>These machine-readable outputs preserve every physical record, unique logical destination, retained duplicate relationship, and sensitive-data review status.</p></div><div class="actions"><a class="button primary" href="/assets/data/m365-evidence-catalog.json">Open complete JSON catalog</a><a class="button" href="/microsoft-365/source-to-destination-matrix.csv">Open source matrix</a><a class="button text-button" href="/microsoft-365/duplicate-groups.json">Review retained duplicates</a></div></section>',
     '<section class="section"><div class="scope-note-card reveal"><p class="eyebrow">Integrity and review boundaries</p><h2>Source and publication integrity are reported separately.</h2><p>' + escapeHtml(reviewWording) + ' Exact duplicate groups are calculated separately for original-source bytes and linked public bytes; every copy remains retained.</p><div class="inline-actions"><a href="/microsoft-365/sensitive-data-review.json">Open sensitive-data review</a><a href="/evidence-library/preserved-sharepoint/index.html">Browse preserved SharePoint derivatives</a></div></div></section></main>',
     '<footer class="site-footer"><p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p></footer></body></html>',
     ''
@@ -799,6 +805,7 @@ module.exports = {
   build,
   evidenceType,
   normalizeForTechnologyMatching,
+  scanText,
   technologiesFor,
   logicalDestination,
   validateEvidenceRecord

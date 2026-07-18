@@ -4,16 +4,16 @@
   "outputs": [
     {
       "path": "assets/data/m365-evidence-catalog.json",
-      "size": 3318049,
-      "hash": "109d4b72e840428af8cfb353bf7fcfd3d3c4bf4adcdba0e101d90d0d57fc584c",
+      "size": 3320796,
+      "hash": "24af8061c5cf059a448bcb12e97a2f332e228f986d68d0cdd67f347a24717f56",
       "metadataCoverage": [
         "integrity"
       ]
     },
     {
       "path": "microsoft-365/evidence-catalog.html",
-      "size": 8888,
-      "hash": "88c3453cc13f01cdaa2916319d5a5408e83f2cc46043f6745035d33ffe27f16c",
+      "size": 14377,
+      "hash": "0f0b6b2f21f908c32beb67e1a18d5481662c59605a0e1e006781b54e6d5232a0",
       "metadataCoverage": [
         "integrity",
         "seo"
@@ -21,8 +21,8 @@
     },
     {
       "path": "microsoft-365/source-to-destination-matrix.csv",
-      "size": 933235,
-      "hash": "ffeaaf1c2424dc4c2f0ca11eed76f4840410c4a92ecf11911554307c82dc0a38",
+      "size": 934124,
+      "hash": "6b7fe7e9213578722457783b6117cc3d9f1a1ef23fa4bbe74423ca208db2b461",
       "metadataCoverage": [
         "integrity"
       ]
@@ -37,8 +37,8 @@
     },
     {
       "path": "microsoft-365/sensitive-data-review.json",
-      "size": 336724,
-      "hash": "7851442d10d3118c2edf06704be8b3871b53638f61e1dec012bd0aeac4f5c7bf",
+      "size": 337015,
+      "hash": "cdb28966ab6d4359ae5ff537eb1af70e001b3d18b5305d82483b28737fb41502",
       "metadataCoverage": [
         "integrity"
       ]

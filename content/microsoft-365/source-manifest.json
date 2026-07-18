@@ -16,6 +16,7 @@
     "app[-_ ]?registration",
     "graph",
     "mailbox",
+    "mail[-_ ]?flow",
     "authentication",
     "authorization"
   ],
@@ -56,6 +57,7 @@
     {"path":"evidence-library/architecture-diagrams/microsoft-365-lab-architecture-overview-2026.svg","collection":"m365-architecture","reason":"Published Microsoft 365 architecture overview."},
     {"path":"evidence-library/architecture/microsoft-365-architecture-overview.md","collection":"m365-architecture","reason":"Published Microsoft 365 architecture documentation."},
     {"path":"evidence-library/conditional-access/conditional-access-baseline-evidence.md","collection":"conditional-access-evidence","reason":"Published Conditional Access evidence."},
+    {"path":"evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg","collection":"exchange-architecture","reason":"Published Exchange Online mail-flow troubleshooting evidence preview."},
     {"path":"evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv","collection":"preserved-sharepoint-attestation","reason":"Reviewed inventory attesting original SharePoint source integrity."},
     {"path":"evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md","collection":"preserved-sharepoint-attestation","reason":"Published preserved SharePoint collection summary."},
     {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},

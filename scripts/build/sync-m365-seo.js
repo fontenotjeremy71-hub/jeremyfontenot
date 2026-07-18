@@ -15,7 +15,7 @@ const pages = [
   {
     path: 'evidence-library/preserved-sharepoint/index.html',
     title: 'Preserved SharePoint Exports | Jeremy Fontenot',
-    description: 'Indexed preserved-source SharePoint and Microsoft 365 personal-lab documentation exports. These files are offline evidence, not live SharePoint resources.'
+    description: 'Indexed public derivatives of preserved SharePoint and Microsoft 365 personal-lab documentation exports with separately attested source integrity.'
   }
 ];
 
