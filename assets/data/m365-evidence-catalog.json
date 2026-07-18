@@ -17,16 +17,16 @@
     "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json"
   },
   "totals": {
-    "artifacts": 960,
+    "artifacts": 971,
     "preservedSharePointArtifacts": 802,
-    "sourceDuplicateGroups": 126,
-    "publicDuplicateGroups": 4,
+    "sourceDuplicateGroups": 127,
+    "publicDuplicateGroups": 5,
     "sensitiveDataReview": {
-      "artifactsReviewed": 960,
-      "textArtifactsInspected": 937,
+      "artifactsReviewed": 971,
+      "textArtifactsInspected": 948,
       "manualReviewRequired": 23,
       "highSeveritySecretFindings": 0,
-      "identifierFindings": 4577,
+      "identifierFindings": 4838,
       "unresolvedPublicIdentifierFindings": 0
     }
   },
@@ -604,12 +604,15 @@
       "claimId": "m365-exchange-support-familiarity",
       "claim": "Reviewed Microsoft 365 group evidence and documented Exchange Online connection and support workflows with explicit limitations.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 29,
+      "evidenceCount": 40,
       "counts": {
         "screenshots": 2,
-        "documentation": 2,
-        "exports": 22,
-        "validation": 1,
+        "documentation": 5,
+        "scripts": 1,
+        "exports": 23,
+        "reports": 3,
+        "scripts-output": 2,
+        "validation": 2,
         "testing": 1,
         "inventories": 1
       },
@@ -618,6 +621,17 @@
         "m365-exchange-automation-08095293afbba50e",
         "m365-exchange-automation-4201d865b1ed04c7",
         "m365-exchange-automation-ab3bd773c1daabad",
+        "m365-exchange-mail-flow-rca-017e05fac5496c6a",
+        "m365-exchange-mail-flow-rca-544e6ea39e1ab856",
+        "m365-exchange-mail-flow-rca-754d13523d9abd0b",
+        "m365-exchange-mail-flow-rca-75e4f35c01b32317",
+        "m365-exchange-mail-flow-rca-85d88b7623f7d611",
+        "m365-exchange-mail-flow-rca-938e4760b7a3e56c",
+        "m365-exchange-mail-flow-rca-9b153bba55b580e0",
+        "m365-exchange-mail-flow-rca-ae59f792e414391d",
+        "m365-exchange-mail-flow-rca-b053321affcc0467",
+        "m365-exchange-mail-flow-rca-d1c960ef9da3efeb",
+        "m365-exchange-mail-flow-rca-eb5e7a2ed89463bf",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-4d661d704c370161",
         "m365-microsoft-365-core-5a2594eb904d81d0",
@@ -1610,17 +1624,15 @@
       "claimId": "m365-evidence-automation",
       "claim": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 609,
+      "evidenceCount": 606,
       "counts": {
-        "documentation": 2,
-        "exports": 602,
+        "scripts": 1,
         "validation": 1,
+        "exports": 600,
         "configuration": 4
       },
       "evidenceIds": [
-        "m365-exchange-automation-08095293afbba50e",
         "m365-exchange-automation-4201d865b1ed04c7",
-        "m365-exchange-automation-ab3bd773c1daabad",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-33be93828f231f1e",
         "m365-microsoft-365-core-36ec6af4e3f1e4de",
@@ -2020,7 +2032,6 @@
         "m365-preserved-sharepoint-a6be656d8e3e57a9",
         "m365-preserved-sharepoint-a75291570b53263f",
         "m365-preserved-sharepoint-a7d9274e9b2c6a5d",
-        "m365-preserved-sharepoint-a7f8c42e00bb218e",
         "m365-preserved-sharepoint-a865cac098e22044",
         "m365-preserved-sharepoint-a8f49066b04adfc0",
         "m365-preserved-sharepoint-a9151a104672b6a3",
@@ -2771,6 +2782,17 @@
         "m365-exchange-automation-08095293afbba50e",
         "m365-exchange-automation-4201d865b1ed04c7",
         "m365-exchange-automation-ab3bd773c1daabad",
+        "m365-exchange-mail-flow-rca-017e05fac5496c6a",
+        "m365-exchange-mail-flow-rca-544e6ea39e1ab856",
+        "m365-exchange-mail-flow-rca-754d13523d9abd0b",
+        "m365-exchange-mail-flow-rca-75e4f35c01b32317",
+        "m365-exchange-mail-flow-rca-85d88b7623f7d611",
+        "m365-exchange-mail-flow-rca-938e4760b7a3e56c",
+        "m365-exchange-mail-flow-rca-9b153bba55b580e0",
+        "m365-exchange-mail-flow-rca-ae59f792e414391d",
+        "m365-exchange-mail-flow-rca-b053321affcc0467",
+        "m365-exchange-mail-flow-rca-d1c960ef9da3efeb",
+        "m365-exchange-mail-flow-rca-eb5e7a2ed89463bf",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-4d661d704c370161",
         "m365-microsoft-365-core-5a2594eb904d81d0",
@@ -3736,9 +3758,6 @@
       "claimId": "m365-evidence-automation",
       "claimText": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
       "evidenceIds": [
-        "m365-exchange-automation-08095293afbba50e",
-        "m365-exchange-automation-4201d865b1ed04c7",
-        "m365-exchange-automation-ab3bd773c1daabad",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-33be93828f231f1e",
         "m365-microsoft-365-core-36ec6af4e3f1e4de",
@@ -4138,7 +4157,6 @@
         "m365-preserved-sharepoint-a6be656d8e3e57a9",
         "m365-preserved-sharepoint-a75291570b53263f",
         "m365-preserved-sharepoint-a7d9274e9b2c6a5d",
-        "m365-preserved-sharepoint-a7f8c42e00bb218e",
         "m365-preserved-sharepoint-a865cac098e22044",
         "m365-preserved-sharepoint-a8f49066b04adfc0",
         "m365-preserved-sharepoint-a9151a104672b6a3",
@@ -4469,8 +4487,7 @@
       "hashAlgorithm": "sha256",
       "hash": "b78838fecfbd22a7fad79945c04506b3667220d33788f5835c4855a90e661e37",
       "supportedClaims": [
-        "m365-exchange-support-familiarity",
-        "m365-evidence-automation"
+        "m365-exchange-support-familiarity"
       ],
       "skill": "Exchange Online support administration",
       "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
@@ -4483,8 +4500,7 @@
       "publicPath": "evidence/experience/remediation-disable-transportrule.patch",
       "size": 341,
       "technologyRelationships": [
-        "exchange-online",
-        "automation"
+        "exchange-online"
       ],
       "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-automation/evidence/experience/remediation-disable-transportrule.patch",
       "sourceIntegrity": {
@@ -4510,17 +4526,16 @@
       "id": "m365-exchange-automation-4201d865b1ed04c7",
       "lab": "microsoft-365",
       "technology": "exchange-online",
-      "evidenceType": "documentation",
+      "evidenceType": "scripts",
       "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
       "sourcePath": "scripts/automation/remediation-disable-transportrule.ps1",
       "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Repository-only PowerShell transport-rule remediation automation source. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "collectionContext": "Repository-only PowerShell transport-rule remediation sample source. This repository-only source is cataloged as metadata and is not assigned a public route.",
       "hashAlgorithm": "sha256",
       "hash": "1cdb44b38a237a5a44279912b066e89a0f38aac2b9d015426c89535bfcc8efa3",
       "supportedClaims": [
-        "m365-exchange-support-familiarity",
-        "m365-evidence-automation"
+        "m365-exchange-support-familiarity"
       ],
       "skill": "Exchange Online support administration",
       "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
@@ -4536,7 +4551,7 @@
         "exchange-online",
         "automation"
       ],
-      "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-automation/scripts/automation/remediation-disable-transportrule.ps1",
+      "logicalDestination": "content/microsoft-365/exchange-online/scripts/exchange-automation/scripts/automation/remediation-disable-transportrule.ps1",
       "sourceIntegrity": {
         "algorithm": "sha256",
         "hash": "1cdb44b38a237a5a44279912b066e89a0f38aac2b9d015426c89535bfcc8efa3",
@@ -4563,8 +4578,7 @@
       "hashAlgorithm": "sha256",
       "hash": "696799c09aff4d4bb879c306c084d45e475de2cb81b074060cc653edc1219570",
       "supportedClaims": [
-        "m365-exchange-support-familiarity",
-        "m365-evidence-automation"
+        "m365-exchange-support-familiarity"
       ],
       "skill": "Exchange Online support administration",
       "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
@@ -4577,8 +4591,7 @@
       "publicPath": "evidence/public/remediation-disable-transportrule.yaml",
       "size": 164,
       "technologyRelationships": [
-        "exchange-online",
-        "automation"
+        "exchange-online"
       ],
       "logicalDestination": "content/microsoft-365/exchange-online/evidence/exports/exchange-automation/evidence/public/remediation-disable-transportrule.yaml",
       "sourceIntegrity": {
@@ -4591,6 +4604,534 @@
         "algorithm": "sha256",
         "hash": "696799c09aff4d4bb879c306c084d45e475de2cb81b074060cc653edc1219570",
         "size": 164,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-017e05fac5496c6a",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/troubleshooting-notes.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "560fa1dd7c1ab3470af7c5aeb41858986d426783b4156371543b0faff2a0acfc",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/troubleshooting-notes.md",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/troubleshooting-notes.md",
+      "size": 2068,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-mail-flow-rca/troubleshooting-notes.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "560fa1dd7c1ab3470af7c5aeb41858986d426783b4156371543b0faff2a0acfc",
+        "size": 2068,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "560fa1dd7c1ab3470af7c5aeb41858986d426783b4156371543b0faff2a0acfc",
+        "size": 2068,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-544e6ea39e1ab856",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/post-incident-review.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "d316fa38e8de58e5267da1bb23cd9b59f3ec6cbfb7d34972d08c3f360e93cd24",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/post-incident-review.md",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/post-incident-review.md",
+      "size": 1838,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-mail-flow-rca/post-incident-review.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "d316fa38e8de58e5267da1bb23cd9b59f3ec6cbfb7d34972d08c3f360e93cd24",
+        "size": 1838,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "d316fa38e8de58e5267da1bb23cd9b59f3ec6cbfb7d34972d08c3f360e93cd24",
+        "size": 1838,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-754d13523d9abd0b",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "reports",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/rca-report.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "76409c00919bef420265bc426627f6dbc67cc263e21f93433e9fd8a883311753",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/rca-report.md",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/rca-report.md",
+      "size": 3259,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/reports/exchange-mail-flow-rca/rca-report.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "76409c00919bef420265bc426627f6dbc67cc263e21f93433e9fd8a883311753",
+        "size": 3259,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "76409c00919bef420265bc426627f6dbc67cc263e21f93433e9fd8a883311753",
+        "size": 3259,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-75e4f35c01b32317",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "exports",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence/public/rca-2025-02-10.yaml",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow RCA structured summary. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "9a27b9c3fc540a7b02f2eb1b100542e86307bfd8055d0acee1a56f5f93f31196",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence/public/rca-2025-02-10.yaml",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence/public/rca-2025-02-10.yaml",
+      "size": 240,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/exports/exchange-mail-flow-rca/evidence/public/rca-2025-02-10.yaml",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "9a27b9c3fc540a7b02f2eb1b100542e86307bfd8055d0acee1a56f5f93f31196",
+        "size": 240,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "9a27b9c3fc540a7b02f2eb1b100542e86307bfd8055d0acee1a56f5f93f31196",
+        "size": 240,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-85d88b7623f7d611",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "scripts-output",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence/public/incident-2025-02-10-logs.txt",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident log. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "4e2bf4850b2c3cdfd894e41782d89c5b7aeb1a7a66074f04d9b0104f9a164218",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence/public/incident-2025-02-10-logs.txt",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence/public/incident-2025-02-10-logs.txt",
+      "size": 1094,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/scripts-output/exchange-mail-flow-rca/evidence/public/incident-2025-02-10-logs.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "4e2bf4850b2c3cdfd894e41782d89c5b7aeb1a7a66074f04d9b0104f9a164218",
+        "size": 1094,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "4e2bf4850b2c3cdfd894e41782d89c5b7aeb1a7a66074f04d9b0104f9a164218",
+        "size": 1094,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-938e4760b7a3e56c",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "scripts-output",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/troubleshooting-rca-incident-log-2025.txt",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "4e2bf4850b2c3cdfd894e41782d89c5b7aeb1a7a66074f04d9b0104f9a164218",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/troubleshooting-rca-incident-log-2025.txt",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/troubleshooting-rca-incident-log-2025.txt",
+      "size": 1094,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/scripts-output/exchange-mail-flow-rca/troubleshooting-rca-incident-log-2025.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "4e2bf4850b2c3cdfd894e41782d89c5b7aeb1a7a66074f04d9b0104f9a164218",
+        "size": 1094,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "4e2bf4850b2c3cdfd894e41782d89c5b7aeb1a7a66074f04d9b0104f9a164218",
+        "size": 1094,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-9b153bba55b580e0",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "reports",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/incident-summary.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "96535502861ee70f5191c1f1c99d45842e4dbf8a0285a28fb4bb843168b38191",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/incident-summary.md",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/incident-summary.md",
+      "size": 3272,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/reports/exchange-mail-flow-rca/incident-summary.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "96535502861ee70f5191c1f1c99d45842e4dbf8a0285a28fb4bb843168b38191",
+        "size": 3272,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "96535502861ee70f5191c1f1c99d45842e4dbf8a0285a28fb4bb843168b38191",
+        "size": 3272,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-ae59f792e414391d",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "validation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/validation-checklist.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "333daf7c4418fc5451783e5f7bdf91dec33fc5cb7a6d5186e7b27a482c082bf7",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/validation-checklist.md",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/validation-checklist.md",
+      "size": 1970,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/validation/exchange-mail-flow-rca/validation-checklist.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "333daf7c4418fc5451783e5f7bdf91dec33fc5cb7a6d5186e7b27a482c082bf7",
+        "size": 1970,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "333daf7c4418fc5451783e5f7bdf91dec33fc5cb7a6d5186e7b27a482c082bf7",
+        "size": 1970,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-b053321affcc0467",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "reports",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/rca-report.html",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "10b9dfe1dd3bb6c13e431ef418b46b490b81f0e6da29b4a9e46cb49ba3f11195",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/rca-report.html",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/rca-report.html",
+      "size": 10986,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/reports/exchange-mail-flow-rca/rca-report.html",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "10b9dfe1dd3bb6c13e431ef418b46b490b81f0e6da29b4a9e46cb49ba3f11195",
+        "size": 10986,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "10b9dfe1dd3bb6c13e431ef418b46b490b81f0e6da29b4a9e46cb49ba3f11195",
+        "size": 10986,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "reviewed-exceptions-applied",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-d1c960ef9da3efeb",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/troubleshooting-rca/remediation-plan.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "1ce8610d068fac10fe334a0a271dd09f3935dce027cbf7689902d3ad8afb2c03",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/troubleshooting-rca/remediation-plan.md",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence-library/projects/troubleshooting-rca/remediation-plan.md",
+      "size": 2381,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-mail-flow-rca/remediation-plan.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "1ce8610d068fac10fe334a0a271dd09f3935dce027cbf7689902d3ad8afb2c03",
+        "size": 2381,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "1ce8610d068fac10fe334a0a271dd09f3935dce027cbf7689902d3ad8afb2c03",
+        "size": 2381,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-mail-flow-rca-eb5e7a2ed89463bf",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence/public/rca-2025-02-10.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published sanitized mail-flow RCA summary. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "e58671668db83ee2407c9a00d3daf29a2f4e2e66b08db11f77b0f8e6e9154b02",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence/public/rca-2025-02-10.md",
+      "collection": "exchange-mail-flow-rca",
+      "publicPath": "evidence/public/rca-2025-02-10.md",
+      "size": 441,
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-mail-flow-rca/evidence/public/rca-2025-02-10.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "e58671668db83ee2407c9a00d3daf29a2f4e2e66b08db11f77b0f8e6e9154b02",
+        "size": 441,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "e58671668db83ee2407c9a00d3daf29a2f4e2e66b08db11f77b0f8e6e9154b02",
+        "size": 441,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {
@@ -5782,7 +6323,7 @@
       "sensitiveDataReview": {
         "status": "reviewed-exceptions-applied",
         "highSeverityFindings": 0,
-        "identifierFindings": 337,
+        "identifierFindings": 405,
         "manualReviewRequired": false
       }
     },
@@ -7406,7 +7947,7 @@
       "sensitiveDataReview": {
         "status": "reviewed-exceptions-applied",
         "highSeverityFindings": 0,
-        "identifierFindings": 486,
+        "identifierFindings": 554,
         "manualReviewRequired": false
       }
     },
@@ -7894,7 +8435,7 @@
       "sensitiveDataReview": {
         "status": "reviewed-exceptions-applied",
         "highSeverityFindings": 0,
-        "identifierFindings": 167,
+        "identifierFindings": 187,
         "manualReviewRequired": false
       }
     },
@@ -11468,7 +12009,7 @@
       "sensitiveDataReview": {
         "status": "reviewed-exceptions-applied",
         "highSeverityFindings": 0,
-        "identifierFindings": 208,
+        "identifierFindings": 312,
         "manualReviewRequired": false
       }
     },
@@ -42047,8 +42588,7 @@
       "hash": "dbe420b40148d5125da406f994b61ada4b2a08b79677d326d43d4104737d818e",
       "supportedClaims": [
         "m365-sharepoint-export-preservation",
-        "m365-security-policy-review",
-        "m365-evidence-automation"
+        "m365-security-policy-review"
       ],
       "skill": "SharePoint documentation and content preservation",
       "task": "Preserved an indexed SharePoint export collection with source paths, hashes, excerpts, and curated navigation.",
@@ -42062,8 +42602,7 @@
       "size": 2419,
       "technologyRelationships": [
         "sharepoint",
-        "security-compliance",
-        "automation"
+        "security-compliance"
       ],
       "logicalDestination": "content/microsoft-365/sharepoint/evidence/exports/preserved-sharepoint-export/docs/business/sharepoint/Artifacts/security-baseline-8893edf2.html",
       "sourceIntegrity": {

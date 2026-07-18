@@ -6,7 +6,7 @@
       "findingType": "personal-email-or-upn",
       "pattern": "^[A-Za-z0-9._%+-]+@jeremyfontenot\\.online$",
       "reason": "The portfolio domain and its public contact addresses are intentionally published.",
-      "scope": ["evidence-library/projects/microsoft-365-lab", "evidence-library/preserved-sharepoint/source", "evidence/public", "evidence-library/architecture", "evidence-library/conditional-access"],
+      "scope": ["evidence-library/projects/microsoft-365-lab", "evidence-library/projects/troubleshooting-rca", "evidence-library/preserved-sharepoint/source", "evidence/public", "evidence-library/architecture", "evidence-library/conditional-access"],
       "reviewerNote": "Allow only addresses on the established public portfolio domain; matched values remain redacted from the generated report."
     },
     {
@@ -54,6 +54,39 @@
         "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/tenant-organization-domains-skus.json"
       ],
       "reviewerNote": "The exception is file-scoped and preserves review visibility without copying the identifier values into generated reports."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv4",
+      "findingType": "public-ipv4-identifier",
+      "pattern": "^174\\.73\\.123\\.101$",
+      "reason": "This already-public personal-lab sign-in evidence retains one reviewed historical public IPv4 value needed to interpret the captured authentication records.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv",
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+      ],
+      "reviewerNote": "The exception is exact-value and file-scoped; the address is represented only by a fingerprint in generated review output."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv6",
+      "findingType": "public-ipv6-identifier",
+      "pattern": "^2600:8807:2941:2500:[0-9a-fA-F:]+$",
+      "reason": "These already-public personal-lab sign-in exports retain reviewed historical IPv6 values needed to interpret captured authentication activity.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json",
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv",
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+      ],
+      "reviewerNote": "The exception is prefix-pattern and file-scoped; addresses are represented only by fingerprints in generated review output."
+    },
+    {
+      "id": "reviewed-existing-microsoft-service-ipv4",
+      "findingType": "public-ipv4-identifier",
+      "pattern": "^(?:20\\.190\\.(?:157\\.97|190\\.(?:161|224))|40\\.126\\.(?:23\\.162|29\\.99|62\\.160)|52\\.237\\.182\\.198|104\\.210\\.141\\.(?:149|151|152))$",
+      "reason": "The already-public directory-audit export retains reviewed Microsoft service addresses that form part of the captured audit context.",
+      "scope": ["evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json"],
+      "reviewerNote": "The exception enumerates reviewed service values in one file; generated reports retain fingerprints rather than address text."
     }
   ]
 }

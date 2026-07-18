@@ -7,11 +7,11 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 960,
-    "textArtifactsInspected": 937,
+    "artifactsReviewed": 971,
+    "textArtifactsInspected": 948,
     "manualReviewRequired": 23,
     "highSeveritySecretFindings": 0,
-    "identifierFindings": 4577,
+    "identifierFindings": 4838,
     "unresolvedPublicIdentifierFindings": 0
   },
   "reviewedExceptions": [
@@ -22,6 +22,7 @@
       "reason": "The portfolio domain and its public contact addresses are intentionally published.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab",
+        "evidence-library/projects/troubleshooting-rca",
         "evidence-library/preserved-sharepoint/source",
         "evidence/public",
         "evidence-library/architecture",
@@ -81,6 +82,41 @@
         "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/tenant-organization-domains-skus.json"
       ],
       "reviewerNote": "The exception is file-scoped and preserves review visibility without copying the identifier values into generated reports."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv4",
+      "findingType": "public-ipv4-identifier",
+      "pattern": "^174\\.73\\.123\\.101$",
+      "reason": "This already-public personal-lab sign-in evidence retains one reviewed historical public IPv4 value needed to interpret the captured authentication records.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv",
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+      ],
+      "reviewerNote": "The exception is exact-value and file-scoped; the address is represented only by a fingerprint in generated review output."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv6",
+      "findingType": "public-ipv6-identifier",
+      "pattern": "^2600:8807:2941:2500:[0-9a-fA-F:]+$",
+      "reason": "These already-public personal-lab sign-in exports retain reviewed historical IPv6 values needed to interpret captured authentication activity.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json",
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv",
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json",
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+      ],
+      "reviewerNote": "The exception is prefix-pattern and file-scoped; addresses are represented only by fingerprints in generated review output."
+    },
+    {
+      "id": "reviewed-existing-microsoft-service-ipv4",
+      "findingType": "public-ipv4-identifier",
+      "pattern": "^(?:20\\.190\\.(?:157\\.97|190\\.(?:161|224))|40\\.126\\.(?:23\\.162|29\\.99|62\\.160)|52\\.237\\.182\\.198|104\\.210\\.141\\.(?:149|151|152))$",
+      "reason": "The already-public directory-audit export retains reviewed Microsoft service addresses that form part of the captured audit context.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json"
+      ],
+      "reviewerNote": "The exception enumerates reviewed service values in one file; generated reports retain fingerprints rather than address text."
     }
   ],
   "artifacts": [
@@ -5470,6 +5506,59 @@
           ]
         },
         {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-microsoft-service-ipv4",
+          "occurrences": 19,
+          "lines": [
+            31,
+            107,
+            201,
+            299,
+            336,
+            373,
+            410,
+            447,
+            484,
+            580,
+            1095,
+            1132,
+            1169,
+            1206,
+            1314,
+            1351,
+            1590,
+            1938,
+            2046
+          ],
+          "valueFingerprints": [
+            "177caa5d6b0a1fdd",
+            "191c0ba4c6f0489d",
+            "4ccd82fa8d523a5e",
+            "54f4da17995059b5",
+            "5566b1e56dc12198",
+            "7646703db0aab3e4",
+            "b649326e2bb928b2",
+            "d026f60d6c25998e",
+            "d67134c7447e378e",
+            "f2a7ffede29173a0"
+          ]
+        },
+        {
+          "type": "public-ipv6-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-sign-in-public-ipv6",
+          "occurrences": 1,
+          "lines": [
+            526
+          ],
+          "valueFingerprints": [
+            "79e590973542ff7e"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -5726,6 +5815,112 @@
           ],
           "valueFingerprints": [
             "ed0e2c7e06a2ecfe"
+          ]
+        },
+        {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-sign-in-public-ipv4",
+          "occurrences": 3,
+          "lines": [
+            38,
+            48,
+            49
+          ],
+          "valueFingerprints": [
+            "3162b7a9cc8e97f8"
+          ]
+        },
+        {
+          "type": "public-ipv6-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-sign-in-public-ipv6",
+          "occurrences": 65,
+          "lines": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "valueFingerprints": [
+            "0f1038fe8c09c9d3",
+            "10585f26e94e9164",
+            "13825f3e7437d29f",
+            "266bbf0e2dd57540",
+            "3492e7028197e1fe",
+            "3a0f707348f49f9e",
+            "5155832a8578ee73",
+            "532515f41460042b",
+            "579e38500cbcd95d",
+            "5b7b1af80fd31785",
+            "65b01133a6d5624a",
+            "692f52cba49dae5b",
+            "6b60d0a1b42013b2",
+            "75f8567bca7c8bcf",
+            "77326aad366d47a9",
+            "784bac244650fb58",
+            "79e590973542ff7e",
+            "8090aa890e1191b3",
+            "83cfba64d9476cac",
+            "845866f701edb588",
+            "89538a4e2e64f78b",
+            "8adba6cbe6fb55e0",
+            "9e9b036943b79e8e",
+            "acafba49279960e5",
+            "b868f3c1ecf33c32",
+            "ca1643bcc30eff48",
+            "d16228030981356f",
+            "d51a30e107fa5186",
+            "f38939f11d23a2e4",
+            "f48df31123f9244d"
           ]
         },
         {
@@ -6000,6 +6195,112 @@
           ],
           "valueFingerprints": [
             "ed0e2c7e06a2ecfe"
+          ]
+        },
+        {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-sign-in-public-ipv4",
+          "occurrences": 3,
+          "lines": [
+            2423,
+            2903,
+            2951
+          ],
+          "valueFingerprints": [
+            "3162b7a9cc8e97f8"
+          ]
+        },
+        {
+          "type": "public-ipv6-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-sign-in-public-ipv6",
+          "occurrences": 65,
+          "lines": [
+            19,
+            93,
+            167,
+            241,
+            315,
+            389,
+            463,
+            537,
+            611,
+            685,
+            759,
+            833,
+            907,
+            981,
+            1055,
+            1129,
+            1203,
+            1277,
+            1351,
+            1425,
+            1499,
+            1573,
+            1647,
+            1721,
+            1795,
+            1869,
+            1943,
+            1991,
+            2039,
+            2087,
+            2135,
+            2183,
+            2231,
+            2279,
+            2327,
+            2375,
+            2471,
+            2519,
+            2567,
+            2615,
+            2663,
+            2711,
+            2759,
+            2807,
+            2855,
+            2999,
+            3047,
+            3095,
+            3143,
+            3191
+          ],
+          "valueFingerprints": [
+            "0f1038fe8c09c9d3",
+            "10585f26e94e9164",
+            "13825f3e7437d29f",
+            "266bbf0e2dd57540",
+            "3492e7028197e1fe",
+            "3a0f707348f49f9e",
+            "5155832a8578ee73",
+            "532515f41460042b",
+            "579e38500cbcd95d",
+            "5b7b1af80fd31785",
+            "65b01133a6d5624a",
+            "692f52cba49dae5b",
+            "6b60d0a1b42013b2",
+            "75f8567bca7c8bcf",
+            "77326aad366d47a9",
+            "784bac244650fb58",
+            "79e590973542ff7e",
+            "8090aa890e1191b3",
+            "83cfba64d9476cac",
+            "845866f701edb588",
+            "89538a4e2e64f78b",
+            "8adba6cbe6fb55e0",
+            "9e9b036943b79e8e",
+            "acafba49279960e5",
+            "b868f3c1ecf33c32",
+            "ca1643bcc30eff48",
+            "d16228030981356f",
+            "d51a30e107fa5186",
+            "f38939f11d23a2e4",
+            "f48df31123f9244d"
           ]
         },
         {
@@ -9863,6 +10164,112 @@
           ]
         },
         {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-sign-in-public-ipv4",
+          "occurrences": 3,
+          "lines": [
+            74,
+            84,
+            85
+          ],
+          "valueFingerprints": [
+            "3162b7a9cc8e97f8"
+          ]
+        },
+        {
+          "type": "public-ipv6-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-sign-in-public-ipv6",
+          "occurrences": 101,
+          "lines": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51
+          ],
+          "valueFingerprints": [
+            "0f1038fe8c09c9d3",
+            "10585f26e94e9164",
+            "13825f3e7437d29f",
+            "266bbf0e2dd57540",
+            "3492e7028197e1fe",
+            "3a0f707348f49f9e",
+            "5155832a8578ee73",
+            "532515f41460042b",
+            "579e38500cbcd95d",
+            "5b7b1af80fd31785",
+            "65b01133a6d5624a",
+            "692f52cba49dae5b",
+            "6b60d0a1b42013b2",
+            "75f8567bca7c8bcf",
+            "77326aad366d47a9",
+            "784bac244650fb58",
+            "79e590973542ff7e",
+            "8090aa890e1191b3",
+            "83cfba64d9476cac",
+            "845866f701edb588",
+            "89538a4e2e64f78b",
+            "8adba6cbe6fb55e0",
+            "9e9b036943b79e8e",
+            "acafba49279960e5",
+            "b868f3c1ecf33c32",
+            "ca1643bcc30eff48",
+            "d16228030981356f",
+            "d51a30e107fa5186",
+            "f38939f11d23a2e4",
+            "f48df31123f9244d"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -10422,6 +10829,27 @@
           "occurrences": 1,
           "lines": [
             474
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "m365-exchange-mail-flow-rca-b053321affcc0467",
+      "path": "evidence-library/projects/troubleshooting-rca/rca-report.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "public-portfolio-email",
+          "occurrences": 1,
+          "lines": [
+            163
           ],
           "valueFingerprints": [
             "da6c02741702401d"

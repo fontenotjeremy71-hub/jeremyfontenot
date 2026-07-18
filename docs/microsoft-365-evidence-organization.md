@@ -25,7 +25,7 @@ Technologies covered:
 
 The SharePoint inventory remains the reviewed attestation for original paths, source sizes, source SHA-256 values, titles, categories, extensions, and excerpts. The files at the public paths are presentation or sanitization derivatives, so their sizes and SHA-256 values are calculated independently from the published bytes.
 
-`content/microsoft-365/source-manifest.json` is the completeness contract. It lists approved recursive roots, approved individual files, and reviewed exclusions with reasons. The generator searches every tracked path for the configured Microsoft 365 terms and fails when a candidate is neither represented by one physical-artifact record nor explicitly excluded.
+`content/microsoft-365/source-manifest.json` is the completeness contract. It lists approved recursive roots, approved individual files, and reviewed exclusions with reasons. The generator searches every tracked path for the configured Microsoft 365 terms and fails when a candidate is neither represented by one physical-artifact record nor explicitly excluded. Generic-path mail-flow incident and RCA material is covered by an explicit reviewed recursive root, so relevant files do not depend on Microsoft 365 terms appearing in their filenames.
 
 ## Organization method
 
@@ -65,9 +65,11 @@ Exact duplicates are grouped by SHA-256 and retained. Original-source duplicate 
 
 ## Sensitive-data review
 
-The generator inspects supported CSV, JSON, XML, HTML, Markdown, text, PowerShell, JavaScript, YAML, log, and transcript content. Private keys, client secrets, access or refresh tokens, bearer headers, JWT-like values, passwords, connection secrets, and API keys are high severity and fail generation. Tenant/object IDs, account identifiers, tenant domains, email addresses, and UPN-like values remain visible in the review report by type, count, line, and redacted fingerprint.
+The generator inspects supported CSV, JSON, XML, HTML, Markdown, text, PowerShell, JavaScript, YAML, patch, log, and transcript content. Private keys, client secrets, access or refresh tokens, bearer headers, JWT-like values, passwords, connection secrets, and API keys are high severity and fail generation. Tenant/object IDs, account identifiers, tenant domains, email addresses, UPN-like values, and public IPv4 or IPv6 addresses remain visible in the review report by type, count, line, and redacted fingerprint. Version strings and private or documentation-reserved IPv4 ranges are not classified as public infrastructure identifiers.
 
 Public identifier values require a path-scoped reviewed exception with a pattern, reason, scope, and reviewer note. Binary files and screenshots are marked for manual review; OCR is not used. The generated public wording reports that no high-severity secret pattern was detected, describes reviewed identifier findings, and preserves the manual-review limitation instead of claiming complete sensitive-data blocking.
+
+Verified repository script sources use the schema-backed `scripts` evidence type and map to the technology `scripts` destination. A technology relationship does not automatically grant a supported claim: the reviewed manifest can narrow claim support when a script or remediation sample is related to automation but does not perform the catalog's read-only tenant-capture workflow.
 
 ## Claim boundaries
 

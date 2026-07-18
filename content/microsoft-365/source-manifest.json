@@ -42,6 +42,13 @@
       "path": "docs/projects/m365-lab",
       "collection": "m365-project-documentation",
       "reason": "Repository-only Microsoft 365 lab configuration material."
+    },
+    {
+      "path": "evidence-library/projects/troubleshooting-rca",
+      "collection": "exchange-mail-flow-rca",
+      "reason": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence.",
+      "technologyRelationships": ["exchange-online"],
+      "claimTechnologies": ["exchange-online"]
     }
   ],
   "approvedIndividualFiles": [
@@ -60,9 +67,12 @@
     {"path":"evidence-library/architecture/microsoft-365-architecture-overview.md","collection":"m365-architecture","reason":"Published Microsoft 365 architecture documentation."},
     {"path":"evidence-library/conditional-access/conditional-access-baseline-evidence.md","collection":"conditional-access-evidence","reason":"Published Conditional Access evidence."},
     {"path":"evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg","collection":"exchange-architecture","reason":"Published Exchange Online mail-flow troubleshooting evidence preview."},
-    {"path":"scripts/automation/remediation-disable-transportrule.ps1","collection":"exchange-automation","reason":"Repository-only PowerShell transport-rule remediation automation source."},
-    {"path":"evidence/public/remediation-disable-transportrule.yaml","collection":"exchange-automation","reason":"Published transport-rule remediation configuration evidence."},
-    {"path":"evidence/experience/remediation-disable-transportrule.patch","collection":"exchange-automation","reason":"Published transport-rule remediation change evidence."},
+    {"path":"scripts/automation/remediation-disable-transportrule.ps1","collection":"exchange-automation","reason":"Repository-only PowerShell transport-rule remediation sample source.","technologyRelationships":["exchange-online","automation"],"claimTechnologies":["exchange-online"]},
+    {"path":"evidence/public/remediation-disable-transportrule.yaml","collection":"exchange-automation","reason":"Published transport-rule remediation configuration evidence.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
+    {"path":"evidence/experience/remediation-disable-transportrule.patch","collection":"exchange-automation","reason":"Published transport-rule remediation change evidence.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
+    {"path":"evidence/public/incident-2025-02-10-logs.txt","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow incident log.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
+    {"path":"evidence/public/rca-2025-02-10.md","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow RCA summary.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
+    {"path":"evidence/public/rca-2025-02-10.yaml","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow RCA structured summary.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
     {"path":"evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv","collection":"preserved-sharepoint-attestation","reason":"Reviewed inventory attesting original SharePoint source integrity."},
     {"path":"evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md","collection":"preserved-sharepoint-attestation","reason":"Published preserved SharePoint collection summary."},
     {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
@@ -91,6 +101,7 @@
     {"path":"content/microsoft-365/generated-output-hashes.json","reason":"Generated deterministic integrity contract, not collected evidence."},
     {"path":"evidence-library/preserved-sharepoint/index.html","reason":"Generated public index validated as an output contract."},
     {"path":"evidence-library/projects/microsoft-365-lab/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
+    {"path":"evidence-library/projects/troubleshooting-rca/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/entra-identity/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/intune-endpoint-management/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/microsoft-365-administration/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},

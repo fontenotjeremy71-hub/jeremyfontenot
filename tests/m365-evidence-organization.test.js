@@ -3,6 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const {
+  evidenceType,
   technologiesFor,
   logicalDestination,
   normalizeForTechnologyMatching,
@@ -52,6 +53,14 @@ test('transport-rule remediation evidence relates to Exchange Online and automat
   assert.ok(actual.includes('automation'));
 });
 
+test('repository script sources use the scripts evidence type and destination folder', () => {
+  assert.equal(evidenceType('scripts/automation/remediation-disable-transportrule.ps1'), 'scripts');
+  assert.equal(
+    logicalDestination('exchange-online', 'scripts', 'exchange-automation', 'scripts/automation/remediation-disable-transportrule.ps1'),
+    'content/microsoft-365/exchange-online/scripts/exchange-automation/scripts/automation/remediation-disable-transportrule.ps1'
+  );
+});
+
 test('normalization treats hyphens, underscores, and spaces equivalently', () => {
   assert.equal(normalizeForTechnologyMatching('conditional-access_policies'), 'conditional access policies');
 });
@@ -86,4 +95,11 @@ test('quoted structured-data keys still trigger high-severity secret detection',
 test('connection-string secret material is detected', () => {
   const findings = scanText(Buffer.from('Endpoint=x;AccountKey=abcdefghijklmnop;'), 'evidence/public/probe.txt', {exceptions: []}, true);
   assert.ok(findings.some((finding) => finding.type === 'connection-string-secret' && finding.severity === 'high'));
+});
+
+test('public IP identifiers are detected while private and documentation ranges are ignored', () => {
+  const findings = scanText(Buffer.from('public=174.73.123.101 private=192.168.1.10 example=203.0.113.8 SerializationVersion: 1.1.0.1 PackageManagement / 1.4.8.1 / DSCResources ipv6=2600:8807:2941:2500:1126:a8ab:d68d:13ee'), 'evidence/public/probe.txt', {exceptions: []}, true);
+  assert.ok(findings.some((finding) => finding.type === 'public-ipv4-identifier' && finding.value === '174.73.123.101'));
+  assert.ok(findings.some((finding) => finding.type === 'public-ipv6-identifier'));
+  assert.ok(!findings.some((finding) => ['192.168.1.10', '203.0.113.8', '1.1.0.1', '1.4.8.1'].includes(finding.value)));
 });

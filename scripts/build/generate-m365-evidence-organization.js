@@ -24,7 +24,9 @@ const IDENTIFIER_PATTERNS = [
   {type: 'personal-email-or-upn', regex: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gim},
   {type: 'tenant-or-object-identifier', regex: /\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/gim},
   {type: 'account-level-identifier', regex: /\bS-1-5-(?:\d+-){1,14}\d+\b/gim},
-  {type: 'tenant-domain-identifier', regex: /\b[A-Z0-9][A-Z0-9.-]*\.onmicrosoft\.com\b/gim}
+  {type: 'tenant-domain-identifier', regex: /\b[A-Z0-9][A-Z0-9.-]*\.onmicrosoft\.com\b/gim},
+  {type: 'public-ipv4-identifier', regex: /\b(?:\d{1,3}\.){3}\d{1,3}\b/gm, valueFilter: isPublicIpv4},
+  {type: 'public-ipv6-identifier', regex: /\b(?:[0-9A-F]{1,4}:){7}[0-9A-F]{1,4}\b/gim}
 ];
 
 const technologyRules = [
@@ -35,7 +37,7 @@ const technologyRules = [
   ['security-compliance', /conditional access|named location|security default|authentication method|authorization polic|legacy auth|mfa|security baseline|compliance/i],
   ['applications', /service principal|enterprise application|app registration|oauth|permission grant|application governance/i],
   ['entra-id', /\bentra\b|azure ad|directory role|directory audit|sign in|group member|identity|users?\.csv|groups?\.csv|devices?\.csv/i],
-  ['automation', /powershell|\.ps1\b|microsoft graph|\bgraph\b|automation|remediation|script library|scriptpack/i],
+  ['automation', /powershell|\.ps1\b|microsoft graph|\bgraph\b|automation|script library|scriptpack/i],
   ['tenant-administration', /tenant|organization|verified domain|subscribed sku|service plan|licen[cs]|admin center/i]
 ];
 
@@ -60,6 +62,7 @@ function technologiesFor(value, fallback) {
 function evidenceType(relativePath) {
   const value = normalizeForTechnologyMatching(relativePath.toLowerCase());
   const ext = path.extname(relativePath).toLowerCase();
+  if (['.ps1', '.js', '.mjs', '.cjs'].includes(ext) && /(?:^|[\\/])scripts(?:[\\/]|$)/i.test(relativePath)) return 'scripts';
   if (/manifest/.test(value)) return 'manifests';
   if (/screenshot|screen shot/.test(value) || ['.png', '.jpg', '.jpeg', '.webp', '.svg'].includes(ext)) return 'screenshots';
   if (/validation|attempt|test result/.test(value)) return 'validation';
@@ -170,7 +173,7 @@ function normalizeDestinationPath(relativePath) {
 }
 
 function logicalDestination(technology, type, collection, relativeSourcePath) {
-  const folder = type === 'documentation' ? 'documentation' : 'evidence/' + type;
+  const folder = type === 'documentation' ? 'documentation' : type === 'scripts' ? 'scripts' : 'evidence/' + type;
   return 'content/microsoft-365/' + technology + '/' + folder + '/' + collection + '/' + normalizeDestinationPath(relativeSourcePath);
 }
 
@@ -192,6 +195,26 @@ function exceptionFor(finding, sourcePath, exceptionManifest) {
   return null;
 }
 
+function isPublicIpv4(value, match, text) {
+  const octets = String(value).split('.').map(Number);
+  if (octets.length !== 4 || octets.some((octet) => !Number.isInteger(octet) || octet < 0 || octet > 255)) return false;
+  const context = text.slice(Math.max(0, match.index - 48), match.index + value.length + 48);
+  const escaped = String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (new RegExp('(?:serialization|protocol|stack|module|package)?\\s*version\\s*[:=/ -]*' + escaped, 'i').test(context)) return false;
+  if (new RegExp('[/\\\\]\\s*' + escaped + '\\s*[/\\\\]').test(context)) return false;
+  if (value === '1.4.8.1' && (/PackageManagement/i.test(context) || /href=['"][^'"]*1\.4\.8\.1\/index\.html/i.test(context))) return false;
+  const [a, b, c] = octets;
+  if (a === 0 || a === 10 || a === 127 || a >= 224) return false;
+  if (a === 100 && b >= 64 && b <= 127) return false;
+  if (a === 169 && b === 254) return false;
+  if (a === 172 && b >= 16 && b <= 31) return false;
+  if (a === 192 && b === 168) return false;
+  if (a === 192 && b === 0 && (c === 0 || c === 2)) return false;
+  if (a === 198 && (b === 18 || b === 19 || b === 51 && c === 100)) return false;
+  if (a === 203 && b === 0 && c === 113) return false;
+  return true;
+}
+
 function scanText(buffer, sourcePath, exceptionManifest, isPublic) {
   const text = buffer.toString('utf8');
   const findings = [];
@@ -200,6 +223,7 @@ function scanText(buffer, sourcePath, exceptionManifest, isPublic) {
     let match;
     while ((match = definition.regex.exec(text)) !== null) {
       const value = match[definition.valueGroup || 0];
+      if (definition.valueFilter && !definition.valueFilter(value, match, text)) continue;
       const finding = {
         type: definition.type,
         severity,
@@ -420,9 +444,17 @@ function build() {
     const recordedBuffer = recordedObjects.get(sourcePath);
     if (sha256(buffer) !== sha256(recordedBuffer)) throw new Error('Approved source differs from recorded commit: ' + sourcePath);
     const type = evidenceType(sourcePath);
-    const relationships = technologiesFor(sourcePath, 'tenant-administration').filter((slug) => approvedTechnologies.has(slug));
+    const configuredRelationships = manifestEntry.technologyRelationships || technologiesFor(sourcePath, 'tenant-administration');
+    const relationships = [...new Set(configuredRelationships)].filter((slug) => approvedTechnologies.has(slug));
+    if (!relationships.length || relationships.length !== new Set(configuredRelationships).size) {
+      throw new Error('Approved source has an invalid technology relationship: ' + sourcePath);
+    }
     const technology = relationships[0];
-    const claimIds = relationships.map((slug) => claimConfigBySlug.get(slug).claimId);
+    const claimTechnologySlugs = manifestEntry.claimTechnologies || relationships;
+    if (!claimTechnologySlugs.length || claimTechnologySlugs.some((slug) => !relationships.includes(slug) || !claimConfigBySlug.has(slug))) {
+      throw new Error('Approved source has an invalid supported-claim technology: ' + sourcePath);
+    }
+    const claimIds = [...new Set(claimTechnologySlugs)].map((slug) => claimConfigBySlug.get(slug).claimId);
     const taxonomyRecord = technologyBySlug.get(technology);
     const publicRoute = publicRouteFor(sourcePath, publicationManifest);
     const classification = publicRoute ? 'public-original' : 'metadata-only';
@@ -579,7 +611,7 @@ function build() {
   const claimRelationships = [...technologyMap.values()].map((technology) => ({
     claimId: technology.claimId,
     claimText: technology.claim,
-    evidenceIds: [...new Set(technology.evidenceIds)].sort(),
+    evidenceIds: records.filter((record) => record.supportedClaims.includes(technology.claimId)).map((record) => record.id).sort(),
     supportLevel: technology.supportLevel,
     scope: technologyBySlug.get(technology.slug).scope,
     limitations: technologyBySlug.get(technology.slug).limitations

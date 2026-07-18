@@ -78,7 +78,7 @@
         "id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
         "lab":{"enum":["microsoft-365","home-lab","professional-experience","service-desk"]},
         "technology":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "evidenceType":{"enum":["configuration","exports","inventories","manifests","reports","screenshots","scripts-output","testing","validation","documentation"]},
+        "evidenceType":{"enum":["configuration","exports","inventories","manifests","reports","screenshots","scripts-output","scripts","testing","validation","documentation"]},
         "sourceRepository":{"type":"string","pattern":"^[^/]+/[^/]+$"},
         "sourcePath":{"type":"string","minLength":1},
         "sourceCommit":{"type":"string","pattern":"^[0-9a-f]{40}$"},
