@@ -72,7 +72,7 @@ if (catalog) {
     ids.add(record.id);
     if (paths.has(record.publicPath)) failures.push(`${context}: duplicate publicPath ${record.publicPath}`);
     paths.add(record.publicPath);
-    if (record.evidenceSet === 'preserved-sharepoint') uniqueSharePointRecords += 1;
+    if (record.sourceRepository === config?.sourceSnapshots?.originalRepository?.repository) uniqueSharePointRecords += 1;
     if (!Array.isArray(record.technologies) || record.technologies.length === 0) failures.push(`${context}: technologies must be nonempty`);
     for (const slug of record.technologies || []) if (!requiredTechnologies.includes(slug)) failures.push(`${context}: unsupported technology ${slug}`);
     if (!validEvidenceTypes.has(record.evidenceType)) failures.push(`${context}: unsupported evidenceType ${record.evidenceType}`);
