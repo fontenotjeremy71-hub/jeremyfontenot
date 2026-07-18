@@ -78,6 +78,11 @@ if (catalog) {
     if (!Array.isArray(record.supportedClaims) || record.supportedClaims.length === 0) failures.push(`${context}: supportedClaims must be nonempty`);
     for (const claimId of record.supportedClaims || []) if (!config.claims?.[claimId]) failures.push(`${context}: unknown supported claim ${claimId}`);
     if (!/^[a-f0-9]{64}$/i.test(record.hash || '')) failures.push(`${context}: invalid SHA-256`);
+    if ('recordedSourceHash' in record) {
+      if (!/^[a-f0-9]{64}$/i.test(record.recordedSourceHash || '')) failures.push(`${context}: invalid recorded source SHA-256`);
+      if (typeof record.recordedSourceHashMatch !== 'boolean') failures.push(`${context}: recordedSourceHashMatch must be boolean`);
+      if (record.recordedSourceHashMatch === false && record.publicationClassification !== 'sanitized-derivative') failures.push(`${context}: byte-different public files must be classified as sanitized-derivative`);
+    }
     if (!record.publicRoute?.startsWith('/')) failures.push(`${context}: invalid publicRoute`);
     else requireFile(record.publicRoute.replace(/^\//, ''), context);
     if ('excerpt' in record) failures.push(`${context}: public catalog must not publish source excerpts`);
@@ -96,7 +101,9 @@ if (duplicates) {
 
 if (preservation) {
   if (preservation.sharepointPreservation?.inventoryRows !== 802) failures.push('preservation report: expected 802 SharePoint inventory rows');
-  if (preservation.sharepointPreservation?.hashFailures !== 0) failures.push('preservation report: SharePoint hash failures must be zero');
+  if (preservation.sharepointPreservation?.filesComparedWithInventory !== 802) failures.push('preservation report: expected 802 SharePoint inventory comparisons');
+  if ((preservation.sharepointPreservation?.hashMatches || 0) + (preservation.sharepointPreservation?.hashMismatches || 0) !== 802) failures.push('preservation report: SharePoint match and mismatch counts must account for every inventory row');
+  if (preservation.sharepointPreservation?.missingFiles !== 0) failures.push('preservation report: preserved SharePoint routes must remain present');
   if (!preservation.sharepointPreservation?.originalInventoryGitBlobMatch) failures.push('preservation report: original inventory Git blob must match');
   if (preservation.duplicateHandling?.removalAuthorized !== false) failures.push('preservation report: duplicate removal must remain unauthorized');
   if (preservation.sensitiveDataReview?.newRawArtifactsImported !== 0) failures.push('preservation report: no new raw artifact import is allowed');
