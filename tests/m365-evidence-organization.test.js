@@ -46,6 +46,12 @@ test('Graph request evidence relates to automation', () => {
   assert.ok(relationships('entra conditional-access-policies-graph-request.json').includes('automation'));
 });
 
+test('transport-rule remediation evidence relates to Exchange Online and automation', () => {
+  const actual = relationships('remediation-disable-transportrule.ps1');
+  assert.ok(actual.includes('exchange-online'));
+  assert.ok(actual.includes('automation'));
+});
+
 test('normalization treats hyphens, underscores, and spaces equivalently', () => {
   assert.equal(normalizeForTechnologyMatching('conditional-access_policies'), 'conditional access policies');
 });

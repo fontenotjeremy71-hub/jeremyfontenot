@@ -17,13 +17,13 @@
     "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json"
   },
   "totals": {
-    "artifacts": 957,
+    "artifacts": 960,
     "preservedSharePointArtifacts": 802,
     "sourceDuplicateGroups": 126,
     "publicDuplicateGroups": 4,
     "sensitiveDataReview": {
-      "artifactsReviewed": 957,
-      "textArtifactsInspected": 934,
+      "artifactsReviewed": 960,
+      "textArtifactsInspected": 937,
       "manualReviewRequired": 23,
       "highSeveritySecretFindings": 0,
       "identifierFindings": 4577,
@@ -604,16 +604,20 @@
       "claimId": "m365-exchange-support-familiarity",
       "claim": "Reviewed Microsoft 365 group evidence and documented Exchange Online connection and support workflows with explicit limitations.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 26,
+      "evidenceCount": 29,
       "counts": {
         "screenshots": 2,
+        "documentation": 2,
+        "exports": 22,
         "validation": 1,
         "testing": 1,
-        "inventories": 1,
-        "exports": 21
+        "inventories": 1
       },
       "evidenceIds": [
         "m365-exchange-architecture-4380c30e4b1b6a5b",
+        "m365-exchange-automation-08095293afbba50e",
+        "m365-exchange-automation-4201d865b1ed04c7",
+        "m365-exchange-automation-ab3bd773c1daabad",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-4d661d704c370161",
         "m365-microsoft-365-core-5a2594eb904d81d0",
@@ -1606,13 +1610,17 @@
       "claimId": "m365-evidence-automation",
       "claim": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 605,
+      "evidenceCount": 609,
       "counts": {
+        "documentation": 2,
+        "exports": 602,
         "validation": 1,
-        "exports": 600,
         "configuration": 4
       },
       "evidenceIds": [
+        "m365-exchange-automation-08095293afbba50e",
+        "m365-exchange-automation-4201d865b1ed04c7",
+        "m365-exchange-automation-ab3bd773c1daabad",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-33be93828f231f1e",
         "m365-microsoft-365-core-36ec6af4e3f1e4de",
@@ -2012,6 +2020,7 @@
         "m365-preserved-sharepoint-a6be656d8e3e57a9",
         "m365-preserved-sharepoint-a75291570b53263f",
         "m365-preserved-sharepoint-a7d9274e9b2c6a5d",
+        "m365-preserved-sharepoint-a7f8c42e00bb218e",
         "m365-preserved-sharepoint-a865cac098e22044",
         "m365-preserved-sharepoint-a8f49066b04adfc0",
         "m365-preserved-sharepoint-a9151a104672b6a3",
@@ -2759,6 +2768,9 @@
       "claimText": "Reviewed Microsoft 365 group evidence and documented Exchange Online connection and support workflows with explicit limitations.",
       "evidenceIds": [
         "m365-exchange-architecture-4380c30e4b1b6a5b",
+        "m365-exchange-automation-08095293afbba50e",
+        "m365-exchange-automation-4201d865b1ed04c7",
+        "m365-exchange-automation-ab3bd773c1daabad",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-4d661d704c370161",
         "m365-microsoft-365-core-5a2594eb904d81d0",
@@ -3724,6 +3736,9 @@
       "claimId": "m365-evidence-automation",
       "claimText": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
       "evidenceIds": [
+        "m365-exchange-automation-08095293afbba50e",
+        "m365-exchange-automation-4201d865b1ed04c7",
+        "m365-exchange-automation-ab3bd773c1daabad",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-33be93828f231f1e",
         "m365-microsoft-365-core-36ec6af4e3f1e4de",
@@ -4123,6 +4138,7 @@
         "m365-preserved-sharepoint-a6be656d8e3e57a9",
         "m365-preserved-sharepoint-a75291570b53263f",
         "m365-preserved-sharepoint-a7d9274e9b2c6a5d",
+        "m365-preserved-sharepoint-a7f8c42e00bb218e",
         "m365-preserved-sharepoint-a865cac098e22044",
         "m365-preserved-sharepoint-a8f49066b04adfc0",
         "m365-preserved-sharepoint-a9151a104672b6a3",
@@ -4438,6 +4454,150 @@
         "highSeverityFindings": 0,
         "identifierFindings": 0,
         "manualReviewRequired": true
+      }
+    },
+    {
+      "id": "m365-exchange-automation-08095293afbba50e",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence/experience/remediation-disable-transportrule.patch",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published transport-rule remediation change evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "b78838fecfbd22a7fad79945c04506b3667220d33788f5835c4855a90e661e37",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity",
+        "m365-evidence-automation"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence/experience/remediation-disable-transportrule.patch",
+      "collection": "exchange-automation",
+      "publicPath": "evidence/experience/remediation-disable-transportrule.patch",
+      "size": 341,
+      "technologyRelationships": [
+        "exchange-online",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-automation/evidence/experience/remediation-disable-transportrule.patch",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "b78838fecfbd22a7fad79945c04506b3667220d33788f5835c4855a90e661e37",
+        "size": 341,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "b78838fecfbd22a7fad79945c04506b3667220d33788f5835c4855a90e661e37",
+        "size": 341,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-automation-4201d865b1ed04c7",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "scripts/automation/remediation-disable-transportrule.ps1",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Repository-only PowerShell transport-rule remediation automation source. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "1cdb44b38a237a5a44279912b066e89a0f38aac2b9d015426c89535bfcc8efa3",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity",
+        "m365-evidence-automation"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "exchange-automation",
+      "publicPath": null,
+      "size": 169,
+      "technologyRelationships": [
+        "exchange-online",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/documentation/exchange-automation/scripts/automation/remediation-disable-transportrule.ps1",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "1cdb44b38a237a5a44279912b066e89a0f38aac2b9d015426c89535bfcc8efa3",
+        "size": 169,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-exchange-automation-ab3bd773c1daabad",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "exports",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence/public/remediation-disable-transportrule.yaml",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published transport-rule remediation configuration evidence. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "696799c09aff4d4bb879c306c084d45e475de2cb81b074060cc653edc1219570",
+      "supportedClaims": [
+        "m365-exchange-support-familiarity",
+        "m365-evidence-automation"
+      ],
+      "skill": "Exchange Online support administration",
+      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
+      "result": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
+      "scope": "Personal-tenant support evidence.",
+      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence/public/remediation-disable-transportrule.yaml",
+      "collection": "exchange-automation",
+      "publicPath": "evidence/public/remediation-disable-transportrule.yaml",
+      "size": 164,
+      "technologyRelationships": [
+        "exchange-online",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/exchange-online/evidence/exports/exchange-automation/evidence/public/remediation-disable-transportrule.yaml",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "696799c09aff4d4bb879c306c084d45e475de2cb81b074060cc653edc1219570",
+        "size": 164,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "696799c09aff4d4bb879c306c084d45e475de2cb81b074060cc653edc1219570",
+        "size": 164,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
       }
     },
     {
@@ -41887,7 +42047,8 @@
       "hash": "dbe420b40148d5125da406f994b61ada4b2a08b79677d326d43d4104737d818e",
       "supportedClaims": [
         "m365-sharepoint-export-preservation",
-        "m365-security-policy-review"
+        "m365-security-policy-review",
+        "m365-evidence-automation"
       ],
       "skill": "SharePoint documentation and content preservation",
       "task": "Preserved an indexed SharePoint export collection with source paths, hashes, excerpts, and curated navigation.",
@@ -41901,7 +42062,8 @@
       "size": 2419,
       "technologyRelationships": [
         "sharepoint",
-        "security-compliance"
+        "security-compliance",
+        "automation"
       ],
       "logicalDestination": "content/microsoft-365/sharepoint/evidence/exports/preserved-sharepoint-export/docs/business/sharepoint/Artifacts/security-baseline-8893edf2.html",
       "sourceIntegrity": {

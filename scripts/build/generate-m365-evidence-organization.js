@@ -7,7 +7,7 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 
 const root = path.resolve(__dirname, '..', '..');
-const TEXT_EXTENSIONS = new Set(['.csv', '.json', '.xml', '.html', '.htm', '.md', '.txt', '.ps1', '.js', '.mjs', '.cjs', '.yaml', '.yml', '.log']);
+const TEXT_EXTENSIONS = new Set(['.csv', '.json', '.xml', '.html', '.htm', '.md', '.txt', '.ps1', '.js', '.mjs', '.cjs', '.yaml', '.yml', '.log', '.patch']);
 const BINARY_RESTRICTED_EXTENSIONS = new Set(['.pfx', '.p12', '.key', '.pem', '.kdbx']);
 const HIGH_SEVERITY_PATTERNS = [
   {type: 'private-key', regex: /-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----/gim},
@@ -29,13 +29,13 @@ const IDENTIFIER_PATTERNS = [
 
 const technologyRules = [
   ['intune', /\bintune\b|managed device|endpoint management|compliance policy/i],
-  ['exchange-online', /\bexchange\b|\bexo\b|mailbox|mail flow|transport rule|mail enabled/i],
+  ['exchange-online', /\bexchange\b|\bexo\b|mailbox|mail flow|transport rule|transportrule|mail enabled/i],
   ['teams', /\bteams?\b|channels?|collaboration/i],
   ['sharepoint', /sharepoint|onedrive|site collection|document librar/i],
   ['security-compliance', /conditional access|named location|security default|authentication method|authorization polic|legacy auth|mfa|security baseline|compliance/i],
   ['applications', /service principal|enterprise application|app registration|oauth|permission grant|application governance/i],
   ['entra-id', /\bentra\b|azure ad|directory role|directory audit|sign in|group member|identity|users?\.csv|groups?\.csv|devices?\.csv/i],
-  ['automation', /powershell|\.ps1\b|microsoft graph|\bgraph\b|automation|script library|scriptpack/i],
+  ['automation', /powershell|\.ps1\b|microsoft graph|\bgraph\b|automation|remediation|script library|scriptpack/i],
   ['tenant-administration', /tenant|organization|verified domain|subscribed sku|service plan|licen[cs]|admin center/i]
 ];
 
@@ -769,6 +769,7 @@ function build() {
   const generatedIndexBuffer = Buffer.from(outputs.get('evidence-library/preserved-sharepoint/index.html'), 'utf8');
   integrityRecord.sha256 = sha256(generatedIndexBuffer).toUpperCase();
   integrityRecord.size = generatedIndexBuffer.length;
+  delete integrityRecord.lastModified;
   outputs.set(integrityPath, JSON.stringify(integrityRecords, null, 2) + '\n');
 
   return {outputs, summary};
