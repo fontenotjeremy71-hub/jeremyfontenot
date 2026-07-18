@@ -598,7 +598,6 @@ outputs.set('assets/data/microsoft-365-migration-matrix.csv', `${migrationRows.j
 for (const slug of Object.keys(config.technologies)) outputs.set(`microsoft-365/${slug}/index.html`, technologyPage(slug));
 outputs.set('microsoft-365/evidence-catalog/index.html', catalogPage());
 outputs.set('microsoft-365/preservation/index.html', preservationPage());
-outputs.set('evidence-library/preserved-sharepoint/index.html', sharePointIndexPage());
 
 for (const [relativePath, expected] of outputs) {
   const absolutePath = path.join(root, relativePath);
