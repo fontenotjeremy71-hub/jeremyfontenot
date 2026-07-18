@@ -51,7 +51,7 @@ One artifact can support several technologies. The artifact is cataloged once an
 - `/microsoft-365/evidence-catalog/`
 - `/microsoft-365/preservation/`
 
-The established `/evidence-library/preserved-sharepoint/index.html` route remains active and receives a generated, neutral, public-safe navigation page. The underlying exported files are not rewritten.
+The established `/evidence-library/preserved-sharepoint/index.html` route remains active and unchanged. New Microsoft 365 technology pages reference the preserved collection without rewriting its index or underlying exports.
 
 ## Machine-readable outputs
 
