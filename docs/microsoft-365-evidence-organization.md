@@ -60,26 +60,26 @@ The established `/evidence-library/preserved-sharepoint/index.html` route remain
 - `assets/data/microsoft-365-duplicate-report.json`
 - `assets/data/microsoft-365-preservation-report.json`
 
-The catalog records stable identifiers, technology relationships, evidence type, evidence set, source repository, source commit, source path, collection context, SHA-256, supported claims, publication classification, preservation state, public route, scope, and limitations.
+The catalog records stable identifiers, technology relationships, evidence type, evidence set, source repository, source commit, source path, collection context, current SHA-256, recorded source SHA-256 when available, byte-comparison result, supported claims, publication classification, preservation state, public route, scope, and limitations.
 
 ## Integrity and preservation
 
 The generator performs these checks:
 
-1. Verifies current-repository artifacts against their recorded SHA-256 values.
-2. Verifies current-repository bytes against the exact recorded source commit.
+1. Records the current SHA-256 of every cataloged public artifact.
+2. Verifies current-repository bytes against the exact reviewed Phase 2 source commit.
 3. Confirms selected cross-repository control files are exact Git-blob matches to the reviewed original repository snapshot.
-4. Confirms every preserved SharePoint public file matches the SHA-256 and size context recorded by the reviewed 802-row inventory.
-5. Detects exact duplicate groups by SHA-256 and retains every path.
+4. Compares every current SharePoint public file with the SHA-256 and size context recorded by the reviewed 802-row inventory and discloses matches, mismatches, or missing routes.
+5. Detects exact duplicate groups by current SHA-256 and retains every path.
 6. Reports zero authorized duplicate removals and zero evidence moves.
 
-The SharePoint comparison is inventory-attested: the inventory itself is an exact Git-blob match to the reviewed original repository, and the current public files are checked against its recorded SHA-256 values. The build does not claim that it fetched every original repository byte during validation.
+The SharePoint comparison is inventory-attested: the inventory itself is an exact Git-blob match to the reviewed original repository, and current public files are compared with its recorded SHA-256 values. Byte differences are classified and reported rather than treated as preserved originals. The build does not claim that it fetched every original repository byte during validation.
 
 ## Sensitive-data review
 
 Phase 3A adds metadata, relationships, generated navigation, and integrity reports around evidence that is already public. It does not add new raw tenant exports.
 
-The generated catalog does not publish source excerpts, tenant identifiers, user principal names, credentials, tokens, secrets, or personal record contents. Existing source evidence remains unchanged. Files whose names indicate sanitization are classified as `sanitized-derivative`; other existing public files are classified according to their preserved public form.
+The generated catalog does not publish source excerpts, tenant identifiers, user principal names, credentials, tokens, secrets, or personal record contents. Existing source evidence remains unchanged. Files whose names indicate sanitization or whose current bytes differ from a recorded source hash are classified as `sanitized-derivative`; exact matches are classified according to their preserved public form.
 
 ## Claim boundaries
 
@@ -101,7 +101,7 @@ The repository workflow also runs the existing PowerShell, accessibility, conten
 
 ## Completion records
 
-Exact totals by technology, evidence type, evidence set, retained duplicate group, and source-to-public-path relationship are generated from repository files rather than maintained manually. Review:
+Exact totals by technology, evidence type, evidence set, retained duplicate group, source-hash comparison, and source-to-public-path relationship are generated from repository files rather than maintained manually. Review:
 
 - `/microsoft-365/evidence-catalog/`
 - `/microsoft-365/preservation/`
