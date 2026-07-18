@@ -19,7 +19,7 @@ function readJson(filePath) {
 }
 
 function normalizePath(value) {
-  return String(value || '').replaceAll('\\', '/').replace(/^\.\//, '');
+  return String(value || '').replaceAll('\\', '/').replace(/^\.?\/+/, '');
 }
 
 function parseCsv(text) {
@@ -101,7 +101,7 @@ let hashMismatches = 0;
 let matchedCatalogPaths = 0;
 
 for (const record of catalog.records || []) {
-  const inventory = inventoryByPublicPath.get(normalizePath(record.publicPath));
+  const inventory = inventoryByPublicPath.get(normalizePath(record.publicPath || record.publicRoute));
   if (!inventory) continue;
 
   matchedCatalogPaths += 1;
@@ -126,6 +126,10 @@ for (const record of catalog.records || []) {
 
 if (matchedCatalogPaths !== inventoryByPublicPath.size) {
   failures.push(`Catalog covers ${matchedCatalogPaths} of ${inventoryByPublicPath.size} unique SharePoint public paths.`);
+  if (matchedCatalogPaths === 0) {
+    console.error(`Catalog path sample: ${(catalog.records || []).slice(0, 3).map((record) => normalizePath(record.publicPath || record.publicRoute)).join(' | ')}`);
+    console.error(`Inventory path sample: ${[...inventoryByPublicPath.keys()].slice(0, 3).join(' | ')}`);
+  }
 }
 
 const countsByEvidenceSet = {};
