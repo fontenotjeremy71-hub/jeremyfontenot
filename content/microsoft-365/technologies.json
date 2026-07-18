@@ -57,14 +57,14 @@
     {
       "slug": "sharepoint",
       "label": "SharePoint",
-      "status": "validated",
-      "statusLabel": "Preserved collection verified",
+      "status": "tested",
+      "statusLabel": "Inventory comparison completed",
       "skill": "SharePoint documentation and content preservation",
-      "task": "Preserved and cataloged an indexed SharePoint export collection with source paths, hashes, classifications, and technology relationships.",
-      "result": "The source tree remains directly browseable while machine-generated records verify integrity and improve public-safe navigation.",
+      "task": "Inventoried and compared an indexed SharePoint export collection using source paths, recorded hashes, classifications, and technology relationships.",
+      "result": "The source tree remains directly browseable while machine-generated records disclose byte matches and differences and improve public-safe navigation.",
       "proof": {"label": "Open SharePoint evidence", "href": "/microsoft-365/sharepoint/"},
       "scope": "Preserved personal-lab documentation exports.",
-      "limitations": "Does not prove administration of a live production SharePoint environment."
+      "limitations": "Does not prove byte-for-byte preservation of every export or administration of a live production SharePoint environment."
     },
     {
       "slug": "teams",
