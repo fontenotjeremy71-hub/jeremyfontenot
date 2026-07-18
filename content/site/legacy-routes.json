@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "routes": [
+    {
+      "legacyRoute": "/on-prem-home-lab.html",
+      "targetRoute": "/home-lab/",
+      "strategy": "retained-route",
+      "status": "active",
+      "reason": "The existing case study remains the detailed public source while the new route provides a technology-first hub."
+    },
+    {
+      "legacyRoute": "/home-lab-operations-proof.html",
+      "targetRoute": "/home-lab/",
+      "strategy": "retained-route",
+      "status": "active",
+      "reason": "The operations proof page remains available as supporting detail."
+    },
+    {
+      "legacyRoute": "/proof.html",
+      "targetRoute": "/evidence/",
+      "strategy": "retained-route",
+      "status": "active",
+      "reason": "The proof page remains the recruiter-facing claim map while the new route explains the evidence architecture."
+    },
+    {
+      "legacyRoute": "/projects.html",
+      "targetRoute": "/systems-skills/",
+      "strategy": "retained-route",
+      "status": "active",
+      "reason": "The project catalog remains available while the new route organizes capability by job responsibility."
+    }
+  ]
+}
