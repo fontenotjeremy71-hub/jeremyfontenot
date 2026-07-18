@@ -10,6 +10,7 @@ const root = path.resolve(__dirname, '..', '..');
 const currentRepository = 'fontenotjeremy71-hub/jeremyfontenot';
 const schema = JSON.parse(fs.readFileSync(path.join(root, 'schemas/site-foundation.schema.json'), 'utf8'));
 const fixture = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/site-foundation/evidence-records.json'), 'utf8'));
+const publicationManifest = JSON.parse(fs.readFileSync(path.join(root, 'config/publication-manifest.json'), 'utf8'));
 const failures = [];
 
 function gitBlobSha(buffer) {
@@ -43,22 +44,65 @@ function readGitObject(commit, sourcePath, context) {
   }
 }
 
-function escapeRegex(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function normalizeHeading(value) {
+  return value.replace(/\s+#+\s*$/, '').trim().toLowerCase();
 }
 
-function sectionContent(text, heading) {
-  const headingPattern = new RegExp(`^##\\s+${escapeRegex(heading)}\\s*$`, 'im');
-  const match = headingPattern.exec(text);
-  if (!match) return null;
-  const start = match.index + match[0].length;
-  const remainder = text.slice(start);
-  const nextHeading = /^#{1,6}\s+.+$/m.exec(remainder);
-  return (nextHeading ? remainder.slice(0, nextHeading.index) : remainder).trim();
+function parseMarkdownSections(text, context) {
+  const sections = new Map();
+  let activeSection = null;
+  let fenceCharacter = null;
+  let fenceLength = 0;
+
+  for (const line of text.split(/\r?\n/)) {
+    const fenceMatch = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+
+    if (fenceCharacter) {
+      const trimmed = line.trim();
+      if (trimmed.length >= fenceLength && [...trimmed].every((character) => character === fenceCharacter)) {
+        fenceCharacter = null;
+        fenceLength = 0;
+      }
+      continue;
+    }
+
+    if (fenceMatch) {
+      fenceCharacter = fenceMatch[1][0];
+      fenceLength = fenceMatch[1].length;
+      continue;
+    }
+
+    const headingMatch = line.match(/^ {0,3}(#{1,6})\s+(.+?)\s*$/);
+    if (headingMatch) {
+      activeSection = null;
+      if (headingMatch[1].length === 2) {
+        const heading = normalizeHeading(headingMatch[2]);
+        const section = {lines: []};
+        if (!sections.has(heading)) sections.set(heading, []);
+        sections.get(heading).push(section);
+        activeSection = section;
+      }
+      continue;
+    }
+
+    if (activeSection) activeSection.lines.push(line);
+  }
+
+  if (fenceCharacter) failures.push(`${context}: attestation contains an unclosed fenced code block`);
+  return sections;
 }
 
-function sectionValue(text, heading) {
-  const content = sectionContent(text, heading);
+function uniqueSectionContent(sections, heading, context) {
+  const matches = sections.get(heading.toLowerCase()) || [];
+  if (matches.length !== 1) {
+    failures.push(`${context}: attestation must contain exactly one actual Markdown heading named ${heading}`);
+    return null;
+  }
+  return matches[0].lines.join('\n').trim();
+}
+
+function sectionValue(sections, heading, context) {
+  const content = uniqueSectionContent(sections, heading, context);
   if (!content) return null;
   const value = content.split(/\r?\n/).find((line) => line.trim());
   return value ? value.trim().replace(/^`|`$/g, '') : null;
@@ -81,8 +125,9 @@ function routeToRepositoryPath(route, context) {
   let relative = decoded.replace(/^\//, '');
   if (!relative) relative = 'index.html';
   if (relative.endsWith('/')) relative += 'index.html';
-  const normalized = path.posix.normalize(relative.replaceAll('\\', '/'));
-  if (normalized !== relative.replaceAll('\\', '/') || normalized === '..' || normalized.startsWith('../') || normalized.startsWith('/')) {
+  const slashPath = relative.replaceAll('\\', '/');
+  const normalized = path.posix.normalize(slashPath);
+  if (normalized !== slashPath || normalized === '..' || normalized.startsWith('../') || normalized.startsWith('/')) {
     failures.push(`${context}: publicRoute resolves outside the repository`);
     return null;
   }
@@ -93,7 +138,27 @@ function routeToRepositoryPath(route, context) {
     failures.push(`${context}: publicRoute resolves outside the repository`);
     return null;
   }
-  return absolute;
+  return {absolute, relativePath: normalized};
+}
+
+function normalizeManifestEntry(value) {
+  if (typeof value !== 'string' || !value) return null;
+  const slashPath = value.replaceAll('\\', '/');
+  const normalized = path.posix.normalize(slashPath);
+  if (normalized !== slashPath || normalized === '.' || normalized === '..' || normalized.startsWith('../') || normalized.startsWith('/')) return null;
+  return normalized;
+}
+
+function isPublishedByManifest(relativePath) {
+  const requiredFiles = new Set((publicationManifest.requiredRootFiles || []).map(normalizeManifestEntry).filter(Boolean));
+  const optionalFiles = new Set((publicationManifest.optionalRootFiles || []).map(normalizeManifestEntry).filter(Boolean));
+  const directories = (publicationManifest.directories || []).map(normalizeManifestEntry).filter(Boolean);
+  const forbiddenRoots = (publicationManifest.forbiddenOutputRoots || []).map(normalizeManifestEntry).filter(Boolean);
+
+  if (forbiddenRoots.some((entry) => relativePath === entry || relativePath.startsWith(`${entry}/`))) return false;
+  if (requiredFiles.has(relativePath) || optionalFiles.has(relativePath)) return true;
+  if (!relativePath.includes('/') && (publicationManifest.rootExtensions || []).includes(path.posix.extname(relativePath).toLowerCase())) return true;
+  return directories.some((entry) => relativePath.startsWith(`${entry}/`));
 }
 
 function validateDirect(record, context) {
@@ -121,23 +186,27 @@ function validateAttestation(record, context) {
   if (attestationActual && attestationActual.toLowerCase() !== String(record.attestationHash).toLowerCase()) failures.push(`${context}: attestation hash mismatch`);
 
   const text = attestation.toString('utf8');
-  const sourceHashSection = sectionContent(text, 'Source file SHA-256');
+  const sections = parseMarkdownSections(text, `${context} attestation`);
+  const sourceHashSection = uniqueSectionContent(sections, 'Source file SHA-256', context);
   const sourceHashMatches = sourceHashSection ? sourceHashSection.match(/\b[a-f0-9]{64}\b/gi) : null;
   const sourceHash = sourceHashMatches && sourceHashMatches.length === 1 ? sourceHashMatches[0].toLowerCase() : null;
   if (!sourceHash) failures.push(`${context}: attestation must contain exactly one SHA-256 digest in the Source file SHA-256 section`);
-  if (sectionValue(text, 'Source repository') !== record.sourceRepository) failures.push(`${context}: attested repository mismatch`);
-  if (sectionValue(text, 'Source commit') !== record.sourceCommit) failures.push(`${context}: attested commit mismatch`);
-  if (sectionValue(text, 'Source path') !== record.sourcePath) failures.push(`${context}: attested path mismatch`);
+  if (sectionValue(sections, 'Source repository', context) !== record.sourceRepository) failures.push(`${context}: attested repository mismatch`);
+  if (sectionValue(sections, 'Source commit', context) !== record.sourceCommit) failures.push(`${context}: attested commit mismatch`);
+  if (sectionValue(sections, 'Source path', context) !== record.sourcePath) failures.push(`${context}: attested path mismatch`);
   if (sourceHash !== String(record.hash).toLowerCase()) failures.push(`${context}: attested source hash mismatch`);
 
   if (record.publicationClassification === 'public-original') {
     const publicArtifact = routeToRepositoryPath(record.publicRoute, context);
     if (!publicArtifact) return;
-    if (!fs.existsSync(publicArtifact) || !fs.statSync(publicArtifact).isFile()) {
+    if (!isPublishedByManifest(publicArtifact.relativePath)) {
+      failures.push(`${context}: public-original route is not included by the publication manifest: ${record.publicRoute}`);
+    }
+    if (!fs.existsSync(publicArtifact.absolute) || !fs.statSync(publicArtifact.absolute).isFile()) {
       failures.push(`${context}: public-original artifact is missing at ${record.publicRoute}`);
       return;
     }
-    const publicHash = calculateHash(fs.readFileSync(publicArtifact), record.hashAlgorithm, `${context} public artifact`);
+    const publicHash = calculateHash(fs.readFileSync(publicArtifact.absolute), record.hashAlgorithm, `${context} public artifact`);
     if (publicHash && publicHash.toLowerCase() !== String(record.hash).toLowerCase()) {
       failures.push(`${context}: public-original artifact is not byte-for-byte identical to the attested source`);
     }
