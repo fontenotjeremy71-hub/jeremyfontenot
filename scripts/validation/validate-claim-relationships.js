@@ -14,8 +14,18 @@ const failures = [];
 const allEvidenceRecords = [...evidenceFixture.records, ...catalog.records];
 const allRelationships = [...relationshipFixture.relationships, ...catalog.claimRelationships];
 const evidenceById = new Map(allEvidenceRecords.map((record) => [record.id, record]));
+const evidenceByPhysicalSource = new Map();
 const relationshipByClaim = new Map();
 const supportLevels = new Set(schema.$defs.claimRelationship.properties.supportLevel.enum);
+
+for (const [index, evidence] of allEvidenceRecords.entries()) {
+  const physicalKey = `${evidence.sourceRepository}:${String(evidence.sourcePath).replaceAll('\\', '/')}`.toLowerCase();
+  if (evidenceByPhysicalSource.has(physicalKey)) {
+    failures.push(`evidence records[${index}]: physical source duplicates ${evidenceByPhysicalSource.get(physicalKey)} at ${physicalKey}`);
+  } else {
+    evidenceByPhysicalSource.set(physicalKey, evidence.id);
+  }
+}
 
 for (const [index, relationship] of allRelationships.entries()) {
   const context = `claim relationships[${index}]`;

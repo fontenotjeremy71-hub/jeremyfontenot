@@ -6,7 +6,7 @@
       "findingType": "personal-email-or-upn",
       "pattern": "^[A-Za-z0-9._%+-]+@jeremyfontenot\\.online$",
       "reason": "The portfolio domain and its public contact addresses are intentionally published.",
-      "scope": ["evidence-library/projects/microsoft-365-lab", "evidence-library/projects/troubleshooting-rca", "evidence-library/preserved-sharepoint/source", "evidence/public", "evidence-library/architecture", "evidence-library/conditional-access"],
+      "scope": ["assets/evidence", "artifacts/redesign/final", "evidence/experience", "evidence-library/architecture-diagrams", "evidence-library/projects/microsoft-365-lab", "evidence-library/projects/troubleshooting-rca", "evidence-library/preserved-sharepoint/source", "evidence/public", "evidence-library/architecture", "evidence-library/conditional-access"],
       "reviewerNote": "Allow only addresses on the established public portfolio domain; matched values remain redacted from the generated report."
     },
     {
@@ -54,6 +54,14 @@
         "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/tenant-organization-domains-skus.json"
       ],
       "reviewerNote": "The exception is file-scoped and preserves review visibility without copying the identifier values into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path",
+      "findingType": "local-user-profile-identifier",
+      "pattern": "^[A-Za-z]:\\\\Users\\\\jeremy$",
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": ["evidence-file-list.csv", "evidence-library/projects/microsoft-365-lab"],
+      "reviewerNote": "The exception is exact-account and file-scoped; generated reports retain only a fingerprint and finding count."
     },
     {
       "id": "reviewed-existing-sign-in-public-ipv4",

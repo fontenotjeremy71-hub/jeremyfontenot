@@ -4,6 +4,7 @@
   "sourceManifest": "content/microsoft-365/source-manifest.json",
   "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json",
   "generatedOutputHashes": "content/microsoft-365/generated-output-hashes.json",
+  "sharePointSourceAttestation": "content/microsoft-365/sharepoint-source-attestation.json",
   "sources": {
     "currentPortfolio": {
       "repository": "fontenotjeremy71-hub/jeremyfontenot",
@@ -89,6 +90,15 @@
       "claimId": "m365-evidence-automation",
       "claim": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
       "supportLevel": "supported-with-limitations"
+    }
+  ],
+  "additionalClaims": [
+    {
+      "claimId": "m365-evidence-governance",
+      "claim": "Maintained repository-level source mappings, file inventories, and integrity hashes that include Microsoft 365 artifacts.",
+      "supportLevel": "directly-proven",
+      "scope": "Cross-cutting repository evidence metadata for the personal portfolio.",
+      "limitations": "The metadata proves evidence organization and integrity records, not execution of every referenced workflow or ownership of a production tenant."
     }
   ],
   "boundaries": [

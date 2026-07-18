@@ -7,7 +7,7 @@ const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 
 const root = path.resolve(__dirname, '..', '..');
-const TEXT_EXTENSIONS = new Set(['.csv', '.json', '.xml', '.html', '.htm', '.md', '.txt', '.ps1', '.js', '.mjs', '.cjs', '.yaml', '.yml', '.log', '.patch']);
+const TEXT_EXTENSIONS = new Set(['.csv', '.json', '.xml', '.svg', '.html', '.htm', '.md', '.txt', '.ps1', '.js', '.mjs', '.cjs', '.yaml', '.yml', '.log', '.patch']);
 const BINARY_RESTRICTED_EXTENSIONS = new Set(['.pfx', '.p12', '.key', '.pem', '.kdbx']);
 const HIGH_SEVERITY_PATTERNS = [
   {type: 'private-key', regex: /-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----/gim},
@@ -24,6 +24,7 @@ const IDENTIFIER_PATTERNS = [
   {type: 'personal-email-or-upn', regex: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gim},
   {type: 'tenant-or-object-identifier', regex: /\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/gim},
   {type: 'account-level-identifier', regex: /\bS-1-5-(?:\d+-){1,14}\d+\b/gim},
+  {type: 'local-user-profile-identifier', regex: /(?:\b[A-Z]:\\|\/)Users[\\/][A-Z0-9._-]+/gim},
   {type: 'tenant-domain-identifier', regex: /\b[A-Z0-9][A-Z0-9.-]*\.onmicrosoft\.com\b/gim},
   {type: 'public-ipv4-identifier', regex: /\b(?:\d{1,3}\.){3}\d{1,3}\b/gm, valueFilter: isPublicIpv4},
   {type: 'public-ipv6-identifier', regex: /\b(?:[0-9A-F]{1,4}:){7}[0-9A-F]{1,4}\b/gim}
@@ -357,9 +358,16 @@ function build() {
   const config = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/evidence-organization.json'), 'utf8'));
   const sourceManifest = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/source-manifest.json'), 'utf8'));
   const exceptionManifest = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/sensitive-data-exceptions.json'), 'utf8'));
+  const sharePointAttestation = JSON.parse(fs.readFileSync(path.join(root, config.sharePointSourceAttestation), 'utf8'));
   const taxonomy = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/technologies.json'), 'utf8'));
   const schema = JSON.parse(fs.readFileSync(path.join(root, 'schemas/site-foundation.schema.json'), 'utf8'));
   const publicationManifest = JSON.parse(fs.readFileSync(path.join(root, 'config/publication-manifest.json'), 'utf8'));
+  if (sharePointAttestation.sourceRepository !== config.sources.preservedSharePoint.repository ||
+      sharePointAttestation.sourceCommit !== config.sources.preservedSharePoint.commit ||
+      toPosix(sharePointAttestation.inventoryPath) !== toPosix(config.sources.preservedSharePoint.inventory) ||
+      sharePointAttestation.inventoryCommit !== config.sources.currentPortfolio.commit) {
+    throw new Error('Configured SharePoint provenance does not match the independent reviewed attestation.');
+  }
   const trackedFiles = trackedAndUntrackedFiles();
   const trackedSet = new Set(trackedFiles);
   const candidatePattern = new RegExp(sourceManifest.candidatePathTerms.map((term) => '(?:' + term + ')').join('|'), 'i');
@@ -396,6 +404,10 @@ function build() {
 
   const technologyBySlug = new Map(taxonomy.technologies.map((item) => [item.slug, item]));
   const claimConfigBySlug = new Map(config.technologies.map((item) => [item.slug, item]));
+  const claimConfigById = new Map([
+    ...config.technologies.map((item) => [item.claimId, item]),
+    ...(config.additionalClaims || []).map((item) => [item.claimId, item])
+  ]);
   const approvedTechnologies = new Set(config.technologies.map((item) => item.slug));
   const currentCommit = config.sources.currentPortfolio.commit;
   const currentRepository = config.sources.currentPortfolio.repository;
@@ -403,11 +415,14 @@ function build() {
   const inventoryPath = toPosix(config.sources.preservedSharePoint.inventory);
   const directSourcePaths = [...approved.keys()].filter((file) => !file.startsWith(sharePointRoot + '/'));
   const headObjects = readGitObjects('HEAD', [...approved.keys(), inventoryPath]);
-  const recordedObjects = readGitObjects(currentCommit, [...directSourcePaths, inventoryPath]);
+  const defaultCommitSourcePaths = directSourcePaths.filter((file) => !approved.get(file).sourceCommit);
+  const recordedObjects = readGitObjects(currentCommit, [...defaultCommitSourcePaths, inventoryPath]);
   const inventoryBuffer = headObjects.get(inventoryPath);
   const inventoryCommitBuffer = recordedObjects.get(inventoryPath);
   if (sha256(inventoryBuffer) !== sha256(inventoryCommitBuffer)) throw new Error('SharePoint attestation inventory differs from recorded commit ' + currentCommit);
+  if (sha256(inventoryCommitBuffer) !== sharePointAttestation.inventorySha256) throw new Error('SharePoint inventory hash does not match the independent reviewed attestation.');
   const sharePointRows = parseCsv(inventoryBuffer.toString('utf8'));
+  if (sharePointRows.length !== sharePointAttestation.expectedRecords) throw new Error('SharePoint inventory record count does not match the independent reviewed attestation.');
   const sharePointPhysicalPaths = new Set(sharePointRows.map((item) => toPosix(item.site_rel)));
   const approvedSharePointPaths = [...approved.keys()].filter((file) => file.startsWith(sharePointRoot + '/'));
   const missingInventoryRows = approvedSharePointPaths.filter((file) => !sharePointPhysicalPaths.has(file));
@@ -441,8 +456,9 @@ function build() {
   for (const [sourcePath, manifestEntry] of [...approved.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
     if (sourcePath.startsWith(sharePointRoot + '/')) continue;
     const buffer = headObjects.get(sourcePath);
-    const recordedBuffer = recordedObjects.get(sourcePath);
-    if (sha256(buffer) !== sha256(recordedBuffer)) throw new Error('Approved source differs from recorded commit: ' + sourcePath);
+    const sourceCommit = manifestEntry.sourceCommit || currentCommit;
+    const recordedBuffer = manifestEntry.sourceCommit ? readGitObject(sourceCommit, sourcePath) : recordedObjects.get(sourcePath);
+    if (sha256(buffer) !== sha256(recordedBuffer)) throw new Error('Approved source differs from recorded commit ' + sourceCommit + ': ' + sourcePath);
     const type = evidenceType(sourcePath);
     const configuredRelationships = manifestEntry.technologyRelationships || technologiesFor(sourcePath, 'tenant-administration');
     const relationships = [...new Set(configuredRelationships)].filter((slug) => approvedTechnologies.has(slug));
@@ -451,10 +467,11 @@ function build() {
     }
     const technology = relationships[0];
     const claimTechnologySlugs = manifestEntry.claimTechnologies || relationships;
-    if (!claimTechnologySlugs.length || claimTechnologySlugs.some((slug) => !relationships.includes(slug) || !claimConfigBySlug.has(slug))) {
-      throw new Error('Approved source has an invalid supported-claim technology: ' + sourcePath);
+    const claimIds = manifestEntry.supportedClaimIds || [...new Set(claimTechnologySlugs)].map((slug) => claimConfigBySlug.get(slug)?.claimId);
+    if (!claimIds.length || claimIds.some((claimId) => !claimConfigById.has(claimId)) ||
+        (!manifestEntry.supportedClaimIds && claimTechnologySlugs.some((slug) => !relationships.includes(slug) || !claimConfigBySlug.has(slug)))) {
+      throw new Error('Approved source has an invalid supported claim: ' + sourcePath);
     }
-    const claimIds = [...new Set(claimTechnologySlugs)].map((slug) => claimConfigBySlug.get(slug).claimId);
     const taxonomyRecord = technologyBySlug.get(technology);
     const publicRoute = publicRouteFor(sourcePath, publicationManifest);
     const classification = publicRoute ? 'public-original' : 'metadata-only';
@@ -467,7 +484,7 @@ function build() {
       evidenceType: type,
       sourceRepository: currentRepository,
       sourcePath,
-      sourceCommit: currentCommit,
+      sourceCommit,
       sourceVerificationMethod: 'direct-git-object',
       collectionContext: classification === 'public-original'
         ? manifestEntry.reason + ' The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.'
@@ -521,7 +538,7 @@ function build() {
       collectionContext: 'Original SharePoint export integrity is attested by the reviewed inventory. The linked public copy is a presentation or sanitization derivative and is not described as byte-preserved or as a live SharePoint resource.',
       hashAlgorithm: 'sha256',
       hash: publicHash,
-      supportedClaims: relationships.map((slug) => claimConfigBySlug.get(slug).claimId),
+      supportedClaims: [claimConfigBySlug.get('sharepoint').claimId],
       skill: taxonomyRecord.skill,
       task: taxonomyRecord.task,
       result: 'The reviewed source export is represented by an established public presentation or sanitization derivative with separately verified integrity.',
@@ -615,7 +632,14 @@ function build() {
     supportLevel: technology.supportLevel,
     scope: technologyBySlug.get(technology.slug).scope,
     limitations: technologyBySlug.get(technology.slug).limitations
-  }));
+  })).concat((config.additionalClaims || []).map((claim) => ({
+    claimId: claim.claimId,
+    claimText: claim.claim,
+    evidenceIds: records.filter((record) => record.supportedClaims.includes(claim.claimId)).map((record) => record.id).sort(),
+    supportLevel: claim.supportLevel,
+    scope: claim.scope,
+    limitations: claim.limitations
+  })));
   const claimById = new Map(claimRelationships.map((claim) => [claim.claimId, claim]));
   for (const record of records) {
     for (const claimId of record.supportedClaims) {
@@ -763,7 +787,7 @@ function build() {
       valuesInReport: 'redacted; stable fingerprints only'
     },
     summary: reviewSummary,
-    reviewedExceptions: exceptionManifest.exceptions,
+    reviewedExceptions: exceptionManifest.exceptions.map(({pattern, ...reviewedException}) => reviewedException),
     artifacts: reviewEntries.sort((a, b) => a.path.localeCompare(b.path))
   };
   const duplicateReport = {
@@ -838,6 +862,7 @@ module.exports = {
   build,
   evidenceType,
   normalizeForTechnologyMatching,
+  reviewArtifact,
   scanText,
   technologiesFor,
   logicalDestination,

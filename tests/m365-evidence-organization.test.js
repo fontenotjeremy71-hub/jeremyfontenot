@@ -7,6 +7,7 @@ const {
   technologiesFor,
   logicalDestination,
   normalizeForTechnologyMatching,
+  reviewArtifact,
   scanText
 } = require('../scripts/build/generate-m365-evidence-organization.js');
 
@@ -102,4 +103,11 @@ test('public IP identifiers are detected while private and documentation ranges 
   assert.ok(findings.some((finding) => finding.type === 'public-ipv4-identifier' && finding.value === '174.73.123.101'));
   assert.ok(findings.some((finding) => finding.type === 'public-ipv6-identifier'));
   assert.ok(!findings.some((finding) => ['192.168.1.10', '203.0.113.8', '1.1.0.1', '1.4.8.1'].includes(finding.value)));
+});
+
+test('SVG evidence is scanned as text and high-severity material blocks publication', () => {
+  const review = reviewArtifact(Buffer.from('<svg><text>client_secret: abcdefghijklmnop</text></svg>'), 'assets/evidence/probe.svg', '/assets/evidence/probe.svg', {exceptions: []});
+  assert.equal(review.manualReviewRequired, false);
+  assert.equal(review.highSeverityFindings, 1);
+  assert.ok(review.findings.some((finding) => finding.type === 'client-secret'));
 });

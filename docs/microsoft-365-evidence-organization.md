@@ -25,7 +25,9 @@ Technologies covered:
 
 The SharePoint inventory remains the reviewed attestation for original paths, source sizes, source SHA-256 values, titles, categories, extensions, and excerpts. The files at the public paths are presentation or sanitization derivatives, so their sizes and SHA-256 values are calculated independently from the published bytes.
 
-`content/microsoft-365/source-manifest.json` is the completeness contract. It lists approved recursive roots, approved individual files, and reviewed exclusions with reasons. The generator searches every tracked path for the configured Microsoft 365 terms and fails when a candidate is neither represented by one physical-artifact record nor explicitly excluded. Generic-path mail-flow incident and RCA material is covered by an explicit reviewed recursive root, so relevant files do not depend on Microsoft 365 terms appearing in their filenames.
+`content/microsoft-365/sharepoint-source-attestation.json` independently pins the external source repository and commit plus the reviewed inventory's site commit, SHA-256, and expected row count. The provenance validator checks every generated record, matches all 802 SharePoint records to inventory rows, and verifies each published derivative independently; changing only generator configuration cannot replace the attested external provenance.
+
+`content/microsoft-365/source-manifest.json` is the completeness contract. It lists approved recursive roots, approved individual files, and reviewed exclusions with reasons. The generator searches every tracked path for the configured Microsoft 365 terms and fails when a candidate is neither represented by one physical-artifact record nor explicitly excluded. Generic-path mail-flow incident and RCA material is covered by an explicit reviewed recursive root. Cross-cutting source-map, file-inventory, and integrity manifests that contain Microsoft 365 relationships are individually approved, so these records do not depend on Microsoft 365 terms appearing in their filenames.
 
 ## Organization method
 
@@ -65,11 +67,13 @@ Exact duplicates are grouped by SHA-256 and retained. Original-source duplicate 
 
 ## Sensitive-data review
 
-The generator inspects supported CSV, JSON, XML, HTML, Markdown, text, PowerShell, JavaScript, YAML, patch, log, and transcript content. Private keys, client secrets, access or refresh tokens, bearer headers, JWT-like values, passwords, connection secrets, and API keys are high severity and fail generation. Tenant/object IDs, account identifiers, tenant domains, email addresses, UPN-like values, and public IPv4 or IPv6 addresses remain visible in the review report by type, count, line, and redacted fingerprint. Version strings and private or documentation-reserved IPv4 ranges are not classified as public infrastructure identifiers.
+The generator inspects supported CSV, JSON, XML, SVG, HTML, Markdown, text, PowerShell, JavaScript, YAML, patch, log, and transcript content. SVG evidence is scanned as XML text rather than treated as an opaque image. Private keys, client secrets, access or refresh tokens, bearer headers, JWT-like values, passwords, connection secrets, and API keys are high severity and fail generation. Tenant/object IDs, account identifiers, local user-profile identifiers, tenant domains, email addresses, UPN-like values, and public IPv4 or IPv6 addresses remain visible in the review report by type, count, line, and redacted fingerprint. Version strings and private or documentation-reserved IPv4 ranges are not classified as public infrastructure identifiers.
 
 Public identifier values require a path-scoped reviewed exception with a pattern, reason, scope, and reviewer note. Binary files and screenshots are marked for manual review; OCR is not used. The generated public wording reports that no high-severity secret pattern was detected, describes reviewed identifier findings, and preserves the manual-review limitation instead of claiming complete sensitive-data blocking.
 
 Verified repository script sources use the schema-backed `scripts` evidence type and map to the technology `scripts` destination. A technology relationship does not automatically grant a supported claim: the reviewed manifest can narrow claim support when a script or remediation sample is related to automation but does not perform the catalog's read-only tenant-capture workflow.
+
+Preserved SharePoint records support the bounded SharePoint preservation claim by default. Keywords in archived paths, titles, categories, or excerpts may create cross-technology metadata relationships for discovery, but they do not automatically grant automation, security, application, identity, or other capability claims.
 
 ## Claim boundaries
 

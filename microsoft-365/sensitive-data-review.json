@@ -7,20 +7,23 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 971,
-    "textArtifactsInspected": 948,
-    "manualReviewRequired": 23,
+    "artifactsReviewed": 974,
+    "textArtifactsInspected": 959,
+    "manualReviewRequired": 15,
     "highSeveritySecretFindings": 0,
-    "identifierFindings": 4838,
+    "identifierFindings": 4950,
     "unresolvedPublicIdentifierFindings": 0
   },
   "reviewedExceptions": [
     {
       "id": "public-portfolio-email",
       "findingType": "personal-email-or-upn",
-      "pattern": "^[A-Za-z0-9._%+-]+@jeremyfontenot\\.online$",
       "reason": "The portfolio domain and its public contact addresses are intentionally published.",
       "scope": [
+        "assets/evidence",
+        "artifacts/redesign/final",
+        "evidence/experience",
+        "evidence-library/architecture-diagrams",
         "evidence-library/projects/microsoft-365-lab",
         "evidence-library/projects/troubleshooting-rca",
         "evidence-library/preserved-sharepoint/source",
@@ -33,7 +36,6 @@
     {
       "id": "documentation-example-identities",
       "findingType": "personal-email-or-upn",
-      "pattern": "^[A-Za-z0-9._%+-]+@(contoso|example|exampletenant)\\.(com|onmicrosoft\\.com)$",
       "reason": "Microsoft documentation examples use non-personal demonstration domains.",
       "scope": [
         "evidence-library/preserved-sharepoint/source",
@@ -44,7 +46,6 @@
     {
       "id": "reviewed-personal-tenant-object-identifiers",
       "findingType": "tenant-or-object-identifier",
-      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$",
       "reason": "Pre-existing personal-lab tenant and object identifiers are retained only in already-public reviewed evidence.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab",
@@ -56,7 +57,6 @@
     {
       "id": "reviewed-existing-personal-tenant-identities",
       "findingType": "personal-email-or-upn",
-      "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
       "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/authentication-method-policy.json",
@@ -72,7 +72,6 @@
     {
       "id": "reviewed-existing-personal-tenant-domains",
       "findingType": "tenant-domain-identifier",
-      "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]*\\.onmicrosoft\\.com$",
       "reason": "These specific already-public tenant and group exports retain reviewed personal-lab tenant-domain identifiers.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-domains.csv",
@@ -84,9 +83,18 @@
       "reviewerNote": "The exception is file-scoped and preserves review visibility without copying the identifier values into generated reports."
     },
     {
+      "id": "reviewed-existing-local-profile-path",
+      "findingType": "local-user-profile-identifier",
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-file-list.csv",
+        "evidence-library/projects/microsoft-365-lab"
+      ],
+      "reviewerNote": "The exception is exact-account and file-scoped; generated reports retain only a fingerprint and finding count."
+    },
+    {
       "id": "reviewed-existing-sign-in-public-ipv4",
       "findingType": "public-ipv4-identifier",
-      "pattern": "^174\\.73\\.123\\.101$",
       "reason": "This already-public personal-lab sign-in evidence retains one reviewed historical public IPv4 value needed to interpret the captured authentication records.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv",
@@ -98,7 +106,6 @@
     {
       "id": "reviewed-existing-sign-in-public-ipv6",
       "findingType": "public-ipv6-identifier",
-      "pattern": "^2600:8807:2941:2500:[0-9a-fA-F:]+$",
       "reason": "These already-public personal-lab sign-in exports retain reviewed historical IPv6 values needed to interpret captured authentication activity.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json",
@@ -111,7 +118,6 @@
     {
       "id": "reviewed-existing-microsoft-service-ipv4",
       "findingType": "public-ipv4-identifier",
-      "pattern": "^(?:20\\.190\\.(?:157\\.97|190\\.(?:161|224))|40\\.126\\.(?:23\\.162|29\\.99|62\\.160)|52\\.237\\.182\\.198|104\\.210\\.141\\.(?:149|151|152))$",
       "reason": "The already-public directory-audit export retains reviewed Microsoft service addresses that form part of the captured audit context.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json"
@@ -184,46 +190,74 @@
       "findings": []
     },
     {
-      "evidenceId": "m365-public-evidence-preview-1152227a87c6e7d6",
-      "path": "assets/evidence/intune-baseline-preview.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
-    },
-    {
-      "evidenceId": "m365-public-evidence-preview-cf2097c5bb8a0c0d",
-      "path": "assets/evidence/m365-lab-architecture.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
-    },
-    {
-      "evidenceId": "m365-m365-architecture-59ca909afc274b5d",
-      "path": "evidence-library/architecture-diagrams/m365-lab-baseline-preview.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
-    },
-    {
-      "evidenceId": "m365-exchange-architecture-4380c30e4b1b6a5b",
-      "path": "evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
-    },
-    {
-      "evidenceId": "m365-m365-architecture-7825913a0c959d67",
-      "path": "evidence-library/architecture-diagrams/microsoft-365-lab-architecture-diagram-2026.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
-    },
-    {
-      "evidenceId": "m365-m365-architecture-d1e44df0b12021d3",
-      "path": "evidence-library/architecture-diagrams/microsoft-365-lab-architecture-overview-2026.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
+      "evidenceId": "m365-cross-cutting-evidence-governance-ee0be1d7ebc0a402",
+      "path": "evidence-file-list.csv",
+      "publicationClassification": "metadata-only",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 92,
+          "lines": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
     },
     {
       "evidenceId": "m365-preserved-sharepoint-a9eba9272eb98709",
@@ -5735,6 +5769,19 @@
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -7544,6 +7591,19 @@
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -7719,6 +7779,21 @@
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 3,
+          "lines": [
+            8,
+            31,
+            38
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -7830,6 +7905,19 @@
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -7884,6 +7972,19 @@
       "publicationClassification": "public-original",
       "status": "reviewed-exceptions-applied",
       "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
         {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
@@ -8288,6 +8389,19 @@
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -8519,6 +8633,19 @@
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -8657,6 +8784,23 @@
       "publicationClassification": "public-original",
       "status": "reviewed-exceptions-applied",
       "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 5,
+          "lines": [
+            8,
+            31,
+            38,
+            52,
+            59
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
         {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
@@ -8933,6 +9077,19 @@
       "publicationClassification": "public-original",
       "status": "reviewed-exceptions-applied",
       "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
         {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
@@ -10597,6 +10754,19 @@
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
           "type": "personal-email-or-upn",
           "severity": "medium",
           "reviewStatus": "reviewed-exception",
@@ -10652,6 +10822,19 @@
       "publicationClassification": "public-original",
       "status": "reviewed-exceptions-applied",
       "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 1,
+          "lines": [
+            4
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
         {
           "type": "personal-email-or-upn",
           "severity": "medium",
@@ -10727,6 +10910,21 @@
       "publicationClassification": "public-original",
       "status": "reviewed-exceptions-applied",
       "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "reviewed-existing-local-profile-path",
+          "occurrences": 3,
+          "lines": [
+            8,
+            31,
+            38
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
         {
           "type": "tenant-or-object-identifier",
           "severity": "medium",
@@ -10856,20 +11054,6 @@
           ]
         }
       ]
-    },
-    {
-      "evidenceId": "m365-public-evidence-preview-cef7624b17aa91d3",
-      "path": "evidence/experience/thumbnails/intune-profile-sample.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
-    },
-    {
-      "evidenceId": "m365-public-evidence-preview-40c8ce169b5ca043",
-      "path": "evidence/experience/thumbnails/m365-baseline-report-2024-10-05.svg",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
     }
   ]
 }

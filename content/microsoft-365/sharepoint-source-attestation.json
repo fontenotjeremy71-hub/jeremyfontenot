@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "jeremyfontenot/JeremyFontenot.github.io",
+  "sourceCommit": "5581bd7bf9c61ff77000ac04aa39fcbb04ed004f",
+  "inventoryPath": "evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv",
+  "inventoryCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+  "inventorySha256": "b1665e12f520822b5ae8cfaf2a2df5cb4fa10b2f82942f620fa1ded388567081",
+  "expectedRecords": 802,
+  "verificationMethod": "reviewed-inventory-attestation"
+}
