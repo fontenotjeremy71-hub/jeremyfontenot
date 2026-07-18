@@ -29,6 +29,7 @@ const taxonomy = readJson('content/microsoft-365/technologies.json');
 const catalog = readJson('assets/data/microsoft-365-evidence-catalog.json');
 const duplicates = readJson('assets/data/microsoft-365-duplicate-report.json');
 const preservation = readJson('assets/data/microsoft-365-preservation-report.json');
+let uniqueSharePointRecords = 0;
 
 if (config && taxonomy) {
   if (config.schemaVersion !== 1) failures.push('organization.json: schemaVersion must be 1');
@@ -71,6 +72,7 @@ if (catalog) {
     ids.add(record.id);
     if (paths.has(record.publicPath)) failures.push(`${context}: duplicate publicPath ${record.publicPath}`);
     paths.add(record.publicPath);
+    if (record.evidenceSet === 'preserved-sharepoint') uniqueSharePointRecords += 1;
     if (!Array.isArray(record.technologies) || record.technologies.length === 0) failures.push(`${context}: technologies must be nonempty`);
     for (const slug of record.technologies || []) if (!requiredTechnologies.includes(slug)) failures.push(`${context}: unsupported technology ${slug}`);
     if (!validEvidenceTypes.has(record.evidenceType)) failures.push(`${context}: unsupported evidenceType ${record.evidenceType}`);
@@ -89,7 +91,8 @@ if (catalog) {
     else requireFile(record.publicRoute.replace(/^\//, ''), context);
     if ('excerpt' in record) failures.push(`${context}: public catalog must not publish source excerpts`);
   }
-  if (catalog.totals?.sharepointArtifacts !== 802) failures.push(`catalog: expected 802 preserved SharePoint artifacts, found ${catalog.totals?.sharepointArtifacts}`);
+  if (catalog.totals?.sharepointArtifacts !== 802) failures.push(`catalog: expected 802 preserved SharePoint inventory rows, found ${catalog.totals?.sharepointArtifacts}`);
+  if (uniqueSharePointRecords < 1 || uniqueSharePointRecords > 802) failures.push(`catalog: invalid unique SharePoint public-path count ${uniqueSharePointRecords}`);
   for (const slug of requiredTechnologies) if (!catalog.countsByTechnology?.[slug]) failures.push(`catalog: no artifacts mapped to ${slug}`);
 }
 
@@ -102,9 +105,10 @@ if (duplicates) {
 }
 
 if (preservation) {
+  const summarizedOutcomes = (preservation.sharepointPreservation?.hashMatches || 0) + (preservation.sharepointPreservation?.hashMismatches || 0);
   if (preservation.sharepointPreservation?.inventoryRows !== 802) failures.push('preservation report: expected 802 SharePoint inventory rows');
   if (preservation.sharepointPreservation?.filesComparedWithInventory !== 802) failures.push('preservation report: expected 802 SharePoint inventory comparisons');
-  if ((preservation.sharepointPreservation?.hashMatches || 0) + (preservation.sharepointPreservation?.hashMismatches || 0) !== 802) failures.push('preservation report: SharePoint match and mismatch counts must account for every inventory row');
+  if (summarizedOutcomes !== uniqueSharePointRecords) failures.push(`preservation report: match and mismatch outcomes must account for ${uniqueSharePointRecords} unique SharePoint public paths`);
   if (preservation.sharepointPreservation?.missingFiles !== 0) failures.push('preservation report: preserved SharePoint routes must remain present');
   if (!preservation.sharepointPreservation?.originalInventoryGitBlobMatch) failures.push('preservation report: original inventory Git blob must match');
   if (preservation.duplicateHandling?.removalAuthorized !== false) failures.push('preservation report: duplicate removal must remain unauthorized');
@@ -125,4 +129,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Microsoft 365 organization validation passed (${catalog.records.length} unique artifacts; ${catalog.totals.sharepointArtifacts} preserved SharePoint exports).`);
+console.log(`Microsoft 365 organization validation passed (${catalog.records.length} unique artifacts; ${catalog.totals.sharepointArtifacts} SharePoint inventory rows; ${uniqueSharePointRecords} unique SharePoint public paths).`);
