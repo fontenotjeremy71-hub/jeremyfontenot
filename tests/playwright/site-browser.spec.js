@@ -66,7 +66,12 @@ const mainPublicPages = [
   "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
 ];
 const allPublicBrowserPaths = [...new Set([...mainPublicPages, ...sitemapLocalPaths])];
-const responsiveBrowserPaths = ["/sitemap.xml", ...evidenceBrowserPaths];
+const responsiveBrowserPaths = [
+  "/sitemap.xml",
+  "/systems-skills/evidence-map.html",
+  "/evidence/claim-map.html",
+  ...evidenceBrowserPaths,
+];
 const responsiveViewports = [
   { name: "390x844", width: 390, height: 844 },
   { name: "768x1024", width: 768, height: 1024 },
@@ -247,6 +252,7 @@ test.describe("static server contract", () => {
     ["/scripts/config/evidence-pages.json", /^application\/json\b/i],
     ["/evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv", /^text\/csv\b/i],
     ["/assets/data/home-lab-evidence-catalog.json", /^application\/json\b/i],
+    ["/assets/data/evidence-skill-map.json", /^application\/json\b/i],
     ["/home-lab/source-to-destination-matrix.csv", /^text\/csv\b/i],
     ["/home-lab/duplicate-groups.json", /^application\/json\b/i],
     ["/home-lab/sensitive-data-review.json", /^application\/json\b/i],
@@ -276,6 +282,18 @@ test.describe("static server contract", () => {
     expect(new Set(catalog.records.map((record) => record.id)).size).toBe(catalog.records.length);
     expect(catalog.totals.sensitiveDataReview.highSeveritySecretFindings).toBe(0);
     expect(catalog.boundaries.join(" ")).toContain("Personal nonproduction Home Lab evidence only.");
+  });
+
+  test("serves the complete reciprocal evidence-to-skill contract", async ({ request }) => {
+    const response = await request.get("/assets/data/evidence-skill-map.json");
+    expect(response.status()).toBe(200);
+    const catalog = await response.json();
+    expect(catalog.totals.evidenceRecords).toBe(1410);
+    expect(catalog.totals.mappedEvidenceRecords).toBe(1410);
+    expect(catalog.totals.unmappedEvidenceRecords).toBe(0);
+    expect(catalog.skills).toHaveLength(12);
+    expect(catalog.claims).toHaveLength(23);
+    expect(new Set(catalog.relationships.map((item) => item.evidenceId)).size).toBe(1410);
   });
 
   test("returns 404 for a nonexistent file", async ({ request }) => {
@@ -496,6 +514,26 @@ test.describe("generated evidence pages", () => {
       await monitor.assertClean();
     });
   }
+});
+
+test.describe("evidence-to-skill filters", () => {
+  test("filters mapped evidence without hiding restricted metadata records from the catalog", async ({ page }, testInfo) => {
+    const { monitor, response } = await monitoredGoto(page, testInfo, "/systems-skills/evidence-map.html");
+    expect(response.status()).toBe(200);
+    await expect(page.locator("[data-mapping-card]")).toHaveCount(1410);
+    await expect(page.locator("[data-mapping-status]")).toContainText("1410 of 1410");
+
+    await page.locator("#mapping-skill").selectOption("identity-administration");
+    const visibleIdentity = await page.locator("[data-mapping-card]:not([hidden])").count();
+    expect(visibleIdentity).toBeGreaterThan(0);
+    expect(visibleIdentity).toBeLessThan(1410);
+
+    await page.locator("#mapping-search").fill("source reference only");
+    await expect(page.locator("[data-mapping-status]")).not.toContainText("1410 of 1410");
+    await page.locator("[data-mapping-reset]").click();
+    await expect(page.locator("[data-mapping-status]")).toContainText("1410 of 1410");
+    await monitor.assertClean();
+  });
 });
 
 test.describe("responsive page-level overflow", () => {

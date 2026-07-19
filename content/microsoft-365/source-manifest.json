@@ -636,6 +636,46 @@
     {
       "path": "tests/m365-evidence-organization.test.js",
       "reason": "Phase validation test, not collected evidence."
+    },
+    {
+      "path": "assets/data/evidence-skill-map.json",
+      "reason": "Phase 4 cross-platform relationship output; references cataloged physical artifacts without creating duplicate evidence records."
+    },
+    {
+      "path": "content/site/evidence-skill-mapping.json",
+      "reason": "Phase 4 skill and readiness configuration, not a collected evidence artifact."
+    },
+    {
+      "path": "content/site/generated-skill-map-hashes.json",
+      "reason": "Phase 4 deterministic output contract, not a collected evidence artifact."
+    },
+    {
+      "path": "evidence/claim-map.html",
+      "reason": "Phase 4 generated cross-platform claim index; references cataloged records without representing another physical artifact."
+    },
+    {
+      "path": "docs/evidence-skill-mapping.md",
+      "reason": "Phase 4 implementation documentation, not a collected evidence artifact."
+    },
+    {
+      "path": "schemas/evidence-skill-map.schema.json",
+      "reason": "Phase 4 relationship schema, not collected evidence."
+    },
+    {
+      "path": "scripts/build/generate-evidence-skill-mapping.js",
+      "reason": "Phase 4 generator implementation, not collected evidence."
+    },
+    {
+      "path": "scripts/lib/evidence-skill-mapping.js",
+      "reason": "Phase 4 mapping library, not collected evidence."
+    },
+    {
+      "path": "systems-skills/evidence-map.html",
+      "reason": "Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."
+    },
+    {
+      "path": "tests/evidence-skill-mapping.test.js",
+      "reason": "Phase 4 deterministic and negative validation, not collected evidence."
     }
   ]
 }
