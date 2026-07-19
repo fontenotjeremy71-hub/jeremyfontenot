@@ -13,6 +13,12 @@
     "artifacts/playwright/",
     "artifacts/redesign/final/"
   ],
+  "contentCandidateRoots": [
+    "assets/evidence/",
+    "docs/projects/",
+    "evidence/",
+    "evidence-library/"
+  ],
   "candidatePathTerms": [
     "microsoft[-_ ]?365",
     "m365",
@@ -60,80 +66,576 @@
       "path": "evidence-library/projects/troubleshooting-rca",
       "collection": "exchange-mail-flow-rca",
       "reason": "Published sanitized mail-flow incident, troubleshooting, remediation, validation, and RCA evidence.",
-      "technologyRelationships": ["exchange-online"],
-      "claimTechnologies": ["exchange-online"]
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "claimTechnologies": [
+        "exchange-online"
+      ]
     }
   ],
   "approvedIndividualFiles": [
-    {"path":"assets/evidence/intune-baseline-preview.svg","collection":"public-evidence-preview","reason":"Published Intune evidence preview."},
-    {"path":"assets/evidence/m365-lab-architecture.svg","collection":"public-evidence-preview","reason":"Published Microsoft 365 architecture preview."},
-    {"path":"evidence/experience/thumbnails/intune-profile-sample.svg","collection":"public-evidence-preview","reason":"Published Intune evidence thumbnail."},
-    {"path":"evidence/experience/thumbnails/m365-baseline-report-2024-10-05.svg","collection":"public-evidence-preview","reason":"Published Microsoft 365 evidence thumbnail."},
-    {"path":"evidence/public/intune-profile-sample.json","collection":"public-m365-evidence","reason":"Published Intune configuration sample."},
-    {"path":"evidence/public/intune-profile-sample.yaml","collection":"public-m365-evidence","reason":"Published Intune configuration sample."},
-    {"path":"evidence/public/intune-validate-2024-10-05.log","collection":"public-m365-evidence","reason":"Published Intune validation attempt."},
-    {"path":"evidence/public/m365-baseline-report-2024-10-05.md","collection":"public-m365-evidence","reason":"Published Microsoft 365 baseline report."},
-    {"path":"evidence/public/m365-baseline-report-2024-10-05.yaml","collection":"public-m365-evidence","reason":"Published Microsoft 365 baseline configuration."},
-    {"path":"evidence-library/architecture-diagrams/m365-lab-baseline-preview.svg","collection":"m365-architecture","reason":"Published Microsoft 365 architecture preview."},
-    {"path":"evidence-library/architecture-diagrams/microsoft-365-lab-architecture-diagram-2026.svg","collection":"m365-architecture","reason":"Published Microsoft 365 architecture diagram."},
-    {"path":"evidence-library/architecture-diagrams/microsoft-365-lab-architecture-overview-2026.svg","collection":"m365-architecture","reason":"Published Microsoft 365 architecture overview."},
-    {"path":"evidence-library/architecture/microsoft-365-architecture-overview.md","collection":"m365-architecture","reason":"Published Microsoft 365 architecture documentation."},
-    {"path":"evidence-library/conditional-access/conditional-access-baseline-evidence.md","collection":"conditional-access-evidence","reason":"Published Conditional Access evidence."},
-    {"path":"evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg","collection":"exchange-architecture","reason":"Published Exchange Online mail-flow troubleshooting evidence preview."},
-    {"path":"evidence-library/evidence-source-map.csv","collection":"cross-cutting-evidence-governance","reason":"Published cross-cutting evidence source map containing Microsoft 365 source relationships.","technologyRelationships":["automation"],"supportedClaimIds":["m365-evidence-governance"]},
-    {"path":"evidence-file-list.csv","collection":"cross-cutting-evidence-governance","reason":"Published cross-cutting physical file inventory containing Microsoft 365 artifacts.","technologyRelationships":["automation"],"supportedClaimIds":["m365-evidence-governance"]},
-    {"path":"evidence-library/integrity/evidence-hashes.json","collection":"cross-cutting-evidence-governance","reason":"Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes.","sourceCommit":"d943a215d1fa3235c59b3087b83eabd9ca3793d9","technologyRelationships":["automation"],"supportedClaimIds":["m365-evidence-governance"]},
-    {"path":"scripts/automation/remediation-disable-transportrule.ps1","collection":"exchange-automation","reason":"Repository-only PowerShell transport-rule remediation sample source.","technologyRelationships":["exchange-online","automation"],"claimTechnologies":["exchange-online"]},
-    {"path":"evidence/public/remediation-disable-transportrule.yaml","collection":"exchange-automation","reason":"Published transport-rule remediation configuration evidence.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
-    {"path":"evidence/experience/remediation-disable-transportrule.patch","collection":"exchange-automation","reason":"Published transport-rule remediation change evidence.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
-    {"path":"evidence/public/incident-2025-02-10-logs.txt","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow incident log.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
-    {"path":"evidence/public/rca-2025-02-10.md","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow RCA summary.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
-    {"path":"evidence/public/rca-2025-02-10.yaml","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow RCA structured summary.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
-    {"path":"evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv","collection":"preserved-sharepoint-attestation","reason":"Reviewed inventory attesting original SharePoint source integrity."},
-    {"path":"evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md","collection":"preserved-sharepoint-attestation","reason":"Published preserved SharePoint collection summary."}
+    {
+      "path": "assets/evidence/intune-baseline-preview.svg",
+      "collection": "public-evidence-preview",
+      "reason": "Published Intune evidence preview."
+    },
+    {
+      "path": "assets/evidence/m365-lab-architecture.svg",
+      "collection": "public-evidence-preview",
+      "reason": "Published Microsoft 365 architecture preview."
+    },
+    {
+      "path": "evidence/experience/thumbnails/intune-profile-sample.svg",
+      "collection": "public-evidence-preview",
+      "reason": "Published Intune evidence thumbnail."
+    },
+    {
+      "path": "evidence/experience/thumbnails/m365-baseline-report-2024-10-05.svg",
+      "collection": "public-evidence-preview",
+      "reason": "Published Microsoft 365 evidence thumbnail."
+    },
+    {
+      "path": "evidence/public/intune-profile-sample.json",
+      "collection": "public-m365-evidence",
+      "reason": "Published Intune configuration sample."
+    },
+    {
+      "path": "evidence/public/intune-profile-sample.yaml",
+      "collection": "public-m365-evidence",
+      "reason": "Published Intune configuration sample."
+    },
+    {
+      "path": "evidence/public/intune-validate-2024-10-05.log",
+      "collection": "public-m365-evidence",
+      "reason": "Published Intune validation attempt."
+    },
+    {
+      "path": "evidence/public/m365-baseline-report-2024-10-05.md",
+      "collection": "public-m365-evidence",
+      "reason": "Published Microsoft 365 baseline report."
+    },
+    {
+      "path": "evidence/public/m365-baseline-report-2024-10-05.yaml",
+      "collection": "public-m365-evidence",
+      "reason": "Published Microsoft 365 baseline configuration."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/m365-lab-baseline-preview.svg",
+      "collection": "m365-architecture",
+      "reason": "Published Microsoft 365 architecture preview."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/microsoft-365-lab-architecture-diagram-2026.svg",
+      "collection": "m365-architecture",
+      "reason": "Published Microsoft 365 architecture diagram."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/microsoft-365-lab-architecture-overview-2026.svg",
+      "collection": "m365-architecture",
+      "reason": "Published Microsoft 365 architecture overview."
+    },
+    {
+      "path": "evidence-library/architecture/microsoft-365-architecture-overview.md",
+      "collection": "m365-architecture",
+      "reason": "Published Microsoft 365 architecture documentation."
+    },
+    {
+      "path": "evidence-library/conditional-access/conditional-access-baseline-evidence.md",
+      "collection": "conditional-access-evidence",
+      "reason": "Published Conditional Access evidence."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
+      "collection": "exchange-architecture",
+      "reason": "Published Exchange Online mail-flow troubleshooting evidence preview."
+    },
+    {
+      "path": "evidence-library/evidence-source-map.csv",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Published cross-cutting evidence source map containing Microsoft 365 source relationships.",
+      "technologyRelationships": [
+        "automation"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "evidence-file-list.csv",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Published cross-cutting physical file inventory containing Microsoft 365 artifacts.",
+      "technologyRelationships": [
+        "automation"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "evidence-library/integrity/evidence-hashes.json",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes.",
+      "sourceCommit": "d943a215d1fa3235c59b3087b83eabd9ca3793d9",
+      "technologyRelationships": [
+        "automation"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "scripts/automation/remediation-disable-transportrule.ps1",
+      "collection": "exchange-automation",
+      "reason": "Repository-only PowerShell transport-rule remediation sample source.",
+      "technologyRelationships": [
+        "exchange-online",
+        "automation"
+      ],
+      "claimTechnologies": [
+        "exchange-online"
+      ]
+    },
+    {
+      "path": "evidence/public/remediation-disable-transportrule.yaml",
+      "collection": "exchange-automation",
+      "reason": "Published transport-rule remediation configuration evidence.",
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "claimTechnologies": [
+        "exchange-online"
+      ]
+    },
+    {
+      "path": "evidence/experience/remediation-disable-transportrule.patch",
+      "collection": "exchange-automation",
+      "reason": "Published transport-rule remediation change evidence.",
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "claimTechnologies": [
+        "exchange-online"
+      ]
+    },
+    {
+      "path": "evidence/public/incident-2025-02-10-logs.txt",
+      "collection": "exchange-mail-flow-rca",
+      "reason": "Published sanitized mail-flow incident log.",
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "claimTechnologies": [
+        "exchange-online"
+      ]
+    },
+    {
+      "path": "evidence/public/rca-2025-02-10.md",
+      "collection": "exchange-mail-flow-rca",
+      "reason": "Published sanitized mail-flow RCA summary.",
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "claimTechnologies": [
+        "exchange-online"
+      ]
+    },
+    {
+      "path": "evidence/public/rca-2025-02-10.yaml",
+      "collection": "exchange-mail-flow-rca",
+      "reason": "Published sanitized mail-flow RCA structured summary.",
+      "technologyRelationships": [
+        "exchange-online"
+      ],
+      "claimTechnologies": [
+        "exchange-online"
+      ]
+    },
+    {
+      "path": "evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv",
+      "collection": "preserved-sharepoint-attestation",
+      "reason": "Reviewed inventory attesting original SharePoint source integrity."
+    },
+    {
+      "path": "evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md",
+      "collection": "preserved-sharepoint-attestation",
+      "reason": "Published preserved SharePoint collection summary."
+    },
+    {
+      "path": "evidence-library/README.md",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Published evidence-library overview containing Microsoft 365 collection relationships.",
+      "technologyRelationships": [
+        "automation"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "evidence-library/governance/evidence-claim-governance-standard-2026.md",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Published evidence-claim governance standard covering Microsoft 365 claim boundaries.",
+      "technologyRelationships": [
+        "automation"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "evidence-library/index.html",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Established Microsoft 365 and Entra evidence-library landing route.",
+      "technologyRelationships": [
+        "automation",
+        "entra-id",
+        "tenant-administration"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/README.md",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Published project collection index containing Microsoft 365 evidence relationships.",
+      "technologyRelationships": [
+        "automation"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "evidence-library/skills/README.md",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Published skills collection index containing Microsoft 365 evidence relationships.",
+      "technologyRelationships": [
+        "automation"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    },
+    {
+      "path": "evidence/public/index.html",
+      "collection": "cross-cutting-evidence-governance",
+      "reason": "Established compatibility index for public Microsoft 365 and Intune evidence routes.",
+      "technologyRelationships": [
+        "automation",
+        "intune",
+        "entra-id"
+      ],
+      "supportedClaimIds": [
+        "m365-evidence-governance"
+      ]
+    }
   ],
   "reviewedExclusions": [
-    {"path":".github/agents/microsoft-365-evidence-organizer.agent.md","reason":"Phase operating instructions, not an evidence artifact."},
-    {"path":"content/microsoft-365/evidence-organization.json","reason":"Generator configuration, not collected evidence."},
-    {"path":"content/microsoft-365/source-manifest.json","reason":"Completeness control manifest, not collected evidence."},
-    {"path":"content/microsoft-365/sensitive-data-exceptions.json","reason":"Sensitive-review control manifest, not collected evidence."},
-    {"path":"content/microsoft-365/sharepoint-source-attestation.json","reason":"Independent reviewed SharePoint provenance control, not collected evidence."},
-    {"path":"content/microsoft-365/technologies.json","reason":"Technology taxonomy, not collected evidence."},
-    {"path":"docs/microsoft-365-evidence-organization.md","reason":"Phase implementation documentation, not a collected artifact."},
-    {"path":"assets/data/m365-evidence-catalog.json","reason":"Generated public catalog validated as an output contract."},
-    {"path":"microsoft-365/evidence-catalog.html","reason":"Generated public catalog page validated as an output contract."},
-    {"path":"microsoft-365/index.html","reason":"Generated Microsoft 365 landing page validated by the foundation output contract."},
-    {"path":"microsoft-365/source-to-destination-matrix.csv","reason":"Generated source matrix validated as an output contract."},
-    {"path":"microsoft-365/duplicate-groups.json","reason":"Generated duplicate report validated as an output contract."},
-    {"path":"microsoft-365/sensitive-data-review.json","reason":"Generated sensitive-data report validated as an output contract."},
-    {"path":"content/microsoft-365/generated-output-hashes.json","reason":"Generated deterministic integrity contract, not collected evidence."},
-    {"path":"evidence-library/preserved-sharepoint/index.html","reason":"Generated public index validated as an output contract."},
-    {"path":"evidence-library/evidence-relationships.json","reason":"Cross-cutting generated relationship index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."},
-    {"path":"evidence-library/evidence-search-index.json","reason":"Cross-cutting generated search index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."},
-    {"path":"evidence-file-list-sorted.txt","reason":"Cross-cutting generated sorted inventory that duplicates the separately cataloged physical file inventory."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1280x800.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1440x900.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-320x800.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-360x800.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-375x812.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-390x844.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-414x896.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-768x1024.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
-    {"path":"evidence-library/projects/microsoft-365-lab/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/projects/troubleshooting-rca/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/entra-identity/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/intune-endpoint-management/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/microsoft-365-administration/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"docs/projects/rca-and-provisioning/artifacts/dns-authentication-playbook.md","reason":"Service-desk DNS authentication material, not Microsoft 365 evidence."},
-    {"path":"evidence-library/projects/troubleshooting-rca/dns-authentication-playbook-2026.md","reason":"Service-desk DNS authentication material, not Microsoft 365 evidence."},
-    {"path":"evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md","reason":"Home Lab logging evidence; outside Phase 3A."},
-    {"path":"evidence-library/projects/on-prem-home-lab/screenshots/figure-15-dc01-central-evidence-export-validation.png","reason":"Home Lab validation screenshot; outside Phase 3A."},
-    {"path":"scripts/build/generate-m365-evidence-organization.js","reason":"Phase generator implementation, not collected evidence."},
-    {"path":"scripts/build/sync-m365-generated-integrity.js","reason":"Generated-integrity tooling, not collected evidence."},
-    {"path":"scripts/build/sync-m365-seo.js","reason":"Generated-SEO tooling, not collected evidence."},
-    {"path":"scripts/validation/validate-m365-sensitive-formats.js","reason":"Supplemental high-severity scanner implementation, not collected evidence."},
-    {"path":"scripts/validation/validate-m365-publication-idempotency.js","reason":"Repeated publication-build validation tooling, not collected evidence."},
-    {"path":"tests/m365-evidence-organization.test.js","reason":"Phase validation test, not collected evidence."}
+    {
+      "path": ".github/agents/microsoft-365-evidence-organizer.agent.md",
+      "reason": "Phase operating instructions, not an evidence artifact."
+    },
+    {
+      "path": "content/microsoft-365/evidence-organization.json",
+      "reason": "Generator configuration, not collected evidence."
+    },
+    {
+      "path": "content/microsoft-365/source-manifest.json",
+      "reason": "Completeness control manifest, not collected evidence."
+    },
+    {
+      "path": "content/microsoft-365/sensitive-data-exceptions.json",
+      "reason": "Sensitive-review control manifest, not collected evidence."
+    },
+    {
+      "path": "content/microsoft-365/sharepoint-source-attestation.json",
+      "reason": "Independent reviewed SharePoint provenance control, not collected evidence."
+    },
+    {
+      "path": "content/microsoft-365/technologies.json",
+      "reason": "Technology taxonomy, not collected evidence."
+    },
+    {
+      "path": "docs/microsoft-365-evidence-organization.md",
+      "reason": "Phase implementation documentation, not a collected artifact."
+    },
+    {
+      "path": "assets/data/m365-evidence-catalog.json",
+      "reason": "Generated public catalog validated as an output contract."
+    },
+    {
+      "path": "microsoft-365/evidence-catalog.html",
+      "reason": "Generated public catalog page validated as an output contract."
+    },
+    {
+      "path": "microsoft-365/index.html",
+      "reason": "Generated Microsoft 365 landing page validated by the foundation output contract."
+    },
+    {
+      "path": "microsoft-365/source-to-destination-matrix.csv",
+      "reason": "Generated source matrix validated as an output contract."
+    },
+    {
+      "path": "microsoft-365/duplicate-groups.json",
+      "reason": "Generated duplicate report validated as an output contract."
+    },
+    {
+      "path": "microsoft-365/sensitive-data-review.json",
+      "reason": "Generated sensitive-data report validated as an output contract."
+    },
+    {
+      "path": "content/microsoft-365/generated-output-hashes.json",
+      "reason": "Generated deterministic integrity contract, not collected evidence."
+    },
+    {
+      "path": "evidence-library/preserved-sharepoint/index.html",
+      "reason": "Generated public index validated as an output contract."
+    },
+    {
+      "path": "evidence-library/evidence-relationships.json",
+      "reason": "Cross-cutting generated relationship index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."
+    },
+    {
+      "path": "evidence-library/evidence-search-index.json",
+      "reason": "Cross-cutting generated search index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."
+    },
+    {
+      "path": "evidence-file-list-sorted.txt",
+      "reason": "Cross-cutting generated sorted inventory that duplicates the separately cataloged physical file inventory."
+    },
+    {
+      "path": "assets/evidence/rca-timeline.svg",
+      "reason": "Service-desk authentication RCA visual, not Microsoft 365 evidence."
+    },
+    {
+      "path": "docs/projects/rca-and-provisioning/artifacts/rca-2417.md",
+      "reason": "Service-desk authentication RCA material, not Microsoft 365 evidence."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/home-lab-network-topology-diagram-2026.svg",
+      "reason": "Home Lab topology evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.svg",
+      "reason": "Home Lab VLAN evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram.svg",
+      "reason": "Home Lab VLAN evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/network/network-infrastructure-validation-report-2026.md",
+      "reason": "Home Lab network validation evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/infrastructure-networking/pfsense-network-segmentation-diagram-2026.md",
+      "reason": "Home Lab pfSense evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/infrastructure-networking/vlan-architecture-walkthrough-2026.md",
+      "reason": "Home Lab VLAN evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+      "reason": "Generated Home Lab evidence page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv",
+      "reason": "Home Lab claim map; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md",
+      "reason": "Home Lab validation evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md",
+      "reason": "Home Lab validation evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.csv",
+      "reason": "Home Lab evidence manifest; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json",
+      "reason": "Home Lab evidence manifest; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html",
+      "reason": "Home Lab validation index; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/README.md",
+      "reason": "Home Lab screenshot documentation; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/screenshots-manifest.csv",
+      "reason": "Home Lab screenshot manifest; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/screenshots-manifest.json",
+      "reason": "Home Lab screenshot manifest; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-kerberos-validation-sanitized.txt",
+      "reason": "Home Lab Kerberos validation evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+      "reason": "Generated Home Lab validation page; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.md",
+      "reason": "Home Lab validation evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/portfolio-home-lab-drift-validation-20260629-210609.txt",
+      "reason": "Home Lab drift validation evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/powershell-automation/operational-handoff-2026.txt",
+      "reason": "Generic automation handoff material, not Microsoft 365 tenant evidence."
+    },
+    {
+      "path": "evidence-library/skills/dns-dhcp/dns-dhcp-operational-runbook-2026.md",
+      "reason": "Home Lab DNS and DHCP runbook; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/skills/service-desk-support/service-desk-network-troubleshooting-workflow-2026.md",
+      "reason": "Service-desk network troubleshooting material, not Microsoft 365 evidence."
+    },
+    {
+      "path": "evidence-library/validation-reports/network-validation-checklist-2026.md",
+      "reason": "Home Lab network validation checklist; outside Phase 3A."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1280x800.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1440x900.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-320x800.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-360x800.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-375x812.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-390x844.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-414x896.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-768x1024.png",
+      "reason": "Generated responsive visual-review capture; excluded from evidence source discovery."
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/projects/troubleshooting-rca/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/entra-identity/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/intune-endpoint-management/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/microsoft-365-administration/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "docs/projects/rca-and-provisioning/artifacts/dns-authentication-playbook.md",
+      "reason": "Service-desk DNS authentication material, not Microsoft 365 evidence."
+    },
+    {
+      "path": "evidence-library/projects/troubleshooting-rca/dns-authentication-playbook-2026.md",
+      "reason": "Service-desk DNS authentication material, not Microsoft 365 evidence."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md",
+      "reason": "Home Lab logging evidence; outside Phase 3A."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-15-dc01-central-evidence-export-validation.png",
+      "reason": "Home Lab validation screenshot; outside Phase 3A."
+    },
+    {
+      "path": "scripts/build/generate-m365-evidence-organization.js",
+      "reason": "Phase generator implementation, not collected evidence."
+    },
+    {
+      "path": "scripts/build/sync-m365-generated-integrity.js",
+      "reason": "Generated-integrity tooling, not collected evidence."
+    },
+    {
+      "path": "scripts/build/sync-m365-seo.js",
+      "reason": "Generated-SEO tooling, not collected evidence."
+    },
+    {
+      "path": "scripts/validation/validate-m365-sensitive-formats.js",
+      "reason": "Supplemental high-severity scanner implementation, not collected evidence."
+    },
+    {
+      "path": "scripts/validation/validate-m365-publication-idempotency.js",
+      "reason": "Repeated publication-build validation tooling, not collected evidence."
+    },
+    {
+      "path": "tests/m365-evidence-organization.test.js",
+      "reason": "Phase validation test, not collected evidence."
+    }
   ]
 }

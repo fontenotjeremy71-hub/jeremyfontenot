@@ -2,23 +2,535 @@
   "schemaVersion": 1,
   "exceptions": [
     {
-      "id": "public-portfolio-email",
+      "id": "public-portfolio-email-83b63ed3871744ed",
       "findingType": "personal-email-or-upn",
-      "pattern": "^[A-Za-z0-9._%+-]+@jeremyfontenot\\.online$",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
       "reason": "The portfolio domain and its public contact addresses are intentionally published.",
       "scope": [
-        "assets/evidence",
-        "artifacts/redesign/final",
-        "evidence/experience",
-        "evidence-library/architecture-diagrams",
-        "evidence-library/projects/microsoft-365-lab",
-        "evidence-library/projects/troubleshooting-rca",
-        "evidence-library/preserved-sharepoint/source",
-        "evidence/public",
-        "evidence-library/architecture",
-        "evidence-library/conditional-access"
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Artifacts-Index-20260511161108-5521a45f.html"
       ],
-      "reviewerNote": "Allow only addresses on the established public portfolio domain; matched values remain redacted from the generated report."
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-a6f5ee3dfbe7ad34",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Artifacts-Index-6751dd5e.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-e8e309c853945cf6",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "25931056983ad81cdae5ae3493789bff0399b4d741c4e5487b79431089ddf5ec"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Conditional-Access-20260511161110-b20d2846.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-469531191a51805a",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "25931056983ad81cdae5ae3493789bff0399b4d741c4e5487b79431089ddf5ec"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Conditional-Access-3621a29a.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-1afc0af21d1c0e66",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "25931056983ad81cdae5ae3493789bff0399b4d741c4e5487b79431089ddf5ec"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/MFA-Enforcement-20260511161111-5404fcd8.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-77e2588086fdce6f",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "25931056983ad81cdae5ae3493789bff0399b4d741c4e5487b79431089ddf5ec"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/MFA-Enforcement-b4231ce5.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-d55053336b0aa69e",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/New-Home-20260511161111-cf9d591b.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-8feb2e90750ec5d5",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/New-Home-2df58145.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-e855e571c0863247",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Scripts-Automation-20260511161111-50626bcc.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-9eef8935ac71737a",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Scripts-Automation-efe5ec93.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-05c540d304f7e0ce",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Start-Here-20260511161111-98a9efc0.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-0ef75bfcfd4567f5",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Start-Here-99e3db81.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-946826451276495c",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Teams-Setup-20260511161111-444c4526.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-6bb24287891a8a15",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/Teams-Setup-8f0edd8e.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-7499d275dee6a887",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-794655cd885ccd2b",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/entra-activity-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-2086463a7717e727",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-5fd6d25820903de2",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-e6d5b3fdd1678742",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-application-proof-20260605-063206/entra-application-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-6f7707c8ed46875d",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-device-proof-20260605-043942/entra-device-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-f3b586f3091f81da",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-group-membership-proof-20260605-063604/entra-group-membership-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-6ecfb35445cfce3c",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-license-proof-20260605-063412/entra-license-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-97211a0cd180545f",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/entra-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-83f4753688c48e1b",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/README.md"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-be110766c4631571",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-proof-review-notes.md"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-3495a8e0e9a752df",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-role-assignment-proof-20260605-063046/entra-role-assignment-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-09067e853441537a",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/entra-security-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-8447bc166939f650",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/entra-security-proof-fallback-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-5315b96982da7d8b",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "1d52dfa8ae56e6ecc922e2ce31526a3c35979de8dbe06d5683753ee4cd7f0f0c",
+        "a184af4a695272437eee045d13cf243681f0007c7dd472bb7df8e32a7a04239a",
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94",
+        "fd004a1d0c11540160f263f55a5cccb684b3d45cec8d2b48d81820fa70bc3fe1"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-directory-role-assignments.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-bf700b0788d8dc49",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "1d52dfa8ae56e6ecc922e2ce31526a3c35979de8dbe06d5683753ee4cd7f0f0c",
+        "471309afcb8142428ed80c9e5576bcaeb8bd2f0b482848ee532891e34984083a",
+        "6b5c808d9048df4da5918f06c87e560de217c518ee993fd0519da247206bcd8e",
+        "a184af4a695272437eee045d13cf243681f0007c7dd472bb7df8e32a7a04239a",
+        "aacc529acc454b620b23a4b02f2ff67dd3cbbcc19184e7222608ebf2f999da4f",
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94",
+        "fd004a1d0c11540160f263f55a5cccb684b3d45cec8d2b48d81820fa70bc3fe1"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-group-membership.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-5be853d940d0b26d",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "668657dd5c0b28e5ec846ef6d3c986242021d9f61f1119fb7d28aa09fdb4f0ba"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-groups.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-9bf35d6fd43faf6f",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "f3f982af4d6abdc7b09c2621e66793b223128cb8a18778a2032985dda76a8f0c"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-organization-branding.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-70299e0e0f895a70",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-sg-block-legacy-auth-members.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-fc4d7207c0ce693a",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-152f34cc41f9af94",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "1d52dfa8ae56e6ecc922e2ce31526a3c35979de8dbe06d5683753ee4cd7f0f0c",
+        "471309afcb8142428ed80c9e5576bcaeb8bd2f0b482848ee532891e34984083a",
+        "6b5c808d9048df4da5918f06c87e560de217c518ee993fd0519da247206bcd8e",
+        "a184af4a695272437eee045d13cf243681f0007c7dd472bb7df8e32a7a04239a",
+        "aacc529acc454b620b23a4b02f2ff67dd3cbbcc19184e7222608ebf2f999da4f",
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94",
+        "fd004a1d0c11540160f263f55a5cccb684b3d45cec8d2b48d81820fa70bc3fe1"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-users-license-state.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-a413856a7657119e",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "668657dd5c0b28e5ec846ef6d3c986242021d9f61f1119fb7d28aa09fdb4f0ba"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-30d636a3ea181819",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-online-powershell-connection-attempt.md"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-a72e08ee37eb83c0",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/README.md"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-a0517925c3e67401",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/tenant-organization-domains-skus.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-bad83ebd3bdd137b",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-device-proof-summary.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-f1dae24773d2018d",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ed0e2c7e06a2ecfe3021095221653bdcf52853ee13acc50527ceda17a0ca4c94"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/m365-entra-live-proof-summary-20260605.md"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-d1f62ef89301f87a",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "public-portfolio-email-b053321affcc0467",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "The portfolio domain and its public contact addresses are intentionally published.",
+      "scope": [
+        "evidence-library/projects/troubleshooting-rca/rca-report.html"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
     },
     {
       "id": "reviewed-tenant-object-identifiers-8ddc287e3f157ccc",
@@ -5834,80 +6346,506 @@
       "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact file are reviewed; clear identifier values are not copied into generated reports."
     },
     {
-      "id": "reviewed-existing-personal-tenant-identities",
+      "id": "reviewed-existing-personal-tenant-identities-a37a59139b135d27",
       "findingType": "personal-email-or-upn",
-      "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+      "valueFingerprints": [
+        "aedd11bfe3c1fc5736bd2e93142452fbec928a1c6dfede470006df1f719cf3b1"
+      ],
       "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
       "scope": [
-        "evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/authentication-method-policy.json",
-        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/authentication-method-policy-graph-request.json",
-        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request-beta.json",
-        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request.json",
-        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-authentication-methods-policy.json",
-        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-groups.csv",
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/authentication-method-policy.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-identities-86d57303c572dd2a",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "ac5c4b319dc2e773c9793fc196be203e2866449fd1de6656d563820d08d86f13",
+        "aedd11bfe3c1fc5736bd2e93142452fbec928a1c6dfede470006df1f719cf3b1"
+      ],
+      "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/authentication-method-policy-graph-request.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-identities-36ec6af4e3f1e4de",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "a7a8695fb3548e9f12ff00507bc64f9f117cadbbd6fae8874c44affb4d3a0276",
+        "cfaae47b1d426e2c18c5de7aed42182f184b103f6987cac284e62bdc540ebf05"
+      ],
+      "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request-beta.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-identities-e06c1a82a7bb26d0",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "a7a8695fb3548e9f12ff00507bc64f9f117cadbbd6fae8874c44affb4d3a0276",
+        "cfaae47b1d426e2c18c5de7aed42182f184b103f6987cac284e62bdc540ebf05"
+      ],
+      "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-identities-014b9000a1fb96d3",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "aedd11bfe3c1fc5736bd2e93142452fbec928a1c6dfede470006df1f719cf3b1"
+      ],
+      "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-authentication-methods-policy.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-identities-5be853d940d0b26d",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "44e4f672e6a29246c3fe1cbec92ed4fbc3a9b73a9f62106a7d2907bf2a10ce06",
+        "668657dd5c0b28e5ec846ef6d3c986242021d9f61f1119fb7d28aa09fdb4f0ba",
+        "6f1e8ca66032283149b76b9956802d6fd4b443f8a0b0a6e5ab38e4b54dea9533",
+        "74fb3cb64eca9f44c4c4eb51d13320cb0793886a479833c6f2488d4fe363998a"
+      ],
+      "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-groups.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-identities-a413856a7657119e",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "44e4f672e6a29246c3fe1cbec92ed4fbc3a9b73a9f62106a7d2907bf2a10ce06",
+        "668657dd5c0b28e5ec846ef6d3c986242021d9f61f1119fb7d28aa09fdb4f0ba",
+        "6f1e8ca66032283149b76b9956802d6fd4b443f8a0b0a6e5ab38e4b54dea9533",
+        "74fb3cb64eca9f44c4c4eb51d13320cb0793886a479833c6f2488d4fe363998a",
+        "a13962e0d02408548da32cb7dd391d30113aee865b8aa21ee87301a6974f734e"
+      ],
+      "reason": "These specific already-public exports contain reviewed personal-lab identity values needed to interpret the captured policy or group relationship.",
+      "scope": [
         "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv"
       ],
-      "reviewerNote": "The exception is file-scoped, values are not reproduced in the generated report, and any new file or path requires a separate review."
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
     },
     {
-      "id": "reviewed-existing-personal-tenant-domains",
+      "id": "reviewed-existing-personal-tenant-domains-828c30d0cc1a1b51",
       "findingType": "tenant-domain-identifier",
-      "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]*\\.onmicrosoft\\.com$",
+      "valueFingerprints": [
+        "ad85a58ae6eb757cc84ff0cb0c567929ffbf2a867ecf3dae22c4d9c5f0c69449"
+      ],
       "reason": "These specific already-public tenant and group exports retain reviewed personal-lab tenant-domain identifiers.",
       "scope": [
-        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-domains.csv",
-        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-organization.json",
-        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-groups.csv",
-        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv",
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-domains.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-domains-34a87697cb2867ab",
+      "findingType": "tenant-domain-identifier",
+      "valueFingerprints": [
+        "ad85a58ae6eb757cc84ff0cb0c567929ffbf2a867ecf3dae22c4d9c5f0c69449"
+      ],
+      "reason": "These specific already-public tenant and group exports retain reviewed personal-lab tenant-domain identifiers.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/tenant-organization.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-domains-5be853d940d0b26d",
+      "findingType": "tenant-domain-identifier",
+      "valueFingerprints": [
+        "ad85a58ae6eb757cc84ff0cb0c567929ffbf2a867ecf3dae22c4d9c5f0c69449"
+      ],
+      "reason": "These specific already-public tenant and group exports retain reviewed personal-lab tenant-domain identifiers.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-groups.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-domains-a413856a7657119e",
+      "findingType": "tenant-domain-identifier",
+      "valueFingerprints": [
+        "ad85a58ae6eb757cc84ff0cb0c567929ffbf2a867ecf3dae22c4d9c5f0c69449"
+      ],
+      "reason": "These specific already-public tenant and group exports retain reviewed personal-lab tenant-domain identifiers.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-personal-tenant-domains-a0517925c3e67401",
+      "findingType": "tenant-domain-identifier",
+      "valueFingerprints": [
+        "ad85a58ae6eb757cc84ff0cb0c567929ffbf2a867ecf3dae22c4d9c5f0c69449"
+      ],
+      "reason": "These specific already-public tenant and group exports retain reviewed personal-lab tenant-domain identifiers.",
+      "scope": [
         "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/tenant-organization-domains-skus.json"
       ],
-      "reviewerNote": "The exception is file-scoped and preserves review visibility without copying the identifier values into generated reports."
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
     },
     {
-      "id": "reviewed-existing-local-profile-path",
+      "id": "reviewed-existing-local-profile-path-ee0be1d7ebc0a402",
       "findingType": "local-user-profile-identifier",
-      "pattern": "^[A-Za-z]:\\\\Users\\\\jeremy$",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
       "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
       "scope": [
-        "evidence-file-list.csv",
-        "evidence-library/projects/microsoft-365-lab"
+        "evidence-file-list.csv"
       ],
-      "reviewerNote": "The exception is exact-account and file-scoped; generated reports retain only a fingerprint and finding count."
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
     },
     {
-      "id": "reviewed-existing-sign-in-public-ipv4",
+      "id": "reviewed-existing-local-profile-path-ab5daf14ad83251d",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/entra-activity-proof-transcript-20260605-043730.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-40409ecf152b3386",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-application-proof-20260605-063206/entra-application-proof-transcript-20260605-063206.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-e033dddaa51f981f",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-device-proof-20260605-043942/entra-device-proof-transcript-20260605-043942.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-0f7aff580e032eef",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-group-membership-proof-20260605-063604/entra-group-membership-proof-transcript-20260605-063604.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-e4b4f248f9652353",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-license-proof-20260605-063412/entra-license-proof-transcript-20260605-063412.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-f332360b5224d91b",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-live-proof-20260605-042550/entra-proof-transcript-20260605-042550.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-2ffe49b59167be73",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-role-assignment-proof-20260605-063046/entra-role-assignment-proof-transcript-20260605-063046.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-b7030ff99c8cc521",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/entra-security-proof-transcript-20260605-043352.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-2c9174c37ffeae81",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/entra-security-proof-fallback-transcript-20260605-043558.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-30d636a3ea181819",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-online-powershell-connection-attempt.md"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-a72e08ee37eb83c0",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/README.md"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-local-profile-path-2f68fb344427a6b3",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Already-public personal-lab transcripts and the cross-cutting file inventory contain the local checkout prefix used when the evidence was captured.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-device-proof-fallback-transcript-20260605-044051.txt"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv4-2086463a7717e727",
       "findingType": "public-ipv4-identifier",
-      "pattern": "^174\\.73\\.123\\.101$",
+      "valueFingerprints": [
+        "3162b7a9cc8e97f8687c954114d9c8d6519f654fbea8a1ea0268371939a713b2"
+      ],
       "reason": "This already-public personal-lab sign-in evidence retains one reviewed historical public IPv4 value needed to interpret the captured authentication records.",
       "scope": [
-        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv",
-        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json",
-        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv"
       ],
-      "reviewerNote": "The exception is exact-value and file-scoped; the address is represented only by a fingerprint in generated review output."
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
     },
     {
-      "id": "reviewed-existing-sign-in-public-ipv6",
+      "id": "reviewed-existing-sign-in-public-ipv4-5fd6d25820903de2",
+      "findingType": "public-ipv4-identifier",
+      "valueFingerprints": [
+        "3162b7a9cc8e97f8687c954114d9c8d6519f654fbea8a1ea0268371939a713b2"
+      ],
+      "reason": "This already-public personal-lab sign-in evidence retains one reviewed historical public IPv4 value needed to interpret the captured authentication records.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv4-fc4d7207c0ce693a",
+      "findingType": "public-ipv4-identifier",
+      "valueFingerprints": [
+        "3162b7a9cc8e97f8687c954114d9c8d6519f654fbea8a1ea0268371939a713b2"
+      ],
+      "reason": "This already-public personal-lab sign-in evidence retains one reviewed historical public IPv4 value needed to interpret the captured authentication records.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv6-7499d275dee6a887",
       "findingType": "public-ipv6-identifier",
-      "pattern": "^2600:8807:2941:2500:[0-9a-fA-F:]+$",
+      "valueFingerprints": [
+        "79e590973542ff7ed1dc99eae914ba3f0b3e58858db2f4eebf905530bf0e12b9"
+      ],
       "reason": "These already-public personal-lab sign-in exports retain reviewed historical IPv6 values needed to interpret captured authentication activity.",
       "scope": [
-        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json",
-        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv",
-        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json",
-        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json"
       ],
-      "reviewerNote": "The exception is prefix-pattern and file-scoped; addresses are represented only by fingerprints in generated review output."
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
     },
     {
-      "id": "reviewed-existing-microsoft-service-ipv4",
+      "id": "reviewed-existing-sign-in-public-ipv6-2086463a7717e727",
+      "findingType": "public-ipv6-identifier",
+      "valueFingerprints": [
+        "0f1038fe8c09c9d331661e26a48ef5ee9f363ea119be7c0675337338efaac08d",
+        "10585f26e94e916433df7f3bec1f07cee6c0328d1654368e14c35421eddff1d7",
+        "13825f3e7437d29fdc7a00bb90e1582032e4d8f4867133686f98fba8588cafef",
+        "266bbf0e2dd575409705a434ad40689a99da040b3c83b8a03405a574268cf0b2",
+        "3492e7028197e1fed5af0d03fc90db2cf9cb642747205c9c851db5dd81f951c5",
+        "3a0f707348f49f9e1747f6f7e61164df5bfd685a2304f043f32923fe1bda03f8",
+        "5155832a8578ee734cb60fbf5bbb7fd5479246771d7f1c945d3b3b8877e86632",
+        "532515f41460042bc09a1cbf4d5a7934234e3ed377a8b584ae65ad144e4bf0d7",
+        "579e38500cbcd95d5af4d25397f905a6260089916bcf54f33d7647db88c49d3d",
+        "5b7b1af80fd317858e6effb4d883fa068513cb824bce3e8156c234d0749d2d31",
+        "65b01133a6d5624a891a174dc3f6fc125149af239981e45508e12598dcd0f012",
+        "692f52cba49dae5ba3926ba74986bcf6f0d86594cd0e175576120bf7f11a31bb",
+        "6b60d0a1b42013b246c8cc83fe791a9365f31c6b910ecb3f102963e0b077ba6e",
+        "75f8567bca7c8bcfe2dd5bc865343cb8ebdb0e1e7c7e9fd52e8885a7b0dc53cb",
+        "77326aad366d47a99d3c06fb8c6ece5deffede6516ba347f0306b8546949af04",
+        "784bac244650fb589b82f294703618652f34f1581b6035152ee7883f66cc7d5a",
+        "79e590973542ff7ed1dc99eae914ba3f0b3e58858db2f4eebf905530bf0e12b9",
+        "8090aa890e1191b3f5040e4241b05307c415df5b472bb970c71536f1594ea35d",
+        "83cfba64d9476cac1484200910d11d0bbc4be043cc11d6a6ec4f49919bfaf4b7",
+        "845866f701edb5888a7d630aecdc462350706474d268192a110955efc55c1415",
+        "89538a4e2e64f78b9551264c2a5d0d555b10890c649189f4cac2cf7b74d8a6dd",
+        "8adba6cbe6fb55e0b0c422511e492cd03df892db5c798c0d3bc2c24e75811ef0",
+        "9e9b036943b79e8ed3867e1d96e1538a50c2853bde1bfd3833e14277a22f04b9",
+        "acafba49279960e5ff1255148226030c26e879cf52f96ed5c1f6852f871fd029",
+        "b868f3c1ecf33c32c6cd06286e9fbbf38a75a24242f400f7a319d7d894b7c8f9",
+        "ca1643bcc30eff4827b2d906d8f2637f7128a4988522b1b724efc86c0d18dd92",
+        "d16228030981356fa73639c86a440ef10fd94f0d119ca1fc069ce54f97877b18",
+        "d51a30e107fa518616563dfc4461534809dd3ab70c17b0f0065e85d6bcf92a44",
+        "f38939f11d23a2e4dff00c6be946009ed014d0f9b4e89b2f42365f5f1c3a15c5",
+        "f48df31123f9244de0426b6dd2d055fa8977b9b1e11726c3f5c59a2841ab9a78"
+      ],
+      "reason": "These already-public personal-lab sign-in exports retain reviewed historical IPv6 values needed to interpret captured authentication activity.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv6-5fd6d25820903de2",
+      "findingType": "public-ipv6-identifier",
+      "valueFingerprints": [
+        "0f1038fe8c09c9d331661e26a48ef5ee9f363ea119be7c0675337338efaac08d",
+        "10585f26e94e916433df7f3bec1f07cee6c0328d1654368e14c35421eddff1d7",
+        "13825f3e7437d29fdc7a00bb90e1582032e4d8f4867133686f98fba8588cafef",
+        "266bbf0e2dd575409705a434ad40689a99da040b3c83b8a03405a574268cf0b2",
+        "3492e7028197e1fed5af0d03fc90db2cf9cb642747205c9c851db5dd81f951c5",
+        "3a0f707348f49f9e1747f6f7e61164df5bfd685a2304f043f32923fe1bda03f8",
+        "5155832a8578ee734cb60fbf5bbb7fd5479246771d7f1c945d3b3b8877e86632",
+        "532515f41460042bc09a1cbf4d5a7934234e3ed377a8b584ae65ad144e4bf0d7",
+        "579e38500cbcd95d5af4d25397f905a6260089916bcf54f33d7647db88c49d3d",
+        "5b7b1af80fd317858e6effb4d883fa068513cb824bce3e8156c234d0749d2d31",
+        "65b01133a6d5624a891a174dc3f6fc125149af239981e45508e12598dcd0f012",
+        "692f52cba49dae5ba3926ba74986bcf6f0d86594cd0e175576120bf7f11a31bb",
+        "6b60d0a1b42013b246c8cc83fe791a9365f31c6b910ecb3f102963e0b077ba6e",
+        "75f8567bca7c8bcfe2dd5bc865343cb8ebdb0e1e7c7e9fd52e8885a7b0dc53cb",
+        "77326aad366d47a99d3c06fb8c6ece5deffede6516ba347f0306b8546949af04",
+        "784bac244650fb589b82f294703618652f34f1581b6035152ee7883f66cc7d5a",
+        "79e590973542ff7ed1dc99eae914ba3f0b3e58858db2f4eebf905530bf0e12b9",
+        "8090aa890e1191b3f5040e4241b05307c415df5b472bb970c71536f1594ea35d",
+        "83cfba64d9476cac1484200910d11d0bbc4be043cc11d6a6ec4f49919bfaf4b7",
+        "845866f701edb5888a7d630aecdc462350706474d268192a110955efc55c1415",
+        "89538a4e2e64f78b9551264c2a5d0d555b10890c649189f4cac2cf7b74d8a6dd",
+        "8adba6cbe6fb55e0b0c422511e492cd03df892db5c798c0d3bc2c24e75811ef0",
+        "9e9b036943b79e8ed3867e1d96e1538a50c2853bde1bfd3833e14277a22f04b9",
+        "acafba49279960e5ff1255148226030c26e879cf52f96ed5c1f6852f871fd029",
+        "b868f3c1ecf33c32c6cd06286e9fbbf38a75a24242f400f7a319d7d894b7c8f9",
+        "ca1643bcc30eff4827b2d906d8f2637f7128a4988522b1b724efc86c0d18dd92",
+        "d16228030981356fa73639c86a440ef10fd94f0d119ca1fc069ce54f97877b18",
+        "d51a30e107fa518616563dfc4461534809dd3ab70c17b0f0065e85d6bcf92a44",
+        "f38939f11d23a2e4dff00c6be946009ed014d0f9b4e89b2f42365f5f1c3a15c5",
+        "f48df31123f9244de0426b6dd2d055fa8977b9b1e11726c3f5c59a2841ab9a78"
+      ],
+      "reason": "These already-public personal-lab sign-in exports retain reviewed historical IPv6 values needed to interpret captured authentication activity.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/sign-ins-recent.json"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-sign-in-public-ipv6-fc4d7207c0ce693a",
+      "findingType": "public-ipv6-identifier",
+      "valueFingerprints": [
+        "0f1038fe8c09c9d331661e26a48ef5ee9f363ea119be7c0675337338efaac08d",
+        "10585f26e94e916433df7f3bec1f07cee6c0328d1654368e14c35421eddff1d7",
+        "13825f3e7437d29fdc7a00bb90e1582032e4d8f4867133686f98fba8588cafef",
+        "266bbf0e2dd575409705a434ad40689a99da040b3c83b8a03405a574268cf0b2",
+        "3492e7028197e1fed5af0d03fc90db2cf9cb642747205c9c851db5dd81f951c5",
+        "3a0f707348f49f9e1747f6f7e61164df5bfd685a2304f043f32923fe1bda03f8",
+        "5155832a8578ee734cb60fbf5bbb7fd5479246771d7f1c945d3b3b8877e86632",
+        "532515f41460042bc09a1cbf4d5a7934234e3ed377a8b584ae65ad144e4bf0d7",
+        "579e38500cbcd95d5af4d25397f905a6260089916bcf54f33d7647db88c49d3d",
+        "5b7b1af80fd317858e6effb4d883fa068513cb824bce3e8156c234d0749d2d31",
+        "65b01133a6d5624a891a174dc3f6fc125149af239981e45508e12598dcd0f012",
+        "692f52cba49dae5ba3926ba74986bcf6f0d86594cd0e175576120bf7f11a31bb",
+        "6b60d0a1b42013b246c8cc83fe791a9365f31c6b910ecb3f102963e0b077ba6e",
+        "75f8567bca7c8bcfe2dd5bc865343cb8ebdb0e1e7c7e9fd52e8885a7b0dc53cb",
+        "77326aad366d47a99d3c06fb8c6ece5deffede6516ba347f0306b8546949af04",
+        "784bac244650fb589b82f294703618652f34f1581b6035152ee7883f66cc7d5a",
+        "79e590973542ff7ed1dc99eae914ba3f0b3e58858db2f4eebf905530bf0e12b9",
+        "8090aa890e1191b3f5040e4241b05307c415df5b472bb970c71536f1594ea35d",
+        "83cfba64d9476cac1484200910d11d0bbc4be043cc11d6a6ec4f49919bfaf4b7",
+        "845866f701edb5888a7d630aecdc462350706474d268192a110955efc55c1415",
+        "89538a4e2e64f78b9551264c2a5d0d555b10890c649189f4cac2cf7b74d8a6dd",
+        "8adba6cbe6fb55e0b0c422511e492cd03df892db5c798c0d3bc2c24e75811ef0",
+        "9e9b036943b79e8ed3867e1d96e1538a50c2853bde1bfd3833e14277a22f04b9",
+        "acafba49279960e5ff1255148226030c26e879cf52f96ed5c1f6852f871fd029",
+        "b868f3c1ecf33c32c6cd06286e9fbbf38a75a24242f400f7a319d7d894b7c8f9",
+        "ca1643bcc30eff4827b2d906d8f2637f7128a4988522b1b724efc86c0d18dd92",
+        "d16228030981356fa73639c86a440ef10fd94f0d119ca1fc069ce54f97877b18",
+        "d51a30e107fa518616563dfc4461534809dd3ab70c17b0f0065e85d6bcf92a44",
+        "f38939f11d23a2e4dff00c6be946009ed014d0f9b4e89b2f42365f5f1c3a15c5",
+        "f48df31123f9244de0426b6dd2d055fa8977b9b1e11726c3f5c59a2841ab9a78"
+      ],
+      "reason": "These already-public personal-lab sign-in exports retain reviewed historical IPv6 values needed to interpret captured authentication activity.",
+      "scope": [
+        "evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-signins-last-30-days.csv"
+      ],
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
+    },
+    {
+      "id": "reviewed-existing-microsoft-service-ipv4-7499d275dee6a887",
       "findingType": "public-ipv4-identifier",
-      "pattern": "^(?:20\\.190\\.(?:157\\.97|190\\.(?:161|224))|40\\.126\\.(?:23\\.162|29\\.99|62\\.160)|52\\.237\\.182\\.198|104\\.210\\.141\\.(?:149|151|152))$",
+      "valueFingerprints": [
+        "177caa5d6b0a1fdda7fd978784b3c16909dc5ac9c64d3ed834ed6be2b046e62e",
+        "191c0ba4c6f0489dd492a6811261337dc17e45004e48e4d4f9859d91c472552b",
+        "4ccd82fa8d523a5e406c2681d3a0527975ddb27e99a2438429be8e90a044c2ca",
+        "54f4da17995059b565ea53b4c96804fc247b6f7bd5775ff6f25aae657ade2aac",
+        "5566b1e56dc121984e7ba76576de0c1a1a9d3296a6973c47c59b3d5d61881479",
+        "7646703db0aab3e44e4b83aa272d38b3edef550732f417a486436be18ae7ff7f",
+        "b649326e2bb928b272666b6caf522dcbab9aa5ec30ef0878a690840809ce99af",
+        "d026f60d6c25998ea2dbe9b13a0715b8364139c1b154d009bc6d6fe0d2cde2e9",
+        "d67134c7447e378efbacab9c232dab386153ffbaced542e22555bb69285409d7",
+        "f2a7ffede29173a0dc6bbf416cd630b0f2df5c6062b15ce594a4e7f8b1f69902"
+      ],
       "reason": "The already-public directory-audit export retains reviewed Microsoft service addresses that form part of the captured audit context.",
       "scope": [
         "evidence-library/projects/microsoft-365-lab/entra-activity-proof-20260605-043730/directory-audits-recent.json"
       ],
-      "reviewerNote": "The exception enumerates reviewed service values in one file; generated reports retain fingerprints rather than address text."
+      "reviewerNote": "Only the enumerated SHA-256 fingerprints in this exact tracked file are reviewed; clear identifier values are not copied into generated reports."
     }
   ]
 }

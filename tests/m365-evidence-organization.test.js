@@ -8,6 +8,7 @@ const path = require('node:path');
 const {execFileSync} = require('node:child_process');
 const {
   evidenceType,
+  discoverCandidateFiles,
   discoverSourceFiles,
   listTrackedFiles,
   technologiesFor,
@@ -171,6 +172,17 @@ test('source discovery is tracked-only and excludes publication output roots', (
   }
 });
 
+test('content-aware discovery finds generic-path evidence pages', () => {
+  const root = path.resolve(__dirname, '..');
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/source-manifest.json'), 'utf8'));
+  const files = discoverSourceFiles(manifest.generatedOutputRoots);
+  const candidates = discoverCandidateFiles(files, manifest);
+  assert.ok(candidates.includes('evidence-library/index.html'));
+  assert.ok(candidates.includes('evidence/public/index.html'));
+  assert.ok(!new RegExp(manifest.candidatePathTerms.map((term) => '(?:' + term + ')').join('|'), 'i').test('evidence-library/index.html'));
+  assert.ok(!new RegExp(manifest.candidatePathTerms.map((term) => '(?:' + term + ')').join('|'), 'i').test('evidence/public/index.html'));
+});
+
 test('generated M365 contracts contain no publication-output source paths', () => {
   const root = path.resolve(__dirname, '..');
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/m365-evidence-catalog.json'), 'utf8'));
@@ -213,7 +225,7 @@ test('Git attributes preserve raw CRLF evidence bytes and normalize only the gen
   assert.notEqual(gitBlobHash(crlfCsv, 'microsoft-365/source-to-destination-matrix.csv'), gitBlobHash(crlfCsv));
 });
 
-test('tenant and object identifier exceptions require exact tracked files and fingerprints', () => {
+test('all identifier exceptions require exact tracked files and fingerprints', () => {
   const reviewedPath = 'evidence/public/intune-profile-sample.json';
   const reviewedValue = '11111111-1111-4111-8111-111111111111';
   const reviewedFingerprint = crypto.createHash('sha256').update(reviewedValue).digest('hex');
@@ -234,9 +246,22 @@ test('tenant and object identifier exceptions require exact tracked files and fi
   const newFile = scanText(Buffer.from(reviewedValue), 'evidence/public/new-export.json', manifest, true);
   assert.equal(newFile[0].reviewStatus, 'review-required');
 
+  const reviewedIp = '8.8.8.8';
+  const ipManifest = {exceptions: [{
+    id: 'reviewed-public-ip-probe',
+    findingType: 'public-ipv4-identifier',
+    valueFingerprints: [crypto.createHash('sha256').update(reviewedIp).digest('hex')],
+    reason: 'Deterministic exact-value public IP review fixture.',
+    scope: [reviewedPath],
+    reviewerNote: 'Only this fingerprint at this exact tracked path is reviewed.'
+  }]};
+  validateExceptionManifest(ipManifest, new Set([reviewedPath]));
+  assert.equal(scanText(Buffer.from(reviewedIp), reviewedPath, ipManifest, true)[0].reviewStatus, 'reviewed-exception');
+  assert.equal(scanText(Buffer.from('1.1.1.1'), reviewedPath, ipManifest, true)[0].reviewStatus, 'review-required');
+
   assert.throws(() => validateExceptionManifest({exceptions: [{
     id: 'broad-guid-probe',
-    findingType: 'tenant-or-object-identifier',
+    findingType: 'public-ipv4-identifier',
     pattern: '^[0-9a-f-]+$',
     reason: 'Invalid broad review fixture.',
     scope: ['evidence/public'],

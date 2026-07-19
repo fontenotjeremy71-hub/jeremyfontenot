@@ -17,13 +17,13 @@
     "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json"
   },
   "totals": {
-    "artifacts": 965,
+    "artifacts": 971,
     "preservedSharePointArtifacts": 802,
     "sourceDuplicateGroups": 127,
     "publicDuplicateGroups": 5,
     "sensitiveDataReview": {
-      "artifactsReviewed": 965,
-      "textArtifactsInspected": 959,
+      "artifactsReviewed": 971,
+      "textArtifactsInspected": 965,
       "manualReviewRequired": 6,
       "highSeveritySecretFindings": 0,
       "identifierFindings": 4950,
@@ -38,9 +38,9 @@
       "claimId": "m365-tenant-administration-review",
       "claim": "Reviewed personal-tenant organization settings, domains, subscriptions, licensing state, users, groups, and administrative context.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 266,
+      "evidenceCount": 267,
       "counts": {
-        "documentation": 4,
+        "documentation": 5,
         "screenshots": 11,
         "inventories": 2,
         "exports": 243,
@@ -48,6 +48,7 @@
         "scripts-output": 1
       },
       "evidenceIds": [
+        "m365-cross-cutting-evidence-governance-2d8269a5669d9e8b",
         "m365-m365-architecture-020a8d16711bfbab",
         "m365-m365-architecture-59ca909afc274b5d",
         "m365-m365-architecture-7825913a0c959d67",
@@ -323,13 +324,13 @@
       "claimId": "m365-entra-identity-review",
       "claim": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, directory audits, and identity-policy state in a personal tenant.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 192,
+      "evidenceCount": 194,
       "counts": {
+        "documentation": 13,
         "configuration": 14,
         "reports": 19,
         "inventories": 28,
         "scripts-output": 9,
-        "documentation": 11,
         "exports": 102,
         "validation": 1,
         "screenshots": 6,
@@ -337,6 +338,8 @@
         "testing": 1
       },
       "evidenceIds": [
+        "m365-cross-cutting-evidence-governance-2d8269a5669d9e8b",
+        "m365-cross-cutting-evidence-governance-d8af469e4531d855",
         "m365-microsoft-365-core-014b9000a1fb96d3",
         "m365-microsoft-365-core-09067e853441537a",
         "m365-microsoft-365-core-0a831a62455de431",
@@ -538,16 +541,17 @@
       "claimId": "m365-intune-workflow-documentation",
       "claim": "Documented endpoint-management concepts and a bounded managed-device validation attempt.",
       "supportLevel": "documented-only",
-      "evidenceCount": 38,
+      "evidenceCount": 39,
       "counts": {
+        "documentation": 3,
         "exports": 27,
         "inventories": 4,
         "scripts-output": 2,
-        "documentation": 2,
         "reports": 1,
         "screenshots": 2
       },
       "evidenceIds": [
+        "m365-cross-cutting-evidence-governance-d8af469e4531d855",
         "m365-intune-project-documentation-583ee809724b5361",
         "m365-intune-project-documentation-7e07b2db5011c28f",
         "m365-microsoft-365-core-2b21248f53c774e8",
@@ -1615,16 +1619,23 @@
       "claimId": "m365-evidence-automation",
       "claim": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 609,
+      "evidenceCount": 615,
       "counts": {
         "exports": 603,
+        "documentation": 6,
         "scripts": 1,
         "validation": 1,
         "configuration": 4
       },
       "evidenceIds": [
         "m365-cross-cutting-evidence-governance-031acd4c7ab33dd2",
+        "m365-cross-cutting-evidence-governance-2d8269a5669d9e8b",
+        "m365-cross-cutting-evidence-governance-3e90b32ecc86e8d0",
+        "m365-cross-cutting-evidence-governance-42b4ccd7b57387b6",
+        "m365-cross-cutting-evidence-governance-480a4f5cab4389dd",
+        "m365-cross-cutting-evidence-governance-8937b669c06a51fb",
         "m365-cross-cutting-evidence-governance-cfebce8a8912e1e1",
+        "m365-cross-cutting-evidence-governance-d8af469e4531d855",
         "m365-cross-cutting-evidence-governance-ee0be1d7ebc0a402",
         "m365-exchange-automation-4201d865b1ed04c7",
         "m365-microsoft-365-core-30d636a3ea181819",
@@ -3348,7 +3359,13 @@
       "claimText": "Maintained repository-level source mappings, file inventories, and integrity hashes that include Microsoft 365 artifacts.",
       "evidenceIds": [
         "m365-cross-cutting-evidence-governance-031acd4c7ab33dd2",
+        "m365-cross-cutting-evidence-governance-2d8269a5669d9e8b",
+        "m365-cross-cutting-evidence-governance-3e90b32ecc86e8d0",
+        "m365-cross-cutting-evidence-governance-42b4ccd7b57387b6",
+        "m365-cross-cutting-evidence-governance-480a4f5cab4389dd",
+        "m365-cross-cutting-evidence-governance-8937b669c06a51fb",
         "m365-cross-cutting-evidence-governance-cfebce8a8912e1e1",
+        "m365-cross-cutting-evidence-governance-d8af469e4531d855",
         "m365-cross-cutting-evidence-governance-ee0be1d7ebc0a402"
       ],
       "supportLevel": "directly-proven",
@@ -3462,6 +3479,248 @@
       }
     },
     {
+      "id": "m365-cross-cutting-evidence-governance-2d8269a5669d9e8b",
+      "lab": "microsoft-365",
+      "technology": "automation",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/index.html",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Established Microsoft 365 and Entra evidence-library landing route. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "f18cfe14df908b13d06eb319c397b5807af817f8c86e62a7b0378f60ddcc103f",
+      "supportedClaims": [
+        "m365-evidence-governance"
+      ],
+      "skill": "Microsoft Graph and PowerShell evidence automation",
+      "task": "Used read-only scripts and structured exports to capture tenant, identity, policy, application, sign-in, and audit evidence.",
+      "result": "Repeatable collection workflows produce reviewable CSV, JSON, Markdown, and manifest artifacts.",
+      "scope": "Verified repository scripts and documented references.",
+      "limitations": "Referenced scripts are not treated as executed or authored unless the raw source is present and verified.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/index.html",
+      "collection": "cross-cutting-evidence-governance",
+      "publicPath": "evidence-library/index.html",
+      "size": 6281,
+      "technologyRelationships": [
+        "automation",
+        "entra-id",
+        "tenant-administration"
+      ],
+      "logicalDestination": "content/microsoft-365/automation/documentation/cross-cutting-evidence-governance/evidence-library/index.html",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "f18cfe14df908b13d06eb319c397b5807af817f8c86e62a7b0378f60ddcc103f",
+        "size": 6281,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "f18cfe14df908b13d06eb319c397b5807af817f8c86e62a7b0378f60ddcc103f",
+        "size": 6281,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-cross-cutting-evidence-governance-3e90b32ecc86e8d0",
+      "lab": "microsoft-365",
+      "technology": "automation",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/governance/evidence-claim-governance-standard-2026.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published evidence-claim governance standard covering Microsoft 365 claim boundaries. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "61d957dbd524ffa446ec110197a15a2fd2c09ac454ad92327541004249290bdf",
+      "supportedClaims": [
+        "m365-evidence-governance"
+      ],
+      "skill": "Microsoft Graph and PowerShell evidence automation",
+      "task": "Used read-only scripts and structured exports to capture tenant, identity, policy, application, sign-in, and audit evidence.",
+      "result": "Repeatable collection workflows produce reviewable CSV, JSON, Markdown, and manifest artifacts.",
+      "scope": "Verified repository scripts and documented references.",
+      "limitations": "Referenced scripts are not treated as executed or authored unless the raw source is present and verified.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/governance/evidence-claim-governance-standard-2026.md",
+      "collection": "cross-cutting-evidence-governance",
+      "publicPath": "evidence-library/governance/evidence-claim-governance-standard-2026.md",
+      "size": 940,
+      "technologyRelationships": [
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/automation/documentation/cross-cutting-evidence-governance/evidence-library/governance/evidence-claim-governance-standard-2026.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "61d957dbd524ffa446ec110197a15a2fd2c09ac454ad92327541004249290bdf",
+        "size": 940,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "61d957dbd524ffa446ec110197a15a2fd2c09ac454ad92327541004249290bdf",
+        "size": 940,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-cross-cutting-evidence-governance-42b4ccd7b57387b6",
+      "lab": "microsoft-365",
+      "technology": "automation",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/README.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published evidence-library overview containing Microsoft 365 collection relationships. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "17c538a912d226c6d83c836d29c858af55e5994649972a0971683b4e038d3956",
+      "supportedClaims": [
+        "m365-evidence-governance"
+      ],
+      "skill": "Microsoft Graph and PowerShell evidence automation",
+      "task": "Used read-only scripts and structured exports to capture tenant, identity, policy, application, sign-in, and audit evidence.",
+      "result": "Repeatable collection workflows produce reviewable CSV, JSON, Markdown, and manifest artifacts.",
+      "scope": "Verified repository scripts and documented references.",
+      "limitations": "Referenced scripts are not treated as executed or authored unless the raw source is present and verified.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/README.md",
+      "collection": "cross-cutting-evidence-governance",
+      "publicPath": "evidence-library/README.md",
+      "size": 2532,
+      "technologyRelationships": [
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/automation/documentation/cross-cutting-evidence-governance/evidence-library/README.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "17c538a912d226c6d83c836d29c858af55e5994649972a0971683b4e038d3956",
+        "size": 2532,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "17c538a912d226c6d83c836d29c858af55e5994649972a0971683b4e038d3956",
+        "size": 2532,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-cross-cutting-evidence-governance-480a4f5cab4389dd",
+      "lab": "microsoft-365",
+      "technology": "automation",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/README.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published project collection index containing Microsoft 365 evidence relationships. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "1021a819ebede8b30656872f424af927671d0f2a935054af87a79407ea794cef",
+      "supportedClaims": [
+        "m365-evidence-governance"
+      ],
+      "skill": "Microsoft Graph and PowerShell evidence automation",
+      "task": "Used read-only scripts and structured exports to capture tenant, identity, policy, application, sign-in, and audit evidence.",
+      "result": "Repeatable collection workflows produce reviewable CSV, JSON, Markdown, and manifest artifacts.",
+      "scope": "Verified repository scripts and documented references.",
+      "limitations": "Referenced scripts are not treated as executed or authored unless the raw source is present and verified.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/README.md",
+      "collection": "cross-cutting-evidence-governance",
+      "publicPath": "evidence-library/projects/README.md",
+      "size": 1379,
+      "technologyRelationships": [
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/automation/documentation/cross-cutting-evidence-governance/evidence-library/projects/README.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "1021a819ebede8b30656872f424af927671d0f2a935054af87a79407ea794cef",
+        "size": 1379,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "1021a819ebede8b30656872f424af927671d0f2a935054af87a79407ea794cef",
+        "size": 1379,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-cross-cutting-evidence-governance-8937b669c06a51fb",
+      "lab": "microsoft-365",
+      "technology": "automation",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/skills/README.md",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Published skills collection index containing Microsoft 365 evidence relationships. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "f8cba1b9c6c2f5b892996b848083f23b9adc7077530997dca206259022b51868",
+      "supportedClaims": [
+        "m365-evidence-governance"
+      ],
+      "skill": "Microsoft Graph and PowerShell evidence automation",
+      "task": "Used read-only scripts and structured exports to capture tenant, identity, policy, application, sign-in, and audit evidence.",
+      "result": "Repeatable collection workflows produce reviewable CSV, JSON, Markdown, and manifest artifacts.",
+      "scope": "Verified repository scripts and documented references.",
+      "limitations": "Referenced scripts are not treated as executed or authored unless the raw source is present and verified.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/skills/README.md",
+      "collection": "cross-cutting-evidence-governance",
+      "publicPath": "evidence-library/skills/README.md",
+      "size": 498,
+      "technologyRelationships": [
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/automation/documentation/cross-cutting-evidence-governance/evidence-library/skills/README.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "f8cba1b9c6c2f5b892996b848083f23b9adc7077530997dca206259022b51868",
+        "size": 498,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "f8cba1b9c6c2f5b892996b848083f23b9adc7077530997dca206259022b51868",
+        "size": 498,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
       "id": "m365-cross-cutting-evidence-governance-cfebce8a8912e1e1",
       "lab": "microsoft-365",
       "technology": "automation",
@@ -3500,6 +3759,56 @@
         "algorithm": "sha256",
         "hash": "b363cdf85591fd794b7cd2a27a1e93d0bd5bc3bc7962761bb3f0081056d92b25",
         "size": 12198,
+        "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-cross-cutting-evidence-governance-d8af469e4531d855",
+      "lab": "microsoft-365",
+      "technology": "automation",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence/public/index.html",
+      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Established compatibility index for public Microsoft 365 and Intune evidence routes. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "hashAlgorithm": "sha256",
+      "hash": "0e6f1900a0f3f4403aa4cfbaaaa01e5cb9b8d957cb0a04a65f7e0578e95b9a3c",
+      "supportedClaims": [
+        "m365-evidence-governance"
+      ],
+      "skill": "Microsoft Graph and PowerShell evidence automation",
+      "task": "Used read-only scripts and structured exports to capture tenant, identity, policy, application, sign-in, and audit evidence.",
+      "result": "Repeatable collection workflows produce reviewable CSV, JSON, Markdown, and manifest artifacts.",
+      "scope": "Verified repository scripts and documented references.",
+      "limitations": "Referenced scripts are not treated as executed or authored unless the raw source is present and verified.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence/public/index.html",
+      "collection": "cross-cutting-evidence-governance",
+      "publicPath": "evidence/public/index.html",
+      "size": 6065,
+      "technologyRelationships": [
+        "automation",
+        "intune",
+        "entra-id"
+      ],
+      "logicalDestination": "content/microsoft-365/automation/documentation/cross-cutting-evidence-governance/evidence/public/index.html",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "0e6f1900a0f3f4403aa4cfbaaaa01e5cb9b8d957cb0a04a65f7e0578e95b9a3c",
+        "size": 6065,
+        "verificationMethod": "direct-git-object"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "0e6f1900a0f3f4403aa4cfbaaaa01e5cb9b8d957cb0a04a65f7e0578e95b9a3c",
+        "size": 6065,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {

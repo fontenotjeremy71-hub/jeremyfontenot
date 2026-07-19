@@ -33,6 +33,7 @@ const IDENTIFIER_PATTERNS = [
   {type: 'public-ipv4-identifier', regex: /\b(?:\d{1,3}\.){3}\d{1,3}\b/gm, valueFilter: isPublicIpv4},
   {type: 'public-ipv6-identifier', regex: /\b(?:[0-9A-F]{1,4}:){7}[0-9A-F]{1,4}\b/gim}
 ];
+const IDENTIFIER_FINDING_TYPES = new Set(IDENTIFIER_PATTERNS.map((definition) => definition.type));
 
 const technologyRules = [
   ['intune', /\bintune\b|managed device|endpoint management|compliance policy/i],
@@ -134,6 +135,22 @@ function discoverSourceFiles(outputRoots = GENERATED_OUTPUT_ROOTS) {
   return listTrackedFiles().filter((file) => !outputRoots.some((prefix) => file.startsWith(prefix)));
 }
 
+function discoverCandidateFiles(sourceFiles, sourceManifest) {
+  const candidatePattern = new RegExp(sourceManifest.candidatePathTerms.map((term) => '(?:' + term + ')').join('|'), 'i');
+  const contentRoots = sourceManifest.contentCandidateRoots || [];
+  if (!Array.isArray(contentRoots) || contentRoots.some((prefix) => !prefix || !prefix.endsWith('/') || prefix.includes('..'))) {
+    throw new Error('Microsoft 365 content-candidate roots must be safe repository-relative directory prefixes.');
+  }
+  return [...new Set([
+    ...sourceFiles.filter((file) => candidatePattern.test(file)),
+    ...sourceFiles.filter((file) =>
+      contentRoots.some((prefix) => file.startsWith(prefix)) &&
+      TEXT_EXTENSIONS.has(path.extname(file).toLowerCase()) &&
+      candidatePattern.test(fs.readFileSync(path.join(root, file), 'utf8')),
+    ),
+  ])].sort();
+}
+
 function readGitObject(commit, sourcePath) {
   return execFileSync('git', ['show', commit + ':' + toPosix(sourcePath)], {
     cwd: root,
@@ -203,11 +220,10 @@ function isHardCodedSecretValue(value) {
 function exceptionFor(finding, sourcePath, exceptionManifest, matchedExceptionIds) {
   for (const exception of exceptionManifest.exceptions) {
     if (exception.findingType !== finding.type) continue;
-    if (!exception.scope.some((scope) => sourcePath === scope || sourcePath.startsWith(scope + '/'))) continue;
+    if (!exception.scope.includes(sourcePath)) continue;
     const valueHash = sha256(Buffer.from(finding.value));
     const fingerprintMatch = Array.isArray(exception.valueFingerprints) && exception.valueFingerprints.includes(valueHash);
-    const patternMatch = exception.pattern ? new RegExp(exception.pattern, 'i').test(finding.value) : false;
-    if (fingerprintMatch || patternMatch) {
+    if (fingerprintMatch) {
       if (matchedExceptionIds) matchedExceptionIds.add(exception.id);
       return exception;
     }
@@ -222,22 +238,16 @@ function validateExceptionManifest(exceptionManifest, trackedSet) {
     const context = 'sensitive-data exceptions[' + index + ']';
     if (!exception.id || ids.has(exception.id)) errors.push(context + ': missing or duplicate stable id');
     ids.add(exception.id);
-    if (!exception.findingType) errors.push(context + ': missing findingType');
+    if (!exception.findingType || !IDENTIFIER_FINDING_TYPES.has(exception.findingType)) errors.push(context + ': missing or invalid identifier findingType');
     if (!exception.reason) errors.push(context + ': missing reason');
     if (!exception.reviewerNote) errors.push(context + ': missing reviewerNote');
     if (!Array.isArray(exception.scope) || !exception.scope.length) errors.push(context + ': scope must contain at least one reviewed path');
-    if (!exception.pattern && !Array.isArray(exception.valueFingerprints)) errors.push(context + ': pattern or valueFingerprints is required');
-    if (exception.pattern) {
-      try { new RegExp(exception.pattern, 'i'); } catch { errors.push(context + ': invalid pattern'); }
+    if (exception.pattern) errors.push(context + ': reviewed identifiers must use exact SHA-256 fingerprints');
+    if (!Array.isArray(exception.valueFingerprints) || !exception.valueFingerprints.length || exception.valueFingerprints.some((value) => !/^[0-9a-f]{64}$/.test(value))) {
+      errors.push(context + ': reviewed identifiers require exact SHA-256 fingerprints');
     }
-    if (exception.findingType === 'tenant-or-object-identifier') {
-      if (exception.pattern) errors.push(context + ': tenant/object identifier exceptions must use exact SHA-256 fingerprints');
-      if (!Array.isArray(exception.valueFingerprints) || !exception.valueFingerprints.length || exception.valueFingerprints.some((value) => !/^[0-9a-f]{64}$/.test(value))) {
-        errors.push(context + ': tenant/object identifier exceptions require exact SHA-256 fingerprints');
-      }
-      for (const scope of exception.scope || []) {
-        if (!trackedSet.has(toPosix(scope))) errors.push(context + ': tenant/object identifier scope must be one exact tracked file: ' + scope);
-      }
+    for (const scope of exception.scope || []) {
+      if (!trackedSet.has(toPosix(scope))) errors.push(context + ': reviewed identifier scope must be one exact tracked file: ' + scope);
     }
   }
   if (errors.length) throw new Error(errors.join('\n'));
@@ -423,8 +433,7 @@ function build() {
   }
   const sourceFiles = discoverSourceFiles(outputRoots);
   validateExceptionManifest(exceptionManifest, trackedSet);
-  const candidatePattern = new RegExp(sourceManifest.candidatePathTerms.map((term) => '(?:' + term + ')').join('|'), 'i');
-  const candidates = sourceFiles.filter((file) => candidatePattern.test(file));
+  const candidates = discoverCandidateFiles(sourceFiles, sourceManifest);
   const exclusions = new Map(sourceManifest.reviewedExclusions.map((item) => [toPosix(item.path), item.reason]));
   const approved = new Map();
 
@@ -923,6 +932,7 @@ module.exports = {
   reviewArtifact,
   scanText,
   discoverSourceFiles,
+  discoverCandidateFiles,
   listTrackedFiles,
   technologiesFor,
   logicalDestination,
