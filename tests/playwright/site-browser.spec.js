@@ -484,6 +484,22 @@ test.describe("generated evidence pages", () => {
 });
 
 test.describe("responsive page-level overflow", () => {
+  test("legacy evidence footer links remain visible at 320 pixels", async ({ page }, testInfo) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    const { monitor, response } = await monitoredGoto(page, testInfo, "/evidence-library/index.html");
+    expect(response.status()).toBe(200);
+    await expectNoPageOverflow(page);
+
+    const clippedFooterLinks = await page.locator("footer .footer-links a").evaluateAll((links) => links.flatMap((link) => {
+      const rect = link.getBoundingClientRect();
+      return rect.left < 0 || rect.right > window.innerWidth
+        ? [{ text: link.textContent.trim(), left: rect.left, right: rect.right }]
+        : [];
+    }));
+    expect(clippedFooterLinks).toEqual([]);
+    await monitor.assertClean();
+  });
+
   for (const viewport of responsiveViewports) {
     test(`all sitemap and evidence pages fit ${viewport.name}`, async ({ page }, testInfo) => {
       test.setTimeout(120_000);

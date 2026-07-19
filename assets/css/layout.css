@@ -52,6 +52,8 @@
 .split-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, .34fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
 .content-stack { display: grid; gap: 1rem; }
 .site-footer { margin-top: clamp(2rem, 8vw, 7rem); padding-block: 2rem; border-top: 1px solid var(--line); }
+.footer-links { display: flex; flex-wrap: wrap; gap: .25rem .9rem; }
+.footer-links a { display: inline-flex; min-height: 2.75rem; align-items: center; color: var(--muted-strong); font-size: .86rem; font-weight: 700; }
 .compact-footer-grid { display: grid; grid-template-columns: minmax(18rem, 1.35fr) minmax(20rem, 1fr) auto; gap: 1.5rem; align-items: start; }
 .compact-footer-brand { display: flex; gap: .8rem; align-items: flex-start; }
 .compact-footer-brand img { width: 2.9rem; border-radius: .75rem; }
