@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 11,
+    "manualReviewRequired": 8,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 11
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-adcli-testjoin-2026-07-11.png",
+      "gitBlobSha1": "6fac5ef339a277fa0d66556e1c4abc112ac78633",
+      "size": 8676,
+      "sha256": "33d2133051422474fec8dae44ad1119147b8bb5bdf04ef5dfe9d42eebc4080ba",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-domain-identity-resolution-2026-07-11.png",
+      "gitBlobSha1": "2fc18e17e5c6caa0868b84b630c78ce08bbabdd2",
+      "size": 21112,
+      "sha256": "fd10fba67334c3464e8690d17943b1fe7bdffded017d9e3bb4fa6475904f94dd",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-evidence-checksums.sha256",
+      "gitBlobSha1": "1a5815c3e71e14db0bde8a0afe173c9014d3faaf",
+      "size": 1055,
+      "sha256": "2976ef5b94a986db627bc753945e5474c235ccc931a61bf443106a39edaecbee",
+      "technologies": [
+        "linux",
+        "security"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-kerberos-ticket-2026-07-11.png",
+      "gitBlobSha1": "6684bcbd7bd79c2e3fea1cc641f740b41ecb43a8",
+      "size": 78395,
+      "sha256": "8cf8d144df3eac6dd73a8e5527126e8f124ba22924ff47c3dd667a7a4505220c",
+      "technologies": [
+        "linux",
+        "active-directory"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-realm-list-2026-07-11.png",
+      "gitBlobSha1": "d34d311e26dfe8769f9c6c4ae43a1179cc2c227a",
+      "size": 43133,
+      "sha256": "49c86843d51b17eecac74f697c06e5703de0fba209cf08703f1f61b3026edc85",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-analysis.md",
+      "gitBlobSha1": "416a07076d9631adbdb8515570a3d05dba57fb79",
+      "size": 1303,
+      "sha256": "04f8b2714b596a71d00b64c45084034a5e84372cd8751d4f7047e67d31129624",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-config-check-2026-07-11.png",
+      "gitBlobSha1": "e40a11d5220a655b5925d941c0c7ba9cbee69ed6",
+      "size": 12710,
+      "sha256": "7614aa3363c03f86d7bc2beace6597ffc8d3341d156157a9b210bb57b8e35238",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-domain-status-2026-07-11.png",
+      "gitBlobSha1": "4091523831475a2ed46bb1de37675fd06bd44e88",
+      "size": 77079,
+      "sha256": "b1b416a8ce85e3371d823ab36aa173def2cde3b758b48723fafbedddfa7290f4",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-service-status-2026-07-11.png",
+      "gitBlobSha1": "598223b1357416e88a39b93647ee64d9c805db38",
+      "size": 154396,
+      "sha256": "c2396a155b222de0b6ca119211cb8a83e46ef892f9fc9cc94b820fcc1a019b86",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-validation-2026-07-11.txt",
+      "gitBlobSha1": "cdba9eba9c18dee94cde432ab05b0b1536d91e44",
+      "size": 5991,
+      "sha256": "ea2f52814f5e19ffd51eb0d526671856dde1e67419732bc4c011a2aebf3b97ed",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 11,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "personal-email-or-upn",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 10,
+            "lines": [
+              35,
+              115
+            ],
+            "valueFingerprints": [
+              "0e2708d3507b23d8",
+              "17b54c2b013c482c",
+              "21247ba906aadf2c",
+              "5ea41755740bc789",
+              "964291de9ee8fbea",
+              "a411f50a402f40e9",
+              "d3d3dc8f2e4dc167",
+              "d8ff9997687852c7",
+              "ece25d554bc62512"
+            ]
+          },
+          {
+            "type": "tenant-or-object-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              9
+            ],
+            "valueFingerprints": [
+              "40151e3da90a2d59"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-systemd-failed-units-2026-07-11.png",
+      "gitBlobSha1": "941f6b3abbad0f5c50f35eff6679b6aa226047a5",
+      "size": 9846,
+      "sha256": "429310a952f2b633567ab4445bf322e4fcfe416cd0d14dc804ff2f5b897e27be",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    }
+  ]
+}

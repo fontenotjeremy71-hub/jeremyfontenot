@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/04-remote-management"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 5,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 25
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/04-remote-management/management-workstation-system-info.txt",
+      "gitBlobSha1": "c371f387a0cee8867d7f8fcabb83b373b3e50a6f",
+      "size": 1154,
+      "sha256": "0c3976d5bee1d3cc7c864b1ef8ca180fec382dff97d4e5668c64c1e6b63c520c",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/04-remote-management/powershell-module-inventory.txt",
+      "gitBlobSha1": "625a62715f643d5d38a2e8a2bc1b94936392c985",
+      "size": 989,
+      "sha256": "7e59577bbc9535b53161438c796750a1ad2336bfa3c52117f2a3f9359a1b2196",
+      "technologies": [
+        "windows-server",
+        "automation",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 6,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          },
+          {
+            "type": "public-ipv4-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 5,
+            "lines": [
+              18,
+              19,
+              20,
+              21,
+              23
+            ],
+            "valueFingerprints": [
+              "c72645833dcbf5dc",
+              "f5cc9bdb198119c4"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/04-remote-management/rsat-capabilities.txt",
+      "gitBlobSha1": "cb9876385a42fed83542735073301873c4f4cc0d",
+      "size": 576,
+      "sha256": "d771dd5a43dc4f7ebd7b2b8d3bb4fbe841501169afd145f10616d243c9ec7430",
+      "technologies": [
+        "windows-server"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/04-remote-management/vpn-configuration-summary.txt",
+      "gitBlobSha1": "9dc174aa0414519bc740e7aee927654b67466c78",
+      "size": 54169,
+      "sha256": "09005b246303b61f5f185ad4e0210a0f6233bed354358ea3421112de48947ec3",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 16,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          },
+          {
+            "type": "public-ipv4-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 4,
+            "lines": [
+              1635,
+              1637
+            ],
+            "valueFingerprints": [
+              "1432dfaa268d814b",
+              "23dd54442cb12a1f"
+            ]
+          },
+          {
+            "type": "public-ipv6-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 6,
+            "lines": [
+              33,
+              34,
+              35,
+              1162,
+              1188
+            ],
+            "valueFingerprints": [
+              "1bf7d56c0e596ac3",
+              "1c686409b519de3e"
+            ]
+          },
+          {
+            "type": "tenant-or-object-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 5,
+            "lines": [
+              28,
+              32,
+              50,
+              72,
+              94
+            ],
+            "valueFingerprints": [
+              "0d0d33ddfa2bc6c8",
+              "48d0c28b13643fad",
+              "930550354fd34a02",
+              "dbe5426c865c3588"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/04-remote-management/winrm-validation.txt",
+      "gitBlobSha1": "3f6129710c1c02293c0ce704389acb0ed9694b04",
+      "size": 992,
+      "sha256": "29763cefdd2d413fb8d4912473ee450ae023492a92e7af3a82aaf0a34819334d",
+      "technologies": [
+        "windows-server"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/07-backup-inventory"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 22,
+    "manualReviewRequired": 14,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 0
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/backup-archive-inventory.csv",
+      "gitBlobSha1": "32b1909b47412e21773a5759684e65dfed155152",
+      "size": 565,
+      "sha256": "280b0e42d841771a39cd157c290782ba52726cb7e7b0140494b467e1d96bcf7a",
+      "technologies": [
+        "backup-recovery",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/backup-archive-inventory.txt",
+      "gitBlobSha1": "068af2cea10872b7b46ebfbc4d853c18d9b06b88",
+      "size": 877,
+      "sha256": "a2e85bad8b27bc58892d18e9183050674a6a16e74446599808a64cfa355eb7f0",
+      "technologies": [
+        "backup-recovery",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/backup-checksums.sha256",
+      "gitBlobSha1": "64704c911c894b36e475f9410ee74c9c36baea2f",
+      "size": 101,
+      "sha256": "c1d87be83aaeb3e3e589fe3c6d0ec848bd900eba74ddfb522584dfec1392dbdf",
+      "technologies": [
+        "backup-recovery",
+        "security",
+        "environment"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/backup-evidence-checksums.sha256",
+      "gitBlobSha1": "ef66224a186d1464378ec8bf400479692eb63b34",
+      "size": 2209,
+      "sha256": "77a5456eafbb754d6a91e50c3a45d96bd8f52da0009486312429887e21b81e53",
+      "technologies": [
+        "backup-recovery",
+        "security",
+        "environment"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/backup-integrity-analysis.md",
+      "gitBlobSha1": "0e3d9d063ba981d3abfd88f46fb7219d670ec4b4",
+      "size": 1787,
+      "sha256": "a8742aa7440fb9766a882e635861c4912ea016e22c7a1d395d00559f97756ed5",
+      "technologies": [
+        "backup-recovery",
+        "security",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/backup-job-history.txt",
+      "gitBlobSha1": "1a0cba786d6847329776b6692b1a008fd320e504",
+      "size": 782,
+      "sha256": "5ef61c9482eea939ce830c7dedbe6b81db9b48d29ce6621254dafd4eb64c9f6b",
+      "technologies": [
+        "backup-recovery",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/backup-log-review.txt",
+      "gitBlobSha1": "c0ae2776815768e3bcec93c9f517a7cceed3c75b",
+      "size": 100,
+      "sha256": "35ae0ba4a431bbc3958e40f6275356a6e706b8fa2c951cce0925ee15ab7f7540",
+      "technologies": [
+        "backup-recovery",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-archive-inventory-2026-07-11.png",
+      "gitBlobSha1": "640cd448f67dd9e17ac07413c423664c7d781df8",
+      "size": 41806,
+      "sha256": "86d0595c1355d09a83ef47df909014ec39b4f5d71eef2196490ac4d828fa6f53",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-directory-inventory-2026-07-11.png",
+      "gitBlobSha1": "9febf7b32bc724e3d982614906f40181c93c7057",
+      "size": 139253,
+      "sha256": "9ff90752b79d4da3f6756657bdff3f28207ee7119b111c0e77e45898722a809d",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-failure-2026-07-05.png",
+      "gitBlobSha1": "5e6946895a2b93d954a0dae05885430f082f8ee5",
+      "size": 181006,
+      "sha256": "8f838ffc53f3d4a4cbc125b7f2736f68b945e4e7ec843f1bda0a8c10a1856002",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-integrity-summary-2026-07-11.txt",
+      "gitBlobSha1": "0df863b2d76f7effda31b90b25bdb0e5dc7b067a",
+      "size": 1199,
+      "sha256": "29cecb3b0aa0a28f6b9d03130c816a8b9c41b4e4e27630fbd9a6a0893ddfc23a",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "security",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-job-config-2026-07-11.png",
+      "gitBlobSha1": "a8e9af3a13753e1e093eb3a22adec77c4c846aa6",
+      "size": 29995,
+      "sha256": "1489e9523c939265fd28c5733541115de4ebc74b92e98f7fb4d317b45031dd2a",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-latest-backup-zstd-integrity-2026-07-11.png",
+      "gitBlobSha1": "f443c1ebcbc5a4e334452d56bdc685bd1387bdbe",
+      "size": 47772,
+      "sha256": "c731b5803ae8ab01521c0405ad56e533bd928316503c8c1a1253736f121bf727",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "security",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-storage-status-2026-07-11.png",
+      "gitBlobSha1": "b416a6d16130dfb8520a3eed98e2aa0e1907fb6b",
+      "size": 41806,
+      "sha256": "fdabd6c0e6a029a6ae0805022591aeae211a5be24ff0e26b9a038aa41c272797",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm100-latest-success-log-2026-07-11.png",
+      "gitBlobSha1": "8e28d3377be39ad49efbd0bb3f8c7f98e3a90f07",
+      "size": 118262,
+      "sha256": "0956647a547b39d2efa1ad713514baa84c869d4902c5fcc8fd83e55f690ab053",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm100-vma-verify-2026-07-11.png",
+      "gitBlobSha1": "b1dde882c8b53a8a7d7f70730b834740e458fcf1",
+      "size": 24928,
+      "sha256": "6974e374388241780b36ec23acfa43786cded3a61d42195e5c405dc64ffd9890",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm200-latest-success-log-2026-07-11.png",
+      "gitBlobSha1": "66d310608ca4a972c079673a415115d6c4992294",
+      "size": 109212,
+      "sha256": "9dfb1496eb4f56eac607c8b4cbbf718ba65e274676dd3f2ac309bd0c84f53807",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm200-vma-verify-2026-07-11.png",
+      "gitBlobSha1": "be119f5f9249b0c73dae91a3acd8e8f51515eac7",
+      "size": 24770,
+      "sha256": "a3f35197c6a44a7b4598b56c715e189470941f260d6805d1a7cada65be1a4a62",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm300-latest-success-log-2026-07-11.png",
+      "gitBlobSha1": "b225295143659f33ae367d97cc6b6f4527dc88b3",
+      "size": 112705,
+      "sha256": "fc32d09c06c9e5ce8793cde7c1da060693dd442adc0a3ab74713956e73287ccf",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm300-vma-verify-2026-07-11.png",
+      "gitBlobSha1": "673b512328ff54bf19dbdeffaf6897651df53e68",
+      "size": 24645,
+      "sha256": "53ccd9fa983bb802964bc2dabf3003d3c4e0435ca6f26448b1405649e0caaa2a",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm400-latest-success-log-2026-07-11.png",
+      "gitBlobSha1": "7059069fc250379c2b76f8f7c861e64748d2f1ca",
+      "size": 109050,
+      "sha256": "c6302537b0dfd7c4627388fdc45488c236f21bb040e8240703f48ad26946d191",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm400-vma-verify-2026-07-11.png",
+      "gitBlobSha1": "86502ea7cac024f742804494ac173a416001a08d",
+      "size": 24986,
+      "sha256": "8fc8468150decb058ff0b2b92f80de6496babaeca6b808a81baef1499d2d3def",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    }
+  ]
+}

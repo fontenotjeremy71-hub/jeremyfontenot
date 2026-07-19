@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "jeremyfontenot/JeremyFontenot.github.io",
+  "sourceCommit": "5581bd7bf9c61ff77000ac04aa39fcbb04ed004f",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [],
+    "approvedIndividualFiles": [
+      "active-directory-lab.html",
+      "archive/pre-site-upgrade-20260602/active-directory-lab.html",
+      "archive/pre-site-upgrade-20260602/infrastructure.html",
+      "archive/pre-site-upgrade-20260602/network-segmentation.html",
+      "archive/pre-site-upgrade-20260602/powershell-automation.html",
+      "infrastructure.html",
+      "network-segmentation.html",
+      "powershell-automation.html",
+      "v2/assets/evidence-visuals/home-lab-infrastructure-map.svg"
+    ],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 9,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 0
+  },
+  "records": [
+    {
+      "sourcePath": "active-directory-lab.html",
+      "gitBlobSha1": "7c94fda634f19bc33f8dc7c6df74b628ed840ee0",
+      "size": 1793,
+      "sha256": "6639609f1c3e8d66c5db3dadaa1bcb5eaa9a37568c42c97637c81cfc959284b5",
+      "technologies": [
+        "active-directory"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "archive/pre-site-upgrade-20260602/active-directory-lab.html",
+      "gitBlobSha1": "d3d088aa992b4b7f5ae78605bf4afdfcb4c519b5",
+      "size": 4321,
+      "sha256": "44dddb1ab166f54d91e036ea1abfaf2c883e31e652a77a86a16c4fcddc5dbd52",
+      "technologies": [
+        "backup-recovery",
+        "active-directory"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "archive/pre-site-upgrade-20260602/infrastructure.html",
+      "gitBlobSha1": "f0ae2d2a35bab9fd969a9b671de7323bc05f920d",
+      "size": 4737,
+      "sha256": "9eb8daf6c948fc704ea82258bba849d1545f34529a1e61f7f8b84a7bade12d04",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "archive/pre-site-upgrade-20260602/network-segmentation.html",
+      "gitBlobSha1": "5f72c1bcd2cb34fb7f738330a8c5ad9bacd48f60",
+      "size": 5624,
+      "sha256": "5a60c8aa33725c73bd5c0e270d3c69f177f352e3967e46c7e3a2c5c4555e038b",
+      "technologies": [
+        "backup-recovery",
+        "networking"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "archive/pre-site-upgrade-20260602/powershell-automation.html",
+      "gitBlobSha1": "93f8b301774d2137541bb94b66ff40db341dc1cf",
+      "size": 4438,
+      "sha256": "811cb32e047462f2b5430dcd11d08271daf9612692f25dbac037e0abae7a3420",
+      "technologies": [
+        "backup-recovery",
+        "automation"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "infrastructure.html",
+      "gitBlobSha1": "7c94fda634f19bc33f8dc7c6df74b628ed840ee0",
+      "size": 1793,
+      "sha256": "6639609f1c3e8d66c5db3dadaa1bcb5eaa9a37568c42c97637c81cfc959284b5",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "network-segmentation.html",
+      "gitBlobSha1": "7c94fda634f19bc33f8dc7c6df74b628ed840ee0",
+      "size": 1793,
+      "sha256": "6639609f1c3e8d66c5db3dadaa1bcb5eaa9a37568c42c97637c81cfc959284b5",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "powershell-automation.html",
+      "gitBlobSha1": "7c94fda634f19bc33f8dc7c6df74b628ed840ee0",
+      "size": 1793,
+      "sha256": "6639609f1c3e8d66c5db3dadaa1bcb5eaa9a37568c42c97637c81cfc959284b5",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "v2/assets/evidence-visuals/home-lab-infrastructure-map.svg",
+      "gitBlobSha1": "7d62ec210cfd407d0abad145d9da55a7b0f29a37",
+      "size": 3645,
+      "sha256": "2263fcf035b667b05d70335b242f31882588a6202ffcbb1448d48f5bc9fc1ba3",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/02-network-connectivity"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 6,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 76
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/connectivity-tests.csv",
+      "gitBlobSha1": "8eb611501b6576a44ef77271afcdc88e4b572902",
+      "size": 10436,
+      "sha256": "77bfc7c2e0bbbc8e7b31d4c042301208d0d2f48e49823399836d9e19ddaeb5c9",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/connectivity-tests.txt",
+      "gitBlobSha1": "bd1d152be9bbf56e33877612b27f1e075be84cdc",
+      "size": 101421,
+      "sha256": "c3c989abafdb056ae3085a964f656a103a55eeb1236a53ef25da5648c38184c6",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 63,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "tenant-or-object-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 63,
+            "lines": [
+              22,
+              50,
+              78,
+              106,
+              134,
+              162,
+              190,
+              218,
+              246,
+              274,
+              302,
+              330,
+              358,
+              386,
+              414,
+              442,
+              470,
+              498,
+              526,
+              554,
+              582,
+              610,
+              638,
+              666,
+              694,
+              722,
+              750,
+              778,
+              806,
+              834,
+              862,
+              890,
+              918,
+              946,
+              974,
+              1002,
+              1030,
+              1058,
+              1086,
+              1114,
+              1142,
+              1170,
+              1198,
+              1226,
+              1254,
+              1282,
+              1310,
+              1338,
+              1366,
+              1394
+            ],
+            "valueFingerprints": [
+              "0d0d33ddfa2bc6c8",
+              "48d0c28b13643fad"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/dc01-dns-server-validation.txt",
+      "gitBlobSha1": "dcc6c1bae0275f598aa6b4f3ac4eb641182a6764",
+      "size": 3603,
+      "sha256": "05cf74fadfe4b19ab955322c8bb94d2202d3c79b589a45d22f72a46c3f64a300",
+      "technologies": [
+        "active-directory",
+        "dns-dhcp",
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/dns-validation.txt",
+      "gitBlobSha1": "869089a885a2cf1e91b43402a92c39f87374a1e1",
+      "size": 2203,
+      "sha256": "f28561e0edbc861a83200517d60444b4929c8bd42dc980f22dacd14892536f00",
+      "technologies": [
+        "dns-dhcp",
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/ws01-corrected-connectivity-tests.csv",
+      "gitBlobSha1": "0899eaf35c60af791fae898aba5e3fa937eb9d51",
+      "size": 2022,
+      "sha256": "34a973c9f404799b4beb47c03a3bf5b67a600d2244d7df0816746b438e8bd760",
+      "technologies": [
+        "windows-clients",
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/ws01-corrected-connectivity-tests.txt",
+      "gitBlobSha1": "283717436ab7f64b3be72dd483be51e3f9f7fa52",
+      "size": 19250,
+      "sha256": "fed2fc6a53fe1d21b5f8647d7c72cf816aad977e6d48b679386e0964b3b49761",
+      "technologies": [
+        "windows-clients",
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 12,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "tenant-or-object-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 12,
+            "lines": [
+              20,
+              47,
+              74,
+              101,
+              128,
+              155,
+              182,
+              209,
+              236,
+              263,
+              290,
+              317
+            ],
+            "valueFingerprints": [
+              "0d0d33ddfa2bc6c8"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

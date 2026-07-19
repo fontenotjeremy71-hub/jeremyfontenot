@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "docs"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": [
+      {
+        "path": "docs/.gitkeep",
+        "reason": "Empty-directory placeholder with no evidence content."
+      },
+      {
+        "path": "docs/architecture/.gitkeep",
+        "reason": "Empty-directory placeholder with no evidence content."
+      },
+      {
+        "path": "docs/change-plans/.gitkeep",
+        "reason": "Empty-directory placeholder with no evidence content."
+      },
+      {
+        "path": "docs/recovery/.gitkeep",
+        "reason": "Empty-directory placeholder with no evidence content."
+      },
+      {
+        "path": "docs/runbooks/.gitkeep",
+        "reason": "Empty-directory placeholder with no evidence content."
+      }
+    ]
+  },
+  "totals": {
+    "artifacts": 19,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 11
+  },
+  "records": [
+    {
+      "sourcePath": "docs/architecture/home-lab-operations-management-architecture.md",
+      "gitBlobSha1": "1067238e093c5ad992ffe8d25c87e08adf5e40f5",
+      "size": 9824,
+      "sha256": "1796f396702d3e40a5f9e986ff732b059feba32b15815f1013e3eedd415bd3be",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 2,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 2,
+            "lines": [
+              62,
+              70
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "docs/architecture/home-lab-source-of-truth.md",
+      "gitBlobSha1": "2977d9fcb65f94b039ad88101afa5ccece39e943",
+      "size": 4314,
+      "sha256": "56820864106ac7d35d3b20aa6aa26c930750a56214e481d60e827d8d394475e2",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/architecture/linux01-system-profile.md",
+      "gitBlobSha1": "158885646a57e7ca388a90dc722ee30350c40b49",
+      "size": 4515,
+      "sha256": "c77ef9e5a8e432c4aff459042202b3095485315960b3afab88ffbb8253a0b4c8",
+      "technologies": [
+        "linux",
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/architecture/read-only-inventory-and-validation-architecture.md",
+      "gitBlobSha1": "244a4b96d12ce0be0110cb9f7fcdd56fc1107b57",
+      "size": 3271,
+      "sha256": "86a890cebdeba27a3c25d45cea70c677bbeca369cc4a2771dd08bf352b4601ab",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/change-plans/centralized-logging-expansion.md",
+      "gitBlobSha1": "de6881ad9653057c2a3a83fd5a13d060a2046f95",
+      "size": 8413,
+      "sha256": "41fe1a338eb3b110f37751af2992dd166b628294b835789e1910ec9b3ab08627",
+      "technologies": [
+        "monitoring-logging"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/change-plans/claude-proxmox-api-operations.md",
+      "gitBlobSha1": "e71ef285626080299c1514a79712f75e4e852ddd",
+      "size": 5228,
+      "sha256": "0ca2abc7b0a389d8d7cf752008d78156d54d1be8e1bf2ef6c53cbb55818badbf",
+      "technologies": [
+        "proxmox"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              15
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "docs/change-plans/read-only-connectivity-baseline.md",
+      "gitBlobSha1": "8d7a655d35428913e3903e81125f128ecc15aa14",
+      "size": 6348,
+      "sha256": "6cfa750a7693f1153ddf70dc733e5ba0bd94400b1bdc27830a1567009900360e",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/change-plans/read-only-inventory-validation.md",
+      "gitBlobSha1": "9461acfbfa33c35d2db9fef85916821556c04b78",
+      "size": 3657,
+      "sha256": "9f7fe7716859545aac201d6a5d62bac77cfe16b4ec26dc7892f8c0b9c2ffb341",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              15
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "docs/change-plans/repository-validation-baseline.md",
+      "gitBlobSha1": "19aba966cd83af89e81423ae2743715f0f4f5729",
+      "size": 1755,
+      "sha256": "a42e484a600804afffd083908dc6a134e8d83ec4035492175e014c4a186a83d1",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              16
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "docs/recovery/backup-and-restore-validation.md",
+      "gitBlobSha1": "de007629b6d86889f45516ba48a358af13be4997",
+      "size": 2409,
+      "sha256": "cc8ded8bcfdb6213091333333852d8de27113b3988c34397068fb74206b1cc01",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/dc01-ws01-local-collection.md",
+      "gitBlobSha1": "aedbeeca0f310d0b17be155ce59a1df575df575a",
+      "size": 1510,
+      "sha256": "17bd193dc4b03c27c2fa4048ca1d34e8e8d9fa52a13d83456e7fceb4e22d33ca",
+      "technologies": [
+        "active-directory",
+        "windows-clients"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/firewall-policy-and-service-connectivity-validation.md",
+      "gitBlobSha1": "62c9db0a7aed6ff1fe71ac0af8ee15872d06a5c7",
+      "size": 6242,
+      "sha256": "078499a8c18248ad2a4b88cab4136c8f2168e8b91920b7ab08a56ef9a8a49b2c",
+      "technologies": [
+        "pfsense",
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/linux01-read-only-inventory.md",
+      "gitBlobSha1": "4b71b720a98e8549b49f4d5053c4d3c81fe5111c",
+      "size": 2578,
+      "sha256": "101283b4555a754b96d1a8a09d0910cc4ac6d31fe64ccb23bb13be670e161666",
+      "technologies": [
+        "linux",
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/management-workstation-rsat-module-standardization.md",
+      "gitBlobSha1": "7ef07085e5628f0ef68439c7b55f9e5bbb2a6698",
+      "size": 5107,
+      "sha256": "6f036c0f945dbb17b955f5796b3da18c3d34755badb85aaab201ee99d3516c27",
+      "technologies": [
+        "windows-server"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/pfsense-configuration-and-policy-export.md",
+      "gitBlobSha1": "3fe433917cb12191f5df469e763c48d36635ae64",
+      "size": 5553,
+      "sha256": "5c1a3e811140d7bd8f7819a025e3dfd4c16778825cc77341b916d9cd5e2298df",
+      "technologies": [
+        "pfsense"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/read-only-baseline.md",
+      "gitBlobSha1": "688d8a52cb710464453a36e59678a1b8b715dd00",
+      "size": 3501,
+      "sha256": "62e415bf9ce4b23e7d654b5b2aa4244d7c00046e8a4754ecf1aa9469e986b60e",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/read-only-inventory.md",
+      "gitBlobSha1": "6b0c4bd2816b390ce1af2756ca8bfa666e30b54e",
+      "size": 3825,
+      "sha256": "262a0f007784a449a4a3ee50f075f28f46306951476108d6a70ce73f6a9e107d",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 6,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 6,
+            "lines": [
+              35,
+              42,
+              49,
+              59,
+              66,
+              73
+            ],
+            "valueFingerprints": [
+              "4d0ab4b61ca5fdc6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/recurring-restore-assurance.md",
+      "gitBlobSha1": "f605c155eb8181819f7024f8cc7e4b332b3b0c36",
+      "size": 4662,
+      "sha256": "588a308a9a5e72483a0f0d82a2df6436b292bccfa228f46135926b4238d9469a",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "docs/runbooks/repository-validation.md",
+      "gitBlobSha1": "d80132b32396ffcdbaf752aac542e7da3f3994ae",
+      "size": 1473,
+      "sha256": "57dabb0e006c8be5d8bc6f35c06a4689b81727d60088780c24fdae94e61af044",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

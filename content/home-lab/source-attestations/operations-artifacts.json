@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "artifacts"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 9,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 63
+  },
+  "records": [
+    {
+      "sourcePath": "artifacts/target-local-collection/DC01/Invoke-DC01LocalReadOnlyCollection.ps1",
+      "gitBlobSha1": "738988cd30ec443633aca37c6ca97db70dbb8f8b",
+      "size": 8877,
+      "sha256": "8b36668dbac021eb3d90169e993b599b2631bc5a57f07de187556f14c87e60d9",
+      "technologies": [
+        "active-directory",
+        "automation"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/DC01/README.md",
+      "gitBlobSha1": "c5b585a3fd23cff5d433e68b30d8fbbb814e7ed3",
+      "size": 2031,
+      "sha256": "b6c4afccd55bcd6e0a4adc0889d31d25dbf1c821bd6747963b88314af8ac0b53",
+      "technologies": [
+        "active-directory"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 4,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 4,
+            "lines": [
+              19,
+              26,
+              32,
+              48
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554",
+              "4d0ab4b61ca5fdc6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/Linux01/Get-Linux01SssdDiagnostic.sh",
+      "gitBlobSha1": "a4b0d9205928266fddf07ec0bfd5f599abe08d41",
+      "size": 6469,
+      "sha256": "0751d10625a8114a711786b654ed17c8c969b326c7e74e84e4109e052585df1e",
+      "technologies": [
+        "linux",
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 3,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "personal-email-or-upn",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 3,
+            "lines": [
+              93,
+              94,
+              95
+            ],
+            "valueFingerprints": [
+              "0e2708d3507b23d8",
+              "17b54c2b013c482c"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/Linux01/Invoke-Linux01LocalReadOnlyCollection.sh",
+      "gitBlobSha1": "2ff3b4f1266dd03ac86487ffa1cb256f96da0aae",
+      "size": 5556,
+      "sha256": "145eba4444c5a9b4dc6e1837d3e23aa5c77b3873669fee7f8f69568d94616cc1",
+      "technologies": [
+        "linux",
+        "automation"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "personal-email-or-upn",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              74
+            ],
+            "valueFingerprints": [
+              "0e2708d3507b23d8"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/Linux01/linux01-sssd-diagnostic-20260626-094322.json",
+      "gitBlobSha1": "fd2fd7ddbff1cf4f65b4328b4d556ab8ef5ebafb",
+      "size": 160252,
+      "sha256": "3cad0fb73202d777d41dee40d6f4d19d4019b9ad30552b37970b55a5ca5ab3bb",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 25,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "personal-email-or-upn",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 25,
+            "lines": [
+              10,
+              89,
+              201,
+              208,
+              215,
+              222,
+              284,
+              285,
+              291,
+              292,
+              298,
+              299,
+              320
+            ],
+            "valueFingerprints": [
+              "0e2708d3507b23d8",
+              "17b54c2b013c482c",
+              "21247ba906aadf2c",
+              "3c1d753c6e83604f",
+              "433342e0d13a2e24",
+              "5ea41755740bc789",
+              "a55378d44270600d",
+              "d3d3dc8f2e4dc167",
+              "d8ff9997687852c7",
+              "db67bb82ef69aa30",
+              "ece25d554bc62512"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/Linux01/linux01-sssd-diagnostic-20260626-110159.json",
+      "gitBlobSha1": "ed36686d5d58f82105f686686f57d24c806bb07d",
+      "size": 157115,
+      "sha256": "fd55604bfb94487b86fbf631703fa995b9726471689385ccb2d277492aa7cbee",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 25,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "personal-email-or-upn",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 25,
+            "lines": [
+              10,
+              89,
+              201,
+              208,
+              215,
+              222,
+              284,
+              285,
+              291,
+              292,
+              298,
+              299,
+              320
+            ],
+            "valueFingerprints": [
+              "0e2708d3507b23d8",
+              "17b54c2b013c482c",
+              "21247ba906aadf2c",
+              "3c1d753c6e83604f",
+              "433342e0d13a2e24",
+              "5ea41755740bc789",
+              "a55378d44270600d",
+              "d3d3dc8f2e4dc167",
+              "d8ff9997687852c7",
+              "db67bb82ef69aa30",
+              "ece25d554bc62512"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/Linux01/README.md",
+      "gitBlobSha1": "6197c79045bf72cf357b06c4ea1c930a26504918",
+      "size": 2246,
+      "sha256": "8a8d944be089943c9cd535315449409e89f541916edd3fe9aa5aff3f34dbef99",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              43
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/WS01/Invoke-WS01LocalReadOnlyCollection.ps1",
+      "gitBlobSha1": "9a7a370eb22be87cec1771ba92a0e4a6ecd312dd",
+      "size": 6978,
+      "sha256": "bd03ca22b01ae0057f7677457c14bd8c5aabf1b7a350036f38ac89e54473fef0",
+      "technologies": [
+        "windows-clients",
+        "automation"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "artifacts/target-local-collection/WS01/README.md",
+      "gitBlobSha1": "9c10618c0e32f838ded098d2e88f729876766f23",
+      "size": 2154,
+      "sha256": "10419c815939368c66fc8912873af73d676619645ae2b088fab3c1f496d26b3c",
+      "technologies": [
+        "windows-clients"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 4,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 4,
+            "lines": [
+              19,
+              26,
+              32,
+              48
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554",
+              "4d0ab4b61ca5fdc6"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

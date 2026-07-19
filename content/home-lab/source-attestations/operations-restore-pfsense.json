@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/08-restore-validation"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": "pfsense",
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 15,
+    "manualReviewRequired": 11,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 0
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/pfsense-boot-validation.txt",
+      "gitBlobSha1": "bdc191bf43985135248baff2cee9a801b7e950fe",
+      "size": 1722,
+      "sha256": "c943ea0b514290df066e87f0cc0a53ab218b3d66bb502a9ae7d8317fd069022f",
+      "technologies": [
+        "backup-recovery",
+        "pfsense"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/pfsense-isolated-restore-review.md",
+      "gitBlobSha1": "a05199679f25affac16964172eb5278acf75a5e2",
+      "size": 7706,
+      "sha256": "07ff6549c93e7f89d19476572a6e47fb72a9180c98a82f472a348894d2eb18b8",
+      "technologies": [
+        "backup-recovery",
+        "pfsense"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/pfsense-proxmox-command-transcript-2026-07-12.txt",
+      "gitBlobSha1": "734f725619130df35c424bc397cd75e83871f6d5",
+      "size": 7353,
+      "sha256": "6e58370df6a325699be669589de86d136d030784a9edbd3195b57a23493031de",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox",
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/pfsense-restore-log.txt",
+      "gitBlobSha1": "a742054b9498c8fe505877c7f18ab3e2061c1488",
+      "size": 4996,
+      "sha256": "9846480996272a4d1ba63fc21fcff9aa67d1aa5d232089909d002e8067f0a339",
+      "technologies": [
+        "backup-recovery",
+        "pfsense"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-clean-shutdown-2026-07-12.png",
+      "gitBlobSha1": "175a94f56157bad89a821e60b6cb4aed504dd0d0",
+      "size": 165597,
+      "sha256": "559344ca22e981ec3affa04e586b9d843098e501c7d50f40b32379240f6a4e54",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-config-metadata-2026-07-12.png",
+      "gitBlobSha1": "23b39fa1517b0f6eb5bb30d4910e8d53e90148b1",
+      "size": 226365,
+      "sha256": "7345efef7fe0bfae90dd4790948cc198a4f885e5bd92f7643f1c4646f64f7f0d",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-console-boot-2026-07-12.png",
+      "gitBlobSha1": "9db074a3fffed0383ec251cfe92c33d2b221b265",
+      "size": 183533,
+      "sha256": "e9d4878e933ffe9da12252755e6534ccf249aaf56bb3e6c8a20f2d7da1b4f4ac",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-disk-validation-2026-07-12.png",
+      "gitBlobSha1": "dec77f665aeecff3dad170d00aae00973eb08458",
+      "size": 206126,
+      "sha256": "4b2bcdb9aeb370a519ab6d6c7d25a1eba702363c6a48a4a4223afc0b6dded027",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-error-review-2026-07-12.png",
+      "gitBlobSha1": "920875e3891f84c51e14709f91f3caaae11f9904",
+      "size": 235519,
+      "sha256": "335688f654c41360f7713bb82a2d5d6e319164607e50941bf0f27f4ce0dbbf3b",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-final-cleanup-verification-2026-07-12.png",
+      "gitBlobSha1": "6a01c735e0ea3ae28897d664285a3619c2ce5448",
+      "size": 115167,
+      "sha256": "cbd250cae6b2e79dc5c14cc54fe813810b577949eb14b668e8fb86b23e8e6f1e",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-interface-validation-2026-07-12.png",
+      "gitBlobSha1": "90a08f47c2eca7b122a3db2734396677022e7ff7",
+      "size": 213576,
+      "sha256": "6d3a9bd78afe3f1adfe027d689d60bee42ad17a67c2421f36f9511dd72ab7fd3",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-log-validation-2026-07-12.png",
+      "gitBlobSha1": "3b0905c607581de392f68ee87d03fde6ce1d0f6b",
+      "size": 239249,
+      "sha256": "189beb4ea540a4eb4f0e3f7afa9336add1e176054fe9da650350c1c4fdfc2cc1",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-running-2026-07-12.png",
+      "gitBlobSha1": "d3502b99df023dde161239072c82b5f5b6d27f87",
+      "size": 179329,
+      "sha256": "e1447d889c2ce95330cad0b32c3abd944a5b50b6b4fe973f7b7a4a17127b96a8",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-service-validation-2026-07-12.png",
+      "gitBlobSha1": "3d4394d1f626f520ebd235c7676b546982abcc55",
+      "size": 222962,
+      "sha256": "3745833c98312faff6712d94e014abb5921e565ed5d8a164796e3b8a951302a0",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-system-validation-2026-07-12.png",
+      "gitBlobSha1": "8cf78b3581300253ac48a92d5db2358d209c153b",
+      "size": 218038,
+      "sha256": "2135e3f0c6db6983fda2dbf03f49f27b72b0a146cc640d330fee3a538368c5b2",
+      "technologies": [
+        "backup-recovery",
+        "pfsense",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    }
+  ]
+}

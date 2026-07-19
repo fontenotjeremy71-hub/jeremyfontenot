@@ -1,0 +1,403 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/08-restore-validation"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": "ws01",
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 20,
+    "manualReviewRequired": 17,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 0
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-clean-shutdown-2026-07-11.png",
+      "gitBlobSha1": "ff3144c4b77ae5650e55dd7af1e64283068cd625",
+      "size": 379756,
+      "sha256": "36d88c2435eca63768d294bcd724aef1c492d97bab4a44f273a0268034a8cc53",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-cleanup-2026-07-11.png",
+      "gitBlobSha1": "8008429e7e13ea6fecce6490cb225e799b83844f",
+      "size": 283183,
+      "sha256": "c72e801220211906a142b22fa9e317ff2803d26fa31a385d9543359b6976183e",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-complete-2026-07-11.png",
+      "gitBlobSha1": "483dbf7026a2e8e861765e63ca7666b9b2cd123f",
+      "size": 1096998,
+      "sha256": "8c41529d3e0cfda16984dfd4f419d298dec823b1267e639b80f43ad265b2093b",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-console-boot-2026-07-11.png",
+      "gitBlobSha1": "ff40d1c9b8e1802e177975235ae128c4d62f72d3",
+      "size": 641859,
+      "sha256": "03e01444cb586ddb87eb2337672a9cb5599093351d3d5469726cebde814d9d2d",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-failed-2026-07-11.png",
+      "gitBlobSha1": "4c89c3f82182375f67b57be9750239c8ce0138df",
+      "size": 1088514,
+      "sha256": "0a562ad7d8d86bd04805c89ff6552696166e3d3cb9d6207fe19490c27e763af7",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-failed-cleanup-2026-07-11.png",
+      "gitBlobSha1": "75b4f6d203ff83e865f37d94292822f9e629f1a1",
+      "size": 312832,
+      "sha256": "905a1708d34dd042adedc046c5a5a31fcb91a2009ad93e0e8c37d563222b84ac",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-final-cleanup-verification-2026-07-11.png",
+      "gitBlobSha1": "e461b5c1d731925b65420c835f50dad82c71bfbf",
+      "size": 313423,
+      "sha256": "9fce134883b7f85359d7ab2250bb503f6e582761f09ba5b324ad8bb14b4fc3a0",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-precheck-2026-07-11.png",
+      "gitBlobSha1": "b2a4ad0b27f62e8107427090898c235823916395",
+      "size": 298855,
+      "sha256": "98d0849d6ae992652b94bd85dc825a3b879ec6fef6fdd2c4a3ee1d0a901a0e0c",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-running-2026-07-11.png",
+      "gitBlobSha1": "a51783e27f5bf1af65901a0ac45f368076deffd0",
+      "size": 286934,
+      "sha256": "c7e0291f0488967679048fe29ae8e0bf2c8fc230326ff146c1c6924062653101",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-safety-verification-2026-07-11.png",
+      "gitBlobSha1": "373f54f90a84ea4bc5215a335729668cec54a0b9",
+      "size": 315801,
+      "sha256": "3ec8f6f07ec79a7ee23c2b9aa8aceb06c341c1fd1507c2e3a8231d713e806dcf",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-start-2026-07-11.png",
+      "gitBlobSha1": "2e8928a67dc03a54a0d68fa1eb2c0d406821e69f",
+      "size": 283062,
+      "sha256": "cd8cd067ec671bd57781c2dcda39f9007fc92718f1d5e0b2fbf6220e44734bf4",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-windows-login-2026-07-11.png",
+      "gitBlobSha1": "49db4e0c1afe41a359f60ee85439c34223feaed6",
+      "size": 641859,
+      "sha256": "e52ddbbecb9fe50d60bad5b28f7a293a9bfd478ac9a0191b22eadbfe7c316ddc",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-network-isolation-command-2026-07-11.png",
+      "gitBlobSha1": "45cdbf7de06b5947a7587bbd8cc4dc509a0c9250",
+      "size": 320278,
+      "sha256": "ddb690c2ab6cf9db971f7a263d4abfb42c293af32ef85e80a8c985eaf438120f",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox",
+        "networking",
+        "security"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-restore-config-metadata-2026-07-11.png",
+      "gitBlobSha1": "0d1a66fd7d25ba0d06a2e5a66a885c4776c83009",
+      "size": 313786,
+      "sha256": "c3ec7bc3a37dc802d239714a42791a2c2060dbf8442592c585f05878fe5b31ef",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-restore-source-archive-2026-07-11.png",
+      "gitBlobSha1": "35fe17469da4654262f42b15ac349d19d5d322d0",
+      "size": 304748,
+      "sha256": "c338534aeef407aa7412706ae4f1fcf764eec61836296ed765c1d8ea9486bc2f",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-restored-config-before-network-isolation-2026-07-11.png",
+      "gitBlobSha1": "8c7884a12b70e2bf1a329f7f59b9968598aa9e01",
+      "size": 304587,
+      "sha256": "7f267a975acbc36a0ae0c6e1b3fb8604903ed08c6702f33fbb98250c516ea892",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox",
+        "networking",
+        "security"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-temp-vmid-301-availability-2026-07-11.png",
+      "gitBlobSha1": "35046e5e9ee51373c61b4397470196c5bf4b6733",
+      "size": 257518,
+      "sha256": "4550cfd211b5215633fa012aff05b4f992284fde4ed8d3db6fae33baa8cb6a88",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/ws01-boot-validation.txt",
+      "gitBlobSha1": "3f9a18190efc0a223d1e382ac64bf803e266675c",
+      "size": 789,
+      "sha256": "af3c77b7997b8b1167cce8b7e83ecf91add97d699051b172aaf61355cae36e6e",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/ws01-isolated-restore-review.md",
+      "gitBlobSha1": "ed6147453d991bf129d3512f67084268f2887398",
+      "size": 4767,
+      "sha256": "29311989c51d4051ac597bb6a94edf2a9484c8645d781f4300c93d87e2d39de9",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/ws01-restore-log.txt",
+      "gitBlobSha1": "489b99bafde8f90d8ebfc4b81a08c02b48e4572d",
+      "size": 1981,
+      "sha256": "e86bc9424c71f9886d43f31dab81ba7dd12b19adf7abcc9f08989f61669af952",
+      "technologies": [
+        "backup-recovery",
+        "windows-clients"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

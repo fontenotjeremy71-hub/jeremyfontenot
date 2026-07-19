@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [],
+    "approvedIndividualFiles": [
+      "README.md"
+    ],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 1,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 0
+  },
+  "records": [
+    {
+      "sourcePath": "README.md",
+      "gitBlobSha1": "37d3e4572e0e35f5346e7c544ef46e2b0ea0e0d7",
+      "size": 6295,
+      "sha256": "1116147a3d59a674269eaea2f14970bfc3b7d4573e22b94e591a7c9174ed93d7",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

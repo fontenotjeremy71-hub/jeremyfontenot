@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/01-proxmox"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 8,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 1
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/backup-job-config.txt",
+      "gitBlobSha1": "1a0cba786d6847329776b6692b1a008fd320e504",
+      "size": 782,
+      "sha256": "5ef61c9482eea939ce830c7dedbe6b81db9b48d29ce6621254dafd4eb64c9f6b",
+      "technologies": [
+        "backup-recovery",
+        "proxmox"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/proxmox-https-validation.txt",
+      "gitBlobSha1": "a18925ff9513f88514053742d356cea6452c90c4",
+      "size": 731,
+      "sha256": "2b3e2ce187f9599a4b2b3d92b23ea00834121d56efd461e2df66a5d72a5c01ee",
+      "technologies": [
+        "proxmox"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/proxmox-network-inventory.txt",
+      "gitBlobSha1": "a31f53ceebcf7fcc580d50f4f78ac0c5334ac263",
+      "size": 573,
+      "sha256": "e62875ed0a1b9dd8380d30f07d00f4de725dbfca61351d460e29ab96b7ebe8a8",
+      "technologies": [
+        "proxmox",
+        "networking",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/proxmox-node-health.txt",
+      "gitBlobSha1": "d7a70c4cc59395e436b266cb8c0d94a7750c804c",
+      "size": 969,
+      "sha256": "80aa127ee6553c670d69d7785a9450a06701f8eabc2a4dee6445755f2cda8153",
+      "technologies": [
+        "proxmox"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/proxmox-version.txt",
+      "gitBlobSha1": "8834a18e1956a537ef57c73a5aaf24978ea04709",
+      "size": 630,
+      "sha256": "6b77aaf4a5287d05972ef2fe67fb9786010cdaaf073371cce01c3c75e89e114f",
+      "technologies": [
+        "proxmox"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/storage-status.txt",
+      "gitBlobSha1": "3f886050bd8da41866a338f9921eec40b0f2f1ed",
+      "size": 867,
+      "sha256": "50a57e3e40b543a0d1086be4b0099a8ba04753e5ae1fa29b562752e059919e56",
+      "technologies": [
+        "proxmox"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/vm-inventory.csv",
+      "gitBlobSha1": "9dd934965480fa11f137564d984457d667a506fa",
+      "size": 582,
+      "sha256": "ef7219b73faa7e24aadec0f1de4de960c041c0735c56cbee8c881ff4fbdbe577",
+      "technologies": [
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/01-proxmox/vm-inventory.txt",
+      "gitBlobSha1": "3b12e05f2ce9b78e3ff8c6c548ed7cbcbd4ef6ed",
+      "size": 984,
+      "sha256": "90cf5c40942d3d947554bfe10f9124579d5b45e39cb112d83e2d92274139ba34",
+      "technologies": [
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

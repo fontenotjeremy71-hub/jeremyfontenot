@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/00-session-metadata"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 4,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 23
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/git-baseline.txt",
+      "gitBlobSha1": "2fef9242b75dfa47035a118a84dc17be600cfad0",
+      "size": 841,
+      "sha256": "463c56ddf87f590c8a31c127169ea52ae7affb9432be707ab728069a6f456188",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/network-baseline.txt",
+      "gitBlobSha1": "40bf8fd8a901e3ba40f28eca72d6b4d083a8ce01",
+      "size": 56839,
+      "sha256": "fdc328df1fc8042389312ac5103e83a5d4fe0ffabf6a4f0276f9019d2fd51a7f",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 18,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          },
+          {
+            "type": "public-ipv4-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 4,
+            "lines": [
+              1686,
+              1688
+            ],
+            "valueFingerprints": [
+              "1432dfaa268d814b",
+              "23dd54442cb12a1f"
+            ]
+          },
+          {
+            "type": "public-ipv6-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 8,
+            "lines": [
+              33,
+              34,
+              35,
+              1162,
+              1188,
+              1345,
+              1347
+            ],
+            "valueFingerprints": [
+              "1bf7d56c0e596ac3",
+              "1c686409b519de3e"
+            ]
+          },
+          {
+            "type": "tenant-or-object-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 5,
+            "lines": [
+              28,
+              32,
+              50,
+              72,
+              94
+            ],
+            "valueFingerprints": [
+              "0d0d33ddfa2bc6c8",
+              "48d0c28b13643fad",
+              "930550354fd34a02",
+              "dbe5426c865c3588"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/session-metadata.txt",
+      "gitBlobSha1": "a149fb6555deeb90c369b071f3c79e5a8945cb8e",
+      "size": 1086,
+      "sha256": "3d710a203225d9779ddf0bf1f9faa3fa04414d7e9f8ed683880fd970e73fcce4",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 3,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 3,
+            "lines": [
+              7,
+              30,
+              31
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/tool-versions.txt",
+      "gitBlobSha1": "8ec7e561800fd47dbfea19158b406b242d304580",
+      "size": 973,
+      "sha256": "6acda558a95c53f699c5ff37aaf85b7090cf538949852f4d332f87d1644384b0",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
