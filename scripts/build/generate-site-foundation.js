@@ -189,7 +189,7 @@ function renderTechnologyPage(taxonomy) {
     headline,
     summary: taxonomy.summary,
     actions: [
-      {label: 'Review systems skills', href: '/systems-skills/', style: 'primary'},
+      {label: taxonomy.platform === 'microsoft-365' ? 'Open Microsoft 365 catalog' : 'Open Home Lab catalog', href: taxonomy.platform === 'microsoft-365' ? '/microsoft-365/evidence-catalog.html' : '/home-lab/evidence-catalog.html', style: 'primary'},
       {label: 'Open job readiness', href: '/systems-administration.html', style: 'default'},
       {label: 'Inspect evidence', href: '/evidence/', style: 'text'}
     ],

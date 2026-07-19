@@ -16,6 +16,34 @@
       "reason": "The operations proof page remains available as supporting detail."
     },
     {
+      "legacyRoute": "/active-directory-lab.html",
+      "targetRoute": "/home-lab/evidence-catalog.html#active-directory",
+      "strategy": "compatibility-page",
+      "status": "validated",
+      "reason": "The original portfolio route is retained through an attested presentation derivative with bounded Active Directory context."
+    },
+    {
+      "legacyRoute": "/infrastructure.html",
+      "targetRoute": "/home-lab/evidence-catalog.html#environment",
+      "strategy": "compatibility-page",
+      "status": "validated",
+      "reason": "The original portfolio route is retained through an attested presentation derivative with bounded infrastructure context."
+    },
+    {
+      "legacyRoute": "/network-segmentation.html",
+      "targetRoute": "/home-lab/evidence-catalog.html#networking",
+      "strategy": "compatibility-page",
+      "status": "validated",
+      "reason": "The original portfolio route is retained through an attested presentation derivative with bounded network-segmentation context."
+    },
+    {
+      "legacyRoute": "/powershell-automation.html",
+      "targetRoute": "/home-lab/evidence-catalog.html#automation",
+      "strategy": "compatibility-page",
+      "status": "validated",
+      "reason": "The original portfolio route is retained through an attested presentation derivative with bounded automation context."
+    },
+    {
       "legacyRoute": "/proof.html",
       "targetRoute": "/evidence/",
       "strategy": "retained-route",

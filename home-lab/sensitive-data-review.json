@@ -1,0 +1,3173 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "highSeveritySecretMaterial": "build-failing",
+    "publicIdentifiers": "exact-file reviewed exception required",
+    "sourceReferenceIdentifiers": "reported without clear values",
+    "binaryInspection": "manual review required; OCR not used",
+    "valuesInReport": "redacted; stable fingerprints only"
+  },
+  "summary": {
+    "artifactsReviewed": 439,
+    "textArtifactsInspected": 299,
+    "manualReviewRequired": 140,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 323,
+    "unresolvedPublicIdentifierFindings": 0
+  },
+  "reviewedExceptions": [
+    {
+      "id": "home-lab-reviewed-a7c62545de3bab9f",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/automation/provisioning-script-evidence.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-e7c27a50914ca504",
+      "findingType": "public-ipv4-identifier",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/network/firewall-rule-validation-report-2026.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-428abf96ab031204",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/README.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-075a8b080d206deb",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-3df5da8613f53e1e",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-03f3f2c69123ccc8",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-e82f2b212f70090f",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-fe460bbbb02428f1",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-584bc1f76ab5ff6b",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-dc26ce85237a33b3",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-40c0ef405a497a8b",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-5d70243c10ce2adf",
+      "findingType": "local-user-profile-identifier",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-b29899915f4cfcaa",
+      "findingType": "local-user-profile-identifier",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-source-reconciliation.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-a594148044264c6c",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-8b1ffadb86bb35fa",
+      "findingType": "local-user-profile-identifier",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/redaction-log.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-f6f1c9eb6c4ac561",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-ad-integration-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-1470c475697179e6",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-dns-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-1b537dd05e3271e5",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-kerberos-validation-sanitized.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-88b75073c40c947f",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-maintenance-agent-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-c43905762770eba1",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-security-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-7f12d8746c913315",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-storage-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-c046dd3f8ce511be",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-0cfa1e41bb379c66",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/scripts/powershell-automation-provisioning-script-v1.ps1"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-c0264365ddf05a02",
+      "findingType": "personal-email-or-upn",
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "on-prem-home-lab.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    }
+  ],
+  "artifacts": [
+    {
+      "evidenceId": "home-lab-attested-5f10bad627ff8d3a",
+      "path": "artifacts/target-local-collection/DC01/README.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 4,
+          "lines": [
+            19,
+            26,
+            32,
+            48
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554",
+            "4d0ab4b61ca5fdc6"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-c19fabe6bfb6e7ef",
+      "path": "artifacts/target-local-collection/Linux01/Get-Linux01SssdDiagnostic.sh",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 3,
+          "lines": [
+            93,
+            94,
+            95
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8",
+            "17b54c2b013c482c"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-6d8795a24a0432ed",
+      "path": "artifacts/target-local-collection/Linux01/Invoke-Linux01LocalReadOnlyCollection.sh",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            74
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-a92a6a6b595b6c25",
+      "path": "artifacts/target-local-collection/Linux01/linux01-sssd-diagnostic-20260626-094322.json",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 25,
+          "lines": [
+            10,
+            89,
+            201,
+            208,
+            215,
+            222,
+            284,
+            285,
+            291,
+            292,
+            298,
+            299,
+            320
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8",
+            "17b54c2b013c482c",
+            "21247ba906aadf2c",
+            "3c1d753c6e83604f",
+            "433342e0d13a2e24",
+            "5ea41755740bc789",
+            "a55378d44270600d",
+            "d3d3dc8f2e4dc167",
+            "d8ff9997687852c7",
+            "db67bb82ef69aa30",
+            "ece25d554bc62512"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-75a0a026f7a844b4",
+      "path": "artifacts/target-local-collection/Linux01/linux01-sssd-diagnostic-20260626-110159.json",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 25,
+          "lines": [
+            10,
+            89,
+            201,
+            208,
+            215,
+            222,
+            284,
+            285,
+            291,
+            292,
+            298,
+            299,
+            320
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8",
+            "17b54c2b013c482c",
+            "21247ba906aadf2c",
+            "3c1d753c6e83604f",
+            "433342e0d13a2e24",
+            "5ea41755740bc789",
+            "a55378d44270600d",
+            "d3d3dc8f2e4dc167",
+            "d8ff9997687852c7",
+            "db67bb82ef69aa30",
+            "ece25d554bc62512"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-1f9cdc4693b23068",
+      "path": "artifacts/target-local-collection/Linux01/README.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            43
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-40d34061d76bfb8f",
+      "path": "artifacts/target-local-collection/WS01/README.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 4,
+          "lines": [
+            19,
+            26,
+            32,
+            48
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554",
+            "4d0ab4b61ca5fdc6"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-244f28fddaf3f63f",
+      "path": "assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-3991cc01a9535374",
+      "path": "docs/architecture/home-lab-operations-management-architecture.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 2,
+          "lines": [
+            62,
+            70
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-662b71f31e701804",
+      "path": "docs/change-plans/claude-proxmox-api-operations.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            15
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-b652d2fada6c278d",
+      "path": "docs/change-plans/read-only-inventory-validation.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            15
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-43424e6613c6982e",
+      "path": "docs/change-plans/repository-validation-baseline.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            16
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-2a2a032baccdc7ed",
+      "path": "docs/projects/ad-migration/artifacts/provisioning.ps1",
+      "publicationClassification": "metadata-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 2,
+          "lines": [
+            18,
+            30
+          ],
+          "valueFingerprints": [
+            "4546551fcdafe3c7"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-65015d195af9d9bc",
+      "path": "docs/runbooks/read-only-inventory.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 6,
+          "lines": [
+            35,
+            42,
+            49,
+            59,
+            66,
+            73
+          ],
+          "valueFingerprints": [
+            "4d0ab4b61ca5fdc6"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-a03256545a92c5ca",
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-299d10494de971b0",
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-ff5c9012519dc690",
+      "path": "evidence-library/automation/provisioning-script-evidence.md",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-a7c62545de3bab9f",
+          "occurrences": 1,
+          "lines": [
+            5
+          ],
+          "valueFingerprints": [
+            "4546551fcdafe3c7"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-d2b0d77cc0dd3fdc",
+      "path": "evidence-library/network/firewall-rule-validation-report-2026.md",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-e7c27a50914ca504",
+          "occurrences": 1,
+          "lines": [
+            24
+          ],
+          "valueFingerprints": [
+            "f1412386aa8db257"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-ea45cf34ebfb0bd5",
+      "path": "evidence-library/projects/home-lab/lab-portfolio-preserved.pdf",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-45980e34ff3953e1",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-075a8b080d206deb",
+          "occurrences": 1,
+          "lines": [
+            128
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-2c651c35e3ded047",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-3df5da8613f53e1e",
+          "occurrences": 1,
+          "lines": [
+            131
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-86bdee5830b820fd",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-03f3f2c69123ccc8",
+          "occurrences": 1,
+          "lines": [
+            141
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-07554dcb597b49dc",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-e82f2b212f70090f",
+          "occurrences": 1,
+          "lines": [
+            132
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-3fe4e8ab7eade991",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-fe460bbbb02428f1",
+          "occurrences": 1,
+          "lines": [
+            142
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-bd15b14b93fe2252",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-584bc1f76ab5ff6b",
+          "occurrences": 1,
+          "lines": [
+            131
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-5b5d0bd02bd36997",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-dc26ce85237a33b3",
+          "occurrences": 1,
+          "lines": [
+            126
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-a28ad35a489b0d84",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-40c0ef405a497a8b",
+          "occurrences": 1,
+          "lines": [
+            137
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-7b38d5a4aa7c989d",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-428abf96ab031204",
+          "occurrences": 1,
+          "lines": [
+            123
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-bc512062c72700d7",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-5d70243c10ce2adf",
+          "occurrences": 1,
+          "lines": [
+            5
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-2067ca18d73a3c36",
+      "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-source-reconciliation.md",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-b29899915f4cfcaa",
+          "occurrences": 2,
+          "lines": [
+            5,
+            6
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-89127611ec0a7b71",
+      "path": "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-a594148044264c6c",
+          "occurrences": 1,
+          "lines": [
+            140
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-894d188215c392f0",
+      "path": "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-40fc27edec67a86a",
+      "path": "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-e0297617a10aee56",
+      "path": "evidence-library/projects/on-prem-home-lab/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-4ea50fd5eb0571ec",
+      "path": "evidence-library/projects/on-prem-home-lab/jeremy-fontenot-on-premises-home-lab-validation-2026-06-21.docx",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-34167fd3a0678f0e",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-01-initial-rdp-connection-failure.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-8ccfa11198cdc5c7",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-02-nla-failure-windows11-client-troubleshooting.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-cb93f8e6474f638a",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-03-ws01-system-about-identity-hardware.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-03d9f531163b03f1",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-04-ws01-dns-dhcp-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-aa6c27ffb0f67ece",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-05-active-directory-ws01-ou-placement.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-494318a5857c314f",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-06-ws01-rdp-enable-firewall-network.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-3307f2f56ca2e135",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-07-dc01-to-ws01-rdp-dns-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-4dabd603b712513b",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-08-ws01-proxmox-boot-cleanup.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-cf02de2a4a2390af",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-09-ws01-baseline-snapshot-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-d6d07436a3023338",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-10-ws01-backup-archive-evidence.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-7539edf769cb68c2",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-11-scheduled-backup-job-includes-ws01.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-e81c01d95e0a3f2e",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-12-ws01-snapshot-backup-evidence-note.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-0bd5fe1db7269a78",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-13-sdtech-it-share-read-write-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-0ccfb9f7943ffa1c",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-14-standard-user-it-share-read-only-write-denial.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-7ec61c338b38732a",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-15-dc01-central-evidence-export-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-fab4d4b4ad2cbff5",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-16-final-evidence-zip-manifest-sha256-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-697cc7c82bfc57f6",
+      "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-17-documentation-source-hash-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-aac1b2517ad663a8",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/redaction-log.md",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-8b1ffadb86bb35fa",
+          "occurrences": 1,
+          "lines": [
+            26
+          ],
+          "valueFingerprints": [
+            "73d43c3e91173d80"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-d9d3044f754698ce",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-fbcf63ed82ccb050",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-0700d20c82b3278e",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dns-forward-reverse-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-b9eec531cc470cfa",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-group-policy-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-3d18369e1c8f09ae",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-evidence-archive-sha256-redacted.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-8414f7bfc3a609d9",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-login-system-state.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-146c7bd162df73aa",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-scp-transfer-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-3e1e4d4f1bb31911",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-ubuntu-server-installation-type.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-a4c288127a219d51",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-vm-configuration-confirmation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-ab8a03769a5bf9b7",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-ad-integration-validation.txt",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-f6f1c9eb6c4ac561",
+          "occurrences": 17,
+          "lines": [
+            3,
+            19,
+            23,
+            26,
+            29
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8",
+            "17b54c2b013c482c",
+            "21247ba906aadf2c",
+            "5ea41755740bc789",
+            "d3d3dc8f2e4dc167",
+            "d8ff9997687852c7",
+            "ece25d554bc62512"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-9a0e5755aae7367d",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-dns-validation.txt",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-1470c475697179e6",
+          "occurrences": 1,
+          "lines": [
+            3
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-a4b7dec504402163",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-kerberos-validation-sanitized.txt",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-1b537dd05e3271e5",
+          "occurrences": 3,
+          "lines": [
+            3,
+            7,
+            10
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8",
+            "3c1d753c6e83604f",
+            "a55378d44270600d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-8a8bf403de06dad7",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-maintenance-agent-validation.txt",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-88b75073c40c947f",
+          "occurrences": 1,
+          "lines": [
+            3
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-fc2b59ea053a9a33",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-security-validation.txt",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-c43905762770eba1",
+          "occurrences": 1,
+          "lines": [
+            3
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-601f511a679baa5c",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-storage-validation.txt",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-7f12d8746c913315",
+          "occurrences": 1,
+          "lines": [
+            48
+          ],
+          "valueFingerprints": [
+            "07b42a2c7c98a6c3"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-d9f4f59bd8f6daed",
+      "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-c046dd3f8ce511be",
+          "occurrences": 1,
+          "lines": [
+            247
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-77c6fc5d776ff0e6",
+      "path": "evidence-library/scripts/powershell-automation-provisioning-script-v1.ps1",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-0cfa1e41bb379c66",
+          "occurrences": 2,
+          "lines": [
+            18,
+            30
+          ],
+          "valueFingerprints": [
+            "4546551fcdafe3c7"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-88d19fd39777d976",
+      "path": "evidence/authenticated-target-local-inventory-20260626-035518.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-25a1fded5f09e490",
+      "path": "evidence/chatgpt-github-connector-verification-20260625-182226.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 2,
+          "lines": [
+            6,
+            15
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-0e5c71b4f14d93e4",
+      "path": "evidence/codex-agents-verification-20260625-171842.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            6
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-1021ff39ee02c325",
+      "path": "evidence/dc01-local-inventory-validation-20260626-022811.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            19
+          ],
+          "valueFingerprints": [
+            "4d0ab4b61ca5fdc6"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-d39132762d1c6c62",
+      "path": "evidence/home-lab-baseline-framework-validation-20260629-210527.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 3,
+          "lines": [
+            6,
+            7,
+            8
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-eaf0ba83a9158c0d",
+      "path": "evidence/home-lab-inventory-validation-20260626-010601.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            5
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-1bbc75e4ec4e9da1",
+      "path": "evidence/home-lab-source-reconciliation-20260626-012606.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 2,
+          "lines": [
+            5,
+            6
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-4a2cbcc4a1042251",
+      "path": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/git-baseline.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-8f7230191f6494b8",
+      "path": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/network-baseline.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 4,
+          "lines": [
+            1686,
+            1688
+          ],
+          "valueFingerprints": [
+            "1432dfaa268d814b",
+            "23dd54442cb12a1f"
+          ]
+        },
+        {
+          "type": "public-ipv6-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 8,
+          "lines": [
+            33,
+            34,
+            35,
+            1162,
+            1188,
+            1345,
+            1347
+          ],
+          "valueFingerprints": [
+            "1bf7d56c0e596ac3",
+            "1c686409b519de3e"
+          ]
+        },
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 5,
+          "lines": [
+            28,
+            32,
+            50,
+            72,
+            94
+          ],
+          "valueFingerprints": [
+            "0d0d33ddfa2bc6c8",
+            "48d0c28b13643fad",
+            "930550354fd34a02",
+            "dbe5426c865c3588"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-e21aa60c3e3668c3",
+      "path": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/session-metadata.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 3,
+          "lines": [
+            7,
+            30,
+            31
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-15f71992903b96b1",
+      "path": "evidence/infrastructure-validation/2026-07-10/00-session-metadata/tool-versions.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-2f25fc32c4895419",
+      "path": "evidence/infrastructure-validation/2026-07-10/01-proxmox/proxmox-https-validation.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-e0f53b249f4f3253",
+      "path": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/connectivity-tests.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 63,
+          "lines": [
+            22,
+            50,
+            78,
+            106,
+            134,
+            162,
+            190,
+            218,
+            246,
+            274,
+            302,
+            330,
+            358,
+            386,
+            414,
+            442,
+            470,
+            498,
+            526,
+            554,
+            582,
+            610,
+            638,
+            666,
+            694,
+            722,
+            750,
+            778,
+            806,
+            834,
+            862,
+            890,
+            918,
+            946,
+            974,
+            1002,
+            1030,
+            1058,
+            1086,
+            1114,
+            1142,
+            1170,
+            1198,
+            1226,
+            1254,
+            1282,
+            1310,
+            1338,
+            1366,
+            1394
+          ],
+          "valueFingerprints": [
+            "0d0d33ddfa2bc6c8",
+            "48d0c28b13643fad"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-74b7d5c2b67895e1",
+      "path": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/dns-validation.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-2584e1618fab1603",
+      "path": "evidence/infrastructure-validation/2026-07-10/02-network-connectivity/ws01-corrected-connectivity-tests.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 12,
+          "lines": [
+            20,
+            47,
+            74,
+            101,
+            128,
+            155,
+            182,
+            209,
+            236,
+            263,
+            290,
+            317
+          ],
+          "valueFingerprints": [
+            "0d0d33ddfa2bc6c8"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-37ad9517f514b5fa",
+      "path": "evidence/infrastructure-validation/2026-07-10/03-active-directory/domain-srv-records.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-6f7afa6dbf957f75",
+      "path": "evidence/infrastructure-validation/2026-07-10/03-active-directory/kerberos-validation.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-3eca833d89b46e78",
+      "path": "evidence/infrastructure-validation/2026-07-10/03-active-directory/ldap-ad-validation.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-137e890556e659ce",
+      "path": "evidence/infrastructure-validation/2026-07-10/03-active-directory/smb-validation.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-7507c7b25b6ec799",
+      "path": "evidence/infrastructure-validation/2026-07-10/04-remote-management/management-workstation-system-info.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-f87e580c72b397fe",
+      "path": "evidence/infrastructure-validation/2026-07-10/04-remote-management/powershell-module-inventory.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 5,
+          "lines": [
+            18,
+            19,
+            20,
+            21,
+            23
+          ],
+          "valueFingerprints": [
+            "c72645833dcbf5dc",
+            "f5cc9bdb198119c4"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-556f71f4717103b7",
+      "path": "evidence/infrastructure-validation/2026-07-10/04-remote-management/rsat-capabilities.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-5f80ecaf210d5f96",
+      "path": "evidence/infrastructure-validation/2026-07-10/04-remote-management/vpn-configuration-summary.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        },
+        {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 4,
+          "lines": [
+            1635,
+            1637
+          ],
+          "valueFingerprints": [
+            "1432dfaa268d814b",
+            "23dd54442cb12a1f"
+          ]
+        },
+        {
+          "type": "public-ipv6-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 6,
+          "lines": [
+            33,
+            34,
+            35,
+            1162,
+            1188
+          ],
+          "valueFingerprints": [
+            "1bf7d56c0e596ac3",
+            "1c686409b519de3e"
+          ]
+        },
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 5,
+          "lines": [
+            28,
+            32,
+            50,
+            72,
+            94
+          ],
+          "valueFingerprints": [
+            "0d0d33ddfa2bc6c8",
+            "48d0c28b13643fad",
+            "930550354fd34a02",
+            "dbe5426c865c3588"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-5936f6a5533d7633",
+      "path": "evidence/infrastructure-validation/2026-07-10/04-remote-management/winrm-validation.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-6d76d659f705e8b4",
+      "path": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-https-validation.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-a3b6639b5b5f2d97",
+      "path": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-openvpn-rules-2026-07-10.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-42b558e7d3fbfe1a",
+      "path": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-openvpn-states-2026-07-10.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-23480318cbb53183",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-adcli-testjoin-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-3f15252c2d471e66",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-domain-identity-resolution-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-262b87542bb818e1",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-kerberos-ticket-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-ce1c81cae0f4f713",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-realm-list-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-ed75b05955636b9b",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-config-check-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-da8e260f18cdb3d6",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-domain-status-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-1c57d8e48e976546",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-service-status-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-9973e828694f6354",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-sssd-validation-2026-07-11.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 10,
+          "lines": [
+            35,
+            115
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8",
+            "17b54c2b013c482c",
+            "21247ba906aadf2c",
+            "5ea41755740bc789",
+            "964291de9ee8fbea",
+            "a411f50a402f40e9",
+            "d3d3dc8f2e4dc167",
+            "d8ff9997687852c7",
+            "ece25d554bc62512"
+          ]
+        },
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            9
+          ],
+          "valueFingerprints": [
+            "40151e3da90a2d59"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-fe6ef66d55d65fe4",
+      "path": "evidence/infrastructure-validation/2026-07-10/06-linux01-sssd/linux01-systemd-failed-units-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-1290e9d0e3274046",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-archive-inventory-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-b157a3da23933a89",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-directory-inventory-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-6290071eb680aede",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-failure-2026-07-05.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-8e86be5e2a54bdcd",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-backup-job-config-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-f464a8e78ce098ab",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-latest-backup-zstd-integrity-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7e723d96a2d30d94",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-storage-status-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-35ce8e9b80b8d6a3",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm100-latest-success-log-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-8aeada5cbce04319",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm100-vma-verify-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7d7d0cc29e2f0abf",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm200-latest-success-log-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-ccb7a9c1dd46618f",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm200-vma-verify-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-821250235cadf3b9",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm300-latest-success-log-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-fac7d1084780da58",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm300-vma-verify-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-542446eaf4e96760",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm400-latest-success-log-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-8cd27cefb660a06a",
+      "path": "evidence/infrastructure-validation/2026-07-10/07-backup-inventory/proxmox-vm400-vma-verify-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7aec19188cf6ed45",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-ad-local-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-22c80890f9291bb4",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-clean-shutdown-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-1862337fe6e86183",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-cleanup-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-b7a359c9bc2d2413",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-complete-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-116d484673f06d2e",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-console-boot-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-08078bc464850f59",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-disk-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7d926f207014cc7f",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-event-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-18d40ddc7a08d59e",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-final-cleanup-verification-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-3477256e34d9e7ba",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-network-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-4cf20a8eb9127d3b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-os-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-190ee26708f92e9e",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-precheck-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-789818b9a50103c9",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-running-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-729734da1a49fbd9",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-safety-verification-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-0a385b8fb950ec61",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-service-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-c2a1be70976d34e7",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-start-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-824c979c22e9f003",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-isolated-restore-windows-login-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7c298519d262b8a1",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-network-isolation-command-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-c72c0a08467b1e53",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-active-directory-module-load-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-a10a6e29835d4c79",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-cleanup-task-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-deb221f4a492a41d",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-config-metadata-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-69d1e4d90b132b39",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-dcdiag-core-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-4069085cfbdf7350",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-dfsr-event-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-95fef3cd568a94a4",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-directory-listeners-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-224dac95d3f372d8",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-directory-service-event-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7188e95875e56a2b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-elevated-session-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-fd917e027fe54c05",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-final-cleanup-verification-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-d02b3bb406f59b6b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-precheck-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-5038dc13849a139b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-210c8a71e94eeacc",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-service-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-05fe2675b6b90cf0",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-source-archive-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-1803601cf0f63f33",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-system-event-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-705b3fad491cebf0",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-sysvol-netlogon-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-d88ea588e6964e81",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-rerun-vmid-201-availability-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-38a8b1006879a99a",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-restore-config-metadata-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-0ca323c8d9a01841",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-restore-source-archive-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-b23e5b9168d78701",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-restored-config-before-network-isolation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-8da7efd507e5c69f",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-dc01-temp-vmid-201-availability-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-8d0839c0c1ca1c2b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-backup-configuration-metadata-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-421fd48b81caff0b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-precheck-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-fa9b275187dff0d5",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-startup-precheck-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-3819ffb84a8224c2",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-vmid-401-availability-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-ff36414d25d964dd",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-clean-shutdown-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-c1acee04e5b16807",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-cleanup-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-609a577a71b20686",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-complete-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-b6051c9f75d067c5",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-console-boot-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-d2fe13a074a62c5e",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-failed-services-check-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-c582f58209e91ef0",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-final-cleanup-verification-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7720e71052ae1b5b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-os-validation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-37832d7733c03365",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-running-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-5f4bbd0a44cb0f0b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-safety-verification-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-3edb89b816f52695",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-isolated-restore-start-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-d6332f07f7498e43",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-restore-source-archive-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-be4c2b57d72bfd00",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-restored-config-before-network-isolation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-502d161b8b8fffc5",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-linux01-restored-network-isolation-command-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-eb25ca06dd3b6e37",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-clean-shutdown-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-66de74f7df3fdbc2",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-config-metadata-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-c0b7e306e6a53946",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-console-boot-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-804c20e10267ec53",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-disk-validation-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-36226d7e51d28a97",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-error-review-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-082c7c8be366d8f9",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-final-cleanup-verification-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-4e7230451cba3697",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-interface-validation-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-09992e4aace74490",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-log-validation-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-57a23348be983427",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-running-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-0de77c23f1c6032b",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-service-validation-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-f38eb17e35c80c5d",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-pfsense-isolated-restore-system-validation-2026-07-12.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-b92432cdb3b689b4",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-clean-shutdown-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-675ea0ac89861b9c",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-cleanup-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-85139fdbd50522b1",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-complete-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-20155daec45a1a55",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-console-boot-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-8ef0dde9951bde8a",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-failed-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-488a05d65048faf2",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-failed-cleanup-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-5095fd775170931f",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-final-cleanup-verification-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-20726a7749500f61",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-precheck-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-c2a3855d00dec135",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-running-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-4701f1b9d187e6fd",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-safety-verification-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-4aa4af348244c9b2",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-start-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-7dc68248c36fb6df",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-isolated-restore-windows-login-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-5cc6d32cfbe78475",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-network-isolation-command-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-07fb52127dc2d878",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-restore-config-metadata-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-9841df0792bcbdfd",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-restore-source-archive-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-16ad51474d701100",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-restored-config-before-network-isolation-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-e32ed0bfafc51ed8",
+      "path": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-ws01-temp-vmid-301-availability-2026-07-11.png",
+      "publicationClassification": "source-reference-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-attested-6dcdc47ac54f189e",
+      "path": "evidence/linux01-timestamp-reconciliation-20260626-041428.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-3272457bf3107984",
+      "path": "evidence/read-only-connectivity-baseline-20260625-185606.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            6
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-080a2d379fa1cdc6",
+      "path": "evidence/repository-baseline-20260625-164841.txt",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 18,
+          "lines": [
+            5,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-ce77db02fb850d33",
+      "path": "evidence/repository-validation-20260626-010050.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-a30c9389f618a434",
+      "path": "evidence/target-local-inventory-validation-20260626-020708.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 3,
+          "lines": [
+            7,
+            55,
+            69
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-89e3fabf67c6130b",
+      "path": "evidence/ws01-local-inventory-validation-20260626-033405.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 2,
+          "lines": [
+            17,
+            23
+          ],
+          "valueFingerprints": [
+            "4d0ab4b61ca5fdc6"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-e636ff57e7e87912",
+      "path": "evidence/ws01-operating-system-reconciliation-20260626-041428.md",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            7
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-52451792ecffaa5d",
+      "path": "inventories/dc01-inventory-20260626-022543.json",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "public-ipv4-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 2,
+          "lines": [
+            498,
+            877
+          ],
+          "valueFingerprints": [
+            "029121c6619e27a0",
+            "c56b507b66083880"
+          ]
+        },
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 13,
+          "lines": [
+            692,
+            699,
+            706,
+            713,
+            720,
+            727,
+            734,
+            741,
+            748,
+            755,
+            762,
+            769,
+            776
+          ],
+          "valueFingerprints": [
+            "034c33b622b5b93a",
+            "2eb1c41e56d73988",
+            "369a68edb43b0b89",
+            "42b54e1bf0157584",
+            "459e58165648c324",
+            "5c20210b2d14396b",
+            "637632fd554fe87e",
+            "699984b27ee38933",
+            "6e469e5814cfd03d",
+            "70b2de8cbb6d94ff",
+            "8af6633881d37928",
+            "d5c995303a5a5924",
+            "e48285d4a5d0cdfd"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-043b9877a1d942c9",
+      "path": "inventories/linux01-inventory-20260626-084312.json",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 3,
+          "lines": [
+            4,
+            54,
+            138
+          ],
+          "valueFingerprints": [
+            "07b42a2c7c98a6c3",
+            "0e2708d3507b23d8",
+            "d3d3dc8f2e4dc167"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-403a830a35808e7f",
+      "path": "on-prem-home-lab.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "home-lab-reviewed-c0264365ddf05a02",
+          "occurrences": 1,
+          "lines": [
+            172
+          ],
+          "valueFingerprints": [
+            "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-04a3fec8e6ffcde8",
+      "path": "scripts/linux/Get-Linux01SssdDiagnostic.sh",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 3,
+          "lines": [
+            93,
+            94,
+            95
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8",
+            "17b54c2b013c482c"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-af52ffc118aad497",
+      "path": "scripts/linux/Get-LinuxReadOnlyInventory.ps1",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            112
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-ad5deae549cf5944",
+      "path": "scripts/linux/Invoke-Linux01LocalReadOnlyCollection.sh",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            74
+          ],
+          "valueFingerprints": [
+            "0e2708d3507b23d8"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-attested-9fb4595487a8170d",
+      "path": "tests/Test-PortfolioHomeLabDrift.ps1",
+      "publicationClassification": "source-reference-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "local-user-profile-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            12
+          ],
+          "valueFingerprints": [
+            "2e2cf72b5d66e554"
+          ]
+        }
+      ]
+    }
+  ]
+}

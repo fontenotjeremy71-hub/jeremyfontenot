@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "inventories"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": [
+      {
+        "path": "inventories/.gitkeep",
+        "reason": "Empty-directory placeholder with no evidence content."
+      }
+    ]
+  },
+  "totals": {
+    "artifacts": 14,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 18
+  },
+  "records": [
+    {
+      "sourcePath": "inventories/core-service-validation-20260626-010601.json",
+      "gitBlobSha1": "ad331773bd6c2c6ee75aac6d41ddc13ee9d65238",
+      "size": 2826,
+      "sha256": "eeff4bea53c48f6cf52ba6e816e37d5e291a83759696f303ed4cdad5f22b78f4",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/dc01-inventory-20260626-022543.json",
+      "gitBlobSha1": "ff138c1193a61ad1bf43c767222e86e42ccf1995",
+      "size": 65954,
+      "sha256": "40fab637201304cd0cbbccca764825abc3e31fbb6dd8b949deb56609ae542d5e",
+      "technologies": [
+        "active-directory",
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 15,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "public-ipv4-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 2,
+            "lines": [
+              498,
+              877
+            ],
+            "valueFingerprints": [
+              "029121c6619e27a0",
+              "c56b507b66083880"
+            ]
+          },
+          {
+            "type": "tenant-or-object-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 13,
+            "lines": [
+              692,
+              699,
+              706,
+              713,
+              720,
+              727,
+              734,
+              741,
+              748,
+              755,
+              762,
+              769,
+              776
+            ],
+            "valueFingerprints": [
+              "034c33b622b5b93a",
+              "2eb1c41e56d73988",
+              "369a68edb43b0b89",
+              "42b54e1bf0157584",
+              "459e58165648c324",
+              "5c20210b2d14396b",
+              "637632fd554fe87e",
+              "699984b27ee38933",
+              "6e469e5814cfd03d",
+              "70b2de8cbb6d94ff",
+              "8af6633881d37928",
+              "d5c995303a5a5924",
+              "e48285d4a5d0cdfd"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "inventories/guest-hypervisor-state-comparison-20260626-020452.json",
+      "gitBlobSha1": "69c11da257d98d3d84d09f42d0bb27a9172028fa",
+      "size": 11114,
+      "sha256": "0c24b31b525e2e2efab204b394d14218487fc83ea768c5ad354e8a2baacc36ce",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "exports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/guest-hypervisor-state-comparison-20260626-022723.json",
+      "gitBlobSha1": "de092c69c3fdc2ea8e1b4004f7bc716c758fc1a0",
+      "size": 11232,
+      "sha256": "d11ed97d61503e5bf717c06a860ef7723c67dbc18ee11e70ab29917f7b90715f",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "exports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/guest-hypervisor-state-comparison-20260626-033321.json",
+      "gitBlobSha1": "269d5e919ea9745708348d387d62910108d0b181",
+      "size": 11355,
+      "sha256": "b8fdc32e3de5ed6ca4acf46d284386612c5fd6c1ede3e3b4bb1ab2be10d902ee",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "exports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/guest-hypervisor-state-comparison-20260626-035154.json",
+      "gitBlobSha1": "f73d6ba5a94d3239b0f21ce264760e988af9d118",
+      "size": 11274,
+      "sha256": "d6ee380a07228047641569e4c3699be44efe93ac084e0b0e4af9ca29f28ceb83",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "exports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/home-lab-state-matrix-20260626-012606.json",
+      "gitBlobSha1": "26f101d4ef6ba25a920d7c834c72f495e6c85bb4",
+      "size": 4569,
+      "sha256": "b2ff9f03bc73705162a0b9ff36102448bb60c0427bcfe6a8a12ccf3ed2dbf562",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "exports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/linux01-inventory-20260626-012606.json",
+      "gitBlobSha1": "4de9aa7aabdab758a6202e0f9091c1bb5f9d3924",
+      "size": 1779,
+      "sha256": "b07df185933c7decc105bed1274b3891af46f52a0c4c5251f658906c278ade0f",
+      "technologies": [
+        "linux",
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/linux01-inventory-20260626-020257.json",
+      "gitBlobSha1": "7d204c011d84d789aca2c0337968dd56f9af4cdf",
+      "size": 8327,
+      "sha256": "63600b66b9bf395902c67a87f46d836d2ba6cfb8544bf9171bdb209ecf1effcd",
+      "technologies": [
+        "linux",
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/linux01-inventory-20260626-084312.json",
+      "gitBlobSha1": "6614f71031e521dd579fda529c9e58bf9973ce8b",
+      "size": 13583,
+      "sha256": "75f82af4882fa9c869c78c1ac127c5d4f37c5cb62f4e8894361a352695efc40d",
+      "technologies": [
+        "linux",
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 3,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "personal-email-or-upn",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 3,
+            "lines": [
+              4,
+              54,
+              138
+            ],
+            "valueFingerprints": [
+              "07b42a2c7c98a6c3",
+              "0e2708d3507b23d8",
+              "d3d3dc8f2e4dc167"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "inventories/pfsense-reachability-20260706-174158.json",
+      "gitBlobSha1": "453f45f6a30cdbf6441b97eb562d377bb7a48ecd",
+      "size": 503,
+      "sha256": "73c841d85625685fed80e224321656fddc35f680629f31fadfb4179432e72ec8",
+      "technologies": [
+        "pfsense"
+      ],
+      "evidenceType": "exports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/proxmox-inventory-20260626-010601.json",
+      "gitBlobSha1": "4a2ce143c04bea9092576078a94e10083e470a41",
+      "size": 3794,
+      "sha256": "d652d1ef753e14242c07f84f19fbf09f642f07c3b09cfe2e98aa7f2b176ade3d",
+      "technologies": [
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/windows-management-workstation-20260626-010601.json",
+      "gitBlobSha1": "f2d8a2e3d3e6864b7530fc77d29e7b6511291626",
+      "size": 1081,
+      "sha256": "d0ba41ffa374cdce38ec795bc7f1edb86a46129f272e6463b082324045cae4a9",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "exports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "inventories/ws01-inventory-20260626-012952.json",
+      "gitBlobSha1": "6b75535fc82b6c73b031e009ac6b7b31d81cc651",
+      "size": 37972,
+      "sha256": "4a920abaad61d22d8657b47715f756be497b90c2b794829200e50d930764c825",
+      "technologies": [
+        "windows-clients",
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

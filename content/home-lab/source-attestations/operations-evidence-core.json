@@ -1,0 +1,1103 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": "^evidence/(?!infrastructure-validation/)",
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 50,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 38
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/authenticated-target-local-inventory-20260626-035518.md",
+      "gitBlobSha1": "bd6f6c8d345d8fa345c89626cf8fa7266e482ddb",
+      "size": 4404,
+      "sha256": "e9b05525ff9bda8fcc1ee60238fa9035b217e0a996e4470e585348542165dccc",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "inventories",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/chatgpt-github-connector-verification-20260625-182226.md",
+      "gitBlobSha1": "be8f6c9d45a819556ed153ac823cc9ed0bfed323",
+      "size": 1872,
+      "sha256": "6cb102533aa1bb1a777f2b58b3596e56b7ab2ae8c32a878d296c6b5589cda51f",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 2,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 2,
+            "lines": [
+              6,
+              15
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/codex-agents-verification-20260625-171842.md",
+      "gitBlobSha1": "eda6a4649a8f4d22be550640ae4086dc6a72872c",
+      "size": 1810,
+      "sha256": "bafb9670f40dbe9d5e907641869306a8592f9bc15ffb192a5bca89b9c4f8342d",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              6
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/core-service-validation-20260626-010909.json",
+      "gitBlobSha1": "3b3dde863e19f8203d8660c606efea029725915a",
+      "size": 1893,
+      "sha256": "18760a1927a71165fb0fcc29cbcf602efb7ba87da71bf65f482e95b64338351c",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/core-service-validation-20260626-013203.json",
+      "gitBlobSha1": "d6fb5f0eea54e25249ebce2f4f8428d3080835cf",
+      "size": 4971,
+      "sha256": "3b4f0d52359e80c1d0ae1ea1f7dfc0b35f0bcb6c18677701f1f54aa31199b94e",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/dc01-local-inventory-validation-20260626-022811.md",
+      "gitBlobSha1": "dd2727303d7df3e5ee449984be367711901c2ce6",
+      "size": 3351,
+      "sha256": "ed05a7223af1cf8358f0fca150b1fd987321288d6f791cd81a0e586e8bbab0a4",
+      "technologies": [
+        "active-directory",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              19
+            ],
+            "valueFingerprints": [
+              "4d0ab4b61ca5fdc6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/framework-validation/validation/connectivity-results-validation.csv",
+      "gitBlobSha1": "fca01a61e1c763171d080824ef56f591187af2c0",
+      "size": 367,
+      "sha256": "6cc2f4cab31060f1cc01729d3f424fc68aeb7b86ae05311652d89cc7c671ec55",
+      "technologies": [
+        "networking",
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/framework-validation/validation/connectivity-results-validation.json",
+      "gitBlobSha1": "c8309ac3a3f5b26815cffafc5c53390e8471cc36",
+      "size": 410,
+      "sha256": "a6d2e708af50577a9d952463bd5b0ab3e9f6241c7a808a4bbdd19bb2fcc16a4d",
+      "technologies": [
+        "networking",
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/framework-validation/validation/connectivity-results-validation.md",
+      "gitBlobSha1": "392dfdb1e85fb226af44213002d44ea13c689a23",
+      "size": 728,
+      "sha256": "36aa3d176d129f15449d522e467f2cd66cedf69f061c046517581ae314b6f96a",
+      "technologies": [
+        "networking",
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/framework-validation/validation/test-targets.psd1",
+      "gitBlobSha1": "aeddc370ff6f1518f38b0b7de8fdc7a8f14f5ea7",
+      "size": 345,
+      "sha256": "1dc7ce767184e6d079ca612f4aa0eb1fbab3443fe0d03273f3f05fba38b92fd5",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/home-lab-backup-restore-validation-20260629.txt",
+      "gitBlobSha1": "7a2aa28bd9e532c0229cb217a4cbf809f849891c",
+      "size": 1086,
+      "sha256": "4637e848c9b318b8c74bb9c6e4569b3cc03e6686ce64fa367cf6dec05fa52e13",
+      "technologies": [
+        "backup-recovery",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/home-lab-baseline-framework-validation-20260629-210527.txt",
+      "gitBlobSha1": "f20a9fda53b3fa62b5bb1ebbdb94ef4d8ab0352b",
+      "size": 1035,
+      "sha256": "7b28c14604dfb28fa4ef563122065bac5df28b99e18400b0e9d7739871abc092",
+      "technologies": [
+        "automation",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 3,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 3,
+            "lines": [
+              6,
+              7,
+              8
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/home-lab-inventory-validation-20260626-010601.md",
+      "gitBlobSha1": "f74648f09837232637cd560953289faa044fa354",
+      "size": 3823,
+      "sha256": "42a0da9fd44571a41d8598de4c284c1db1dcbbc7a2160daf2f2f314a2f72c44b",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              5
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/home-lab-source-reconciliation-20260626-012606.md",
+      "gitBlobSha1": "d014115e6092cc3e2cf54ab7302b0ef044c76df9",
+      "size": 2504,
+      "sha256": "2d377a7a6703f8c3c5fbb77aa093569806ddb7939cfa88fd6a0ecf801484c3ee",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 2,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 2,
+            "lines": [
+              5,
+              6
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/linux01-local-inventory-validation-20260626-035220.md",
+      "gitBlobSha1": "2d7edc654c04c91d6ed3e658cb9c4dfd89f74c64",
+      "size": 4054,
+      "sha256": "77539aacb8c5db11d1d5a7bf074c8d414d52f5f710f1862b823ab91c13c73917",
+      "technologies": [
+        "linux",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/linux01-sssd-remediation-20260626-110159.md",
+      "gitBlobSha1": "18aaf9817ade5bcdaf1bd516be21de769167eb74",
+      "size": 1611,
+      "sha256": "92755727a576981972a701e92ced629f062f26fcd290bfa7cd4287ab29697326",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/linux01-timestamp-reconciliation-20260626-041428.md",
+      "gitBlobSha1": "7adee1336db20d174ea84c4a777409e3dad53932",
+      "size": 2682,
+      "sha256": "c1ec1d7487baac1abbb94ebc21ac8306c675c86432d97fef52a2f51b593ae6e5",
+      "technologies": [
+        "linux"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/management-workstation-rsat-module-validation-20260706-171048.md",
+      "gitBlobSha1": "b20dd3242fcc3d61051fa247ba47a77d8ec860f1",
+      "size": 1584,
+      "sha256": "35bf59f8f6acc74668e8601fe3df21b15622d7f95230c7e2114f3b0d2d92431e",
+      "technologies": [
+        "windows-server"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/openvpn-dc01-rdp-path-validation-20260706-173333.md",
+      "gitBlobSha1": "0829a4f05f20a00c31734704159d10d1b626974f",
+      "size": 1613,
+      "sha256": "4dd7ec45e58de829b14823f0f3edca8edaec20df4e13d0fe694e740fe68c1310",
+      "technologies": [
+        "pfsense",
+        "active-directory",
+        "windows-clients",
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/pfsense-https-reachability-validation-20260706-174158.md",
+      "gitBlobSha1": "9d9340f24ed4c22d1724b1c3100c5c918575f1a6",
+      "size": 985,
+      "sha256": "0537051c29b683028e88d617bac610a19ecea9e8bd9d6404e817d1aff02f91c7",
+      "technologies": [
+        "pfsense"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/portfolio-drift-validation-20260626-013202.json",
+      "gitBlobSha1": "8058a659190cc0b8a0ce314efc3faa8c180ffa34",
+      "size": 2581,
+      "sha256": "a990dc75ec78a36161c6448ca4348dba32a6e5083a42035a401703c7f01ff1fc",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/portfolio-home-lab-drift-validation-20260629-210609.txt",
+      "gitBlobSha1": "5e72fe50ae6eec03c5606412113e07e5a3021fef",
+      "size": 1830,
+      "sha256": "4476c893768401cff913a0b2c75ac71b178e713b14addff5dad189cd2e87cb79",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201313/connectivity-results-20260625-201313.csv",
+      "gitBlobSha1": "2f1090a90e64656455dec02ac40a22826d4aa896",
+      "size": 2435,
+      "sha256": "80c425dfe5daa1855b3b73f55871ba4970aeebefeb32e30d3f78273d9885c15a",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201313/connectivity-results-20260625-201313.json",
+      "gitBlobSha1": "0c43a3ce282c7e608afaa779dd533577c1e26cd7",
+      "size": 3750,
+      "sha256": "997764a3161ecef5553db5f5c8333077a313a89aca65330aaaf36557758b0f7e",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201313/connectivity-results-20260625-201313.md",
+      "gitBlobSha1": "5e45013606524332e437c2002d7ff9bb4c7651e7",
+      "size": 2196,
+      "sha256": "cb8d96ef696f49ff7c411ecd24b1b16945159de21799415d53306e16ca2a3a78",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201313/execution-context-20260625-201313.json",
+      "gitBlobSha1": "eaef6d977578741f23f1c3bfbaeee221c28e54f9",
+      "size": 528,
+      "sha256": "13e2f10b2400a02fc3dae95c506e0815db37efa77c4e0d6cd187eadc26055ca5",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201313/manifest-20260625-201313.json",
+      "gitBlobSha1": "7640bd22cbca5f7d56516f6a5f3eb1dbe008d2d2",
+      "size": 1193,
+      "sha256": "85bcb4b298cba0d968474c35954f1150608cf1b3f532f51c2488760a982f482f",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201313/read-only-baseline-summary-20260625-201313.md",
+      "gitBlobSha1": "24cc790ca741429bb9fe8827b0278c85ce23f94c",
+      "size": 4946,
+      "sha256": "3e0764f5be7fc4914579b5c348875a404293eb3791c54d6734d14653e0f28a34",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "reports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201313/route-evidence-20260625-201313.json",
+      "gitBlobSha1": "d8ba2c69110c25594e276c70f93305446cf65735",
+      "size": 526,
+      "sha256": "f6fe2592495771a0ac6ace1475da0078db0ef40eb6967a5820ebdf98f78fbc1c",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201453/connectivity-results-20260625-201453.csv",
+      "gitBlobSha1": "8a2df151b558f20d97c3ec07c32b0b65e6afc2bc",
+      "size": 1833,
+      "sha256": "b412c23f73fdfb1e350ad018b195b8f9adb8395bff947f1468318bef6cca8921",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201453/connectivity-results-20260625-201453.json",
+      "gitBlobSha1": "f65e1625590c35fa634f0e8d8e535e89fb52bafb",
+      "size": 3148,
+      "sha256": "50c0554e50890a8816d18a361fdf78859c6eec1808332b392dc4edea5b732ac2",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201453/connectivity-results-20260625-201453.md",
+      "gitBlobSha1": "af8dfa06cd25d595314669e821c213ba72e6349e",
+      "size": 1636,
+      "sha256": "70f4d21a11f4f071fd19f75a63b179d21b69b3a45ca727a4cc884c764c724f82",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201453/execution-context-20260625-201453.json",
+      "gitBlobSha1": "741974ed3d0a4cb3200a32de3504d4ff95f968ef",
+      "size": 528,
+      "sha256": "b7e6bf5bda2888efc29deb79eff4e88896db0fe80eb2b52a0f16c020b2a021a0",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201453/manifest-20260625-201453.json",
+      "gitBlobSha1": "40e4c70939b00a7e49870527369c3d19bec6729d",
+      "size": 1193,
+      "sha256": "83babc5b931ed6859329cd21d224c12489c054358fd77e7235e2120796c3af99",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201453/read-only-baseline-summary-20260625-201453.md",
+      "gitBlobSha1": "5bb71a48d6f9eb80fbbeba71cfe20d21a83be663",
+      "size": 3826,
+      "sha256": "06a4e51876662ec7a78c8738432ffe339b731797106b2c7f5cd11ee50317e9bb",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "reports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201453/route-evidence-20260625-201453.json",
+      "gitBlobSha1": "d8ba2c69110c25594e276c70f93305446cf65735",
+      "size": 526,
+      "sha256": "f6fe2592495771a0ac6ace1475da0078db0ef40eb6967a5820ebdf98f78fbc1c",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201707/connectivity-results-20260625-201707.csv",
+      "gitBlobSha1": "440e7122689868be5c2b2be60ab43ddce2dbbae0",
+      "size": 1833,
+      "sha256": "cff6db96cb87705053c7ad3503001f3b0662465072bf8880577a176258f93ac1",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201707/connectivity-results-20260625-201707.json",
+      "gitBlobSha1": "4547a5d4946b931ffab993d5e62b5a917edf409b",
+      "size": 3148,
+      "sha256": "5643563252a0a4bcc5ba47eb852f0f41d8e9b4b539b6bbbb310778a7ffa9d939",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201707/connectivity-results-20260625-201707.md",
+      "gitBlobSha1": "7c3275bc263fe743aa8db7aefea9e3220301b598",
+      "size": 1636,
+      "sha256": "20ce4b0f356859fe53c14d225eabefceca1007ea6ab09dae94d4d40973ee4e11",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201707/execution-context-20260625-201707.json",
+      "gitBlobSha1": "ee59cc748d935a5e63abaf62524ccc35c7ce87b9",
+      "size": 528,
+      "sha256": "521557b251985141bd2eb128fa06b8f5b34980d100f03b337066f0662080b478",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201707/manifest-20260625-201707.json",
+      "gitBlobSha1": "ce418436a92eb09f0b7b0256cee49b6d52c3e619",
+      "size": 1193,
+      "sha256": "2b8155fcb348d103d4e046128b5e4c6b3a8a978248a1c1ea630a2558de4ed399",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201707/read-only-baseline-summary-20260625-201707.md",
+      "gitBlobSha1": "a889e96903de1997fbb7c27b1254ef4374d32254",
+      "size": 3964,
+      "sha256": "98eba9b312dbbb1ea03454f646ec7f5dcf3a2f22b2776eac81bf86466aba346f",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "reports",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-baseline-20260625-201707/route-evidence-20260625-201707.json",
+      "gitBlobSha1": "63e841c1d695a0b48acc833d3dc1cf8e3ff325fb",
+      "size": 636,
+      "sha256": "9d35d2e5048df37a43380d2edf699af342f9703e2d8b6c7b35cb3d8b8c277f27",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/read-only-connectivity-baseline-20260625-185606.md",
+      "gitBlobSha1": "5fae2d40badcf122fc69f735a02e360e382ab162",
+      "size": 6294,
+      "sha256": "51529fee7093a942aeff3c988cdd848c896db4a218576e01b04033702f8437ca",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              6
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/repository-baseline-20260625-164841.txt",
+      "gitBlobSha1": "47c8a01de50cea2e14c3d02e246e94d6cdbb034a",
+      "size": 1533,
+      "sha256": "b8551ee415366d4c929ef0013fe2a81a88575c0558bd1e0a429571027b896c01",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "configuration",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 18,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 18,
+            "lines": [
+              5,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/repository-structure-validation-20260629-210449.txt",
+      "gitBlobSha1": "64f1c6d4b9510002eecdc0e1f9b07120f861f4e6",
+      "size": 4822,
+      "sha256": "f71b00dd26698cc16c9d8c522ddd28046c8fae81ea9bb896e6f4e28827c719bd",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/repository-validation-20260626-010050.md",
+      "gitBlobSha1": "24367ec771047ff18a0cfc5772d58740b08420c5",
+      "size": 4005,
+      "sha256": "2ec605ed44110d67ca2a528757fb70f2d9502f2a72018828b9531083792cec8a",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/target-local-inventory-validation-20260626-020708.md",
+      "gitBlobSha1": "5ab6149baac0403f20e53674525a400baca6eb12",
+      "size": 5146,
+      "sha256": "87332f8dbc354de7ede6873cf1a392d53798b5cb9757f102174a66dc19d16bc2",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 3,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 3,
+            "lines": [
+              7,
+              55,
+              69
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/ws01-local-inventory-validation-20260626-033405.md",
+      "gitBlobSha1": "ca8230031a11c167972b72e49082846f68c99e0c",
+      "size": 3457,
+      "sha256": "87e12c33077117a70fbe0d7b9911b715a821db6a456e41b2dd3d01186d6732d0",
+      "technologies": [
+        "windows-clients",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 2,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 2,
+            "lines": [
+              17,
+              23
+            ],
+            "valueFingerprints": [
+              "4d0ab4b61ca5fdc6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/ws01-operating-system-reconciliation-20260626-041428.md",
+      "gitBlobSha1": "365425bc675508971f314b64f2f4d550d7b55246",
+      "size": 2389,
+      "sha256": "494a018b284df99647db8e20a674d4c9bd656e05ba15cc76bda9374f0a037dd7",
+      "technologies": [
+        "windows-clients"
+      ],
+      "evidenceType": "documentation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

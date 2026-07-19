@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/08-restore-validation"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": "^evidence/infrastructure-validation/2026-07-10/08-restore-validation/(?!.*(?:dc01|linux01|pfsense|ws01)).+",
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 10,
+    "manualReviewRequired": 4,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 0
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-backup-configuration-metadata-2026-07-11.png",
+      "gitBlobSha1": "caf79e41cf0abe9c81abaacf3cb573f19a74910c",
+      "size": 42228,
+      "sha256": "1ef82244f717117175e03895049cffde853d81de879736af9659bd93652adff6",
+      "technologies": [
+        "backup-recovery",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-precheck-2026-07-11.png",
+      "gitBlobSha1": "09a6d732aac74945334f5e9170887619896a04c4",
+      "size": 34905,
+      "sha256": "ab7a1fab1b25d702204445871e87c111cbc3e0f5e4c47c2f55d6e25131ca5dfb",
+      "technologies": [
+        "backup-recovery",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-startup-precheck-2026-07-11.png",
+      "gitBlobSha1": "090ff78c3d6c6a8c4a753d32deca142c7332e17a",
+      "size": 298821,
+      "sha256": "ad2dea53d07e7e0d3639fdbe888bb3a9fa29e377bcf9afc9ac5e8c763ac38171",
+      "technologies": [
+        "backup-recovery",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-isolated-restore-vmid-401-availability-2026-07-11.png",
+      "gitBlobSha1": "9d9fd4f86bd5f9ae40966f875c125cb897f47aa9",
+      "size": 20540,
+      "sha256": "5a4fb68362b4d6bcf7010273fea2d510635567500333530f474734582197ddfb",
+      "technologies": [
+        "backup-recovery",
+        "proxmox"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/proxmox-snapshot-inventory.txt",
+      "gitBlobSha1": "e449b2b558086fc5b2c0d40db96624bcf0065d67",
+      "size": 799,
+      "sha256": "e91160ec3b7daffe1e0f2e8cc6c6d71b3e443042a6813fb9cfdd06d4b22685b8",
+      "technologies": [
+        "backup-recovery",
+        "proxmox",
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/restore-capacity-check.txt",
+      "gitBlobSha1": "4cbe71f40f67c3f75f3e1233dfe7aee49e835961",
+      "size": 136,
+      "sha256": "6b6e8742716c06bcdcfc57018d147a9271b9d2c19aebc756f9b01825047554c5",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/restore-evidence-checksums.sha256",
+      "gitBlobSha1": "17778867b0ba1701e67175ad30b5b8ae23622b0b",
+      "size": 11778,
+      "sha256": "0ea60a8fc313138bb287ae9fc0595bf9a0fba81a1d60d7680feda45c0374dfc0",
+      "technologies": [
+        "backup-recovery",
+        "security"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/restore-plan.md",
+      "gitBlobSha1": "5c09a6d003128974743b5a487f60ed2d0fea2026",
+      "size": 1663,
+      "sha256": "4d3e1588365085ad20c52e8b45362aa57485da02b52321c598fb1b9a58910381",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/restore-safety-checklist.md",
+      "gitBlobSha1": "ad2e43fe68c5ca92cc74d6898ee2b1c1f4a892c6",
+      "size": 2946,
+      "sha256": "1f0622097ed84e0379b71358d328653b8925499353c812c84b807dd119465088",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/08-restore-validation/restore-validation-summary.csv",
+      "gitBlobSha1": "5cf3037197841b0270e9ae28ab482f7e720b2c80",
+      "size": 2100,
+      "sha256": "09eede5165b70ade91029e888680ee4aad578410e15f9023d46594b165bc76b2",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

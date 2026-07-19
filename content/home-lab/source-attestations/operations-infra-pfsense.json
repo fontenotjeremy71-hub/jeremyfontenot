@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/05-pfsense"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 5,
+    "manualReviewRequired": 2,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 1
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-https-validation.txt",
+      "gitBlobSha1": "5e3622942f1d1b0017de3ef49d0c7b80aa807fd4",
+      "size": 723,
+      "sha256": "b17ec0cde7338233f45944b947b7adcbb34a0b2657833ec16efa84cf56063471",
+      "technologies": [
+        "pfsense"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-openvpn-rules-2026-07-10.png",
+      "gitBlobSha1": "e5be5c4c1f46b055379d4b728f5c29c5651b709d",
+      "size": 102643,
+      "sha256": "fbafead09392d071e78d7f154c9907b795fd931567c964047275dbcf8a1e0cac",
+      "technologies": [
+        "pfsense",
+        "networking"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-openvpn-states-2026-07-10.png",
+      "gitBlobSha1": "4e20d12b29961e2969ea19ad572063e4bd89677d",
+      "size": 111213,
+      "sha256": "7f720c7ca6dc022862a6e23da8b3684b304eaed31256b6365891568facff87fe",
+      "technologies": [
+        "pfsense",
+        "networking"
+      ],
+      "evidenceType": "screenshots",
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-policy-analysis.md",
+      "gitBlobSha1": "be245972a751a66ff2d91085dbf0601c5f00626c",
+      "size": 1494,
+      "sha256": "66f4940d1844545431f10982c14c92f0fea74a826889c58a7ff41ac511a7d11c",
+      "technologies": [
+        "pfsense"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/05-pfsense/pfsense-screenshot-checksums.sha256",
+      "gitBlobSha1": "7db7f9fd1f09dda69fb81d9bb8ef461c40e8415d",
+      "size": 207,
+      "sha256": "d9d0f1d495e75feea3b92e71dd6be9c17350d15d2f55f687af36a6f2ab293ba1",
+      "technologies": [
+        "pfsense",
+        "security"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

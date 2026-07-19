@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10/03-active-directory"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 5,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 4
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/03-active-directory/dns-server-validation.txt",
+      "gitBlobSha1": "dcc6c1bae0275f598aa6b4f3ac4eb641182a6764",
+      "size": 3603,
+      "sha256": "05cf74fadfe4b19ab955322c8bb94d2202d3c79b589a45d22f72a46c3f64a300",
+      "technologies": [
+        "active-directory",
+        "dns-dhcp"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/03-active-directory/domain-srv-records.txt",
+      "gitBlobSha1": "6333329ca1a0c46178667d32eefc8d2edf5360af",
+      "size": 2213,
+      "sha256": "38611682e14eabcddc7369eb792a569dfcfb3d1c0df6625910070e4db22896bd",
+      "technologies": [
+        "active-directory",
+        "dns-dhcp"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/03-active-directory/kerberos-validation.txt",
+      "gitBlobSha1": "0538674644e28ce12e9dfdd0e3e7e638566c60e3",
+      "size": 700,
+      "sha256": "355ade9ad3fdd0d99f25df51aaa08539213146a917e1d5b8b24d8f29141ec821",
+      "technologies": [
+        "active-directory"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/03-active-directory/ldap-ad-validation.txt",
+      "gitBlobSha1": "7aadbcc6040584d39225d84038f2f6c1b919f00f",
+      "size": 907,
+      "sha256": "eca94011c69cccac0d1c1b7f73b177f5330af5051c2682285633a7d8e8386b80",
+      "technologies": [
+        "active-directory"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/03-active-directory/smb-validation.txt",
+      "gitBlobSha1": "7474614f1ea84ad34493e8b2d580892a2d8cf3a4",
+      "size": 504,
+      "sha256": "a91804a3ee7797cf3b9f7904567511ef70e1ba8e7f6b1be13b086700cb1288f3",
+      "technologies": [
+        "active-directory"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              7
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "evidence/infrastructure-validation/2026-07-10"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": "/(?:09-rto-rpo|10-policy-evidence|11-results|raw)/",
+    "reviewedExclusions": []
+  },
+  "totals": {
+    "artifacts": 15,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 0
+  },
+  "records": [
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/09-rto-rpo/rpo-measurements.csv",
+      "gitBlobSha1": "51e19c3b2c76820ab873681ca08b2fd27d2d141a",
+      "size": 450,
+      "sha256": "3ade9249d11e8a4d18ac6a34e2d7c97f5d4d92e912106fafce1b827e29b38450",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/09-rto-rpo/rto-measurements.csv",
+      "gitBlobSha1": "adca073b8faf547fbad5e2875a0a431cbfc28399",
+      "size": 618,
+      "sha256": "7cb1c6c367d80f12791d770f7106c8f13d4d65c300fecb5ec6d0787434bffabd",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/09-rto-rpo/rto-rpo-analysis.md",
+      "gitBlobSha1": "5186196d8063986f29603c6f1ae1f9347712c954",
+      "size": 649,
+      "sha256": "e89cd0ee8c6b85a220bce2e2776c77caf3730195e9a18fa1f2b74ae7237fb57f",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/10-policy-evidence/pfsense-policy-analysis.md",
+      "gitBlobSha1": "be245972a751a66ff2d91085dbf0601c5f00626c",
+      "size": 1494,
+      "sha256": "66f4940d1844545431f10982c14c92f0fea74a826889c58a7ff41ac511a7d11c",
+      "technologies": [
+        "pfsense"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/backup-and-restore-assurance.md",
+      "gitBlobSha1": "0416fb427ce2f5b1f8e4ed0d3ed71620dda980c4",
+      "size": 1882,
+      "sha256": "4f3c1317e92176d99dd4eb49bc72f8d8302af0840cfd2cfb71cb22e3c5e7c8d2",
+      "technologies": [
+        "backup-recovery"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/checksums.sha256",
+      "gitBlobSha1": "6d02133544b8247cf000ddd7f254815467c37800",
+      "size": 23192,
+      "sha256": "cbdd3d1c7f9a0917622b8fc8b41860cd97f1a8c2d0eda0c2339cf656da2f36e2",
+      "technologies": [
+        "security"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/connectivity-and-policy-reconciliation.md",
+      "gitBlobSha1": "ddb59862a45ec58ea4682e521bb37aa9d072bcef",
+      "size": 1383,
+      "sha256": "cda1a7d7357b761455133a322381c0eb9e39d64e404cff8d3ed5af6b31a0aa3a",
+      "technologies": [
+        "networking"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/evidence-manifest.csv",
+      "gitBlobSha1": "fcbea20e3bd1878e544524c29232eea52cf25234",
+      "size": 52210,
+      "sha256": "9db0aae74fb3a591a8494197b231708c92b2e93668c24d356bcf13f639766908",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/evidence-manifest.md",
+      "gitBlobSha1": "9dc7d98b674e28eedb9af943dde526f641932595",
+      "size": 53062,
+      "sha256": "089360b0b641f7e053811bcbd0be34a0529bde6cf2351c7099e4855536c33465",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "manifests",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/remaining-evidence-gaps.md",
+      "gitBlobSha1": "9a4c0df84e582c3d8aeb3e89c9e4070a60d7c203",
+      "size": 1626,
+      "sha256": "17e2cad6ab191a6d6ad4a6d3ed2de137d2a35ae29e49035bd2941d56c59eefae",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/rto-rpo-analysis.md",
+      "gitBlobSha1": "5186196d8063986f29603c6f1ae1f9347712c954",
+      "size": 649,
+      "sha256": "e89cd0ee8c6b85a220bce2e2776c77caf3730195e9a18fa1f2b74ae7237fb57f",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/validation-executive-summary.md",
+      "gitBlobSha1": "993b89c1c52cdb17eee95708f3d8c01b70246a32",
+      "size": 5990,
+      "sha256": "417b0d77f79823f34dcaf24ae4a953530a77607a67b9c3bfbd062e60bbc493e7",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/validation-findings-matrix.csv",
+      "gitBlobSha1": "bb65609a5d66d0c73e889dbc213354b910264ec2",
+      "size": 10696,
+      "sha256": "66905e662fe3c09b32c04234b462393e5a425e636212a60bb966940495f8b3a7",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/11-results/validation-findings-matrix.md",
+      "gitBlobSha1": "e9985992b90651ff31304121303eac867946ac09",
+      "size": 7463,
+      "sha256": "8811b67015485e8b5f2f20a3b521e404e1ed32da9f5021176dfeb6f90c10057d",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "evidence/infrastructure-validation/2026-07-10/raw/commands/command-records.csv",
+      "gitBlobSha1": "bae4750af459c41d1bc43b6e766b3e0ef83627bb",
+      "size": 4808,
+      "sha256": "f8de4e29f07a2dad90a7ea7686f3feb9e9627255e2cea5f0c651169cccbd077f",
+      "technologies": [
+        "environment"
+      ],
+      "evidenceType": "validation",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

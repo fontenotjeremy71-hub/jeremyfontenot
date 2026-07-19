@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+  "sourceCommit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+  "sourceVerificationMethod": "manifest-attested-source",
+  "selection": {
+    "approvedRecursiveRoots": [
+      "tests"
+    ],
+    "approvedIndividualFiles": [],
+    "pathPattern": null,
+    "reviewedExclusions": [
+      {
+        "path": "tests/.gitkeep",
+        "reason": "Empty-directory placeholder with no evidence content."
+      }
+    ]
+  },
+  "totals": {
+    "artifacts": 3,
+    "manualReviewRequired": 0,
+    "highSeveritySecretFindings": 0,
+    "identifierFindings": 1
+  },
+  "records": [
+    {
+      "sourcePath": "tests/Test-HomeLabBaselineFramework.ps1",
+      "gitBlobSha1": "2f02d5d2ab88b30b4a6d4db707aa9619ddae6a1e",
+      "size": 5740,
+      "sha256": "12cdf3678420f4c7b3eb342a2d5436021cab1d79db3a16a431fca9e5795654c0",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "scripts",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    },
+    {
+      "sourcePath": "tests/Test-PortfolioHomeLabDrift.ps1",
+      "gitBlobSha1": "31770ed1fd6eba1dfa2bb886c1df76610404c72a",
+      "size": 6417,
+      "sha256": "ad8604856ed60814d0a8579334ef7ebe8df4facb6b391e6adb06dbe42cee62d3",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "scripts",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 1,
+        "manualReviewRequired": false,
+        "findings": [
+          {
+            "type": "local-user-profile-identifier",
+            "severity": "medium",
+            "reviewStatus": "not-published-source",
+            "exceptionId": null,
+            "occurrences": 1,
+            "lines": [
+              12
+            ],
+            "valueFingerprints": [
+              "2e2cf72b5d66e554"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sourcePath": "tests/Test-RepositoryStructure.ps1",
+      "gitBlobSha1": "450626311a2894b6af39af2383fa5743397c1a3e",
+      "size": 13021,
+      "sha256": "b658e5ec95dcf7005810dd9d7f36576181adbfcf83ed65a89df99158da27dabc",
+      "technologies": [
+        "automation"
+      ],
+      "evidenceType": "scripts",
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false,
+        "findings": []
+      }
+    }
+  ]
+}

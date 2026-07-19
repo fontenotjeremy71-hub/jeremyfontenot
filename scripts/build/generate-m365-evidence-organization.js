@@ -214,7 +214,7 @@ function publicRouteFor(sourcePath, publicationManifest) {
 function isHardCodedSecretValue(value) {
   const normalized = String(value).trim();
   if (!normalized || normalized.startsWith('$')) return false;
-  return !/^(?:<\s*(?:password|pwd|secret|redacted|placeholder)\s*>|\{\{\s*(?:password|pwd|secret|redacted|placeholder)\s*\}\}|redacted|placeholder|test_fixture_placeholder)$/i.test(normalized);
+  return !/^(?:<\s*(?:password|pwd|secret|redacted|placeholder)\s*>|\[\s*(?:password|pwd|secret|redacted|placeholder)\s*\]|\{\{\s*(?:password|pwd|secret|redacted|placeholder)\s*\}\}|redacted|placeholder|test_fixture_placeholder)$/i.test(normalized);
 }
 
 function exceptionFor(finding, sourcePath, exceptionManifest, matchedExceptionIds) {

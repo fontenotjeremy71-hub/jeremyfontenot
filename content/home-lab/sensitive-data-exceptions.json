@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "policy": "Only exact tracked public files and full SHA-256 value fingerprints may authorize reviewed identifier publication.",
+  "exceptions": [
+    {
+      "id": "home-lab-reviewed-a7c62545de3bab9f",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "4546551fcdafe3c7ed112aead4a843d7ae70f6e39d2cf3ed46240a0614197514"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/automation/provisioning-script-evidence.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-e7c27a50914ca504",
+      "findingType": "public-ipv4-identifier",
+      "valueFingerprints": [
+        "f1412386aa8db2579aff2636cb9511cacc5fd9880ecab60c048508fbe26ee4d9"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/network/firewall-rule-validation-report-2026.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-428abf96ab031204",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/README.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-075a8b080d206deb",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-3df5da8613f53e1e",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-03f3f2c69123ccc8",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-e82f2b212f70090f",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-fe460bbbb02428f1",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-584bc1f76ab5ff6b",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-dc26ce85237a33b3",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-40c0ef405a497a8b",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-5d70243c10ce2adf",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-b29899915f4cfcaa",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "2e2cf72b5d66e5542c5cbb5707fe6d4a8be5525b7d839c26c9a7ff88bf264b6a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-source-reconciliation.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-a594148044264c6c",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-8b1ffadb86bb35fa",
+      "findingType": "local-user-profile-identifier",
+      "valueFingerprints": [
+        "73d43c3e91173d80f9e570f72a644551e76731f883ad3cdae23b55fac3437994"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/redaction-log.md"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-f6f1c9eb6c4ac561",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "0e2708d3507b23d8e14e2104f7a3fe5649b807b71b4f3628162ac9f293bcb9ba",
+        "17b54c2b013c482c142ffb3147a8de9ca8af190f1c0ef510fee2b532b651c415",
+        "21247ba906aadf2c9136f11948f1d87dc5a01ee1e91392bb04fb08da9412241d",
+        "5ea41755740bc789f2a961f7bbdcfbac0a811fc405a5ec40ac0cc5670c869f19",
+        "d3d3dc8f2e4dc167b06577ebea0fae69442aac2e76c306792b6e8f3b55b688a8",
+        "d8ff9997687852c7bc48b0343901d7e67f55c710df425cf662217ed61998095a",
+        "ece25d554bc62512191f843d9f37d67ffa4ab299b7372d6f1cc3a419b4bb1c32"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-ad-integration-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-1470c475697179e6",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "0e2708d3507b23d8e14e2104f7a3fe5649b807b71b4f3628162ac9f293bcb9ba"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-dns-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-1b537dd05e3271e5",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "0e2708d3507b23d8e14e2104f7a3fe5649b807b71b4f3628162ac9f293bcb9ba",
+        "3c1d753c6e83604f945c6785928e8107b24983453236fc6b9ac3934bdabde0b9",
+        "a55378d44270600dbdc8b171b3d6a4625a3adb8e4b73f8d997f71078632d13b8"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-kerberos-validation-sanitized.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-88b75073c40c947f",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "0e2708d3507b23d8e14e2104f7a3fe5649b807b71b4f3628162ac9f293bcb9ba"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-maintenance-agent-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-c43905762770eba1",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "0e2708d3507b23d8e14e2104f7a3fe5649b807b71b4f3628162ac9f293bcb9ba"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-security-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-7f12d8746c913315",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "07b42a2c7c98a6c3ba6d31c65ad4dca3e83410fbdeaeffa9f7db670d00ec84d2"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-storage-validation.txt"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-c046dd3f8ce511be",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-0cfa1e41bb379c66",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "4546551fcdafe3c7ed112aead4a843d7ae70f6e39d2cf3ed46240a0614197514"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "evidence-library/scripts/powershell-automation-provisioning-script-v1.ps1"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "home-lab-reviewed-c0264365ddf05a02",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "on-prem-home-lab.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    }
+  ]
+}

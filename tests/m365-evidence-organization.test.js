@@ -109,6 +109,17 @@ test('connection-string secret material is detected', () => {
   assert.ok(findings.some((finding) => finding.type === 'connection-string-secret' && finding.severity === 'high'));
 });
 
+test('explicit bracketed redaction markers are not treated as hard-coded passwords', () => {
+  const review = reviewArtifact(
+    Buffer.from('common-password: [REDACTED] reference present', 'utf8'),
+    'fixture.txt',
+    null,
+    {exceptions: []},
+    new Set(),
+  );
+  assert.equal(review.highSeverityFindings, 0);
+});
+
 test('public IP identifiers are detected while private and documentation ranges are ignored', () => {
   const findings = scanText(Buffer.from('public=174.73.123.101 private=192.168.1.10 example=203.0.113.8 SerializationVersion: 1.1.0.1 PackageManagement / 1.4.8.1 / DSCResources ipv6=2600:8807:2941:2500:1126:a8ab:d68d:13ee'), 'evidence/public/probe.txt', {exceptions: []}, true);
   assert.ok(findings.some((finding) => finding.type === 'public-ipv4-identifier' && finding.value === '174.73.123.101'));

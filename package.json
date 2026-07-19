@@ -12,15 +12,18 @@
     "check:foundation": "node scripts/build/generate-site-foundation.js --check",
     "build:m365": "node scripts/validation/validate-m365-sensitive-formats.js && node scripts/build/generate-m365-evidence-organization.js",
     "check:m365": "node --test tests/m365-evidence-organization.test.js && node scripts/validation/validate-m365-sensitive-formats.js && node scripts/build/generate-m365-evidence-organization.js --check",
+    "build:home-lab": "node scripts/build/generate-home-lab-evidence-organization.js",
+    "check:home-lab": "node --test tests/home-lab-evidence-organization.test.js && node scripts/build/generate-home-lab-evidence-organization.js --check",
     "validate:foundation": "node scripts/validation/validate-site-foundation.js && node scripts/validation/validate-evidence-provenance.js && node scripts/validation/validate-claim-relationships.js",
     "check:readiness": "node scripts/validation/validate-job-readiness.js",
-    "check:publication": "npm run check:m365 && npm run build:foundation && npm run check:foundation && node scripts/build/prepare-public-site.js --check",
-    "build:site": "npm run build:m365 && npm run build:foundation && node scripts/build/prepare-public-site.js",
-    "build": "npm run build:evidence && npm run build:dashboard && npm run build:m365 && npm run build:foundation",
-    "check": "npm run check:m365 && npm run build:foundation && npm run check:evidence && npm run check:dashboard && npm run check:readiness && npm run check:foundation && npm run validate:foundation && npm run check:publication",
+    "check:publication": "npm run check:m365 && npm run check:home-lab && npm run build:foundation && npm run check:foundation && node scripts/build/prepare-public-site.js --check",
+    "build:site": "npm run build:m365 && npm run build:home-lab && npm run build:foundation && node scripts/build/prepare-public-site.js",
+    "build": "npm run build:evidence && npm run build:dashboard && npm run build:m365 && npm run build:home-lab && npm run build:foundation",
+    "check": "npm run check:m365 && npm run check:home-lab && npm run build:foundation && npm run check:evidence && npm run check:dashboard && npm run check:readiness && npm run check:foundation && npm run validate:foundation && npm run check:publication",
     "serve:test": "node scripts/testing/serve-static-site.js",
     "test:browser": "playwright test",
-    "test:m365:idempotency": "node scripts/validation/validate-m365-publication-idempotency.js"
+    "test:publication:idempotency": "node scripts/validation/validate-m365-publication-idempotency.js",
+    "test:m365:idempotency": "npm run test:publication:idempotency"
   },
   "dependencies": {
     "markdown-it": "14.3.0"
