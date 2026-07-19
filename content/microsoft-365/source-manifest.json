@@ -1,5 +1,18 @@
 {
   "schemaVersion": 1,
+  "generatedOutputRoots": [
+    "site/",
+    ".site-preflight/",
+    "playwright-report/",
+    "test-results/",
+    "node_modules/",
+    "coverage/",
+    ".cache/",
+    "dist/",
+    "build/",
+    "artifacts/playwright/",
+    "artifacts/redesign/final/"
+  ],
   "candidatePathTerms": [
     "microsoft[-_ ]?365",
     "m365",
@@ -77,16 +90,7 @@
     {"path":"evidence/public/rca-2025-02-10.md","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow RCA summary.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
     {"path":"evidence/public/rca-2025-02-10.yaml","collection":"exchange-mail-flow-rca","reason":"Published sanitized mail-flow RCA structured summary.","technologyRelationships":["exchange-online"],"claimTechnologies":["exchange-online"]},
     {"path":"evidence-library/preserved-sharepoint/sharepoint-export-inventory.csv","collection":"preserved-sharepoint-attestation","reason":"Reviewed inventory attesting original SharePoint source integrity."},
-    {"path":"evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md","collection":"preserved-sharepoint-attestation","reason":"Published preserved SharePoint collection summary."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1280x800.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1440x900.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-320x800.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-360x800.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-375x812.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-390x844.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-414x896.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."},
-    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-768x1024.png","collection":"m365-visual-qa","reason":"Tracked visual-QA capture of the Microsoft 365 proof route."}
+    {"path":"evidence-library/preserved-sharepoint/sharepoint-export-summary-2026.md","collection":"preserved-sharepoint-attestation","reason":"Published preserved SharePoint collection summary."}
   ],
   "reviewedExclusions": [
     {"path":".github/agents/microsoft-365-evidence-organizer.agent.md","reason":"Phase operating instructions, not an evidence artifact."},
@@ -107,6 +111,15 @@
     {"path":"evidence-library/evidence-relationships.json","reason":"Cross-cutting generated relationship index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."},
     {"path":"evidence-library/evidence-search-index.json","reason":"Cross-cutting generated search index that references separately cataloged physical evidence; excluded to prevent duplicate physical-artifact records."},
     {"path":"evidence-file-list-sorted.txt","reason":"Cross-cutting generated sorted inventory that duplicates the separately cataloged physical file inventory."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1280x800.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1440x900.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-320x800.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-360x800.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-375x812.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-390x844.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-414x896.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
+    {"path":"artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-768x1024.png","reason":"Generated responsive visual-review capture; excluded from evidence source discovery."},
     {"path":"evidence-library/projects/microsoft-365-lab/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/projects/troubleshooting-rca/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/entra-identity/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
@@ -120,6 +133,7 @@
     {"path":"scripts/build/sync-m365-generated-integrity.js","reason":"Generated-integrity tooling, not collected evidence."},
     {"path":"scripts/build/sync-m365-seo.js","reason":"Generated-SEO tooling, not collected evidence."},
     {"path":"scripts/validation/validate-m365-sensitive-formats.js","reason":"Supplemental high-severity scanner implementation, not collected evidence."},
+    {"path":"scripts/validation/validate-m365-publication-idempotency.js","reason":"Repeated publication-build validation tooling, not collected evidence."},
     {"path":"tests/m365-evidence-organization.test.js","reason":"Phase validation test, not collected evidence."}
   ]
 }

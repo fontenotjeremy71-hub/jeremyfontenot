@@ -2,13 +2,20 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
+const fs = require('node:fs');
+const path = require('node:path');
+const {execFileSync} = require('node:child_process');
 const {
   evidenceType,
+  discoverSourceFiles,
+  listTrackedFiles,
   technologiesFor,
   logicalDestination,
   normalizeForTechnologyMatching,
   reviewArtifact,
-  scanText
+  scanText,
+  validateExceptionManifest
 } = require('../scripts/build/generate-m365-evidence-organization.js');
 const {
   scanSupplementalHighSeverity
@@ -121,11 +128,125 @@ test('encrypted PKCS8 private keys are blocked by the supplemental gate', () => 
 });
 
 test('PowerShell password parameters are blocked by the supplemental gate', () => {
-  const findings = scanSupplementalHighSeverity(Buffer.from('Connect-Service -Password value'), 'scripts/probe.ps1');
-  assert.ok(findings.some((finding) => finding.type === 'powershell-password-parameter'));
+  for (const command of [
+    'Connect-Service -Password value',
+    'Connect-Service -Password:value',
+    'Connect-Service -Password:"value"',
+    "Connect-Service -Password:'value'",
+    'Connect-Service -Pwd:value',
+    'Connect-Service --Password:value'
+  ]) {
+    const findings = scanSupplementalHighSeverity(Buffer.from(command), 'scripts/probe.ps1');
+    assert.ok(findings.some((finding) => finding.type === 'powershell-password-parameter'), 'missing detection for ' + command);
+  }
+});
+
+test('PowerShell password references, declarations, placeholders, and empty values are nonblocking', () => {
+  for (const command of [
+    'Connect-Service -Password $Password',
+    'Connect-Service -Password:$Credential.Password',
+    '[CmdletBinding()] param([Parameter()] [string]$Password)',
+    'Connect-Service -Password:',
+    'Connect-Service -Password ""',
+    'Connect-Service -Password:<redacted>',
+    'Connect-Service -Password:TEST_FIXTURE_PLACEHOLDER'
+  ]) {
+    assert.equal(scanSupplementalHighSeverity(Buffer.from(command), 'scripts/probe.ps1').length, 0, 'unexpected finding for ' + command);
+  }
 });
 
 test('XML password elements are blocked by the supplemental gate', () => {
   const findings = scanSupplementalHighSeverity(Buffer.from('<Configuration><Password>value</Password></Configuration>'), 'evidence/public/probe.xml');
   assert.ok(findings.some((finding) => finding.type === 'xml-password-element'));
+});
+
+test('source discovery is tracked-only and excludes publication output roots', () => {
+  const tracked = listTrackedFiles();
+  const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'content/microsoft-365/source-manifest.json'), 'utf8'));
+  const files = discoverSourceFiles(manifest.generatedOutputRoots);
+  assert.ok(tracked.length >= files.length);
+  for (const prefix of ['site/', '.site-preflight/', 'playwright-report/', 'test-results/', 'node_modules/', 'artifacts/playwright/', 'artifacts/redesign/final/']) {
+    assert.ok(manifest.generatedOutputRoots.includes(prefix), 'denylist is missing ' + prefix);
+    assert.ok(!files.some((file) => file.startsWith(prefix)), 'tracked source discovery included ' + prefix);
+  }
+});
+
+test('generated M365 contracts contain no publication-output source paths', () => {
+  const root = path.resolve(__dirname, '..');
+  const catalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/m365-evidence-catalog.json'), 'utf8'));
+  const matrix = fs.readFileSync(path.join(root, 'microsoft-365/source-to-destination-matrix.csv'), 'utf8');
+  const duplicates = fs.readFileSync(path.join(root, 'microsoft-365/duplicate-groups.json'), 'utf8');
+  const sensitive = fs.readFileSync(path.join(root, 'microsoft-365/sensitive-data-review.json'), 'utf8');
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/source-manifest.json'), 'utf8'));
+  const forbidden = ['site/', '.site-preflight/', 'playwright-report/', 'test-results/', 'node_modules/', 'artifacts/playwright/', 'artifacts/redesign/final/'];
+  for (const record of catalog.records) {
+    for (const prefix of forbidden) {
+      assert.ok(!String(record.sourcePath).startsWith(prefix), 'catalog source contains ' + prefix);
+      assert.ok(!String(record.publicPath || '').startsWith(prefix), 'catalog public path contains ' + prefix);
+    }
+  }
+  for (const prefix of ['site/', '.site-preflight/', 'playwright-report/', 'test-results/', 'node_modules/', 'artifacts/playwright/']) {
+    assert.ok(!matrix.includes('"' + prefix), 'matrix contains ' + prefix);
+    assert.ok(!duplicates.includes('"' + prefix), 'duplicate report contains ' + prefix);
+    assert.ok(!sensitive.includes('"' + prefix), 'sensitive report contains ' + prefix);
+    assert.ok(!manifest.reviewedExclusions.some((entry) => entry.path.startsWith(prefix)), 'exclusion manifest contains ' + prefix);
+  }
+});
+
+function gitBlobHash(buffer, attributePath) {
+  const args = ['hash-object'];
+  if (attributePath) args.push('--path=' + attributePath);
+  args.push('--stdin');
+  return execFileSync('git', args, {input: buffer, encoding: 'utf8'}).trim();
+}
+
+test('Git attributes preserve raw CRLF evidence bytes and normalize only the generated matrix', () => {
+  const crlfCsv = Buffer.from('name,value\r\nalpha,beta\r\n');
+  const crlfJson = Buffer.from('{\r\n  "name": "value"\r\n}\r\n');
+  const crlfMarkdown = Buffer.from('# Heading\r\n\r\nEvidence.\r\n');
+  assert.equal(gitBlobHash(crlfCsv, 'evidence/public/raw-fixture.csv'), gitBlobHash(crlfCsv));
+  assert.equal(gitBlobHash(crlfJson, 'evidence-library/raw-fixture.json'), gitBlobHash(crlfJson));
+  assert.equal(gitBlobHash(crlfMarkdown, 'docs/projects/raw-fixture.md'), gitBlobHash(crlfMarkdown));
+
+  const lfCsv = Buffer.from('name,value\nalpha,beta\n');
+  assert.equal(gitBlobHash(crlfCsv, 'microsoft-365/source-to-destination-matrix.csv'), gitBlobHash(lfCsv));
+  assert.notEqual(gitBlobHash(crlfCsv, 'microsoft-365/source-to-destination-matrix.csv'), gitBlobHash(crlfCsv));
+});
+
+test('tenant and object identifier exceptions require exact tracked files and fingerprints', () => {
+  const reviewedPath = 'evidence/public/intune-profile-sample.json';
+  const reviewedValue = '11111111-1111-4111-8111-111111111111';
+  const reviewedFingerprint = crypto.createHash('sha256').update(reviewedValue).digest('hex');
+  const manifest = {exceptions: [{
+    id: 'reviewed-guid-probe',
+    findingType: 'tenant-or-object-identifier',
+    valueFingerprints: [reviewedFingerprint],
+    reason: 'Deterministic exact-value review fixture.',
+    scope: [reviewedPath],
+    reviewerNote: 'Only this fingerprint at this exact tracked path is reviewed.'
+  }]};
+  validateExceptionManifest(manifest, new Set([reviewedPath]));
+
+  const reviewed = scanText(Buffer.from(reviewedValue), reviewedPath, manifest, true);
+  assert.equal(reviewed[0].reviewStatus, 'reviewed-exception');
+  const newValue = scanText(Buffer.from('22222222-2222-4222-8222-222222222222'), reviewedPath, manifest, true);
+  assert.equal(newValue[0].reviewStatus, 'review-required');
+  const newFile = scanText(Buffer.from(reviewedValue), 'evidence/public/new-export.json', manifest, true);
+  assert.equal(newFile[0].reviewStatus, 'review-required');
+
+  assert.throws(() => validateExceptionManifest({exceptions: [{
+    id: 'broad-guid-probe',
+    findingType: 'tenant-or-object-identifier',
+    pattern: '^[0-9a-f-]+$',
+    reason: 'Invalid broad review fixture.',
+    scope: ['evidence/public'],
+    reviewerNote: 'This must be rejected.'
+  }]}, new Set([reviewedPath])), /must use exact SHA-256 fingerprints/);
+  assert.throws(() => validateExceptionManifest({exceptions: [{
+    id: 'missing-note-probe',
+    findingType: 'tenant-or-object-identifier',
+    valueFingerprints: [reviewedFingerprint],
+    reason: 'Invalid missing-note fixture.',
+    scope: [reviewedPath]
+  }]}, new Set([reviewedPath])), /missing reviewerNote/);
 });

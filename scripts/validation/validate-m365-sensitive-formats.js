@@ -21,8 +21,9 @@ const SUPPLEMENTAL_HIGH_SEVERITY_PATTERNS = [
   {
     type: 'powershell-password-parameter',
     extensions: new Set(['.ps1']),
-    regex: /(?:^|[\s`])-{1,2}(?:Password|Pwd)\s+(?:"([^"\r\n]+)"|'([^'\r\n]+)'|([^\s;|`]+))/gim,
-    valueGroups: [1, 2, 3]
+    regex: /(?:^|[\s`])-{1,2}(?:Password|Pwd)(?::|\s+)(?:"([^"\r\n]+)"|'([^'\r\n]+)'|([^"'\s;|`]+))/gim,
+    valueGroups: [1, 2, 3],
+    valueFilter: isHardCodedPasswordValue
   },
   {
     type: 'xml-password-element',
@@ -38,6 +39,12 @@ function toPosix(value) {
 
 function sha256(value) {
   return crypto.createHash('sha256').update(value).digest('hex');
+}
+
+function isHardCodedPasswordValue(value) {
+  const normalized = String(value).trim();
+  if (!normalized || normalized.startsWith('$')) return false;
+  return !/^(?:<\s*(?:password|pwd|secret|redacted|placeholder)\s*>|\{\{\s*(?:password|pwd|secret|redacted|placeholder)\s*\}\}|redacted|placeholder|test_fixture_placeholder)$/i.test(normalized);
 }
 
 function trackedFiles() {
@@ -83,6 +90,7 @@ function scanSupplementalHighSeverity(buffer, sourcePath) {
     let match;
     while ((match = definition.regex.exec(text)) !== null) {
       const value = matchValue(match, definition);
+      if (definition.valueFilter && !definition.valueFilter(value, match, text)) continue;
       findings.push({
         type: definition.type,
         severity: 'high',
@@ -132,5 +140,6 @@ if (require.main === module) main();
 module.exports = {
   SUPPLEMENTAL_HIGH_SEVERITY_PATTERNS,
   approvedSourceFiles,
+  isHardCodedPasswordValue,
   scanSupplementalHighSeverity
 };

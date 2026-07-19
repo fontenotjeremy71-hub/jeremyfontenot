@@ -1,11 +1,35 @@
-# Normalize line endings to avoid LF/CRLF churn on Windows
+# Let Git detect ordinary text while preserving evidence bytes explicitly below.
 * text=auto
 
-# Ensure common web assets use LF in the repo
-*.html text eol=lf
-*.css  text eol=lf
-*.js   text eol=lf
-*.json text eol=lf
-microsoft-365/source-to-destination-matrix.csv text eol=lf
-*.md   text eol=lf
-*.sha256 text eol=lf
+# Repository source and generated web assets use deterministic LF bytes.
+/.github/** text eol=lf
+/config/** text eol=lf
+/content/** text eol=lf
+/schemas/** text eol=lf
+/scripts/** text eol=lf
+/tests/** text eol=lf
+/assets/css/** text eol=lf
+/assets/js/** text eol=lf
+/*.html text eol=lf
+/systems-skills/** text eol=lf
+/microsoft-365/** text eol=lf
+/home-lab/** text eol=lf
+
+# Raw, preserved, captured, and inventory evidence retains committed bytes.
+/evidence-library/** -text
+/evidence/** -text
+/docs/projects/** -text
+/assets/evidence/** -text
+/artifacts/** -text
+/logs/** -text
+/evidence-file-list.csv -text
+/evidence-file-list-sorted.txt -text
+
+# These exact generated evidence outputs are intentionally LF-normalized.
+/microsoft-365/evidence-catalog.html text eol=lf
+/microsoft-365/source-to-destination-matrix.csv text eol=lf
+/microsoft-365/duplicate-groups.json text eol=lf
+/microsoft-365/sensitive-data-review.json text eol=lf
+/assets/data/m365-evidence-catalog.json text eol=lf
+/content/microsoft-365/generated-output-hashes.json text eol=lf
+/evidence-library/preserved-sharepoint/index.html text eol=lf

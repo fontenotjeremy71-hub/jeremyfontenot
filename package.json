@@ -19,7 +19,8 @@
     "build": "npm run build:evidence && npm run build:dashboard && npm run build:m365 && npm run build:foundation",
     "check": "npm run check:m365 && npm run build:foundation && npm run check:evidence && npm run check:dashboard && npm run check:readiness && npm run check:foundation && npm run validate:foundation && npm run check:publication",
     "serve:test": "node scripts/testing/serve-static-site.js",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "test:m365:idempotency": "node scripts/validation/validate-m365-publication-idempotency.js"
   },
   "dependencies": {
     "markdown-it": "14.3.0"

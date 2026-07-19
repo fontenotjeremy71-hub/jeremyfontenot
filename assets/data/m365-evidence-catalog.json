@@ -17,14 +17,14 @@
     "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json"
   },
   "totals": {
-    "artifacts": 974,
+    "artifacts": 965,
     "preservedSharePointArtifacts": 802,
     "sourceDuplicateGroups": 127,
     "publicDuplicateGroups": 5,
     "sensitiveDataReview": {
-      "artifactsReviewed": 974,
+      "artifactsReviewed": 965,
       "textArtifactsInspected": 959,
-      "manualReviewRequired": 15,
+      "manualReviewRequired": 6,
       "highSeveritySecretFindings": 0,
       "identifierFindings": 4950,
       "unresolvedPublicIdentifierFindings": 0
@@ -323,9 +323,8 @@
       "claimId": "m365-entra-identity-review",
       "claim": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, directory audits, and identity-policy state in a personal tenant.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 201,
+      "evidenceCount": 192,
       "counts": {
-        "screenshots": 15,
         "configuration": 14,
         "reports": 19,
         "inventories": 28,
@@ -333,19 +332,11 @@
         "documentation": 11,
         "exports": 102,
         "validation": 1,
+        "screenshots": 6,
         "manifests": 1,
         "testing": 1
       },
       "evidenceIds": [
-        "m365-m365-visual-qa-219f6b1ca5504d21",
-        "m365-m365-visual-qa-2850b27a4444d05e",
-        "m365-m365-visual-qa-3f706d81c295f083",
-        "m365-m365-visual-qa-46d7ea137f322f53",
-        "m365-m365-visual-qa-4755b7e075476740",
-        "m365-m365-visual-qa-7a3c4a672247d6dd",
-        "m365-m365-visual-qa-8820ff05aa84560b",
-        "m365-m365-visual-qa-94f7048614290287",
-        "m365-m365-visual-qa-972307f608091091",
         "m365-microsoft-365-core-014b9000a1fb96d3",
         "m365-microsoft-365-core-09067e853441537a",
         "m365-microsoft-365-core-0a831a62455de431",
@@ -2291,15 +2282,6 @@
       "claimId": "m365-entra-identity-review",
       "claimText": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, directory audits, and identity-policy state in a personal tenant.",
       "evidenceIds": [
-        "m365-m365-visual-qa-219f6b1ca5504d21",
-        "m365-m365-visual-qa-2850b27a4444d05e",
-        "m365-m365-visual-qa-3f706d81c295f083",
-        "m365-m365-visual-qa-46d7ea137f322f53",
-        "m365-m365-visual-qa-4755b7e075476740",
-        "m365-m365-visual-qa-7a3c4a672247d6dd",
-        "m365-m365-visual-qa-8820ff05aa84560b",
-        "m365-m365-visual-qa-94f7048614290287",
-        "m365-m365-visual-qa-972307f608091091",
         "m365-microsoft-365-core-014b9000a1fb96d3",
         "m365-microsoft-365-core-09067e853441537a",
         "m365-microsoft-365-core-0a831a62455de431",
@@ -4602,384 +4584,6 @@
         "highSeverityFindings": 0,
         "identifierFindings": 0,
         "manualReviewRequired": false
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-219f6b1ca5504d21",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-414x896.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "0fa6d48101290f3fc5d673eab66fb54898d0b56ed4b080ea37afe83f118db37e",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 153550,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-414x896.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "0fa6d48101290f3fc5d673eab66fb54898d0b56ed4b080ea37afe83f118db37e",
-        "size": 153550,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-2850b27a4444d05e",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "3af5584eda1ca26f6cdd57a9b1d8c8edf84fec4f6242a4af4ed520368e71fa39",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 206138,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1024x768.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "3af5584eda1ca26f6cdd57a9b1d8c8edf84fec4f6242a4af4ed520368e71fa39",
-        "size": 206138,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-3f706d81c295f083",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-768x1024.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "4cb86c9685e5b7f8e8f170176182fe56ec389e2bd213447a30282e15d63ff6c2",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 249437,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-768x1024.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "4cb86c9685e5b7f8e8f170176182fe56ec389e2bd213447a30282e15d63ff6c2",
-        "size": 249437,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-46d7ea137f322f53",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-360x800.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "c4765ea064d35003e0b6b69afde494ae0b0d06c9a52a1c867facfde406c07ac0",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 137840,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-360x800.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "c4765ea064d35003e0b6b69afde494ae0b0d06c9a52a1c867facfde406c07ac0",
-        "size": 137840,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-4755b7e075476740",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1440x900.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "a375fc74c31a48c8c6f1aacef9d6c1c9053a378788fac1972872db55ce85453d",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 272931,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1440x900.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "a375fc74c31a48c8c6f1aacef9d6c1c9053a378788fac1972872db55ce85453d",
-        "size": 272931,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-7a3c4a672247d6dd",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1280x800.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "258341e0d81b1301689299ba0818b70f62f89487b7f36d585cac73c4ef8a2896",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 225441,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-1280x800.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "258341e0d81b1301689299ba0818b70f62f89487b7f36d585cac73c4ef8a2896",
-        "size": 225441,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-8820ff05aa84560b",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-320x800.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "c3a46ede3b55f4f8423840392ccdbb5430aa2209f6155716500a8c54d40edae5",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 125929,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-320x800.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "c3a46ede3b55f4f8423840392ccdbb5430aa2209f6155716500a8c54d40edae5",
-        "size": 125929,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-94f7048614290287",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-390x844.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "61d9b4c213d0c036a5e69f7e5906d0a564f34c8ce69ac432047dfc4eab1571a7",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 146435,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-390x844.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "61d9b4c213d0c036a5e69f7e5906d0a564f34c8ce69ac432047dfc4eab1571a7",
-        "size": 146435,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
-      }
-    },
-    {
-      "id": "m365-m365-visual-qa-972307f608091091",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "screenshots",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-375x812.png",
-      "sourceCommit": "c88894f089e82dba5eb851c82aad703c1af34af2",
-      "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Tracked visual-QA capture of the Microsoft 365 proof route. This repository-only source is cataloged as metadata and is not assigned a public route.",
-      "hashAlgorithm": "sha256",
-      "hash": "267e1e61f1893e01b587d294b0ddb1ee3e4bf7380d17adc19771e72f7f97e71b",
-      "supportedClaims": [
-        "m365-entra-identity-review"
-      ],
-      "skill": "Identity and access administration",
-      "task": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, and directory audit records.",
-      "result": "Identity objects and administrative relationships are preserved in structured exports with bounded claims.",
-      "scope": "Read-only review and evidence capture in a personal tenant.",
-      "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration. Binary content is subject to documented manual-review limitations.",
-      "publicationClassification": "metadata-only",
-      "publicRoute": null,
-      "collection": "m365-visual-qa",
-      "publicPath": null,
-      "size": 136308,
-      "technologyRelationships": [
-        "entra-id"
-      ],
-      "logicalDestination": "content/microsoft-365/entra-id/evidence/screenshots/m365-visual-qa/artifacts/redesign/final/evidence-library-projects-microsoft-365-lab-m365-entra-site-proof-map-20260605-html-375x812.png",
-      "sourceIntegrity": {
-        "algorithm": "sha256",
-        "hash": "267e1e61f1893e01b587d294b0ddb1ee3e4bf7380d17adc19771e72f7f97e71b",
-        "size": 136308,
-        "verificationMethod": "direct-git-object"
-      },
-      "sensitiveDataReview": {
-        "status": "manual-review-required",
-        "highSeverityFindings": 0,
-        "identifierFindings": 0,
-        "manualReviewRequired": true
       }
     },
     {

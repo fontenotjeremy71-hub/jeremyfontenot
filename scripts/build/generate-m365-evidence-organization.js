@@ -9,6 +9,10 @@ const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname, '..', '..');
 const TEXT_EXTENSIONS = new Set(['.csv', '.json', '.xml', '.svg', '.html', '.htm', '.md', '.txt', '.ps1', '.js', '.mjs', '.cjs', '.yaml', '.yml', '.log', '.patch']);
 const BINARY_RESTRICTED_EXTENSIONS = new Set(['.pfx', '.p12', '.key', '.pem', '.kdbx']);
+const GENERATED_OUTPUT_ROOTS = [
+  'site/', '.site-preflight/', 'playwright-report/', 'test-results/', 'node_modules/',
+  'coverage/', '.cache/', 'dist/', 'build/', 'artifacts/playwright/', 'artifacts/redesign/final/'
+];
 const HIGH_SEVERITY_PATTERNS = [
   {type: 'private-key', regex: /-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----/gim},
   {type: 'client-secret', regex: /\b(?:client[_-]?secret|clientsecret)\b["']?\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{12,})/gim, valueGroup: 1},
@@ -16,7 +20,7 @@ const HIGH_SEVERITY_PATTERNS = [
   {type: 'refresh-token', regex: /\brefresh[_-]?token\b["']?\s*[:=]\s*["']?([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
   {type: 'bearer-authorization-header', regex: /\bauthorization\b["']?\s*:\s*["']?\s*bearer\s+([A-Za-z0-9+/_~.-]{20,})/gim, valueGroup: 1},
   {type: 'jwt-like-value', regex: /\b(eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,})\b/gm, valueGroup: 1},
-  {type: 'password-or-connection-secret', regex: /\b(?:password|pwd)\b["']?\s*[:=]\s*["']?([^"'\s;,]{8,})/gim, valueGroup: 1},
+  {type: 'password-or-connection-secret', regex: /\b(?:password|pwd)\b["']?\s*[:=]\s*["']?([^"'\s;,]{8,})/gim, valueGroup: 1, valueFilter: isHardCodedSecretValue},
   {type: 'connection-string-secret', regex: /\b(?:accountkey|sharedaccesskey|sharedaccesssignature)\b\s*=\s*([^;"'\s]{8,})/gim, valueGroup: 1},
   {type: 'api-key', regex: /\b(?:api[_-]?key|subscription[_-]?key)\b["']?\s*[:=]\s*["']?([A-Za-z0-9+/_=-]{16,})/gim, valueGroup: 1}
 ];
@@ -121,9 +125,13 @@ function csvCell(value) {
   return '"' + String(value === undefined || value === null ? '' : value).replaceAll('"', '""') + '"';
 }
 
-function trackedAndUntrackedFiles() {
-  const output = execFileSync('git', ['ls-files', '-co', '--exclude-standard', '-z'], {cwd: root, encoding: 'utf8'});
+function listTrackedFiles() {
+  const output = execFileSync('git', ['ls-files', '-z'], {cwd: root, encoding: 'utf8'});
   return [...new Set(output.split('\0').filter(Boolean).map(toPosix))].sort();
+}
+
+function discoverSourceFiles(outputRoots = GENERATED_OUTPUT_ROOTS) {
+  return listTrackedFiles().filter((file) => !outputRoots.some((prefix) => file.startsWith(prefix)));
 }
 
 function readGitObject(commit, sourcePath) {
@@ -186,14 +194,53 @@ function publicRouteFor(sourcePath, publicationManifest) {
   return null;
 }
 
-function exceptionFor(finding, sourcePath, exceptionManifest) {
+function isHardCodedSecretValue(value) {
+  const normalized = String(value).trim();
+  if (!normalized || normalized.startsWith('$')) return false;
+  return !/^(?:<\s*(?:password|pwd|secret|redacted|placeholder)\s*>|\{\{\s*(?:password|pwd|secret|redacted|placeholder)\s*\}\}|redacted|placeholder|test_fixture_placeholder)$/i.test(normalized);
+}
+
+function exceptionFor(finding, sourcePath, exceptionManifest, matchedExceptionIds) {
   for (const exception of exceptionManifest.exceptions) {
     if (exception.findingType !== finding.type) continue;
     if (!exception.scope.some((scope) => sourcePath === scope || sourcePath.startsWith(scope + '/'))) continue;
-    const pattern = new RegExp(exception.pattern, 'i');
-    if (pattern.test(finding.value)) return exception;
+    const valueHash = sha256(Buffer.from(finding.value));
+    const fingerprintMatch = Array.isArray(exception.valueFingerprints) && exception.valueFingerprints.includes(valueHash);
+    const patternMatch = exception.pattern ? new RegExp(exception.pattern, 'i').test(finding.value) : false;
+    if (fingerprintMatch || patternMatch) {
+      if (matchedExceptionIds) matchedExceptionIds.add(exception.id);
+      return exception;
+    }
   }
   return null;
+}
+
+function validateExceptionManifest(exceptionManifest, trackedSet) {
+  const errors = [];
+  const ids = new Set();
+  for (const [index, exception] of (exceptionManifest.exceptions || []).entries()) {
+    const context = 'sensitive-data exceptions[' + index + ']';
+    if (!exception.id || ids.has(exception.id)) errors.push(context + ': missing or duplicate stable id');
+    ids.add(exception.id);
+    if (!exception.findingType) errors.push(context + ': missing findingType');
+    if (!exception.reason) errors.push(context + ': missing reason');
+    if (!exception.reviewerNote) errors.push(context + ': missing reviewerNote');
+    if (!Array.isArray(exception.scope) || !exception.scope.length) errors.push(context + ': scope must contain at least one reviewed path');
+    if (!exception.pattern && !Array.isArray(exception.valueFingerprints)) errors.push(context + ': pattern or valueFingerprints is required');
+    if (exception.pattern) {
+      try { new RegExp(exception.pattern, 'i'); } catch { errors.push(context + ': invalid pattern'); }
+    }
+    if (exception.findingType === 'tenant-or-object-identifier') {
+      if (exception.pattern) errors.push(context + ': tenant/object identifier exceptions must use exact SHA-256 fingerprints');
+      if (!Array.isArray(exception.valueFingerprints) || !exception.valueFingerprints.length || exception.valueFingerprints.some((value) => !/^[0-9a-f]{64}$/.test(value))) {
+        errors.push(context + ': tenant/object identifier exceptions require exact SHA-256 fingerprints');
+      }
+      for (const scope of exception.scope || []) {
+        if (!trackedSet.has(toPosix(scope))) errors.push(context + ': tenant/object identifier scope must be one exact tracked file: ' + scope);
+      }
+    }
+  }
+  if (errors.length) throw new Error(errors.join('\n'));
 }
 
 function isPublicIpv4(value, match, text) {
@@ -216,7 +263,7 @@ function isPublicIpv4(value, match, text) {
   return true;
 }
 
-function scanText(buffer, sourcePath, exceptionManifest, isPublic) {
+function scanText(buffer, sourcePath, exceptionManifest, isPublic, matchedExceptionIds) {
   const text = buffer.toString('utf8');
   const findings = [];
   function collect(definition, severity) {
@@ -232,7 +279,7 @@ function scanText(buffer, sourcePath, exceptionManifest, isPublic) {
         fingerprint: sha256(Buffer.from(value)).slice(0, 16),
         line: text.slice(0, match.index).split(/\r?\n/).length
       };
-      const reviewedException = severity === 'medium' ? exceptionFor(finding, sourcePath, exceptionManifest) : null;
+      const reviewedException = severity === 'medium' ? exceptionFor(finding, sourcePath, exceptionManifest, matchedExceptionIds) : null;
       finding.reviewStatus = reviewedException ? 'reviewed-exception' : (isPublic ? 'review-required' : 'not-published-source');
       finding.exceptionId = reviewedException ? reviewedException.id : null;
       findings.push(finding);
@@ -271,7 +318,7 @@ function summarizeFindings(findings) {
   })).sort((a, b) => a.severity.localeCompare(b.severity) || a.type.localeCompare(b.type) || a.reviewStatus.localeCompare(b.reviewStatus));
 }
 
-function reviewArtifact(buffer, sourcePath, publicRoute, exceptionManifest) {
+function reviewArtifact(buffer, sourcePath, publicRoute, exceptionManifest, matchedExceptionIds) {
   const ext = path.extname(sourcePath).toLowerCase();
   if (BINARY_RESTRICTED_EXTENSIONS.has(ext)) {
     return {
@@ -285,7 +332,7 @@ function reviewArtifact(buffer, sourcePath, publicRoute, exceptionManifest) {
   if (!TEXT_EXTENSIONS.has(ext)) {
     return {status: 'manual-review-required', highSeverityFindings: 0, identifierFindings: 0, manualReviewRequired: true, findings: []};
   }
-  const rawFindings = scanText(buffer, sourcePath, exceptionManifest, Boolean(publicRoute));
+  const rawFindings = scanText(buffer, sourcePath, exceptionManifest, Boolean(publicRoute), matchedExceptionIds);
   const highSeverityFindings = rawFindings.filter((finding) => finding.severity === 'high').length;
   const identifierFindings = rawFindings.filter((finding) => finding.severity === 'medium').length;
   const reviewed = rawFindings.some((finding) => finding.reviewStatus === 'reviewed-exception');
@@ -368,22 +415,28 @@ function build() {
       sharePointAttestation.inventoryCommit !== config.sources.currentPortfolio.commit) {
     throw new Error('Configured SharePoint provenance does not match the independent reviewed attestation.');
   }
-  const trackedFiles = trackedAndUntrackedFiles();
+  const trackedFiles = listTrackedFiles();
   const trackedSet = new Set(trackedFiles);
+  const outputRoots = sourceManifest.generatedOutputRoots || GENERATED_OUTPUT_ROOTS;
+  if (!Array.isArray(outputRoots) || outputRoots.some((prefix) => !prefix || !prefix.endsWith('/') || prefix.includes('..'))) {
+    throw new Error('Microsoft 365 generated-output roots must be safe repository-relative directory prefixes.');
+  }
+  const sourceFiles = discoverSourceFiles(outputRoots);
+  validateExceptionManifest(exceptionManifest, trackedSet);
   const candidatePattern = new RegExp(sourceManifest.candidatePathTerms.map((term) => '(?:' + term + ')').join('|'), 'i');
-  const candidates = trackedFiles.filter((file) => candidatePattern.test(file));
+  const candidates = sourceFiles.filter((file) => candidatePattern.test(file));
   const exclusions = new Map(sourceManifest.reviewedExclusions.map((item) => [toPosix(item.path), item.reason]));
   const approved = new Map();
 
   for (const rootEntry of sourceManifest.approvedRecursiveRoots) {
     const sourceRoot = toPosix(rootEntry.path).replace(/\/+$/, '');
-    const files = trackedFiles.filter((file) => file.startsWith(sourceRoot + '/'));
+    const files = sourceFiles.filter((file) => file.startsWith(sourceRoot + '/'));
     if (!files.length) throw new Error('Approved Microsoft 365 recursive root is empty or missing: ' + sourceRoot);
     for (const file of files) approved.set(file, {...rootEntry, path: file, sourceRoot});
   }
   for (const item of sourceManifest.approvedIndividualFiles) {
     const file = toPosix(item.path);
-    if (!trackedSet.has(file)) throw new Error('Approved Microsoft 365 individual file is missing: ' + file);
+    if (!sourceFiles.includes(file)) throw new Error('Approved Microsoft 365 individual file is missing or belongs to a generated output root: ' + file);
     approved.set(file, {...item, path: file, sourceRoot: null});
   }
   for (const excludedPath of exclusions.keys()) {
@@ -435,9 +488,10 @@ function build() {
   const reviewEntries = [];
   const highSeverityFailures = [];
   const unresolvedPublicIdentifiers = [];
+  const matchedExceptionIds = new Set();
 
   function reviewForRecord(record, buffer, physicalPath) {
-    const review = reviewArtifact(buffer, physicalPath, record.publicRoute, exceptionManifest);
+    const review = reviewArtifact(buffer, physicalPath, record.publicRoute, exceptionManifest, matchedExceptionIds);
     record.sensitiveDataReview = {
       status: review.status,
       highSeverityFindings: review.highSeverityFindings,
@@ -576,6 +630,10 @@ function build() {
   }
   if (unresolvedPublicIdentifiers.length) {
     throw new Error('Public identifier findings require reviewed exceptions:\n' + [...new Set(unresolvedPublicIdentifiers)].sort().join('\n'));
+  }
+  const unmatchedExceptions = exceptionManifest.exceptions.filter((exception) => !matchedExceptionIds.has(exception.id));
+  if (unmatchedExceptions.length) {
+    throw new Error('Reviewed sensitive-data exceptions must match a current reviewed finding:\n' + unmatchedExceptions.map((exception) => exception.id).sort().join('\n'));
   }
 
   records.sort((a, b) => a.id.localeCompare(b.id));
@@ -787,7 +845,7 @@ function build() {
       valuesInReport: 'redacted; stable fingerprints only'
     },
     summary: reviewSummary,
-    reviewedExceptions: exceptionManifest.exceptions.map(({pattern, ...reviewedException}) => reviewedException),
+    reviewedExceptions: exceptionManifest.exceptions.map(({pattern, valueFingerprints, ...reviewedException}) => reviewedException),
     artifacts: reviewEntries.sort((a, b) => a.path.localeCompare(b.path))
   };
   const duplicateReport = {
@@ -864,7 +922,10 @@ module.exports = {
   normalizeForTechnologyMatching,
   reviewArtifact,
   scanText,
+  discoverSourceFiles,
+  listTrackedFiles,
   technologiesFor,
   logicalDestination,
-  validateEvidenceRecord
+  validateEvidenceRecord,
+  validateExceptionManifest
 };
