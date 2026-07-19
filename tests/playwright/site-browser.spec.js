@@ -246,6 +246,11 @@ test.describe("static server contract", () => {
     [browserPath(evidencePages[0].source), /^text\/markdown\b/i],
     ["/scripts/config/evidence-pages.json", /^application\/json\b/i],
     ["/evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv", /^text\/csv\b/i],
+    ["/assets/data/home-lab-evidence-catalog.json", /^application\/json\b/i],
+    ["/home-lab/source-to-destination-matrix.csv", /^text\/csv\b/i],
+    ["/home-lab/duplicate-groups.json", /^application\/json\b/i],
+    ["/home-lab/sensitive-data-review.json", /^application\/json\b/i],
+    ["/home-lab/authoritative-source-decisions.json", /^application\/json\b/i],
     ["/assets/logos/header_logo_88x88.png", /^image\/png\b/i],
   ];
 
@@ -261,6 +266,16 @@ test.describe("static server contract", () => {
     const response = await request.get("/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/");
     expect(response.status()).toBe(200);
     expect(response.headers()["content-type"]).toMatch(/^text\/html\b/i);
+  });
+
+  test("serves the complete bounded Home Lab catalog contract", async ({ request }) => {
+    const response = await request.get("/assets/data/home-lab-evidence-catalog.json");
+    expect(response.status()).toBe(200);
+    const catalog = await response.json();
+    expect(catalog.totals.artifacts).toBe(catalog.records.length);
+    expect(new Set(catalog.records.map((record) => record.id)).size).toBe(catalog.records.length);
+    expect(catalog.totals.sensitiveDataReview.highSeveritySecretFindings).toBe(0);
+    expect(catalog.boundaries.join(" ")).toContain("Personal nonproduction Home Lab evidence only.");
   });
 
   test("returns 404 for a nonexistent file", async ({ request }) => {

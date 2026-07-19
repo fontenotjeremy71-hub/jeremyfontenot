@@ -11,8 +11,10 @@ const currentRepository = 'fontenotjeremy71-hub/jeremyfontenot';
 const schema = JSON.parse(fs.readFileSync(path.join(root, 'schemas/site-foundation.schema.json'), 'utf8'));
 const fixture = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/site-foundation/evidence-records.json'), 'utf8'));
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/m365-evidence-catalog.json'), 'utf8'));
+const homeLabCatalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/home-lab-evidence-catalog.json'), 'utf8'));
 const sharePointAttestation = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/sharepoint-source-attestation.json'), 'utf8'));
 const {build: buildM365Catalog} = require('../build/generate-m365-evidence-organization.js');
+const {build: buildHomeLabCatalog} = require('../build/generate-home-lab-evidence-organization.js');
 const publicationManifest = JSON.parse(fs.readFileSync(path.join(root, 'config/publication-manifest.json'), 'utf8'));
 const failures = [];
 const gitObjectCache = new Map();
@@ -23,6 +25,13 @@ if (JSON.stringify(expectedCatalog.records) !== JSON.stringify(catalog.records))
 }
 if (catalog.records.length !== expectedCatalog.totals.artifacts) {
   failures.push('assets/data/m365-evidence-catalog.json: artifact total does not match complete provenance record count');
+}
+const expectedHomeLabCatalog = buildHomeLabCatalog().summary;
+if (JSON.stringify(expectedHomeLabCatalog.records) !== JSON.stringify(homeLabCatalog.records)) {
+  failures.push('assets/data/home-lab-evidence-catalog.json: generated provenance records do not match the complete expected catalog');
+}
+if (homeLabCatalog.records.length !== expectedHomeLabCatalog.totals.artifacts) {
+  failures.push('assets/data/home-lab-evidence-catalog.json: artifact total does not match complete provenance record count');
 }
 
 function gitBlobSha(buffer) {
@@ -233,6 +242,10 @@ function validateDirect(record, context) {
 }
 
 function validateAttestation(record, context) {
+  if (record.attestationPath?.startsWith('content/home-lab/source-attestations/')) {
+    validateHomeLabJsonAttestation(record, context);
+    return;
+  }
   if (record.attestationPath === sharePointAttestation.inventoryPath) {
     validateSharePointInventoryAttestation(record, context);
     return;
@@ -293,6 +306,51 @@ function validateAttestation(record, context) {
   }
 }
 
+function validateHomeLabJsonAttestation(record, context) {
+  for (const field of ['attestationPath', 'attestationHashAlgorithm', 'attestationHash', 'sourceIntegrity']) {
+    if (!(field in record)) failures.push(`${context}: missing required field ${field}`);
+  }
+  if (record.sourceRepository === currentRepository) failures.push(`${context}: Home Lab manifest attestation requires an external source repository`);
+  if (record.attestationHashAlgorithm !== 'sha256' || record.hashAlgorithm !== 'sha256') failures.push(`${context}: Home Lab attestation requires SHA-256 integrity`);
+  const attestationPath = path.join(root, record.attestationPath || '');
+  if (!fs.existsSync(attestationPath)) {
+    failures.push(`${context}: Home Lab attestation file is missing`);
+    return;
+  }
+  const attestation = fs.readFileSync(attestationPath);
+  if (sha256(attestation) !== String(record.attestationHash).toLowerCase()) failures.push(`${context}: Home Lab attestation hash mismatch`);
+  let document;
+  try {
+    document = JSON.parse(attestation.toString('utf8'));
+  } catch (error) {
+    failures.push(`${context}: Home Lab attestation is invalid JSON: ${error.message}`);
+    return;
+  }
+  if (document.sourceRepository !== record.sourceRepository) failures.push(`${context}: Home Lab attested repository mismatch`);
+  if (document.sourceCommit !== record.sourceCommit) failures.push(`${context}: Home Lab attested commit mismatch`);
+  const source = document.records?.find((item) => item.sourcePath === record.sourcePath);
+  if (!source) {
+    failures.push(`${context}: Home Lab attested source path is missing`);
+    return;
+  }
+  if (String(source.sha256).toLowerCase() !== String(record.sourceIntegrity?.hash).toLowerCase()) failures.push(`${context}: Home Lab attested source hash mismatch`);
+  if (source.size !== record.sourceIntegrity?.size) failures.push(`${context}: Home Lab attested source size mismatch`);
+  if (record.publicationClassification === 'sanitized-derivative') {
+    const publicArtifact = routeToRepositoryPath(record.publicRoute, context);
+    if (!publicArtifact) return;
+    if (!isPublishedByManifest(publicArtifact.relativePath)) failures.push(`${context}: Home Lab derivative route is not included by the publication manifest`);
+    if (!fs.existsSync(publicArtifact.absolute)) {
+      failures.push(`${context}: Home Lab public derivative is missing`);
+      return;
+    }
+    const publicBuffer = fs.readFileSync(publicArtifact.absolute);
+    const publicHash = sha256(publicBuffer);
+    if (!record.publicIntegrity || publicHash !== String(record.publicIntegrity.hash).toLowerCase()) failures.push(`${context}: Home Lab public derivative hash mismatch`);
+    if (!record.publicIntegrity || publicBuffer.length !== record.publicIntegrity.size) failures.push(`${context}: Home Lab public derivative size mismatch`);
+    if (record.hash !== publicHash || record.size !== publicBuffer.length) failures.push(`${context}: Home Lab compatibility hash and size must describe the public derivative`);
+  }
+}
+
 function validateSharePointInventoryAttestation(record, context) {
   if (record.sourceRepository !== sharePointAttestation.sourceRepository) failures.push(`${context}: SharePoint source repository differs from independent attestation`);
   if (record.sourceCommit !== sharePointAttestation.sourceCommit) failures.push(`${context}: SharePoint source commit differs from independent attestation`);
@@ -333,7 +391,7 @@ const methods = new Set(evidenceDefinition.properties.sourceVerificationMethod.e
 const classifications = new Set(evidenceDefinition.properties.publicationClassification.enum);
 const algorithms = new Set(evidenceDefinition.properties.hashAlgorithm.enum);
 
-const allRecords = [...fixture.records, ...catalog.records];
+const allRecords = [...fixture.records, ...catalog.records, ...homeLabCatalog.records];
 for (const [index, record] of allRecords.entries()) {
   const context = `evidence records[${index}]`;
   if (!methods.has(record.sourceVerificationMethod)) failures.push(`${context}: unsupported sourceVerificationMethod ${record.sourceVerificationMethod}`);
@@ -348,4 +406,4 @@ if (failures.length) {
   for (const failure of [...new Set(failures)].sort()) console.error(failure);
   process.exit(1);
 }
-console.log(`Evidence provenance validation passed, including ${catalog.records.length} generated Microsoft 365 records.`);
+console.log(`Evidence provenance validation passed, including ${catalog.records.length} Microsoft 365 and ${homeLabCatalog.records.length} Home Lab records.`);

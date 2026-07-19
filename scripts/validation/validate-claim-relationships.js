@@ -9,17 +9,18 @@ const schema = JSON.parse(fs.readFileSync(path.join(root, 'schemas/site-foundati
 const evidenceFixture = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/site-foundation/evidence-records.json'), 'utf8'));
 const relationshipFixture = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/site-foundation/claim-relationships.json'), 'utf8'));
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/m365-evidence-catalog.json'), 'utf8'));
+const homeLabCatalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/home-lab-evidence-catalog.json'), 'utf8'));
 const failures = [];
 
-const allEvidenceRecords = [...evidenceFixture.records, ...catalog.records];
-const allRelationships = [...relationshipFixture.relationships, ...catalog.claimRelationships];
+const allEvidenceRecords = [...evidenceFixture.records, ...catalog.records, ...homeLabCatalog.records];
+const allRelationships = [...relationshipFixture.relationships, ...catalog.claimRelationships, ...homeLabCatalog.claimRelationships];
 const evidenceById = new Map(allEvidenceRecords.map((record) => [record.id, record]));
 const evidenceByPhysicalSource = new Map();
 const relationshipByClaim = new Map();
 const supportLevels = new Set(schema.$defs.claimRelationship.properties.supportLevel.enum);
 
 for (const [index, evidence] of allEvidenceRecords.entries()) {
-  const physicalKey = `${evidence.sourceRepository}:${String(evidence.sourcePath).replaceAll('\\', '/')}`.toLowerCase();
+  const physicalKey = `${evidence.sourceRepository}@${evidence.sourceCommit}:${String(evidence.sourcePath).replaceAll('\\', '/')}`.toLowerCase();
   if (evidenceByPhysicalSource.has(physicalKey)) {
     failures.push(`evidence records[${index}]: physical source duplicates ${evidenceByPhysicalSource.get(physicalKey)} at ${physicalKey}`);
   } else {
@@ -79,4 +80,4 @@ if (failures.length) {
   for (const failure of [...new Set(failures)].sort()) console.error(failure);
   process.exit(1);
 }
-console.log(`Claim relationship validation passed, including ${catalog.records.length} generated Microsoft 365 records.`);
+console.log(`Claim relationship validation passed, including ${catalog.records.length} Microsoft 365 and ${homeLabCatalog.records.length} Home Lab records.`);

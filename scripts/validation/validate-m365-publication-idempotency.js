@@ -64,7 +64,8 @@ try {
   }
 
   runNpm('check:m365');
-  console.log(`M365 repeated publication build is deterministic: ${second.files} files, SHA-256 ${second.hash}`);
+  runNpm('check:home-lab');
+  console.log(`Repeated portfolio publication build is deterministic: ${second.files} files, SHA-256 ${second.hash}`);
 } finally {
   if (createdSite && fs.existsSync(siteRoot)) {
     fs.rmSync(siteRoot, { recursive: true, force: false });
