@@ -4,7 +4,7 @@
   "generatedFrom": {
     "config": {
       "path": "content/site/evidence-skill-mapping.json",
-      "sha256": "757d1b5f2225bf0184c6802cb293976ebbea4d9b76778d557753ac378d112dd1"
+      "sha256": "6fd2e3fa92e001cf7a63a431c25b35f1accd1d84ccf54a00ca44e8638f248676"
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
@@ -3492,7 +3492,7 @@
       "id": "escalation",
       "label": "Technical escalation",
       "readinessLabel": "professionally-applied",
-      "task": "Provide confirmed observations, commands, timestamps, scope, limitations, impact context, and the next required decision.",
+      "task": "Provide confirmed observations, commands, recorded sequence, scope, limitations, impact context, and the next required decision.",
       "jobRelevance": "Helps senior administrators act on a well-bounded problem without repeating basic discovery.",
       "scope": "Professional support practice and repository-backed evidence discipline.",
       "limitations": "Does not imply independent authority for high-risk production changes or incident command.",

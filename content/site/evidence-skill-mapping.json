@@ -122,7 +122,7 @@
       "id": "escalation",
       "label": "Technical escalation",
       "readinessLabel": "professionally-applied",
-      "task": "Provide confirmed observations, commands, timestamps, scope, limitations, impact context, and the next required decision.",
+      "task": "Provide confirmed observations, commands, recorded sequence, scope, limitations, impact context, and the next required decision.",
       "jobRelevance": "Helps senior administrators act on a well-bounded problem without repeating basic discovery.",
       "scope": "Professional support practice and repository-backed evidence discipline.",
       "limitations": "Does not imply independent authority for high-risk production changes or incident command."

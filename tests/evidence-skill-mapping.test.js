@@ -111,4 +111,7 @@ test("generated human indexes contain complete SEO, accessible controls, and cur
   assert.match(evidenceHtml, /data-mapping-filter/);
   assert.match(evidenceHtml, /data-evidenceType=/);
   assert.match(claimHtml, /23<\/strong><span>bounded claims/);
+  const visibleEvidenceText = evidenceHtml.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " ");
+  assert.doesNotMatch(visibleEvidenceText, /\b(?:19|20)\d{2}\b/);
+  assert.doesNotMatch(visibleEvidenceText, /\b(?:recent|recently|latest|newest|fresh|freshness|date|dates|dated|year|years|month|months|timestamp|timestamps)\b/i);
 });

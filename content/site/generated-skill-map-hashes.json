@@ -3,7 +3,7 @@
   "generatedFrom": {
     "config": {
       "path": "content/site/evidence-skill-mapping.json",
-      "sha256": "757d1b5f2225bf0184c6802cb293976ebbea4d9b76778d557753ac378d112dd1"
+      "sha256": "6fd2e3fa92e001cf7a63a431c25b35f1accd1d84ccf54a00ca44e8638f248676"
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
@@ -17,13 +17,13 @@
   "outputs": {
     "assets/data/evidence-skill-map.json": {
       "algorithm": "sha256",
-      "hash": "9b841cb648fadc7ed2856db8f79585c6dcacb2918535fcbd1d759c8e69ec1312",
-      "size": 3946350
+      "hash": "a552683e11eb0819a039ffebc0030c2d518888123aeb73ff5a0dadcb88141ad8",
+      "size": 3946357
     },
     "systems-skills/evidence-map.html": {
       "algorithm": "sha256",
-      "hash": "d2ab65a670d3b24fa76beb08672fa558d58605c29aefc7412b26b727cfcd3e61",
-      "size": 2069420
+      "hash": "f63f35dd142a6912677ce05b21e1dd60cb912863a5cbada37874901ebd875215",
+      "size": 2060815
     },
     "evidence/claim-map.html": {
       "algorithm": "sha256",
