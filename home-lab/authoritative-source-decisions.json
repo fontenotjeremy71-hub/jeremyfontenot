@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "policy": "The current portfolio preserves established public artifacts. The operations repository remains authoritative and read-only; source references avoid unsafe duplication. Original-portfolio-only artifacts use source references or bounded compatibility derivatives.",
+  "sources": [
+    {
+      "repository": "fontenotjeremy71-hub/jeremyfontenot",
+      "commit": "eb93204b84339a7c5bcb000bef13091dcd5a60f5",
+      "treatment": "direct-git-object",
+      "artifacts": 138
+    },
+    {
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "treatment": "source-reference-only",
+      "artifacts": 292
+    },
+    {
+      "repository": "jeremyfontenot/JeremyFontenot.github.io",
+      "commit": "5581bd7bf9c61ff77000ac04aa39fcbb04ed004f",
+      "treatment": "source-reference-or-sanitized-compatibility-derivative",
+      "artifacts": 9
+    }
+  ],
+  "attestations": [
+    {
+      "path": "content/home-lab/source-attestations/operations-artifacts.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 9,
+      "sha256": "41f2c6db6fa46b7b5a841aa776ca95e987764979c9726084ee531a1ca3ab5d61"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-docs.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 19,
+      "sha256": "82888c110e8c6ded8988a18a3d8dc1811414cb47117000ec4ced7cbfb45ca537"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-evidence-core.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 50,
+      "sha256": "3ab5f8886a91da76fc5bf1366213efcf047a858c60af19d44137c94381f1bed3"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-backup.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 22,
+      "sha256": "285db28e9dfbedd8d7ab525619c604bfeda542208486c60f59920891253f13f4"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-directory.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 5,
+      "sha256": "880bb1694a274d6d54885c25056f864a5c459c598d33a2d9b88443388759e382"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-linux.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 11,
+      "sha256": "4a1584f355f49ce3e02ccf268ffdbc473b4529e602133f10cb8f721173b76cd6"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-management.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 5,
+      "sha256": "8e684ef7d451eb49e2c0551fa0f9a77f0bc1329a2ebcb2d5268a45510fb3cf43"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-network.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 6,
+      "sha256": "51ff1266667dac9e4820b429a7a58c12096789c5ccb82135569d540f84900320"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-pfsense.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 5,
+      "sha256": "065de0663f35fe19459780e331019105b67a066b4e3fca9e29029522d4d30f37"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-proxmox.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 8,
+      "sha256": "54138b5efd50871b809daf7f955744afded43a16fe37f018b033e4a2d4c55f2a"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-results.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 15,
+      "sha256": "1a1c3b088949a9b86261f009043e2ff3f8b48c8c58a9316035e3cfd34c65e021"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-infra-session.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 4,
+      "sha256": "4d47a9aabc360d9a34974c3cd8630f4d724b5a558d6db567b1716a2dcaac17f8"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-inventories.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 14,
+      "sha256": "3fd09944812af63afe194bab625f93bc0e6a3eeb3ee55465d74e2335efbabf06"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-readme.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 1,
+      "sha256": "67aa92c8926238d0fc7385b15a5169f93f71cfc7cde90ee7625db3503a29ba63"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-restore-dc01.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 40,
+      "sha256": "541abd2893ee7cb305ee3855410992b72942422c5a7d91c2cb4598348b84dfce"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-restore-general.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 10,
+      "sha256": "12b74044c22688508fee72bc86a499eaf2af1b7d0dd7f6eb674aae8c2d41f49b"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-restore-linux01.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 14,
+      "sha256": "cb7505eda7576801520da9449f7ecb7e0f7b5a8204de65a753d03030d253b469"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-restore-pfsense.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 15,
+      "sha256": "a476aa66bc1c9ccb898a25cc429db974d522350aaffaeb6c01665df0ee0e35bb"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-restore-ws01.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 20,
+      "sha256": "510e7698145a4560a6d4461df07b7ce0048267a22c9667404116e1da21d2241c"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-scripts.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 16,
+      "sha256": "01236a3b4833e45f457cd9b04844e08b49d41542f2b2080b0083ef88b9ea5bc4"
+    },
+    {
+      "path": "content/home-lab/source-attestations/operations-tests.json",
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4",
+      "artifacts": 3,
+      "sha256": "0476cfbf68eeecde62fd9a58f41305061b8e6cf14468fd6c030f0db89e75d14b"
+    },
+    {
+      "path": "content/home-lab/source-attestations/original-portfolio-source-only.json",
+      "repository": "jeremyfontenot/JeremyFontenot.github.io",
+      "commit": "5581bd7bf9c61ff77000ac04aa39fcbb04ed004f",
+      "artifacts": 9,
+      "sha256": "be74d3e72e1d23553a9e6c452c1d9aab88dc8cd7b4e26140085876a88a1ef051"
+    }
+  ]
+}

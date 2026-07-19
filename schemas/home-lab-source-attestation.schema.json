@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jeremyfontenot.online/schemas/home-lab-source-attestation.schema.json",
+  "title": "Home Lab External Source Attestation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion","sourceRepository","sourceCommit","sourceVerificationMethod","selection","totals","records"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "sourceRepository": {"type":"string","pattern":"^[^/]+/[^/]+$"},
+    "sourceCommit": {"type":"string","pattern":"^[0-9a-f]{40}$"},
+    "sourceVerificationMethod": {"const":"manifest-attested-source"},
+    "selection": {
+      "type":"object","additionalProperties":false,
+      "required":["approvedRecursiveRoots","approvedIndividualFiles","pathPattern","reviewedExclusions"],
+      "properties":{"approvedRecursiveRoots":{"type":"array","items":{"type":"string"}},"approvedIndividualFiles":{"type":"array","items":{"type":"string"}},"pathPattern":{"type":["string","null"]},"reviewedExclusions":{"type":"array","items":{"type":"object","required":["path","reason"]}}}
+    },
+    "totals": {
+      "type":"object","additionalProperties":false,
+      "required":["artifacts","manualReviewRequired","highSeveritySecretFindings","identifierFindings"],
+      "properties":{"artifacts":{"type":"integer","minimum":1},"manualReviewRequired":{"type":"integer","minimum":0},"highSeveritySecretFindings":{"const":0},"identifierFindings":{"type":"integer","minimum":0}}
+    },
+    "records": {
+      "type":"array","minItems":1,
+      "items": {
+        "type":"object","additionalProperties":false,
+        "required":["sourcePath","gitBlobSha1","size","sha256","technologies","evidenceType","sensitiveDataReview"],
+        "properties": {
+          "sourcePath":{"type":"string","minLength":1},"gitBlobSha1":{"type":"string","pattern":"^[0-9a-f]{40}$"},"size":{"type":"integer","minimum":0},"sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+          "technologies":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string"}},"evidenceType":{"enum":["configuration","exports","inventories","manifests","reports","screenshots","scripts-output","scripts","testing","validation","documentation"]},
+          "sensitiveDataReview":{"type":"object","required":["status","highSeverityFindings","identifierFindings","manualReviewRequired","findings"],"properties":{"status":{"enum":["automated-no-high-severity-findings","reviewed-exceptions-applied","manual-review-required"]},"highSeverityFindings":{"const":0},"identifierFindings":{"type":"integer","minimum":0},"manualReviewRequired":{"type":"boolean"},"findings":{"type":"array"}}}
+        }
+      }
+    }
+  }
+}

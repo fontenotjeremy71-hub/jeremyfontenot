@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "sha256",
+  "outputs": [
+    {
+      "path": "assets/data/home-lab-evidence-catalog.json",
+      "size": 1311581,
+      "hash": "c914b53dce10cc9069b794a31beb2c6475262d188b3e39b1d7121488934c2446",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "home-lab/evidence-catalog.html",
+      "size": 17176,
+      "hash": "ceadc858f2af52edfd6bf9198237ef54dc6432da1e8ee481c18ac3a6790c4b1f",
+      "metadataCoverage": [
+        "integrity",
+        "seo"
+      ]
+    },
+    {
+      "path": "home-lab/source-to-destination-matrix.csv",
+      "size": 410897,
+      "hash": "70b13a9be9d0f8b1e35aeece14031df2d8840754e7f57fc447cdd89c2996cd34",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "home-lab/duplicate-groups.json",
+      "size": 5550,
+      "hash": "0942fb95dd6f5ba3d993af3fdad427a13d9867d6e67db7df8cc9e8cfcdc6cb0a",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "home-lab/sensitive-data-review.json",
+      "size": 117795,
+      "hash": "63408653fea41ada5dd8865f19ee6e65cdc0073450695d3987e91a7aac684fe1",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "home-lab/authoritative-source-decisions.json",
+      "size": 8116,
+      "hash": "c6b0b41a7221bdfc0d527b5d1fdf2f352abf5148b6bc58f1e5aee4e30bb44204",
+      "metadataCoverage": [
+        "integrity"
+      ]
+    },
+    {
+      "path": "active-directory-lab.html",
+      "size": 3272,
+      "hash": "50ccb0c15743cc0b70d99892c73da949019493e03f70422d95d2abd20d6ebc64",
+      "metadataCoverage": [
+        "integrity",
+        "seo"
+      ]
+    },
+    {
+      "path": "infrastructure.html",
+      "size": 3264,
+      "hash": "7270246f0c4d55025bb6bb39a1c86e29e22598fc06dce24959018529f3c46a86",
+      "metadataCoverage": [
+        "integrity",
+        "seo"
+      ]
+    },
+    {
+      "path": "network-segmentation.html",
+      "size": 3266,
+      "hash": "1ed81b0fbc31f317d9d6b7892ce49ba8ed9589c3fb8141cc28dedac0e1512c3b",
+      "metadataCoverage": [
+        "integrity",
+        "seo"
+      ]
+    },
+    {
+      "path": "powershell-automation.html",
+      "size": 3274,
+      "hash": "f0fa414306b88aeafb30c52537babefe6076fbd59c31e44c14e991a9d538c653",
+      "metadataCoverage": [
+        "integrity",
+        "seo"
+      ]
+    }
+  ]
+}

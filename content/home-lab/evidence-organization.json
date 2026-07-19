@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "phase": "3B",
+  "sourceManifest": "content/home-lab/source-manifest.json",
+  "sourceAttestationsRoot": "content/home-lab/source-attestations",
+  "sensitiveDataExceptions": "content/home-lab/sensitive-data-exceptions.json",
+  "generatedOutputHashes": "content/home-lab/generated-output-hashes.json",
+  "sources": {
+    "currentPortfolio": {
+      "repository": "fontenotjeremy71-hub/jeremyfontenot",
+      "commit": "eb93204b84339a7c5bcb000bef13091dcd5a60f5"
+    },
+    "operationsRepository": {
+      "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
+      "commit": "65899f08cb8d19207c5edad7723368ed04f1f1c4"
+    },
+    "originalPortfolio": {
+      "repository": "jeremyfontenot/JeremyFontenot.github.io",
+      "commit": "5581bd7bf9c61ff77000ac04aa39fcbb04ed004f"
+    }
+  },
+  "technologies": [
+    {"slug":"environment","label":"Environment","claimId":"home-lab-environment-inventory","claim":"Inventoried and documented the bounded personal Home Lab environment and its operational context.","supportLevel":"directly-proven"},
+    {"slug":"proxmox","label":"Proxmox","claimId":"home-lab-proxmox-administration","claim":"Reviewed Proxmox platform, virtual-machine, storage, networking, backup, and controlled restore evidence in a personal lab.","supportLevel":"supported-with-limitations"},
+    {"slug":"active-directory","label":"Active Directory","claimId":"home-lab-active-directory-administration","claim":"Reviewed single-domain Active Directory structure, roles, policy, membership, and integration evidence in a personal lab.","supportLevel":"supported-with-limitations"},
+    {"slug":"dns-dhcp","label":"DNS and DHCP","claimId":"home-lab-dns-dhcp-administration","claim":"Reviewed and tested bounded DNS and DHCP configuration and service evidence in the personal lab.","supportLevel":"supported-with-limitations"},
+    {"slug":"networking","label":"Networking","claimId":"home-lab-networking-validation","claim":"Documented and tested bounded personal-lab routing, VLAN, VPN, name-resolution, and connectivity relationships.","supportLevel":"supported-with-limitations"},
+    {"slug":"pfsense","label":"pfSense","claimId":"home-lab-pfsense-administration","claim":"Documented pfSense configuration context and completed a bounded isolated restore exercise without claiming production firewall assurance.","supportLevel":"supported-with-limitations"},
+    {"slug":"windows-server","label":"Windows Server","claimId":"home-lab-windows-server-administration","claim":"Reviewed Windows Server roles, services, storage, directory, DNS, DHCP, and Group Policy evidence in a personal lab.","supportLevel":"supported-with-limitations"},
+    {"slug":"windows-clients","label":"Windows Clients","claimId":"home-lab-windows-client-administration","claim":"Reviewed bounded Windows client domain, policy, networking, and access-control evidence in a personal lab.","supportLevel":"supported-with-limitations"},
+    {"slug":"linux","label":"Linux","claimId":"home-lab-linux-administration","claim":"Reviewed Linux service, network, logging, security, and directory-integration evidence for a personal Ubuntu server.","supportLevel":"supported-with-limitations"},
+    {"slug":"backup-recovery","label":"Backup and Recovery","claimId":"home-lab-backup-and-isolated-restore","claim":"Documented backup state and completed selected isolated restore checks with unresolved and untested conditions preserved.","supportLevel":"supported-with-limitations"},
+    {"slug":"monitoring-logging","label":"Monitoring and Logging","claimId":"home-lab-monitoring-logging-documentation","claim":"Documented implemented logging evidence separately from planned or insufficient monitoring coverage.","supportLevel":"documented-only"},
+    {"slug":"security","label":"Security","claimId":"home-lab-security-conscious-operations","claim":"Demonstrated read-only collection, isolation, integrity checking, sanitization, and bounded evidence publication practices.","supportLevel":"supported-with-limitations"},
+    {"slug":"automation","label":"Automation","claimId":"home-lab-evidence-automation","claim":"Used repository-backed scripts and validation workflows for bounded inventory, testing, evidence capture, integrity, and publication tasks.","supportLevel":"directly-proven"}
+  ],
+  "boundaries": [
+    "Personal nonproduction Home Lab evidence only.",
+    "No employer, client, production-system, enterprise-scale, availability, or SLA ownership claim.",
+    "Restore evidence is bounded to the recorded isolated exercises and does not prove full disaster-recovery readiness or recurring assurance.",
+    "Configured, documented, inconclusive, not-tested, and insufficient states remain distinct from behavior-tested results.",
+    "External operational artifacts remain source references unless an established public copy or generated public-safe derivative exists."
+  ]
+}
