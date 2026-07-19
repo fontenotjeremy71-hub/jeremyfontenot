@@ -163,6 +163,9 @@ jobs:
         shell: pwsh
         run: .\scripts\validation\validate-links.ps1
 
+      - name: Validate repeated Microsoft 365 publication build
+        run: npm run test:m365:idempotency
+
   linux-build-preflight:
     name: Validate deployment build on Linux
     runs-on: ubuntu-latest
@@ -205,3 +208,6 @@ jobs:
 
       - name: Build allowlisted public site on Linux
         run: npm run build:site -- --output .site-preflight
+
+      - name: Validate repeated Microsoft 365 publication build on Linux
+        run: npm run test:m365:idempotency

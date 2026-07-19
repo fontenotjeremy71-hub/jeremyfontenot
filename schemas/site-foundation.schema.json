@@ -1,1 +1,133 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://jeremyfontenot.online/schemas/site-foundation.schema.json","title":"Portfolio Site Architecture Foundation","description":"Shared data contracts for technology pages, evidence records, claim relationships, compatibility routes, and publication.","$defs":{"proofLink":{"type":"object","additionalProperties":false,"required":["label","href"],"properties":{"label":{"type":"string","minLength":3},"href":{"type":"string","pattern":"^/"}}},"technologyRecord":{"type":"object","additionalProperties":false,"required":["slug","label","status","statusLabel","skill","task","result","proof","scope","limitations"],"properties":{"slug":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"label":{"type":"string","minLength":2},"status":{"enum":["validated","tested","configured","documented","limitation","inconclusive","not-tested"]},"statusLabel":{"type":"string","minLength":3},"skill":{"type":"string","minLength":8},"task":{"type":"string","minLength":12},"result":{"type":"string","minLength":12},"proof":{"$ref":"#/$defs/proofLink"},"scope":{"type":"string","minLength":8},"limitations":{"type":"string","minLength":8}}},"technologyTaxonomy":{"type":"object","additionalProperties":false,"required":["schemaVersion","platform","label","route","sourceRoot","summary","technologies"],"properties":{"schemaVersion":{"const":1},"platform":{"enum":["microsoft-365","home-lab"]},"label":{"type":"string"},"route":{"type":"string","pattern":"^/.+/$"},"sourceRoot":{"type":"string","pattern":"^content/"},"summary":{"type":"string","minLength":20},"technologies":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/technologyRecord"}}}},"action":{"type":"object","additionalProperties":false,"required":["label","href","style"],"properties":{"label":{"type":"string","minLength":3},"href":{"type":"string","pattern":"^/"},"style":{"enum":["primary","default","text"]}}},"landingCard":{"type":"object","additionalProperties":false,"required":["code","title","text","href","linkLabel"],"properties":{"code":{"type":"string","minLength":1},"title":{"type":"string","minLength":3},"text":{"type":"string","minLength":10},"href":{"type":"string","pattern":"^/"},"linkLabel":{"type":"string","minLength":3}}},"landingSection":{"type":"object","additionalProperties":false,"required":["id","eyebrow","heading","summary","cards"],"properties":{"id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"eyebrow":{"type":"string"},"heading":{"type":"string","minLength":5},"summary":{"type":"string","minLength":10},"cards":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/landingCard"}}}},"landingPage":{"type":"object","additionalProperties":false,"required":["id","route","outputPath","title","description","eyebrow","headline","summary","primaryActions","sections","scopeHeading","scopeText"],"properties":{"id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"route":{"type":"string","pattern":"^/.+/$"},"outputPath":{"type":"string","pattern":"^[a-z0-9-]+/index\\.html$"},"title":{"type":"string"},"description":{"type":"string"},"eyebrow":{"type":"string"},"headline":{"type":"string"},"summary":{"type":"string"},"primaryActions":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/action"}},"sections":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/landingSection"}},"scopeHeading":{"type":"string"},"scopeText":{"type":"string"}}},"evidenceRecord":{"type":"object","additionalProperties":false,"required":["id","lab","technology","evidenceType","sourceRepository","sourcePath","sourceCommit","collectionContext","hashAlgorithm","hash","sourceVerificationMethod","supportedClaims","skill","task","result","scope","limitations","publicationClassification","publicRoute"],"properties":{"id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"lab":{"enum":["microsoft-365","home-lab","professional-experience","service-desk"]},"technology":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"evidenceType":{"enum":["configuration","exports","inventories","manifests","reports","screenshots","scripts-output","testing","validation","documentation"]},"sourceRepository":{"type":"string","pattern":"^[^/]+/[^/]+$"},"sourcePath":{"type":"string","minLength":1},"sourceCommit":{"type":"string","pattern":"^[0-9a-f]{40}$"},"collectionContext":{"type":"string","minLength":8},"hashAlgorithm":{"enum":["sha256","git-blob-sha1"]},"hash":{"type":"string","pattern":"^[0-9a-f]{40,64}$"},"supportedClaims":{"type":"array","minItems":1,"items":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"}},"skill":{"type":"string","minLength":5},"task":{"type":"string","minLength":8},"result":{"type":"string","minLength":8},"scope":{"type":"string","minLength":5},"limitations":{"type":"string","minLength":5},"publicationClassification":{"enum":["public-original","sanitized-derivative","metadata-only","source-reference-only"]},"publicRoute":{"type":["string","null"],"pattern":"^/"},"sourceVerificationMethod":{"enum":["direct-git-object","manifest-attested-source"]},"attestationPath":{"type":"string","minLength":1},"attestationCommit":{"type":"string","pattern":"^[0-9a-f]{40}$"},"attestationHashAlgorithm":{"enum":["sha256","git-blob-sha1"]},"attestationHash":{"type":"string","pattern":"^[0-9a-f]{40,64}$"}}},"claimRelationship":{"type":"object","additionalProperties":false,"required":["claimId","claimText","evidenceIds","supportLevel","scope","limitations"],"properties":{"claimId":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"claimText":{"type":"string","minLength":10},"evidenceIds":{"type":"array","minItems":1,"items":{"type":"string"}},"supportLevel":{"enum":["directly-proven","supported-with-limitations","configured-not-behavior-tested","documented-only","insufficient"]},"scope":{"type":"string","minLength":5},"limitations":{"type":"string","minLength":5}}},"legacyRoute":{"type":"object","additionalProperties":false,"required":["legacyRoute","targetRoute","strategy","status","reason"],"properties":{"legacyRoute":{"type":"string","pattern":"^/"},"targetRoute":{"type":"string","pattern":"^/"},"strategy":{"enum":["retained-route","compatibility-page","redirect"]},"status":{"enum":["active","planned","validated"]},"reason":{"type":"string","minLength":10}}},"publicationManifest":{"type":"object","additionalProperties":false,"required":["schemaVersion","outputDirectory","requiredRootFiles","optionalRootFiles","rootExtensions","directories","forbiddenOutputRoots"],"properties":{"schemaVersion":{"const":1},"outputDirectory":{"type":"string","minLength":1},"requiredRootFiles":{"type":"array","items":{"type":"string"}},"optionalRootFiles":{"type":"array","items":{"type":"string"}},"rootExtensions":{"type":"array","items":{"type":"string","pattern":"^\\."}},"directories":{"type":"array","items":{"type":"string"}},"forbiddenOutputRoots":{"type":"array","items":{"type":"string"}}}}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jeremyfontenot.online/schemas/site-foundation.schema.json",
+  "title": "Portfolio Site Architecture Foundation",
+  "description": "Shared data contracts for technology pages, evidence records, claim relationships, compatibility routes, and publication.",
+  "$defs": {
+    "proofLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "href"],
+      "properties": {"label":{"type":"string","minLength":3},"href":{"type":"string","pattern":"^/"}}
+    },
+    "technologyRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug","label","status","statusLabel","skill","task","result","proof","scope","limitations"],
+      "properties": {
+        "slug":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "label":{"type":"string","minLength":2},
+        "status":{"enum":["validated","tested","configured","documented","limitation","inconclusive","not-tested"]},
+        "statusLabel":{"type":"string","minLength":3},
+        "skill":{"type":"string","minLength":8},
+        "task":{"type":"string","minLength":12},
+        "result":{"type":"string","minLength":12},
+        "proof":{"$ref":"#/$defs/proofLink"},
+        "scope":{"type":"string","minLength":8},
+        "limitations":{"type":"string","minLength":8}
+      }
+    },
+    "technologyTaxonomy": {
+      "type":"object","additionalProperties":false,
+      "required":["schemaVersion","platform","label","route","sourceRoot","summary","technologies"],
+      "properties":{
+        "schemaVersion":{"const":1},"platform":{"enum":["microsoft-365","home-lab"]},"label":{"type":"string"},
+        "route":{"type":"string","pattern":"^/.+/$"},"sourceRoot":{"type":"string","pattern":"^content/"},
+        "summary":{"type":"string","minLength":20},"technologies":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/technologyRecord"}}
+      }
+    },
+    "action": {
+      "type":"object","additionalProperties":false,"required":["label","href","style"],
+      "properties":{"label":{"type":"string","minLength":3},"href":{"type":"string","pattern":"^/"},"style":{"enum":["primary","default","text"]}}
+    },
+    "landingCard": {
+      "type":"object","additionalProperties":false,"required":["code","title","text","href","linkLabel"],
+      "properties":{"code":{"type":"string","minLength":1},"title":{"type":"string","minLength":3},"text":{"type":"string","minLength":10},"href":{"type":"string","pattern":"^/"},"linkLabel":{"type":"string","minLength":3}}
+    },
+    "landingSection": {
+      "type":"object","additionalProperties":false,"required":["id","eyebrow","heading","summary","cards"],
+      "properties":{"id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"eyebrow":{"type":"string"},"heading":{"type":"string","minLength":5},"summary":{"type":"string","minLength":10},"cards":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/landingCard"}}}
+    },
+    "landingPage": {
+      "type":"object","additionalProperties":false,
+      "required":["id","route","outputPath","title","description","eyebrow","headline","summary","primaryActions","sections","scopeHeading","scopeText"],
+      "properties":{"id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"route":{"type":"string","pattern":"^/.+/$"},"outputPath":{"type":"string","pattern":"^[a-z0-9-]+/index\\.html$"},"title":{"type":"string"},"description":{"type":"string"},"eyebrow":{"type":"string"},"headline":{"type":"string"},"summary":{"type":"string"},"primaryActions":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/action"}},"sections":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/landingSection"}},"scopeHeading":{"type":"string"},"scopeText":{"type":"string"}}
+    },
+    "integrityRecord": {
+      "type":"object","additionalProperties":false,"required":["algorithm","hash","size","verificationMethod"],
+      "properties":{
+        "algorithm":{"enum":["sha256"]},
+        "hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+        "size":{"type":"integer","minimum":0},
+        "verificationMethod":{"enum":["direct-git-object","manifest-attested-source","current-working-tree"]}
+      }
+    },
+    "sensitiveDataReview": {
+      "type":"object","additionalProperties":false,"required":["status","highSeverityFindings","identifierFindings","manualReviewRequired"],
+      "properties":{
+        "status":{"enum":["automated-no-high-severity-findings","reviewed-exceptions-applied","manual-review-required"]},
+        "highSeverityFindings":{"type":"integer","minimum":0},
+        "identifierFindings":{"type":"integer","minimum":0},
+        "manualReviewRequired":{"type":"boolean"}
+      }
+    },
+    "evidenceRecord": {
+      "type":"object","additionalProperties":false,
+      "required":["id","lab","technology","evidenceType","sourceRepository","sourcePath","sourceCommit","sourceVerificationMethod","collectionContext","hashAlgorithm","hash","supportedClaims","skill","task","result","scope","limitations","publicationClassification","publicRoute"],
+      "properties":{
+        "id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "lab":{"enum":["microsoft-365","home-lab","professional-experience","service-desk"]},
+        "technology":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "evidenceType":{"enum":["configuration","exports","inventories","manifests","reports","screenshots","scripts-output","scripts","testing","validation","documentation"]},
+        "sourceRepository":{"type":"string","pattern":"^[^/]+/[^/]+$"},
+        "sourcePath":{"type":"string","minLength":1},
+        "sourceCommit":{"type":"string","pattern":"^[0-9a-f]{40}$"},
+        "collectionContext":{"type":"string","minLength":8},
+        "hashAlgorithm":{"enum":["sha256","git-blob-sha1"]},
+        "hash":{"type":"string","pattern":"^[0-9a-f]{40,64}$"},
+        "supportedClaims":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"}},
+        "skill":{"type":"string","minLength":5},
+        "task":{"type":"string","minLength":8},
+        "result":{"type":"string","minLength":8},
+        "scope":{"type":"string","minLength":5},
+        "limitations":{"type":"string","minLength":5},
+        "publicationClassification":{"enum":["public-original","sanitized-derivative","metadata-only","source-reference-only"]},
+        "publicRoute":{"type":["string","null"],"pattern":"^/"},
+        "sourceVerificationMethod":{"enum":["direct-git-object","manifest-attested-source"]},
+        "attestationPath":{"type":"string","minLength":1},
+        "attestationCommit":{"type":"string","pattern":"^[0-9a-f]{40}$"},
+        "attestationHashAlgorithm":{"enum":["sha256","git-blob-sha1"]},
+        "attestationHash":{"type":"string","pattern":"^[0-9a-f]{40,64}$"},
+        "collection":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "publicPath":{"type":["string","null"]},
+        "size":{"type":"integer","minimum":0},
+        "technologyRelationships":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"}},
+        "logicalDestination":{"type":"string","pattern":"^content/microsoft-365/"},
+        "sourceIntegrity":{"$ref":"#/$defs/integrityRecord"},
+        "publicIntegrity":{"$ref":"#/$defs/integrityRecord"},
+        "sensitiveDataReview":{"$ref":"#/$defs/sensitiveDataReview"},
+        "title":{"type":"string"},
+        "category":{"type":"string"},
+        "extension":{"type":"string"}
+      },
+      "allOf":[
+        {
+          "if":{"properties":{"publicationClassification":{"const":"sanitized-derivative"}},"required":["publicationClassification"]},
+          "then":{"required":["sourceIntegrity","publicIntegrity"],"properties":{"publicRoute":{"type":"string","pattern":"^/"}}}
+        }
+      ]
+    },
+    "claimRelationship": {
+      "type":"object","additionalProperties":false,"required":["claimId","claimText","evidenceIds","supportLevel","scope","limitations"],
+      "properties":{"claimId":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},"claimText":{"type":"string","minLength":10},"evidenceIds":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string"}},"supportLevel":{"enum":["directly-proven","supported-with-limitations","configured-not-behavior-tested","documented-only","insufficient"]},"scope":{"type":"string","minLength":5},"limitations":{"type":"string","minLength":5}}
+    },
+    "legacyRoute": {
+      "type":"object","additionalProperties":false,"required":["legacyRoute","targetRoute","strategy","status","reason"],
+      "properties":{"legacyRoute":{"type":"string","pattern":"^/"},"targetRoute":{"type":"string","pattern":"^/"},"strategy":{"enum":["retained-route","compatibility-page","redirect"]},"status":{"enum":["active","planned","validated"]},"reason":{"type":"string","minLength":10}}
+    },
+    "publicationManifest": {
+      "type":"object","additionalProperties":false,"required":["schemaVersion","outputDirectory","requiredRootFiles","optionalRootFiles","rootExtensions","directories","forbiddenOutputRoots"],
+      "properties":{"schemaVersion":{"const":1},"outputDirectory":{"type":"string","minLength":1},"requiredRootFiles":{"type":"array","items":{"type":"string"}},"optionalRootFiles":{"type":"array","items":{"type":"string"}},"rootExtensions":{"type":"array","items":{"type":"string","pattern":"^\\."}},"directories":{"type":"array","items":{"type":"string"}},"forbiddenOutputRoots":{"type":"array","items":{"type":"string"}}}
+    }
+  }
+}

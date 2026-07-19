@@ -8,13 +8,26 @@ const root = path.resolve(__dirname, '..', '..');
 const schema = JSON.parse(fs.readFileSync(path.join(root, 'schemas/site-foundation.schema.json'), 'utf8'));
 const evidenceFixture = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/site-foundation/evidence-records.json'), 'utf8'));
 const relationshipFixture = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/site-foundation/claim-relationships.json'), 'utf8'));
+const catalog = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/m365-evidence-catalog.json'), 'utf8'));
 const failures = [];
 
-const evidenceById = new Map(evidenceFixture.records.map((record) => [record.id, record]));
+const allEvidenceRecords = [...evidenceFixture.records, ...catalog.records];
+const allRelationships = [...relationshipFixture.relationships, ...catalog.claimRelationships];
+const evidenceById = new Map(allEvidenceRecords.map((record) => [record.id, record]));
+const evidenceByPhysicalSource = new Map();
 const relationshipByClaim = new Map();
 const supportLevels = new Set(schema.$defs.claimRelationship.properties.supportLevel.enum);
 
-for (const [index, relationship] of relationshipFixture.relationships.entries()) {
+for (const [index, evidence] of allEvidenceRecords.entries()) {
+  const physicalKey = `${evidence.sourceRepository}:${String(evidence.sourcePath).replaceAll('\\', '/')}`.toLowerCase();
+  if (evidenceByPhysicalSource.has(physicalKey)) {
+    failures.push(`evidence records[${index}]: physical source duplicates ${evidenceByPhysicalSource.get(physicalKey)} at ${physicalKey}`);
+  } else {
+    evidenceByPhysicalSource.set(physicalKey, evidence.id);
+  }
+}
+
+for (const [index, relationship] of allRelationships.entries()) {
   const context = `claim relationships[${index}]`;
   if (relationshipByClaim.has(relationship.claimId)) failures.push(`${context}: duplicate claim id ${relationship.claimId}`);
   relationshipByClaim.set(relationship.claimId, relationship);
@@ -66,4 +79,4 @@ if (failures.length) {
   for (const failure of [...new Set(failures)].sort()) console.error(failure);
   process.exit(1);
 }
-console.log('Claim relationship validation passed.');
+console.log(`Claim relationship validation passed, including ${catalog.records.length} generated Microsoft 365 records.`);

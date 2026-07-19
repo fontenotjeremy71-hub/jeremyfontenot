@@ -123,6 +123,8 @@ The generator renders these fields consistently so later phases can add one tech
 
 `collectionContext` records how, where, and under what reviewed circumstances the artifact was collected, exported, generated, or derived. Repository, path, commit, and hash identify the source object; collection context explains its acquisition and transformation boundaries.
 
+Sanitized derivatives also require separate `sourceIntegrity` and `publicIntegrity` objects. Each records SHA-256, byte size, and verification method. The compatibility `hashAlgorithm` and `hash` fields describe the linked public artifact, while `sourceIntegrity` preserves the original-source attestation.
+
 Supported publication classifications:
 
 - `public-original`

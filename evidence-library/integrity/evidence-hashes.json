@@ -199,9 +199,8 @@
   },
   {
     "path": "evidence-library\\preserved-sharepoint\\index.html",
-    "sha256": "30AE1923FB781D41538BBE43AAFE94862CA85A31D24E4217B39CC9E0B3EEE60B",
-    "size": 20525,
-    "lastModified": "2026-06-16T23:12:51.3024435Z"
+    "sha256": "0B9B1B15D6AFAD99EC6293D980B223426DAD81A52FFDA5988FB920B935BC3FCD",
+    "size": 21855
   },
   {
     "path": "evidence-library\\preserved-sharepoint\\sharepoint-export-inventory.csv",

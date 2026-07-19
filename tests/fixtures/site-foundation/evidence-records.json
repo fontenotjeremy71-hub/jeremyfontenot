@@ -2,27 +2,6 @@
   "schemaVersion": 1,
   "records": [
     {
-      "id": "m365-entra-proof-map",
-      "lab": "microsoft-365",
-      "technology": "entra-id",
-      "evidenceType": "documentation",
-      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
-      "sourcePath": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
-      "sourceCommit": "ec09894afe339daf160a117ff1d42c7c8e023819",
-      "collectionContext": "Public generated page derived from the reviewed Microsoft 365 lab proof-map source committed with the site evidence set.",
-      "hashAlgorithm": "git-blob-sha1",
-      "hash": "cbb6341ac364fe6594b24f6cc8d832753344463d",
-      "sourceVerificationMethod": "direct-git-object",
-      "supportedClaims": ["m365-tenant-review-capability"],
-      "skill": "Microsoft 365 and Entra administration",
-      "task": "Mapped tenant, identity, policy, application, sign-in, and audit claims to public evidence.",
-      "result": "The public proof map provides bounded claim-to-artifact relationships.",
-      "scope": "Personal Microsoft 365 tenant.",
-      "limitations": "Does not prove client, production, or enterprise-scale tenant ownership.",
-      "publicationClassification": "public-original",
-      "publicRoute": "/evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html"
-    },
-    {
       "id": "home-lab-dc01-validation",
       "lab": "home-lab",
       "technology": "windows-server",
@@ -32,12 +11,24 @@
       "sourceCommit": "fb6c286873285778d88d6d5cfde0b9bd00b96f36",
       "collectionContext": "Authenticated target-local read-only PowerShell collection on DC01. The public Markdown and generated HTML omit account, identifier, path, event, and unrelated command details while retaining only values needed for the bounded claim.",
       "hashAlgorithm": "sha256",
-      "hash": "f60a6dd8c9ee42e90b02b210b1b1a775f89e5c3ded26618b593dee1362c6de42",
+      "hash": "b005e10fe16824cb6c4257f6fca85ab8344bb137223b6409b3526faf1525b436",
       "sourceVerificationMethod": "manifest-attested-source",
       "attestationPath": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.md",
       "attestationCommit": "ec09894afe339daf160a117ff1d42c7c8e023819",
       "attestationHashAlgorithm": "git-blob-sha1",
       "attestationHash": "109668350f0bf2431fb0ad85073f62efe40aa794",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "f60a6dd8c9ee42e90b02b210b1b1a775f89e5c3ded26618b593dee1362c6de42",
+        "size": 65954,
+        "verificationMethod": "manifest-attested-source"
+      },
+      "publicIntegrity": {
+        "algorithm": "sha256",
+        "hash": "b005e10fe16824cb6c4257f6fca85ab8344bb137223b6409b3526faf1525b436",
+        "size": 10244,
+        "verificationMethod": "current-working-tree"
+      },
       "supportedClaims": ["windows-server-administration-capability"],
       "skill": "Windows Server and Active Directory administration",
       "task": "Collected authenticated server, role, directory, DNS, DHCP, Group Policy, service, storage, and event-summary evidence.",
