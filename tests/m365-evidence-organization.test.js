@@ -10,6 +10,9 @@ const {
   reviewArtifact,
   scanText
 } = require('../scripts/build/generate-m365-evidence-organization.js');
+const {
+  scanSupplementalHighSeverity
+} = require('../scripts/validation/validate-m365-sensitive-formats.js');
 
 function relationships(value) {
   return technologiesFor(value, 'tenant-administration').sort();
@@ -110,4 +113,19 @@ test('SVG evidence is scanned as text and high-severity material blocks publicat
   assert.equal(review.manualReviewRequired, false);
   assert.equal(review.highSeverityFindings, 1);
   assert.ok(review.findings.some((finding) => finding.type === 'client-secret'));
+});
+
+test('encrypted PKCS8 private keys are blocked by the supplemental gate', () => {
+  const findings = scanSupplementalHighSeverity(Buffer.from('-----BEGIN ENCRYPTED PRIVATE KEY-----'), 'evidence/public/probe.pem');
+  assert.ok(findings.some((finding) => finding.type === 'private-key'));
+});
+
+test('PowerShell password parameters are blocked by the supplemental gate', () => {
+  const findings = scanSupplementalHighSeverity(Buffer.from('Connect-Service -Password value'), 'scripts/probe.ps1');
+  assert.ok(findings.some((finding) => finding.type === 'powershell-password-parameter'));
+});
+
+test('XML password elements are blocked by the supplemental gate', () => {
+  const findings = scanSupplementalHighSeverity(Buffer.from('<Configuration><Password>value</Password></Configuration>'), 'evidence/public/probe.xml');
+  assert.ok(findings.some((finding) => finding.type === 'xml-password-element'));
 });
