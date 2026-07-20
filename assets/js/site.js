@@ -43,6 +43,29 @@
 
   const revealNodes = [...document.querySelectorAll(".reveal")];
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  revealNodes.forEach((node, index) => {
+    node.style.setProperty("--reveal-order", String(index % 8));
+  });
+
+  if (!reduceMotion && matchMedia("(pointer: fine)").matches) {
+    let frame = 0;
+    let pointerX = window.innerWidth / 2;
+    let pointerY = window.innerHeight * 0.18;
+
+    const renderPointer = () => {
+      document.documentElement.style.setProperty("--pointer-x", `${pointerX}px`);
+      document.documentElement.style.setProperty("--pointer-y", `${pointerY}px`);
+      frame = 0;
+    };
+
+    window.addEventListener("pointermove", (event) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      if (!frame) frame = requestAnimationFrame(renderPointer);
+    }, { passive: true });
+  }
+
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealNodes.forEach((node) => node.classList.add("is-visible"));
   } else {
