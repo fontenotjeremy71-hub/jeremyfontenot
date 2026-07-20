@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - .github/workflows/production-release-verification.yml
-      - scripts/validation/verify-production-release.js
+      - scripts/validation/verify-production-release-fast.js
       - docs/portfolio-migration-phase-ledger.md
   workflow_dispatch:
     inputs:
@@ -46,17 +46,17 @@ jobs:
           mkdir -p artifacts/release
           : > artifacts/release/verifier.log
           verifier_status=1
-          for attempt in 1 2 3; do
-            echo "Production verification attempt ${attempt} of 3" | tee -a artifacts/release/verifier.log
+          for attempt in 1 2; do
+            echo "Production verification attempt ${attempt} of 2" | tee -a artifacts/release/verifier.log
             set +e
-            node scripts/validation/verify-production-release.js 2>&1 | tee -a artifacts/release/verifier.log
+            node scripts/validation/verify-production-release-fast.js 2>&1 | tee -a artifacts/release/verifier.log
             verifier_status=${PIPESTATUS[0]}
             set -e
             if [[ "$verifier_status" -eq 0 ]]; then
               break
             fi
-            if [[ "$attempt" -lt 3 ]]; then
-              sleep $((attempt * 20))
+            if [[ "$attempt" -lt 2 ]]; then
+              sleep 20
             fi
           done
           if [[ ! -f "$REPORT_PATH" ]]; then
