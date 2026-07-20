@@ -1,0 +1,64 @@
+/* Responsive refinements discovered by the automated visual-review matrix. */
+
+/* Decorative corner rings must not enlarge the scroll box of linked cards. */
+.contact-route-grid a::after,
+.route-link-grid a::after {
+  content: none;
+}
+
+/* Keep the four homepage role cards while preserving a readable measure. */
+.home-page .capability-grid {
+  gap: .75rem;
+}
+
+.home-page .capability-card {
+  padding: .9rem;
+}
+
+/* Give the primary contact route enough width to read as a deliberate CTA. */
+.contact-page .contact-route-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contact-page .contact-route-grid a {
+  min-height: 10.5rem;
+}
+
+.contact-page .contact-route-grid a:nth-child(1) {
+  grid-column: 1 / -1;
+  grid-row: auto;
+  min-height: 15rem;
+  align-content: end;
+}
+
+.contact-page .contact-route-grid a:nth-child(1) strong {
+  max-width: 100%;
+  font-size: clamp(1.35rem, 3vw, 2.5rem);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+  .contact-page .contact-route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-page .contact-route-grid a:nth-child(1) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-page .contact-route-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-page .contact-route-grid a,
+  .contact-page .contact-route-grid a:nth-child(1) {
+    grid-column: auto;
+    min-height: 10rem;
+  }
+
+  .contact-page .contact-route-grid a:nth-child(1) strong {
+    font-size: clamp(1.25rem, 7vw, 1.8rem);
+  }
+}
