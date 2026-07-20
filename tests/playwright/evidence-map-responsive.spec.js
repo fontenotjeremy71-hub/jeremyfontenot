@@ -5,7 +5,7 @@ const mappingRoutes = [
   "/evidence/claim-map.html",
 ];
 
-function lineCount(element) {
+const countRenderedLines = (element) => {
   const style = getComputedStyle(element);
   const fontSize = Number.parseFloat(style.fontSize) || 16;
   const parsed = Number.parseFloat(style.lineHeight);
@@ -17,7 +17,7 @@ function lineCount(element) {
     if (!tops.some((top) => Math.abs(top - rect.top) <= Math.max(2, lineHeight * 0.3))) tops.push(rect.top);
   }
   return Math.max(1, tops.length);
-}
+};
 
 test.describe("Phase 4 evidence map responsive quality", () => {
   test("mapping indexes keep readable cards and bounded headings at 1024 pixels", async ({ page }) => {
@@ -64,6 +64,38 @@ test.describe("Phase 4 evidence map responsive quality", () => {
       expect(layout.headingFailures).toEqual([]);
       expect(layout.pageScrollWidth).toBeLessThanOrEqual(layout.pageClientWidth + 2);
     }
+  });
+
+  test("skill summary descriptions retain readable width at 1024 pixels", async ({ page }) => {
+    test.setTimeout(120_000);
+    await page.setViewportSize({ width: 1024, height: 768 });
+    const response = await page.goto("/systems-skills/evidence-map.html", { waitUntil: "networkidle" });
+    expect(response.status()).toBe(200);
+    const result = await page.locator(".skill-summary-grid").evaluate((grid) => {
+      const countLines = (element) => {
+        const style = getComputedStyle(element);
+        const fontSize = Number.parseFloat(style.fontSize) || 16;
+        const parsed = Number.parseFloat(style.lineHeight);
+        const lineHeight = Number.isFinite(parsed) ? parsed : fontSize * 1.2;
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        const tops = [];
+        for (const rect of [...range.getClientRects()].filter((item) => item.width > 0.5 && item.height > 0.5)) {
+          if (!tops.some((top) => Math.abs(top - rect.top) <= Math.max(2, lineHeight * 0.3))) tops.push(rect.top);
+        }
+        return Math.max(1, tops.length);
+      };
+      const columns = getComputedStyle(grid).gridTemplateColumns.split(/\s+/).filter(Boolean).length;
+      const descriptions = [...grid.querySelectorAll("dd")];
+      const narrow = descriptions.flatMap((item) => {
+        const rect = item.getBoundingClientRect();
+        const lines = countLines(item);
+        return rect.width < 320 && lines >= 6 ? [{ text: item.textContent.trim(), width: rect.width, lines }] : [];
+      });
+      return { columns, narrow };
+    });
+    expect(result.columns).toBe(1);
+    expect(result.narrow).toEqual([]);
   });
 
   test("every visible evidence-map link has an accessible name at wide desktop", async ({ page }) => {
