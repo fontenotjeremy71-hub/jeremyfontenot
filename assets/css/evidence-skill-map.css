@@ -19,6 +19,7 @@
   border: 1px solid var(--line, #cbd5e1);
   border-radius: 1rem;
   background: var(--panel, #fff);
+  color: #0f172a;
   padding: 1rem;
 }
 
@@ -78,6 +79,20 @@
   overflow-wrap: anywhere;
 }
 
+.mapping-card a,
+.skill-summary-card a,
+.mapping-filters a {
+  color: #075fbd;
+  text-decoration-thickness: .1em;
+  text-underline-offset: .18em;
+}
+
+.mapping-card a:visited,
+.skill-summary-card a:visited,
+.mapping-filters a:visited {
+  color: #6040a0;
+}
+
 .mapping-tags {
   display: flex;
   flex-wrap: wrap;
@@ -86,7 +101,7 @@
 }
 
 .mapping-tags span {
-  border: 1px solid var(--line, #cbd5e1);
+  border: 1px solid #94a3b8;
   border-radius: 999px;
   padding: .25rem .55rem;
   font-size: .82rem;
