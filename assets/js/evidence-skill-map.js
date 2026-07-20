@@ -1,6 +1,21 @@
 (() => {
   "use strict";
 
+  const accessibleName = (link) => {
+    const labelledBy = (link.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean)
+      .map((id) => document.getElementById(id)?.textContent || "").join(" ");
+    const imageText = [...link.querySelectorAll("img")].map((image) => image.alt || "").join(" ");
+    const svgText = [...link.querySelectorAll("svg title")].map((title) => title.textContent || "").join(" ");
+    return `${link.textContent || ""} ${link.getAttribute("aria-label") || ""} ${labelledBy} ${imageText} ${svgText} ${link.getAttribute("title") || ""}`
+      .trim().replace(/\s+/g, " ");
+  };
+
+  for (const link of document.querySelectorAll("a[href]")) {
+    if (accessibleName(link)) continue;
+    const href = link.getAttribute("href") || "";
+    link.setAttribute("aria-label", href.startsWith("/") ? "Open linked portfolio resource" : "Open linked resource");
+  }
+
   const root = document.querySelector("[data-mapping-root]");
   if (!root) return;
 
