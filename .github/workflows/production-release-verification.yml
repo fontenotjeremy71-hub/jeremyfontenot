@@ -40,7 +40,7 @@ jobs:
       - name: Verify exact main workflows and production release
         shell: bash
         env:
-          TARGET_SHA: ${{ inputs.target_sha || 'b67f214fe4bcd80fcf03d36a22350fc60793c8ba' }}
+          TARGET_SHA: ${{ inputs.target_sha || '420d388e709461ac1c94eb72add854c37fad7f48' }}
           REPORT_PATH: artifacts/release/final-live-verification.json
         run: |
           mkdir -p artifacts/release
@@ -60,7 +60,7 @@ jobs:
             fi
           done
           if [[ ! -f "$REPORT_PATH" ]]; then
-            node -e "const fs=require('node:fs'); const log=fs.readFileSync('artifacts/release/verifier.log','utf8'); fs.writeFileSync(process.env.REPORT_PATH, JSON.stringify({status:'NOT_READY',targetSha:process.env.TARGET_SHA,error:log.trim()},null,2)+'\\n');"
+            node -e "const fs=require('node:fs'); const log=fs.readFileSync('artifacts/release/verifier.log','utf8'); fs.writeFileSync(process.env.REPORT_PATH, JSON.stringify({status:'NOT_READY',targetSha:process.env.TARGET_SHA,error:log.trim()},null,2)+'\n');"
           fi
           exit "$verifier_status"
 
