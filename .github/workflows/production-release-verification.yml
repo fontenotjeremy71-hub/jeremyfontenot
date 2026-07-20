@@ -1,0 +1,72 @@
+name: Production Release Verification
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/production-release-verification.yml
+      - scripts/validation/verify-production-release.js
+      - docs/portfolio-migration-phase-ledger.md
+  workflow_dispatch:
+    inputs:
+      target_sha:
+        description: Full main-branch commit SHA to verify
+        required: false
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  verify-production-release:
+    name: Verify main workflows and live site
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install chromium
+
+      - name: Verify exact main workflows and production release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_SHA: ${{ inputs.target_sha || 'b67f214fe4bcd80fcf03d36a22350fc60793c8ba' }}
+          REPORT_PATH: artifacts/release/final-live-verification.json
+        run: node scripts/validation/verify-production-release.js
+
+      - name: Publish verification summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f artifacts/release/final-live-verification.json ]]; then
+            {
+              echo '## Production release verification'
+              echo
+              echo '```json'
+              cat artifacts/release/final-live-verification.json
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload production verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-release-verification
+          path: artifacts/release/final-live-verification.json
+          if-no-files-found: error
+          retention-days: 30
