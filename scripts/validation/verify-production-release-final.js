@@ -146,6 +146,19 @@ async function production() {
     if (!css.body.includes(marker)) throw new Error(`Live CSS is missing ${marker}.`);
   }
 
+  const homepage = await publicText(`${site}/`);
+  const proofPage = await publicText(`${site}/proof.html`);
+  const componentsCss = await publicText(`${site}/assets/css/components.css`);
+  const expectedProofSentence = "Evidence strength comes from the action performed, output captured, behavior observed, result, reproducibility, scope, and limitation.";
+  for (const marker of ["What I can contribute now", "Review the complete contribution list", "Review selected technical work"]) {
+    if (!homepage.body.includes(marker)) throw new Error(`Live home page is missing requested marker: ${marker}`);
+  }
+  if (!proofPage.body.includes(expectedProofSentence)) throw new Error("Live proof page is missing the requested evidence-strength sentence.");
+  if (proofPage.body.includes("not from when a file was created")) throw new Error("Live proof page still contains the removed date-reference clause.");
+  if (!componentsCss.body.includes(".contribution-actions") || !/margin-top:\s*1\.25rem/.test(componentsCss.body)) {
+    throw new Error("Live component CSS is missing the scoped contribution-action spacing rule.");
+  }
+
   const map = jsonFrom((await publicText(`${site}/assets/data/evidence-skill-map.json`)).body, "skill map");
   const m365 = jsonFrom((await publicText(`${site}/assets/data/m365-evidence-catalog.json`)).body, "M365 catalog");
   const homeLab = jsonFrom((await publicText(`${site}/assets/data/home-lab-evidence-catalog.json`)).body, "Home Lab catalog");
@@ -161,6 +174,13 @@ async function production() {
     routeChecks,
     sourceOnlyChecks,
     cssMarkers: ["#0f172a", "#075fbd", "#6040a0"],
+    requestedChanges: {
+      homeContributionMarkers: ["What I can contribute now", "Review the complete contribution list", "Review selected technical work"],
+      contributionSpacing: "1.25rem",
+      proofSentence: expectedProofSentence,
+      removedDateReference: true,
+      modes: { home: homepage.mode, proof: proofPage.mode, componentsCss: componentsCss.mode },
+    },
     totals: { microsoft365: 971, homeLab: 439, relationships: 1410, skills: 12, claims: 23, unmapped: 0 },
   };
 }
