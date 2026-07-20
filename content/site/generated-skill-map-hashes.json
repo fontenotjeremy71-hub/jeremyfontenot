@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": {
+    "config": {
+      "path": "content/site/evidence-skill-mapping.json",
+      "sha256": "6fd2e3fa92e001cf7a63a431c25b35f1accd1d84ccf54a00ca44e8638f248676"
+    },
+    "microsoft365": {
+      "path": "assets/data/m365-evidence-catalog.json",
+      "sha256": "f9c975c6d7e44807cfc39b81c141a260b38c97407564bff5e87fe0e99802e643"
+    },
+    "homeLab": {
+      "path": "assets/data/home-lab-evidence-catalog.json",
+      "sha256": "c914b53dce10cc9069b794a31beb2c6475262d188b3e39b1d7121488934c2446"
+    }
+  },
+  "outputs": {
+    "assets/data/evidence-skill-map.json": {
+      "algorithm": "sha256",
+      "hash": "a552683e11eb0819a039ffebc0030c2d518888123aeb73ff5a0dadcb88141ad8",
+      "size": 3946357
+    },
+    "systems-skills/evidence-map.html": {
+      "algorithm": "sha256",
+      "hash": "f63f35dd142a6912677ce05b21e1dd60cb912863a5cbada37874901ebd875215",
+      "size": 2060815
+    },
+    "evidence/claim-map.html": {
+      "algorithm": "sha256",
+      "hash": "04e41a41623679c1a59c2ebb38df61ebe8317ba5291788c99a7f7126c0049939",
+      "size": 49898
+    }
+  }
+}

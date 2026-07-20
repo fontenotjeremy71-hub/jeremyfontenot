@@ -40,6 +40,14 @@ requireMatch(readinessText, /Proxmox and backup operations/i, "Readiness page mu
 requireMatch(readinessText, /Linux administration/i, "Readiness page must include Linux administration.");
 requireMatch(readinessText, /PowerShell automation/i, "Readiness page must include PowerShell automation.");
 requireMatch(readinessText, /Readiness matrix/i, "Readiness page must include a readiness matrix.");
+requireMatch(readinessText, /Professionally applied/i, "Readiness matrix must include professionally applied work.");
+requireMatch(readinessText, /Demonstrated in lab/i, "Readiness matrix must include demonstrated-in-lab work.");
+requireMatch(readinessText, /Validated through testing/i, "Readiness matrix must include validated-through-testing work.");
+requireMatch(readinessText, /DNS, DHCP, and Group Policy/i, "Readiness matrix must explicitly cover DNS, DHCP, and Group Policy.");
+requireMatch(readinessText, /Troubleshoot and document RCA/i, "Readiness matrix must explicitly cover troubleshooting and RCA.");
+requireMatch(readinessText, /Escalate with evidence/i, "Readiness matrix must explicitly cover evidence-based escalation.");
+requireMatch(readiness, /href=["']\.\/systems-skills\/evidence-map\.html/i, "Readiness page must link to the generated evidence-to-skill map.");
+requireMatch(readiness, /href=["']\.\/evidence\/claim-map\.html/i, "Readiness page must link to the reciprocal claim map.");
 requireMatch(readinessText, /Professional and lab separation/i, "Readiness page must distinguish professional and lab evidence.");
 requireMatch(sitemap, /https:\/\/jeremyfontenot\.online\/systems-administration\.html/, "Sitemap must include the readiness page.");
 

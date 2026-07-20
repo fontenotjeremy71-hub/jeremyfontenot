@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { chromium } = require("playwright");
+const { screenshotPolicy } = require("../lib/responsive-visual-policy");
 
 const root = path.resolve(__dirname, "..", "..");
 const output = path.join(root, "artifacts", "redesign", "final");
@@ -105,6 +106,14 @@ async function checkInternalLinks(urls, cache) {
         return ["auto", "scroll"].includes(style.overflowX) || ["auto", "scroll"].includes(style.overflowY);
       };
       const textOf = (element) => (element.innerText || element.textContent || "").trim().replace(/\s+/g, " ");
+      const accessibleName = (element) => {
+        const labelledBy = (element.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean)
+          .map((id) => document.getElementById(id)?.textContent || "").join(" ");
+        const imageText = [...element.querySelectorAll("img")].map((image) => image.alt || "").join(" ");
+        const svgText = [...element.querySelectorAll("svg title")].map((title) => title.textContent || "").join(" ");
+        return `${textOf(element)} ${element.getAttribute("aria-label") || ""} ${labelledBy} ${imageText} ${svgText} ${element.getAttribute("title") || ""}`
+          .trim().replace(/\s+/g, " ");
+      };
       const selectorFor = (element) => {
         if (element.id) return `${element.tagName.toLowerCase()}#${CSS.escape(element.id)}`;
         const classes = [...element.classList].filter(Boolean).slice(0, 3).map((name) => `.${CSS.escape(name)}`).join("");
@@ -262,10 +271,9 @@ async function checkInternalLinks(urls, cache) {
         }
         return issues;
       }, []);
-      const emptyLinks = [...document.querySelectorAll("a[href]")].filter(isVisible).filter((link) => {
-        const label = `${textOf(link)} ${link.getAttribute("aria-label") || ""} ${[...link.querySelectorAll("img")].map((image) => image.alt).join(" ")}`.trim();
-        return label === "";
-      }).map((link) => describe(link, "Link has no visible or accessible label."));
+      const emptyLinks = [...document.querySelectorAll("a[href]")].filter(isVisible)
+        .filter((link) => accessibleName(link) === "")
+        .map((link) => describe(link, "Link has no visible or accessible label."));
       const internalLinks = [...new Set([...document.querySelectorAll("a[href]")].map((link) => link.href)
         .filter((href) => href.startsWith(`${location.origin}/`)).map((href) => href.split("#")[0]))];
 
@@ -302,6 +310,7 @@ async function checkInternalLinks(urls, cache) {
         pageOverflowState: document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
         pageScrollWidth: document.documentElement.scrollWidth,
         pageClientWidth: document.documentElement.clientWidth,
+        documentHeight: document.documentElement.scrollHeight,
         clippedElements,
         pathologicalHeadingWraps,
         narrowTextContainers,
@@ -326,20 +335,29 @@ async function checkInternalLinks(urls, cache) {
     failedAssets.forEach((asset) => inspection.failedImages.push(failureShape(`Required ${asset.resourceType} asset returned HTTP ${asset.status}.`, asset)));
 
     delete inspection.internalLinks;
+    const capture = screenshotPolicy({
+      route,
+      requestedFullPage: fullPage,
+      documentHeight: inspection.documentHeight,
+      viewportHeight: height,
+    });
     results.push({
       route, viewportWidth: width, viewportHeight: height,
       responseStatus: response ? response.status() : 0,
+      screenshotMode: capture.mode,
+      screenshotReason: capture.reason,
       ...inspection, consoleErrors, failedInternalLinks,
     });
 
-    await page.screenshot({ path: path.join(output, `${slugFor(route)}-${width}x${height}.png`), fullPage });
+    await page.screenshot({ path: path.join(output, `${slugFor(route)}-${width}x${height}.png`), fullPage: capture.fullPage });
   }
 
   await context.close();
   await browser.close();
   fs.writeFileSync(path.join(output, "responsive-qa.json"), `${JSON.stringify(results, null, 2)}\n`);
   const failures = results.filter((result) => result.responseStatus >= 400 || result.h1Count !== 1 || result.pageOverflowState || issueCount(result) > 0);
-  console.log(`Captured ${results.length} page/viewport combinations; ${failures.length} structural, asset, control, or readability failures.`);
+  const boundedCaptures = results.filter((result) => result.screenshotReason.startsWith("bounded-")).length;
+  console.log(`Captured ${results.length} page/viewport combinations; ${boundedCaptures} bounded long-page screenshots; ${failures.length} structural, asset, control, or readability failures.`);
   failures.forEach((failure) => console.error(JSON.stringify({
     route: failure.route,
     viewport: `${failure.viewportWidth}x${failure.viewportHeight}`,

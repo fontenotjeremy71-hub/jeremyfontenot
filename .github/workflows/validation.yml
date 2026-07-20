@@ -134,6 +134,16 @@ jobs:
             }
           }
 
+      - name: Upload responsive QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-responsive-qa
+          path: artifacts/redesign/final/responsive-qa.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 9
+
       - name: Upload visual review captures
         if: always()
         uses: actions/upload-artifact@v4

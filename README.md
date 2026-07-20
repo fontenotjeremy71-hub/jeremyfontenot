@@ -37,6 +37,8 @@ The site is intentionally structured so public claims trace back to reviewable a
 | `resume.html`                    | Resume page                                                                                  |
 | `contact.html`                   | Professional contact page                                                                    |
 | `home-lab-operations-proof.html` | Home-lab operations proof page                                                               |
+| `systems-skills/evidence-map.html` | Filterable evidence-to-skill and readiness relationship index                              |
+| `evidence/claim-map.html`        | Reciprocal claim-to-evidence index with scope and limitations                                 |
 
 ---
 
@@ -193,6 +195,8 @@ Run validation from the repository root using PowerShell.
 
 ```powershell
 npm ci
+npm run build:skill-map
+npm run check:skill-map
 npm run check:evidence
 npx playwright install chromium
 npm run test:browser

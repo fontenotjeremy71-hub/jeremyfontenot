@@ -32,11 +32,14 @@
 /microsoft-365/sensitive-data-review.json text eol=lf
 /assets/data/m365-evidence-catalog.json text eol=lf
 /assets/data/home-lab-evidence-catalog.json text eol=lf
+/assets/data/evidence-skill-map.json text eol=lf
 /content/microsoft-365/generated-output-hashes.json text eol=lf
 /content/home-lab/generated-output-hashes.json text eol=lf
+/content/site/generated-skill-map-hashes.json text eol=lf
 /home-lab/evidence-catalog.html text eol=lf
 /home-lab/source-to-destination-matrix.csv text eol=lf
 /home-lab/duplicate-groups.json text eol=lf
 /home-lab/sensitive-data-review.json text eol=lf
 /home-lab/authoritative-source-decisions.json text eol=lf
 /evidence-library/preserved-sharepoint/index.html text eol=lf
+/evidence/claim-map.html text eol=lf

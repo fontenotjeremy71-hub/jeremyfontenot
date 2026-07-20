@@ -96,6 +96,16 @@
     {"path":"evidence-library/skills/active-directory/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/networking-vlans/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/pfsense-firewall/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/powershell/.gitkeep","reason":"Empty-directory placeholder with no evidence content."}
+    {"path":"evidence-library/skills/powershell/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
+    {"path":"assets/data/evidence-skill-map.json","reason":"Phase 4 cross-platform relationship output; references cataloged physical artifacts without creating duplicate evidence records."},
+    {"path":"content/site/evidence-skill-mapping.json","reason":"Phase 4 skill and readiness configuration, not a collected Home Lab evidence artifact."},
+    {"path":"content/site/generated-skill-map-hashes.json","reason":"Phase 4 deterministic output contract, not collected evidence."},
+    {"path":"evidence/claim-map.html","reason":"Phase 4 generated cross-platform claim index; references cataloged records without representing another physical artifact."},
+    {"path":"docs/evidence-skill-mapping.md","reason":"Phase 4 implementation documentation, not a collected Home Lab evidence artifact."},
+    {"path":"schemas/evidence-skill-map.schema.json","reason":"Phase 4 relationship schema, not collected evidence."},
+    {"path":"scripts/build/generate-evidence-skill-mapping.js","reason":"Phase 4 generator implementation, not collected evidence."},
+    {"path":"scripts/lib/evidence-skill-mapping.js","reason":"Phase 4 mapping library, not collected evidence."},
+    {"path":"systems-skills/evidence-map.html","reason":"Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."},
+    {"path":"tests/evidence-skill-mapping.test.js","reason":"Phase 4 deterministic and negative validation, not collected evidence."}
   ]
 }

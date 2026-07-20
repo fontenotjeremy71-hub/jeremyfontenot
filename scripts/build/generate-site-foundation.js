@@ -145,6 +145,8 @@ function pageShell({id, route, title, description, eyebrow, headline, summary, a
 
 function renderLandingPage(page) {
   const jumpLinks = page.sections.map((section) => ({id: section.id, label: section.eyebrow}));
+  const phase4Section = page.id === 'systems-skills' ? `<section class="section" id="evidence-map" aria-labelledby="evidence-map-title"><div class="section-head reveal"><p class="eyebrow">Complete relationship layer</p><h2 id="evidence-map-title">Every organized artifact maps to a practical skill and bounded claim.</h2><p>${skillMapping.totals.evidenceRecords} Microsoft 365 and Home Lab records connect to ${skillMapping.totals.skills} skills and ${skillMapping.totals.claims} reciprocal claims without replacing the authoritative evidence catalogs.</p></div><div class="actions"><a class="button primary" href="/systems-skills/evidence-map.html">Filter mapped evidence</a><a class="button" href="/evidence/claim-map.html">Review reciprocal claims</a><a class="button text-button" href="/assets/data/evidence-skill-map.json">Open machine-readable map</a></div></section>` : '';
+  if (phase4Section) jumpLinks.push({id: 'evidence-map', label: 'Evidence map'});
   jumpLinks.push({id: 'scope', label: 'Scope'});
   return pageShell({
     id: page.id,
@@ -154,9 +156,11 @@ function renderLandingPage(page) {
     eyebrow: page.eyebrow,
     headline: page.headline,
     summary: page.summary,
-    actions: page.primaryActions,
+    actions: page.id === 'systems-skills'
+      ? [...page.primaryActions, {label: 'Filter mapped evidence', href: '/systems-skills/evidence-map.html', style: 'default'}]
+      : page.primaryActions,
     jumpLinks,
-    bodySections: page.sections.map(sectionMarkup).join(''),
+    bodySections: page.sections.map(sectionMarkup).join('') + phase4Section,
     scopeHeading: page.scopeHeading,
     scopeText: page.scopeText
   });
@@ -203,6 +207,7 @@ function renderTechnologyPage(taxonomy) {
 }
 
 const landingPages = readJson('content/site/landing-pages.json').pages;
+const skillMapping = readJson('assets/data/evidence-skill-map.json');
 const taxonomies = [
   readJson('content/microsoft-365/technologies.json'),
   readJson('content/home-lab/technologies.json')

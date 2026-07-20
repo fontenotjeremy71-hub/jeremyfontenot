@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jeremyfontenot.online/schemas/evidence-skill-map.schema.json",
+  "title": "Evidence-to-skill relationship catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "phase",
+    "generatedFrom",
+    "totals",
+    "relationshipTypes",
+    "readinessLabels",
+    "skills",
+    "developmentAreas",
+    "claims",
+    "relationships",
+    "boundaries"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "phase": { "const": "phase-4-evidence-to-skill-mapping" },
+    "generatedFrom": { "type": "object" },
+    "totals": { "type": "object" },
+    "relationshipTypes": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "readinessLabels": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "readinessLabel", "task", "jobRelevance", "scope", "limitations", "evidenceIds", "claimIds"]
+      }
+    },
+    "developmentAreas": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["claimId", "claimText", "evidenceIds", "supportLevel", "scope", "limitations", "lab", "sourceCatalog", "skillIds"]
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["evidenceId", "title", "sourceCatalog", "currentRepositoryPath", "sourceRepository", "sourcePath", "sourceCommit", "sourceHashAlgorithm", "sourceHash", "sourceSize", "sourceVerificationMethod", "collectionContext", "lab", "technology", "evidenceType", "skillIds", "supportedClaims", "relationshipType", "validationStatus", "systems", "task", "observedResult", "scope", "limitations", "publicationClassification", "publicRoute", "relatedArtifacts"],
+        "properties": {
+          "evidenceId": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "sourceCatalog": { "type": "string", "minLength": 1 },
+          "currentRepositoryPath": { "type": ["string", "null"] },
+          "sourceRepository": { "type": "string", "minLength": 1 },
+          "sourcePath": { "type": "string", "minLength": 1 },
+          "sourceCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+          "sourceHashAlgorithm": { "const": "sha256" },
+          "sourceHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "sourceSize": { "type": "integer", "minimum": 0 },
+          "sourceVerificationMethod": { "type": "string", "minLength": 1 },
+          "collectionContext": { "type": "string", "minLength": 1 },
+          "lab": { "enum": ["microsoft-365", "home-lab"] },
+          "technology": { "type": "string", "minLength": 1 },
+          "evidenceType": { "type": "string", "minLength": 1 },
+          "skillIds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+          "supportedClaims": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+          "relationshipType": { "type": "string", "minLength": 1 },
+          "validationStatus": { "type": "string", "minLength": 1 },
+          "systems": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+          "task": { "type": "string", "minLength": 1 },
+          "observedResult": { "type": "string", "minLength": 1 },
+          "scope": { "type": "string", "minLength": 1 },
+          "limitations": { "type": "string", "minLength": 1 },
+          "publicationClassification": { "enum": ["public-original", "sanitized-derivative", "metadata-only", "source-reference-only"] },
+          "publicRoute": { "type": ["string", "null"] },
+          "relatedArtifacts": { "type": "object" }
+        }
+      }
+    },
+    "boundaries": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  }
+}

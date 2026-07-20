@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "phase": "phase-4-evidence-to-skill-mapping",
+  "allowedRelationshipTypes": [
+    "direct-validation",
+    "configuration-evidence",
+    "inventory-evidence",
+    "supporting-evidence",
+    "operational-test",
+    "restore-test",
+    "documentation-support",
+    "context-only"
+  ],
+  "allowedReadinessLabels": [
+    "professionally-applied",
+    "demonstrated-in-lab",
+    "validated-through-testing",
+    "documented-and-reviewed",
+    "development-area"
+  ],
+  "skills": [
+    {
+      "id": "identity-administration",
+      "label": "Identity administration",
+      "readinessLabel": "demonstrated-in-lab",
+      "task": "Review and maintain users, groups, memberships, roles, authentication state, and authorized access paths.",
+      "jobRelevance": "Supports routine identity administration, access troubleshooting, change documentation, and escalation under established controls.",
+      "scope": "Professional access-support foundation plus personal Active Directory and Microsoft Entra lab evidence.",
+      "limitations": "Does not claim employer directory ownership, privileged production administration, or organization-wide policy enforcement."
+    },
+    {
+      "id": "windows-server",
+      "label": "Windows Server administration",
+      "readinessLabel": "validated-through-testing",
+      "task": "Inspect Windows Server roles, services, storage, event summaries, domain state, and operational indicators.",
+      "jobRelevance": "Supports routine server checks, documented maintenance, fault isolation, and escalation-ready observations.",
+      "scope": "Personal nonproduction Windows Server lab.",
+      "limitations": "Does not prove production ownership, high availability, enterprise patch management, or on-call responsibility."
+    },
+    {
+      "id": "dns-dhcp-gpo",
+      "label": "DNS, DHCP, and Group Policy",
+      "readinessLabel": "validated-through-testing",
+      "task": "Review name resolution, addressing, scope options, leases, policy objects, and bounded validation results.",
+      "jobRelevance": "Supports common directory-dependent infrastructure troubleshooting and configuration review.",
+      "scope": "Personal nonproduction Active Directory lab.",
+      "limitations": "Does not demonstrate multi-site design, production change ownership, or organization-wide enforcement."
+    },
+    {
+      "id": "microsoft-365-entra",
+      "label": "Microsoft 365 and Entra administration",
+      "readinessLabel": "demonstrated-in-lab",
+      "task": "Review tenant, identity, license, policy, device, application, sign-in, audit, and service configuration records.",
+      "jobRelevance": "Supports entry-level Microsoft 365 support, evidence gathering, configuration review, and escalation within assigned permissions.",
+      "scope": "Personal Microsoft 365 tenant and sanitized reviewed evidence.",
+      "limitations": "Does not claim production tenant ownership, Intune fleet administration, Exchange mail-flow ownership, or security assurance."
+    },
+    {
+      "id": "virtualization",
+      "label": "Virtualization operations",
+      "readinessLabel": "validated-through-testing",
+      "task": "Review Proxmox hosts, virtual machines, bridges, storage, guest integration, and bounded lifecycle operations.",
+      "jobRelevance": "Supports inventory, routine VM checks, controlled maintenance, and evidence-based escalation.",
+      "scope": "Personally operated nonproduction Proxmox lab.",
+      "limitations": "Does not prove enterprise virtualization ownership, clustered availability, or production capacity planning."
+    },
+    {
+      "id": "backup-operations",
+      "label": "Backup and restore operations",
+      "readinessLabel": "validated-through-testing",
+      "task": "Review scheduled scope, archives, storage, integrity records, network isolation, controlled restore tests, and cleanup.",
+      "jobRelevance": "Supports routine backup verification and carefully bounded restore procedures under an approved runbook.",
+      "scope": "Personal nonproduction lab with scoped isolated restore evidence.",
+      "limitations": "A successful isolated restore does not prove full disaster recovery, application recovery, recurring assurance, RTO, or RPO."
+    },
+    {
+      "id": "linux-administration",
+      "label": "Linux administration",
+      "readinessLabel": "validated-through-testing",
+      "task": "Review Linux services, networking, DNS, time, logging, updates, guest integration, and directory integration.",
+      "jobRelevance": "Supports routine Linux checks, service troubleshooting, documentation, and escalation.",
+      "scope": "Personal nonproduction Ubuntu lab systems.",
+      "limitations": "Does not claim production Linux fleet ownership, high availability, or broad platform engineering experience."
+    },
+    {
+      "id": "networking",
+      "label": "Networking and firewall support",
+      "readinessLabel": "demonstrated-in-lab",
+      "task": "Inspect routes, VLAN and subnet context, DNS responses, TCP reachability, pfSense state, and documented policy expectations.",
+      "jobRelevance": "Supports first-line infrastructure path analysis and evidence-rich escalation.",
+      "scope": "Documented personal-lab network paths and bounded connectivity checks.",
+      "limitations": "Timeouts are not converted into outage findings, and the evidence does not prove enterprise network ownership or security assurance."
+    },
+    {
+      "id": "powershell-automation",
+      "label": "PowerShell automation",
+      "readinessLabel": "validated-through-testing",
+      "task": "Run repeatable inventory, validation, structured export, sanitization, integrity, and repository-quality workflows.",
+      "jobRelevance": "Supports consistent checks, reduced manual variation, reviewable output, and safer escalation artifacts.",
+      "scope": "Repository and personal-lab automation with reviewable scripts and outputs.",
+      "limitations": "Repository automation does not imply unattended production change authority or organization-wide operational impact."
+    },
+    {
+      "id": "troubleshooting",
+      "label": "Troubleshooting and RCA",
+      "readinessLabel": "professionally-applied",
+      "task": "Clarify symptoms, bound scope, test hypotheses, record observations, distinguish results from gaps, and identify next actions.",
+      "jobRelevance": "Connects professional Service Desk practice to infrastructure support and escalation discipline.",
+      "scope": "Professional support foundation plus sanitized portfolio and personal-lab examples.",
+      "limitations": "Public lab records do not disclose employer or client systems and do not convert inconclusive checks into failures."
+    },
+    {
+      "id": "technical-documentation",
+      "label": "Technical documentation",
+      "readinessLabel": "professionally-applied",
+      "task": "Create tickets, runbooks, inventories, validation reports, manifests, change records, and explicit limitation statements.",
+      "jobRelevance": "Supports repeatability, peer review, clean handoffs, auditability, and useful escalation.",
+      "scope": "Professional documentation foundation plus public sanitized repository artifacts.",
+      "limitations": "A documented configuration proves captured and reviewed state only, not universal correctness or current production operation."
+    },
+    {
+      "id": "escalation",
+      "label": "Technical escalation",
+      "readinessLabel": "professionally-applied",
+      "task": "Provide confirmed observations, commands, recorded sequence, scope, limitations, impact context, and the next required decision.",
+      "jobRelevance": "Helps senior administrators act on a well-bounded problem without repeating basic discovery.",
+      "scope": "Professional support practice and repository-backed evidence discipline.",
+      "limitations": "Does not imply independent authority for high-risk production changes or incident command."
+    }
+  ],
+  "developmentAreas": [
+    "Enterprise monitoring and alert response",
+    "Production-scale endpoint management",
+    "High-availability and multi-site design",
+    "Formal production patch-management ownership",
+    "Measured recovery objectives and recurring restore assurance"
+  ]
+}

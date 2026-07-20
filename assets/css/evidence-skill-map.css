@@ -1,0 +1,118 @@
+.mapping-summary,
+.skill-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+
+.mapping-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1rem;
+}
+
+.mapping-summary > *,
+.skill-summary-card,
+.mapping-card,
+.mapping-filters {
+  min-width: 0;
+  border: 1px solid var(--line, #cbd5e1);
+  border-radius: 1rem;
+  background: var(--panel, #fff);
+  padding: 1rem;
+}
+
+.mapping-summary strong {
+  display: block;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+}
+
+.mapping-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: .85rem;
+  margin-block: 1.5rem;
+}
+
+.mapping-filter-field {
+  display: grid;
+  gap: .35rem;
+}
+
+.mapping-filter-field label {
+  font-weight: 700;
+}
+
+.mapping-filter-field input,
+.mapping-filter-field select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: .55rem .7rem;
+  border: 1px solid var(--line, #94a3b8);
+  border-radius: .55rem;
+  background: #fff;
+  color: #0f172a;
+}
+
+.mapping-card h3,
+.skill-summary-card h3 {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  line-height: 1.25;
+}
+
+.mapping-card dl,
+.skill-summary-card dl {
+  display: grid;
+  gap: .65rem;
+}
+
+.mapping-card dt,
+.skill-summary-card dt {
+  font-weight: 800;
+}
+
+.mapping-card dd,
+.skill-summary-card dd {
+  margin: .15rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.mapping-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-block: .75rem;
+}
+
+.mapping-tags span {
+  border: 1px solid var(--line, #cbd5e1);
+  border-radius: 999px;
+  padding: .25rem .55rem;
+  font-size: .82rem;
+}
+
+.mapping-status {
+  margin-block: 1rem;
+  font-weight: 700;
+}
+
+.mapping-empty[hidden],
+.mapping-card[hidden] {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .mapping-grid,
+  .skill-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .mapping-card,
+  .skill-summary-card,
+  .mapping-filters {
+    padding: .8rem;
+  }
+}
