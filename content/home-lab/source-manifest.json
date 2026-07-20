@@ -68,6 +68,7 @@
     {"path":"docs/home-lab-evidence-organization.md","reason":"Phase implementation documentation, not a collected artifact."},
     {"path":"schemas/home-lab-source-attestation.schema.json","reason":"External-source attestation validation schema, not a collected evidence artifact."},
     {"path":"assets/data/home-lab-evidence-catalog.json","reason":"Generated public catalog validated as an output contract."},
+    {"path":"assets/visuals/home-lab-evidence-system.svg","reason":"Homepage presentation visualization derived from already cataloged Home Lab evidence; it is not an additional physical evidence source."},
     {"path":"home-lab/evidence-catalog.html","reason":"Generated public catalog page validated as an output contract."},
     {"path":"home-lab/source-to-destination-matrix.csv","reason":"Generated source matrix validated as an output contract."},
     {"path":"home-lab/duplicate-groups.json","reason":"Generated duplicate report validated as an output contract."},
