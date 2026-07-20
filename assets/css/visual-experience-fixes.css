@@ -9,10 +9,58 @@
 /* Keep the four homepage role cards while preserving a readable measure. */
 .home-page .capability-grid {
   gap: .75rem;
+  align-items: stretch;
 }
 
 .home-page .capability-card {
+  min-height: 13.5rem;
   padding: .9rem;
+  align-content: start;
+}
+
+/* Keep the role cards aligned. Visual variety comes from accent treatment,
+   not from a stagger that reads as a layout defect. */
+.home-page .capability-card:nth-child(even) {
+  transform: none;
+}
+
+.home-page .capability-card:nth-child(even):hover {
+  transform: translateY(-5px);
+}
+
+/* The flagship evidence card should read as a designed inspection surface,
+   not as an empty container with content stranded at the bottom. */
+.home-page .evidence-focus-grid article:first-child {
+  position: relative;
+  min-height: 19rem;
+  align-content: start;
+  padding-bottom: 7.25rem;
+  background:
+    radial-gradient(circle at 14% 82%, rgba(56, 189, 248, .28) 0 .22rem, transparent .27rem),
+    radial-gradient(circle at 50% 82%, rgba(217, 70, 239, .28) 0 .22rem, transparent .27rem),
+    radial-gradient(circle at 86% 82%, rgba(52, 211, 153, .28) 0 .22rem, transparent .27rem),
+    linear-gradient(90deg, transparent 14%, rgba(56, 189, 248, .18) 14.2% 49.8%, transparent 50% 50.2%, rgba(217, 70, 239, .16) 50.4% 85.8%, transparent 86%),
+    linear-gradient(180deg, rgba(7, 16, 31, .08), rgba(7, 16, 31, .92)),
+    radial-gradient(circle at 50% 18%, rgba(56, 189, 248, .18), transparent 45%),
+    linear-gradient(135deg, rgba(56, 189, 248, .12), rgba(217, 70, 239, .1));
+  background-repeat: no-repeat;
+  background-size: auto, auto, auto, 100% 1px, auto, auto, auto;
+  background-position: center, center, center, center 82%, center, center, center;
+}
+
+.home-page .evidence-focus-grid article:first-child::before {
+  content: "validated system path";
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  color: rgba(241, 245, 249, .42);
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Give the primary contact route enough width to read as a deliberate CTA. */
@@ -48,6 +96,21 @@
 }
 
 @media (max-width: 760px) {
+  .home-page .capability-card {
+    min-height: 0;
+  }
+
+  .home-page .evidence-focus-grid article:first-child {
+    min-height: 0;
+    padding-bottom: 5.5rem;
+  }
+
+  .home-page .evidence-focus-grid article:first-child::before {
+    right: 1.2rem;
+    bottom: 1.35rem;
+    left: 1.2rem;
+  }
+
   .contact-page .contact-route-grid {
     grid-template-columns: 1fr;
   }
