@@ -41,10 +41,20 @@ jobs:
         run: npx playwright install chromium
 
       - name: Verify exact main workflows and production release
+        shell: bash
         env:
           TARGET_SHA: ${{ inputs.target_sha || 'b67f214fe4bcd80fcf03d36a22350fc60793c8ba' }}
           REPORT_PATH: artifacts/release/final-live-verification.json
-        run: node scripts/validation/verify-production-release.js
+        run: |
+          mkdir -p artifacts/release
+          set +e
+          node scripts/validation/verify-production-release.js 2>&1 | tee artifacts/release/verifier.log
+          verifier_status=${PIPESTATUS[0]}
+          set -e
+          if [[ ! -f "$REPORT_PATH" ]]; then
+            node -e "const fs=require('node:fs'); const log=fs.readFileSync('artifacts/release/verifier.log','utf8'); fs.writeFileSync(process.env.REPORT_PATH, JSON.stringify({status:'NOT_READY',targetSha:process.env.TARGET_SHA,error:log.trim()},null,2)+'\\n');"
+          fi
+          exit "$verifier_status"
 
       - name: Publish verification summary
         if: always()
@@ -65,6 +75,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: production-release-verification
-          path: artifacts/release/final-live-verification.json
+          path: artifacts/release
           if-no-files-found: error
           retention-days: 30
