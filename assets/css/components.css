@@ -1,4 +1,5 @@
 .actions, .inline-actions, .proof-links { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
+.contribution-actions { margin-top: 1.25rem; }
 .button, .inline-actions a, .proof-links a {
   display: inline-flex;
   min-height: 2.9rem;
