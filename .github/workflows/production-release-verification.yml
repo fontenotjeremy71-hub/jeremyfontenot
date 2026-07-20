@@ -16,7 +16,6 @@ on:
         type: string
 
 permissions:
-  actions: read
   contents: read
 
 jobs:
@@ -43,7 +42,6 @@ jobs:
 
       - name: Verify exact main workflows and production release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_SHA: ${{ inputs.target_sha || 'b67f214fe4bcd80fcf03d36a22350fc60793c8ba' }}
           REPORT_PATH: artifacts/release/final-live-verification.json
         run: node scripts/validation/verify-production-release.js
