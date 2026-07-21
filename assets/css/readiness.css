@@ -76,6 +76,7 @@
 }
 
 @media (max-width: 400px) {
+  .readiness-page .page-hero h1,
   .foundation-page .page-hero h1 {
     font-size: 1.65rem;
     line-height: 1.08;
