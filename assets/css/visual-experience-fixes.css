@@ -165,6 +165,35 @@
   padding-inline-start: var(--page-text-rail);
 }
 
+/* Multi-column cards must share row baselines. The original visual layer
+   translated selected cards downward, which made equal grid rows appear
+   misaligned. Keep the visual distinction in borders and accents instead. */
+.projects-page .project-supporting-grid,
+.contact-page .route-link-grid {
+  align-items: stretch;
+}
+
+.projects-page .project-supporting-grid .project-panel,
+.contact-page .route-link-grid a {
+  height: 100%;
+  transform: none;
+}
+
+.projects-page .project-supporting-grid .project-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-page .project-supporting-grid .project-panel .proof-links {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.projects-page .project-supporting-grid .project-panel:hover,
+.contact-page .route-link-grid a:hover {
+  transform: translateY(-5px);
+}
+
 @media (max-width: 1100px) {
   .contact-page .contact-route-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -219,4 +248,18 @@
     line-height: 1.1;
     text-wrap: pretty;
   }
+}
+
+/* Match the source stagger selectors exactly so the desktop overrides win
+   without relying on !important. */
+.projects-page .project-supporting-grid .project-panel:nth-child(2),
+.projects-page .project-supporting-grid .project-panel:nth-child(3),
+.contact-page .route-link-grid a:nth-child(even) {
+  transform: none;
+}
+
+.projects-page .project-supporting-grid .project-panel:nth-child(2):hover,
+.projects-page .project-supporting-grid .project-panel:nth-child(3):hover,
+.contact-page .route-link-grid a:nth-child(even):hover {
+  transform: translateY(-5px);
 }

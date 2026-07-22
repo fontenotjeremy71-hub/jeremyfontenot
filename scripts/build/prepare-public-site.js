@@ -106,6 +106,56 @@ function copyDirectory(relativePath) {
   fs.cpSync(resolved.source, resolved.target, {recursive: true, force: true, dereference: false});
 }
 
+function collectHtmlFiles(directory) {
+  const files = [];
+  for (const entry of fs.readdirSync(directory, {withFileTypes: true})) {
+    const absolute = path.join(directory, entry.name);
+    if (entry.isDirectory()) files.push(...collectHtmlFiles(absolute));
+    else if (entry.isFile() && entry.name.endsWith('.html')) files.push(absolute);
+  }
+  return files;
+}
+
+function ensureReadinessInPrimaryNavigation() {
+  const navPattern = /(<div class="nav-links" id="primary-menu">)([\s\S]*?)(<\/div>)/gi;
+  const readinessPattern = /href=["'][^"']*systems-administration\.html(?:[#?][^"']*)?["']/i;
+  const readinessLink = '<a href="/systems-administration.html">Readiness</a>';
+  let inspected = 0;
+  let normalized = 0;
+
+  for (const file of collectHtmlFiles(outputDirectory)) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (!html.includes('class="nav-links"') || !html.includes('id="primary-menu"')) continue;
+
+    inspected += 1;
+    let foundPrimaryNavigation = false;
+    const updated = html.replace(navPattern, (match, opening, links, closing) => {
+      foundPrimaryNavigation = true;
+      if (readinessPattern.test(links)) return match;
+
+      const withReadiness = links.replace(/(<a\b[^>]*>Home<\/a>)/i, `$1${readinessLink}`);
+      if (withReadiness === links) {
+        throw new Error(`Primary navigation is missing a recognizable Home link: ${path.relative(outputDirectory, file)}`);
+      }
+      return `${opening}${withReadiness}${closing}`;
+    });
+
+    if (!foundPrimaryNavigation) {
+      throw new Error(`Primary navigation markup could not be normalized: ${path.relative(outputDirectory, file)}`);
+    }
+    if (!readinessPattern.test(updated)) {
+      throw new Error(`Primary navigation is missing Readiness after normalization: ${path.relative(outputDirectory, file)}`);
+    }
+    if (updated !== html) {
+      fs.writeFileSync(file, updated, 'utf8');
+      normalized += 1;
+    }
+  }
+
+  if (inspected === 0) throw new Error('No primary navigation menus were found in the publication output.');
+  console.log(`Validated Readiness navigation across ${inspected} published pages; normalized ${normalized}.`);
+}
+
 function routeToFile(route) {
   const clean = route.split('#')[0].split('?')[0];
   if (clean === '/') return 'index.html';
@@ -205,6 +255,7 @@ try {
 
   for (const directory of manifest.directories) copyDirectory(directory);
 
+  ensureReadinessInPrimaryNavigation();
   assertNoSymlinks(outputDirectory, path.basename(outputDirectory), 'Publication output');
   validateForbiddenRoots();
   validateSitemap();
