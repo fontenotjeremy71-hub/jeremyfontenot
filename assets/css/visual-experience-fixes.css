@@ -249,3 +249,17 @@
     text-wrap: pretty;
   }
 }
+
+/* Match the source stagger selectors exactly so the desktop overrides win
+   without relying on !important. */
+.projects-page .project-supporting-grid .project-panel:nth-child(2),
+.projects-page .project-supporting-grid .project-panel:nth-child(3),
+.contact-page .route-link-grid a:nth-child(even) {
+  transform: none;
+}
+
+.projects-page .project-supporting-grid .project-panel:nth-child(2):hover,
+.projects-page .project-supporting-grid .project-panel:nth-child(3):hover,
+.contact-page .route-link-grid a:nth-child(even):hover {
+  transform: translateY(-5px);
+}
