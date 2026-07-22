@@ -1,0 +1,44 @@
+/*
+ * Final site-wide text-rail safeguards.
+ *
+ * Most editorial pages wrap hero copy in .section-head or .hero-copy, which
+ * already receive the shared alignment rail. Generated evidence pages place
+ * their eyebrow, heading, lead, and actions directly inside .page-hero. Keep
+ * those direct children on the same inset rhythm so text never touches the
+ * decorative panel edge.
+ */
+
+:where(.page-hero, .page, .section) > :where(
+  .eyebrow,
+  h1,
+  h2,
+  .lead,
+  .actions
+) {
+  padding-inline-start: var(--page-text-rail, clamp(.95rem, 1.45vw, 1.25rem));
+}
+
+/* Preserve the tighter mobile rhythm established by the visual-review layer. */
+@media (max-width: 760px) {
+  :where(.page-hero, .page, .section) > :where(
+    .eyebrow,
+    h1,
+    h2,
+    .lead,
+    .actions
+  ) {
+    padding-inline-start: var(--page-text-rail, .75rem);
+  }
+}
+
+@media (max-width: 420px) {
+  :where(.page-hero, .page, .section) > :where(
+    .eyebrow,
+    h1,
+    h2,
+    .lead,
+    .actions
+  ) {
+    padding-inline-start: var(--page-text-rail, .6rem);
+  }
+}
