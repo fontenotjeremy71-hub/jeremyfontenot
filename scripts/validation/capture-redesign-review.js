@@ -8,7 +8,7 @@ const output = path.join(root, "artifacts", "redesign", "final");
 const origin = "http://127.0.0.1:4174";
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const sitemapRoutes = [...sitemap.matchAll(/<loc>https:\/\/jeremyfontenot\.online([^<]*)<\/loc>/g)].map((match) => match[1] || "/");
-const wrapperPrefix = "/evidence-library/preserved-sharepoint/sharepoint/";
+const wrapperPrefix = "/evidence-library/preserved-sharepoint/wrappers/";
 const linkIntegrityRoute = "/evidence-library/preserved-sharepoint/link-integrity.html";
 const coreRoutes = sitemapRoutes.filter((route) => !route.startsWith(wrapperPrefix) && route !== linkIntegrityRoute);
 const wrapperRoutes = sitemapRoutes.filter((route) => route.startsWith(wrapperPrefix)).sort((left, right) => left.localeCompare(right));
