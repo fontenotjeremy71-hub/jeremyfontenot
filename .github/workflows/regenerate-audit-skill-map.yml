@@ -1,0 +1,55 @@
+name: Regenerate audit skill-map outputs
+
+on:
+  push:
+    branches:
+      - fix/site-audit-phased-remediation
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v5
+        with:
+          ref: fix/site-audit-phased-remediation
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate canonical skill-map outputs
+        run: npm run build:skill-map
+
+      - name: Commit regenerated outputs when required
+        shell: bash
+        run: |
+          if git diff --quiet -- \
+            assets/data/evidence-skill-map.json \
+            systems-skills/evidence-map.html \
+            evidence/claim-map.html \
+            content/site/generated-skill-map-hashes.json; then
+            echo "Generated outputs are already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            assets/data/evidence-skill-map.json \
+            systems-skills/evidence-map.html \
+            evidence/claim-map.html \
+            content/site/generated-skill-map-hashes.json
+          git commit -m "build: refresh normalized skill-map outputs"
+          git push origin HEAD:fix/site-audit-phased-remediation
