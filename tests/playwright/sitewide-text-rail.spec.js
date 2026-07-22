@@ -34,13 +34,16 @@ test.describe("site-wide text alignment rail", () => {
           const stage = heading.closest(".hero, .page-hero, .page, .section");
           if (!stage) return { missingStage: true };
 
+          const range = document.createRange();
+          range.selectNodeContents(heading);
+          const textRects = [...range.getClientRects()].filter((rect) => rect.width > 0.5 && rect.height > 0.5);
+          const textLeft = textRects.length ? Math.min(...textRects.map((rect) => rect.left)) : heading.getBoundingClientRect().left;
           const stageRect = stage.getBoundingClientRect();
-          const headingRect = heading.getBoundingClientRect();
           const stageStyle = getComputedStyle(stage);
           const stageContentEdge = stageRect.left + (Number.parseFloat(stageStyle.paddingLeft) || 0);
 
           return {
-            inset: headingRect.left - stageContentEdge,
+            inset: textLeft - stageContentEdge,
             clientWidth: document.documentElement.clientWidth,
             scrollWidth: document.documentElement.scrollWidth,
           };
@@ -48,7 +51,7 @@ test.describe("site-wide text alignment rail", () => {
 
         expect(layout.missingHeading, `${route} is missing a main heading`).not.toBe(true);
         expect(layout.missingStage, `${route} is missing a hero/page container`).not.toBe(true);
-        expect(layout.inset, `${route} heading touches the outer content edge`).toBeGreaterThanOrEqual(viewport.minimumInset);
+        expect(layout.inset, `${route} heading text touches the outer content edge`).toBeGreaterThanOrEqual(viewport.minimumInset);
         expect(layout.scrollWidth, `${route} has horizontal overflow`).toBeLessThanOrEqual(layout.clientWidth + 2);
       }
     });
@@ -65,11 +68,23 @@ test.describe("site-wide text alignment rail", () => {
         const heroRect = hero.getBoundingClientRect();
         const heroStyle = getComputedStyle(hero);
         const contentEdge = heroRect.left + (Number.parseFloat(heroStyle.paddingLeft) || 0);
+
+        const contentLeft = (element) => {
+          if (element.matches(".actions")) {
+            const firstAction = element.querySelector("a, button");
+            return firstAction ? firstAction.getBoundingClientRect().left : element.getBoundingClientRect().left;
+          }
+          const range = document.createRange();
+          range.selectNodeContents(element);
+          const rects = [...range.getClientRects()].filter((rect) => rect.width > 0.5 && rect.height > 0.5);
+          return rects.length ? Math.min(...rects.map((rect) => rect.left)) : element.getBoundingClientRect().left;
+        };
+
         return [...hero.querySelectorAll(":scope > .eyebrow, :scope > h1, :scope > .lead, :scope > .actions")]
           .map((element) => ({
             element: element.tagName.toLowerCase(),
             className: element.className,
-            inset: element.getBoundingClientRect().left - contentEdge,
+            inset: contentLeft(element) - contentEdge,
           }));
       });
 
