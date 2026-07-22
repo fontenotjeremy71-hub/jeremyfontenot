@@ -52,6 +52,8 @@ function escapeRegex(value) {
 const sitemapLocs = sitemapLocations(sitemapXml);
 const sitemapLocalPaths = sitemapLocs.map(localPathForCanonical);
 const evidenceBrowserPaths = evidencePages.map((entry) => browserPath(entry.output));
+const sharePointWrapperPaths = sitemapLocalPaths.filter((pagePath) => pagePath.startsWith("/evidence-library/preserved-sharepoint/wrappers/"));
+const representativeSharePointWrappers = [sharePointWrapperPaths[0], sharePointWrapperPaths[Math.floor(sharePointWrapperPaths.length / 2)], sharePointWrapperPaths.at(-1)].filter(Boolean);
 const mainPublicPages = [
   "/",
   "/projects.html",
@@ -65,7 +67,7 @@ const mainPublicPages = [
   "/evidence/public/index.html",
   "/evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/",
 ];
-const allPublicBrowserPaths = [...new Set([...mainPublicPages, ...sitemapLocalPaths])];
+const allPublicBrowserPaths = [...new Set([...mainPublicPages, ...sitemapLocalPaths.filter((pagePath) => !pagePath.startsWith("/evidence-library/preserved-sharepoint/wrappers/")), ...representativeSharePointWrappers])];
 const responsiveBrowserPaths = [
   "/sitemap.xml",
   "/systems-skills/evidence-map.html",
@@ -211,6 +213,10 @@ test.describe("repository-driven browser inventory", () => {
       expect(fs.existsSync(repositoryPath(entry.source))).toBe(true);
       expect(fs.existsSync(repositoryPath(entry.output))).toBe(true);
       expect(sitemapLocs).toContain(canonicalForOutput(entry.output));
+    }
+    expect(sharePointWrapperPaths).toHaveLength(802);
+    for (const wrapperPath of sharePointWrapperPaths) {
+      expect(fs.existsSync(repositoryPath(wrapperPath))).toBe(true);
     }
   });
 

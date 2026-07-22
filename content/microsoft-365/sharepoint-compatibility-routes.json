@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "routeType": "byte-identical-compatibility-asset",
+  "mappings": [
+    {
+      "legacyRoute": "/evidence-library/preserved-sharepoint/source/docs/Images/logos/favicon_128x128.png",
+      "canonicalAsset": "/assets/logos/favicon_128x128.png",
+      "reason": "The preserved Logos export references the same named public logo asset from its former relative location."
+    },
+    {
+      "legacyRoute": "/evidence-library/preserved-sharepoint/source/docs/Images/logos/logo_black_3000x3000.png",
+      "canonicalAsset": "/assets/logos/logo_black_3000x3000.png",
+      "reason": "The preserved Logos export references the same named public logo asset from its former relative location."
+    },
+    {
+      "legacyRoute": "/evidence-library/preserved-sharepoint/source/docs/Images/logos/logo_white_3000x3000.png",
+      "canonicalAsset": "/assets/logos/logo_white_3000x3000.png",
+      "reason": "The preserved Logos export references the same named public logo asset from its former relative location."
+    },
+    {
+      "legacyRoute": "/evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/assets/logos/favicon_128x128.png",
+      "canonicalAsset": "/assets/logos/favicon_128x128.png",
+      "reason": "The preserved artifact index references the same named public favicon from an incorrect former relative location."
+    },
+    {
+      "legacyRoute": "/evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/assets/logos/favicon_64x64.png",
+      "canonicalAsset": "/assets/logos/favicon_64x64.png",
+      "reason": "The preserved artifact index references the same named public favicon from an incorrect former relative location."
+    }
+  ]
+}

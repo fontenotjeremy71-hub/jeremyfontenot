@@ -1,15 +1,15 @@
 # Repository Health Dashboard
 
-Generated: 2026-07-12 22:25:48 UTC
+Generated: 2026-07-22 19:57:04 UTC
 
 ## Governance Coverage
 
 | Area | Count |
 |---|---:|
-| Validation scripts | 15 |
+| Validation scripts | 16 |
 | Lighthouse reports | 19 |
 | Evidence index entries | 42 |
-| Evidence hash entries | 1052 |
+| Evidence hash entries | 1057 |
 
 ## Validation Scripts
 
@@ -23,6 +23,7 @@ Generated: 2026-07-12 22:25:48 UTC
 - validate-html.ps1
 - validate-json.ps1
 - validate-links.ps1
+- validate-no-date-proof.ps1
 - validate-powershell.ps1
 - validate-repo-structure.ps1
 - validate-screenshots.ps1

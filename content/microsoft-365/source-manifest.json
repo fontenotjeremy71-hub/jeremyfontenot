@@ -11,7 +11,8 @@
     "dist/",
     "build/",
     "artifacts/playwright/",
-    "artifacts/redesign/final/"
+    "artifacts/redesign/final/",
+    "evidence-library/preserved-sharepoint/wrappers/"
   ],
   "contentCandidateRoots": [
     "assets/evidence/",

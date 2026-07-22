@@ -6,7 +6,9 @@ Write-Host "Validating SEO metadata..."
 $HtmlFiles = Get-ChildItem -Path . -Recurse -Filter "*.html" -File | Where-Object {
   $_.DirectoryName -notmatch "node_modules" -and
   $_.DirectoryName -notmatch "\\.git" -and
-  $_.FullName -notmatch '[\\/]artifacts[\\/]playwright[\\/]'
+  $_.FullName -notmatch '[\\/]artifacts[\\/]playwright[\\/]' -and
+  # SiteOne HTML files are external audit-tool reports, not published site pages.
+  $_.FullName -notmatch '[\\/]artifacts[\\/]audits[\\/]siteone-evidence-integrity[\\/]crawls[\\/]'
 }
 
 $Failures = @()
