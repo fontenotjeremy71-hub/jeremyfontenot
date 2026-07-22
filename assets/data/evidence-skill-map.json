@@ -8,7 +8,7 @@
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
-      "sha256": "5ed4c91a131c4af7ae83f30a7bc1399652a870d5c0829776e90739d9b0093f2f"
+      "sha256": "3f5536a352d670cd42b3070ed22db10e78153bdb1a004ba7207d53e8082fdf98"
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
@@ -25109,9 +25109,9 @@
       "currentRepositoryPath": "evidence-library/integrity/evidence-hashes.json",
       "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
       "sourcePath": "evidence-library/integrity/evidence-hashes.json",
-      "sourceCommit": "d943a215d1fa3235c59b3087b83eabd9ca3793d9",
+      "sourceCommit": "82796ff25e8cac885b399f0096d166f9856b9f09",
       "sourceHashAlgorithm": "sha256",
-      "sourceHash": "42e224ad73a2eebadb980c9fd076bd8abeda6078262eae3af1c95c59661be801",
+      "sourceHash": "3fb1111547e9ee246ce9782c86017d1a2870e4a8786f66e89e2d061f3261020c",
       "sourceSize": 307806,
       "sourceVerificationMethod": "direct-git-object",
       "collectionContext": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",

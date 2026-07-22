@@ -177,7 +177,7 @@
       "path": "evidence-library/integrity/evidence-hashes.json",
       "collection": "cross-cutting-evidence-governance",
       "reason": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes.",
-      "sourceCommit": "d943a215d1fa3235c59b3087b83eabd9ca3793d9",
+      "sourceCommit": "82796ff25e8cac885b399f0096d166f9856b9f09",
       "technologyRelationships": [
         "automation"
       ],
@@ -341,6 +341,30 @@
     {
       "path": "content/microsoft-365/evidence-organization.json",
       "reason": "Generator configuration, not collected evidence."
+    },
+    {
+      "path": "content/microsoft-365/sharepoint-archival-link-status.json",
+      "reason": "Generated archival-link classification control consumed by wrappers, not collected evidence."
+    },
+    {
+      "path": "content/microsoft-365/sharepoint-compatibility-routes.json",
+      "reason": "Reviewed compatibility-route configuration, not collected evidence."
+    },
+    {
+      "path": "evidence-library/preserved-sharepoint/link-integrity.html",
+      "reason": "Generated collection integrity summary validated as an output contract."
+    },
+    {
+      "path": "artifacts/audits/siteone-evidence-integrity/visual-review/sharepoint-wrapper-desktop.png",
+      "reason": "Local responsive QA capture, not a Microsoft 365 evidence artifact."
+    },
+    {
+      "path": "artifacts/audits/siteone-evidence-integrity/visual-review/sharepoint-wrapper-mobile.png",
+      "reason": "Local responsive QA capture, not a Microsoft 365 evidence artifact."
+    },
+    {
+      "path": "scripts/validation/validate-sharepoint-evidence-integrity.js",
+      "reason": "Repository validation control, not collected evidence."
     },
     {
       "path": "content/microsoft-365/source-manifest.json",
