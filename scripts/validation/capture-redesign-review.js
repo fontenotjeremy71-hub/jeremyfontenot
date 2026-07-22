@@ -130,11 +130,12 @@ async function checkInternalLinks(urls, cache) {
       };
       const textOf = (element) => (element.innerText || element.textContent || "").trim().replace(/\s+/g, " ");
       const accessibleName = (element) => {
+        const domText = (element.textContent || "").trim().replace(/\s+/g, " ");
         const labelledBy = (element.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean)
           .map((id) => document.getElementById(id)?.textContent || "").join(" ");
         const imageText = [...element.querySelectorAll("img")].map((image) => image.alt || "").join(" ");
         const svgText = [...element.querySelectorAll("svg title")].map((title) => title.textContent || "").join(" ");
-        return `${textOf(element)} ${element.getAttribute("aria-label") || ""} ${labelledBy} ${imageText} ${svgText} ${element.getAttribute("title") || ""}`
+        return `${domText} ${element.getAttribute("aria-label") || ""} ${labelledBy} ${imageText} ${svgText} ${element.getAttribute("title") || ""}`
           .trim().replace(/\s+/g, " ");
       };
       const selectorFor = (element) => {
