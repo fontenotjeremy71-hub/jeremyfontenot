@@ -1,0 +1,19 @@
+/* Keep the Projects catalog watermark intentional, complete, and out of the flagship card. */
+.projects-page .project-catalog::after {
+  content: "Projects";
+  top: .25rem;
+  right: calc(var(--gutter) + .5rem);
+  max-width: none;
+  overflow: visible;
+  color: rgba(241, 245, 249, .03);
+  font-size: clamp(3rem, 6.5vw, 6rem);
+  letter-spacing: -.06em;
+  pointer-events: none;
+}
+
+/* The decorative word adds no useful context on narrow screens. */
+@media (max-width: 760px) {
+  .projects-page .project-catalog::after {
+    content: none;
+  }
+}
