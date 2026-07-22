@@ -7,7 +7,28 @@ const root = path.resolve(__dirname, "..", "..");
 const output = path.join(root, "artifacts", "redesign", "final");
 const origin = "http://127.0.0.1:4174";
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
-const routes = [...sitemap.matchAll(/<loc>https:\/\/jeremyfontenot\.online([^<]*)<\/loc>/g)].map((match) => match[1] || "/");
+const sitemapRoutes = [...sitemap.matchAll(/<loc>https:\/\/jeremyfontenot\.online([^<]*)<\/loc>/g)].map((match) => match[1] || "/");
+const wrapperPrefix = "/evidence-library/preserved-sharepoint/sharepoint/";
+const linkIntegrityRoute = "/evidence-library/preserved-sharepoint/link-integrity.html";
+const coreRoutes = sitemapRoutes.filter((route) => !route.startsWith(wrapperPrefix) && route !== linkIntegrityRoute);
+const wrapperRoutes = sitemapRoutes.filter((route) => route.startsWith(wrapperPrefix)).sort((left, right) => left.localeCompare(right));
+
+if (coreRoutes.length !== 32) {
+  throw new Error(`Expected 32 established core routes, found ${coreRoutes.length}.`);
+}
+if (!sitemapRoutes.includes(linkIntegrityRoute)) {
+  throw new Error(`Missing required link-integrity route: ${linkIntegrityRoute}`);
+}
+if (wrapperRoutes.length !== 802) {
+  throw new Error(`Expected 802 generated SharePoint wrappers, found ${wrapperRoutes.length}.`);
+}
+
+const wrapperSampleRoutes = [
+  wrapperRoutes[0],
+  wrapperRoutes[Math.floor(wrapperRoutes.length / 2)],
+  wrapperRoutes[wrapperRoutes.length - 1],
+];
+const routes = [...coreRoutes, linkIntegrityRoute, ...wrapperSampleRoutes];
 const viewports = [
   [320, 800], [360, 800], [375, 812], [390, 844], [414, 896], [768, 1024],
   [1024, 768], [1100, 800], [1200, 800], [1280, 800], [1366, 768], [1440, 900],
@@ -45,6 +66,8 @@ async function checkInternalLinks(urls, cache) {
 }
 
 (async () => {
+  console.log(`Responsive route selection: ${coreRoutes.length} core, 1 link-integrity, ${wrapperSampleRoutes.length} SharePoint wrapper samples (${routes.length} total).`);
+  console.log(`SharePoint wrapper samples: ${wrapperSampleRoutes.join(", ")}`);
   fs.mkdirSync(output, { recursive: true });
   for (const entry of fs.readdirSync(output)) {
     if (/\.(?:png|json)$/i.test(entry)) fs.rmSync(path.join(output, entry), { force: true });
