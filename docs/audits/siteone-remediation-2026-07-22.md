@@ -1,113 +1,97 @@
-# SiteOne Full-Site Audit Remediation
+# SiteOne evidence-integrity remediation
 
-## Scope
+## Scope and preservation boundary
 
-This record tracks remediation of the SiteOne crawl completed against `https://jeremyfontenot.online` on July 22, 2026. The baseline crawl visited 1,663 URLs and reported an overall quality score of 7.1. The primary portfolio routes were fast and structurally healthy; most severe counts originated from raw preserved SharePoint exports and Cloudflare-generated utility paths.
+This audit remediates the fresh SiteOne v2.5.1.20260627 report for `https://jeremyfontenot.online/` without changing the byte-preserved SharePoint source artifacts. The baseline report ran with `--no-cache`, visited 1,663 URLs, scored 7.3, and reported 489 HTTP 404 targets plus one HTTP 503 target.
 
-The remediation preserves evidence-source bytes. Changes are limited to crawler policy, generated presentation outputs, validation gates, sitemap contents, and documented delivery-platform controls.
+The repository now distinguishes source-of-record evidence, generated evidence wrappers, curated catalogs, compatibility assets, and retained historical references. Raw source remains publicly inspectable. Canonical wrappers are indexable, appear in the sitemap, and link to both the exact derivative and the catalog.
 
-## Baseline findings
+The pre-change snapshot records commit `f8a72c8fa17cab66524103361fa104d56b6e4d2e`, 1,755 tracked files, 1,159 evidence files, and 1,144 protected source-of-record files. Verification against that snapshot reports zero missing protected files and zero hash drift.
 
-| Area | Baseline finding | Ownership |
-|---|---|---|
-| Broken URLs | 490 reported 404 responses, overwhelmingly referenced from preserved SharePoint export pages | Repository crawl policy and archival publication boundary |
-| Redirects | `/index.html` and `/powershell-automation.html` appeared as redirect hops | Sitemap and external redirect configuration |
-| Heading hierarchy | `evidence/claim-map.html` skipped from the page `<h1>` to claim-card `<h3>` elements | Generated presentation output |
-| Accessibility | Form-label, landmark, and unnamed-control findings were reported in raw preserved SharePoint exports | Archival source material; source bytes remain immutable |
-| Cloudflare paths | `/cdn-cgi/` utility URLs contributed crawler noise, a generated 404, redirects, and uncacheable-asset warnings | Repository crawler policy and Cloudflare delivery layer |
-| TLS | TLS 1.0 and TLS 1.1 were accepted by the edge | Cloudflare account setting |
-| Response headers | `Permissions-Policy` was absent and `Access-Control-Allow-Origin: *` was widespread | Cloudflare response-header configuration |
-| Compression | Brotli was not detected | Cloudflare delivery setting |
+## Missing-target classification and remediation
 
-## Phase 1 — Crawl integrity
+| Measure | Production baseline | Exact branch crawl |
+|---|---:|---:|
+| SiteOne visited URLs | 1,663 | 2,449 |
+| HTTP 404 targets | 489 | 484 |
+| Source references represented | 1,657 | 1,658 |
+| Cloudflare-generated targets | 1 | 0 |
+| Recoverable first-party assets | 5 | 0 remaining |
+| Documented archival limitations | 483 | 484 |
+| Unclassified first-party 404s | 0 after classification | 0 |
 
-Completed repository controls:
+The apparent increase from 483 to 484 archival limitations is one source-era module route that returned 503 from production but returns 404 from the local exact-head server. It is not a newly removed route.
 
-- Raw preserved SharePoint source and documentation trees are disallowed in `robots.txt`.
-- Cloudflare `/cdn-cgi/` utility paths are disallowed in `robots.txt`.
-- The externally redirected `/powershell-automation.html` route is removed from `sitemap.xml`.
-- `scripts/validation/validate-crawl-integrity.js` rejects:
-  - missing crawler exclusions;
-  - raw archival paths in the sitemap;
-  - known redirect-only sitemap entries;
-  - duplicate, off-origin, query-bearing, or fragment-bearing sitemap URLs;
-  - removal of required recruiter-facing routes.
-- The crawl-integrity gate runs as part of `check:publication`.
+Five raw-source relative references were provably recoverable from existing logo/favicon assets. Reviewed mappings now serve byte-identical compatibility assets at those legacy paths. The remaining 484 targets do not have an identity-proven repository artifact and are documented on their generated wrappers rather than replaced with misleading success pages.
 
-Expected effect on a fresh crawl:
+The baseline `/cdn-cgi/` target is classified separately as Cloudflare-generated. No fake repository resource was created for it.
 
-- Raw archival pages should be skipped instead of treated as normal SEO and accessibility landing pages.
-- Cloudflare utility paths should stop contributing crawl noise.
-- The sitemap should no longer advertise the known PowerShell redirect hop.
+## Generated presentation and indexing
 
-## Phase 2 — Semantic structure and accessibility
+- 802 preserved SharePoint public derivatives now have deterministic recruiter-readable wrappers.
+- Every wrapper has one H1, continuous heading levels, one `main`, valid labels and accessible names, unique title, unique description, canonical URL, provenance, hash/inventory reference, exact-source link, catalog link, scope, limitations, and archival-link status.
+- Sitemap routes increased from 32 to 835: the existing 32 routes, 802 canonical wrappers, and one collection link-integrity page.
+- Raw preserved source and documentation roots remain publicly accessible and retain their prior `robots.txt` treatment. They are not in the sitemap and are not rewritten.
+- Compatibility-only assets are not added to the sitemap.
+- The full crawl still reports the raw source collection's repeated historical description on 802 pages. This is a source-preservation exception; the 802 canonical wrappers have unique descriptions.
+- The recruiter crawl reports three pre-existing noncanonical alias groups (`/` versus `/index.html`, two directory routes versus their `index.html` form, and a description also used on the on-prem lab overview). No generated SharePoint wrapper title or description is duplicated.
 
-Completed repository controls:
+## Accessibility results
 
-- Generated claim-map output now includes an explicit `<h2>` section heading before claim-card `<h3>` headings.
-- The claim grid references that section heading through `aria-labelledby`.
-- The generated claim-map hash manifest is refreshed after semantic normalization.
-- The skill-map build and validation commands enforce deterministic normalized output.
-- Regression tests require the section heading and labelled claim grid.
+| SiteOne finding | Production baseline | Recruiter-facing exact branch | Full exact branch |
+|---|---:|---:|---:|
+| Multiple-H1 pages | 28 | 0 | 28 raw preserved pages |
+| Skipped-heading pages | 1 | 0 | 1 raw preserved page |
+| Missing-form-label warnings | 1 page | 0 | 4 raw-source control warnings |
+| Unnamed-link/button warnings | 8 pages | 0 | 1 raw-source warning |
+| Missing-main warnings | 15 pages | 0 | 1 raw-source warning |
 
-Preserved-source boundary:
+The generated wrappers and recruiter-facing pages pass the new DOM regression gates. Full-crawl warnings that remain are confined to immutable raw derivatives and are presented through accessible wrappers; the source bytes were not rewritten merely to improve a scanner score.
 
-- The reported unlabeled form controls and other legacy semantic defects occur in raw preserved SharePoint export pages.
-- Those source artifacts are retained without byte changes for evidence integrity.
-- Their raw source and documentation trees are excluded from crawler indexing rather than rewritten.
+## SiteOne profiles
 
-## Phase 3 — Security and delivery policy
+| Profile | Scope | Score | Visited | 404 | Result |
+|---|---|---:|---:|---:|---|
+| Fresh production baseline | Existing live site and raw evidence | 7.3 | 1,663 | 489 | Classified input |
+| Recruiter-facing exact branch | Canonical site, catalogs, and all 802 wrappers; raw robots-disallowed roots excluded | 8.1 | 1,158 | 0 | Pass |
+| Full evidence-integrity exact branch | All public evidence, wrappers, and raw derivatives | 6.2 | 2,449 | 484 | Pass: all 484 classified, zero unclassified |
 
-### Repository-controlled work completed
+Local SiteOne scores include warnings for the deliberately simple test server's absent Cloudflare response headers and compression. They are valid content-integrity scores, not forecasts of the deployed edge score.
 
-- Cloudflare utility routes are removed from crawler scope.
-- Delivery-platform findings are separated from repository-controlled findings in this audit record.
-- No unsupported `_headers` file or HTML meta substitute is used to imply that GitHub Pages can set edge response headers.
-- Cross-origin isolation headers are not enabled blindly because they can block external resources and change site behavior.
+## Brotli verification
 
-### Cloudflare controls still requiring account-level application
+Two live requests with `Accept-Encoding: br` were made for each sampled category. Successful live homepage HTML, recruiter HTML, generated evidence HTML, preserved SharePoint derivative HTML, CSS, JavaScript, JSON, XML, and text evidence all returned `Content-Encoding: br` on both attempts. CSS and JavaScript were Cloudflare cache hits; the other successful samples were dynamic edge responses.
 
-These items cannot be completed through the GitHub repository alone:
+The new SharePoint wrapper URL returned the expected predeployment 404, also Brotli encoded. Its successful live delivery cannot be claimed until this branch is merged and deployed. The evidence does disprove a blanket conclusion that the 840 baseline warnings mean all first-party content lacks Brotli.
 
-1. Set the edge minimum TLS version to **TLS 1.2** so TLS 1.0 and TLS 1.1 are rejected.
-2. Add a scoped `Permissions-Policy` response header. A conservative starting value is:
+## Live security-header classification
 
-   ```text
-   camera=(), microphone=(), geolocation=(), payment=(), usb=()
-   ```
+The deterministic verifier inspected 1,157 successful first-party production routes from the baseline report. Every inspected route returned HSTS, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, CSP, and `Permissions-Policy`. No `Access-Control-Allow-Credentials` value was observed alongside wildcard CORS.
 
-3. Add an archive-path response rule for both preserved SharePoint subtrees:
+| Finding | Count | Classification |
+|---|---:|---|
+| COOP absent | 1,157 | Accepted pending cross-origin compatibility testing |
+| COEP absent | 1,157 | Accepted pending cross-origin compatibility testing |
+| CORP absent | 1,157 | Accepted pending cross-origin compatibility testing |
+| `Server: cloudflare` | 1,157 | Edge informational |
+| `Access-Control-Allow-Origin: *` | 1,157 | Static-site informational; no credentialed CORS observed |
 
-   ```text
-   X-Robots-Tag: noindex, nofollow, noarchive
-   ```
+The repository does not add deprecated `X-XSS-Protection`, and it does not enable global cross-origin isolation without compatibility testing.
 
-4. Review the source and scope of `Access-Control-Allow-Origin: *`. Keep it only where cross-origin access is intentionally required, such as selected public static assets; do not remove it globally without testing.
-5. Enable Brotli compression at the edge if it is disabled.
-6. Do not add `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy`, or `Cross-Origin-Resource-Policy` globally until external fonts, scripts, images, downloads, and embedded resources have passed compatibility testing.
+## Redirect and cache findings
 
-The repository must not mark these account-level controls complete until a new live response and TLS scan verifies them.
+The baseline's three redirect rows were `/index.html` to `/`, `/powershell-automation.html` to its canonical project route, and a Cloudflare challenge utility route. The exact-head SiteOne profiles report zero redirects in their crawled canonical route sets. Cloudflare utility caching remains edge-owned; no fake files or unnecessary query-string cache busters were added.
 
-## Phase 4 — Release verification gates
+## Deterministic controls and remaining limits
 
-The remediation is complete only after all of the following are true:
+The Microsoft 365 generator owns the wrappers, wrapper metadata, archival status, catalog fields, source-to-destination matrix, sitemap entries, output hashes, and preserved-evidence integrity manifest. Validation checks regeneration, exact-case routes, canonical URLs, unique wrapper metadata, DOM accessibility, compatibility mappings, public derivative hashes, pre-change protected hashes, evidence counts, route retention, sensitive-data policy, and zero unclassified internal 404s.
 
-- The exact pull-request head passes both Repository Validation jobs.
-- Generated-output drift checks pass on Windows and Linux.
-- Accessibility, HTML, SEO, sitemap, internal-link, browser, responsive visual, Lighthouse, and publication-idempotency checks pass.
-- The pull request is merged through the protected workflow.
-- Repository Validation and GitHub Pages deployment succeed for the exact merge commit on `main`.
-- Required public routes return successful responses after deployment.
-- A fresh SiteOne crawl confirms the expected reduction in 404, duplicate-description, heading, accessibility, Cloudflare-path, and redirect findings.
+Remaining limitations are explicit:
 
-## Validation commands
+- The 484 unavailable paths are historical references retained inside immutable evidence; no identity-proven target exists for them.
+- Raw preserved HTML retains its original accessibility and duplicate-description characteristics.
+- New wrapper success and Brotli delivery on the live domain require postdeployment verification.
+- Local SiteOne does not emulate Cloudflare headers, compression, or cache state.
+- Global COOP, COEP, and CORP remain intentionally disabled pending compatibility testing.
 
-```powershell
-npm ci
-npm run check:crawl
-npm run check:skill-map
-npm run check:publication
-npm run test:browser
-```
-
-A fresh SiteOne report remains the final external validation because crawler behavior and Cloudflare edge settings cannot be proven by repository tests alone.
+No evidence file, public evidence route, or evidence collection was deleted, hidden, or rewritten.

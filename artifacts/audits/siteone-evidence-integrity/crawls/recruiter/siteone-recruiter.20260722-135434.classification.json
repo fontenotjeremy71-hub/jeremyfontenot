@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "sourceReport": {
+    "command": "siteone-crawler.exe --url=http://127.0.0.1:4174/ --url-list='C:\\Users\\jeremy\\AppData\\Local\\Temp\\siteone-recruiter-20260722-135434.urls.txt' --no-cache --workers=3 --max-reqs-per-sec=10 --rows-limit=10000 --ignore-regex='~^https?://[^/]+/(?:cdn-cgi/|evidence-library/preserved-sharepoint/(?:source|docs)/)~' --output-html-report='C:\\Users\\jeremy\\Documents\\projects\\jeremyfontenot\\artifacts\\audits\\siteone-evidence-integrity\\crawls\\recruiter\\siteone-recruiter.20260722-135434.html' --output-json-file='C:\\Users\\jeremy\\Documents\\projects\\jeremyfontenot\\artifacts\\audits\\siteone-evidence-integrity\\crawls\\recruiter\\siteone-recruiter.20260722-135434.json' --output-text-file='C:\\Users\\jeremy\\Documents\\projects\\jeremyfontenot\\artifacts\\audits\\siteone-evidence-integrity\\crawls\\recruiter\\siteone-recruiter.20260722-135434.txt'",
+    "executedAt": "2026-07-22 18:54:35",
+    "finalUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/26.0.0.0 Safari/537.36 SiteOne-Crawler/2.5.1.20260627",
+    "hostname": "DESKTOP-MR3F9A1",
+    "name": "SiteOne Crawler",
+    "version": "2.5.1.20260627"
+  },
+  "summary": {
+    "reportVersion": "2.5.1.20260627",
+    "reportExecutedAt": "2026-07-22 18:54:35",
+    "overallScore": 8.1,
+    "visitedUrls": 1158,
+    "totalUniqueMissingTargets": 0,
+    "totalSourceReferences": 0,
+    "sourcesReconstructedBeyondCappedReportTable": 0,
+    "firstPartyInternalMissingTargets": 0,
+    "cloudflareGeneratedTargets": 0,
+    "retiredTenantOnlyTargets": 0,
+    "historicalExternalTargets": 0,
+    "recoverableFromExistingRepositoryFile": 0,
+    "pathsRequiringCompatibilityPages": 0,
+    "genuineDefects": 0,
+    "documentedArchivalLimitations": 0,
+    "unclassifiedInternal404s": 0,
+    "reportTableRows": 0,
+    "accessibilityRows": [
+      {
+        "analysisName": "Missing form labels",
+        "critical": "0",
+        "notice": "0",
+        "ok": "12",
+        "warning": "0"
+      },
+      {
+        "analysisName": "HTML structural issues",
+        "critical": "0",
+        "notice": "0",
+        "ok": "843",
+        "warning": "0"
+      },
+      {
+        "analysisName": "Missing html lang attribute",
+        "critical": "0",
+        "notice": "0",
+        "ok": "1",
+        "warning": "0"
+      },
+      {
+        "analysisName": "Missing image alt attributes",
+        "critical": "0",
+        "notice": "0",
+        "ok": "18",
+        "warning": "0"
+      },
+      {
+        "analysisName": "Unnamed links/buttons",
+        "critical": "0",
+        "notice": "0",
+        "ok": "11",
+        "warning": "0"
+      },
+      {
+        "analysisName": "Missing main landmark",
+        "critical": "0",
+        "notice": "0",
+        "ok": "1",
+        "warning": "0"
+      }
+    ],
+    "securityRows": [
+      {
+        "critical": "843",
+        "header": "Content-Security-Policy",
+        "highestSeverity": "4",
+        "notice": "0",
+        "ok": "0",
+        "recommendation": "Content-Security-Policy header is not set. It restricts resources the page can load and prevents XSS attacks.",
+        "warning": "0"
+      },
+      {
+        "critical": "0",
+        "header": "X-Frame-Options",
+        "highestSeverity": "3",
+        "notice": "0",
+        "ok": "0",
+        "recommendation": "X-Frame-Options header is not set. It prevents clickjacking attacks when set to 'deny' or 'sameorigin.",
+        "warning": "843"
+      },
+      {
+        "critical": "0",
+        "header": "X-Content-Type-Options",
+        "highestSeverity": "3",
+        "notice": "0",
+        "ok": "0",
+        "recommendation": "X-Content-Type-Options header is not set. It stops MIME type sniffing and mitigates content type attacks.",
+        "warning": "843"
+      },
+      {
+        "critical": "0",
+        "header": "Referrer-Policy",
+        "highestSeverity": "3",
+        "notice": "0",
+        "ok": "0",
+        "recommendation": "Referrer-Policy header is not set. It controls referrer header sharing and enhances privacy and security.",
+        "warning": "843"
+      },
+      {
+        "critical": "0",
+        "header": "Feature-Policy",
+        "highestSeverity": "3",
+        "notice": "0",
+        "ok": "0",
+        "recommendation": "Feature-Policy header is not set. It allows enabling/disabling browser APIs and features for security. Not important if Permissions-Policy is set.",
+        "warning": "843"
+      },
+      {
+        "critical": "0",
+        "header": "Permissions-Policy",
+        "highestSeverity": "3",
+        "notice": "0",
+        "ok": "0",
+        "recommendation": "Permissions-Policy header is not set. It allows enabling/disabling browser APIs and features for security.",
+        "warning": "843"
+      },
+      {
+        "critical": "0",
+        "header": "Cross-Origin-Opener-Policy",
+        "highestSeverity": "2",
+        "notice": "843",
+        "ok": "0",
+        "recommendation": "Cross-Origin-Opener-Policy is not set. 'same-origin' isolates your browsing context from cross-origin popups (mitigates Spectre/XS-Leaks).",
+        "warning": "0"
+      },
+      {
+        "critical": "0",
+        "header": "Cross-Origin-Embedder-Policy",
+        "highestSeverity": "2",
+        "notice": "843",
+        "ok": "0",
+        "recommendation": "Cross-Origin-Embedder-Policy is not set. 'require-corp' enables cross-origin isolation for powerful features.",
+        "warning": "0"
+      },
+      {
+        "critical": "0",
+        "header": "Cross-Origin-Resource-Policy",
+        "highestSeverity": "2",
+        "notice": "843",
+        "ok": "0",
+        "recommendation": "Cross-Origin-Resource-Policy is not set. 'same-origin' or 'same-site' blocks other sites from embedding this resource.",
+        "warning": "0"
+      },
+      {
+        "critical": "0",
+        "header": "X-XSS-Protection",
+        "highestSeverity": "1",
+        "notice": "0",
+        "ok": "843",
+        "recommendation": "",
+        "warning": "0"
+      },
+      {
+        "critical": "0",
+        "header": "Server",
+        "highestSeverity": "1",
+        "notice": "0",
+        "ok": "843",
+        "recommendation": "Server header is not set or empty. This is recommended.",
+        "warning": "0"
+      }
+    ],
+    "redirectRows": [],
+    "duplicateDescriptionRows": [
+      {
+        "count": "3",
+        "description": "Evidence-backed Proxmox isolated restore validation covering Linux, Windows, Active Directory, and pfSense with production-safe isolation, conservative result classifications, and SHA-256 integrity records."
+      },
+      {
+        "count": "2",
+        "description": "Repository-local Microsoft 365 and Entra evidence library with Graph exports, admin center screenshots, Conditional Access records, audit logs, manifests, and hash records."
+      },
+      {
+        "count": "2",
+        "description": "Experienced IT support professional with demonstrated junior systems administration capability across Windows Server, Active Directory, Microsoft 365, Proxmox, Linux, networking, PowerShell, and backup operations."
+      }
+    ]
+  },
+  "groups": {
+    "targetHostname": [],
+    "targetPathPrefix": [],
+    "sourcePage": [],
+    "sourceEvidenceCollection": [],
+    "failureType": [],
+    "remediationType": []
+  },
+  "records": []
+}
