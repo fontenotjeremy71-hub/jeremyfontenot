@@ -6,6 +6,16 @@
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
 
+  if (navLinks && ![...navLinks.querySelectorAll("a")].some((link) => link.href.includes("systems-administration.html"))) {
+    const homeLink = [...navLinks.querySelectorAll("a")].find((link) => link.textContent.trim() === "Home");
+    if (homeLink) {
+      const readinessLink = document.createElement("a");
+      readinessLink.href = "/systems-administration.html";
+      readinessLink.textContent = "Readiness";
+      homeLink.insertAdjacentElement("afterend", readinessLink);
+    }
+  }
+
   if (navToggle && navLinks) {
     const setMenu = (open, restoreFocus = false) => {
       navLinks.classList.toggle("open", open);
