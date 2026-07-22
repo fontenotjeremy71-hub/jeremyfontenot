@@ -14,6 +14,11 @@ const archivalRoots = [
   '/evidence-library/preserved-sharepoint/docs/',
 ];
 
+const crawlerExcludedRoots = [
+  '/cdn-cgi/',
+  ...archivalRoots,
+];
+
 // These public compatibility URLs currently resolve through an external redirect
 // and therefore must not be advertised as canonical sitemap destinations.
 const redirectOnlyRoutes = new Set([
@@ -65,8 +70,8 @@ function validateRobots() {
   if (!userAgents.includes('*')) fail('robots.txt must define a User-agent: * policy.');
 
   const disallowed = new Set(directives.filter((entry) => entry.name === 'disallow').map((entry) => entry.value));
-  for (const archiveRoot of archivalRoots) {
-    if (!disallowed.has(archiveRoot)) fail(`robots.txt must disallow archival source root ${archiveRoot}`);
+  for (const excludedRoot of crawlerExcludedRoots) {
+    if (!disallowed.has(excludedRoot)) fail(`robots.txt must disallow crawler-only root ${excludedRoot}`);
   }
 
   const sitemapValues = directives.filter((entry) => entry.name === 'sitemap').map((entry) => entry.value);
@@ -122,5 +127,5 @@ const robots = validateRobots();
 const routes = validateSitemap();
 console.log(
   `Crawl integrity validated: ${routes.length} canonical sitemap routes; ` +
-  `${robots.disallowed.length} disallow directive(s); ${archivalRoots.length} archival roots protected.`,
+  `${robots.disallowed.length} disallow directive(s); ${crawlerExcludedRoots.length} crawler-only roots protected.`,
 );
