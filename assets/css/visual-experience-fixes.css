@@ -212,4 +212,11 @@
   :root {
     --page-text-rail: .6rem;
   }
+
+  .resume-page #summary-title {
+    max-width: 100%;
+    font-size: clamp(1.45rem, 7vw, 1.7rem);
+    line-height: 1.1;
+    text-wrap: pretty;
+  }
 }
