@@ -24,6 +24,18 @@
   const status = root.querySelector("[data-mapping-status]");
   const empty = root.querySelector("[data-mapping-empty]");
   const reset = root.querySelector("[data-mapping-reset]");
+  const skillControl = controls.find((control) => control.name === "skill");
+
+  const skillFromHash = () => {
+    if (!skillControl || !window.location.hash.startsWith("#skill-")) return false;
+
+    const requestedSkill = decodeURIComponent(window.location.hash.slice("#skill-".length));
+    const hasOption = [...skillControl.options].some((option) => option.value === requestedSkill);
+    if (!hasOption) return false;
+
+    skillControl.value = requestedSkill;
+    return true;
+  };
 
   const apply = () => {
     const values = Object.fromEntries(controls.map((control) => [control.name, control.value.trim().toLowerCase()]));
@@ -43,10 +55,20 @@
   };
 
   for (const control of controls) control.addEventListener(control.name === "q" ? "input" : "change", apply);
+
   reset?.addEventListener("click", () => {
     for (const control of controls) control.value = control.name === "q" ? "" : "all";
+    if (window.location.hash.startsWith("#skill-")) {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    }
     apply();
     controls.find((control) => control.name === "q")?.focus();
   });
+
+  window.addEventListener("hashchange", () => {
+    if (skillFromHash()) apply();
+  });
+
+  skillFromHash();
   apply();
 })();
