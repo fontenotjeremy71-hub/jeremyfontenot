@@ -118,6 +118,53 @@
   overflow-wrap: anywhere;
 }
 
+/* Site-wide alignment rail. Section introductions and component copy now
+   begin on the same horizontal rhythm instead of alternating between the
+   outer container edge and unrelated component padding values. */
+:root {
+  --page-text-rail: clamp(.95rem, 1.45vw, 1.25rem);
+}
+
+:where(
+  .hero-copy,
+  .page-hero > .section-head,
+  .page-hero-grid > :first-child,
+  .section > .section-head,
+  .section > .split-layout > :first-child > .section-head,
+  .section > .split-layout > div > .section-head
+) {
+  padding-inline-start: var(--page-text-rail);
+}
+
+.page-hero > .actions {
+  padding-inline-start: var(--page-text-rail);
+}
+
+:where(
+  .project-panel,
+  .proof-chip,
+  .metric,
+  .dashboard-grid article,
+  .signal-matrix article,
+  .lab-state-grid article,
+  .resume-focus-grid article,
+  .credentials-grid article,
+  .route-link-grid a,
+  .contact-route-grid a,
+  .capability-card,
+  .scope-note-card,
+  .artifact-card,
+  .chart-panel
+) {
+  padding-inline-start: var(--page-text-rail);
+}
+
+.evidence-table caption,
+.evidence-table th,
+.evidence-table td {
+  padding-inline-start: var(--page-text-rail);
+}
+
 @media (max-width: 1100px) {
   .contact-page .contact-route-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -129,6 +176,10 @@
 }
 
 @media (max-width: 760px) {
+  :root {
+    --page-text-rail: .75rem;
+  }
+
   .home-page .capability-card {
     min-height: 0;
   }
@@ -154,5 +205,18 @@
 
   .contact-page .contact-route-grid a:nth-child(1) strong {
     font-size: clamp(1.25rem, 7vw, 1.8rem);
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --page-text-rail: .6rem;
+  }
+
+  .resume-page #summary-title {
+    max-width: 100%;
+    font-size: clamp(1.45rem, 7vw, 1.7rem);
+    line-height: 1.1;
+    text-wrap: pretty;
   }
 }
