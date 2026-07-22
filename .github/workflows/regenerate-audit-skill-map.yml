@@ -1,23 +1,27 @@
 name: Regenerate audit skill-map outputs
 
 on:
-  push:
+  pull_request:
     branches:
-      - fix/site-audit-phased-remediation
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 permissions:
   contents: write
 
 jobs:
   regenerate:
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout audit branch
         uses: actions/checkout@v5
         with:
-          ref: fix/site-audit-phased-remediation
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
       - name: Set up Node.js
@@ -34,6 +38,8 @@ jobs:
 
       - name: Commit regenerated outputs when required
         shell: bash
+        env:
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: |
           if git diff --quiet -- \
             assets/data/evidence-skill-map.json \
@@ -52,4 +58,4 @@ jobs:
             evidence/claim-map.html \
             content/site/generated-skill-map-hashes.json
           git commit -m "build: refresh normalized skill-map outputs"
-          git push origin HEAD:fix/site-audit-phased-remediation
+          git push origin "HEAD:${HEAD_BRANCH}"
