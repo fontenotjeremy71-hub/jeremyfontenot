@@ -39,6 +39,8 @@ function createRepository() {
   git(repositoryRoot, ['init', '-b', 'main']);
   git(repositoryRoot, ['config', 'user.name', 'Preservation Test']);
   git(repositoryRoot, ['config', 'user.email', 'preservation-test@example.invalid']);
+  git(repositoryRoot, ['config', 'core.autocrlf', 'false']);
+  git(repositoryRoot, ['config', 'core.eol', 'lf']);
   return repositoryRoot;
 }
 
@@ -80,6 +82,7 @@ test('Git-blob comparison is stable across working-tree line endings and detects
     assert.deepEqual(checkoutOnly.drifted, []);
     assert.equal(checkoutOnly.snapshotHashMismatches.length, 1);
 
+    write(repositoryRoot, 'evidence/protected.csv', 'name,value\nalpha,two\n');
     const dirty = compareProtectedBlobs({
       baselineRef: baseline,
       targetRef: baseline,
@@ -89,7 +92,6 @@ test('Git-blob comparison is stable across working-tree line endings and detects
     assert.deepEqual(dirty.drifted, []);
     assert.deepEqual(dirty.dirtyProtectedPaths, ['evidence/protected.csv']);
 
-    write(repositoryRoot, 'evidence/protected.csv', 'name,value\nalpha,two\n');
     const changed = commitAll(repositoryRoot, 'change protected bytes');
     const changedResult = compareProtectedBlobs({
       baselineRef: baseline,
