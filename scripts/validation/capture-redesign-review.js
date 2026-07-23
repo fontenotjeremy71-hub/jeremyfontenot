@@ -129,13 +129,19 @@ async function checkInternalLinks(urls, cache) {
         return ["auto", "scroll"].includes(style.overflowX) || ["auto", "scroll"].includes(style.overflowY);
       };
       const textOf = (element) => (element.innerText || element.textContent || "").trim().replace(/\s+/g, " ");
-      const accessibleName = (element) => {
+      const accessibleNameParts = (element) => {
         const domText = (element.textContent || "").trim().replace(/\s+/g, " ");
-        const labelledBy = (element.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean)
-          .map((id) => document.getElementById(id)?.textContent || "").join(" ");
-        const imageText = [...element.querySelectorAll("img")].map((image) => image.alt || "").join(" ");
-        const svgText = [...element.querySelectorAll("svg title")].map((title) => title.textContent || "").join(" ");
-        return `${domText} ${element.getAttribute("aria-label") || ""} ${labelledBy} ${imageText} ${svgText} ${element.getAttribute("title") || ""}`
+        const labelledByIds = (element.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean);
+        const labelledByText = labelledByIds.map((id) => document.getElementById(id)?.textContent || "").join(" ").trim().replace(/\s+/g, " ");
+        const imageText = [...element.querySelectorAll("img")].map((image) => image.alt || "").join(" ").trim().replace(/\s+/g, " ");
+        const svgText = [...element.querySelectorAll("svg title")].map((title) => title.textContent || "").join(" ").trim().replace(/\s+/g, " ");
+        const ariaLabel = element.getAttribute("aria-label") || "";
+        const title = element.getAttribute("title") || "";
+        return { domText, labelledByIds, labelledByText, imageText, svgText, ariaLabel, title };
+      };
+      const accessibleName = (element) => {
+        const parts = accessibleNameParts(element);
+        return `${parts.domText} ${parts.ariaLabel} ${parts.labelledByText} ${parts.imageText} ${parts.svgText} ${parts.title}`
           .trim().replace(/\s+/g, " ");
       };
       const selectorFor = (element) => {
@@ -160,7 +166,7 @@ async function checkInternalLinks(urls, cache) {
         }
         return { lines: Math.max(1, tops.length), fontSize, lineHeight };
       };
-      const describe = (element, failureDescription) => {
+      const describe = (element, failureDescription, extra = {}) => {
         const rect = element.getBoundingClientRect();
         const parent = element.parentElement;
         const parentRect = parent ? parent.getBoundingClientRect() : rect;
@@ -187,6 +193,7 @@ async function checkInternalLinks(urls, cache) {
           overflowY: getComputedStyle(element).overflowY,
           layoutContext: parentStyle ? { display: parentStyle.display, gridTemplateColumns: parentStyle.gridTemplateColumns, siblingWidths } : {},
           failureDescription,
+          ...extra,
         };
       };
       const pageIssue = (failureDescription, extra = {}) => ({
@@ -297,7 +304,26 @@ async function checkInternalLinks(urls, cache) {
       }, []);
       const emptyLinks = [...document.querySelectorAll("a[href]")].filter(isVisible)
         .filter((link) => accessibleName(link) === "")
-        .map((link) => describe(link, "Link has no visible or accessible label."));
+        .map((link) => {
+          const parts = accessibleNameParts(link);
+          const before = getComputedStyle(link, "::before").content;
+          const after = getComputedStyle(link, "::after").content;
+          return describe(link, "Link has no visible or accessible label.", {
+            href: link.getAttribute("href") || "",
+            resolvedHref: link.href,
+            outerHTMLExcerpt: link.outerHTML.slice(0, 600),
+            normalizedTextContent: (link.textContent || "").trim().replace(/\s+/g, " "),
+            normalizedInnerText: (link.innerText || "").trim().replace(/\s+/g, " "),
+            ariaLabel: parts.ariaLabel,
+            ariaLabelledBy: parts.labelledByIds.join(" "),
+            labelledByText: parts.labelledByText,
+            title: parts.title,
+            descendantImageAltText: parts.imageText,
+            descendantSvgTitleText: parts.svgText,
+            pseudoBefore: before,
+            pseudoAfter: after,
+          });
+        });
       const internalLinks = [...new Set([...document.querySelectorAll("a[href]")].map((link) => link.href)
         .filter((href) => href.startsWith(`${location.origin}/`)).map((href) => href.split("#")[0]))];
 
@@ -308,87 +334,61 @@ async function checkInternalLinks(urls, cache) {
         const note = layout?.querySelector(".scope-note-card");
         const heading = note?.querySelector("h2");
         const paragraph = note?.querySelector("p:not(.eyebrow)");
-        if (layout && chart && note && heading && paragraph) {
+        const overlapTolerance = 2;
+        if (!layout || !chart || !note || !heading || !paragraph) {
+          dashboardAssertions.push(pageIssue("Dashboard evidence-summary structure is incomplete."));
+        } else {
           const layoutRect = layout.getBoundingClientRect();
           const chartRect = chart.getBoundingClientRect();
           const noteRect = note.getBoundingClientRect();
-          const paragraphRect = paragraph.getBoundingClientRect();
-          const headingLines = lineMetrics(heading).lines;
-          if (viewportWidth > 980) {
-            if (noteRect.width < 360) dashboardAssertions.push(describe(note, "Dashboard explanation card is narrower than the readable desktop minimum."));
-            if (chartRect.width < 480) dashboardAssertions.push(describe(chart, "Dashboard chart panel is narrower than its labels and tracks require."));
-            if (Math.abs(chartRect.top - noteRect.top) > 4) dashboardAssertions.push(describe(note, "Dashboard chart and explanation columns are not top aligned."));
-          } else if (noteRect.top < chartRect.bottom - 2 || noteRect.width < Math.min(280, layoutRect.width - 2)) {
-            dashboardAssertions.push(describe(note, "Dashboard panels do not stack cleanly before either column becomes cramped."));
-          }
-          if (headingLines > 3) dashboardAssertions.push(describe(heading, "Dashboard explanation heading exceeds three rendered lines."));
-          if (paragraphRect.width < Math.min(270, noteRect.width - 48)) dashboardAssertions.push(describe(paragraph, "Dashboard explanation paragraph does not have a readable line width."));
-          if (headingLines >= textOf(heading).split(/\s+/).length - 1) dashboardAssertions.push(describe(heading, "Dashboard explanation heading wraps nearly one word per line."));
-        } else {
-          dashboardAssertions.push(pageIssue("Dashboard classification layout or required explanation content is missing."));
+          const headingMetrics = lineMetrics(heading);
+          const paragraphMetrics = lineMetrics(paragraph);
+          if (chartRect.left < layoutRect.left - overlapTolerance || chartRect.right > layoutRect.right + overlapTolerance) dashboardAssertions.push(describe(chart, "Dashboard chart extends outside the split layout."));
+          if (noteRect.left < layoutRect.left - overlapTolerance || noteRect.right > layoutRect.right + overlapTolerance) dashboardAssertions.push(describe(note, "Dashboard scope note extends outside the split layout."));
+          if (overlaps(chartRect, noteRect, overlapTolerance)) dashboardAssertions.push(describe(note, "Dashboard chart and scope note overlap."));
+          if (headingMetrics.lines > (viewportWidth >= 1200 ? 4 : viewportWidth >= 768 ? 6 : 8)) dashboardAssertions.push(describe(heading, "Dashboard scope heading wraps into too many lines."));
+          if (paragraphMetrics.lines > (viewportWidth >= 1200 ? 12 : viewportWidth >= 768 ? 18 : 24)) dashboardAssertions.push(describe(paragraph, "Dashboard scope paragraph wraps into too many lines."));
         }
       }
 
-      return {
-        h1Count: document.querySelectorAll("h1").length,
-        pageOverflowState: document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
-        pageScrollWidth: document.documentElement.scrollWidth,
-        pageClientWidth: document.documentElement.clientWidth,
-        documentHeight: document.documentElement.scrollHeight,
-        clippedElements,
-        pathologicalHeadingWraps,
-        narrowTextContainers,
-        brokenControls,
-        failedImages,
-        duplicateIds,
-        emptyLinks,
-        dashboardAssertions,
-        internalLinks,
-      };
+      return { clippedElements, pathologicalHeadingWraps, narrowTextContainers, brokenControls, failedImages, duplicateIds, emptyLinks, internalLinks, dashboardAssertions };
     });
 
-    const failedInternal = await checkInternalLinks(inspection.internalLinks, internalLinkCache);
-    const failureShape = (failureDescription, extra = {}) => ({
-      selector: "a[href]", visibleTextExcerpt: "", elementType: "a", elementWidth: 0, elementHeight: 0,
-      containerWidth: width, renderedLineCount: 0, computedFontSize: 0, computedLineHeight: 0,
-      scrollWidth: 0, clientWidth: 0, scrollHeight: 0, clientHeight: 0, overflowX: "visible", overflowY: "visible",
-      layoutContext: {}, failureDescription, ...extra,
-    });
-    const failedInternalLinks = failedInternal.map((failure) => failureShape(`Internal destination returned HTTP ${failure.status || "error"}.`, failure));
-    const consoleErrors = [...new Set(consoleMessages)].map((message) => failureShape("Browser console or page error occurred.", { selector: "window", error: message }));
-    failedAssets.forEach((asset) => inspection.failedImages.push(failureShape(`Required ${asset.resourceType} asset returned HTTP ${asset.status}.`, asset)));
-
-    delete inspection.internalLinks;
-    const capture = screenshotPolicy({
+    const failedInternalLinks = await checkInternalLinks(inspection.internalLinks, internalLinkCache);
+    const result = {
       route,
-      requestedFullPage: fullPage,
-      documentHeight: inspection.documentHeight,
-      viewportHeight: height,
-    });
-    results.push({
-      route, viewportWidth: width, viewportHeight: height,
-      responseStatus: response ? response.status() : 0,
-      screenshotMode: capture.mode,
-      screenshotReason: capture.reason,
-      ...inspection, consoleErrors, failedInternalLinks,
-    });
+      width,
+      height,
+      pageStatus: response?.status() || 0,
+      clippedElements: inspection.clippedElements,
+      pathologicalHeadingWraps: inspection.pathologicalHeadingWraps,
+      narrowTextContainers: inspection.narrowTextContainers,
+      brokenControls: inspection.brokenControls,
+      failedImages: [...inspection.failedImages, ...failedAssets],
+      consoleErrors: [...new Set(consoleMessages)],
+      duplicateIds: inspection.duplicateIds,
+      emptyLinks: inspection.emptyLinks,
+      failedInternalLinks,
+      dashboardAssertions: inspection.dashboardAssertions,
+    };
+    results.push(result);
 
-    await page.screenshot({ path: path.join(output, `${slugFor(route)}-${width}x${height}.png`), fullPage: capture.fullPage });
+    if (fullPage) {
+      await page.screenshot({ path: path.join(output, `${slugFor(route)}-${width}.png`), fullPage: true });
+    }
   }
 
-  await context.close();
   await browser.close();
-  fs.writeFileSync(path.join(output, "responsive-qa.json"), `${JSON.stringify(results, null, 2)}\n`);
-  const failures = results.filter((result) => result.responseStatus >= 400 || result.h1Count !== 1 || result.pageOverflowState || issueCount(result) > 0);
-  const boundedCaptures = results.filter((result) => result.screenshotReason.startsWith("bounded-")).length;
-  console.log(`Captured ${results.length} page/viewport combinations; ${boundedCaptures} bounded long-page screenshots; ${failures.length} structural, asset, control, or readability failures.`);
-  failures.forEach((failure) => console.error(JSON.stringify({
-    route: failure.route,
-    viewport: `${failure.viewportWidth}x${failure.viewportHeight}`,
-    responseStatus: failure.responseStatus,
-    h1Count: failure.h1Count,
-    pageOverflowState: failure.pageOverflowState,
-    issues: Object.fromEntries(issueFields.map((field) => [field, failure[field]]).filter(([, issues]) => issues.length)),
-  })));
-  if (failures.length) process.exitCode = 1;
-})().catch((error) => { console.error(error); process.exitCode = 1; });
+  fs.writeFileSync(path.join(output, "responsive-qa.json"), JSON.stringify(results, null, 2));
+
+  const failures = results.filter((result) => result.pageStatus >= 400 || issueCount(result) > 0);
+  const captures = results.filter((result) => fullPageWidths.has(result.width)).length;
+  console.log(`Responsive review complete: ${results.length} page/viewport combinations inspected, ${captures} bounded long-page captures written.`);
+  if (failures.length) {
+    console.error(JSON.stringify(failures, null, 2));
+    process.exitCode = 1;
+  }
+})().catch((error) => {
+  console.error(error.stack || error.message);
+  process.exitCode = 1;
+});
