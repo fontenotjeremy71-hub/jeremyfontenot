@@ -195,7 +195,13 @@ function failureShape(failureDescription, extra = {}) {
           if (!(element instanceof Element) || element.closest("[hidden], [aria-hidden='true'], .sr-only")) return false;
           const style = getComputedStyle(element);
           const rect = element.getBoundingClientRect();
-          return style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity) !== 0 && rect.width > 0 && rect.height > 0;
+          const intersectsHorizontalViewport = rect.right > 0 && rect.left < viewportWidth;
+          return style.display !== "none"
+            && style.visibility !== "hidden"
+            && Number(style.opacity) !== 0
+            && rect.width > 0
+            && rect.height > 0
+            && intersectsHorizontalViewport;
         };
         const isTechnical = (element) => Boolean(element.closest(technicalSelector));
         const isDesignedToScroll = (element) => {
