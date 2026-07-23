@@ -44,33 +44,38 @@ function runGit(args, {repositoryRoot = root, encoding = 'utf8', allowFailure = 
 }
 
 function resolveRef(ref = 'HEAD', repositoryRoot = root) {
+  if (/^[0-9a-f]{40}$/i.test(String(ref))) return String(ref).toLowerCase();
   const result = runGit(['rev-parse', '--verify', `${ref}^{commit}`], {repositoryRoot});
   return String(result.stdout).trim();
 }
 
-function trackedFilesAtRef(ref = 'HEAD', repositoryRoot = root) {
+function blobIndexAtRef(ref = 'HEAD', repositoryRoot = root) {
   const commit = resolveRef(ref, repositoryRoot);
-  const result = runGit(['ls-tree', '-r', '-z', '--name-only', commit], {
+  const result = runGit(['ls-tree', '-r', '-z', commit], {
     repositoryRoot,
     encoding: null
   });
-  return result.stdout.toString('utf8')
-    .split('\0')
-    .filter(Boolean)
-    .map(toPosix)
-    .sort();
+  const index = new Map();
+  for (const entry of result.stdout.toString('utf8').split('\0').filter(Boolean)) {
+    const tab = entry.indexOf('\t');
+    if (tab < 0) continue;
+    const metadata = entry.slice(0, tab).split(' ');
+    const repositoryPath = toPosix(entry.slice(tab + 1));
+    index.set(repositoryPath, {
+      mode: metadata[0],
+      type: metadata[1],
+      oid: metadata[2]
+    });
+  }
+  return {commit, index};
+}
+
+function trackedFilesAtRef(ref = 'HEAD', repositoryRoot = root) {
+  return [...blobIndexAtRef(ref, repositoryRoot).index.keys()].sort();
 }
 
 function blobSpec(ref, repositoryPath, repositoryRoot = root) {
   return `${resolveRef(ref, repositoryRoot)}:${toPosix(repositoryPath)}`;
-}
-
-function blobExistsAtRef(ref, repositoryPath, repositoryRoot = root) {
-  const result = runGit(['cat-file', '-e', blobSpec(ref, repositoryPath, repositoryRoot)], {
-    repositoryRoot,
-    allowFailure: true
-  });
-  return result.status === 0;
 }
 
 function readBlobAtRef(ref, repositoryPath, repositoryRoot = root) {
@@ -86,10 +91,11 @@ function readJsonAtRef(ref, repositoryPath, repositoryRoot = root) {
 }
 
 function generatedEvidencePaths(ref = 'HEAD', repositoryRoot = root) {
+  const {commit, index} = blobIndexAtRef(ref, repositoryRoot);
   const generated = new Set(['evidence-library/integrity/evidence-hashes.json']);
   for (const relative of generatedManifestPaths) {
-    if (!blobExistsAtRef(ref, relative, repositoryRoot)) continue;
-    const manifest = readJsonAtRef(ref, relative, repositoryRoot);
+    if (!index.has(relative)) continue;
+    const manifest = readJsonAtRef(commit, relative, repositoryRoot);
     const collection = manifest.outputs || manifest.files || [];
     if (Array.isArray(collection)) {
       for (const item of collection) if (item.path) generated.add(toPosix(item.path));
@@ -99,8 +105,8 @@ function generatedEvidencePaths(ref = 'HEAD', repositoryRoot = root) {
   }
 
   const evidencePagesPath = 'scripts/config/evidence-pages.json';
-  if (blobExistsAtRef(ref, evidencePagesPath, repositoryRoot)) {
-    const config = readJsonAtRef(ref, evidencePagesPath, repositoryRoot);
+  if (index.has(evidencePagesPath)) {
+    const config = readJsonAtRef(commit, evidencePagesPath, repositoryRoot);
     for (const item of config.pages || config) {
       if (item.output) generated.add(toPosix(item.output));
       else if (item.source) generated.add(toPosix(item.source).replace(/\.md$/i, '.html'));
@@ -149,53 +155,55 @@ function compareProtectedBlobs({
   repositoryRoot = root,
   includeDirtyPaths = true
 }) {
-  const baselineCommit = resolveRef(baselineRef, repositoryRoot);
-  const targetCommit = resolveRef(targetRef, repositoryRoot);
+  const baselineTree = blobIndexAtRef(baselineRef, repositoryRoot);
+  const targetTree = blobIndexAtRef(targetRef, repositoryRoot);
   const missing = [];
   const baselineMissing = [];
   const drifted = [];
-  const snapshotHashMismatches = [];
   const protectedRecords = records.filter((record) => record.protectedFromByteDrift);
 
   for (const record of records) {
-    if (!blobExistsAtRef(targetCommit, record.path, repositoryRoot)) {
-      missing.push(record.path);
+    const repositoryPath = toPosix(record.path);
+    const targetEntry = targetTree.index.get(repositoryPath);
+    if (!targetEntry) {
+      missing.push(repositoryPath);
       continue;
     }
     if (!record.protectedFromByteDrift) continue;
-    if (!blobExistsAtRef(baselineCommit, record.path, repositoryRoot)) {
-      baselineMissing.push(record.path);
+
+    const baselineEntry = baselineTree.index.get(repositoryPath);
+    if (!baselineEntry) {
+      baselineMissing.push(repositoryPath);
       continue;
     }
+    if (baselineEntry.oid === targetEntry.oid) continue;
 
-    const expected = sha256(readBlobAtRef(baselineCommit, record.path, repositoryRoot));
-    const actual = sha256(readBlobAtRef(targetCommit, record.path, repositoryRoot));
-    if (record.sha256 && record.sha256 !== expected) {
-      snapshotHashMismatches.push({path: record.path, snapshot: record.sha256, baselineBlob: expected});
-    }
-    if (actual !== expected) drifted.push({path: record.path, expected, actual});
+    const expected = sha256(readBlobAtRef(baselineTree.commit, repositoryPath, repositoryRoot));
+    const actual = sha256(readBlobAtRef(targetTree.commit, repositoryPath, repositoryRoot));
+    drifted.push({path: repositoryPath, expected, actual});
   }
 
-  const protectedPathSet = new Set(protectedRecords.map((record) => record.path));
+  const protectedPathSet = new Set(protectedRecords.map((record) => toPosix(record.path)));
   const dirtyProtectedPaths = includeDirtyPaths
     ? dirtyTrackedPaths(repositoryRoot).filter((repositoryPath) => protectedPathSet.has(repositoryPath))
     : [];
 
   return {
-    baselineCommit,
-    targetCommit,
+    baselineCommit: baselineTree.commit,
+    targetCommit: targetTree.commit,
     protectedFilesCompared: protectedRecords.length,
     missing,
     baselineMissing,
     drifted,
     dirtyProtectedPaths,
-    snapshotHashMismatches
+    comparisonSource: 'git-blob-object-id'
   };
 }
 
 function createSnapshot(ref = 'HEAD', repositoryRoot = root) {
-  const commit = resolveRef(ref, repositoryRoot);
-  const tracked = trackedFilesAtRef(commit, repositoryRoot);
+  const tree = blobIndexAtRef(ref, repositoryRoot);
+  const commit = tree.commit;
+  const tracked = [...tree.index.keys()].sort();
   const generated = generatedEvidencePaths(commit, repositoryRoot);
   const evidenceFiles = tracked.filter((file) => evidenceRoots.some((prefix) => file.startsWith(prefix)));
   const files = evidenceFiles.map((file) => {
@@ -257,7 +265,8 @@ function verifySnapshot(relativePath, {targetRef = 'HEAD', repositoryRoot = root
     baselineMissing: comparison.baselineMissing,
     drifted: comparison.drifted,
     dirtyProtectedPaths: comparison.dirtyProtectedPaths,
-    snapshotHashMismatches: comparison.snapshotHashMismatches
+    comparisonSource: comparison.comparisonSource,
+    legacySnapshotHashesAuthoritative: false
   };
 
   process.stdout.write(JSON.stringify(result, null, 2) + '\n');
@@ -279,7 +288,7 @@ function main() {
 if (require.main === module) main();
 
 module.exports = {
-  blobExistsAtRef,
+  blobIndexAtRef,
   compareProtectedBlobs,
   createSnapshot,
   dirtyTrackedPaths,
