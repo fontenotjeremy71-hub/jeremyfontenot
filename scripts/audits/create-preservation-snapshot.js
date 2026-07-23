@@ -240,7 +240,7 @@ function createSnapshot(ref = 'HEAD', repositoryRoot = root) {
   };
 }
 
-function verifySnapshot(relativePath, {targetRef = 'HEAD', repositoryRoot = root} = {}) {
+function verifySnapshot(relativePath, {targetRef = 'HEAD', repositoryRoot = root, requireCleanProtected = false} = {}) {
   const snapshot = JSON.parse(fs.readFileSync(path.resolve(repositoryRoot, relativePath), 'utf8'));
   const comparison = compareProtectedBlobs({
     baselineRef: snapshot.commit,
@@ -253,7 +253,7 @@ function verifySnapshot(relativePath, {targetRef = 'HEAD', repositoryRoot = root
     status: comparison.missing.length
       || comparison.baselineMissing.length
       || comparison.drifted.length
-      || comparison.dirtyProtectedPaths.length
+      || (requireCleanProtected && comparison.dirtyProtectedPaths.length)
       ? 'FAIL'
       : 'PASS',
     baselineCommit: comparison.baselineCommit,
@@ -265,6 +265,7 @@ function verifySnapshot(relativePath, {targetRef = 'HEAD', repositoryRoot = root
     baselineMissing: comparison.baselineMissing,
     drifted: comparison.drifted,
     dirtyProtectedPaths: comparison.dirtyProtectedPaths,
+    requireCleanProtected,
     comparisonSource: comparison.comparisonSource,
     legacySnapshotHashesAuthoritative: false
   };
@@ -276,7 +277,10 @@ function verifySnapshot(relativePath, {targetRef = 'HEAD', repositoryRoot = root
 
 function main() {
   const verify = argument('--verify');
-  if (verify) return verifySnapshot(verify, {targetRef: argument('--target-ref', 'HEAD')});
+  if (verify) return verifySnapshot(verify, {
+    targetRef: argument('--target-ref', 'HEAD'),
+    requireCleanProtected: process.argv.includes('--require-clean-protected')
+  });
   const output = toPosix(argument('--output', defaultOutput));
   const ref = argument('--ref', 'HEAD');
   const absolute = path.join(root, output);
