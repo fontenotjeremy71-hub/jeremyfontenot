@@ -11,6 +11,7 @@
 /assets/css/** text eol=lf
 /assets/js/** text eol=lf
 /*.html text eol=lf
+/sitemap.xml text eol=lf
 /systems-skills/** text eol=lf
 /microsoft-365/** text eol=lf
 /home-lab/** text eol=lf
