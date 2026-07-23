@@ -8,10 +8,15 @@ on:
     branches:
       - main
 
+concurrency:
+  group: repository-validation-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     name: Run repository validation
     runs-on: windows-latest
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
@@ -143,7 +148,7 @@ jobs:
               throw "Static review server did not become ready."
             }
 
-            node .\scripts\validation\capture-redesign-review.js
+            node .\scripts\validation\run-responsive-review.js
           }
           finally {
             if ($server -and -not $server.HasExited) {
@@ -196,6 +201,7 @@ jobs:
   linux-build-preflight:
     name: Validate deployment build on Linux
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
