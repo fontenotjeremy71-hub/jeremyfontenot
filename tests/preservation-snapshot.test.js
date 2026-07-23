@@ -80,7 +80,7 @@ test('Git-blob comparison is stable across working-tree line endings and detects
     });
     assert.deepEqual(checkoutOnly.missing, []);
     assert.deepEqual(checkoutOnly.drifted, []);
-    assert.equal(checkoutOnly.snapshotHashMismatches.length, 1);
+    assert.equal(checkoutOnly.comparisonSource, 'git-blob-object-id');
 
     write(repositoryRoot, 'evidence/protected.csv', 'name,value\nalpha,two\n');
     const dirty = compareProtectedBlobs({
