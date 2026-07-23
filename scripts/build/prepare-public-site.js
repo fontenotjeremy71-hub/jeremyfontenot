@@ -7,6 +7,7 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..', '..');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'config/publication-manifest.json'), 'utf8'));
+const sharePointCompatibility = JSON.parse(fs.readFileSync(path.join(root, 'content/microsoft-365/sharepoint-compatibility-routes.json'), 'utf8'));
 const args = process.argv.slice(2);
 const checkMode = args.includes('--check');
 const outputIndex = args.indexOf('--output');
@@ -104,6 +105,23 @@ function copyDirectory(relativePath) {
   if (!status.isDirectory()) throw new Error(`Required public directory is missing: ${resolved.relativePath}`);
   assertNoSymlinks(resolved.source, resolved.relativePath, 'Publication directory');
   fs.cpSync(resolved.source, resolved.target, {recursive: true, force: true, dereference: false});
+}
+
+function materializeSharePointCompatibilityAssets() {
+  const seen = new Set();
+  for (const mapping of sharePointCompatibility.mappings) {
+    const legacyPath = String(mapping.legacyRoute || '').replace(/^\//, '');
+    const canonicalPath = String(mapping.canonicalAsset || '').replace(/^\//, '');
+    if (!legacyPath.startsWith('evidence-library/preserved-sharepoint/')) throw new Error(`Compatibility route is outside the preserved SharePoint collection: ${mapping.legacyRoute}`);
+    if (seen.has(legacyPath.toLowerCase())) throw new Error(`Duplicate SharePoint compatibility route: ${mapping.legacyRoute}`);
+    seen.add(legacyPath.toLowerCase());
+    const source = normalizeManifestPath(canonicalPath, `Compatibility asset ${mapping.canonicalAsset}`);
+    const target = resolveOutputPath(legacyPath, `Compatibility route ${mapping.legacyRoute}`);
+    if (!fs.existsSync(source.source) || !fs.statSync(source.source).isFile()) throw new Error(`Compatibility asset source is missing: ${mapping.canonicalAsset}`);
+    if (fs.existsSync(target)) throw new Error(`Compatibility route would overwrite published content: ${mapping.legacyRoute}`);
+    fs.mkdirSync(path.dirname(target), {recursive: true});
+    fs.copyFileSync(source.source, target);
+  }
 }
 
 function collectHtmlFiles(directory) {
@@ -254,6 +272,7 @@ try {
   }
 
   for (const directory of manifest.directories) copyDirectory(directory);
+  materializeSharePointCompatibilityAssets();
 
   ensureReadinessInPrimaryNavigation();
   assertNoSymlinks(outputDirectory, path.basename(outputDirectory), 'Publication output');

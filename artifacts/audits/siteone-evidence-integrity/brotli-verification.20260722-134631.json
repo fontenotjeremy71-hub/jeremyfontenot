@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "requestedEncoding": "br",
+  "baseUrl": "https://jeremyfontenot.online/",
+  "samples": [
+    {
+      "routeCategory": "homepage-html",
+      "url": "https://jeremyfontenot.online/",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 4603,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "homepage-html",
+      "url": "https://jeremyfontenot.online/",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 4594,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "recruiter-facing-html",
+      "url": "https://jeremyfontenot.online/systems-administration.html",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 6950,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "recruiter-facing-html",
+      "url": "https://jeremyfontenot.online/systems-administration.html",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 6970,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "generated-evidence-html",
+      "url": "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 4089,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "generated-evidence-html",
+      "url": "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 4084,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "sharepoint-wrapper-html",
+      "url": "https://jeremyfontenot.online/evidence-library/preserved-sharepoint/wrappers/projects/collaboration-sharepoint.html",
+      "attempt": 1,
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 5501,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": null
+    },
+    {
+      "routeCategory": "sharepoint-wrapper-html",
+      "url": "https://jeremyfontenot.online/evidence-library/preserved-sharepoint/wrappers/projects/collaboration-sharepoint.html",
+      "attempt": 2,
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 5503,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": null
+    },
+    {
+      "routeCategory": "preserved-sharepoint-derivative-html",
+      "url": "https://jeremyfontenot.online/evidence-library/preserved-sharepoint/source/projects/collaboration-sharepoint.html",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 2653,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "preserved-sharepoint-derivative-html",
+      "url": "https://jeremyfontenot.online/evidence-library/preserved-sharepoint/source/projects/collaboration-sharepoint.html",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 2655,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "css",
+      "url": "https://jeremyfontenot.online/assets/css/site.css",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 116,
+      "cacheStatus": "HIT",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=14400"
+    },
+    {
+      "routeCategory": "css",
+      "url": "https://jeremyfontenot.online/assets/css/site.css",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 116,
+      "cacheStatus": "HIT",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=14400"
+    },
+    {
+      "routeCategory": "javascript",
+      "url": "https://jeremyfontenot.online/assets/js/site.js",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 2471,
+      "cacheStatus": "HIT",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=14400"
+    },
+    {
+      "routeCategory": "javascript",
+      "url": "https://jeremyfontenot.online/assets/js/site.js",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 2471,
+      "cacheStatus": "HIT",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=14400"
+    },
+    {
+      "routeCategory": "json",
+      "url": "https://jeremyfontenot.online/assets/data/m365-evidence-catalog.json",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 152575,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "json",
+      "url": "https://jeremyfontenot.online/assets/data/m365-evidence-catalog.json",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 152575,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "xml",
+      "url": "https://jeremyfontenot.online/sitemap.xml",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "application/xml",
+      "contentEncoding": "br",
+      "rawContentLength": 540,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "xml",
+      "url": "https://jeremyfontenot.online/sitemap.xml",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "application/xml",
+      "contentEncoding": "br",
+      "rawContentLength": 540,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "text-evidence",
+      "url": "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-maintenance-agent-validation.txt",
+      "attempt": 1,
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 507,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    },
+    {
+      "routeCategory": "text-evidence",
+      "url": "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/linux01-maintenance-agent-validation.txt",
+      "attempt": 2,
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "contentEncoding": "br",
+      "rawContentLength": 507,
+      "cacheStatus": "DYNAMIC",
+      "vary": "Accept-Encoding",
+      "cacheControl": "max-age=600"
+    }
+  ],
+  "summaryByRouteCategory": [
+    {
+      "routeCategory": "css",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "HIT"
+      ]
+    },
+    {
+      "routeCategory": "generated-evidence-html",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    },
+    {
+      "routeCategory": "homepage-html",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    },
+    {
+      "routeCategory": "javascript",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "HIT"
+      ]
+    },
+    {
+      "routeCategory": "json",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    },
+    {
+      "routeCategory": "preserved-sharepoint-derivative-html",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    },
+    {
+      "routeCategory": "recruiter-facing-html",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    },
+    {
+      "routeCategory": "sharepoint-wrapper-html",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    },
+    {
+      "routeCategory": "text-evidence",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    },
+    {
+      "routeCategory": "xml",
+      "attempts": 2,
+      "brotliResponses": 2,
+      "encodings": [
+        "br"
+      ],
+      "cacheStatuses": [
+        "DYNAMIC"
+      ]
+    }
+  ],
+  "conclusion": "Measured results only. Missing Brotli on a sample may reflect MIME type, response size, cache state, or edge configuration and is not generalized to untested routes."
+}

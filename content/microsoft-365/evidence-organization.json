@@ -5,6 +5,8 @@
   "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json",
   "generatedOutputHashes": "content/microsoft-365/generated-output-hashes.json",
   "sharePointSourceAttestation": "content/microsoft-365/sharepoint-source-attestation.json",
+  "sharePointArchivalLinkStatus": "content/microsoft-365/sharepoint-archival-link-status.json",
+  "sharePointCompatibilityRoutes": "content/microsoft-365/sharepoint-compatibility-routes.json",
   "sources": {
     "currentPortfolio": {
       "repository": "fontenotjeremy71-hub/jeremyfontenot",

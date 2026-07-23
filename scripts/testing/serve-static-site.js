@@ -6,6 +6,8 @@ const HOST = "127.0.0.1";
 const DEFAULT_PORT = 4174;
 const REPOSITORY_ROOT = fs.realpathSync(path.resolve(__dirname, "..", ".."));
 const DENIED_ROOT_SEGMENTS = new Set([".git", "node_modules"]);
+const COMPATIBILITY_CONFIG = JSON.parse(fs.readFileSync(path.join(REPOSITORY_ROOT, "content", "microsoft-365", "sharepoint-compatibility-routes.json"), "utf8"));
+const COMPATIBILITY_ASSETS = new Map(COMPATIBILITY_CONFIG.mappings.map((mapping) => [mapping.legacyRoute, mapping.canonicalAsset]));
 
 const MIME_TYPES = new Map([
   [".html", "text/html; charset=utf-8"],
@@ -78,7 +80,8 @@ async function resolveRequestPath(requestUrl) {
     return { statusCode: 404, message: "Not Found" };
   }
 
-  let candidate = path.resolve(REPOSITORY_ROOT, `.${normalizedUrlPath}`);
+  const servedUrlPath = COMPATIBILITY_ASSETS.get(normalizedUrlPath) || normalizedUrlPath;
+  let candidate = path.resolve(REPOSITORY_ROOT, `.${servedUrlPath}`);
   if (!isInsideRepository(candidate)) {
     return { statusCode: 403, message: "Forbidden" };
   }

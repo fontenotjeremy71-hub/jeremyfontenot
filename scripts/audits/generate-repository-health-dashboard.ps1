@@ -56,6 +56,7 @@ $Lines += "## Status"
 $Lines += ""
 $Lines += "Repository validation governance is active through GitHub Actions."
 
-$Lines | Set-Content $OutputPath
+$OutputBytes = ($Lines -join "`n") + "`n"
+[IO.File]::WriteAllText([IO.Path]::GetFullPath($OutputPath), $OutputBytes, [Text.UTF8Encoding]::new($false))
 
 Write-Host "Dashboard generated: $OutputPath" -ForegroundColor Green

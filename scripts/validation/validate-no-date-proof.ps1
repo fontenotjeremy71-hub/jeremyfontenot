@@ -126,6 +126,9 @@ foreach ($AbsolutePath in $PublicFiles | Sort-Object) {
     # metadata, breadcrumbs, actions, source labels, and footer remain in scope.
     $Presentation = [regex]::Replace($Presentation, '(?is)<article\b[^>]*class\s*=\s*(["''])[^"'']*\bevidence-document\b[^"'']*\1[^>]*>.*?</article>', ' ')
   }
+  # Generated evidence wrappers may show an exact artifact title containing a material
+  # source-record date. The exception is explicit and limited to the marked element.
+  $Presentation = [regex]::Replace($Presentation, '(?is)<(?<tag>[a-z0-9]+)\b[^>]*\bdata-allow-evidence-date\b[^>]*>.*?</\k<tag>>', ' ')
   if ($RelativePath -eq 'resume.html') {
     # Employment and education chronology is an explicit resume-only exception.
     $Presentation = [regex]::Replace($Presentation, '(?is)<(?<tag>[a-z0-9]+)\b[^>]*\bdata-allow-resume-date\b[^>]*>.*?</\k<tag>>', ' ')
