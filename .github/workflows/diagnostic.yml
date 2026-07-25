@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - feat/macos-home-lab-evidence
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
