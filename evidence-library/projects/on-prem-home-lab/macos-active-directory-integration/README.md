@@ -39,7 +39,7 @@ Deployed and administered a macOS 12.7.6 virtual machine on Proxmox, connected i
 - SSH port 22 was reachable from DC01
 - VNC port 5900 was reachable from DC01
 - The VM used the pfSense LAN gateway and DC01 DNS
-- Central timezone and network time were enabled
+- Configured timezone and network time were enabled
 
 ## Limitations
 
