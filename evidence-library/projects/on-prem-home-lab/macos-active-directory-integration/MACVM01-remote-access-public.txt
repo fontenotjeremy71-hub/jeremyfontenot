@@ -1,0 +1,20 @@
+Collection time: 2026-07-24T18:36:40.4819662-05:00
+Source computer: DC01
+Source user: [REDACTED-DOMAIN-USER]
+
+SSH test:
+
+ComputerName     : 10.10.20.101
+RemoteAddress    : 10.10.20.101
+RemotePort       : 22
+InterfaceAlias   : Ethernet
+SourceAddress    : 10.10.20.10
+TcpTestSucceeded : True
+
+VNC test:
+ComputerName     : 10.10.20.101
+RemoteAddress    : 10.10.20.101
+RemotePort       : 5900
+InterfaceAlias   : Ethernet
+SourceAddress    : 10.10.20.10
+TcpTestSucceeded : True
