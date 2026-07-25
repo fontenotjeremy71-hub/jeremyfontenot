@@ -1,0 +1,14 @@
+Collection time: 2026-07-24T16:29:00-0700
+
+ProductName:    macOS
+ProductVersion: 12.7.6
+BuildVersion:   21H1320
+
+Computer name: MACVM01
+Host name: MACVM01.ad.jeremyfontenot.online
+Current user: jeremy.fontenot
+User identity:
+Directory identity resolved successfully.
+Detailed UID, GID, and group memberships omitted from public evidence.
+
+Note: This identity record was collected before the host timezone was corrected. Current timezone and network-time settings are documented separately in macvm01-time-configuration-public.txt.
