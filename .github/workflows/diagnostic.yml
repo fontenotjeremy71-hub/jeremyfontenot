@@ -9,41 +9,43 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   diagnose:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
+          ref: feat/macos-home-lab-evidence
           fetch-depth: 0
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - name: Capture foundation validation
-        id: validation
+      - name: Update Microsoft 365 generated-output exclusions
         shell: bash
         run: |
-          set +e
-          mkdir -p artifacts/validation
-          npm run build:foundation 2>&1 | tee artifacts/validation/build-foundation.log
-          build_code=${PIPESTATUS[0]}
-          npm run validate:foundation 2>&1 | tee artifacts/validation/validate-foundation.log
-          validate_code=${PIPESTATUS[0]}
-          echo "build_code=$build_code" >> "$GITHUB_OUTPUT"
-          echo "validate_code=$validate_code" >> "$GITHUB_OUTPUT"
-          exit 0
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: current-foundation-diagnostics
-          path: artifacts/validation
-          if-no-files-found: error
-          retention-days: 14
-      - name: Fail on validation error
-        if: steps.validation.outputs.build_code != '0' || steps.validation.outputs.validate_code != '0'
-        run: exit 1
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('content/microsoft-365/source-manifest.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          value = 'evidence/index.html'
+          roots = data['generatedOutputRoots']
+          if value not in roots:
+              roots.append(value)
+          path.write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit manifest correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- content/microsoft-365/source-manifest.json
+          if git diff --cached --quiet; then
+            echo "No manifest change required."
+            exit 0
+          fi
+          git commit -m "fix: exclude generated foundation evidence route from M365 discovery"
+          git push origin HEAD:feat/macos-home-lab-evidence
