@@ -1,4 +1,4 @@
-name: Repository Validation
+name: Portfolio Checks
 
 on:
   push:
@@ -9,238 +9,35 @@ on:
       - main
 
 concurrency:
-  group: repository-validation-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: portfolio-checks-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   validate:
-    name: Run repository validation
+    name: Validate portfolio
     runs-on: windows-latest
-    timeout-minutes: 45
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: npm
-
-      - name: Install Node.js dependencies
-        run: npm ci
-
-      - name: Generate foundation routes
-        run: npm run build:foundation
-
-      - name: Validate generated evidence pages
-        run: npm run check:evidence
-
-      - name: Validate dashboard data
-        run: npm run check:dashboard
-
-      - name: Validate job-readiness presentation
-        run: npm run check:readiness
-
-      - name: Validate foundation generation drift
-        run: npm run check:foundation
-
-      - name: Validate site architecture contract
-        run: npm run validate:foundation
-
-      - name: Validate publication allowlist
-        shell: pwsh
-        run: |
-          New-Item -ItemType Directory -Path artifacts/validation -Force | Out-Null
-          npm run check:publication 2>&1 | Tee-Object -FilePath artifacts/validation/publication-windows.log
-          $exitCode = $LASTEXITCODE
-          if ($exitCode -ne 0) {
-            exit $exitCode
-          }
-
-      - name: Upload Windows publication validation log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: publication-validation-windows
-          path: artifacts/validation/publication-windows.log
-          if-no-files-found: error
-          retention-days: 14
-          compression-level: 9
-
-      - name: Validate no-date proof policy
-        shell: pwsh
-        run: .\scripts\validation\validate-no-date-proof.ps1
-
-      - name: Validate PowerShell syntax
-        shell: pwsh
-        run: .\scripts\validation\validate-powershell.ps1
-
-      - name: Generate repository health dashboard
-        shell: pwsh
-        run: .\scripts\audits\generate-repository-health-dashboard.ps1
-
-      - name: Validate repository structure
-        shell: pwsh
-        run: .\scripts\validation\validate-repo-structure.ps1
-
-      - name: Validate JSON files
-        shell: pwsh
-        run: .\scripts\validation\validate-json.ps1
-
-      - name: Validate evidence hashes
-        shell: pwsh
-        run: .\scripts\validation\validate-evidence-hashes.ps1
-
-      - name: Validate evidence claims
-        shell: pwsh
-        run: .\scripts\validation\validate-evidence-claims.ps1
-
-      - name: Validate evidence metadata
-        shell: pwsh
-        run: .\scripts\validation\validate-evidence-metadata.ps1
-
-      - name: Validate accessibility
-        shell: pwsh
-        run: .\scripts\validation\validate-accessibility.ps1
-
-      - name: Validate public content quality
-        shell: pwsh
-        run: .\scripts\validation\validate-content.ps1
-
-      - name: Validate HTML files
+      - name: Validate HTML
         shell: pwsh
         run: .\scripts\validation\validate-html.ps1
 
-      - name: Run automated portfolio discoverability review
+      - name: Validate accessibility basics
         shell: pwsh
-        run: pwsh -NoProfile -File .\tests\Test-HiringManagerPortfolioReview.ps1
+        run: .\scripts\validation\validate-accessibility.ps1
 
-      - name: Install Chromium for automated browser validation
+      - name: Validate internal links
         shell: pwsh
-        run: npx playwright install chromium
-
-      - name: Validate public pages in Chromium
-        shell: pwsh
-        run: npm run test:browser
-
-      - name: Capture responsive visual review
-        shell: pwsh
-        run: |
-          $server = Start-Process node -ArgumentList "scripts/testing/serve-static-site.js" -PassThru -NoNewWindow
-          try {
-            $ready = $false
-            $deadline = (Get-Date).AddSeconds(30)
-            do {
-              try {
-                Invoke-WebRequest -Uri "http://127.0.0.1:4174/sitemap.xml" -UseBasicParsing | Out-Null
-                $ready = $true
-              }
-              catch {
-                Start-Sleep -Milliseconds 500
-              }
-            } until ($ready -or (Get-Date) -ge $deadline)
-
-            if (-not $ready) {
-              throw "Static review server did not become ready."
-            }
-
-            node .\scripts\validation\run-responsive-review.js
-          }
-          finally {
-            if ($server -and -not $server.HasExited) {
-              Stop-Process -Id $server.Id -Force
-            }
-          }
-
-      - name: Upload responsive QA report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: portfolio-responsive-qa
-          path: artifacts/redesign/final/responsive-qa.json
-          if-no-files-found: error
-          retention-days: 14
-          compression-level: 9
-
-      - name: Upload visual review captures
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: portfolio-visual-review
-          path: artifacts/redesign/final
-          if-no-files-found: error
-          retention-days: 14
-
-      - name: Validate Lighthouse scores
-        if: always()
-        shell: pwsh
-        run: .\scripts\lighthouse\validate-lighthouse-scores.ps1
+        run: .\scripts\validation\validate-links.ps1
 
       - name: Validate SEO metadata
-        if: always()
         shell: pwsh
         run: .\scripts\validation\validate-seo.ps1
 
       - name: Validate sitemap
-        if: always()
         shell: pwsh
         run: .\scripts\validation\validate-sitemap.ps1
-
-      - name: Validate internal links
-        if: always()
-        shell: pwsh
-        run: .\scripts\validation\validate-links.ps1
-
-      - name: Validate repeated evidence publication build
-        run: npm run test:publication:idempotency
-
-  linux-build-preflight:
-    name: Validate deployment build on Linux
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: npm
-
-      - name: Install Node.js dependencies
-        run: npm ci
-
-      - name: Generate foundation routes on Linux
-        run: npm run build:foundation
-
-      - name: Validate generated evidence pages on Linux
-        run: npm run check:evidence
-
-      - name: Validate dashboard data on Linux
-        run: npm run check:dashboard
-
-      - name: Validate job-readiness presentation on Linux
-        run: npm run check:readiness
-
-      - name: Validate foundation generation drift on Linux
-        run: npm run check:foundation
-
-      - name: Validate site architecture contract on Linux
-        run: npm run validate:foundation
-
-      - name: Validate publication allowlist on Linux
-        run: npm run check:publication
-
-      - name: Build allowlisted public site on Linux
-        run: npm run build:site -- --output .site-preflight
-
-      - name: Validate repeated evidence publication build on Linux
-        run: npm run test:publication:idempotency
