@@ -1,0 +1,8 @@
+Collection time: 2026-07-24T18:35:18-0500
+
+Active interface: en0
+IPv4 address: 10.10.20.101
+Default gateway: 10.10.20.1
+
+Configured DNS servers:
+10.10.20.10
