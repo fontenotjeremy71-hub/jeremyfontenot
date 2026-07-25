@@ -1,0 +1,22 @@
+2026-07-24T18:23:54-05:00
+proxmox
+balloon: 0
+bios: ovmf
+boot: order=sata0
+cores: 4
+cpu: Nehalem
+efidisk0: local-lvm:vm-500-disk-0,efitype=4m,pre-enrolled-keys=0,size=4M
+machine: q35
+memory: 4096
+meta: creation-qemu=11.0.2,ctime=1784242523
+name: macos-monterey
+net0: virtio=[REDACTED-MAC],bridge=vmbr1
+ostype: other
+sata0: local-lvm:vm-500-disk-1,cache=unsafe,size=384M
+sata2: local-lvm:vm-500-disk-3,cache=unsafe,size=80G,ssd=1
+smbios1: uuid=[REDACTED-UUID]
+sockets: 1
+tablet: 1
+unused0: local-lvm:vm-500-disk-2
+vga: vmware
+vmgenid: [REDACTED-VMGENID]
