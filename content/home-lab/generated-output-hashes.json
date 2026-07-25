@@ -5,7 +5,7 @@
     {
       "path": "assets/data/home-lab-evidence-catalog.json",
       "size": 1345190,
-      "hash": "9d69ccca7742b2fb4b7c17dcd4e77f7d7cf64d45b0039776dc0c261b9f6d33af",
+      "hash": "8ea121770776674b989406d37254daae5a658f3da593b6373815b9501619d08f",
       "metadataCoverage": [
         "integrity"
       ]
@@ -22,7 +22,7 @@
     {
       "path": "home-lab/source-to-destination-matrix.csv",
       "size": 422406,
-      "hash": "1c42e2584c3fe09cf23758f227449850dfa15c4d881e68271b18d7833d95e6a8",
+      "hash": "04bccb57ffafddc8fe714dab4f20a059665cd1830a2b37e98a54752bacdb71a5",
       "metadataCoverage": [
         "integrity"
       ]
@@ -46,7 +46,7 @@
     {
       "path": "home-lab/authoritative-source-decisions.json",
       "size": 8116,
-      "hash": "ce3603d7164ae457f21306fc7db8b65e05a4062bc973e9263be1c579d4f72951",
+      "hash": "209ea6647afaafcef31e9df60e293d055ae54fc72058ddb8bb440c94b4d03657",
       "metadataCoverage": [
         "integrity"
       ]
