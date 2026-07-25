@@ -22,9 +22,6 @@ Advanced Options - Mappings
 Advanced Options - Administrative
   Preferred Domain controller    = not set
   Allowed admin groups           = not set
-  Authentication from any domain = Enabled
   Packet signing                 = allow
   Packet encryption              = allow
-  Password change interval       = 14
-  Restrict Dynamic DNS updates   = not set
   Namespace mode                 = domain
