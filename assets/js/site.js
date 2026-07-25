@@ -16,6 +16,27 @@
     }
   }
 
+  const footerLinks = document.querySelector(".compact-footer-links");
+  if (footerLinks) {
+    const footerRoutes = [
+      ["Readiness", "/systems-administration.html"],
+      ["Projects", "/projects.html"],
+      ["Proof", "/proof.html"],
+      ["Dashboard", "/dashboard.html"],
+      ["Resume", "/resume.html"],
+      ["Contact", "/contact.html"],
+      ["Sitemap", "/sitemap.xml"]
+    ];
+    const currentPath = location.pathname === "/" ? "/" : location.pathname.replace(/\/$/, "");
+    footerLinks.replaceChildren(...footerRoutes.map(([label, href]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = label;
+      if (currentPath === href) link.setAttribute("aria-current", "page");
+      return link;
+    }));
+  }
+
   if (navToggle && navLinks) {
     const setMenu = (open, restoreFocus = false) => {
       navLinks.classList.toggle("open", open);
