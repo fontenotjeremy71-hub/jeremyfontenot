@@ -8,8 +8,8 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 439,
-    "textArtifactsInspected": 299,
+    "artifactsReviewed": 450,
+    "textArtifactsInspected": 310,
     "manualReviewRequired": 140,
     "highSeveritySecretFindings": 0,
     "identifierFindings": 323,
