@@ -1,0 +1,30 @@
+Collection time: 2026-07-24T16:30:05-0700
+
+Active Directory Forest          = ad.jeremyfontenot.online
+Active Directory Domain          = ad.jeremyfontenot.online
+Computer Account                 = macvm01$
+
+Advanced Options - User Experience
+  Create mobile account at login = Enabled
+     Require confirmation        = Disabled
+  Force home to startup disk     = Enabled
+     Mount home as sharepoint    = Enabled
+  Use Windows UNC path for home  = Enabled
+     Network protocol to be used = smb
+  Default user Shell             = /bin/bash
+
+Advanced Options - Mappings
+  Mapping UID to attribute       = not set
+  Mapping user GID to attribute  = not set
+  Mapping group GID to attribute = not set
+  Generate Kerberos authority    = Enabled
+
+Advanced Options - Administrative
+  Preferred Domain controller    = not set
+  Allowed admin groups           = not set
+  Authentication from any domain = Enabled
+  Packet signing                 = allow
+  Packet encryption              = allow
+  Password change interval       = 14
+  Restrict Dynamic DNS updates   = not set
+  Namespace mode                 = domain
