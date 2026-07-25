@@ -4,12 +4,15 @@ on:
   push:
     branches:
       - feat/macos-home-lab-evidence
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
 
 concurrency:
-  group: macos-home-lab-generation-${{ github.ref }}
+  group: macos-home-lab-generation-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -19,9 +22,10 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Checkout branch
+      - name: Checkout feature branch
         uses: actions/checkout@v4
         with:
+          ref: feat/macos-home-lab-evidence
           fetch-depth: 0
 
       - name: Set up Node.js
