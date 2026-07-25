@@ -12,7 +12,8 @@
     "build/",
     "artifacts/playwright/",
     "artifacts/redesign/final/",
-    "evidence-library/preserved-sharepoint/wrappers/"
+    "evidence-library/preserved-sharepoint/wrappers/",
+    "evidence/index.html"
   ],
   "contentCandidateRoots": [
     "assets/evidence/",
