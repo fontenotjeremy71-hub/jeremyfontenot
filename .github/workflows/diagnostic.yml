@@ -29,26 +29,44 @@ jobs:
       - name: Generate Home Lab outputs
         run: npm run build:home-lab
       - name: Commit generated outputs
+        id: commit_outputs
         shell: bash
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- \
-            assets/data/home-lab-evidence-catalog.json \
-            home-lab/evidence-catalog.html \
-            home-lab/source-to-destination-matrix.csv \
-            home-lab/duplicate-groups.json \
-            home-lab/sensitive-data-review.json \
-            home-lab/authoritative-source-decisions.json \
-            active-directory-lab.html \
-            infrastructure.html \
-            network-segmentation.html \
-            powershell-automation.html \
-            content/home-lab/generated-output-hashes.json
-          if git diff --cached --quiet; then
-            echo "No generated output changes."
-            exit 0
-          fi
-          git commit -m "build: refresh MACVM01 Home Lab evidence outputs"
-          git push origin HEAD:feat/macos-home-lab-evidence
+          set +e
+          mkdir -p artifacts/validation
+          {
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -- \
+              assets/data/home-lab-evidence-catalog.json \
+              home-lab/evidence-catalog.html \
+              home-lab/source-to-destination-matrix.csv \
+              home-lab/duplicate-groups.json \
+              home-lab/sensitive-data-review.json \
+              home-lab/authoritative-source-decisions.json \
+              active-directory-lab.html \
+              infrastructure.html \
+              network-segmentation.html \
+              powershell-automation.html \
+              content/home-lab/generated-output-hashes.json
+            git status --short
+            if git diff --cached --quiet; then
+              echo "No generated output changes."
+              exit 0
+            fi
+            git commit -m "build: refresh MACVM01 Home Lab evidence outputs"
+            git push origin HEAD:feat/macos-home-lab-evidence
+          } 2>&1 | tee artifacts/validation/output-push.log
+          code=${PIPESTATUS[0]}
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: output-push-diagnostics
+          path: artifacts/validation/output-push.log
+          if-no-files-found: error
+          retention-days: 14
+      - name: Fail on push error
+        if: steps.commit_outputs.outputs.code != '0'
+        run: exit 1
