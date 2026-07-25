@@ -19,6 +19,21 @@ const crawlerExcludedRoots = [
   ...archivalRoots,
 ];
 
+// Raw machine-readable and source artifacts remain publicly accessible through
+// contextual proof pages, but they are not standalone search landing pages.
+const nonIndexableSitemapExtensions = new Set([
+  '.csv',
+  '.json',
+  '.md',
+  '.txt',
+  '.xml',
+  '.yaml',
+  '.yml',
+  '.log',
+  '.ps1',
+  '.sh',
+]);
+
 // These public compatibility URLs currently resolve through an external redirect
 // and therefore must not be advertised as canonical sitemap destinations.
 const redirectOnlyRoutes = new Set([
@@ -30,10 +45,15 @@ const requiredRoutes = new Set([
   '/',
   '/systems-administration.html',
   '/systems-skills/',
+  '/systems-skills/evidence-map.html',
   '/microsoft-365/',
+  '/microsoft-365/evidence-catalog.html',
   '/home-lab/',
+  '/home-lab/evidence-catalog.html',
   '/evidence/',
+  '/evidence/claim-map.html',
   '/projects.html',
+  '/proof.html',
   '/resume.html',
   '/contact.html',
 ]);
@@ -91,6 +111,7 @@ function validateSitemap() {
   const locations = parseSitemapLocations(readRequiredFile(sitemapPath));
   const routes = [];
   const seen = new Set();
+  let contextualEvidenceRouteCount = 0;
 
   for (const location of locations) {
     let url;
@@ -109,10 +130,20 @@ function validateSitemap() {
     if (redirectOnlyRoutes.has(url.pathname)) {
       fail(`redirect-only route must not appear in sitemap.xml: ${url.pathname}`);
     }
+
+    const extension = path.posix.extname(url.pathname).toLowerCase();
+    if (nonIndexableSitemapExtensions.has(extension)) {
+      fail(`raw evidence artifact must not appear in sitemap.xml: ${url.pathname}`);
+    }
+
     for (const archiveRoot of archivalRoots) {
       if (url.pathname.startsWith(archiveRoot)) {
         fail(`raw archival route must not appear in sitemap.xml: ${url.pathname}`);
       }
+    }
+
+    if (url.pathname.startsWith('/evidence-library/') && (url.pathname.endsWith('/') || extension === '.html')) {
+      contextualEvidenceRouteCount += 1;
     }
   }
 
@@ -120,12 +151,17 @@ function validateSitemap() {
     if (!seen.has(requiredRoute)) fail(`required recruiter-facing route is missing from sitemap.xml: ${requiredRoute}`);
   }
 
-  return routes;
+  if (contextualEvidenceRouteCount === 0) {
+    fail('sitemap must retain at least one contextual HTML evidence route.');
+  }
+
+  return {routes, contextualEvidenceRouteCount};
 }
 
 const robots = validateRobots();
-const routes = validateSitemap();
+const sitemap = validateSitemap();
 console.log(
-  `Crawl integrity validated: ${routes.length} canonical sitemap routes; ` +
+  `Crawl integrity validated: ${sitemap.routes.length} canonical sitemap routes; ` +
+  `${sitemap.contextualEvidenceRouteCount} contextual evidence route(s); ` +
   `${robots.disallowed.length} disallow directive(s); ${crawlerExcludedRoots.length} crawler-only roots protected.`,
 );
