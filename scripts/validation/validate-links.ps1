@@ -42,9 +42,13 @@ foreach ($File in $HtmlFiles) {
       $ResolvedPath = Join-Path -Path $File.DirectoryName -ChildPath $RelativePath
     }
 
-    if (-not (Test-Path -Path $ResolvedPath)) {
+    if (Test-Path -Path $ResolvedPath -PathType Container) {
+      $ResolvedPath = Join-Path -Path $ResolvedPath -ChildPath 'index.html'
+    }
+
+    if (-not (Test-Path -Path $ResolvedPath -PathType Leaf)) {
       $Failures.Add("$($File.FullName) => $RelativePath")
-      Write-Host "Missing reference in $($File.FullName): $RelativePath" -ForegroundColor Red
+      Write-Host "Missing publishable reference in $($File.FullName): $RelativePath" -ForegroundColor Red
     }
   }
 }
