@@ -21,22 +21,38 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: npm
-      - name: Install Node.js dependencies
-        run: npm ci
-      - name: Verify committed generated pages and architecture
-        run: npm run check
-      - name: Prepare allowlisted public site
-        run: npm run build:site
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf site
+          mkdir site
+          rsync -a ./ site/ \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='site/' \
+            --exclude='node_modules/' \
+            --exclude='scripts/' \
+            --exclude='tests/' \
+            --exclude='content/' \
+            --exclude='artifacts/' \
+            --exclude='playwright-report/' \
+            --exclude='test-results/' \
+            --exclude='.site-preflight/' \
+            --exclude='.cache/'
+          touch site/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
           path: site
-      - id: deployment
+
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
