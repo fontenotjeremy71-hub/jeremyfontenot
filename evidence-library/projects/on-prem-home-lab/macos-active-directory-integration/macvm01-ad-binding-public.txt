@@ -8,7 +8,6 @@ Advanced Options - User Experience
   Create mobile account at login = Enabled
      Require confirmation        = Disabled
   Force home to startup disk     = Enabled
-     Mount home as sharepoint    = Enabled
   Use Windows UNC path for home  = Enabled
      Network protocol to be used = smb
   Default user Shell             = /bin/bash
