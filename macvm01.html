@@ -4,33 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MACVM01 | macOS Active Directory Home Lab</title>
-  <meta name="description" content="MACVM01 case study: a macOS virtual machine deployed on Proxmox, connected through pfSense, joined to Active Directory, and validated for DNS, SSH, and VNC administration.">
+  <meta name="description" content="MACVM01 case study: macOS virtualization, pfSense network placement, Active Directory integration, DNS validation, mobile domain accounts, SSH, and VNC administration.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0f172a">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://jeremyfontenot.online/macvm01.html">
   <meta property="og:site_name" content="Jeremy Fontenot">
   <meta property="og:title" content="MACVM01 | macOS Active Directory Home Lab">
-  <meta property="og:description" content="A practical macOS, Proxmox, pfSense, Active Directory, DNS, SSH, and VNC integration case study.">
+  <meta property="og:description" content="A practical cross-platform administration case study covering macOS, Proxmox, pfSense, Active Directory, DNS, SSH, and VNC.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://jeremyfontenot.online/macvm01.html">
   <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
-  <meta property="og:image:alt" content="Jeremy Fontenot infrastructure portfolio">
+  <meta property="og:image:alt" content="Jeremy Fontenot cross-platform infrastructure portfolio">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MACVM01 | macOS Active Directory Home Lab">
-  <meta name="twitter:description" content="macOS virtual-machine deployment and directory integration in a personal home lab.">
+  <meta name="twitter:description" content="macOS virtualization, directory integration, networking, identity, and remote administration in a personal home lab.">
   <meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
   <link rel="icon" href="./assets/logos/favicon_64x64.png">
   <link rel="stylesheet" href="./assets/css/site.css">
   <script src="./assets/js/site.js" defer></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"MACVM01 macOS Active Directory Home Lab","description":"A macOS virtual machine deployed on Proxmox, routed by pfSense, integrated with Active Directory and DNS, and validated for remote administration.","url":"https://jeremyfontenot.online/macvm01.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["macOS","Proxmox VE","pfSense","Active Directory","DNS","SSH","VNC"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"MACVM01 macOS Active Directory Home Lab","description":"A macOS virtual machine deployed on Proxmox, routed by pfSense, integrated with Active Directory and DNS, and validated for cross-platform remote administration.","url":"https://jeremyfontenot.online/macvm01.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["macOS administration","Proxmox VE","pfSense","Active Directory","DNS","Kerberos","SSH","VNC","Cross-platform systems administration"]}</script>
 </head>
 <body class="home-lab-page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button><div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./projects.html" aria-current="page">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div></nav></header>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button><div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./systems-administration.html">Readiness</a><a href="./projects.html" aria-current="page">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div></nav></header>
   <main id="main">
     <section class="page page-hero" aria-labelledby="macvm-title">
-      <div class="section-head reveal is-visible"><p class="eyebrow kicker-line">Home Lab · Cross-platform administration</p><h1 id="macvm-title">MACVM01: macOS integrated with Proxmox, pfSense, and Active Directory.</h1><p class="lead">I deployed a macOS 12.7.6 virtual machine in my personal home lab, placed it on the pfSense-managed LAN, joined it to the Windows Server Active Directory domain, and validated identity, DNS, network, SSH, and VNC administration.</p><div class="actions"><a class="button primary" href="#validation">Review validation</a><a class="button" href="./on-prem-home-lab.html">Open full home lab</a><a class="button text-button" href="./projects.html">Back to projects</a></div></div>
+      <div class="section-head reveal is-visible"><p class="eyebrow kicker-line">Home Lab · Cross-platform administration</p><h1 id="macvm-title">MACVM01: macOS integrated with Proxmox, pfSense, and Active Directory.</h1><p class="lead">I deployed a macOS 12.7.6 virtual machine in my personal home lab, placed it on the pfSense-managed LAN, joined it to the Windows Server Active Directory domain, and validated identity, DNS, network, SSH, and VNC administration.</p><div class="actions"><a class="button primary" href="#validation">Review validation</a><a class="button" href="#skills-title">Review demonstrated skills</a><a class="button" href="./on-prem-home-lab.html">Open full home lab</a><a class="button text-button" href="./projects.html">Back to projects</a></div></div>
     </section>
     <section class="section" aria-labelledby="implementation-title">
       <div class="section-head reveal"><p class="eyebrow">Implementation</p><h2 id="implementation-title">A domain-connected macOS workload inside the existing lab architecture.</h2></div>
@@ -55,17 +55,19 @@
       </div>
     </section>
     <section class="section" aria-labelledby="skills-title">
-      <div class="section-head reveal"><p class="eyebrow">Skills demonstrated</p><h2 id="skills-title">Cross-platform systems administration in a bounded environment.</h2></div>
+      <div class="section-head reveal"><p class="eyebrow">Skills demonstrated</p><h2 id="skills-title">Cross-platform systems administration in a bounded environment.</h2><p>MACVM01 expands the Home Lab beyond Windows and Linux by demonstrating practical macOS integration with the same identity, DNS, routing, virtualization, and remote-management services.</p></div>
       <div class="project-supporting-grid reveal">
-        <article class="project-panel"><h3>Virtual infrastructure</h3><p>Proxmox VM configuration, bridge selection, guest networking, and controlled placement behind pfSense.</p></article>
-        <article class="project-panel"><h3>Identity services</h3><p>macOS Active Directory binding, domain computer objects, mobile accounts, directory identity resolution, and Kerberos-aware configuration.</p></article>
-        <article class="project-panel"><h3>Operations and troubleshooting</h3><p>DNS verification, reverse lookup, remote-access testing, SSH administration, VNC administration, hostname correction, and timezone remediation.</p></article>
+        <article class="project-panel"><h3>Virtual infrastructure</h3><p>Configured a macOS guest on Proxmox, reviewed virtual hardware, selected the correct Linux bridge, and corrected network placement behind pfSense.</p></article>
+        <article class="project-panel"><h3>Identity and directory services</h3><p>Bound macOS to Active Directory, validated the computer object, enabled mobile domain accounts, confirmed domain identity resolution, and preserved Kerberos-aware configuration.</p></article>
+        <article class="project-panel"><h3>DNS and network troubleshooting</h3><p>Validated forward and reverse DNS, gateway and DNS assignment, LAN placement, port reachability, hostname state, and the difference between upstream and pfSense-managed network paths.</p></article>
+        <article class="project-panel"><h3>Remote administration and remediation</h3><p>Enabled and tested SSH and VNC access from DC01, administered local and domain accounts, corrected timezone configuration, and documented verified results and limitations.</p></article>
       </div>
+      <div class="inline-actions reveal"><a href="./systems-administration.html#capabilities">See cross-platform readiness</a><a href="./projects.html#macvm01">Open project summary</a><a href="./on-prem-home-lab.html#systems">Review the complete lab</a></div>
     </section>
     <section class="section" aria-labelledby="limits-title">
       <div class="section-head reveal"><p class="eyebrow">Boundaries</p><h2 id="limits-title">What this case study does not claim.</h2><p>This is a personal nonproduction implementation. It does not prove enterprise-scale Apple administration, MDM, Apple Business Manager integration, production readiness, high availability, disaster recovery, compliance certification, continuous availability, or complete security assurance. Port tests establish reachability at collection time; they do not independently validate every security control.</p></div>
     </section>
   </main>
-  <footer class="site-footer compact-footer" aria-label="Site footer"><div class="compact-footer-grid"><div class="compact-footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async"><div><strong>Jeremy Fontenot</strong><p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p></div></div><nav class="compact-footer-links" aria-label="Footer navigation"><a href="./projects.html">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a><a href="./sitemap.xml">Sitemap</a></nav><div class="compact-footer-contact"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div></div><p class="credibility">Project status reflects demonstrated actions, observed results, and explicit limitations.</p><p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p></footer>
+  <footer class="site-footer compact-footer" aria-label="Site footer"><div class="compact-footer-grid"><div class="compact-footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async"><div><strong>Jeremy Fontenot</strong><p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p></div></div><nav class="compact-footer-links" aria-label="Footer navigation"><a href="./systems-administration.html">Readiness</a><a href="./projects.html">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a><a href="./sitemap.xml">Sitemap</a></nav><div class="compact-footer-contact"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div></div><p class="credibility">Project status reflects demonstrated actions, observed results, and explicit limitations.</p><p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p></footer>
 </body>
 </html>

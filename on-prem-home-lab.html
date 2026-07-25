@@ -1,181 +1,125 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>On-Premises Home Lab | Proxmox, pfSense, AD & Linux</title>
-      <meta name="description" content="Evidence-backed Proxmox isolated restore validation covering Linux, Windows, Active Directory, and pfSense with production-safe isolation, conservative result classifications, and SHA-256 integrity records.">
-      <meta name="robots" content="index, follow">
-      <meta name="theme-color" content="#0f172a">
-      <meta name="referrer" content="strict-origin-when-cross-origin">
-      <link rel="canonical" href="https://jeremyfontenot.online/on-prem-home-lab.html">
-      <meta property="og:site_name" content="Jeremy Fontenot">
-      <meta property="og:title" content="On-Premises Home Lab | Proxmox, pfSense, AD & Linux">
-      <meta property="og:description" content="Evidence-backed Proxmox restore validation across Linux01, WS01, DC01, and pfSense with explicit recovery limitations.">
-      <meta property="og:type" content="website">
-      <meta property="og:url" content="https://jeremyfontenot.online/on-prem-home-lab.html">
-      <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
-      <meta property="og:image:alt" content="IT support and infrastructure operations portfolio for Jeremy Fontenot">
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="On-Premises Home Lab | Proxmox, pfSense, AD & Linux">
-      <meta name="twitter:description" content="Evidence-backed Proxmox restore validation across Linux01, WS01, DC01, and pfSense with explicit recovery limitations.">
-      <meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
-      <link rel="icon" href="./assets/logos/favicon_64x64.png">
-      <link rel="stylesheet" href="./assets/css/site.css">
-      <script src="./assets/js/site.js" defer></script>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"On-Premises Home Lab | Proxmox, pfSense, AD & Linux","headline":"On-Premises Home Lab | Proxmox, pfSense, AD & Linux","description":"Evidence-backed Proxmox isolated restore validation covering Linux, Windows, Active Directory, and pfSense with conservative result classifications.","url":"https://jeremyfontenot.online/on-prem-home-lab.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Service desk support","Microsoft 365 administration","Active Directory","Windows Server","Proxmox VE","pfSense","backup restore validation","PowerShell","Evidence governance"]}</script>
-    </head>
-    <body class="home-lab-page">
-    <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href="/">
-      <img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async">
-      <span>Jeremy Fontenot</span>
-      <small>Support · systems · evidence</small>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
-    <div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./projects.html" aria-current="page">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div>
-  </nav>
-</header>
-    <main id="main">
-    <section class="page page-hero home-lab-hero" aria-labelledby="lab-title">
-  <div class="page-hero-grid">
-    <div class="hero-copy reveal is-visible">
-      <p class="eyebrow">Home Lab · Infrastructure Operations</p>
-      <h1 id="lab-title">A working home lab for systems administration practice.</h1>
-      <p class="lead">I built this lab to break things safely before I break them at work. It runs Windows Server and Active Directory, a Linux domain member, pfSense networking, and Proxmox virtualization — close enough to a real environment that the mistakes, and the fixes, actually transfer.</p>
-      <div class="actions"><a class="button primary" href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Review restore evidence</a><a class="button" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx">Download documentation</a><a class="button" href="./proof.html#home-lab-proof">Trace claims to proof</a><a class="button text-button" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json">Inspect manifest</a></div>
-    </div>
-    <aside class="lab-topology reveal is-visible" aria-label="Home lab topology summary">
-      <div class="topology-node"><span>Physical host</span><strong>Dell PowerEdge R710</strong><em>Personal lab hardware</em></div><div class="topology-link"></div>
-      <div class="topology-node"><span>Hypervisor</span><strong>Proxmox VE 9.2.3</strong><em>Primary VMs 100, 200, 300, and 400</em></div><div class="topology-link"></div>
-      <div class="topology-bus"><span>Network and identity</span><strong>pfSense · AD DS · DNS · DHCP · VLAN 30 · OpenVPN</strong></div>
-      <div class="topology-endpoints"><div class="topology-node"><span>Windows</span><strong>DC01 and WS01</strong><em>Directory services and workstation evidence</em></div><div class="topology-node"><span>Linux</span><strong>Linux01</strong><em>Ubuntu domain member on VLAN 30</em></div></div>
-    </aside>
-  </div>
-</section>
-<nav class="section-jump-nav page-shell" aria-label="Home lab sections"><a href="#overview">Overview</a><a href="#current-state">Validated configuration</a><a href="#systems">Systems</a><a href="#restore-validation">Restore validation</a><a href="#automation">Automation</a><a href="#screenshots">Screenshots</a><a href="#artifacts">Artifacts</a><a href="#limits">Limitations</a></nav>
-<section class="section" id="overview" aria-labelledby="overview-title">
-  <div class="section-head reveal"><p class="eyebrow">Evidence Status</p><h2 id="overview-title">How evidence status is assigned.</h2><p>Status labels describe what the available records support without extending the claim beyond the evidence.</p></div>
-  <div class="evidence-status-legend reveal">
-    <div><span class="status-dot validated"></span><strong>Validated</strong><p>Captured evidence directly confirms the stated system or property.</p></div>
-    <div><span class="status-dot tested"></span><strong>Tested</strong><p>A behavior was exercised and recorded within a defined scope.</p></div>
-    <div><span class="status-dot configured"></span><strong>Configured</strong><p>Configuration is present, but behavior is not promoted beyond the record.</p></div>
-    <div><span class="status-dot limitation"></span><strong>Limitation</strong><p>Known gaps, historical values, timeouts, and unsupported conclusions remain visible.</p></div>
-  </div>
-</section>
-<section class="section" id="current-state" aria-labelledby="state-title">
-  <div class="section-head reveal"><p class="eyebrow">Supported Environment State</p><h2 id="state-title">The environment at a glance.</h2><p>The published records represent Linux01 on VLAN 30 at 10.10.30.20/24, with backups stored on <code>backup-hdd</code>. Conflicting 10.10.20.x records are marked historical and are not used for the supported-state claim.</p></div>
-  <div class="lab-state-grid reveal">
-    <article><span class="tile-code">HOST</span><h3>Platform</h3><p>Dell PowerEdge R710 running Proxmox VE 9.2.3 with four primary virtual machines.</p></article>
-    <article><span class="tile-code">NET</span><h3>Network</h3><p>pfSense routing, lab LAN services, VLAN 30 placement for Linux01, and a documented OpenVPN management path.</p></article>
-    <article><span class="tile-code">WIN</span><h3>Windows</h3><p>DC01 provides AD DS, DNS, DHCP, Group Policy, Global Catalog, and FSMO roles; WS01 is domain joined.</p></article>
-    <article><span class="tile-code">LIN</span><h3>Linux</h3><p>Ubuntu Linux01 with current addressing, realmd/SSSD integration indicators, and an isolated SSSD remediation record.</p></article>
-    <article><span class="tile-code">BKP</span><h3>Backup</h3><p>Weekly snapshot configuration for VMs 100, 200, 300, and 400 with zstd compression and keep-last=4 retention.</p></article>
-    <article><span class="tile-code">VAL</span><h3>Validation</h3><p>A four-system isolated restore cycle, bounded guest checks, manifests, SHA-256 records, screenshots, and conservative result classifications.</p></article>
-  </div>
-</section>
-<section class="section" id="systems" aria-labelledby="systems-title">
-  <div class="section-head reveal"><p class="eyebrow">System Evidence</p><h2 id="systems-title">What the inspected records directly support.</h2><p>Each card leads with the supported state, then links to the artifact whose contents demonstrate it.</p></div>
-  <div class="lab-proof-detail reveal">
-    <article class="proof-chip verified"><span class="chip-kind">Validated</span><h3>Proxmox platform</h3><p>Direct inventory supports Proxmox VE 9.2.3, VM IDs 100/200/300/400, running state, compute allocation, storage, bridge placement, guest-agent state, and Linux01 VLAN tag 30 where captured.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html">Open direct inventory</a></div></article>
-    <article class="proof-chip verified"><span class="chip-kind">Validated</span><h3>DC01 identity services</h3><p>Direct evidence supports Windows Server, AD DS, DNS, DHCP, Group Policy Management, domain details, Global Catalog status, FSMO ownership, and DC01 addressing.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html">Open DC01 validation</a><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png">Open screenshot</a></div></article>
-    <article class="proof-chip verified"><span class="chip-kind">Validated</span><h3>WS01 domain state</h3><p>Direct evidence supports VM 300 association, Windows 10 Pro build 19045, domain membership, secure channel, and captured network state.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html">Open WS01 validation</a></div></article>
-    <article class="proof-chip verified"><span class="chip-kind">Validated</span><h3>Linux01 integration</h3><p>Direct evidence supports Ubuntu 26.04 LTS, kernel, VLAN 30, current IP, gateway, DNS, current-versus-historical address boundaries, domain-integration indicators, and Linux01-only SSSD remediation.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html">Open Linux01 validation</a><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html">Open SSSD validation</a></div></article>
-    <article class="proof-chip verified"><span class="chip-kind">Configured</span><h3>Backup configuration</h3><p>The weekly snapshot job targets VMs 100, 200, 300, and 400 with zstd compression, keep-last=4 retention, and <code>backup-hdd</code> storage.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html">Open configuration</a><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html">Open inventory</a></div></article>
-    <article class="proof-chip verified"><span class="chip-kind">Completed · Mixed results</span><h3>Four-system isolated restore validation</h3><p>Linux01 and pfSense achieved scoped PASS results. WS01 and DC01 remained INCONCLUSIVE overall. All four selected archives restored to temporary VMs with preboot network isolation, bounded local checks where authorized, controlled cleanup, and production protection.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Open restore evidence</a><a href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/commit/65899f08cb8d19207c5edad7723368ed04f1f1c4" target="_blank" rel="noopener noreferrer">Review source commit</a></div></article>
-  </div>
-</section>
-<section class="section" id="restore-validation" aria-labelledby="restore-validation-title">
-  <div class="section-head reveal"><p class="eyebrow">Isolated Backup Restore Validation</p><h2 id="restore-validation-title">I tested four archives without connecting restored guests to production networks.</h2><p>Restore testing matters because a configured backup job does not prove that an archive can be recovered. I used temporary Proxmox VMs, verified <code>link_down=1</code> before first boot, performed only authorized local checks, shut each guest down cleanly, removed its temporary resources, and confirmed that production VMs 100, 200, 300, and 400 remained protected.</p></div>
-  <div class="evidence-table-wrap reveal">
-    <table class="evidence-table">
-      <caption>Final isolated restore-validation classifications</caption>
-      <thead><tr><th scope="col">System</th><th scope="col">Production VM</th><th scope="col">Temporary VM</th><th scope="col">Restore</th><th scope="col">Isolation</th><th scope="col">Boot</th><th scope="col">Local validation</th><th scope="col">Cleanup</th><th scope="col">Overall result</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Linux01</th><td>400</td><td>401</td><td>PASS</td><td>PASS</td><td>PASS</td><td>PASS within scope</td><td>PASS</td><td><strong>PASS</strong></td></tr>
-        <tr><th scope="row">WS01</th><td>300</td><td>301</td><td>PASS</td><td>PASS</td><td>PASS to sign-in</td><td>NOT TESTED</td><td>PASS</td><td><strong>INCONCLUSIVE</strong></td></tr>
-        <tr><th scope="row">DC01</th><td>200</td><td>201</td><td>PASS</td><td>PASS</td><td>PASS</td><td>Selected checks PASS; LDAP checks INCONCLUSIVE</td><td>PASS</td><td><strong>INCONCLUSIVE</strong></td></tr>
-        <tr><th scope="row">pfSense</th><td>100</td><td>101</td><td>PASS</td><td>PASS on both NICs</td><td>PASS</td><td>PASS within scope</td><td>PASS</td><td><strong>Narrow PASS</strong></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="scope-note-card reveal"><p><strong>PASS indicates only the scoped isolated-restore objectives that were directly validated. It does not indicate complete production recovery or full disaster recovery.</strong></p></div>
-  <div class="lab-proof-detail reveal">
-    <article class="proof-chip limitation"><span class="chip-kind">WS01 · INCONCLUSIVE</span><h3>Authorized in-guest validation was unavailable.</h3><p>The VM restored, remained isolated, booted to the Windows sign-in screen, shut down cleanly, and was removed without affecting production. In-guest validation was not completed because an authorized local Windows account was unavailable.</p></article>
-    <article class="proof-chip limitation"><span class="chip-kind">DC01 · INCONCLUSIVE</span><h3>Selected AD checkpoints passed; LDAP-dependent checks did not.</h3><p>The domain controller restored and booted while isolated. Elevated validation confirmed NTDS, selected core services, SYSVOL, and NETLOGON. Local LDAP/RootDSE, localhost AD cmdlets, and LDAP-dependent <code>dcdiag</code> remained inconclusive while strict NIC isolation remained enforced.</p></article>
-    <article class="proof-chip verified"><span class="chip-kind">pfSense · Narrow PASS</span><h3>Local restore objectives passed with both NICs isolated.</h3><p>The test did not exercise live WAN/LAN connectivity, routing, NAT, firewall policy, DHCP clients, DNS forwarding, VPN tunnels, identity integration, certificate workflows, application connectivity, or business-service recovery.</p></article>
-    <article class="proof-chip limitation"><span class="chip-kind">Measurement Boundary</span><h3>Recovery timing and complete DR remain unproven.</h3><p><strong>RTO: NOT MEASURED. RPO: NOT MEASURED. Full disaster recovery: NOT PROVEN.</strong> Archive metadata and temporary restore task duration observations were not promoted into production recovery objectives.</p></article>
-  </div>
-  <div class="inline-actions"><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Open the evidence index</a><a href="./proof.html#restore-validation-proof">Review proof classification</a><a href="./dashboard.html">Open coverage dashboard</a><a href="./projects.html#home-lab">Review project entry</a></div>
-</section>
-<section class="section" id="automation" aria-labelledby="automation-title">
-  <div class="section-head reveal"><p class="eyebrow">Validation Tooling</p><h2 id="automation-title">PowerShell validation and evidence automation.</h2><p>Repository and framework checks turn repeatable technical work into reviewable records while retaining negative results and boundaries.</p></div>
-  <div class="lab-proof-detail reveal">
-    <article class="proof-chip verified"><span class="chip-kind">Tested / Passed</span><h3>Repository structure</h3><p>Required paths, validation entry points, PowerShell parser checks, Git whitespace checks, and potential-secret pattern checks passed.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/repository-structure-validation-20260629-210449.txt">Open validation output</a></div></article>
-    <article class="proof-chip verified"><span class="chip-kind">Tested / Passed</span><h3>Baseline framework</h3><p>Configuration loading, required result properties, evidence paths, JSON/CSV/Markdown generation, target omission handling, and timeout handling passed. One negative connectivity case was expected.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/home-lab-baseline-framework-validation-20260629-210527.txt">Open framework output</a></div></article>
-    <article class="proof-chip limitation"><span class="chip-kind">Tested / Partial</span><h3>Portfolio drift analysis</h3><p>Five facts matched. Four evidence gaps remained: restore-test status, OpenVPN network, direct RDP status, and centralized logging. These are documented gaps, not infrastructure failures.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-29/skills-validation/portfolio-home-lab-drift-validation-20260629-210609.txt">Open drift analysis</a></div></article>
-  </div>
-</section>
-<section class="section" id="screenshots" aria-labelledby="screens-title">
-  <div class="section-head reveal"><p class="eyebrow">Screenshot Evidence</p><h2 id="screens-title">Screenshots support specific technical claims.</h2><p>Each image opens at full resolution and includes a concise statement of what it supports.</p></div>
-  <div class="evidence-gallery windows-evidence-gallery">
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png"><img src="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png" loading="lazy" decoding="async" width="1593" height="670" alt="Elevated PowerShell output on isolated DC01 showing NTDS and selected core services running."></a><figcaption><strong>DC01 elevated NTDS and core-service validation</strong><span>Supports narrow PASS checkpoints during the isolated restore rerun.</span><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png"><img src="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png" loading="lazy" decoding="async" width="768" height="402" alt="PowerShell output on isolated DC01 showing the local RootDSE query did not complete while network isolation remained enforced."></a><figcaption><strong>DC01 local RootDSE limitation</strong><span>Supports the INCONCLUSIVE local LDAP and RootDSE classification.</span><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-rootdse-validation-2026-07-11.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png" loading="lazy" decoding="async" alt="PowerShell output showing Active Directory forest and FSMO role validation on DC01."></a><figcaption><strong>Active Directory and FSMO roles</strong><span>Supports forest, domain, Global Catalog, and FSMO ownership review.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-active-directory-fsmo-validation.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dns-forward-reverse-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dns-forward-reverse-validation.png" loading="lazy" decoding="async" alt="PowerShell output showing DNS forward and reverse lookup validation."></a><figcaption><strong>DNS forward and reverse lookups</strong><span>Supports AD-integrated DNS service and lookup claims.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dns-forward-reverse-validation.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png" loading="lazy" decoding="async" alt="Redacted DHCP scope, option, statistics, and lease evidence."></a><figcaption><strong>DHCP scope and options</strong><span>Supports scope, options, statistics, and lease review.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-dhcp-scope-options-leases-redacted.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-group-policy-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-group-policy-validation.png" loading="lazy" decoding="async" alt="Command output showing Group Policy objects and links."></a><figcaption><strong>Group Policy inventory</strong><span>Supports GPO inventory and domain/OU link claims.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/dc01-group-policy-validation.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-login-system-state.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-login-system-state.png" loading="lazy" decoding="async" alt="Linux console showing Ubuntu, kernel, hostname, and address context."></a><figcaption><strong>Linux01 system state</strong><span>Supports Ubuntu, kernel, hostname, and address context.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-login-system-state.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-evidence-archive-sha256-redacted.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-evidence-archive-sha256-redacted.png" loading="lazy" decoding="async" alt="Redacted terminal output showing evidence archive and SHA-256 validation."></a><figcaption><strong>Evidence archive hash</strong><span>Supports archive and SHA-256 integrity review.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-evidence-archive-sha256-redacted.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-scp-transfer-validation.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-scp-transfer-validation.png" loading="lazy" decoding="async" alt="Terminal output showing Linux01 SCP evidence transfer validation."></a><figcaption><strong>SCP transfer validation</strong><span>Supports controlled evidence transfer from Linux01.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-scp-transfer-validation.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-ubuntu-server-installation-type.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-ubuntu-server-installation-type.png" loading="lazy" decoding="async" alt="Linux console showing Ubuntu Server installation type."></a><figcaption><strong>Ubuntu Server installation</strong><span>Supports the Linux01 operating-system installation type.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-ubuntu-server-installation-type.png">Open full image</a></figcaption></figure>
-    <figure class="screenshot-card"><a class="screenshot-preview" href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-vm-configuration-confirmation.png"><img src="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-vm-configuration-confirmation.png" loading="lazy" decoding="async" alt="Proxmox interface showing Linux01 virtual machine configuration."></a><figcaption><strong>Linux01 VM configuration</strong><span>Supports virtual hardware and VM configuration review.</span><a href="./evidence-library/projects/on-prem-home-lab/validated-2026-06-21/screenshots/linux01-vm-configuration-confirmation.png">Open full image</a></figcaption></figure>
-  </div>
-</section>
-<section class="section" id="artifacts" aria-labelledby="artifacts-title">
-  <div class="section-head reveal"><p class="eyebrow">Reviewer Artifacts</p><h2 id="artifacts-title">Stable starting points for technical review.</h2></div>
-  <div class="artifact-grid reveal">
-    <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/"><span>RESTORE</span><strong>Isolated restore evidence</strong><em>Four systems, mixed results, safety controls, integrity, and explicit limitations.</em></a>
-    <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/README.html"><span>README</span><strong>Supported-state evidence set</strong><em>Public-safe summary and evidence boundaries.</em></a>
-    <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html"><span>DIRECT</span><strong>Proxmox inventory</strong><em>Platform, VM, and VLAN evidence.</em></a>
-    <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html"><span>DIRECT</span><strong>DC01 validation</strong><em>Windows Server, AD DS, DNS, DHCP, GPO, GC, and FSMO.</em></a>
-    <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html"><span>DIRECT</span><strong>Linux01 validation</strong><em>Ubuntu, VLAN, network, and domain integration.</em></a>
-    <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/manifest.json"><span>JSON</span><strong>Evidence manifest</strong><em>Hashes, provenance, classifications, and source paths.</em></a>
-    <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv"><span>CSV</span><strong>Claim map</strong><em>Claims linked to artifacts and limitations.</em></a>
-    <a class="artifact-card" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"><span>DOCX</span><strong>Professional documentation</strong><em>Download the complete home-lab document.</em></a>
-    <a class="artifact-card" href="./home-lab-operations-proof.html"><span>OPS</span><strong>Operations validation</strong><em>Review inventory, framework testing, state reconciliation, and SSSD remediation.</em></a>
-  </div>
-</section>
-<section class="section" id="limits" aria-labelledby="limits-title"><div class="scope-note-card reveal"><p class="eyebrow">Evidence Boundary</p><h2 id="limits-title">What this lab does not prove.</h2><p>The evidence does not claim enterprise scale, production availability or failover, RTO/RPO, full disaster recovery, full firewall assurance, broad security assurance, SLA performance, or employer-system administration. The four-system exercise proves selected archives could be exercised only within their documented isolated objectives; it does not prove complete AD, workstation, firewall, network, application, or business-service recovery.</p><div class="inline-actions"><a href="./proof.html#home-lab-proof">Review claim boundaries</a><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Open restore evidence</a><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/claim-map.csv">Open claim map</a></div></div></section>
-
-    </main>
-    <footer class="site-footer compact-footer" aria-label="Site footer">
-  <div class="compact-footer-grid">
-    <div class="compact-footer-brand">
-      <img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async">
-      <div>
-        <strong>Jeremy Fontenot</strong>
-        <p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p>
-      </div>
-    </div>
-    <nav class="compact-footer-links" aria-label="Footer navigation">
-      <a href="./projects.html">Projects</a>
-      <a href="./proof.html">Proof</a>
-      <a href="./dashboard.html">Dashboard</a>
-      <a href="./resume.html">Resume</a>
-      <a href="./contact.html">Contact</a>
-      <a href="./sitemap.xml">Sitemap</a>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On-Premises Home Lab | Windows, macOS, Linux, Proxmox & pfSense</title>
+  <meta name="description" content="Cross-platform systems administration home lab covering Proxmox, pfSense, Windows Server, Active Directory, Windows, macOS, Linux, DNS, DHCP, remote administration, backups, and isolated restore validation.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://jeremyfontenot.online/on-prem-home-lab.html">
+  <meta property="og:site_name" content="Jeremy Fontenot">
+  <meta property="og:title" content="On-Premises Home Lab | Windows, macOS, Linux, Proxmox & pfSense">
+  <meta property="og:description" content="A personal cross-platform infrastructure lab with Active Directory, DNS, DHCP, pfSense routing, Proxmox virtualization, remote administration, backup operations, and bounded restore testing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jeremyfontenot.online/on-prem-home-lab.html">
+  <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+  <meta property="og:image:alt" content="Jeremy Fontenot cross-platform home lab and infrastructure operations portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="On-Premises Home Lab | Windows, macOS, Linux, Proxmox & pfSense">
+  <meta name="twitter:description" content="Cross-platform systems administration practice with identity, networking, virtualization, remote administration, backups, and validation.">
+  <meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+  <link rel="icon" href="./assets/logos/favicon_64x64.png">
+  <link rel="stylesheet" href="./assets/css/site.css">
+  <script src="./assets/js/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"On-Premises Cross-Platform Home Lab","headline":"On-Premises Home Lab with Windows, macOS, Linux, Proxmox, pfSense, and Active Directory","description":"A personal cross-platform systems administration lab covering virtualization, identity, DNS, DHCP, routing, remote administration, backups, and bounded restore validation.","url":"https://jeremyfontenot.online/on-prem-home-lab.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Windows Server","Active Directory","Windows administration","macOS administration","Linux administration","Proxmox VE","pfSense","DNS","DHCP","Kerberos","SSH","VNC","Backup and restore validation","PowerShell"]}</script>
+</head>
+<body class="home-lab-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="/"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44" decoding="async"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+      <div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./systems-administration.html">Readiness</a><a href="./projects.html" aria-current="page">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div>
     </nav>
-    <div class="compact-footer-contact" aria-label="Professional contact links">
-      <a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a>
-      <a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a>
-      <a href="https://github.com/fontenotjeremy71-hub">GitHub</a>
-    </div>
-  </div>
-  <p class="credibility">Every public claim here traces back to a real artifact — see the <a href="./proof.html">proof index</a> for sourcing and limitations.</p>
-  <p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
-</footer>
-    </body>
-    </html>
+  </header>
+  <main id="main">
+    <section class="page page-hero home-lab-hero" aria-labelledby="lab-title">
+      <div class="page-hero-grid">
+        <div class="hero-copy reveal is-visible">
+          <p class="eyebrow">Home Lab · Cross-platform infrastructure operations</p>
+          <h1 id="lab-title">A working lab for Windows, macOS, Linux, identity, networking, and virtualization practice.</h1>
+          <p class="lead">I built this personal lab to practice systems administration safely. It combines Proxmox virtualization, pfSense routing, Windows Server and Active Directory, a Windows client, Linux01 on VLAN 30, and MACVM01 as a macOS domain member with SSH and VNC administration.</p>
+          <div class="actions"><a class="button primary" href="#systems">Review the systems</a><a class="button" href="./macvm01.html">Open MACVM01</a><a class="button" href="#restore-validation">Review restore testing</a><a class="button" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx">Download documentation</a><a class="button text-button" href="./proof.html#home-lab-proof">Trace claims to proof</a></div>
+        </div>
+        <aside class="lab-topology reveal is-visible" aria-label="Home lab topology summary">
+          <div class="topology-node"><span>Physical host</span><strong>Dell PowerEdge R710</strong><em>Personal nonproduction lab</em></div><div class="topology-link"></div>
+          <div class="topology-node"><span>Hypervisor</span><strong>Proxmox VE</strong><em>pfSense, DC01, WS01, Linux01, and MACVM01</em></div><div class="topology-link"></div>
+          <div class="topology-bus"><span>Network and identity</span><strong>pfSense · AD DS · DNS · DHCP · VLAN 30 · OpenVPN</strong></div>
+          <div class="topology-endpoints"><div class="topology-node"><span>Windows</span><strong>DC01 and WS01</strong><em>Directory services and domain client</em></div><div class="topology-node"><span>Linux</span><strong>Linux01</strong><em>Ubuntu domain member on VLAN 30</em></div><div class="topology-node"><span>macOS</span><strong>MACVM01</strong><em>AD-bound endpoint with SSH and VNC</em></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <nav class="section-jump-nav page-shell" aria-label="Home lab sections"><a href="#overview">Overview</a><a href="#systems">Systems</a><a href="#skills">Skills</a><a href="#restore-validation">Restore validation</a><a href="#artifacts">Artifacts</a><a href="#limits">Limitations</a></nav>
+
+    <section class="section" id="overview" aria-labelledby="overview-title">
+      <div class="section-head reveal"><p class="eyebrow">Environment overview</p><h2 id="overview-title">One lab, multiple operating systems, shared infrastructure services.</h2><p>The environment supports bounded practice with virtualization, routing, identity, name resolution, endpoint integration, remote administration, backup operations, troubleshooting, and evidence-based documentation.</p></div>
+      <div class="lab-state-grid reveal">
+        <article><span class="tile-code">HOST</span><h3>Virtualization platform</h3><p>Proxmox hosts the firewall, domain controller, Windows client, Ubuntu server, and macOS guest with documented compute, storage, bridge, and lifecycle context.</p></article>
+        <article><span class="tile-code">NET</span><h3>Network services</h3><p>pfSense provides routing and segmentation. DC01 supplies DNS and DHCP. Linux01 uses VLAN 30, while MACVM01 is placed on the pfSense-managed LAN through <code>vmbr1</code>.</p></article>
+        <article><span class="tile-code">IAM</span><h3>Identity services</h3><p>DC01 provides Active Directory Domain Services, DNS, DHCP, Group Policy, Global Catalog, and FSMO roles for Windows, Linux, and macOS integration practice.</p></article>
+        <article><span class="tile-code">OPS</span><h3>Operations</h3><p>Remote administration, service checks, backup review, isolated restore procedures, integrity records, and technical documentation support repeatable operations.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="systems" aria-labelledby="systems-title">
+      <div class="section-head reveal"><p class="eyebrow">Systems</p><h2 id="systems-title">Cross-platform systems directly represented in the lab.</h2><p>Each system demonstrates a different part of the infrastructure relationship.</p></div>
+      <div class="lab-proof-detail reveal">
+        <article class="proof-chip verified"><span class="chip-kind">Virtualization</span><h3>Proxmox VE</h3><p>VM inventory, virtual hardware, storage, bridges, backup coverage, guest placement, and approved lifecycle operations.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html">Open Proxmox evidence</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">Identity services</span><h3>DC01 · Windows Server</h3><p>AD DS, DNS, DHCP, Group Policy, Global Catalog, FSMO ownership, domain identity, and infrastructure service validation.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html">Open DC01 evidence</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">Windows endpoint</span><h3>WS01</h3><p>Windows domain membership, secure channel, captured network state, and workstation integration with the lab domain.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html">Open WS01 evidence</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">Linux endpoint</span><h3>Linux01 · Ubuntu</h3><p>VLAN 30 placement, DNS, routes, SSH, Kerberos, realmd, SSSD, domain identity resolution, logging, updates, and remediation validation.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html">Open Linux01 evidence</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">macOS endpoint</span><h3>MACVM01 · macOS</h3><p>Proxmox deployment, corrected bridge placement behind pfSense, Active Directory binding, computer account, mobile domain user, DNS, SSH, VNC, hostname, and network-time validation.</p><div class="proof-links"><a href="./macvm01.html">Open MACVM01 case study</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">Routing and segmentation</span><h3>pfSense</h3><p>Firewall and routing context, LAN and VLAN paths, OpenVPN management access, and bounded isolated restore validation.</p><div class="proof-links"><a href="./network-segmentation.html">Review network segmentation</a></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="section-head reveal"><p class="eyebrow">Skills demonstrated</p><h2 id="skills-title">The lab connects endpoint work to the services behind it.</h2></div>
+      <div class="capability-grid reveal">
+        <article class="capability-card"><span class="tile-code">ID</span><h3>Cross-platform identity</h3><p>Windows domain membership, Linux realmd and SSSD integration, macOS Active Directory binding, computer objects, mobile accounts, Kerberos-aware configuration, and identity resolution.</p></article>
+        <article class="capability-card"><span class="tile-code">DNS</span><h3>DNS and service access</h3><p>Forward and reverse lookup validation, domain-qualified hostnames, DNS assignment, TCP reachability, gateway review, and troubleshooting across routed paths.</p></article>
+        <article class="capability-card"><span class="tile-code">VM</span><h3>Virtualization and networking</h3><p>VM resources, OVMF and Q35 guest configuration, Linux bridges, VLAN placement, pfSense routing, guest isolation, and lifecycle management.</p></article>
+        <article class="capability-card"><span class="tile-code">CLI</span><h3>Remote administration</h3><p>PowerShell, SSH, VNC, macOS Screen Sharing, local and domain account administration, and evidence capture from management systems.</p></article>
+        <article class="capability-card"><span class="tile-code">BKP</span><h3>Backup and restore operations</h3><p>Scheduled backup review, archive inventory, preboot NIC isolation, bounded restore tests, cleanup, and conservative result classification.</p></article>
+        <article class="capability-card"><span class="tile-code">DOC</span><h3>Documentation and evidence</h3><p>Runbooks, validation output, screenshots, manifests, SHA-256 hashes, public-safe sanitization, explicit limitations, and reviewer-oriented case studies.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="restore-validation" aria-labelledby="restore-title">
+      <div class="section-head reveal"><p class="eyebrow">Isolated restore validation</p><h2 id="restore-title">Selected backup archives were exercised without connecting temporary guests to normal lab networks.</h2><p>Temporary Proxmox VMs were created with preboot NIC isolation, checked only within authorized scope, shut down, and removed. The results remain deliberately bounded.</p></div>
+      <div class="lab-proof-detail reveal">
+        <article class="proof-chip verified"><span class="chip-kind">Linux01 · PASS</span><h3>Scoped restore objectives passed.</h3><p>The restored Ubuntu guest booted, responded through the guest agent, supported bounded identity and system checks, and was cleaned up.</p></article>
+        <article class="proof-chip verified"><span class="chip-kind">pfSense · Narrow PASS</span><h3>Local isolated objectives passed.</h3><p>The restored firewall booted with both NICs isolated. Live routing, NAT, firewall policy, DHCP, DNS forwarding, and VPN behavior were not tested.</p></article>
+        <article class="proof-chip limitation"><span class="chip-kind">WS01 · INCONCLUSIVE</span><h3>Restore and boot succeeded; in-guest validation was unavailable.</h3><p>The VM reached the Windows sign-in screen, remained isolated, shut down cleanly, and was removed.</p></article>
+        <article class="proof-chip limitation"><span class="chip-kind">DC01 · INCONCLUSIVE</span><h3>Selected services passed; LDAP-dependent checks remained inconclusive.</h3><p>NTDS, SYSVOL, NETLOGON, and selected core services were observed, while strict network isolation limited local LDAP validation.</p></article>
+      </div>
+      <div class="inline-actions reveal"><a href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/">Open restore evidence</a><a href="./proof.html#restore-validation-proof">Review classification</a><a href="./dashboard.html">Open coverage dashboard</a></div>
+    </section>
+
+    <section class="section" id="artifacts" aria-labelledby="artifacts-title">
+      <div class="section-head reveal"><p class="eyebrow">Reviewer artifacts</p><h2 id="artifacts-title">Stable routes for deeper technical review.</h2></div>
+      <div class="artifact-grid reveal">
+        <a class="artifact-card" href="./macvm01.html"><span>MAC</span><strong>MACVM01 case study</strong><em>macOS virtualization, AD binding, DNS, SSH, VNC, and remediation.</em></a>
+        <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/"><span>RESTORE</span><strong>Isolated restore evidence</strong><em>Four systems, mixed results, safety controls, and limitations.</em></a>
+        <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/README.html"><span>README</span><strong>Supported-state evidence</strong><em>Public-safe infrastructure summary and boundaries.</em></a>
+        <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html"><span>DIRECT</span><strong>Proxmox inventory</strong><em>Platform, VM, storage, bridge, and VLAN evidence.</em></a>
+        <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html"><span>DIRECT</span><strong>DC01 validation</strong><em>Windows Server, AD DS, DNS, DHCP, GPO, GC, and FSMO.</em></a>
+        <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html"><span>DIRECT</span><strong>Linux01 validation</strong><em>Ubuntu, VLAN, networking, and domain integration.</em></a>
+        <a class="artifact-card" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx"><span>DOCX</span><strong>Home Lab documentation</strong><em>Download the professional environment document.</em></a>
+        <a class="artifact-card" href="./home-lab-operations-proof.html"><span>OPS</span><strong>Operations validation</strong><em>Inventory, framework checks, state reconciliation, and remediation.</em></a>
+      </div>
+    </section>
+
+    <section class="section" id="limits" aria-labelledby="limits-title">
+      <div class="scope-note-card reveal"><p class="eyebrow">Evidence boundary</p><h2 id="limits-title">What this lab does not prove.</h2><p>This personal nonproduction lab does not prove enterprise production ownership, high availability, enterprise Apple fleet administration, Apple Business Manager, MDM, full firewall assurance, full security assurance, complete disaster recovery, RTO, RPO, SLA performance, or continuous availability. Each result applies only to the system, action, and observation documented in its case study.</p><div class="inline-actions"><a href="./systems-administration.html">Review readiness and boundaries</a><a href="./proof.html#home-lab-proof">Review claim boundaries</a><a href="./contact.html">Discuss role fit</a></div></div>
+    </section>
+  </main>
+  <footer class="site-footer compact-footer" aria-label="Site footer">
+    <div class="compact-footer-grid"><div class="compact-footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async"><div><strong>Jeremy Fontenot</strong><p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p></div></div><nav class="compact-footer-links" aria-label="Footer navigation"><a href="./systems-administration.html">Readiness</a><a href="./projects.html">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a><a href="./sitemap.xml">Sitemap</a></nav><div class="compact-footer-contact" aria-label="Professional contact links"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div></div>
+    <p class="credibility">Every public claim is limited to the action performed, result observed, scope, and documented limitations.</p><p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p>
+  </footer>
+</body>
+</html>
