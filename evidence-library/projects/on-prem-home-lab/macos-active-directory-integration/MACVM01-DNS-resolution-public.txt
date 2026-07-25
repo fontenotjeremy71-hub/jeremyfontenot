@@ -1,0 +1,3 @@
+Name      : macvm01.ad.jeremyfontenot.online
+Type      : A
+IPAddress : 10.10.20.101
