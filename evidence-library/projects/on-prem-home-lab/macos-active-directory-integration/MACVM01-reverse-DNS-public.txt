@@ -1,3 +1,2 @@
-Name     : 101.20.10.10.in-addr.arpa.
 Type     : PTR
 NameHost : MACVM01
