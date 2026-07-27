@@ -10,8 +10,8 @@ const root = path.resolve(__dirname, '..', '..');
 const TEXT_EXTENSIONS = new Set(['.csv', '.json', '.xml', '.svg', '.html', '.htm', '.md', '.txt', '.ps1', '.js', '.mjs', '.cjs', '.yaml', '.yml', '.log', '.patch']);
 const BINARY_RESTRICTED_EXTENSIONS = new Set(['.pfx', '.p12', '.key', '.pem', '.kdbx']);
 const GENERATED_OUTPUT_ROOTS = [
-  'site/', '.site-preflight/', 'playwright-report/', 'test-results/', 'node_modules/',
-  'coverage/', '.cache/', 'dist/', 'build/', 'artifacts/playwright/', 'artifacts/redesign/final/',
+  'site/', '.site-preflight/', 'test-results/', 'node_modules/',
+  'coverage/', '.cache/', 'dist/', 'build/', 'artifacts/redesign/final/',
   'evidence-library/preserved-sharepoint/wrappers/'
 ];
 const HIGH_SEVERITY_PATTERNS = [
@@ -543,7 +543,7 @@ function build() {
   const uncovered = candidates.filter((file) => !approved.has(file) && !exclusions.has(file));
   if (uncovered.length) throw new Error('Microsoft 365 candidate files require catalog records or reviewed exclusions:\n' + uncovered.join('\n'));
   for (const excludedPath of exclusions.keys()) {
-    if (!trackedSet.has(excludedPath) && !['assets/data/m365-evidence-catalog.json','microsoft-365/evidence-catalog.html','microsoft-365/index.html','microsoft-365/source-to-destination-matrix.csv','microsoft-365/duplicate-groups.json','microsoft-365/sensitive-data-review.json','content/microsoft-365/generated-output-hashes.json','tests/m365-evidence-organization.test.js'].includes(excludedPath)) {
+    if (!trackedSet.has(excludedPath) && !['assets/data/m365-evidence-catalog.json','microsoft-365/evidence-catalog.html','microsoft-365/index.html','microsoft-365/source-to-destination-matrix.csv','microsoft-365/duplicate-groups.json','microsoft-365/sensitive-data-review.json','content/microsoft-365/generated-output-hashes.json'].includes(excludedPath)) {
       throw new Error('Reviewed Microsoft 365 exclusion path is missing: ' + excludedPath);
     }
   }

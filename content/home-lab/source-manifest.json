@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedOutputRoots": ["site/",".site-preflight/","playwright-report/","test-results/","node_modules/","coverage/",".cache/","dist/","build/","artifacts/playwright/","artifacts/redesign/final/"],
+  "generatedOutputRoots": ["site/",".site-preflight/","node_modules/",".cache/","dist/","build/","artifacts/redesign/final/"],
   "contentCandidateRoots": ["assets/evidence/","docs/projects/","evidence/public/","evidence-library/architecture-diagrams/","evidence-library/network/","evidence-library/proxmox/","evidence-library/windows-server/","troubleshooting-rca/"],
   "candidatePathTerms": ["home[-_ ]?lab","homelab","proxmox","active[-_ ]?directory","ad[-_ ]?migration","dns[-_ ]?dhcp","network","vlan","pfsense","windows[-_ ]?server","windows[-_ ]?client","linux","ubuntu","backup","restore","recovery","monitor","logging","powershell","infrastructure"],
   "approvedRecursiveRoots": [
@@ -64,7 +64,6 @@
     {"path":"scripts/build/create-home-lab-github-attestation.js","reason":"Phase attestation tooling, not collected evidence."},
     {"path":"scripts/lib/home-lab-evidence.js","reason":"Phase generator library, not collected evidence."},
     {"path":"scripts/build/generate-home-lab-evidence-organization.js","reason":"Phase generator implementation, not collected evidence."},
-    {"path":"tests/home-lab-evidence-organization.test.js","reason":"Phase deterministic and negative validation, not collected evidence."},
     {"path":"docs/home-lab-evidence-organization.md","reason":"Phase implementation documentation, not a collected artifact."},
     {"path":"schemas/home-lab-source-attestation.schema.json","reason":"External-source attestation validation schema, not a collected evidence artifact."},
     {"path":"assets/data/home-lab-evidence-catalog.json","reason":"Generated public catalog validated as an output contract."},
@@ -92,7 +91,6 @@
     {"path":"evidence-library/skills/service-desk-support/service-desk-network-troubleshooting-workflow-2026.md","reason":"Service-desk troubleshooting material; outside Phase 3B."},
     {"path":"evidence/public/index.html","reason":"Cross-platform compatibility index represented by platform-specific physical artifacts."},
     {"path":"evidence/public/rca-2025-02-10.md","reason":"Exchange mail-flow RCA material; outside Phase 3B."},
-    {"path":"scripts/validation/validate-powershell.ps1","reason":"Repository validator implementation, not collected Home Lab evidence."},
     {"path":"evidence-library/projects/on-prem-home-lab/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/active-directory/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
     {"path":"evidence-library/skills/networking-vlans/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
@@ -107,6 +105,5 @@
     {"path":"scripts/build/generate-evidence-skill-mapping.js","reason":"Phase 4 generator implementation, not collected evidence."},
     {"path":"scripts/lib/evidence-skill-mapping.js","reason":"Phase 4 mapping library, not collected evidence."},
     {"path":"systems-skills/evidence-map.html","reason":"Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."},
-    {"path":"tests/evidence-skill-mapping.test.js","reason":"Phase 4 deterministic and negative validation, not collected evidence."}
   ]
 }

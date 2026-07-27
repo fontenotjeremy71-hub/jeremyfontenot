@@ -737,7 +737,6 @@ Static professional portfolio for Jeremy Fontenot.
 
 ## Validation
 
-Use the repo-local scripts in `scripts/validation` for HTML, JSON, sitemap, SEO, accessibility, link, evidence, screenshot, PowerShell, and repository-structure checks.
 """)
     pages = ["", "projects.html", "on-prem-home-lab.html", "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/", "proof.html", "dashboard.html", "resume.html", "contact.html", "home-lab-operations-proof.html"]
     urls = "\n".join(f"  <url><loc>{DOMAIN}/{p}</loc></url>" for p in pages)
