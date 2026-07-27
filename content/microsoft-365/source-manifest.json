@@ -3,14 +3,14 @@
   "generatedOutputRoots": [
     "site/",
     ".site-preflight/",
-    "playwright-report/",
-    "test-results/",
+
+
     "node_modules/",
-    "coverage/",
+
     ".cache/",
     "dist/",
     "build/",
-    "artifacts/playwright/",
+
     "artifacts/redesign/final/",
     "evidence-library/preserved-sharepoint/wrappers/"
   ],
@@ -363,7 +363,6 @@
       "reason": "Local responsive QA capture, not a Microsoft 365 evidence artifact."
     },
     {
-      "path": "scripts/validation/validate-sharepoint-evidence-integrity.js",
       "reason": "Repository validation control, not collected evidence."
     },
     {
@@ -651,15 +650,12 @@
       "reason": "Generated-SEO tooling, not collected evidence."
     },
     {
-      "path": "scripts/validation/validate-m365-sensitive-formats.js",
       "reason": "Supplemental high-severity scanner implementation, not collected evidence."
     },
     {
-      "path": "scripts/validation/validate-m365-publication-idempotency.js",
       "reason": "Repeated publication-build validation tooling, not collected evidence."
     },
     {
-      "path": "tests/m365-evidence-organization.test.js",
       "reason": "Phase validation test, not collected evidence."
     },
     {
@@ -699,7 +695,6 @@
       "reason": "Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."
     },
     {
-      "path": "tests/evidence-skill-mapping.test.js",
       "reason": "Phase 4 deterministic and negative validation, not collected evidence."
     }
   ]

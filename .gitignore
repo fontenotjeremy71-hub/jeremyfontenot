@@ -11,7 +11,6 @@ legacy-site-backup/
 node_modules/
 .tmp-*
 test-output/
-playwright-report/
 screenshots/temp/
 validation-screenshots/
 **/.cache/
@@ -62,9 +61,7 @@ artifacts/core-page-diff-review.txt
 
 node_modules/
 
-playwright-report/
 test-results/
-/artifacts/playwright/
 artifacts/screenshots/temp/
 *.log
 
