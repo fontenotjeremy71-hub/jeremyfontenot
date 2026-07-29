@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>On-Premises Home Lab | Windows, macOS, Linux, Proxmox & pfSense</title>
-  <meta name="description" content="Cross-platform systems administration home lab covering Proxmox, pfSense, Windows Server, Active Directory, Windows, macOS, Linux, DNS, DHCP, remote administration, backups, and isolated restore validation.">
+  <title>On-Premises Home Lab | Windows, macOS, Linux, Proxmox, Hyper-V & pfSense</title>
+  <meta name="description" content="Cross-platform systems administration home lab covering Proxmox, nested Hyper-V, pfSense, Windows Server, Active Directory, Windows, macOS, Linux, DNS, DHCP, virtual storage, remote administration, backups, and isolated restore validation.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0f172a">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://jeremyfontenot.online/on-prem-home-lab.html">
   <meta property="og:site_name" content="Jeremy Fontenot">
-  <meta property="og:title" content="On-Premises Home Lab | Windows, macOS, Linux, Proxmox & pfSense">
-  <meta property="og:description" content="A personal cross-platform infrastructure lab with Active Directory, DNS, DHCP, pfSense routing, Proxmox virtualization, remote administration, backup operations, and bounded restore testing.">
+  <meta property="og:title" content="On-Premises Home Lab | Windows, macOS, Linux, Proxmox, Hyper-V & pfSense">
+  <meta property="og:description" content="A personal cross-platform infrastructure lab with Active Directory, DNS, DHCP, pfSense routing, Proxmox and nested Hyper-V virtualization, remote administration, backup operations, storage administration, and bounded restore testing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jeremyfontenot.online/on-prem-home-lab.html">
   <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
   <meta property="og:image:alt" content="Jeremy Fontenot cross-platform home lab and infrastructure operations portfolio">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="On-Premises Home Lab | Windows, macOS, Linux, Proxmox & pfSense">
-  <meta name="twitter:description" content="Cross-platform systems administration practice with identity, networking, virtualization, remote administration, backups, and validation.">
+  <meta name="twitter:title" content="On-Premises Home Lab | Windows, macOS, Linux, Proxmox, Hyper-V & pfSense">
+  <meta name="twitter:description" content="Cross-platform systems administration practice with identity, networking, virtualization, storage administration, remote administration, backups, and validation.">
   <meta name="twitter:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
   <link rel="icon" href="./assets/logos/favicon_64x64.png">
   <link rel="stylesheet" href="./assets/css/site.css">
   <script src="./assets/js/site.js" defer></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"On-Premises Cross-Platform Home Lab","headline":"On-Premises Home Lab with Windows, macOS, Linux, Proxmox, pfSense, and Active Directory","description":"A personal cross-platform systems administration lab covering virtualization, identity, DNS, DHCP, routing, remote administration, backups, and bounded restore validation.","url":"https://jeremyfontenot.online/on-prem-home-lab.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Windows Server","Active Directory","Windows administration","macOS administration","Linux administration","Proxmox VE","pfSense","DNS","DHCP","Kerberos","SSH","VNC","Backup and restore validation","PowerShell"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"On-Premises Cross-Platform Home Lab","headline":"On-Premises Home Lab with Windows, macOS, Linux, Proxmox, Hyper-V, pfSense, and Active Directory","description":"A personal cross-platform systems administration lab covering virtualization, identity, DNS, DHCP, routing, virtual storage, remote administration, backups, and bounded restore validation.","url":"https://jeremyfontenot.online/on-prem-home-lab.html","author":{"@type":"Person","name":"Jeremy Fontenot","url":"https://jeremyfontenot.online"},"about":["Windows Server","Active Directory","Windows administration","macOS administration","Linux administration","Proxmox VE","Microsoft Hyper-V","VHDX","pfSense","DNS","DHCP","Kerberos","SSH","VNC","Backup and restore validation","PowerShell"]}</script>
 </head>
 <body class="home-lab-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -39,15 +39,16 @@
       <div class="page-hero-grid">
         <div class="hero-copy reveal is-visible">
           <p class="eyebrow">Home Lab · Cross-platform infrastructure operations</p>
-          <h1 id="lab-title">A working lab for Windows, macOS, Linux, identity, networking, and virtualization practice.</h1>
-          <p class="lead">I built this personal lab to practice systems administration safely. It combines Proxmox virtualization, pfSense routing, Windows Server and Active Directory, a Windows client, Linux01 on VLAN 30, and MACVM01 as a macOS domain member with SSH and VNC administration.</p>
-          <div class="actions"><a class="button primary" href="#systems">Review the systems</a><a class="button" href="./macvm01.html">Open MACVM01</a><a class="button" href="#restore-validation">Review restore testing</a><a class="button" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx">Download documentation</a><a class="button text-button" href="./proof.html#home-lab-proof">Trace claims to proof</a></div>
+          <h1 id="lab-title">A working lab for Windows, macOS, Linux, identity, networking, virtualization, and storage administration practice.</h1>
+          <p class="lead">I built this personal lab to practice systems administration safely. It combines Proxmox virtualization, a nested Hyper-V host named HVHOST01, pfSense routing, Windows Server and Active Directory, a Windows client, Linux01 on VLAN 30, and MACVM01 as a macOS domain member with SSH and VNC administration.</p>
+          <div class="actions"><a class="button primary" href="#systems">Review the systems</a><a class="button" href="./app01-storage-expansion.html">Open APP01 Hyper-V case study</a><a class="button" href="./macvm01.html">Open MACVM01</a><a class="button" href="#restore-validation">Review restore testing</a><a class="button" href="./assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx">Download documentation</a><a class="button text-button" href="./proof.html#home-lab-proof">Trace claims to proof</a></div>
         </div>
         <aside class="lab-topology reveal is-visible" aria-label="Home lab topology summary">
           <div class="topology-node"><span>Physical host</span><strong>Dell PowerEdge R710</strong><em>Personal nonproduction lab</em></div><div class="topology-link"></div>
-          <div class="topology-node"><span>Hypervisor</span><strong>Proxmox VE</strong><em>pfSense, DC01, WS01, Linux01, and MACVM01</em></div><div class="topology-link"></div>
+          <div class="topology-node"><span>Primary hypervisor</span><strong>Proxmox VE</strong><em>pfSense, DC01, WS01, Linux01, MACVM01, and HVHOST01</em></div><div class="topology-link"></div>
+          <div class="topology-node"><span>Nested virtualization</span><strong>Microsoft Hyper-V</strong><em>HVHOST01 hosting APP01 for Windows Server VM and VHDX administration</em></div><div class="topology-link"></div>
           <div class="topology-bus"><span>Network and identity</span><strong>pfSense · AD DS · DNS · DHCP · VLAN 30 · OpenVPN</strong></div>
-          <div class="topology-endpoints"><div class="topology-node"><span>Windows</span><strong>DC01 and WS01</strong><em>Directory services and domain client</em></div><div class="topology-node"><span>Linux</span><strong>Linux01</strong><em>Ubuntu domain member on VLAN 30</em></div><div class="topology-node"><span>macOS</span><strong>MACVM01</strong><em>AD-bound endpoint with SSH and VNC</em></div></div>
+          <div class="topology-endpoints"><div class="topology-node"><span>Windows</span><strong>DC01, WS01, and APP01</strong><em>Directory services, domain client, and nested Hyper-V guest</em></div><div class="topology-node"><span>Linux</span><strong>Linux01</strong><em>Ubuntu domain member on VLAN 30</em></div><div class="topology-node"><span>macOS</span><strong>MACVM01</strong><em>AD-bound endpoint with SSH and VNC</em></div></div>
         </aside>
       </div>
     </section>
@@ -55,19 +56,21 @@
     <nav class="section-jump-nav page-shell" aria-label="Home lab sections"><a href="#overview">Overview</a><a href="#systems">Systems</a><a href="#skills">Skills</a><a href="#restore-validation">Restore validation</a><a href="#artifacts">Artifacts</a><a href="#limits">Limitations</a></nav>
 
     <section class="section" id="overview" aria-labelledby="overview-title">
-      <div class="section-head reveal"><p class="eyebrow">Environment overview</p><h2 id="overview-title">One lab, multiple operating systems, shared infrastructure services.</h2><p>The environment supports bounded practice with virtualization, routing, identity, name resolution, endpoint integration, remote administration, backup operations, troubleshooting, and evidence-based documentation.</p></div>
+      <div class="section-head reveal"><p class="eyebrow">Environment overview</p><h2 id="overview-title">One lab, multiple operating systems, shared infrastructure services, and two virtualization layers.</h2><p>The environment supports bounded practice with Proxmox and nested Hyper-V virtualization, routing, identity, name resolution, endpoint integration, virtual-disk administration, remote administration, backup operations, troubleshooting, and evidence-based documentation.</p></div>
       <div class="lab-state-grid reveal">
-        <article><span class="tile-code">HOST</span><h3>Virtualization platform</h3><p>Proxmox hosts the firewall, domain controller, Windows client, Ubuntu server, and macOS guest with documented compute, storage, bridge, and lifecycle context.</p></article>
+        <article><span class="tile-code">HOST</span><h3>Virtualization platforms</h3><p>Proxmox hosts the core lab systems and HVHOST01. Hyper-V on HVHOST01 hosts APP01, providing hands-on practice with VM settings, checkpoints, differencing disks, VHDX expansion, and host-level validation.</p></article>
         <article><span class="tile-code">NET</span><h3>Network services</h3><p>pfSense provides routing and segmentation. DC01 supplies DNS and DHCP. Linux01 uses VLAN 30, while MACVM01 is placed on the pfSense-managed LAN through <code>vmbr1</code>.</p></article>
         <article><span class="tile-code">IAM</span><h3>Identity services</h3><p>DC01 provides Active Directory Domain Services, DNS, DHCP, Group Policy, Global Catalog, and FSMO roles for Windows, Linux, and macOS integration practice.</p></article>
-        <article><span class="tile-code">OPS</span><h3>Operations</h3><p>Remote administration, service checks, backup review, isolated restore procedures, integrity records, and technical documentation support repeatable operations.</p></article>
+        <article><span class="tile-code">OPS</span><h3>Operations</h3><p>Remote administration, service checks, virtual storage changes, backup review, isolated restore procedures, integrity records, and technical documentation support repeatable operations.</p></article>
       </div>
     </section>
 
     <section class="section" id="systems" aria-labelledby="systems-title">
       <div class="section-head reveal"><p class="eyebrow">Systems</p><h2 id="systems-title">Cross-platform systems directly represented in the lab.</h2><p>Each system demonstrates a different part of the infrastructure relationship.</p></div>
       <div class="lab-proof-detail reveal">
-        <article class="proof-chip verified"><span class="chip-kind">Virtualization</span><h3>Proxmox VE</h3><p>VM inventory, virtual hardware, storage, bridges, backup coverage, guest placement, and approved lifecycle operations.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html">Open Proxmox evidence</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">Virtualization</span><h3>Proxmox VE</h3><p>VM inventory, virtual hardware, storage, bridges, backup coverage, guest placement, nested virtualization support, and approved lifecycle operations.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html">Open Proxmox evidence</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">Nested virtualization</span><h3>HVHOST01 · Microsoft Hyper-V</h3><p>Nested Hyper-V host administration covering APP01 VM settings, checkpoint-chain resolution, base VHDX attachment, dynamic-disk expansion, and PowerShell host validation.</p><div class="proof-links"><a href="./app01-storage-expansion.html">Open APP01 Hyper-V case study</a></div></article>
+        <article class="proof-chip verified"><span class="chip-kind">Windows Server guest</span><h3>APP01 · Windows Server 2022</h3><p>Guest storage administration covering GPT partition analysis, preservation of the Windows recovery partition, DVD drive-letter reassignment, NTFS Data volume provisioning, and functional write validation.</p><div class="proof-links"><a href="./app01-storage-expansion.html">Review APP01 storage evidence</a></div></article>
         <article class="proof-chip verified"><span class="chip-kind">Identity services</span><h3>DC01 · Windows Server</h3><p>AD DS, DNS, DHCP, Group Policy, Global Catalog, FSMO ownership, domain identity, and infrastructure service validation.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html">Open DC01 evidence</a></div></article>
         <article class="proof-chip verified"><span class="chip-kind">Windows endpoint</span><h3>WS01</h3><p>Windows domain membership, secure channel, captured network state, and workstation integration with the lab domain.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html">Open WS01 evidence</a></div></article>
         <article class="proof-chip verified"><span class="chip-kind">Linux endpoint</span><h3>Linux01 · Ubuntu</h3><p>VLAN 30 placement, DNS, routes, SSH, Kerberos, realmd, SSSD, domain identity resolution, logging, updates, and remediation validation.</p><div class="proof-links"><a href="./evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html">Open Linux01 evidence</a></div></article>
@@ -77,11 +80,11 @@
     </section>
 
     <section class="section" id="skills" aria-labelledby="skills-title">
-      <div class="section-head reveal"><p class="eyebrow">Skills demonstrated</p><h2 id="skills-title">The lab connects endpoint work to the services behind it.</h2></div>
+      <div class="section-head reveal"><p class="eyebrow">Skills demonstrated</p><h2 id="skills-title">The lab connects endpoint work to the services and virtualization layers behind it.</h2></div>
       <div class="capability-grid reveal">
         <article class="capability-card"><span class="tile-code">ID</span><h3>Cross-platform identity</h3><p>Windows domain membership, Linux realmd and SSSD integration, macOS Active Directory binding, computer objects, mobile accounts, Kerberos-aware configuration, and identity resolution.</p></article>
         <article class="capability-card"><span class="tile-code">DNS</span><h3>DNS and service access</h3><p>Forward and reverse lookup validation, domain-qualified hostnames, DNS assignment, TCP reachability, gateway review, and troubleshooting across routed paths.</p></article>
-        <article class="capability-card"><span class="tile-code">VM</span><h3>Virtualization and networking</h3><p>VM resources, OVMF and Q35 guest configuration, Linux bridges, VLAN placement, pfSense routing, guest isolation, and lifecycle management.</p></article>
+        <article class="capability-card"><span class="tile-code">VM</span><h3>Virtualization and storage</h3><p>Proxmox VM resources, OVMF and Q35 guest configuration, Linux bridges, VLAN placement, nested Hyper-V, checkpoint lifecycle, VHDX relationships and expansion, guest partitioning, and post-change validation.</p></article>
         <article class="capability-card"><span class="tile-code">CLI</span><h3>Remote administration</h3><p>PowerShell, SSH, VNC, macOS Screen Sharing, local and domain account administration, and evidence capture from management systems.</p></article>
         <article class="capability-card"><span class="tile-code">BKP</span><h3>Backup and restore operations</h3><p>Scheduled backup review, archive inventory, preboot NIC isolation, bounded restore tests, cleanup, and conservative result classification.</p></article>
         <article class="capability-card"><span class="tile-code">DOC</span><h3>Documentation and evidence</h3><p>Runbooks, validation output, screenshots, manifests, SHA-256 hashes, public-safe sanitization, explicit limitations, and reviewer-oriented case studies.</p></article>
@@ -102,6 +105,7 @@
     <section class="section" id="artifacts" aria-labelledby="artifacts-title">
       <div class="section-head reveal"><p class="eyebrow">Reviewer artifacts</p><h2 id="artifacts-title">Stable routes for deeper technical review.</h2></div>
       <div class="artifact-grid reveal">
+        <a class="artifact-card" href="./app01-storage-expansion.html"><span>HYPER-V</span><strong>APP01 storage expansion</strong><em>Checkpoint merge, VHDX expansion, GPT analysis, NTFS provisioning, and host/guest validation.</em></a>
         <a class="artifact-card" href="./macvm01.html"><span>MAC</span><strong>MACVM01 case study</strong><em>macOS virtualization, AD binding, DNS, SSH, VNC, and remediation.</em></a>
         <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/"><span>RESTORE</span><strong>Isolated restore evidence</strong><em>Four systems, mixed results, safety controls, and limitations.</em></a>
         <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/current-validated-state/README.html"><span>README</span><strong>Supported-state evidence</strong><em>Public-safe infrastructure summary and boundaries.</em></a>
@@ -114,7 +118,7 @@
     </section>
 
     <section class="section" id="limits" aria-labelledby="limits-title">
-      <div class="scope-note-card reveal"><p class="eyebrow">Evidence boundary</p><h2 id="limits-title">What this lab does not prove.</h2><p>This personal nonproduction lab does not prove enterprise production ownership, high availability, enterprise Apple fleet administration, Apple Business Manager, MDM, full firewall assurance, full security assurance, complete disaster recovery, RTO, RPO, SLA performance, or continuous availability. Each result applies only to the system, action, and observation documented in its case study.</p><div class="inline-actions"><a href="./systems-administration.html">Review readiness and boundaries</a><a href="./proof.html#home-lab-proof">Review claim boundaries</a><a href="./contact.html">Discuss role fit</a></div></div>
+      <div class="scope-note-card reveal"><p class="eyebrow">Evidence boundary</p><h2 id="limits-title">What this lab does not prove.</h2><p>This personal nonproduction lab does not prove enterprise production ownership, high availability, enterprise Hyper-V clustering, Storage Spaces Direct, live migration, enterprise Apple fleet administration, Apple Business Manager, MDM, full firewall assurance, full security assurance, complete disaster recovery, RTO, RPO, SLA performance, or continuous availability. The APP01 result applies only to the documented nested Hyper-V host, virtual disk, guest configuration, and observed validation.</p><div class="inline-actions"><a href="./systems-administration.html">Review readiness and boundaries</a><a href="./proof.html#home-lab-proof">Review claim boundaries</a><a href="./contact.html">Discuss role fit</a></div></div>
     </section>
   </main>
   <footer class="site-footer compact-footer" aria-label="Site footer">
