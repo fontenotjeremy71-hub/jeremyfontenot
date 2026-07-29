@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APP01 Storage Expansion | Jeremy Fontenot</title>
+  <meta name="description" content="Hyper-V storage expansion case study covering checkpoint merge, VHDX expansion, Windows Server partition analysis, NTFS data-volume provisioning, and PowerShell validation.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://jeremyfontenot.online/app01-storage-expansion.html">
+  <link rel="icon" href="./assets/logos/favicon_64x64.png">
+  <link rel="stylesheet" href="./assets/css/site.css">
+  <script src="./assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="/">
+        <img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44">
+        <span>Jeremy Fontenot</span>
+        <small>Support · systems · evidence</small>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+      <div class="nav-links" id="primary-menu">
+        <a href="/">Home</a>
+        <a href="./systems-administration.html">Readiness</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./proof.html">Proof</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./resume.html">Resume</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page page-hero">
+      <div class="section-head reveal is-visible">
+        <p class="eyebrow kicker-line">Windows Server · Hyper-V · Storage administration</p>
+        <h1>APP01 virtual-disk expansion and data-volume provisioning</h1>
+        <p class="lead">Expanded a nested Hyper-V virtual disk from 64 GB to 100 GB, safely resolved an active checkpoint chain, preserved the Windows recovery partition, and provisioned the additional capacity as a validated NTFS data volume.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="project-panel flagship-project reveal is-visible">
+        <div>
+          <div class="project-card-head">
+            <span class="status-label validated">Validated</span>
+            <span class="project-number">APP01</span>
+          </div>
+
+          <h2>Objective</h2>
+          <p>Increase usable storage on APP01 while maintaining a supported Windows Server configuration and retaining recovery functionality.</p>
+
+          <div class="technology-tags">
+            <span>Hyper-V</span>
+            <span>Windows Server 2022</span>
+            <span>VHDX</span>
+            <span>GPT</span>
+            <span>NTFS</span>
+            <span>PowerShell</span>
+          </div>
+        </div>
+
+        <dl class="project-facts">
+          <div><dt>Initial state</dt><dd>64 GB dynamic VHDX with an active Hyper-V checkpoint and a 63.37 GB C: volume.</dd></div>
+          <div><dt>Final state</dt><dd>100 GB dynamic VHDX with C: preserved, the 524 MB recovery partition retained, and a new 36 GB NTFS Data (D:) volume.</dd></div>
+          <div><dt>Boundary</dt><dd>Personal nonproduction nested-virtualization lab. This does not demonstrate production change-control authority or enterprise storage scale.</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">Implementation</p>
+        <h2>Change workflow</h2>
+      </div>
+
+      <div class="project-supporting-grid">
+        <article class="project-panel">
+          <h3>1. Checkpoint assessment</h3>
+          <p>Identified that APP01 was attached to an <code>.avhdx</code> differencing disk and traced it to the parent <code>HVTEST01.vhdx</code>.</p>
+        </article>
+
+        <article class="project-panel">
+          <h3>2. Checkpoint merge</h3>
+          <p>Deleted the checkpoint through Hyper-V Manager, waited for the merge to complete, verified that no checkpoints remained, and confirmed APP01 was again attached to the base VHDX.</p>
+        </article>
+
+        <article class="project-panel">
+          <h3>3. VHDX expansion</h3>
+          <p>Powered off APP01 and expanded the dynamic virtual disk from 64 GB to 100 GB using the Hyper-V Edit Virtual Hard Disk wizard.</p>
+        </article>
+
+        <article class="project-panel">
+          <h3>4. Partition assessment</h3>
+          <p>Determined that the recovery partition sat between C: and the new unallocated space, preventing Disk Management from extending C: with built-in tools.</p>
+        </article>
+
+        <article class="project-panel">
+          <h3>5. Data-volume provisioning</h3>
+          <p>Reassigned the DVD drive from D: to E:, created a new simple volume in the unallocated space, formatted it as NTFS, assigned D:, and labeled it Data.</p>
+        </article>
+
+        <article class="project-panel">
+          <h3>6. Validation</h3>
+          <p>Verified the 100 GB disk, partition layout, healthy NTFS volume, and successful write operation to <code>D:\APP01-storage-validation.txt</code>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">Observed result</p>
+        <h2>Final storage layout</h2>
+      </div>
+
+      <div class="project-panel">
+        <dl class="project-facts">
+          <div><dt>Disk 0</dt><dd>100 GB, GPT, healthy and online.</dd></div>
+          <div><dt>EFI system partition</dt><dd>100 MB.</dd></div>
+          <div><dt>C:</dt><dd>63.37 GB NTFS operating-system volume.</dd></div>
+          <div><dt>Recovery</dt><dd>524 MB Windows recovery partition, preserved.</dd></div>
+          <div><dt>D:</dt><dd>36 GB NTFS data volume labeled Data.</dd></div>
+          <div><dt>Functional test</dt><dd>Validation file created and read successfully from D:.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">Evidence</p>
+        <h2>Captured proof</h2>
+      </div>
+
+      <div class="project-supporting-grid">
+        <figure class="project-panel">
+          <img src="./evidence-library/projects/on-prem-home-lab/app01-storage-expansion/01-hyper-v-manager-no-checkpoints.png" alt="Hyper-V Manager showing APP01 running with no checkpoints">
+          <figcaption>APP01 running on HVHOST01 with no remaining checkpoints.</figcaption>
+        </figure>
+
+        <figure class="project-panel">
+          <img src="./evidence-library/projects/on-prem-home-lab/app01-storage-expansion/02-app01-vm-settings-vhdx.png" alt="APP01 Hyper-V settings showing the attached HVTEST01 VHDX">
+          <figcaption>APP01 virtual hardware showing the attached base VHDX.</figcaption>
+        </figure>
+
+        <figure class="project-panel">
+          <img src="./evidence-library/projects/on-prem-home-lab/app01-storage-expansion/03-disk-management-final-layout.png" alt="Windows Disk Management showing C drive, recovery partition, and Data D drive">
+          <figcaption>Final GPT partition layout with the preserved recovery partition and new Data volume.</figcaption>
+        </figure>
+
+        <figure class="project-panel">
+          <img src="./evidence-library/projects/on-prem-home-lab/app01-storage-expansion/04-file-explorer-data-volume.png" alt="File Explorer showing Local Disk C, Data D, and DVD Drive E">
+          <figcaption>Data (D:) visible and mounted in the guest operating system.</figcaption>
+        </figure>
+
+        <figure class="project-panel">
+          <img src="./evidence-library/projects/on-prem-home-lab/app01-storage-expansion/05-guest-powershell-storage-validation.png" alt="PowerShell showing Get-Disk, Get-Partition, and Get-Volume validation">
+          <figcaption>Guest-level disk, partition, and volume validation.</figcaption>
+        </figure>
+
+        <figure class="project-panel">
+          <img src="./evidence-library/projects/on-prem-home-lab/app01-storage-expansion/06-host-get-vhd-validation.png" alt="PowerShell Get-VHD output showing a 100 GB dynamic VHDX">
+          <figcaption>Hyper-V host validation showing a dynamic VHDX with a 100 GB maximum size.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="project-panel">
+        <h2>Skills demonstrated</h2>
+        <div class="technology-tags">
+          <span>Checkpoint lifecycle management</span>
+          <span>VHDX expansion</span>
+          <span>Guest storage administration</span>
+          <span>GPT partition analysis</span>
+          <span>NTFS provisioning</span>
+          <span>Drive-letter management</span>
+          <span>PowerShell verification</span>
+          <span>Post-change validation</span>
+          <span>Technical documentation</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer compact-footer">
+    <div class="compact-footer-grid">
+      <div class="compact-footer-brand">
+        <img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46">
+        <div>
+          <strong>Jeremy Fontenot</strong>
+          <p>Service Desk and IT Support professional advancing toward systems administration and infrastructure operations.</p>
+        </div>
+      </div>
+      <nav class="compact-footer-links" aria-label="Footer navigation">
+        <a href="./systems-administration.html">Readiness</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./proof.html">Proof</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./resume.html">Resume</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
