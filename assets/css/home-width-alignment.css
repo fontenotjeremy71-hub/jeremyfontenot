@@ -1,0 +1,71 @@
+/* Homepage width alignment: match hero and footer framing to the main section panels. */
+
+.home-page {
+  --home-frame-width: 1380px;
+  --home-frame-gutter: 3rem;
+  --home-inner-width: 1280px;
+}
+
+/* Give the hero the same outer framed width and treatment as the main sections. */
+.home-page .command-hero {
+  width: min(100% - var(--home-frame-gutter), var(--home-frame-width));
+  max-width: var(--home-frame-width);
+  margin-inline: auto;
+  margin-top: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 1.25rem;
+  overflow: visible;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.18);
+}
+
+.home-page .hero-grid {
+  width: min(100% - 4rem, var(--home-inner-width));
+  max-width: var(--home-inner-width);
+  margin-inline: auto;
+}
+
+/* Make the footer close the page at the same visual width as the section panels. */
+.home-page .site-footer {
+  width: min(100% - var(--home-frame-gutter), var(--home-frame-width));
+  max-width: var(--home-frame-width);
+  margin: 2rem auto 1.5rem;
+  padding: clamp(2.5rem, 4vw, 3.75rem) 0 1.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.05), transparent 48%),
+    linear-gradient(180deg, rgba(10, 22, 38, 0.84), rgba(7, 17, 31, 0.68));
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.18);
+}
+
+.home-page .compact-footer-grid,
+.home-page .site-footer > .credibility,
+.home-page .site-footer > .footer-meta {
+  width: min(100% - 4rem, var(--home-inner-width));
+  max-width: var(--home-inner-width);
+  margin-inline: auto;
+}
+
+@media (max-width: 760px) {
+  .home-page {
+    --home-frame-gutter: 1.5rem;
+  }
+
+  .home-page .command-hero {
+    margin-top: 0.5rem;
+    border-radius: 0.85rem;
+  }
+
+  .home-page .hero-grid,
+  .home-page .compact-footer-grid,
+  .home-page .site-footer > .credibility,
+  .home-page .site-footer > .footer-meta {
+    width: min(100% - 2rem, var(--home-inner-width));
+  }
+
+  .home-page .site-footer {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 0.85rem;
+  }
+}
