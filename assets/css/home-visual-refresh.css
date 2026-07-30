@@ -312,3 +312,34 @@
     transition: none;
   }
 }
+
+/* Prevent large display headings from clipping glyphs at tight line heights. */
+.home-page .hero-copy,
+.home-page .section-head {
+  overflow: visible;
+}
+
+.home-page .command-hero h1,
+.home-page .section-head h2 {
+  overflow: visible;
+  padding-inline-end: 0.08em;
+  padding-bottom: 0.08em;
+}
+
+.home-page .command-hero h1 {
+  line-height: 0.98;
+  max-width: 12.5ch;
+}
+
+.home-page .section-head h2 {
+  line-height: 1.02;
+  max-width: 11.5ch;
+}
+
+@media (max-width: 760px) {
+  .home-page .command-hero h1,
+  .home-page .section-head h2 {
+    padding-inline-end: 0.12em;
+    padding-bottom: 0.1em;
+  }
+}
