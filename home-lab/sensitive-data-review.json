@@ -8,9 +8,9 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 439,
+    "artifactsReviewed": 445,
     "textArtifactsInspected": 299,
-    "manualReviewRequired": 140,
+    "manualReviewRequired": 146,
     "highSeveritySecretFindings": 0,
     "identifierFindings": 323,
     "unresolvedPublicIdentifierFindings": 0
@@ -635,6 +635,48 @@
     {
       "evidenceId": "home-lab-current-ea45cf34ebfb0bd5",
       "path": "evidence-library/projects/home-lab/lab-portfolio-preserved.pdf",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-4b41f3ef66cef7ef",
+      "path": "evidence-library/projects/on-prem-home-lab/app01-storage-expansion/01-hyper-v-manager-no-checkpoints.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-e7719ac7dca95e86",
+      "path": "evidence-library/projects/on-prem-home-lab/app01-storage-expansion/02-app01-vm-settings-vhdx.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-902de553d5997e6d",
+      "path": "evidence-library/projects/on-prem-home-lab/app01-storage-expansion/03-disk-management-final-layout.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-b666d62d49c8f1b7",
+      "path": "evidence-library/projects/on-prem-home-lab/app01-storage-expansion/04-file-explorer-data-volume.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-d21d826355a351ca",
+      "path": "evidence-library/projects/on-prem-home-lab/app01-storage-expansion/05-guest-powershell-storage-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-83ff3c73468bf017",
+      "path": "evidence-library/projects/on-prem-home-lab/app01-storage-expansion/06-host-get-vhd-validation.png",
       "publicationClassification": "public-original",
       "status": "manual-review-required",
       "findings": []
@@ -3074,7 +3116,7 @@
           "exceptionId": "home-lab-reviewed-c0264365ddf05a02",
           "occurrences": 1,
           "lines": [
-            172
+            125
           ],
           "valueFingerprints": [
             "da6c02741702401d"

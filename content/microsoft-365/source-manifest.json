@@ -363,7 +363,8 @@
       "reason": "Local responsive QA capture, not a Microsoft 365 evidence artifact."
     },
     {
-      "reason": "Repository validation control, not collected evidence."
+      "path": "artifacts/redesign/sitewide-experience-refresh/microsoft-365-desktop.png",
+      "reason": "Local site-wide redesign QA capture, not a Microsoft 365 evidence artifact."
     },
     {
       "path": "content/microsoft-365/source-manifest.json",
@@ -396,6 +397,10 @@
     {
       "path": "microsoft-365/index.html",
       "reason": "Generated Microsoft 365 landing page validated by the foundation output contract."
+    },
+    {
+      "path": "evidence/index.html",
+      "reason": "Generated cross-platform evidence landing page validated by the foundation output contract; it is navigation, not a collected Microsoft 365 artifact."
     },
     {
       "path": "microsoft-365/source-to-destination-matrix.csv",
@@ -650,15 +655,6 @@
       "reason": "Generated-SEO tooling, not collected evidence."
     },
     {
-      "reason": "Supplemental high-severity scanner implementation, not collected evidence."
-    },
-    {
-      "reason": "Repeated publication-build validation tooling, not collected evidence."
-    },
-    {
-      "reason": "Phase validation test, not collected evidence."
-    },
-    {
       "path": "assets/data/evidence-skill-map.json",
       "reason": "Phase 4 cross-platform relationship output; references cataloged physical artifacts without creating duplicate evidence records."
     },
@@ -693,9 +689,6 @@
     {
       "path": "systems-skills/evidence-map.html",
       "reason": "Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."
-    },
-    {
-      "reason": "Phase 4 deterministic and negative validation, not collected evidence."
     }
   ]
 }

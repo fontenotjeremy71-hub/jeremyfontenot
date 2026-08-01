@@ -134,10 +134,10 @@ function pageShell({id, route, title, description, eyebrow, headline, summary, a
       </div>
     </section>
     ${jump}
-    ${bodySections}
+${bodySections}
     <section class="section" id="scope" aria-labelledby="scope-title"><div class="scope-note-card reveal"><p class="eyebrow">Scope</p><h2 id="scope-title">${escapeHtml(scopeHeading)}</h2><p>${escapeHtml(scopeText)}</p><div class="inline-actions"><a href="/systems-administration.html#boundaries">Review readiness boundaries</a><a href="/proof.html">Open the proof index</a></div></div></section>
   </main>
-  ${footer()}
+${footer()}
 </body>
 </html>
 `;
@@ -174,12 +174,27 @@ function renderTechnologyPage(taxonomy) {
   const id = taxonomy.platform;
   const title = `${taxonomy.label} Capability | Jeremy Fontenot`;
   const headline = taxonomy.platform === 'microsoft-365'
-    ? 'Microsoft 365 administration organized by technology and proof.'
-    : 'Home Lab administration organized by technology and proof.';
+    ? 'Identity, policy, and automation—organized for technical review.'
+    : 'From hypervisor to recovery, every system has a proof trail.';
   const description = taxonomy.summary;
-  const jumpLinks = taxonomy.technologies.map((technology) => ({id: technology.slug, label: technology.label}));
+  const reviewSteps = taxonomy.platform === 'microsoft-365'
+    ? [
+        {code: '01 / IDENTITY', title: 'Start with identity.', text: 'Users, groups, directory roles, sign-ins, and audit context establish the administration surface.', href: '#entra-id', linkLabel: 'Review identity evidence'},
+        {code: '02 / GOVERNANCE', title: 'Trace policy and applications.', text: 'Conditional Access, application identities, and permission relationships show how access decisions are reviewed.', href: '#security-compliance', linkLabel: 'Review governance evidence'},
+        {code: '03 / REPEATABILITY', title: 'Inspect the collection method.', text: 'PowerShell and Microsoft Graph workflows turn tenant state into structured, reviewable evidence.', href: '#automation', linkLabel: 'Review automation evidence'}
+      ]
+    : [
+        {code: '01 / PLATFORM', title: 'Begin at the platform layer.', text: 'Proxmox, storage, networking, and virtual hardware establish the foundation beneath each system.', href: '#proxmox', linkLabel: 'Review platform evidence'},
+        {code: '02 / SERVICES', title: 'Follow identity to endpoints.', text: 'Active Directory, DNS, DHCP, Windows clients, and Linux integration reveal how the lab operates as one system.', href: '#active-directory', linkLabel: 'Review service evidence'},
+        {code: '03 / OPERATIONS', title: 'Finish with validation.', text: 'Backup review, isolated restore exercises, logging, safeguards, and automation show the operating method.', href: '#backup-recovery', linkLabel: 'Review operations evidence'}
+      ];
+  const jumpLinks = [{id: 'review-path', label: 'Review path'}, ...taxonomy.technologies.map((technology) => ({id: technology.slug, label: technology.label}))];
   jumpLinks.push({id: 'scope', label: 'Scope'});
   const bodySections = `
+    <section class="section" id="review-path" aria-labelledby="review-path-title">
+      <div class="section-head reveal"><p class="eyebrow">Guided technical review</p><h2 id="review-path-title">A clear path through ${taxonomy.technologies.length} bounded capability areas.</h2><p>Start with the operating story, then open the underlying proof. Every route keeps the task, observed result, scope, and limitation together.</p></div>
+      <div class="capability-grid review-path-grid reveal">${reviewSteps.map(cardMarkup).join('')}</div>
+    </section>
     <section class="section" id="technology-map" aria-labelledby="technology-map-title">
       <div class="section-head reveal"><p class="eyebrow">Technology map</p><h2 id="technology-map-title">Skill, task, result, proof, scope, and limitations.</h2><p>Each technology record follows the same presentation contract so later migration phases can add evidence without redesigning the site.</p></div>
       <div class="capability-grid reveal">${taxonomy.technologies.map((technology) => `<div id="${escapeHtml(technology.slug)}">${technologyCard(technology)}</div>`).join('')}</div>
@@ -222,8 +237,8 @@ function sha256(value) {
 }
 
 let failed = false;
+const manifestPath = path.join(repositoryRoot, 'content/site/generated-foundation-hashes.json');
 if (checkMode) {
-  const manifestPath = path.join(repositoryRoot, 'content/site/generated-foundation-hashes.json');
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
   const expectedPaths = [...outputs.keys()].sort();
   const manifestPaths = Object.keys(manifest.files || {}).sort();
@@ -252,6 +267,14 @@ if (checkMode) {
     fs.writeFileSync(absolutePath, expected, 'utf8');
     console.log(`Generated ${relativePath}`);
   }
+  const manifest = {
+    schemaVersion: 1,
+    files: Object.fromEntries([...outputs.entries()]
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([relativePath, expected]) => [relativePath, sha256(expected)]))
+  };
+  fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
+  console.log('Refreshed content/site/generated-foundation-hashes.json');
 }
 
 if (failed) process.exit(1);

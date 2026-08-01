@@ -1,0 +1,118 @@
+/* Site-wide finish: shared motion, depth, and long-form readability. */
+
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: .18rem;
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--page-accent, var(--cyan)), var(--page-accent-2, var(--magenta)) 58%, var(--green));
+  box-shadow: 0 0 18px color-mix(in srgb, var(--page-accent, var(--cyan)) 55%, transparent);
+  animation: site-scroll-progress linear both;
+  animation-timeline: scroll(root block);
+}
+
+@keyframes site-scroll-progress {
+  to { transform: scaleX(1); }
+}
+
+@supports not (animation-timeline: scroll()) {
+  html::after { display: none; }
+}
+
+.site-header {
+  backdrop-filter: blur(20px) saturate(145%);
+}
+
+.section-jump-nav {
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: 0 16px 34px rgba(2, 6, 23, .25);
+}
+
+.section-jump-nav a {
+  border-radius: 999px;
+  transition: color var(--duration-fast) var(--ease), background var(--duration-fast) var(--ease), transform var(--duration-fast) var(--ease);
+}
+
+.section-jump-nav a:hover,
+.section-jump-nav a:focus-visible {
+  color: var(--text-strong);
+  background: color-mix(in srgb, var(--page-accent, var(--cyan)) 12%, transparent);
+  transform: translateY(-1px);
+}
+
+.foundation-page .page-hero,
+.mapping-page .page-hero,
+.evidence-document-page .evidence-hero {
+  box-shadow:
+    0 34px 90px rgba(2, 6, 23, .32),
+    0 1px 0 rgba(255, 255, 255, .045) inset;
+}
+
+.foundation-page .capability-card,
+.mapping-page .mapping-card,
+.mapping-page .skill-summary-card,
+.evidence-document-page .evidence-shell {
+  transition:
+    transform var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    background var(--duration) var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .foundation-page .capability-card:hover,
+  .mapping-page .mapping-card:hover,
+  .mapping-page .skill-summary-card:hover {
+    z-index: 1;
+    transform: translateY(-.35rem);
+    border-color: color-mix(in srgb, var(--page-accent, var(--cyan)) 46%, var(--line));
+    box-shadow:
+      0 30px 72px rgba(2, 6, 23, .42),
+      0 0 36px color-mix(in srgb, var(--page-accent, var(--cyan)) 9%, transparent);
+  }
+}
+
+.foundation-page .capability-grid > div {
+  min-width: 0;
+}
+
+.foundation-page .capability-grid > div > .capability-card {
+  height: 100%;
+}
+
+.foundation-page .review-path-grid .capability-card {
+  min-height: 17rem;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--page-accent, var(--cyan)) 8%, rgba(25, 38, 59, .96)), rgba(8, 20, 36, .98));
+}
+
+.foundation-page .review-path-grid .tile-code {
+  color: var(--page-accent-2, var(--cyan));
+}
+
+.site-footer {
+  background:
+    radial-gradient(circle at 88% 0%, color-mix(in srgb, var(--page-accent-2, var(--magenta)) 10%, transparent), transparent 24rem),
+    linear-gradient(180deg, rgba(10, 21, 37, .84), rgba(7, 16, 31, .98));
+}
+
+.site-footer::before {
+  background: linear-gradient(90deg, transparent, var(--page-accent, var(--cyan)), var(--page-accent-2, var(--magenta)), transparent);
+  opacity: .62;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html::after { animation: none; transform: scaleX(1); }
+  .foundation-page .capability-card,
+  .mapping-page .mapping-card,
+  .mapping-page .skill-summary-card { transition: none; }
+}
+
+@media (max-width: 640px) {
+  html::after { height: .14rem; }
+  .foundation-page .review-path-grid .capability-card { min-height: 0; }
+}

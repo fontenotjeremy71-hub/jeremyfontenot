@@ -175,8 +175,9 @@ html {
   padding: .55rem .7rem;
   border: 1px solid #94a3b8;
   border-radius: .55rem;
-  background: #fff;
-  color: #0f172a;
+  background: rgba(7, 16, 31, .9);
+  color: var(--text-strong, #fff);
+  color-scheme: dark;
 }
 
 .mapping-filter-field input:focus,
@@ -260,6 +261,36 @@ html {
   font-weight: 700;
 }
 
+.mapping-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-block: 1.2rem;
+  padding: .85rem 1rem;
+  border: 1px solid var(--mapping-card-border);
+  border-radius: 999px;
+  background: rgba(7, 16, 31, .78);
+  box-shadow: 0 16px 38px rgba(2, 6, 23, .24);
+}
+
+.mapping-pagination span {
+  min-width: 8rem;
+  color: var(--text-strong, #fff);
+  font-weight: 800;
+  text-align: center;
+}
+
+.mapping-pagination .button {
+  min-width: 7rem;
+}
+
+.mapping-pagination .button:disabled {
+  cursor: not-allowed;
+  opacity: .42;
+  transform: none;
+}
+
 .mapping-empty {
   margin-block: 1rem;
   padding: 1rem;
@@ -294,6 +325,17 @@ html {
   .mapping-card dl > div {
     grid-template-columns: 1fr;
     gap: .25rem;
+  }
+
+  .mapping-pagination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: var(--radius-md, 1rem);
+  }
+
+  .mapping-pagination span {
+    grid-column: 1 / -1;
+    grid-row: 1;
   }
 }
 
