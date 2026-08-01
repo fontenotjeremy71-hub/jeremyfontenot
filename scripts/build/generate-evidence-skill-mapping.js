@@ -14,6 +14,7 @@ const sourcePaths = {
 };
 const outputPaths = {
   data: "assets/data/evidence-skill-map.json",
+  browserData: "assets/data/evidence-skill-map-browser.json",
   evidence: "systems-skills/evidence-map.html",
   claims: "evidence/claim-map.html",
 };
@@ -112,6 +113,39 @@ const machineMap = {
   ],
 };
 
+// The provenance-rich machine map remains authoritative. The browser payload
+// removes source-only fields and interns repeated review copy so the interactive
+// view can load quickly without changing any visible record content.
+const browserTextFields = ["task", "observedResult", "scope", "limitations"];
+const browserText = Object.fromEntries(browserTextFields.map((field) => [
+  field,
+  [...new Set(relationships.map((relationship) => relationship[field]))].sort(),
+]));
+const browserTextIndex = Object.fromEntries(browserTextFields.map((field) => [
+  field,
+  new Map(browserText[field].map((value, index) => [value, index])),
+]));
+const browserMap = {
+  schemaVersion: 1,
+  skills: config.skills.map(({ id, label: skillLabel }) => ({ id, label: skillLabel })),
+  text: browserText,
+  relationships: relationships.map((relationship) => ({
+    evidenceId: relationship.evidenceId,
+    lab: relationship.lab,
+    technology: relationship.technology,
+    evidenceType: relationship.evidenceType,
+    skillIds: relationship.skillIds,
+    relationshipType: relationship.relationshipType,
+    validationStatus: relationship.validationStatus,
+    systems: relationship.systems,
+    task: browserTextIndex.task.get(relationship.task),
+    observedResult: browserTextIndex.observedResult.get(relationship.observedResult),
+    scope: browserTextIndex.scope.get(relationship.scope),
+    limitations: browserTextIndex.limitations.get(relationship.limitations),
+    publicRoute: relationship.publicRoute,
+  })),
+};
+
 const label = (id) => skillById.get(id)?.label || id;
 const options = (values, labels = {}) => [...new Set(values)].sort().map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(labels[value] || value)}</option>`).join("");
 const pageStart = ({ title, description, canonical, heading, lead }) => `<!doctype html>
@@ -130,17 +164,37 @@ const recordCards = relationships.map((relationship) => {
 }).join("");
 const evidencePage = `${pageStart({title:"Evidence-to-Skill Map | Jeremy Fontenot",description:"Recruiter-friendly filters connecting every organized Microsoft 365 and Home Lab evidence record to skills, tasks, observed results, job relevance, scope, limitations, and claims.",canonical:"https://jeremyfontenot.online/systems-skills/evidence-map.html",heading:"Every organized artifact connected to a practical skill.",lead:"This generated relationship layer references the authoritative Microsoft 365 and Home Lab catalogs. It adds hiring context without replacing evidence provenance or integrity records."})}<section class="section"><div class="mapping-summary"><article><strong>${relationships.length}</strong><span>mapped evidence records</span></article><article><strong>${skills.length}</strong><span>bounded skills</span></article><article><strong>${claims.length}</strong><span>reciprocal claims</span></article><article><strong>0</strong><span>unmapped records</span></article></div></section><section class="section" aria-labelledby="skills-title"><div class="section-head"><p class="eyebrow">Practical contribution areas</p><h2 id="skills-title">Skill, task, job relevance, proof, scope, and limitations.</h2></div><div class="skill-summary-grid">${skillCards}</div></section><section class="section" data-mapping-root aria-labelledby="records-title"><div class="section-head"><p class="eyebrow">Recruiter-friendly evidence filters</p><h2 id="records-title">Inspect the relationship layer.</h2></div><div class="mapping-filters" id="filters"><div class="mapping-filter-field"><label for="mapping-search">Search</label><input id="mapping-search" name="q" type="search" data-mapping-filter></div><div class="mapping-filter-field"><label for="mapping-lab">Lab</label><select id="mapping-lab" name="lab" data-mapping-filter><option value="all">All labs</option>${options(relationships.map((item) => item.lab))}</select></div><div class="mapping-filter-field"><label for="mapping-technology">Technology</label><select id="mapping-technology" name="technology" data-mapping-filter><option value="all">All technologies</option>${options(relationships.map((item) => item.technology))}</select></div><div class="mapping-filter-field"><label for="mapping-skill">Skill</label><select id="mapping-skill" name="skill" data-mapping-filter><option value="all">All skills</option>${options(skills.map((item) => item.id),Object.fromEntries(skills.map((item) => [item.id,item.label])))}</select></div><div class="mapping-filter-field"><label for="mapping-type">Evidence type</label><select id="mapping-type" name="evidenceType" data-mapping-filter><option value="all">All evidence types</option>${options(relationships.map((item) => item.evidenceType))}</select></div><div class="mapping-filter-field"><label for="mapping-system">System</label><select id="mapping-system" name="system" data-mapping-filter><option value="all">All systems</option>${options(relationships.flatMap((item) => item.systems))}</select></div><div class="mapping-filter-field"><label for="mapping-relationship">Relationship</label><select id="mapping-relationship" name="relationship" data-mapping-filter><option value="all">All relationships</option>${options(relationships.map((item) => item.relationshipType))}</select></div><div class="mapping-filter-field"><label for="mapping-validation">Validation status</label><select id="mapping-validation" name="validation" data-mapping-filter><option value="all">All statuses</option>${options(relationships.map((item) => item.validationStatus))}</select></div><button class="button" type="button" data-mapping-reset>Reset filters</button></div><p class="mapping-status" role="status" aria-live="polite" data-mapping-status>${relationships.length} of ${relationships.length} evidence relationships shown</p><div class="mapping-empty" data-mapping-empty hidden>No records match these filters.</div><div class="mapping-grid">${recordCards}</div></section><script src="/assets/js/evidence-skill-map.js" defer></script>${pageEnd}`;
 
+const paginationMarkup = `<nav class="mapping-pagination" aria-label="Evidence results pages" data-mapping-pagination><button class="button" type="button" data-mapping-previous>Previous</button><span data-mapping-page>Page 1</span><button class="button" type="button" data-mapping-next>Next</button></nav>`;
+const evidencePageWithPagination = evidencePage
+  .replace(
+    '<h2 id="records-title">Inspect the relationship layer.</h2>',
+    '<h2 id="records-title">Inspect the relationship layer without the endless scroll.</h2><p>Every record remains searchable and linked. Results load in focused pages so reviewers can compare evidence without overwhelming the document.</p>'
+  )
+  .replace(
+    `<button class="button" type="button" data-mapping-reset>Reset filters</button></div><p class="mapping-status" role="status" aria-live="polite" data-mapping-status>${relationships.length} of ${relationships.length} evidence relationships shown</p>`,
+    `<div class="mapping-filter-field"><label for="mapping-page-size">Results per page</label><select id="mapping-page-size" name="pageSize" data-mapping-page-size><option value="24">24 results</option><option value="48">48 results</option><option value="96">96 results</option></select></div><button class="button" type="button" data-mapping-reset>Reset filters</button></div><p class="mapping-status" role="status" aria-live="polite" data-mapping-status>Loading ${relationships.length} mapped evidence relationships…</p>${paginationMarkup}`
+  )
+  .replace(
+    `<div class="mapping-grid">${recordCards}</div></section><script src="/assets/js/evidence-skill-map.js" defer></script>`,
+    `<div class="mapping-grid" tabindex="-1" data-mapping-grid></div><noscript><p class="mapping-empty">JavaScript is required for the interactive relationship map. Every record remains available in the <a href="/assets/data/evidence-skill-map.json">machine-readable map</a>, <a href="/microsoft-365/evidence-catalog.html">Microsoft 365 catalog</a>, and <a href="/home-lab/evidence-catalog.html">Home Lab catalog</a>.</p></noscript>${paginationMarkup}</section><script src="/assets/js/evidence-skill-map.js" defer></script>`
+  );
+
 const claimCards = claims.map((claim) => {
   const publicRoutes = [...new Set(claim.evidenceIds.map((id) => recordById.get(id)?.publicRoute).filter(Boolean))];
   const links = publicRoutes.slice(0, 12).map((route) => `<a href="${escapeHtml(route)}">Inspect proof</a>`).join("");
   return `<article class="mapping-card" id="claim-${escapeHtml(claim.claimId)}"><p class="eyebrow">${escapeHtml(claim.claimId)}</p><h3>${escapeHtml(claim.claimText)}</h3><div class="mapping-tags"><span>${escapeHtml(claim.lab)}</span><span>${escapeHtml(claim.supportLevel)}</span></div><dl><div><dt>Related skills</dt><dd>${claim.skillIds.map(label).map(escapeHtml).join(", ")}</dd></div><div><dt>Evidence records</dt><dd>${claim.evidenceIds.length}</dd></div><div><dt>Scope</dt><dd>${escapeHtml(claim.scope)}</dd></div><div><dt>Limitations</dt><dd>${escapeHtml(claim.limitations)}</dd></div></dl><div class="proof-links">${links || "No direct public artifact route; relationships remain discoverable in the evidence-to-skill map."}</div></article>`;
 }).join("");
 const claimsPage = `${pageStart({title:"Evidence-to-Claim Index | Jeremy Fontenot",description:"Human-readable reciprocal claim relationships for the organized Microsoft 365 and Home Lab evidence catalogs, including related skills, proof counts, scope, and limitations.",canonical:"https://jeremyfontenot.online/evidence/claim-map.html",heading:"Claims remain reciprocal, inspectable, and bounded.",lead:"Each claim below points back to catalog evidence records, while every supporting record names the same claim. Scope and limitations remain part of the relationship."})}<section class="section"><div class="mapping-summary"><article><strong>${claims.length}</strong><span>bounded claims</span></article><article><strong>${relationships.length}</strong><span>reciprocal evidence records</span></article><article><strong>0</strong><span>unmapped records</span></article></div><div class="mapping-grid">${claimCards}</div></section>${pageEnd}`;
+const claimsPageWithSemanticHeading = claimsPage.replace(
+  '</div><div class="mapping-grid">',
+  '</div><div class="section-head"><p class="eyebrow">Bounded claim index</p><h2 id="claims-title">Inspect bounded claims and supporting proof.</h2></div><div class="mapping-grid" aria-labelledby="claims-title">'
+);
 
 const expected = {
   [outputPaths.data]: Buffer.from(json(machineMap)),
-  [outputPaths.evidence]: Buffer.from(evidencePage),
-  [outputPaths.claims]: Buffer.from(claimsPage),
+  [outputPaths.browserData]: Buffer.from(`${JSON.stringify(browserMap)}\n`),
+  [outputPaths.evidence]: Buffer.from(evidencePageWithPagination),
+  [outputPaths.claims]: Buffer.from(claimsPageWithSemanticHeading),
 };
 const hashManifest = {
   schemaVersion: 1,

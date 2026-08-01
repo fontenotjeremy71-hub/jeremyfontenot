@@ -20,10 +20,15 @@
       "hash": "7e7b1f6998ef7b9bca2d7b8350a446120029e021ce3532295d4042d25b8e6214",
       "size": 3946357
     },
+    "assets/data/evidence-skill-map-browser.json": {
+      "algorithm": "sha256",
+      "hash": "dc39d3dc8fa9a1763d6f397d9428eb415ae5881a33c58bdf0787f9835d4aa865",
+      "size": 677948
+    },
     "systems-skills/evidence-map.html": {
       "algorithm": "sha256",
-      "hash": "aa169d3483b9d0f32c0ce2aa31d3f7c38672266666d1b369ba0f70c394754d8e",
-      "size": 2060843
+      "hash": "24750d10a3bc953bd4127f3c0ff34c69cf05181675650621a9ea99dc7db6d8c3",
+      "size": 20323
     },
     "evidence/claim-map.html": {
       "algorithm": "sha256",
