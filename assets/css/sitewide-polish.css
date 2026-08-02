@@ -44,6 +44,27 @@ html::after {
   transform: translateY(-1px);
 }
 
+/* Keep the shared section-title accent rhythm consistent across page layouts. */
+.section-head > .eyebrow {
+  margin-top: 0;
+  margin-bottom: .85rem;
+  align-self: start;
+}
+
+/* Proof-page search guidance follows the page's left-aligned reading rail. */
+.proof-page .section-head,
+.proof-page .section-head > p,
+.proof-page .filter-field label,
+.proof-page .filter-summary {
+  text-align: left;
+}
+
+/* Center the compact contact eyebrow within its intended hero rail. */
+.contact-page .compact-hero > .section-head > .eyebrow {
+  width: fit-content;
+  margin-inline: auto;
+}
+
 .foundation-page .page-hero,
 .mapping-page .page-hero,
 .evidence-document-page .evidence-hero {
