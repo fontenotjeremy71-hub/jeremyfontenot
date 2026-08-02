@@ -134,6 +134,11 @@
   margin-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
+/* Give the long Target Roles heading enough room to preserve the column gap. */
+.home-page #target-roles .section-head {
+  max-width: var(--home-inner-width, 1280px);
+}
+
 .home-page .section-head h2 {
   max-width: 11ch;
   font-size: clamp(3rem, 4.7vw, 5.25rem);
