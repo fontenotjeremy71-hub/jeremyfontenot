@@ -3,6 +3,24 @@
 
   document.documentElement.classList.add("js-enhanced");
 
+  /* Requested copy and privacy refinements, scoped to their exact pages. */
+  if (document.body.classList.contains("home-page")) {
+    const scopeCopy = document.querySelector("#scope .scope-note-card > p:not(.eyebrow)");
+    if (scopeCopy) scopeCopy.textContent = scopeCopy.textContent.replace("The portfolio proves", "MY portfolio proves");
+  }
+
+  if (document.body.classList.contains("contact-page")) {
+    const contactLead = document.querySelector("#contact-title + .lead");
+    if (contactLead) contactLead.textContent = contactLead.textContent.replace("walk through the portfolio", "walk through MY portfolio");
+  }
+
+  if (document.body.classList.contains("resume-page")) {
+    const associateDegree = [...document.querySelectorAll(".credentials-grid article")]
+      .find((card) => card.querySelector("h3")?.textContent.includes("A.S. Computer Science"));
+    const schoolLine = associateDegree?.querySelector("p[data-allow-resume-date]");
+    if (schoolLine) schoolLine.textContent = "Remington College";
+  }
+
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
 
