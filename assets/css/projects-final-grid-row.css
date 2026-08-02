@@ -1,0 +1,6 @@
+/* Keep the final Projects cards aligned without leaving an empty desktop grid cell. */
+@media (min-width: 1181px) {
+  .projects-page .project-supporting-grid > .project-panel:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}
