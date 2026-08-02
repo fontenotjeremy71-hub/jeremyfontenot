@@ -20,7 +20,7 @@
 .projects-page .page-hero {
   position: relative;
   margin-top: 2rem;
-  padding: clamp(3rem, 6vw, 6rem);
+  padding: clamp(3rem, 5vw, 5rem);
   border: 1px solid rgba(148, 163, 184, 0.1);
   border-radius: 1.35rem;
   background:
@@ -50,9 +50,10 @@
 
 .projects-page .page-hero .section-head {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
-  gap: clamp(2.5rem, 6vw, 6rem);
-  align-items: end;
+  max-width: none;
+  grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
   margin-bottom: 2.5rem;
 }
 
@@ -62,9 +63,9 @@
 }
 
 .projects-page .page-hero h1 {
-  max-width: 13ch;
+  max-width: 15ch;
   margin: 0;
-  font-size: clamp(3.4rem, 5.7vw, 6.1rem);
+  font-size: clamp(3.4rem, 5.2vw, 5.5rem);
   line-height: 0.96;
   text-wrap: balance;
 }
@@ -72,6 +73,8 @@
 .projects-page .page-hero .lead {
   max-width: 40rem;
   margin: 0 0 0.5rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid color-mix(in srgb, var(--cyan) 72%, transparent);
   font-size: clamp(1rem, 1.15vw, 1.16rem);
 }
 
@@ -277,6 +280,11 @@
 
   .projects-page .page-hero .eyebrow {
     margin-bottom: -0.5rem;
+  }
+
+  .projects-page .page-hero .lead {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .projects-page .project-supporting-grid > .project-panel,

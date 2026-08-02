@@ -154,12 +154,23 @@
    leaving the desktop paragraph column empty. */
 .readiness-page #contribution .section-head {
   display: grid;
+  grid-template-columns: 1fr;
   max-width: none;
-  row-gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: start;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .readiness-page #contribution .section-head .eyebrow {
-  grid-column: 1 / -1;
+  grid-column: auto;
+}
+
+.readiness-page #contribution .section-head h2 {
+  max-width: 18ch;
+  font-size: clamp(2.8rem, 4vw, 4.5rem);
+}
+
+.readiness-page #contribution .section-head > p:last-child {
+  max-width: 58rem;
 }
 
 .readiness-page #roles .capability-grid {
