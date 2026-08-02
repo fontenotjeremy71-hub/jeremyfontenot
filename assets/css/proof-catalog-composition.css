@@ -1,0 +1,81 @@
+/* Proof catalog composition: connect the title, supporting copy, and controls. */
+@media (min-width: 1101px) {
+  .proof-page main > .section > .section-head {
+    grid-template-columns: minmax(0, 1.45fr) minmax(20rem, .55fr);
+    grid-template-areas:
+      "eyebrow eyebrow"
+      "title context";
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    row-gap: 1.25rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .proof-page main > .section > .section-head > .eyebrow {
+    grid-area: eyebrow;
+    margin: 0;
+  }
+
+  .proof-page main > .section > .section-head > h2 {
+    grid-area: title;
+    max-width: 17ch;
+    margin: 0;
+    font-size: clamp(3.15rem, 4.6vw, 5.25rem);
+    line-height: .96;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+  }
+
+  .proof-page main > .section > .section-head > p:last-child {
+    grid-area: context;
+    position: relative;
+    max-width: 32rem;
+    margin: 0;
+    padding: 1.35rem 1.4rem 1.35rem 1.55rem;
+    border: 1px solid rgba(56, 189, 248, .16);
+    border-left: 3px solid color-mix(in srgb, var(--cyan) 72%, transparent);
+    border-radius: .9rem;
+    background:
+      linear-gradient(135deg, rgba(37, 99, 235, .075), transparent 58%),
+      rgba(7, 17, 31, .58);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .18);
+    color: #b8c8dc;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .proof-page .filter-toolbar {
+    margin-top: .5rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .proof-page main > .section > .section-head {
+    gap: 1.35rem;
+    align-items: start;
+  }
+
+  .proof-page main > .section > .section-head > .eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .proof-page main > .section > .section-head > h2 {
+    max-width: 16ch;
+    margin: 0;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+  }
+
+  .proof-page main > .section > .section-head > p:last-child {
+    margin: 0;
+    padding: 1.1rem 1.2rem;
+    border-left: 2px solid color-mix(in srgb, var(--cyan) 72%, transparent);
+    background: rgba(7, 17, 31, .45);
+  }
+}
+
+@media (max-width: 760px) {
+  .proof-page main > .section > .section-head > h2 {
+    max-width: none;
+    font-size: clamp(2.65rem, 12vw, 4rem);
+  }
+}
