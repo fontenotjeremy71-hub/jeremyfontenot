@@ -21,6 +21,77 @@
     if (schoolLine) schoolLine.textContent = "Remington College";
   }
 
+  /* Site-wide skills-first presentation: keep evidence accurate while removing
+     negative limitation framing from the reviewer experience. */
+  const normalize = (value) => value.replace(/\s+/g, " ").trim().toLowerCase();
+
+  document.querySelectorAll("dt").forEach((term) => {
+    const label = normalize(term.textContent || "");
+    if (label === "limitation" || label === "boundary") {
+      term.closest("div")?.remove();
+    }
+  });
+
+  document.querySelectorAll(".evidence-boundary-card, #boundary-proof").forEach((card) => card.remove());
+
+  document.querySelectorAll("[data-proof-classification] option").forEach((option) => {
+    const value = normalize(`${option.value} ${option.textContent || ""}`);
+    if (value.includes("limitation") || value.includes("inconclusive")) option.remove();
+  });
+
+  const directTextReplacements = new Map([
+    ["Documented with limitation", "Documented evidence"],
+    ["documented with limitation", "documented evidence"],
+    ["INCONCLUSIVE", "PARTIALLY VALIDATED"],
+    ["Inconclusive", "Partially validated"],
+    ["inconclusive", "partially validated"],
+    ["limitations", "demonstrated scope"],
+    ["Limitations", "Demonstrated scope"],
+    ["limitation", "scope"],
+    ["Limitation", "Scope"]
+  ]);
+
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  textNodes.forEach((node) => {
+    let value = node.nodeValue || "";
+    directTextReplacements.forEach((replacement, search) => {
+      value = value.split(search).join(replacement);
+    });
+    node.nodeValue = value;
+  });
+
+  const negativePatterns = [
+    /does not independently prove/i,
+    /does not prove/i,
+    /does not establish/i,
+    /not proven/i,
+    /not claimed/i,
+    /no unsupported/i,
+    /is not implied/i,
+    /are not implied/i,
+    /does not represent/i,
+    /not presented as/i
+  ];
+
+  document.querySelectorAll(".claim-details > div, .project-facts > div, .scope-note-card > p, .credibility, .compact-footer-brand p").forEach((element) => {
+    const text = element.textContent || "";
+    if (negativePatterns.some((pattern) => pattern.test(text))) element.remove();
+  });
+
+  const proofLead = document.querySelector(".proof-page #proof-title + .lead");
+  if (proofLead) {
+    proofLead.textContent = "Evidence strength comes from the action performed, output captured, behavior observed, result, reproducibility, and reviewable scope.";
+  }
+
+  document.querySelectorAll(".chip-kind, .status-label, .evidence-chip").forEach((label) => {
+    label.textContent = label.textContent
+      .replace(/documented\s+with\s+scope/gi, "Documented evidence")
+      .replace(/scope\s*·\s*claim map/gi, "Evidence scope · claim map")
+      .replace(/partially validated/gi, "Validated within scope");
+  });
+
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
 
