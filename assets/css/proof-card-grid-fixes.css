@@ -1,0 +1,49 @@
+/* Proof catalog final visual normalization */
+.proof-page .proof-matrix {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.proof-page .proof-chip,
+.proof-page .proof-chip:nth-child(3n+1),
+.proof-page .proof-chip:nth-child(3n+2) {
+  grid-column: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
+.proof-page .proof-chip h3 {
+  max-width: none;
+  min-height: 2.2em;
+}
+
+.proof-page .claim-details {
+  flex: 1;
+  align-content: start;
+}
+
+.proof-page .proof-links {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.proof-page .filter-summary {
+  margin: 1rem 0 1.35rem;
+}
+
+.proof-page .proof-matrix [hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .proof-page .proof-matrix {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-page .proof-chip h3 {
+    min-height: 0;
+  }
+}
