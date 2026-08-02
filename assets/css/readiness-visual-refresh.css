@@ -150,6 +150,18 @@
   line-height: 1.7;
 }
 
+/* Use the full section width for the contribution intro instead of
+   leaving the desktop paragraph column empty. */
+.readiness-page #contribution .section-head {
+  display: grid;
+  max-width: none;
+  row-gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.readiness-page #contribution .section-head .eyebrow {
+  grid-column: 1 / -1;
+}
+
 .readiness-page #roles .capability-grid {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1.1rem;
