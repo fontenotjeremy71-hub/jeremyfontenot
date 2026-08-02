@@ -1,6 +1,11 @@
-/* Keep the final Projects cards aligned without leaving an empty desktop grid cell. */
+/* Balance the final Projects cards on desktop: 06 + 07, with 08 centered below. */
 @media (min-width: 1181px) {
-  .projects-page .project-supporting-grid > .project-panel:nth-child(5) {
-    grid-column: 1 / -1;
+  .projects-page .project-supporting-grid > .project-panel:nth-child(5),
+  .projects-page .project-supporting-grid > .project-panel:nth-child(6) {
+    grid-column: span 6;
+  }
+
+  .projects-page .project-supporting-grid > .project-panel:nth-child(7) {
+    grid-column: 4 / span 6;
   }
 }
