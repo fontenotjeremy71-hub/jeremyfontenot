@@ -126,6 +126,12 @@ html::after {
   opacity: .62;
 }
 
+/* Preserve descenders in the oversized dashboard hero heading. */
+.dashboard-page .page-hero .section-head > h1 {
+  line-height: 1.06;
+  padding-bottom: .08em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html::after { animation: none; transform: scaleX(1); }
   .foundation-page .capability-card,
