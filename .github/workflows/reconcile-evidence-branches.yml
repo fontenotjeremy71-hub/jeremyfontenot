@@ -1,0 +1,43 @@
+name: Reconcile evidence branches
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Preserve reviewed MACVM01 evidence and retire historical branches
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence_path='evidence-library/projects/on-prem-home-lab/macos-active-directory-integration'
+
+          git fetch origin feat/macos-home-lab-evidence fix/sharepoint-evidence-integrity-and-audit
+          git checkout origin/feat/macos-home-lab-evidence -- "$evidence_path"
+
+          if grep -REni '(password|passwd|secret|api[_ -]?key|private[_ -]?key|access[_ -]?token|refresh[_ -]?token)' "$evidence_path"; then
+            echo 'Potential secret-like content detected; refusing to publish evidence automatically.' >&2
+            exit 1
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$evidence_path"
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve MACVM01 public evidence'
+            git push origin HEAD:main
+          fi
+
+          git push origin --delete feat/macos-home-lab-evidence
+          git push origin --delete fix/sharepoint-evidence-integrity-and-audit
