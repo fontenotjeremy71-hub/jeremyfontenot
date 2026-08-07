@@ -177,7 +177,7 @@
       "path": "evidence-library/integrity/evidence-hashes.json",
       "collection": "cross-cutting-evidence-governance",
       "reason": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes.",
-      "sourceCommit": "82796ff25e8cac885b399f0096d166f9856b9f09",
+      "sourceCommit": "254a0be5ebadee0d7fe68889a3f95d1308907c47",
       "technologyRelationships": [
         "automation"
       ],
