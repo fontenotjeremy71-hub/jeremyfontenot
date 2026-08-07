@@ -1,0 +1,34 @@
+name: Fix M365 provenance pin
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Correct stale integrity source commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          file='content/microsoft-365/source-manifest.json'
+          old='82796ff25e8cac885b399f0096d166f9856b9f09'
+          new='254a0be5ebadee0d7fe68889a3f95d1308907c47'
+          grep -q "$old" "$file"
+          git show "$new:evidence-library/integrity/evidence-hashes.json" >/dev/null
+          sed -i "s/$old/$new/g" "$file"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$file"
+          git commit -m 'Fix M365 integrity provenance pin'
+          git push origin HEAD:main
