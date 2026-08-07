@@ -1,0 +1,46 @@
+name: Cleanup reviewed branches
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Delete reviewed obsolete branches
+        shell: bash
+        run: |
+          set -euo pipefail
+          branches=(
+            'agent/sitewide-visual-rhythm-audit'
+            'feat/evidence-control-room-visual-refresh'
+            'feat/m365-evidence-organization'
+            'feat/publish-macvm01'
+            'fix/directory-index-links'
+            'fix/evidence-route-card-layout'
+            'fix/evidence-route-layout'
+            'fix/footer-navigation-links'
+            'fix/home-contribution-spacing-proof-copy'
+            'fix/home-lab-evidence-svg-overflow'
+            'fix/homepage-card-composition'
+            'fix/profile-page-structured-data'
+            'fix/projects-card-grid-alignment'
+            'fix/projects-watermark-label'
+            'fix/readiness-left-alignment-rail'
+            'fix/simplify-portfolio-validation'
+            'fix/sitemap-indexable-evidence'
+            'fix/sitewide-text-alignment-rails'
+            'improve/portfolio-content-20260630'
+          )
+          for branch in "${branches[@]}"; do
+            echo "Deleting reviewed obsolete branch: $branch"
+            git push origin --delete "$branch"
+          done
