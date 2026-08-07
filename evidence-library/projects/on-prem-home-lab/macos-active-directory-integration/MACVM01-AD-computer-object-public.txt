@@ -1,0 +1,7 @@
+Name                   : macvm01
+DNSHostName            : macvm01.ad.jeremyfontenot.online
+Enabled                : True
+whenCreated            : 7/23/2026 6:32:15 PM
+LastLogonDate          : 7/23/2026 6:36:27 PM
+OperatingSystem        : macOS
+OperatingSystemVersion : 12.7.6
