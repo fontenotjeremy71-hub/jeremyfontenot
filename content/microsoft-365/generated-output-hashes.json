@@ -5,7 +5,7 @@
     {
       "path": "assets/data/m365-evidence-catalog.json",
       "size": 3610213,
-      "hash": "3f5536a352d670cd42b3070ed22db10e78153bdb1a004ba7207d53e8082fdf98",
+      "hash": "874673717562445e38facd12f054b899f513b95d45fccf1d5bcef2b9bc2ae0b5",
       "metadataCoverage": [
         "integrity"
       ]
@@ -22,7 +22,7 @@
     {
       "path": "microsoft-365/source-to-destination-matrix.csv",
       "size": 1013940,
-      "hash": "ce198e89c97dd7088030bfb8371e0a43595ba560de219aef749abf0ac666c547",
+      "hash": "3dd30d20db58e2726341433778878cc1b5b485dd1ee729aa8ebcb19176c070a3",
       "metadataCoverage": [
         "integrity"
       ]
@@ -7281,8 +7281,8 @@
     },
     {
       "path": "sitemap.xml",
-      "size": 147745,
-      "hash": "44781d139a703836a02108bc27b6d9552ef4c916a1d3ac4acd943b640894c74f",
+      "size": 147862,
+      "hash": "397bdeed7eac4dc7dd4b79bb96976d4a3eac4eb3d9cd09086e8609b2a4b3656c",
       "metadataCoverage": [
         "integrity"
       ]

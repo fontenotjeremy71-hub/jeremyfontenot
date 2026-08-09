@@ -8,9 +8,9 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 445,
-    "textArtifactsInspected": 299,
-    "manualReviewRequired": 146,
+    "artifactsReviewed": 463,
+    "textArtifactsInspected": 312,
+    "manualReviewRequired": 151,
     "highSeveritySecretFindings": 0,
     "identifierFindings": 323,
     "unresolvedPublicIdentifierFindings": 0
@@ -1077,6 +1077,41 @@
     {
       "evidenceId": "home-lab-current-697cc7c82bfc57f6",
       "path": "evidence-library/projects/on-prem-home-lab/screenshots/figure-17-documentation-source-hash-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-2d65c8f175d4cf46",
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-discovered.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-35be9a700e800133",
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-remote-power.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-b8fe08c48c766b5e",
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-vm-viewer.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-09692a22e45624d7",
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-hvhost01-managed.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-247c93305adf8919",
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-setup-complete.png",
       "publicationClassification": "public-original",
       "status": "manual-review-required",
       "findings": []
@@ -3116,7 +3151,7 @@
           "exceptionId": "home-lab-reviewed-c0264365ddf05a02",
           "occurrences": 1,
           "lines": [
-            125
+            127
           ],
           "valueFingerprints": [
             "da6c02741702401d"
