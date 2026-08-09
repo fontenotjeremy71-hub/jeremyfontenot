@@ -19,6 +19,13 @@
     {"path":"docs/projects/ad-migration","collection":"ad-migration-project","reason":"Repository-only Active Directory migration plan and supporting artifacts."}
   ],
   "approvedIndividualFiles": [
+    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/index.html","collection":"scvmm-2022","reason":"Published SCVMM 2022 build, troubleshooting, validation, and scope case study.","technologyRelationships":["windows-server","networking","security","environment"]},
+    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/evidence-manifest.json","collection":"scvmm-2022","reason":"Published provenance, hash, visual-review, and claim-boundary manifest.","technologyRelationships":["windows-server","networking","security","environment"]},
+    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-setup-complete.png","collection":"scvmm-2022","reason":"SCVMM management server and console installation completion screenshot.","technologyRelationships":["windows-server"]},
+    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-hvhost01-managed.png","collection":"scvmm-2022","reason":"SCVMM managed-host status screenshot for HVHOST01.","technologyRelationships":["windows-server","environment"]},
+    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-discovered.png","collection":"scvmm-2022","reason":"SCVMM virtual-machine discovery screenshot for APP01.","technologyRelationships":["windows-server","environment"]},
+    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-remote-power.png","collection":"scvmm-2022","reason":"SCVMM remote power-control job completion screenshot for APP01.","technologyRelationships":["windows-server","networking"]},
+    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-vm-viewer.png","collection":"scvmm-2022","reason":"SCVMM VM Viewer interactive-console screenshot for APP01.","technologyRelationships":["windows-server","networking"]},
     {"path":"assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx","collection":"home-lab-documentation","reason":"Published personal Home Lab documentation package."},
     {"path":"assets/evidence/ad-migration-diagram.svg","collection":"public-evidence-preview","reason":"Published Active Directory migration evidence preview."},
     {"path":"assets/evidence/powershell-provisioning.svg","collection":"public-evidence-preview","reason":"Published PowerShell provisioning evidence preview."},

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "project": "SCVMM 2022 personal-lab management",
+  "sourceContext": "User-uploaded screenshots from the referenced working conversation titled Hyper-V vs SCVMM.",
+  "capturedDate": "2026-08-09",
+  "integrity": {
+    "algorithm": "sha256",
+    "originalBytesPreserved": true
+  },
+  "review": {
+    "classification": "public personal-lab evidence",
+    "highSeveritySecretFindings": 0,
+    "manualVisualReviewCompleted": true,
+    "notes": "Screenshots show lab hostnames, a private RFC 1918 address, and the portfolio owner's lab account name. No passwords, tokens, private keys, recovery material, employer data, or client data are visible."
+  },
+  "artifacts": [
+    {
+      "path": "screenshots/scvmm-setup-complete.png",
+      "bytes": 65178,
+      "width": 728,
+      "height": 555,
+      "sha256": "32e6bdb605b18cb65d99be1e2069f94e3bffe0127e73ce1c3fab5cf7039866d2",
+      "supports": "SCVMM 2022 management server and console installation completed successfully."
+    },
+    {
+      "path": "screenshots/scvmm-hvhost01-managed.png",
+      "bytes": 219850,
+      "width": 1437,
+      "height": 757,
+      "sha256": "74e4ab58a9cad40b6758e48ce332d164e3df04c4e68944eac55258c25c86044e",
+      "supports": "HVHOST01 was added as a managed Hyper-V host with host status OK and one discovered virtual machine."
+    },
+    {
+      "path": "screenshots/scvmm-app01-discovered.png",
+      "bytes": 180200,
+      "width": 1433,
+      "height": 752,
+      "sha256": "c5bfa9efdb57549bb4032b3759764bdc5ca48a1b7fcc1f6386d3aeb5633a9257",
+      "supports": "APP01 was discovered in the existing Hyper-V inventory on HVHOST01."
+    },
+    {
+      "path": "screenshots/scvmm-app01-remote-power.png",
+      "bytes": 213374,
+      "width": 1147,
+      "height": 658,
+      "sha256": "50559a00fd6ea2bce788c7bb340408cbfc4fdf080d6c9680d4db1af03701ee00",
+      "supports": "APP01 remote start completed and the guest reached the running state."
+    },
+    {
+      "path": "screenshots/scvmm-app01-vm-viewer.png",
+      "bytes": 104410,
+      "width": 1022,
+      "height": 872,
+      "sha256": "f1eaedbe5206f93886a111a607658e609498597d1013d4436af24ab30fe8642b",
+      "supports": "An interactive VM Viewer session reached APP01 and confirmed the guest hostname."
+    }
+  ],
+  "claimBoundary": "Personal nonproduction lab evidence only. No clustering, high availability, live migration, Storage Spaces Direct, enterprise scale, production availability, security assurance, or direct Proxmox management through VMM is claimed."
+}
