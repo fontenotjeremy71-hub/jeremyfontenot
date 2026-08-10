@@ -1,11 +1,9 @@
-/* Balance the final Projects cards on desktop: 06 + 07, with 08 centered below. */
+/* Balance the final Projects cards on desktop: 06 + 07, then 08 + 09. */
 @media (min-width: 1181px) {
   .projects-page .project-supporting-grid > .project-panel:nth-child(5),
-  .projects-page .project-supporting-grid > .project-panel:nth-child(6) {
+  .projects-page .project-supporting-grid > .project-panel:nth-child(6),
+  .projects-page .project-supporting-grid > .project-panel:nth-child(7),
+  .projects-page .project-supporting-grid > .project-panel:nth-child(8) {
     grid-column: span 6;
-  }
-
-  .projects-page .project-supporting-grid > .project-panel:nth-child(7) {
-    grid-column: 4 / span 6;
   }
 }
