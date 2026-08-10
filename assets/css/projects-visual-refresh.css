@@ -196,17 +196,11 @@
   padding: clamp(1.5rem, 2.6vw, 2.4rem);
 }
 
-.projects-page .project-supporting-grid > .project-panel:nth-child(1),
-.projects-page .project-supporting-grid > .project-panel:nth-child(6) {
+.projects-page .project-supporting-grid > .project-panel:nth-child(1) {
   grid-column: span 7;
 }
 
-.projects-page .project-supporting-grid > .project-panel:nth-child(2),
-.projects-page .project-supporting-grid > .project-panel:nth-child(7) {
-  grid-column: span 5;
-}
-
-.projects-page .project-supporting-grid > .project-panel:last-child {
+.projects-page .project-supporting-grid > .project-panel:nth-child(2) {
   grid-column: span 5;
 }
 
@@ -289,10 +283,7 @@
 
   .projects-page .project-supporting-grid > .project-panel,
   .projects-page .project-supporting-grid > .project-panel:nth-child(1),
-  .projects-page .project-supporting-grid > .project-panel:nth-child(2),
-  .projects-page .project-supporting-grid > .project-panel:nth-child(6),
-  .projects-page .project-supporting-grid > .project-panel:nth-child(7),
-  .projects-page .project-supporting-grid > .project-panel:last-child {
+  .projects-page .project-supporting-grid > .project-panel:nth-child(2) {
     grid-column: span 6;
   }
 }
@@ -329,10 +320,7 @@
 
   .projects-page .project-supporting-grid > .project-panel,
   .projects-page .project-supporting-grid > .project-panel:nth-child(1),
-  .projects-page .project-supporting-grid > .project-panel:nth-child(2),
-  .projects-page .project-supporting-grid > .project-panel:nth-child(6),
-  .projects-page .project-supporting-grid > .project-panel:nth-child(7),
-  .projects-page .project-supporting-grid > .project-panel:last-child {
+  .projects-page .project-supporting-grid > .project-panel:nth-child(2) {
     grid-column: auto;
   }
 
