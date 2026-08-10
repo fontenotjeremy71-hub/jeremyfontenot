@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/assets/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/scvmm-2022/</loc>
+  </url>
   <url><loc>https://jeremyfontenot.online/</loc></url>
   <url><loc>https://jeremyfontenot.online/systems-administration.html</loc></url>
   <url><loc>https://jeremyfontenot.online/systems-skills/</loc></url>

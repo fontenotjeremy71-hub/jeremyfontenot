@@ -335,6 +335,10 @@
   ],
   "reviewedExclusions": [
     {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/index.html",
+      "reason": "Published Home Lab SCVMM case study, not Microsoft 365 evidence."
+    },
+    {
       "path": ".github/agents/microsoft-365-evidence-organizer.agent.md",
       "reason": "Phase operating instructions, not an evidence artifact."
     },

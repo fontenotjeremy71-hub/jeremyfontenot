@@ -7,33 +7,33 @@
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
-      "sha256": "3f5536a352d670cd42b3070ed22db10e78153bdb1a004ba7207d53e8082fdf98"
+      "sha256": "874673717562445e38facd12f054b899f513b95d45fccf1d5bcef2b9bc2ae0b5"
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
-      "sha256": "c03d13f8104bb532f1288d48147b65b9eb591fac460a058e388df1891904dbcd"
+      "sha256": "83251796d73526cb05dba8b979fbbb9020fac4b1231a021e6ccf7b0474e84103"
     }
   },
   "outputs": {
     "assets/data/evidence-skill-map.json": {
       "algorithm": "sha256",
-      "hash": "919fea77108dbb1fab6d632cab02436ed21a137be83b40a6e2f47b515df6c0c0",
-      "size": 3963247
+      "hash": "f661effdea637017bcac796544136a58e4b47cbb544bb84e69632389568e7bf3",
+      "size": 4014216
     },
     "assets/data/evidence-skill-map-browser.json": {
       "algorithm": "sha256",
-      "hash": "b9216fd714fcddef595921754cdb561bcd715dcb27e6c9aec0cae5d059f668e3",
-      "size": 681298
+      "hash": "98f33cef0caa75abf2e5e477012b963c45ba3324fb4bf423d01ac6f832d1604c",
+      "size": 690675
     },
     "systems-skills/evidence-map.html": {
       "algorithm": "sha256",
-      "hash": "e3c2c7f5eff49552b086e2540ef283723d116f3eba68bad93c10cb6f87181982",
-      "size": 20323
+      "hash": "b084d0d22ade01bad5a838352d4fd5547b36ba4ba6313f914138ace944045591",
+      "size": 20324
     },
     "evidence/claim-map.html": {
       "algorithm": "sha256",
-      "hash": "58854efb00c42cd25a3034d9bfaf0a2cfb76c25cb1fcee8d3062b8addc70845e",
-      "size": 50240
+      "hash": "ae50ab3d51710dc54957491b2e71410941ca68c22090ea880f2ee28bca242dae",
+      "size": 51528
     }
   }
 }
