@@ -15,6 +15,17 @@
   height: 100%;
 }
 
+/* Keep hash-linked proof cards clear of the sticky site chrome and account
+   for the proof page's post-load content normalization. */
+.proof-page .proof-chip[id] {
+  scroll-margin-top: 14rem;
+}
+
+.proof-page .proof-chip:target {
+  outline: 2px solid color-mix(in srgb, var(--cyan) 70%, transparent);
+  outline-offset: 4px;
+}
+
 .proof-page .proof-chip h3 {
   max-width: none;
   min-height: 2.2em;
@@ -41,6 +52,10 @@
 @media (max-width: 900px) {
   .proof-page .proof-matrix {
     grid-template-columns: 1fr;
+  }
+
+  .proof-page .proof-chip[id] {
+    scroll-margin-top: 8rem;
   }
 
   .proof-page .proof-chip h3 {
