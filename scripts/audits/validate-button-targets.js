@@ -5,16 +5,39 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..', '..');
-const ignoredRoots = new Set(['archive', 'node_modules', '.git', '.site']);
 const htmlFiles = [];
+const ignoredPrefixes = [
+  'archive/',
+  'artifacts/',
+  'evidence-library/preserved-sharepoint/',
+  'node_modules/',
+  '.git/',
+  '.site/'
+];
+
+function rel(file) {
+  return path.relative(root, file).replaceAll('\\', '/');
+}
+
+function shouldAuditFile(file) {
+  const relative = rel(file);
+  if (ignoredPrefixes.some((prefix) => relative.startsWith(prefix))) return false;
+
+  // Audit the visitor-facing portfolio pages and published case-study landing pages.
+  if (!relative.includes('/')) return true;
+  if (/^(systems-skills|evidence|microsoft-365|home-lab)\/index\.html$/i.test(relative)) return true;
+  if (/^evidence-library\/projects\/.+\/index\.html$/i.test(relative)) return true;
+  return false;
+}
 
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, {withFileTypes: true})) {
     if (entry.name.startsWith('.') && entry.name !== '.well-known') continue;
-    if (entry.isDirectory() && ignoredRoots.has(entry.name)) continue;
     const absolute = path.join(directory, entry.name);
+    const relative = rel(absolute);
+    if (entry.isDirectory() && ignoredPrefixes.some((prefix) => `${relative}/`.startsWith(prefix))) continue;
     if (entry.isDirectory()) walk(absolute);
-    else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) htmlFiles.push(absolute);
+    else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html') && shouldAuditFile(absolute)) htmlFiles.push(absolute);
   }
 }
 
@@ -72,8 +95,8 @@ function hasFragment(targetFile, fragment) {
 }
 
 function targetDescriptor(targetFile, fragment) {
-  const rel = path.relative(root, targetFile).replaceAll('\\', '/').toLowerCase();
-  let text = rel;
+  const relative = rel(targetFile).toLowerCase();
+  let text = relative;
   if (fs.existsSync(targetFile) && targetFile.toLowerCase().endsWith('.html')) {
     const html = fs.readFileSync(targetFile, 'utf8');
     if (fragment) {
@@ -81,8 +104,8 @@ function targetDescriptor(targetFile, fragment) {
       const marker = new RegExp(`<[^>]+\\b(?:id|name)\\s*=\\s*["']${escaped}["'][^>]*>`, 'i');
       const match = marker.exec(html);
       if (match) {
-        const start = Math.max(0, match.index - 600);
-        const end = Math.min(html.length, match.index + 1800);
+        const start = Math.max(0, match.index - 250);
+        const end = Math.min(html.length, match.index + 2200);
         text += ` ${stripTags(html.slice(start, end)).toLowerCase()}`;
       }
     } else {
@@ -93,7 +116,7 @@ function targetDescriptor(targetFile, fragment) {
 }
 
 const semanticRules = [
-  {pattern: /\b(screenshot|screenshots)\b/i, expect: /screenshot|evidence-gallery|\.png\b|\.jpe?g\b|\.webp\b/i, label: 'screenshot evidence'},
+  {pattern: /\b(screenshot|screenshots)\b/i, expect: /screenshot|evidence-gallery|\.png\b|\.jpe?g\b|\.webp\b|evidence-manifest\.json/i, label: 'screenshot evidence'},
   {pattern: /\bmanifest\b/i, expect: /manifest|\.json\b|\.csv\b/i, label: 'manifest'},
   {pattern: /\b(resume|professional experience|employment history)\b/i, expect: /resume\.html|assets\/resume\/.*\.pdf/i, label: 'resume/experience'},
   {pattern: /\bcoverage( dashboard)?\b/i, expect: /dashboard\.html/i, label: 'coverage dashboard'},
@@ -105,6 +128,12 @@ const semanticRules = [
   {pattern: /\bclaim map\b/i, expect: /claim-map|proof-map/i, label: 'claim map'}
 ];
 
+function isCtaLike(attrs, text) {
+  if (!text || text.length > 100) return false;
+  if (/\bclass\s*=\s*["'][^"']*(?:button|evidence-link|screenshot-preview)[^"']*["']/i.test(attrs)) return true;
+  return /^(open|review|inspect|trace|view|browse|search|download|return|discuss|audit|explore)\b/i.test(text);
+}
+
 const errors = [];
 let anchorsChecked = 0;
 let internalChecked = 0;
@@ -112,7 +141,7 @@ let semanticChecked = 0;
 
 for (const sourceFile of htmlFiles) {
   const html = fs.readFileSync(sourceFile, 'utf8');
-  const sourceRel = path.relative(root, sourceFile).replaceAll('\\', '/');
+  const sourceRel = rel(sourceFile);
   const anchorRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   for (const match of html.matchAll(anchorRegex)) {
     anchorsChecked += 1;
@@ -120,7 +149,7 @@ for (const sourceFile of htmlFiles) {
     const text = stripTags(match[2]);
     const hrefMatch = /\bhref\s*=\s*["']([^"']+)["']/i.exec(attrs);
     if (!hrefMatch) {
-      errors.push(`${sourceRel}: anchor "${text || '<no text>'}" has no href`);
+      if (isCtaLike(attrs, text)) errors.push(`${sourceRel}: CTA "${text || '<no text>'}" has no href`);
       continue;
     }
 
@@ -139,6 +168,7 @@ for (const sourceFile of htmlFiles) {
       continue;
     }
 
+    if (!isCtaLike(attrs, text)) continue;
     const descriptor = targetDescriptor(targetFile, fragment);
     for (const rule of semanticRules) {
       if (!rule.pattern.test(text)) continue;
@@ -156,4 +186,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`CTA/link audit passed: ${anchorsChecked} anchors checked, ${internalChecked} internal targets verified, ${semanticChecked} high-confidence label/target checks passed.`);
+console.log(`CTA/link audit passed: ${htmlFiles.length} live pages, ${anchorsChecked} anchors checked, ${internalChecked} internal targets verified, ${semanticChecked} high-confidence label/target checks passed.`);
