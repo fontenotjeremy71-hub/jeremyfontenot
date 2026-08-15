@@ -46,5 +46,27 @@
     </section>
   </main>
   <footer class="site-footer compact-footer" aria-label="Site footer"><div class="compact-footer-grid"><div class="compact-footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46" decoding="async"><div><strong>Jeremy Fontenot</strong><p>Technical claims remain bounded to the actions, outputs, behavior, and limitations in their sources.</p></div></div><nav class="compact-footer-links" aria-label="Footer navigation"><a href="./projects.html">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a><a href="./sitemap.xml">Sitemap</a></nav><div class="compact-footer-contact"><a href="mailto:jeremy.fontenot@jeremyfontenot.online">Email</a><a href="https://www.linkedin.com/in/jeremy-fontenot/">LinkedIn</a><a href="https://github.com/fontenotjeremy71-hub">GitHub</a></div></div><p class="credibility">Evidence quality follows the captured method, observed result, reproducibility, scope, and limitation.</p><p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p></footer>
+  <script>
+    (() => {
+      const scrollToHashTarget = () => {
+        if (!location.hash) return;
+        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (!target) return;
+        const header = document.querySelector('.site-header');
+        const toolbar = document.querySelector('.proof-page .filter-toolbar');
+        const headerHeight = header ? header.getBoundingClientRect().height : 0;
+        const toolbarHeight = toolbar ? toolbar.getBoundingClientRect().height : 0;
+        const offset = headerHeight + toolbarHeight + 28;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+      };
+      const settleHashTarget = () => {
+        requestAnimationFrame(() => requestAnimationFrame(scrollToHashTarget));
+        setTimeout(scrollToHashTarget, 120);
+      };
+      window.addEventListener('load', settleHashTarget);
+      window.addEventListener('hashchange', settleHashTarget);
+    })();
+  </script>
 </body>
 </html>
