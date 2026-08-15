@@ -29,3 +29,6 @@ jobs:
 
       - name: Build portfolio assets
         run: npm run build
+
+      - name: Validate button and CTA targets
+        run: node scripts/audits/validate-button-targets.js
