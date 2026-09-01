@@ -8,9 +8,9 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 463,
-    "textArtifactsInspected": 312,
-    "manualReviewRequired": 151,
+    "artifactsReviewed": 479,
+    "textArtifactsInspected": 316,
+    "manualReviewRequired": 163,
     "highSeveritySecretFindings": 0,
     "identifierFindings": 323,
     "unresolvedPublicIdentifierFindings": 0
@@ -677,6 +677,83 @@
     {
       "evidenceId": "home-lab-current-83ff3c73468bf017",
       "path": "evidence-library/projects/on-prem-home-lab/app01-storage-expansion/06-host-get-vhd-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-51777a48e4da1b89",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/azure-resource-group-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-39b6ed412d473227",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/hvhost01-arc-overview-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-25dbea7fdb638f9f",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/powershell-hvhost01-arc-services-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-665bc85e73cada7f",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/proxmox-hvhost01-summary-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-4eea1a07a717267b",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/proxmox-vmm01-summary-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-1a6af01c69a198fd",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-arc-overview-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-428cfd43399812e5",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-dps-status-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-3a4fef6e5dbfd351",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-extension-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-d3e2096c299a2288",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-instance-overview-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-9eefd2bca248780e",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/windows-admin-center-arc-connections-public.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-959ee8881a3475e5",
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/windows-admin-center-azure-account-public.png",
       "publicationClassification": "public-original",
       "status": "manual-review-required",
       "findings": []
@@ -3151,7 +3228,7 @@
           "exceptionId": "home-lab-reviewed-c0264365ddf05a02",
           "occurrences": 1,
           "lines": [
-            127
+            128
           ],
           "valueFingerprints": [
             "da6c02741702401d"
@@ -3224,6 +3301,13 @@
           ]
         }
       ]
+    },
+    {
+      "evidenceId": "home-lab-current-cc6b798be198adb4",
+      "path": "scripts/validation/build-azure-arc-public-screenshots.py",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
     },
     {
       "evidenceId": "home-lab-attested-9fb4595487a8170d",
