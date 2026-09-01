@@ -1,1 +1,130 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc"><title id="title">Verified Home Lab evidence system with Proxmox, SCVMM, and nested Hyper-V</title><desc id="desc">A branded systems diagram showing Proxmox VE hosting core lab workloads, System Center Virtual Machine Manager 2022 on VMM01 centrally managing nested Hyper-V host HVHOST01, APP01 storage validation, scheduled backups, restore testing, and operational documentation.</desc><rect width="1200" height="780" rx="28" fill="#07101f"/><g font-family="Segoe UI,Arial,sans-serif"><text x="42" y="48" fill="#38bdf8" font-family="Consolas,monospace" font-size="12" font-weight="700">VERIFIED HOME LAB EVIDENCE SYSTEM</text><text x="42" y="78" fill="#f8fafc" font-size="24" font-weight="700">Infrastructure, nested virtualization, validation, and preserved proof</text><rect x="316" y="104" width="350" height="82" rx="18" fill="#111827" stroke="#38bdf8"/><text x="340" y="132" fill="#38bdf8" font-size="11" font-weight="700">PRIMARY VIRTUALIZATION LAYER</text><text x="340" y="158" fill="#f8fafc" font-size="19" font-weight="700">Proxmox VE</text><text x="340" y="178" fill="#94a3b8" font-size="12">VM inventory · storage · bridges · backup coverage</text><rect x="710" y="104" width="448" height="82" rx="18" fill="#111827" stroke="#a78bfa"/><text x="734" y="132" fill="#a78bfa" font-size="11" font-weight="700">CENTRALIZED VIRTUALIZATION MANAGEMENT</text><text x="734" y="158" fill="#f8fafc" font-size="19" font-weight="700">VMM01 · System Center VMM 2022</text><text x="734" y="178" fill="#94a3b8" font-size="12">SCVMM console · HVHOST01 management · host validation</text><rect x="42" y="220" width="230" height="108" rx="18" fill="#111827" stroke="#d946ef"/><text x="64" y="247" fill="#d946ef" font-size="11" font-weight="700">EDGE &amp; ROUTING</text><text x="64" y="276" fill="#f8fafc" font-size="19" font-weight="700">pfSense</text><text x="64" y="300" fill="#94a3b8" font-size="12">Firewall · routing</text><text x="64" y="318" fill="#94a3b8" font-size="12">Segmentation</text><rect x="316" y="212" width="350" height="122" rx="20" fill="#111827" stroke="#38bdf8"/><text x="340" y="240" fill="#38bdf8" font-size="11" font-weight="700">CORE SERVICES</text><text x="340" y="270" fill="#f8fafc" font-size="19" font-weight="700">DC01 · Windows Server</text><text x="340" y="296" fill="#94a3b8" font-size="12">AD DS · DNS · DHCP</text><text x="340" y="316" fill="#94a3b8" font-size="12">Group Policy</text><rect x="710" y="210" width="218" height="122" rx="20" fill="#111827" stroke="#f59e0b"/><text x="734" y="238" fill="#f59e0b" font-size="11" font-weight="700">NESTED HYPER-V HOST</text><text x="734" y="268" fill="#f8fafc" font-size="19" font-weight="700">HVHOST01</text><text x="734" y="294" fill="#94a3b8" font-size="12">Hyper-V role</text><text x="734" y="314" fill="#94a3b8" font-size="12">VM lifecycle</text><rect x="954" y="210" width="204" height="122" rx="20" fill="#111827" stroke="#f59e0b"/><text x="976" y="238" fill="#f59e0b" font-size="11" font-weight="700">HYPER-V GUEST</text><text x="976" y="268" fill="#f8fafc" font-size="19" font-weight="700">APP01</text><text x="976" y="292" fill="#94a3b8" font-size="12">Windows Server 2022</text><text x="976" y="312" fill="#94a3b8" font-size="12">100 GB VHDX · Data (D:)</text><rect x="42" y="370" width="230" height="100" rx="16" fill="#111827" stroke="#475569"/><text x="64" y="396" fill="#38bdf8" font-size="11" font-weight="700">WINDOWS ENDPOINT</text><text x="64" y="425" fill="#f8fafc" font-size="18" font-weight="700">WS01</text><text x="64" y="448" fill="#94a3b8" font-size="12">Domain member</text><text x="64" y="464" fill="#94a3b8" font-size="12">Client validation</text><rect x="292" y="370" width="230" height="100" rx="16" fill="#111827" stroke="#d946ef"/><text x="314" y="396" fill="#d946ef" font-size="11" font-weight="700">MACOS ENDPOINT</text><text x="314" y="425" fill="#f8fafc" font-size="18" font-weight="700">MACVM01 · macOS</text><text x="314" y="448" fill="#94a3b8" font-size="12">AD bound · DNS</text><text x="314" y="464" fill="#94a3b8" font-size="12">SSH · VNC</text><rect x="542" y="370" width="230" height="100" rx="16" fill="#111827" stroke="#34d399"/><text x="564" y="396" fill="#34d399" font-size="11" font-weight="700">LINUX VLAN</text><text x="564" y="425" fill="#f8fafc" font-size="18" font-weight="700">Linux01 · Ubuntu</text><text x="564" y="448" fill="#94a3b8" font-size="12">VLAN 30</text><text x="564" y="464" fill="#94a3b8" font-size="12">Domain integration</text><rect x="792" y="360" width="366" height="120" rx="16" fill="#111827" stroke="#f59e0b"/><text x="814" y="386" fill="#f59e0b" font-size="11" font-weight="700">APP01 STORAGE CHANGE</text><text x="814" y="414" fill="#f8fafc" font-size="16" font-weight="700">Checkpoint merge</text><text x="814" y="436" fill="#f8fafc" font-size="16" font-weight="700">VHDX expansion</text><text x="814" y="458" fill="#94a3b8" font-size="12">64→100 GB · recovery preserved</text><text x="814" y="474" fill="#94a3b8" font-size="12">Host and guest validation</text><rect x="42" y="520" width="250" height="124" rx="18" fill="#111827" stroke="#38bdf8"/><text x="64" y="548" fill="#38bdf8" font-size="11" font-weight="700">EVIDENCE RECORDS</text><text x="64" y="578" fill="#f8fafc" font-size="17" font-weight="700">Operational</text><text x="64" y="600" fill="#f8fafc" font-size="17" font-weight="700">documentation</text><text x="64" y="624" fill="#94a3b8" font-size="12">Inventories · runbooks · validation</text><rect x="316" y="520" width="250" height="124" rx="18" fill="#111827" stroke="#d946ef"/><text x="338" y="548" fill="#d946ef" font-size="11" font-weight="700">BACKUP OPERATIONS</text><text x="338" y="578" fill="#f8fafc" font-size="18" font-weight="700">Scheduled backups</text><text x="338" y="604" fill="#94a3b8" font-size="12">Critical VM coverage</text><text x="338" y="622" fill="#94a3b8" font-size="12">Retained copies</text><rect x="590" y="520" width="250" height="124" rx="18" fill="#111827" stroke="#34d399"/><text x="612" y="548" fill="#34d399" font-size="11" font-weight="700">RESTORE VALIDATION</text><text x="612" y="578" fill="#f8fafc" font-size="18" font-weight="700">Isolated restore tests</text><text x="612" y="604" fill="#94a3b8" font-size="12">Boot · guest response</text><text x="612" y="622" fill="#94a3b8" font-size="12">Cleanup</text><rect x="864" y="520" width="294" height="124" rx="18" fill="#111827" stroke="#f59e0b"/><text x="886" y="548" fill="#f59e0b" font-size="11" font-weight="700">HYPER-V VALIDATION</text><text x="886" y="578" fill="#f8fafc" font-size="18" font-weight="700">APP01 storage proof</text><text x="886" y="604" fill="#94a3b8" font-size="12">Get-VHD · Get-Disk</text><text x="886" y="622" fill="#94a3b8" font-size="12">Get-Volume · write test</text><g stroke-width="2" fill="none"><path d="M491 186V202" stroke="#38bdf8"/><path d="M819 186V200" stroke="#a78bfa"/><path d="M819 200V202" stroke="#a78bfa"/><path d="M666 270H700" stroke="#f59e0b"/><path d="M928 270H944" stroke="#f59e0b"/><path d="M491 334V360" stroke="#38bdf8"/><path d="M819 332V350" stroke="#f59e0b"/><path d="M1056 332V350" stroke="#f59e0b"/><path d="M292 582H306" stroke="#38bdf8"/><path d="M566 582H580" stroke="#d946ef"/><path d="M840 582H854" stroke="#34d399"/></g><rect x="42" y="678" width="1116" height="62" rx="14" fill="#0b1426" stroke="#334155"/><text x="68" y="703" fill="#38bdf8" font-size="11" font-weight="700">01 · CONFIGURE</text><text x="68" y="724" fill="#94a3b8" font-size="13">Systems and access paths</text><text x="334" y="703" fill="#d946ef" font-size="11" font-weight="700">02 · VALIDATE</text><text x="334" y="724" fill="#94a3b8" font-size="13">Service state and behavior</text><text x="600" y="703" fill="#38bdf8" font-size="11" font-weight="700">03 · CAPTURE</text><text x="600" y="724" fill="#94a3b8" font-size="13">Outputs and results</text><text x="866" y="703" fill="#d946ef" font-size="11" font-weight="700">04 · PRESERVE</text><text x="866" y="724" fill="#94a3b8" font-size="13">Artifacts and limitations</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Verified Home Lab evidence system with Azure Arc, Proxmox, SCVMM, and nested Hyper-V</title>
+  <desc id="desc">A branded systems diagram showing Microsoft Azure and Azure Arc as the hybrid cloud control plane above the on-premises home lab, with Proxmox VE hosting core workloads, System Center Virtual Machine Manager 2022 centrally managing nested Hyper-V host HVHOST01, APP01 storage validation, backups, restore testing, and preserved operational evidence.</desc>
+  <rect width="1200" height="900" rx="28" fill="#07101f"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="42" y="48" fill="#38bdf8" font-family="Consolas,monospace" font-size="12" font-weight="700">VERIFIED HOME LAB EVIDENCE SYSTEM</text>
+    <text x="42" y="78" fill="#f8fafc" font-size="24" font-weight="700">Infrastructure, hybrid management, nested virtualization, validation, and preserved proof</text>
+
+    <!-- Azure hybrid control plane -->
+    <rect x="316" y="104" width="842" height="92" rx="18" fill="#0b1930" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="340" y="130" fill="#60a5fa" font-size="11" font-weight="700">HYBRID CLOUD CONTROL PLANE</text>
+    <text x="340" y="158" fill="#f8fafc" font-size="19" font-weight="700">Microsoft Azure · Azure Arc</text>
+    <text x="340" y="178" fill="#94a3b8" font-size="12">Azure for Students · Central US · rg-hybrid-lab-centralus-01</text>
+    <text x="760" y="178" fill="#94a3b8" font-size="12">Arc-enabled Servers · inventory · tags · resource context</text>
+
+    <!-- Virtualization and management -->
+    <rect x="316" y="224" width="350" height="82" rx="18" fill="#111827" stroke="#38bdf8"/>
+    <text x="340" y="252" fill="#38bdf8" font-size="11" font-weight="700">PRIMARY VIRTUALIZATION LAYER</text>
+    <text x="340" y="278" fill="#f8fafc" font-size="19" font-weight="700">Proxmox VE</text>
+    <text x="340" y="298" fill="#94a3b8" font-size="12">VM inventory · storage · bridges · backup coverage</text>
+
+    <rect x="710" y="224" width="448" height="82" rx="18" fill="#111827" stroke="#a78bfa"/>
+    <text x="734" y="252" fill="#a78bfa" font-size="11" font-weight="700">CENTRALIZED VIRTUALIZATION MANAGEMENT</text>
+    <text x="734" y="278" fill="#f8fafc" font-size="19" font-weight="700">VMM01 · System Center VMM 2022</text>
+    <text x="734" y="298" fill="#94a3b8" font-size="12">SCVMM console · HVHOST01 management · host validation</text>
+
+    <!-- Core lab -->
+    <rect x="42" y="340" width="230" height="108" rx="18" fill="#111827" stroke="#d946ef"/>
+    <text x="64" y="367" fill="#d946ef" font-size="11" font-weight="700">EDGE &amp; ROUTING</text>
+    <text x="64" y="396" fill="#f8fafc" font-size="19" font-weight="700">pfSense</text>
+    <text x="64" y="420" fill="#94a3b8" font-size="12">Firewall · routing</text>
+    <text x="64" y="438" fill="#94a3b8" font-size="12">Segmentation</text>
+
+    <rect x="316" y="332" width="350" height="122" rx="20" fill="#111827" stroke="#38bdf8"/>
+    <text x="340" y="360" fill="#38bdf8" font-size="11" font-weight="700">CORE SERVICES</text>
+    <text x="340" y="390" fill="#f8fafc" font-size="19" font-weight="700">DC01 · Windows Server</text>
+    <text x="340" y="416" fill="#94a3b8" font-size="12">AD DS · DNS · DHCP</text>
+    <text x="340" y="436" fill="#94a3b8" font-size="12">Group Policy</text>
+
+    <rect x="710" y="330" width="218" height="122" rx="20" fill="#111827" stroke="#f59e0b"/>
+    <text x="734" y="358" fill="#f59e0b" font-size="11" font-weight="700">NESTED HYPER-V HOST</text>
+    <text x="734" y="388" fill="#f8fafc" font-size="19" font-weight="700">HVHOST01</text>
+    <text x="734" y="414" fill="#94a3b8" font-size="12">Hyper-V role · Arc connected</text>
+    <text x="734" y="434" fill="#94a3b8" font-size="12">VM lifecycle</text>
+
+    <rect x="954" y="330" width="204" height="122" rx="20" fill="#111827" stroke="#f59e0b"/>
+    <text x="976" y="358" fill="#f59e0b" font-size="11" font-weight="700">HYPER-V GUEST</text>
+    <text x="976" y="388" fill="#f8fafc" font-size="19" font-weight="700">APP01</text>
+    <text x="976" y="412" fill="#94a3b8" font-size="12">Windows Server 2022</text>
+    <text x="976" y="432" fill="#94a3b8" font-size="12">100 GB VHDX · Data (D:)</text>
+
+    <!-- Endpoints and change evidence -->
+    <rect x="42" y="490" width="230" height="100" rx="16" fill="#111827" stroke="#475569"/>
+    <text x="64" y="516" fill="#38bdf8" font-size="11" font-weight="700">WINDOWS ENDPOINT</text>
+    <text x="64" y="545" fill="#f8fafc" font-size="18" font-weight="700">WS01</text>
+    <text x="64" y="568" fill="#94a3b8" font-size="12">Domain member</text>
+    <text x="64" y="584" fill="#94a3b8" font-size="12">Client validation</text>
+
+    <rect x="292" y="490" width="230" height="100" rx="16" fill="#111827" stroke="#d946ef"/>
+    <text x="314" y="516" fill="#d946ef" font-size="11" font-weight="700">MACOS ENDPOINT</text>
+    <text x="314" y="545" fill="#f8fafc" font-size="18" font-weight="700">MACVM01 · macOS</text>
+    <text x="314" y="568" fill="#94a3b8" font-size="12">AD bound · DNS</text>
+    <text x="314" y="584" fill="#94a3b8" font-size="12">SSH · VNC</text>
+
+    <rect x="542" y="490" width="230" height="100" rx="16" fill="#111827" stroke="#34d399"/>
+    <text x="564" y="516" fill="#34d399" font-size="11" font-weight="700">LINUX VLAN</text>
+    <text x="564" y="545" fill="#f8fafc" font-size="18" font-weight="700">Linux01 · Ubuntu</text>
+    <text x="564" y="568" fill="#94a3b8" font-size="12">VLAN 30</text>
+    <text x="564" y="584" fill="#94a3b8" font-size="12">Domain integration</text>
+
+    <rect x="792" y="480" width="366" height="120" rx="16" fill="#111827" stroke="#f59e0b"/>
+    <text x="814" y="506" fill="#f59e0b" font-size="11" font-weight="700">APP01 STORAGE CHANGE</text>
+    <text x="814" y="534" fill="#f8fafc" font-size="16" font-weight="700">Checkpoint merge</text>
+    <text x="814" y="556" fill="#f8fafc" font-size="16" font-weight="700">VHDX expansion</text>
+    <text x="814" y="578" fill="#94a3b8" font-size="12">64→100 GB · recovery preserved</text>
+    <text x="814" y="594" fill="#94a3b8" font-size="12">Host and guest validation</text>
+
+    <!-- Evidence lifecycle -->
+    <rect x="42" y="640" width="250" height="124" rx="18" fill="#111827" stroke="#38bdf8"/>
+    <text x="64" y="668" fill="#38bdf8" font-size="11" font-weight="700">EVIDENCE RECORDS</text>
+    <text x="64" y="698" fill="#f8fafc" font-size="17" font-weight="700">Operational</text>
+    <text x="64" y="720" fill="#f8fafc" font-size="17" font-weight="700">documentation</text>
+    <text x="64" y="744" fill="#94a3b8" font-size="12">Inventories · runbooks · validation</text>
+
+    <rect x="316" y="640" width="250" height="124" rx="18" fill="#111827" stroke="#d946ef"/>
+    <text x="338" y="668" fill="#d946ef" font-size="11" font-weight="700">BACKUP OPERATIONS</text>
+    <text x="338" y="698" fill="#f8fafc" font-size="18" font-weight="700">Scheduled backups</text>
+    <text x="338" y="724" fill="#94a3b8" font-size="12">Critical VM coverage</text>
+    <text x="338" y="742" fill="#94a3b8" font-size="12">Retained copies</text>
+
+    <rect x="590" y="640" width="250" height="124" rx="18" fill="#111827" stroke="#34d399"/>
+    <text x="612" y="668" fill="#34d399" font-size="11" font-weight="700">RESTORE VALIDATION</text>
+    <text x="612" y="698" fill="#f8fafc" font-size="18" font-weight="700">Isolated restore tests</text>
+    <text x="612" y="724" fill="#94a3b8" font-size="12">Boot · guest response</text>
+    <text x="612" y="742" fill="#94a3b8" font-size="12">Cleanup</text>
+
+    <rect x="864" y="640" width="294" height="124" rx="18" fill="#111827" stroke="#f59e0b"/>
+    <text x="886" y="668" fill="#f59e0b" font-size="11" font-weight="700">HYPER-V VALIDATION</text>
+    <text x="886" y="698" fill="#f8fafc" font-size="18" font-weight="700">APP01 storage proof</text>
+    <text x="886" y="724" fill="#94a3b8" font-size="12">Get-VHD · Get-Disk</text>
+    <text x="886" y="742" fill="#94a3b8" font-size="12">Get-Volume · write test</text>
+
+    <!-- Relationships -->
+    <g stroke-width="2" fill="none">
+      <path d="M491 306V322" stroke="#38bdf8"/>
+      <path d="M819 306V320" stroke="#a78bfa"/>
+      <path d="M666 390H700" stroke="#f59e0b"/>
+      <path d="M928 390H944" stroke="#f59e0b"/>
+      <path d="M491 454V480" stroke="#38bdf8"/>
+      <path d="M819 452V470" stroke="#f59e0b"/>
+      <path d="M1056 452V470" stroke="#f59e0b"/>
+      <path d="M292 702H306" stroke="#38bdf8"/>
+      <path d="M566 702H580" stroke="#d946ef"/>
+      <path d="M840 702H854" stroke="#34d399"/>
+      <path d="M819 196V214" stroke="#60a5fa" stroke-dasharray="6 5"/>
+      <path d="M819 196V320" stroke="#60a5fa" stroke-opacity="0.6" stroke-dasharray="6 5"/>
+    </g>
+    <text x="836" y="216" fill="#60a5fa" font-size="10" font-weight="700">AZURE ARC HYBRID PATH</text>
+
+    <rect x="42" y="798" width="1116" height="62" rx="14" fill="#0b1426" stroke="#334155"/>
+    <text x="68" y="823" fill="#38bdf8" font-size="11" font-weight="700">01 · CONFIGURE</text>
+    <text x="68" y="844" fill="#94a3b8" font-size="13">Systems and access paths</text>
+    <text x="334" y="823" fill="#d946ef" font-size="11" font-weight="700">02 · VALIDATE</text>
+    <text x="334" y="844" fill="#94a3b8" font-size="13">Service state and behavior</text>
+    <text x="600" y="823" fill="#38bdf8" font-size="11" font-weight="700">03 · CAPTURE</text>
+    <text x="600" y="844" fill="#94a3b8" font-size="13">Outputs and results</text>
+    <text x="866" y="823" fill="#d946ef" font-size="11" font-weight="700">04 · PRESERVE</text>
+    <text x="866" y="844" fill="#94a3b8" font-size="13">Artifacts and limitations</text>
+  </g>
+</svg>
