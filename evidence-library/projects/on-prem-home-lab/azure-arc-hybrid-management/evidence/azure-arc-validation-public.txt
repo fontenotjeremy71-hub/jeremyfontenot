@@ -1,0 +1,60 @@
+Azure Arc hybrid-management validation — public-safe summary
+Collection context: personal nonproduction home lab
+Observed state date: 2026-08-31
+
+HVHOST01 — direct PowerShell remoting and Azure portal
+------------------------------------------------------
+WinRM: reachable
+Resource name: HVHOST01
+Resource group: rg-hybrid-lab-centralus-01
+Location: centralus
+Connected Machine agent version: 1.67.03504.3207
+Connected Machine agent status: Connected
+Connected Machine agent automatic upgrade: enabled
+Outbound endpoint: gbl.his.arc.azure.com TCP 443 succeeded
+
+Service          Status   Start type
+---------------  -------  ----------
+himds            Running  Automatic
+ExtensionService Running  Automatic
+GCArcService     Running  Automatic
+
+VMM01 — Azure portal and Windows Admin Center
+-----------------------------------------------
+Azure Arc machine status: Connected
+Resource group: rg-hybrid-lab-centralus-01
+Location: Central US
+Connected Machine agent version: 1.67.03504.3207
+Operating system: Windows Server 2022 Standard Evaluation
+Hypervisor manufacturer reported to Azure: QEMU
+
+SQL Server instance resource: VMM01
+Mode: Connected
+Version: SQL Server 2022
+Edition: Developer
+Service type: SQL Server Database Engine
+License type: License only
+Extension: WindowsAgent.SqlServer
+Extension version: 1.1.3518.465
+Extension provisioning state: Succeeded
+Extension automatic upgrade: enabled
+DPS upload status: OK
+Metrics upload status: OK
+Connected Machine agent status: Connected
+Automatic backups: Disabled
+
+Current access limitation
+-------------------------
+WinRM answered on VMM01, but the current Windows credential was rejected for a
+remote PowerShell session. The VMM01 service list, SqlServerExtension service
+state, and local SQL services were therefore not re-read directly during this
+collection. Azure portal and Windows Admin Center provided the current connected,
+extension, SQL inventory, license, and telemetry states recorded above.
+
+Public-safety handling
+----------------------
+Tenant IDs, subscription IDs, account names, email addresses, session identifiers,
+private IP addresses, tokens, cookies, credentials, and connection strings are not
+included. Raw captures remain outside the public repository; only reviewed,
+cropped, and redacted derivatives are published.
+

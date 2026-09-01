@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "project": "Azure Arc hybrid management in a personal nonproduction home lab",
+  "capturedDate": "2026-08-31",
+  "sourceContext": "Fresh authenticated captures from Proxmox VE, Windows Admin Center, and Microsoft Azure plus direct read-only PowerShell validation of HVHOST01. Historical troubleshooting chronology is owner-supplied and is separated from the freshly observed final state.",
+  "integrity": {
+    "algorithm": "sha256",
+    "rawOriginalsStoredOutsidePublicRepository": true,
+    "publicDerivativesAreCroppedAndRedacted": true,
+    "transformationScript": "../../../../scripts/validation/build-azure-arc-public-screenshots.py"
+  },
+  "review": {
+    "classification": "sanitized public personal-lab evidence",
+    "highSeveritySecretFindings": 0,
+    "manualVisualReviewCompleted": true,
+    "redactedFields": ["tenant ID", "subscription ID", "account names", "email addresses", "session identifiers", "private IP addresses", "unnecessary interface data"],
+    "notPresent": ["passwords", "MFA codes", "device-login codes", "tokens", "cookies", "private keys", "connection strings", "raw authentication logs"]
+  },
+  "sourceArtifacts": [
+    {"name":"powershell-hvhost01-validation-raw.png","bytes":551521,"sha256":"52466a855b00faea8ef381d3468a894198826d5fd7d8c71eecae472bd80b06b1","publicDerivative":"screenshots/powershell-hvhost01-arc-services-public.png"},
+    {"name":"proxmox-vmm01-summary-raw.png","bytes":208183,"sha256":"7684889655e79cb27685466a29ed516096adbeb72b04ce629110e7ebdddef8df","publicDerivative":"screenshots/proxmox-vmm01-summary-public.png"},
+    {"name":"proxmox-hvhost01-summary-raw.png","bytes":208304,"sha256":"f4dc683a75b965e54d5857b4b539979282208c40579fc9a7fa676f4a6f4de812","publicDerivative":"screenshots/proxmox-hvhost01-summary-public.png"},
+    {"name":"windows-admin-center-connections-extension-raw.png","bytes":85108,"sha256":"84bef49b986b3f8eb00e3d0f7ddb50f0594b6c840962ab838babb46265594846","publicDerivative":"screenshots/windows-admin-center-arc-connections-public.png"},
+    {"name":"windows-admin-center-azure-account-raw.png","bytes":48329,"sha256":"aef87c0f1b368ef78a415f57e567b49e3a95a4090a1067d804b530890f6c14ce","publicDerivative":"screenshots/windows-admin-center-azure-account-public.png"},
+    {"name":"azure-resource-group-raw.png","bytes":131740,"sha256":"465afba9642dcbae4dcd99151e896cad6c938e22944408c87e68467fe407663c","publicDerivative":"screenshots/azure-resource-group-public.png"},
+    {"name":"hvhost01-arc-overview-raw.png","bytes":180240,"sha256":"1f996410e61f4d6accf4def91e36c89b306318fd3f1a9b8c23861caaaa1b15c4","publicDerivative":"screenshots/hvhost01-arc-overview-public.png"},
+    {"name":"vmm01-arc-overview-raw.png","bytes":177353,"sha256":"344ac95e65492ab4eca45ef11fc768ffabdad9285e040b34bd1cb16e32f4ffb9","publicDerivative":"screenshots/vmm01-arc-overview-public.png"},
+    {"name":"vmm01-sql-extension-raw.png","bytes":107834,"sha256":"5bebcfb9127e31b2184ca4717cebb4cea516fe79d59576bdcfe8edb89d6d5501","publicDerivative":"screenshots/vmm01-sql-extension-public.png"},
+    {"name":"vmm01-sql-instance-overview-raw.png","bytes":123028,"sha256":"609084d83411b861d1fab726a26c5203625fd425a877baee91dc0b940b73ed0b","publicDerivative":"screenshots/vmm01-sql-instance-overview-public.png"},
+    {"name":"vmm01-sql-dps-status-raw.png","bytes":106957,"sha256":"ab8d5ccfcbad9d2f5122bc01f7023b8efc0223ce53865479a0e69b52b7e61dba","publicDerivative":"screenshots/vmm01-sql-dps-status-public.png"}
+  ],
+  "artifacts": [
+    {"path":"screenshots/powershell-hvhost01-arc-services-public.png","bytes":230901,"width":1408,"height":470,"sha256":"36c0241a74ab9e9b80a0a73fe8baf7d6fdade58cd594133c5881abba209b09bb","supports":"Direct PowerShell output showed HVHOST01 agent 1.67.03504.3207 Connected with auto-upgrade enabled and the three Arc services Running with Automatic startup."},
+    {"path":"screenshots/proxmox-vmm01-summary-public.png","bytes":169708,"width":1440,"height":370,"sha256":"83b15c471e8b183d6760551c69ce074589c9e60af9fe16ac644542a4420f583c","supports":"VMM01 was running as an on-premises QEMU virtual machine at collection time; private guest addresses are redacted."},
+    {"path":"screenshots/proxmox-hvhost01-summary-public.png","bytes":181724,"width":1440,"height":370,"sha256":"b69d705b7592923ba6e35967b19852e4f9a0c7c70dd0e10b1a5f7d93093ea68c","supports":"HVHOST01 was running as an on-premises QEMU virtual machine at collection time; private guest addresses are redacted."},
+    {"path":"screenshots/windows-admin-center-arc-connections-public.png","bytes":165496,"width":1862,"height":250,"sha256":"8040ed7470330a0578901e47eceff5e93ec4bb25012407fa0d0cbb47514f625d","supports":"Windows Admin Center showed HVHOST01 and VMM01 with Azure Arc status Connected."},
+    {"path":"screenshots/windows-admin-center-azure-account-public.png","bytes":34078,"width":960,"height":300,"sha256":"d0e45ee1bd12799f9d18c249931a6da08757ce1dfbbb35c091b825624f38e0b6","supports":"Windows Admin Center showed separate Windows and Azure signed-in contexts; both identities are redacted."},
+    {"path":"screenshots/azure-resource-group-public.png","bytes":262070,"width":1330,"height":560,"sha256":"7aa1068723f1965db280de0705226a3acd5211da38f91cb2a44d2d1e013d15d2","supports":"The Central US resource group contained HVHOST01 and VMM01 Arc machines plus the VMM01 SQL Server instance."},
+    {"path":"screenshots/hvhost01-arc-overview-public.png","bytes":312602,"width":1645,"height":505,"sha256":"59de0dd082159fda1e751ce42fae2c7fb2f7701f76b8e46e870670f52d16f2c6","supports":"HVHOST01 reported Connected with agent version 1.67.03504.3207 on Windows Server 2022 Standard Evaluation and QEMU."},
+    {"path":"screenshots/vmm01-arc-overview-public.png","bytes":313538,"width":1645,"height":505,"sha256":"2cfc3077448eb0b056cd38e2a0d0a72c875ae427363bc5a6cb78b4f966cd671e","supports":"VMM01 reported Connected with agent version 1.67.03504.3207 on Windows Server 2022 Standard Evaluation and QEMU."},
+    {"path":"screenshots/vmm01-sql-extension-public.png","bytes":175982,"width":1660,"height":340,"sha256":"86cf772c1c81ab531f56c39abd95c02370af606e4f309353138204876d2cc78a","supports":"WindowsAgent.SqlServer version 1.1.3518.465 reported Succeeded with automatic upgrade Enabled and no update available."},
+    {"path":"screenshots/vmm01-sql-instance-overview-public.png","bytes":302497,"width":1655,"height":805,"sha256":"b05a4ae563cfa3f812aae75dba529171d949efc20fa9b2f14a2d6adb3ce77c20","supports":"The VMM01 Arc-enabled SQL Server resource reported connected mode, SQL Server 2022 Developer, License only, and extension provisioning Succeeded."},
+    {"path":"screenshots/vmm01-sql-dps-status-public.png","bytes":165339,"width":920,"height":805,"sha256":"60cbadd3baff85e72e41e0348927bd707ce60b1d7bd2779c5ff4974a248c8723","supports":"The SQL properties reported DPS OK, metrics OK, automatic extension upgrade true, Connected Machine agent Connected, and automatic backups Disabled."},
+    {"path":"evidence/azure-arc-validation.ps1","supports":"Public-safe read-only commands for agent, service, SQL, and outbound connectivity validation."},
+    {"path":"evidence/azure-arc-validation-public.txt","supports":"Sanitized current-state summary with the VMM01 direct-remoting limitation preserved."}
+  ],
+  "verifiedState": {
+    "HVHOST01": "Connected in Azure Arc; direct PowerShell validation confirmed the three Arc services running, TCP 443 success, and agent auto-upgrade enabled.",
+    "VMM01": "Connected in Azure Arc and Windows Admin Center; local services were not freshly re-read because the current Windows credential was rejected.",
+    "VMM01Sql": "SQL Server 2022 Developer in connected mode; WindowsAgent.SqlServer 1.1.3518.465 Succeeded; License only; DPS OK; metrics OK; automatic extension upgrade enabled."
+  },
+  "claimBoundary": "Personal nonproduction home-lab evidence only. No production SQL license, pay-as-you-go selection, enterprise Azure RBAC ownership, production availability, high availability, disaster recovery, RTO, RPO, broad security assurance, or enablement of Azure Monitor, Azure Backup, Update Manager, Defender, Site Recovery, automated SQL updates, or automatic SQL backups is claimed."
+}
