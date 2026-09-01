@@ -53,8 +53,8 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 5 / 3;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -214,8 +214,8 @@
   }
 
   .evidence-system-visual img {
-    aspect-ratio: 16 / 10;
-    object-position: 48% center;
+    aspect-ratio: 4 / 3;
+    object-position: center;
   }
 
   .evidence-system-visual figcaption {
@@ -263,3 +263,4 @@
 .contact-page .route-link-grid a:nth-child(even):hover {
   transform: translateY(-5px);
 }
+
