@@ -335,6 +335,18 @@
   ],
   "reviewedExclusions": [
     {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/index.html",
+      "reason": "Azure Arc hybrid-infrastructure case study belongs to the personal Home Lab evidence catalog, not the Microsoft 365 personal-tenant collection."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence-manifest.json",
+      "reason": "Azure Arc hybrid-infrastructure provenance belongs to the personal Home Lab evidence catalog, not the Microsoft 365 personal-tenant collection."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt",
+      "reason": "Azure Arc Windows and SQL validation output belongs to the personal Home Lab evidence catalog, not the Microsoft 365 personal-tenant collection."
+    },
+    {
       "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/index.html",
       "reason": "Published Home Lab SCVMM case study, not Microsoft 365 evidence."
     },

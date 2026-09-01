@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>On-Premises Home Lab | Windows, macOS, Linux, Proxmox, Hyper-V & pfSense</title>
-  <meta name="description" content="Cross-platform systems administration home lab covering Proxmox, nested Hyper-V, pfSense, Windows Server, Active Directory, Windows, macOS, Linux, DNS, DHCP, virtual storage, remote administration, backups, and isolated restore validation.">
+  <meta name="description" content="Cross-platform systems administration home lab covering Proxmox, nested Hyper-V, Azure Arc, SQL Server, pfSense, Windows Server, Active Directory, Windows, macOS, Linux, remote administration, backups, and isolated restore validation.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0f172a">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -85,7 +85,7 @@
       <div class="capability-grid reveal">
         <article class="capability-card"><span class="tile-code">ID</span><h3>Cross-platform identity</h3><p>Windows domain membership, Linux realmd and SSSD integration, macOS Active Directory binding, computer objects, mobile accounts, Kerberos-aware configuration, and identity resolution.</p></article>
         <article class="capability-card"><span class="tile-code">DNS</span><h3>DNS and service access</h3><p>Forward and reverse lookup validation, domain-qualified hostnames, DNS assignment, TCP reachability, gateway review, and troubleshooting across routed paths.</p></article>
-        <article class="capability-card"><span class="tile-code">VM</span><h3>Virtualization and storage</h3><p>Proxmox VM resources, OVMF and Q35 guest configuration, Linux bridges, VLAN placement, nested Hyper-V, SCVMM host and guest management, checkpoint lifecycle, VHDX relationships and expansion, guest partitioning, and post-change validation.</p></article>
+        <article class="capability-card"><span class="tile-code">VM</span><h3>Virtualization, storage, and hybrid management</h3><p>Proxmox VM resources, OVMF and Q35 guest configuration, Linux bridges, VLAN placement, nested Hyper-V, SCVMM host and guest management, Azure Arc-connected Windows and SQL inventory, checkpoint lifecycle, VHDX relationships and expansion, guest partitioning, and post-change validation.</p></article>
         <article class="capability-card"><span class="tile-code">CLI</span><h3>Remote administration</h3><p>PowerShell, SSH, VNC, macOS Screen Sharing, local and domain account administration, and evidence capture from management systems.</p></article>
         <article class="capability-card"><span class="tile-code">BKP</span><h3>Backup and restore operations</h3><p>Scheduled backup review, archive inventory, preboot NIC isolation, bounded restore tests, cleanup, and conservative result classification.</p></article>
         <article class="capability-card"><span class="tile-code">DOC</span><h3>Documentation and evidence</h3><p>Runbooks, validation output, screenshots, manifests, SHA-256 hashes, public-safe sanitization, explicit limitations, and reviewer-oriented case studies.</p></article>
@@ -106,6 +106,7 @@
     <section class="section" id="artifacts" aria-labelledby="artifacts-title">
       <div class="section-head reveal"><p class="eyebrow">Reviewer artifacts</p><h2 id="artifacts-title">Stable routes for deeper technical review.</h2></div>
       <div class="artifact-grid reveal">
+        <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/"><span>AZURE ARC</span><strong>Hybrid Windows and SQL management</strong><em>Arc onboarding, Connected Machine agent validation, SQL extension troubleshooting, fresh screenshots, sanitized PowerShell, and a provenance manifest.</em></a>
         <a class="artifact-card" href="./evidence-library/projects/on-prem-home-lab/scvmm-2022/"><span>SCVMM</span><strong>SCVMM 2022 management</strong><em>VMM01 build, host onboarding, APP01 lifecycle control, VM Viewer, remote access, screenshots, and manifest.</em></a>
         <a class="artifact-card" href="./app01-storage-expansion.html"><span>HYPER-V</span><strong>APP01 storage expansion</strong><em>Checkpoint merge, VHDX expansion, GPT analysis, NTFS provisioning, and host/guest validation.</em></a>
         <a class="artifact-card" href="./macvm01.html"><span>MAC</span><strong>MACVM01 case study</strong><em>macOS virtualization, AD binding, DNS, SSH, VNC, and remediation.</em></a>
@@ -120,7 +121,7 @@
     </section>
 
     <section class="section" id="limits" aria-labelledby="limits-title">
-      <div class="scope-note-card reveal"><p class="eyebrow">Evidence boundary</p><h2 id="limits-title">What this lab does not prove.</h2><p>This personal nonproduction lab does not prove enterprise production ownership, high availability, enterprise Hyper-V or SCVMM clustering, Storage Spaces Direct, live migration, enterprise Apple fleet administration, Apple Business Manager, MDM, full firewall assurance, full security assurance, complete disaster recovery, RTO, RPO, SLA performance, or continuous availability. The SCVMM result applies to one management server, one managed nested Hyper-V host, and the observed APP01 operations; the APP01 storage result applies only to the documented host, virtual disk, guest configuration, and observed validation.</p><div class="inline-actions"><a href="./systems-administration.html">Review readiness and boundaries</a><a href="./proof.html#home-lab-proof">Review claim boundaries</a><a href="./contact.html">Discuss role fit</a></div></div>
+      <div class="scope-note-card reveal"><p class="eyebrow">Evidence boundary</p><h2 id="limits-title">What this lab does not prove.</h2><p>This personal nonproduction lab does not prove enterprise production ownership, high availability, enterprise Hyper-V or SCVMM clustering, Storage Spaces Direct, live migration, broad Azure RBAC ownership, production SQL licensing, enabled Azure services beyond the observed fields, enterprise Apple fleet administration, Apple Business Manager, MDM, full firewall assurance, full security assurance, complete disaster recovery, RTO, RPO, SLA performance, or continuous availability. The Azure Arc result applies to two Windows Server lab machines and one SQL Server 2022 Developer instance; the SCVMM result applies to one management server, one managed nested Hyper-V host, and the observed APP01 operations.</p><div class="inline-actions"><a href="./systems-administration.html">Review readiness and boundaries</a><a href="./proof.html#home-lab-proof">Review claim boundaries</a><a href="./contact.html">Discuss role fit</a></div></div>
     </section>
   </main>
   <footer class="site-footer compact-footer" aria-label="Site footer">
