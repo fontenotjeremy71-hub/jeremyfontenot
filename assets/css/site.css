@@ -5,7 +5,7 @@
 @import url("./pages.css");
 @import url("./readiness.css");
 @import url("./visual-experience.css");
-@import url("./visual-experience-fixes.css");
+@import url("./visual-experience-fixes.css?v=20260901-diagram-ratio-fix");
 @import url("./text-rail-fixes.css");
 @import url("./projects-watermark-fixes.css");
 @import url("./home-local-design.css");
@@ -18,3 +18,4 @@
 @import url("./proof-catalog-composition.css?v=20260801-proof-catalog");
 @import url("./proof-card-grid-fixes.css?v=20260815-proof-anchor-fix");
 @import url("./sitewide-polish.css");
+
