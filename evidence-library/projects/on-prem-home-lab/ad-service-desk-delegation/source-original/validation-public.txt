@@ -1,0 +1,44 @@
+ACTIVE DIRECTORY SERVICE DESK DELEGATION VALIDATION
+Captured: 2026-09-05
+Environment: personal nonproduction lab
+Domain: ad.jeremyfontenot.online
+
+DELEGATED PRINCIPAL
+JFAD\GG-ServiceDesk
+Validation account: JFAD\sd.tech
+
+OU SCOPE
+OU=Service Desk,OU=Users,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online
+
+CONFIGURED USER-OBJECT RIGHTS
+- Reset Password extended right
+- WriteProperty: lockoutTime
+- WriteProperty: pwdLastSet
+- Explicit delegation; applies to descendant user objects
+
+FUNCTIONAL POSITIVE TESTS
+PASS - delegated password reset of separate test account
+PASS - delegated account unlock of deliberately locked test account
+PASS - delegated force-password-change-at-next-logon
+
+FUNCTIONAL NEGATIVE TEST
+PASS - attempt to disable test account was denied with insufficient access rights
+
+GROUP MEMBERSHIP DELEGATION
+Target group: GG-RDP-Allowed
+Delegated right: WriteProperty
+Object type: bf9679c0-0de6-11d0-a285-00aa003049e2
+Schema lookup: member
+Inheritance: None
+Explicit ACL: Yes
+
+FUNCTIONAL GROUP TESTS
+PASS - validation account added test user to GG-RDP-Allowed
+PASS - validation account removed test user from GG-RDP-Allowed
+PASS - attempt to add test user to GG-Lab-Admins was denied with insufficient access rights
+
+FINAL RESULT
+PASS - bounded least-privilege Service Desk delegation configured and functionally validated.
+
+BOUNDARY
+This record supports only a personal-lab least-privilege Active Directory delegation exercise. It does not claim employer/client directory ownership, production administrative authority, enterprise PAM, or organization-wide RBAC governance.
