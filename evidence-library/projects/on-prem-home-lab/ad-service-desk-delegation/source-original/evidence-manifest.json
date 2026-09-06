@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "project": "Active Directory Service Desk least-privilege delegation",
+  "capturedDate": "2026-09-05",
+  "classification": "sanitized public personal-lab evidence",
+  "scope": {
+    "domain": "ad.jeremyfontenot.online",
+    "delegatedPrincipal": "JFAD\\GG-ServiceDesk",
+    "validationAccount": "JFAD\\sd.tech",
+    "ou": "OU=Service Desk,OU=Users,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online",
+    "groupTarget": "GG-RDP-Allowed"
+  },
+  "validatedOutcomes": [
+    "Password reset of a separate test user succeeded under delegated rights.",
+    "Account unlock of a deliberately locked test user succeeded under delegated rights.",
+    "Force password change at next logon succeeded under delegated rights.",
+    "Attempt to disable the test account was denied with insufficient access rights.",
+    "Adding and removing a test user from GG-RDP-Allowed succeeded.",
+    "Attempt to add the test user to GG-Lab-Admins was denied with insufficient access rights."
+  ],
+  "aclEvidence": {
+    "serviceDeskOu": [
+      {
+        "right": "WriteProperty",
+        "attribute": "pwdLastSet",
+        "objectTypeGuid": "28630ebf-41d5-11d1-a9c1-0000f80367c1",
+        "appliesTo": "descendant user objects",
+        "explicit": true
+      },
+      {
+        "right": "WriteProperty",
+        "attribute": "lockoutTime",
+        "objectTypeGuid": "bf967a0a-0de6-11d0-a285-00aa003049e2",
+        "appliesTo": "descendant user objects",
+        "explicit": true
+      },
+      {
+        "right": "ExtendedRight",
+        "extendedRight": "Reset Password",
+        "objectTypeGuid": "00299570-246d-11d0-a768-00aa006e0529",
+        "appliesTo": "descendant user objects",
+        "explicit": true
+      }
+    ],
+    "rdpAllowedGroup": {
+      "right": "WriteProperty",
+      "attribute": "member",
+      "objectTypeGuid": "bf9679c0-0de6-11d0-a285-00aa003049e2",
+      "inheritance": "None",
+      "explicit": true
+    }
+  },
+  "claimRelationship": {
+    "claimId": "home-lab-active-directory-administration",
+    "relationship": "direct supporting evidence",
+    "proposedPublicRoute": "/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html"
+  },
+  "limitations": "Personal nonproduction lab only. No enterprise directory ownership, production change authority, privileged-access-management deployment, or organization-wide RBAC governance is claimed."
+}
