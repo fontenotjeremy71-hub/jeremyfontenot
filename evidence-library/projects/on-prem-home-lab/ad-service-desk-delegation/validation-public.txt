@@ -27,8 +27,7 @@ PASS - attempt to disable test account was denied with insufficient access right
 GROUP MEMBERSHIP DELEGATION
 Target group: GG-RDP-Allowed
 Delegated right: WriteProperty
-Object type: bf9679c0-0de6-11d0-a285-00aa003049e2
-Schema lookup: member
+Object type mapping: LDAP member attribute
 Inheritance: None
 Explicit ACL: Yes
 
