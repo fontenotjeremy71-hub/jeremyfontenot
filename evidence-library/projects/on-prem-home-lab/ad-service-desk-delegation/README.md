@@ -34,10 +34,7 @@ A negative-control test confirmed that the same account could **not** disable th
 
 `JFAD\GG-ServiceDesk` was granted explicit `WriteProperty` permission on only the `member` attribute of `GG-RDP-Allowed`.
 
-The Active Directory schema lookup confirmed:
-
-- LDAP display name: `member`
-- Schema GUID: `bf9679c0-0de6-11d0-a285-00aa003049e2`
+An Active Directory schema lookup confirmed that the ACL object type used for this delegation maps to the LDAP `member` attribute. The raw schema identifier is intentionally omitted from the public derivative because the attribute-name mapping is sufficient to support the bounded claim.
 
 The validation account successfully added and removed a test user from `GG-RDP-Allowed`.
 
