@@ -59,3 +59,5 @@ jobs:
             git commit -m "Regenerate PR 78 evidence and relationship outputs"
             git push
           fi
+
+# Triggered after preserved-source catalog entries were committed.
