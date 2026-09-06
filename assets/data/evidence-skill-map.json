@@ -12,7 +12,7 @@
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
-      "sha256": "1b105a039dc7fde83de31d69038752b8984a0f6da1f3078908d7d576a7158015"
+      "sha256": "ba8174ae7ad60b4fdadcdfa532f1be1efecc6134bb636aa3999784016068fe20"
     }
   },
   "totals": {
@@ -93,6 +93,7 @@
         "home-lab-attested-e636ff57e7e87912",
         "home-lab-attested-ee4143be69ae8f17",
         "home-lab-current-0700d20c82b3278e",
+        "home-lab-current-1517f4d72c939580",
         "home-lab-current-2cfa0c34dda1aca1",
         "home-lab-current-3307f2f56ca2e135",
         "home-lab-current-33d6c713a56eef6c",
@@ -107,11 +108,13 @@
         "home-lab-current-7ec61c338b38732a",
         "home-lab-current-894d188215c392f0",
         "home-lab-current-8ccfa11198cdc5c7",
+        "home-lab-current-948134cd3ca3048d",
         "home-lab-current-9b39fff666163c64",
         "home-lab-current-a28ad35a489b0d84",
         "home-lab-current-aa6c27ffb0f67ece",
         "home-lab-current-ab2da1fc9eb6d1e7",
         "home-lab-current-b414b7850e99e998",
+        "home-lab-current-b5c70bd13ed0b42b",
         "home-lab-current-b9eec531cc470cfa",
         "home-lab-current-c6b3fbd724832f29",
         "home-lab-current-cb93f8e6474f638a",
@@ -123,6 +126,7 @@
         "home-lab-current-d9d3044f754698ce",
         "home-lab-current-e1d7278b75cf04f4",
         "home-lab-current-ecfc5510c286e7bc",
+        "home-lab-current-ef761a0aa1fb12d1",
         "home-lab-current-fbcf63ed82ccb050",
         "m365-conditional-access-evidence-c70111e0ec9bfaa1",
         "m365-m365-architecture-020a8d16711bfbab",
@@ -295,6 +299,7 @@
         "home-lab-attested-fd74c1121d9165f6",
         "home-lab-current-0700d20c82b3278e",
         "home-lab-current-09692a22e45624d7",
+        "home-lab-current-1517f4d72c939580",
         "home-lab-current-247c93305adf8919",
         "home-lab-current-25948632b8917680",
         "home-lab-current-25dbea7fdb638f9f",
@@ -314,11 +319,13 @@
         "home-lab-current-74513989de27d4ee",
         "home-lab-current-7ec61c338b38732a",
         "home-lab-current-894d188215c392f0",
+        "home-lab-current-948134cd3ca3048d",
         "home-lab-current-9b39fff666163c64",
         "home-lab-current-aa6c27ffb0f67ece",
         "home-lab-current-ab2da1fc9eb6d1e7",
         "home-lab-current-b414b7850e99e998",
         "home-lab-current-b4ffab7a668ba726",
+        "home-lab-current-b5c70bd13ed0b42b",
         "home-lab-current-b8fe08c48c766b5e",
         "home-lab-current-b9eec531cc470cfa",
         "home-lab-current-ced712a8f45e0fb8",
@@ -330,6 +337,7 @@
         "home-lab-current-d9d3044f754698ce",
         "home-lab-current-e1d7278b75cf04f4",
         "home-lab-current-ecfc5510c286e7bc",
+        "home-lab-current-ef761a0aa1fb12d1",
         "home-lab-current-fbcf63ed82ccb050"
       ],
       "claimIds": [
@@ -411,6 +419,7 @@
         "home-lab-current-03d9f531163b03f1",
         "home-lab-current-0700d20c82b3278e",
         "home-lab-current-09692a22e45624d7",
+        "home-lab-current-1517f4d72c939580",
         "home-lab-current-158ccac8c74dc014",
         "home-lab-current-163bcb8ef489b8f0",
         "home-lab-current-247c93305adf8919",
@@ -444,6 +453,7 @@
         "home-lab-current-7ec61c338b38732a",
         "home-lab-current-894d188215c392f0",
         "home-lab-current-8ccfa11198cdc5c7",
+        "home-lab-current-948134cd3ca3048d",
         "home-lab-current-9503d6a0d4e9c5c8",
         "home-lab-current-9a0e5755aae7367d",
         "home-lab-current-9b39fff666163c64",
@@ -453,6 +463,7 @@
         "home-lab-current-ab2da1fc9eb6d1e7",
         "home-lab-current-b414b7850e99e998",
         "home-lab-current-b4ffab7a668ba726",
+        "home-lab-current-b5c70bd13ed0b42b",
         "home-lab-current-b8fe08c48c766b5e",
         "home-lab-current-b9eec531cc470cfa",
         "home-lab-current-c6b3fbd724832f29",
@@ -469,6 +480,7 @@
         "home-lab-current-e5c0ba46022245d1",
         "home-lab-current-ec7ba5c3bdb7f400",
         "home-lab-current-ecfc5510c286e7bc",
+        "home-lab-current-ef761a0aa1fb12d1",
         "home-lab-current-f9db75a5e8c38df5",
         "home-lab-current-fbcf63ed82ccb050"
       ],
@@ -1895,7 +1907,6 @@
         "home-lab-current-07554dcb597b49dc",
         "home-lab-current-0bd5fe1db7269a78",
         "home-lab-current-0ccfb9f7943ffa1c",
-        "home-lab-current-1517f4d72c939580",
         "home-lab-current-163eb32bdca5c926",
         "home-lab-current-1a6af01c69a198fd",
         "home-lab-current-1c2e88ff12f758d8",
@@ -1941,7 +1952,6 @@
         "home-lab-current-902de553d5997e6d",
         "home-lab-current-937f6a68deab33a0",
         "home-lab-current-938fb06d646e2793",
-        "home-lab-current-948134cd3ca3048d",
         "home-lab-current-94837ad3199262da",
         "home-lab-current-959ee8881a3475e5",
         "home-lab-current-9cd038165fee5006",
@@ -1953,7 +1963,6 @@
         "home-lab-current-abc64f7c793fde3a",
         "home-lab-current-ada2d1bdc6ee4552",
         "home-lab-current-b3e34b5a505dfdf1",
-        "home-lab-current-b5c70bd13ed0b42b",
         "home-lab-current-b666d62d49c8f1b7",
         "home-lab-current-bc512062c72700d7",
         "home-lab-current-bc909af82adde3d4",
@@ -1976,7 +1985,6 @@
         "home-lab-current-e9d06bc3912093cc",
         "home-lab-current-ea45cf34ebfb0bd5",
         "home-lab-current-ea97098520cf9304",
-        "home-lab-current-ef761a0aa1fb12d1",
         "home-lab-current-ef8b717d1f1dfaa4",
         "home-lab-current-f6dc900795a08d97",
         "home-lab-current-fab4d4b4ad2cbff5",
@@ -2390,7 +2398,6 @@
         "home-lab-current-0bd5fe1db7269a78",
         "home-lab-current-0ccfb9f7943ffa1c",
         "home-lab-current-146c7bd162df73aa",
-        "home-lab-current-1517f4d72c939580",
         "home-lab-current-158ccac8c74dc014",
         "home-lab-current-163bcb8ef489b8f0",
         "home-lab-current-163eb32bdca5c926",
@@ -2461,7 +2468,6 @@
         "home-lab-current-8ccfa11198cdc5c7",
         "home-lab-current-902de553d5997e6d",
         "home-lab-current-938fb06d646e2793",
-        "home-lab-current-948134cd3ca3048d",
         "home-lab-current-94837ad3199262da",
         "home-lab-current-9503d6a0d4e9c5c8",
         "home-lab-current-959ee8881a3475e5",
@@ -2480,7 +2486,6 @@
         "home-lab-current-ada2d1bdc6ee4552",
         "home-lab-current-b3e34b5a505dfdf1",
         "home-lab-current-b4ffab7a668ba726",
-        "home-lab-current-b5c70bd13ed0b42b",
         "home-lab-current-b666d62d49c8f1b7",
         "home-lab-current-b8fe08c48c766b5e",
         "home-lab-current-bc512062c72700d7",
@@ -2502,7 +2507,6 @@
         "home-lab-current-ea45cf34ebfb0bd5",
         "home-lab-current-ea97098520cf9304",
         "home-lab-current-ec7ba5c3bdb7f400",
-        "home-lab-current-ef761a0aa1fb12d1",
         "home-lab-current-f039b2880ee21f47",
         "home-lab-current-f6dc900795a08d97",
         "home-lab-current-f880f11e730b964c",
@@ -2670,7 +2674,6 @@
         "home-lab-current-0bd5fe1db7269a78",
         "home-lab-current-0bd8fb9c30ad3c57",
         "home-lab-current-0ccfb9f7943ffa1c",
-        "home-lab-current-1517f4d72c939580",
         "home-lab-current-1a6af01c69a198fd",
         "home-lab-current-2067ca18d73a3c36",
         "home-lab-current-21e5d8d1edd58b60",
@@ -3938,6 +3941,7 @@
         "home-lab-attested-ee4143be69ae8f17",
         "home-lab-attested-fd917e027fe54c05",
         "home-lab-current-0700d20c82b3278e",
+        "home-lab-current-1517f4d72c939580",
         "home-lab-current-2cfa0c34dda1aca1",
         "home-lab-current-3307f2f56ca2e135",
         "home-lab-current-33d6c713a56eef6c",
@@ -3948,11 +3952,13 @@
         "home-lab-current-726becb8d7d506ea",
         "home-lab-current-7ec61c338b38732a",
         "home-lab-current-894d188215c392f0",
+        "home-lab-current-948134cd3ca3048d",
         "home-lab-current-9b39fff666163c64",
         "home-lab-current-a4b7dec504402163",
         "home-lab-current-aa6c27ffb0f67ece",
         "home-lab-current-ab2da1fc9eb6d1e7",
         "home-lab-current-b414b7850e99e998",
+        "home-lab-current-b5c70bd13ed0b42b",
         "home-lab-current-b9eec531cc470cfa",
         "home-lab-current-c09db2a114d41dc9",
         "home-lab-current-ced712a8f45e0fb8",
@@ -3963,6 +3969,7 @@
         "home-lab-current-d9d3044f754698ce",
         "home-lab-current-e1d7278b75cf04f4",
         "home-lab-current-ecfc5510c286e7bc",
+        "home-lab-current-ef761a0aa1fb12d1",
         "home-lab-current-fbcf63ed82ccb050"
       ],
       "supportLevel": "supported-with-limitations",
@@ -4300,7 +4307,6 @@
         "home-lab-current-0bd5fe1db7269a78",
         "home-lab-current-0ccfb9f7943ffa1c",
         "home-lab-current-146c7bd162df73aa",
-        "home-lab-current-1517f4d72c939580",
         "home-lab-current-158ccac8c74dc014",
         "home-lab-current-163eb32bdca5c926",
         "home-lab-current-1a6af01c69a198fd",
@@ -4373,7 +4379,6 @@
         "home-lab-current-902de553d5997e6d",
         "home-lab-current-937f6a68deab33a0",
         "home-lab-current-938fb06d646e2793",
-        "home-lab-current-948134cd3ca3048d",
         "home-lab-current-94837ad3199262da",
         "home-lab-current-959ee8881a3475e5",
         "home-lab-current-9a0e5755aae7367d",
@@ -4396,7 +4401,6 @@
         "home-lab-current-b3e34b5a505dfdf1",
         "home-lab-current-b414b7850e99e998",
         "home-lab-current-b4ffab7a668ba726",
-        "home-lab-current-b5c70bd13ed0b42b",
         "home-lab-current-b666d62d49c8f1b7",
         "home-lab-current-b9eec531cc470cfa",
         "home-lab-current-bc512062c72700d7",
@@ -4428,7 +4432,6 @@
         "home-lab-current-ea45cf34ebfb0bd5",
         "home-lab-current-ea97098520cf9304",
         "home-lab-current-ecfc5510c286e7bc",
-        "home-lab-current-ef761a0aa1fb12d1",
         "home-lab-current-ef8b717d1f1dfaa4",
         "home-lab-current-f039b2880ee21f47",
         "home-lab-current-f6dc900795a08d97",
@@ -19844,35 +19847,33 @@
       "sourceHash": "adaba18708483e397b05073740c3450110992c04ebee63eb0d2c8ed8838199bf",
       "sourceSize": 1555,
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Primary published Home Lab validation, inventory, screenshot, and source-summary collection. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
+      "collectionContext": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
       "lab": "home-lab",
-      "technology": "environment",
+      "technology": "active-directory",
       "evidenceType": "validation",
       "skillIds": [
-        "backup-operations",
+        "dns-dhcp-gpo",
         "escalation",
-        "technical-documentation",
-        "troubleshooting"
+        "identity-administration",
+        "windows-server"
       ],
       "supportedClaims": [
-        "home-lab-environment-inventory"
+        "home-lab-active-directory-administration"
       ],
       "relationshipType": "direct-validation",
       "validationStatus": "validated-through-testing",
       "systems": [
         "active-directory",
-        "backup-recovery",
-        "linux",
-        "windows"
+        "linux"
       ],
-      "task": "Maintained a documented nonproduction environment spanning virtualization, firewalling, Windows, Linux, networking, and backup services.",
-      "observedResult": "The environment is represented through system inventories, topology context, validation records, and operational documentation. Record state: directly-proven.",
-      "scope": "Personally operated nonproduction lab.",
-      "limitations": "Does not represent enterprise scale, production availability, or employer infrastructure.",
+      "task": "Reviewed domain and forest state, FSMO roles, organizational units, users, groups, Group Policy, clients, and Linux integration.",
+      "observedResult": "Directory structure and supporting service evidence are available for inspection. Record state: supported-with-limitations.",
+      "scope": "Single-domain personal lab.",
+      "limitations": "Does not prove multi-site design, high availability, or production directory ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/validation-public.txt",
       "relatedArtifacts": {
-        "logicalDestination": "content/home-lab/environment/evidence/validation/on-prem-home-lab/ad-service-desk-delegation/validation-public.txt",
+        "logicalDestination": "content/home-lab/active-directory/evidence/validation/ad-service-desk-delegation/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/validation-public.txt",
         "attestationPath": null,
         "publicPath": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/validation-public.txt"
       }
@@ -23839,34 +23840,33 @@
       "sourceHash": "e676d43732f64c903e9cbfa90063a75661c8081a194d6e332abd49cff7a8842c",
       "sourceSize": 2169,
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Primary published Home Lab validation, inventory, screenshot, and source-summary collection. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
+      "collectionContext": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
       "lab": "home-lab",
-      "technology": "environment",
+      "technology": "active-directory",
       "evidenceType": "manifests",
       "skillIds": [
-        "backup-operations",
+        "dns-dhcp-gpo",
+        "identity-administration",
         "technical-documentation",
-        "troubleshooting"
+        "windows-server"
       ],
       "supportedClaims": [
-        "home-lab-environment-inventory"
+        "home-lab-active-directory-administration"
       ],
       "relationshipType": "documentation-support",
       "validationStatus": "documented-and-reviewed",
       "systems": [
         "active-directory",
-        "backup-recovery",
-        "linux",
-        "windows"
+        "linux"
       ],
-      "task": "Maintained a documented nonproduction environment spanning virtualization, firewalling, Windows, Linux, networking, and backup services.",
-      "observedResult": "The environment is represented through system inventories, topology context, validation records, and operational documentation. Record state: directly-proven.",
-      "scope": "Personally operated nonproduction lab.",
-      "limitations": "Does not represent enterprise scale, production availability, or employer infrastructure.",
+      "task": "Reviewed domain and forest state, FSMO roles, organizational units, users, groups, Group Policy, clients, and Linux integration.",
+      "observedResult": "Directory structure and supporting service evidence are available for inspection. Record state: supported-with-limitations.",
+      "scope": "Single-domain personal lab.",
+      "limitations": "Does not prove multi-site design, high availability, or production directory ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/evidence-manifest.json",
       "relatedArtifacts": {
-        "logicalDestination": "content/home-lab/environment/evidence/manifests/on-prem-home-lab/ad-service-desk-delegation/evidence-manifest.json",
+        "logicalDestination": "content/home-lab/active-directory/evidence/manifests/ad-service-desk-delegation/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/evidence-manifest.json",
         "attestationPath": null,
         "publicPath": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/evidence-manifest.json"
       }
@@ -24925,34 +24925,33 @@
       "sourceHash": "976dd6addaaa3fa86be4ce278a340bca9bb8497c3b43bbacc2750e547053f68f",
       "sourceSize": 6290,
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Primary published Home Lab validation, inventory, screenshot, and source-summary collection. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
+      "collectionContext": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
       "lab": "home-lab",
-      "technology": "environment",
+      "technology": "active-directory",
       "evidenceType": "documentation",
       "skillIds": [
-        "backup-operations",
+        "dns-dhcp-gpo",
+        "identity-administration",
         "technical-documentation",
-        "troubleshooting"
+        "windows-server"
       ],
       "supportedClaims": [
-        "home-lab-environment-inventory"
+        "home-lab-active-directory-administration"
       ],
       "relationshipType": "documentation-support",
       "validationStatus": "documented-and-reviewed",
       "systems": [
         "active-directory",
-        "backup-recovery",
-        "linux",
-        "windows"
+        "linux"
       ],
-      "task": "Maintained a documented nonproduction environment spanning virtualization, firewalling, Windows, Linux, networking, and backup services.",
-      "observedResult": "The environment is represented through system inventories, topology context, validation records, and operational documentation. Record state: directly-proven.",
-      "scope": "Personally operated nonproduction lab.",
-      "limitations": "Does not represent enterprise scale, production availability, or employer infrastructure.",
+      "task": "Reviewed domain and forest state, FSMO roles, organizational units, users, groups, Group Policy, clients, and Linux integration.",
+      "observedResult": "Directory structure and supporting service evidence are available for inspection. Record state: supported-with-limitations.",
+      "scope": "Single-domain personal lab.",
+      "limitations": "Does not prove multi-site design, high availability, or production directory ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html",
       "relatedArtifacts": {
-        "logicalDestination": "content/home-lab/environment/documentation/on-prem-home-lab/ad-service-desk-delegation/index.html",
+        "logicalDestination": "content/home-lab/active-directory/documentation/ad-service-desk-delegation/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html",
         "attestationPath": null,
         "publicPath": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html"
       }
@@ -26781,34 +26780,33 @@
       "sourceHash": "2caf6e0795f43e72a89dc852f4d3924b04bacab4b6f18ae5b185241497eb1525",
       "sourceSize": 2503,
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Primary published Home Lab validation, inventory, screenshot, and source-summary collection. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
+      "collectionContext": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
       "lab": "home-lab",
-      "technology": "environment",
+      "technology": "active-directory",
       "evidenceType": "documentation",
       "skillIds": [
-        "backup-operations",
+        "dns-dhcp-gpo",
+        "identity-administration",
         "technical-documentation",
-        "troubleshooting"
+        "windows-server"
       ],
       "supportedClaims": [
-        "home-lab-environment-inventory"
+        "home-lab-active-directory-administration"
       ],
       "relationshipType": "documentation-support",
       "validationStatus": "documented-and-reviewed",
       "systems": [
         "active-directory",
-        "backup-recovery",
-        "linux",
-        "windows"
+        "linux"
       ],
-      "task": "Maintained a documented nonproduction environment spanning virtualization, firewalling, Windows, Linux, networking, and backup services.",
-      "observedResult": "The environment is represented through system inventories, topology context, validation records, and operational documentation. Record state: directly-proven.",
-      "scope": "Personally operated nonproduction lab.",
-      "limitations": "Does not represent enterprise scale, production availability, or employer infrastructure.",
+      "task": "Reviewed domain and forest state, FSMO roles, organizational units, users, groups, Group Policy, clients, and Linux integration.",
+      "observedResult": "Directory structure and supporting service evidence are available for inspection. Record state: supported-with-limitations.",
+      "scope": "Single-domain personal lab.",
+      "limitations": "Does not prove multi-site design, high availability, or production directory ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/README.md",
       "relatedArtifacts": {
-        "logicalDestination": "content/home-lab/environment/documentation/on-prem-home-lab/ad-service-desk-delegation/README.md",
+        "logicalDestination": "content/home-lab/active-directory/documentation/ad-service-desk-delegation/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/README.md",
         "attestationPath": null,
         "publicPath": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/README.md"
       }

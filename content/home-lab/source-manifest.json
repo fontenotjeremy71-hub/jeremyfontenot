@@ -1,126 +1,663 @@
 {
   "schemaVersion": 1,
-  "generatedOutputRoots": ["site/",".site-preflight/","node_modules/",".cache/","dist/","build/","artifacts/redesign/final/"],
-  "contentCandidateRoots": ["assets/evidence/","docs/projects/","evidence/public/","evidence-library/architecture-diagrams/","evidence-library/network/","evidence-library/proxmox/","evidence-library/windows-server/","troubleshooting-rca/"],
-  "candidatePathTerms": ["home[-_ ]?lab","homelab","proxmox","active[-_ ]?directory","ad[-_ ]?migration","dns[-_ ]?dhcp","network","vlan","pfsense","windows[-_ ]?server","windows[-_ ]?client","linux","ubuntu","backup","restore","recovery","monitor","logging","powershell","infrastructure"],
+  "generatedOutputRoots": [
+    "site/",
+    ".site-preflight/",
+    "node_modules/",
+    ".cache/",
+    "dist/",
+    "build/",
+    "artifacts/redesign/final/"
+  ],
+  "contentCandidateRoots": [
+    "assets/evidence/",
+    "docs/projects/",
+    "evidence/public/",
+    "evidence-library/architecture-diagrams/",
+    "evidence-library/network/",
+    "evidence-library/proxmox/",
+    "evidence-library/windows-server/",
+    "troubleshooting-rca/"
+  ],
+  "candidatePathTerms": [
+    "home[-_ ]?lab",
+    "homelab",
+    "proxmox",
+    "active[-_ ]?directory",
+    "ad[-_ ]?migration",
+    "dns[-_ ]?dhcp",
+    "network",
+    "vlan",
+    "pfsense",
+    "windows[-_ ]?server",
+    "windows[-_ ]?client",
+    "linux",
+    "ubuntu",
+    "backup",
+    "restore",
+    "recovery",
+    "monitor",
+    "logging",
+    "powershell",
+    "infrastructure"
+  ],
   "approvedRecursiveRoots": [
-    {"path":"evidence-library/projects/on-prem-home-lab","collection":"on-prem-home-lab","reason":"Primary published Home Lab validation, inventory, screenshot, and source-summary collection."},
-    {"path":"evidence-library/projects/infrastructure-networking","collection":"infrastructure-networking","reason":"Published personal-lab networking, VLAN, and pfSense documentation."},
-    {"path":"evidence-library/projects/backup-disaster-recovery","collection":"backup-recovery","reason":"Published bounded backup and recovery documentation."},
-    {"path":"evidence-library/projects/monitoring-logging","collection":"monitoring-logging","reason":"Published monitoring and logging documentation with explicit limitations."},
-    {"path":"evidence-library/projects/powershell-automation","collection":"powershell-automation","reason":"Published infrastructure automation documentation and output."},
-    {"path":"evidence-library/projects/home-lab","collection":"home-lab-project","reason":"Published Home Lab project documentation."},
-    {"path":"evidence-library/network","collection":"network-validation","reason":"Published network inventories and validation reports."},
-    {"path":"evidence-library/proxmox","collection":"proxmox-evidence","reason":"Published Proxmox evidence documentation."},
-    {"path":"evidence-library/skills/dns-dhcp","collection":"dns-dhcp-skill","reason":"Published DNS and DHCP operational runbook."},
-    {"path":"evidence-library/validation-reports","collection":"validation-reports","reason":"Published validation reports relevant to the Home Lab."},
-    {"path":"evidence-library/automation","collection":"automation-evidence","reason":"Published automation evidence and diagrams."},
-    {"path":"evidence-library/incidents","collection":"incident-evidence","reason":"Published bounded infrastructure incident evidence."},
-    {"path":"docs/projects/ad-migration","collection":"ad-migration-project","reason":"Repository-only Active Directory migration plan and supporting artifacts."}
+    {
+      "path": "evidence-library/projects/on-prem-home-lab",
+      "collection": "on-prem-home-lab",
+      "reason": "Primary published Home Lab validation, inventory, screenshot, and source-summary collection."
+    },
+    {
+      "path": "evidence-library/projects/infrastructure-networking",
+      "collection": "infrastructure-networking",
+      "reason": "Published personal-lab networking, VLAN, and pfSense documentation."
+    },
+    {
+      "path": "evidence-library/projects/backup-disaster-recovery",
+      "collection": "backup-recovery",
+      "reason": "Published bounded backup and recovery documentation."
+    },
+    {
+      "path": "evidence-library/projects/monitoring-logging",
+      "collection": "monitoring-logging",
+      "reason": "Published monitoring and logging documentation with explicit limitations."
+    },
+    {
+      "path": "evidence-library/projects/powershell-automation",
+      "collection": "powershell-automation",
+      "reason": "Published infrastructure automation documentation and output."
+    },
+    {
+      "path": "evidence-library/projects/home-lab",
+      "collection": "home-lab-project",
+      "reason": "Published Home Lab project documentation."
+    },
+    {
+      "path": "evidence-library/network",
+      "collection": "network-validation",
+      "reason": "Published network inventories and validation reports."
+    },
+    {
+      "path": "evidence-library/proxmox",
+      "collection": "proxmox-evidence",
+      "reason": "Published Proxmox evidence documentation."
+    },
+    {
+      "path": "evidence-library/skills/dns-dhcp",
+      "collection": "dns-dhcp-skill",
+      "reason": "Published DNS and DHCP operational runbook."
+    },
+    {
+      "path": "evidence-library/validation-reports",
+      "collection": "validation-reports",
+      "reason": "Published validation reports relevant to the Home Lab."
+    },
+    {
+      "path": "evidence-library/automation",
+      "collection": "automation-evidence",
+      "reason": "Published automation evidence and diagrams."
+    },
+    {
+      "path": "evidence-library/incidents",
+      "collection": "incident-evidence",
+      "reason": "Published bounded infrastructure incident evidence."
+    },
+    {
+      "path": "docs/projects/ad-migration",
+      "collection": "ad-migration-project",
+      "reason": "Repository-only Active Directory migration plan and supporting artifacts."
+    }
   ],
   "approvedIndividualFiles": [
-    {"path":"scripts/validation/build-azure-arc-public-screenshots.py","collection":"azure-arc-hybrid-management","reason":"Reproducible crop, redaction, and optimization tooling for the Azure Arc public screenshot derivatives.","technologyRelationships":["automation","security"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/powershell-hvhost01-arc-services-public.png","collection":"azure-arc-hybrid-management","reason":"Sanitized direct PowerShell screenshot showing Connected agent state and running Arc services on HVHOST01.","technologyRelationships":["windows-server","monitoring-logging","automation"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/index.html","collection":"azure-arc-hybrid-management","reason":"Published Azure Arc hybrid Windows and SQL Server case study with current-state evidence and explicit limitations.","technologyRelationships":["environment","windows-server","networking","monitoring-logging","security","automation"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence-manifest.json","collection":"azure-arc-hybrid-management","reason":"Published provenance, integrity, sanitization, and claim-boundary manifest for the Azure Arc case study.","technologyRelationships":["environment","windows-server","monitoring-logging","security"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation.ps1","collection":"azure-arc-hybrid-management","reason":"Public-safe read-only PowerShell validation commands for Arc agent, Windows services, SQL inventory, and outbound connectivity.","technologyRelationships":["windows-server","networking","monitoring-logging","automation"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt","collection":"azure-arc-hybrid-management","reason":"Sanitized observed-state summary preserving the successful checks and VMM01 direct-remoting limitation.","technologyRelationships":["windows-server","networking","monitoring-logging","automation"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/azure-resource-group-public.png","collection":"azure-arc-hybrid-management","reason":"Sanitized Azure resource-group screenshot showing two Arc machines and one Arc-enabled SQL Server instance.","technologyRelationships":["environment","windows-server","monitoring-logging"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-instance-overview-public.png","collection":"azure-arc-hybrid-management","reason":"Sanitized Arc-enabled SQL Server overview showing connected mode, Developer edition, License only, and extension status.","technologyRelationships":["windows-server","monitoring-logging","security"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-dps-status-public.png","collection":"azure-arc-hybrid-management","reason":"Sanitized SQL extension properties showing DPS, metrics, agent, automatic-upgrade, and backup states.","technologyRelationships":["windows-server","monitoring-logging"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/index.html","collection":"scvmm-2022","reason":"Published SCVMM 2022 build, troubleshooting, validation, and scope case study.","technologyRelationships":["windows-server","networking","security","environment"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/evidence-manifest.json","collection":"scvmm-2022","reason":"Published provenance, hash, visual-review, and claim-boundary manifest.","technologyRelationships":["windows-server","networking","security","environment"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-setup-complete.png","collection":"scvmm-2022","reason":"SCVMM management server and console installation completion screenshot.","technologyRelationships":["windows-server"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-hvhost01-managed.png","collection":"scvmm-2022","reason":"SCVMM managed-host status screenshot for HVHOST01.","technologyRelationships":["windows-server","environment"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-discovered.png","collection":"scvmm-2022","reason":"SCVMM virtual-machine discovery screenshot for APP01.","technologyRelationships":["windows-server","environment"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-remote-power.png","collection":"scvmm-2022","reason":"SCVMM remote power-control job completion screenshot for APP01.","technologyRelationships":["windows-server","networking"]},
-    {"path":"evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-vm-viewer.png","collection":"scvmm-2022","reason":"SCVMM VM Viewer interactive-console screenshot for APP01.","technologyRelationships":["windows-server","networking"]},
-    {"path":"assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx","collection":"home-lab-documentation","reason":"Published personal Home Lab documentation package."},
-    {"path":"assets/evidence/ad-migration-diagram.svg","collection":"public-evidence-preview","reason":"Published Active Directory migration evidence preview."},
-    {"path":"assets/evidence/powershell-provisioning.svg","collection":"public-evidence-preview","reason":"Published PowerShell provisioning evidence preview."},
-    {"path":"evidence-library/architecture-diagrams/home-lab-network-topology-diagram-2026.svg","collection":"home-lab-architecture","reason":"Published Home Lab network topology diagram."},
-    {"path":"evidence-library/architecture-diagrams/identity-access-ad-migration-diagram-2026.svg","collection":"ad-migration-project","reason":"Published identity and Active Directory migration diagram."},
-    {"path":"evidence-library/architecture-diagrams/pfsense-network-segmentation-diagram-2026.svg","collection":"home-lab-architecture","reason":"Published pfSense segmentation diagram."},
-    {"path":"evidence-library/architecture-diagrams/pfsense-network-segmentation-preview.svg","collection":"home-lab-architecture","reason":"Published pfSense segmentation preview."},
-    {"path":"evidence-library/architecture-diagrams/vlan-architecture-diagram-README.md","collection":"home-lab-architecture","reason":"Published VLAN architecture documentation."},
-    {"path":"evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.png","collection":"home-lab-architecture","reason":"Published VLAN architecture image."},
-    {"path":"evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.svg","collection":"home-lab-architecture","reason":"Published VLAN architecture vector."},
-    {"path":"evidence-library/architecture-diagrams/vlan-architecture-diagram.png","collection":"home-lab-architecture","reason":"Published VLAN architecture image."},
-    {"path":"evidence-library/architecture-diagrams/vlan-architecture-diagram.svg","collection":"home-lab-architecture","reason":"Published VLAN architecture vector."},
-    {"path":"evidence-library/projects/troubleshooting-rca/dns-authentication-playbook-2026.md","collection":"home-lab-troubleshooting","reason":"Published DNS authentication troubleshooting playbook."},
-    {"path":"evidence-library/scripts/powershell-automation-provisioning-script-v1.ps1","collection":"powershell-automation","reason":"Published PowerShell provisioning script evidence."},
-    {"path":"evidence-library/vpn/vpn-configuration-evidence.md","collection":"networking-evidence","reason":"Published VPN configuration evidence."},
-    {"path":"evidence-library/windows-server/windows-server-evidence.md","collection":"windows-server-evidence","reason":"Published Windows Server evidence documentation."},
-    {"path":"evidence/public/ad-migration-plan-2023-06-21.yaml","collection":"ad-migration-project","reason":"Published Active Directory migration plan configuration."},
-    {"path":"evidence/public/ad-migration-plan.md","collection":"ad-migration-project","reason":"Published Active Directory migration plan report."},
-    {"path":"evidence/public/gpo-template-StandardDesktop.xml","collection":"active-directory-policy","reason":"Published Group Policy baseline template."},
-    {"path":"evidence/public/gpo-template-StandardDesktop.yaml","collection":"active-directory-policy","reason":"Published Group Policy baseline configuration."},
-    {"path":"home-lab-operations-proof.html","collection":"home-lab-public-pages","reason":"Established public Home Lab operations proof route."},
-    {"path":"on-prem-home-lab.html","collection":"home-lab-public-pages","reason":"Established public Home Lab case-study route."}
+    {
+      "path": "scripts/validation/build-azure-arc-public-screenshots.py",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Reproducible crop, redaction, and optimization tooling for the Azure Arc public screenshot derivatives.",
+      "technologyRelationships": [
+        "automation",
+        "security"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/powershell-hvhost01-arc-services-public.png",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Sanitized direct PowerShell screenshot showing Connected agent state and running Arc services on HVHOST01.",
+      "technologyRelationships": [
+        "windows-server",
+        "monitoring-logging",
+        "automation"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/index.html",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Published Azure Arc hybrid Windows and SQL Server case study with current-state evidence and explicit limitations.",
+      "technologyRelationships": [
+        "environment",
+        "windows-server",
+        "networking",
+        "monitoring-logging",
+        "security",
+        "automation"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence-manifest.json",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Published provenance, integrity, sanitization, and claim-boundary manifest for the Azure Arc case study.",
+      "technologyRelationships": [
+        "environment",
+        "windows-server",
+        "monitoring-logging",
+        "security"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation.ps1",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Public-safe read-only PowerShell validation commands for Arc agent, Windows services, SQL inventory, and outbound connectivity.",
+      "technologyRelationships": [
+        "windows-server",
+        "networking",
+        "monitoring-logging",
+        "automation"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Sanitized observed-state summary preserving the successful checks and VMM01 direct-remoting limitation.",
+      "technologyRelationships": [
+        "windows-server",
+        "networking",
+        "monitoring-logging",
+        "automation"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/azure-resource-group-public.png",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Sanitized Azure resource-group screenshot showing two Arc machines and one Arc-enabled SQL Server instance.",
+      "technologyRelationships": [
+        "environment",
+        "windows-server",
+        "monitoring-logging"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-instance-overview-public.png",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Sanitized Arc-enabled SQL Server overview showing connected mode, Developer edition, License only, and extension status.",
+      "technologyRelationships": [
+        "windows-server",
+        "monitoring-logging",
+        "security"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-dps-status-public.png",
+      "collection": "azure-arc-hybrid-management",
+      "reason": "Sanitized SQL extension properties showing DPS, metrics, agent, automatic-upgrade, and backup states.",
+      "technologyRelationships": [
+        "windows-server",
+        "monitoring-logging"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/index.html",
+      "collection": "scvmm-2022",
+      "reason": "Published SCVMM 2022 build, troubleshooting, validation, and scope case study.",
+      "technologyRelationships": [
+        "windows-server",
+        "networking",
+        "security",
+        "environment"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/evidence-manifest.json",
+      "collection": "scvmm-2022",
+      "reason": "Published provenance, hash, visual-review, and claim-boundary manifest.",
+      "technologyRelationships": [
+        "windows-server",
+        "networking",
+        "security",
+        "environment"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-setup-complete.png",
+      "collection": "scvmm-2022",
+      "reason": "SCVMM management server and console installation completion screenshot.",
+      "technologyRelationships": [
+        "windows-server"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-hvhost01-managed.png",
+      "collection": "scvmm-2022",
+      "reason": "SCVMM managed-host status screenshot for HVHOST01.",
+      "technologyRelationships": [
+        "windows-server",
+        "environment"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-discovered.png",
+      "collection": "scvmm-2022",
+      "reason": "SCVMM virtual-machine discovery screenshot for APP01.",
+      "technologyRelationships": [
+        "windows-server",
+        "environment"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-remote-power.png",
+      "collection": "scvmm-2022",
+      "reason": "SCVMM remote power-control job completion screenshot for APP01.",
+      "technologyRelationships": [
+        "windows-server",
+        "networking"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-vm-viewer.png",
+      "collection": "scvmm-2022",
+      "reason": "SCVMM VM Viewer interactive-console screenshot for APP01.",
+      "technologyRelationships": [
+        "windows-server",
+        "networking"
+      ]
+    },
+    {
+      "path": "assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
+      "collection": "home-lab-documentation",
+      "reason": "Published personal Home Lab documentation package."
+    },
+    {
+      "path": "assets/evidence/ad-migration-diagram.svg",
+      "collection": "public-evidence-preview",
+      "reason": "Published Active Directory migration evidence preview."
+    },
+    {
+      "path": "assets/evidence/powershell-provisioning.svg",
+      "collection": "public-evidence-preview",
+      "reason": "Published PowerShell provisioning evidence preview."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/home-lab-network-topology-diagram-2026.svg",
+      "collection": "home-lab-architecture",
+      "reason": "Published Home Lab network topology diagram."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/identity-access-ad-migration-diagram-2026.svg",
+      "collection": "ad-migration-project",
+      "reason": "Published identity and Active Directory migration diagram."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/pfsense-network-segmentation-diagram-2026.svg",
+      "collection": "home-lab-architecture",
+      "reason": "Published pfSense segmentation diagram."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/pfsense-network-segmentation-preview.svg",
+      "collection": "home-lab-architecture",
+      "reason": "Published pfSense segmentation preview."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram-README.md",
+      "collection": "home-lab-architecture",
+      "reason": "Published VLAN architecture documentation."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.png",
+      "collection": "home-lab-architecture",
+      "reason": "Published VLAN architecture image."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.svg",
+      "collection": "home-lab-architecture",
+      "reason": "Published VLAN architecture vector."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram.png",
+      "collection": "home-lab-architecture",
+      "reason": "Published VLAN architecture image."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/vlan-architecture-diagram.svg",
+      "collection": "home-lab-architecture",
+      "reason": "Published VLAN architecture vector."
+    },
+    {
+      "path": "evidence-library/projects/troubleshooting-rca/dns-authentication-playbook-2026.md",
+      "collection": "home-lab-troubleshooting",
+      "reason": "Published DNS authentication troubleshooting playbook."
+    },
+    {
+      "path": "evidence-library/scripts/powershell-automation-provisioning-script-v1.ps1",
+      "collection": "powershell-automation",
+      "reason": "Published PowerShell provisioning script evidence."
+    },
+    {
+      "path": "evidence-library/vpn/vpn-configuration-evidence.md",
+      "collection": "networking-evidence",
+      "reason": "Published VPN configuration evidence."
+    },
+    {
+      "path": "evidence-library/windows-server/windows-server-evidence.md",
+      "collection": "windows-server-evidence",
+      "reason": "Published Windows Server evidence documentation."
+    },
+    {
+      "path": "evidence/public/ad-migration-plan-2023-06-21.yaml",
+      "collection": "ad-migration-project",
+      "reason": "Published Active Directory migration plan configuration."
+    },
+    {
+      "path": "evidence/public/ad-migration-plan.md",
+      "collection": "ad-migration-project",
+      "reason": "Published Active Directory migration plan report."
+    },
+    {
+      "path": "evidence/public/gpo-template-StandardDesktop.xml",
+      "collection": "active-directory-policy",
+      "reason": "Published Group Policy baseline template."
+    },
+    {
+      "path": "evidence/public/gpo-template-StandardDesktop.yaml",
+      "collection": "active-directory-policy",
+      "reason": "Published Group Policy baseline configuration."
+    },
+    {
+      "path": "home-lab-operations-proof.html",
+      "collection": "home-lab-public-pages",
+      "reason": "Established public Home Lab operations proof route."
+    },
+    {
+      "path": "on-prem-home-lab.html",
+      "collection": "home-lab-public-pages",
+      "reason": "Established public Home Lab case-study route."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/README.md",
+      "collection": "ad-service-desk-delegation",
+      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "technologyRelationships": [
+        "active-directory"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/validation-public.txt",
+      "collection": "ad-service-desk-delegation",
+      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "technologyRelationships": [
+        "active-directory"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/evidence-manifest.json",
+      "collection": "ad-service-desk-delegation",
+      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "technologyRelationships": [
+        "active-directory"
+      ]
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html",
+      "collection": "ad-service-desk-delegation",
+      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "technologyRelationships": [
+        "active-directory"
+      ]
+    }
   ],
   "reviewedExclusionRoots": [
-    {"path":"content/home-lab/source-attestations","reason":"Reviewed external-source provenance controls; each attested physical source becomes its own catalog record, while the control files themselves are not evidence artifacts."},
-    {"path":"artifacts","reason":"Generated audit, Lighthouse, screenshot, and visual-review outputs are temporary or QA artifacts, not Home Lab source evidence."},
-    {"path":"assets/certifications","reason":"Certification badge assets are professional credential presentation, not Home Lab evidence."},
-    {"path":"evidence-library/preserved-sharepoint","reason":"Preserved SharePoint derivatives and inventories belong to the completed Microsoft 365 evidence phase."},
-    {"path":"evidence-library/projects/microsoft-365-lab","reason":"Microsoft 365 personal-tenant evidence belongs to the completed Microsoft 365 evidence phase."},
-    {"path":"docs/projects/rca-and-provisioning","reason":"Service-desk RCA and provisioning material is outside the Home Lab evidence scope."},
-    {"path":"evidence-library/projects/troubleshooting-rca","reason":"Service-desk and Exchange RCA material is outside Home Lab scope except the explicitly approved DNS authentication playbook."},
-    {"path":"scripts/automation","reason":"Portfolio generation and remediation implementation scripts are tooling, not collected Home Lab evidence."}
+    {
+      "path": "content/home-lab/source-attestations",
+      "reason": "Reviewed external-source provenance controls; each attested physical source becomes its own catalog record, while the control files themselves are not evidence artifacts."
+    },
+    {
+      "path": "artifacts",
+      "reason": "Generated audit, Lighthouse, screenshot, and visual-review outputs are temporary or QA artifacts, not Home Lab source evidence."
+    },
+    {
+      "path": "assets/certifications",
+      "reason": "Certification badge assets are professional credential presentation, not Home Lab evidence."
+    },
+    {
+      "path": "evidence-library/preserved-sharepoint",
+      "reason": "Preserved SharePoint derivatives and inventories belong to the completed Microsoft 365 evidence phase."
+    },
+    {
+      "path": "evidence-library/projects/microsoft-365-lab",
+      "reason": "Microsoft 365 personal-tenant evidence belongs to the completed Microsoft 365 evidence phase."
+    },
+    {
+      "path": "docs/projects/rca-and-provisioning",
+      "reason": "Service-desk RCA and provisioning material is outside the Home Lab evidence scope."
+    },
+    {
+      "path": "evidence-library/projects/troubleshooting-rca",
+      "reason": "Service-desk and Exchange RCA material is outside Home Lab scope except the explicitly approved DNS authentication playbook."
+    },
+    {
+      "path": "scripts/automation",
+      "reason": "Portfolio generation and remediation implementation scripts are tooling, not collected Home Lab evidence."
+    }
   ],
   "reviewedExclusions": [
-    {"path":".github/agents/home-lab-evidence-organizer.agent.md","reason":"Phase operating instructions, not an evidence artifact."},
-    {"path":"content/home-lab/evidence-organization.json","reason":"Generator configuration, not collected evidence."},
-    {"path":"content/home-lab/source-manifest.json","reason":"Completeness control manifest, not collected evidence."},
-    {"path":"content/home-lab/sensitive-data-exceptions.json","reason":"Sensitive-review control manifest, not collected evidence."},
-    {"path":"content/home-lab/generated-output-hashes.json","reason":"Generated deterministic integrity contract, not collected evidence."},
-    {"path":"content/home-lab/technologies.json","reason":"Technology taxonomy, not collected evidence."},
-    {"path":"docs/portfolio-migration-phase-ledger.md","reason":"Migration governance ledger, not Home Lab evidence."},
-    {"path":"scripts/build/create-home-lab-source-attestation.js","reason":"Phase attestation tooling, not collected evidence."},
-    {"path":"scripts/build/create-home-lab-github-attestation.js","reason":"Phase attestation tooling, not collected evidence."},
-    {"path":"scripts/lib/home-lab-evidence.js","reason":"Phase generator library, not collected evidence."},
-    {"path":"scripts/build/generate-home-lab-evidence-organization.js","reason":"Phase generator implementation, not collected evidence."},
-    {"path":"docs/home-lab-evidence-organization.md","reason":"Phase implementation documentation, not a collected artifact."},
-    {"path":"schemas/home-lab-source-attestation.schema.json","reason":"External-source attestation validation schema, not a collected evidence artifact."},
-    {"path":"assets/data/home-lab-evidence-catalog.json","reason":"Generated public catalog validated as an output contract."},
-    {"path":"assets/visuals/home-lab-evidence-system.svg","reason":"Homepage presentation visualization derived from already cataloged Home Lab evidence; it is not an additional physical evidence source."},
-    {"path":"assets/visuals/home-lab-evidence-system-v2.svg","reason":"Homepage presentation visualization derived from already cataloged Home Lab evidence; it is not an additional physical evidence source."},
-    {"path":"home-lab/evidence-catalog.html","reason":"Generated public catalog page validated as an output contract."},
-    {"path":"home-lab/source-to-destination-matrix.csv","reason":"Generated source matrix validated as an output contract."},
-    {"path":"home-lab/duplicate-groups.json","reason":"Generated duplicate report validated as an output contract."},
-    {"path":"home-lab/sensitive-data-review.json","reason":"Generated sensitive-data report validated as an output contract."},
-    {"path":"home-lab/authoritative-source-decisions.json","reason":"Generated source decision report validated as an output contract."},
-    {"path":"home-lab/index.html","reason":"Generated Home Lab foundation page validated by the shared foundation contract."},
-    {"path":"active-directory-lab.html","reason":"Generated compatibility derivative represented by its attested original-portfolio source record."},
-    {"path":"infrastructure.html","reason":"Generated compatibility derivative represented by its attested original-portfolio source record."},
-    {"path":"network-segmentation.html","reason":"Generated compatibility derivative represented by its attested original-portfolio source record."},
-    {"path":"powershell-automation.html","reason":"Generated compatibility derivative represented by its attested original-portfolio source record."},
-    {"path":"evidence-library/architecture-diagrams/m365-lab-baseline-preview.svg","reason":"Microsoft 365 architecture preview; outside Phase 3B."},
-    {"path":"evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg","reason":"Exchange mail-flow evidence preview; outside Phase 3B."},
-    {"path":"evidence-library/architecture-diagrams/microsoft-365-lab-architecture-overview-2026.svg","reason":"Microsoft 365 architecture evidence; outside Phase 3B."},
-    {"path":"evidence-library/architecture-diagrams/service-desk-network-troubleshooting-flow-2026.svg","reason":"Service-desk troubleshooting evidence; outside Phase 3B."},
-    {"path":"evidence-library/projects/backup-disaster-recovery/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/projects/home-lab/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/projects/infrastructure-networking/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/projects/monitoring-logging/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/projects/powershell-automation/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/dns-dhcp/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/service-desk-support/service-desk-network-troubleshooting-workflow-2026.md","reason":"Service-desk troubleshooting material; outside Phase 3B."},
-    {"path":"evidence/public/index.html","reason":"Cross-platform compatibility index represented by platform-specific physical artifacts."},
-    {"path":"evidence/public/rca-2025-02-10.md","reason":"Exchange mail-flow RCA material; outside Phase 3B."},
-    {"path":"evidence-library/projects/on-prem-home-lab/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/active-directory/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/networking-vlans/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/pfsense-firewall/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"evidence-library/skills/powershell/.gitkeep","reason":"Empty-directory placeholder with no evidence content."},
-    {"path":"assets/data/evidence-skill-map.json","reason":"Phase 4 cross-platform relationship output; references cataloged physical artifacts without creating duplicate evidence records."},
-    {"path":"content/site/evidence-skill-mapping.json","reason":"Phase 4 skill and readiness configuration, not a collected Home Lab evidence artifact."},
-    {"path":"content/site/generated-skill-map-hashes.json","reason":"Phase 4 deterministic output contract, not collected evidence."},
-    {"path":"evidence/claim-map.html","reason":"Phase 4 generated cross-platform claim index; references cataloged records without representing another physical artifact."},
-    {"path":"docs/evidence-skill-mapping.md","reason":"Phase 4 implementation documentation, not a collected Home Lab evidence artifact."},
-    {"path":"schemas/evidence-skill-map.schema.json","reason":"Phase 4 relationship schema, not collected evidence."},
-    {"path":"scripts/build/generate-evidence-skill-mapping.js","reason":"Phase 4 generator implementation, not collected evidence."},
-    {"path":"scripts/lib/evidence-skill-mapping.js","reason":"Phase 4 mapping library, not collected evidence."},
-    {"path":"systems-skills/evidence-map.html","reason":"Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."}
+    {
+      "path": ".github/agents/home-lab-evidence-organizer.agent.md",
+      "reason": "Phase operating instructions, not an evidence artifact."
+    },
+    {
+      "path": "content/home-lab/evidence-organization.json",
+      "reason": "Generator configuration, not collected evidence."
+    },
+    {
+      "path": "content/home-lab/source-manifest.json",
+      "reason": "Completeness control manifest, not collected evidence."
+    },
+    {
+      "path": "content/home-lab/sensitive-data-exceptions.json",
+      "reason": "Sensitive-review control manifest, not collected evidence."
+    },
+    {
+      "path": "content/home-lab/generated-output-hashes.json",
+      "reason": "Generated deterministic integrity contract, not collected evidence."
+    },
+    {
+      "path": "content/home-lab/technologies.json",
+      "reason": "Technology taxonomy, not collected evidence."
+    },
+    {
+      "path": "docs/portfolio-migration-phase-ledger.md",
+      "reason": "Migration governance ledger, not Home Lab evidence."
+    },
+    {
+      "path": "scripts/build/create-home-lab-source-attestation.js",
+      "reason": "Phase attestation tooling, not collected evidence."
+    },
+    {
+      "path": "scripts/build/create-home-lab-github-attestation.js",
+      "reason": "Phase attestation tooling, not collected evidence."
+    },
+    {
+      "path": "scripts/lib/home-lab-evidence.js",
+      "reason": "Phase generator library, not collected evidence."
+    },
+    {
+      "path": "scripts/build/generate-home-lab-evidence-organization.js",
+      "reason": "Phase generator implementation, not collected evidence."
+    },
+    {
+      "path": "docs/home-lab-evidence-organization.md",
+      "reason": "Phase implementation documentation, not a collected artifact."
+    },
+    {
+      "path": "schemas/home-lab-source-attestation.schema.json",
+      "reason": "External-source attestation validation schema, not a collected evidence artifact."
+    },
+    {
+      "path": "assets/data/home-lab-evidence-catalog.json",
+      "reason": "Generated public catalog validated as an output contract."
+    },
+    {
+      "path": "assets/visuals/home-lab-evidence-system.svg",
+      "reason": "Homepage presentation visualization derived from already cataloged Home Lab evidence; it is not an additional physical evidence source."
+    },
+    {
+      "path": "assets/visuals/home-lab-evidence-system-v2.svg",
+      "reason": "Homepage presentation visualization derived from already cataloged Home Lab evidence; it is not an additional physical evidence source."
+    },
+    {
+      "path": "home-lab/evidence-catalog.html",
+      "reason": "Generated public catalog page validated as an output contract."
+    },
+    {
+      "path": "home-lab/source-to-destination-matrix.csv",
+      "reason": "Generated source matrix validated as an output contract."
+    },
+    {
+      "path": "home-lab/duplicate-groups.json",
+      "reason": "Generated duplicate report validated as an output contract."
+    },
+    {
+      "path": "home-lab/sensitive-data-review.json",
+      "reason": "Generated sensitive-data report validated as an output contract."
+    },
+    {
+      "path": "home-lab/authoritative-source-decisions.json",
+      "reason": "Generated source decision report validated as an output contract."
+    },
+    {
+      "path": "home-lab/index.html",
+      "reason": "Generated Home Lab foundation page validated by the shared foundation contract."
+    },
+    {
+      "path": "active-directory-lab.html",
+      "reason": "Generated compatibility derivative represented by its attested original-portfolio source record."
+    },
+    {
+      "path": "infrastructure.html",
+      "reason": "Generated compatibility derivative represented by its attested original-portfolio source record."
+    },
+    {
+      "path": "network-segmentation.html",
+      "reason": "Generated compatibility derivative represented by its attested original-portfolio source record."
+    },
+    {
+      "path": "powershell-automation.html",
+      "reason": "Generated compatibility derivative represented by its attested original-portfolio source record."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/m365-lab-baseline-preview.svg",
+      "reason": "Microsoft 365 architecture preview; outside Phase 3B."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
+      "reason": "Exchange mail-flow evidence preview; outside Phase 3B."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/microsoft-365-lab-architecture-overview-2026.svg",
+      "reason": "Microsoft 365 architecture evidence; outside Phase 3B."
+    },
+    {
+      "path": "evidence-library/architecture-diagrams/service-desk-network-troubleshooting-flow-2026.svg",
+      "reason": "Service-desk troubleshooting evidence; outside Phase 3B."
+    },
+    {
+      "path": "evidence-library/projects/backup-disaster-recovery/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/projects/home-lab/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/projects/infrastructure-networking/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/projects/monitoring-logging/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/projects/powershell-automation/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/dns-dhcp/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/service-desk-support/service-desk-network-troubleshooting-workflow-2026.md",
+      "reason": "Service-desk troubleshooting material; outside Phase 3B."
+    },
+    {
+      "path": "evidence/public/index.html",
+      "reason": "Cross-platform compatibility index represented by platform-specific physical artifacts."
+    },
+    {
+      "path": "evidence/public/rca-2025-02-10.md",
+      "reason": "Exchange mail-flow RCA material; outside Phase 3B."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/active-directory/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/networking-vlans/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/pfsense-firewall/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "evidence-library/skills/powershell/.gitkeep",
+      "reason": "Empty-directory placeholder with no evidence content."
+    },
+    {
+      "path": "assets/data/evidence-skill-map.json",
+      "reason": "Phase 4 cross-platform relationship output; references cataloged physical artifacts without creating duplicate evidence records."
+    },
+    {
+      "path": "content/site/evidence-skill-mapping.json",
+      "reason": "Phase 4 skill and readiness configuration, not a collected Home Lab evidence artifact."
+    },
+    {
+      "path": "content/site/generated-skill-map-hashes.json",
+      "reason": "Phase 4 deterministic output contract, not collected evidence."
+    },
+    {
+      "path": "evidence/claim-map.html",
+      "reason": "Phase 4 generated cross-platform claim index; references cataloged records without representing another physical artifact."
+    },
+    {
+      "path": "docs/evidence-skill-mapping.md",
+      "reason": "Phase 4 implementation documentation, not a collected Home Lab evidence artifact."
+    },
+    {
+      "path": "schemas/evidence-skill-map.schema.json",
+      "reason": "Phase 4 relationship schema, not collected evidence."
+    },
+    {
+      "path": "scripts/build/generate-evidence-skill-mapping.js",
+      "reason": "Phase 4 generator implementation, not collected evidence."
+    },
+    {
+      "path": "scripts/lib/evidence-skill-mapping.js",
+      "reason": "Phase 4 mapping library, not collected evidence."
+    },
+    {
+      "path": "systems-skills/evidence-map.html",
+      "reason": "Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."
+    }
   ]
 }

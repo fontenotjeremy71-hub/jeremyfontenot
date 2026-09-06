@@ -11,29 +11,29 @@
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
-      "sha256": "1b105a039dc7fde83de31d69038752b8984a0f6da1f3078908d7d576a7158015"
+      "sha256": "ba8174ae7ad60b4fdadcdfa532f1be1efecc6134bb636aa3999784016068fe20"
     }
   },
   "outputs": {
     "assets/data/evidence-skill-map.json": {
       "algorithm": "sha256",
-      "hash": "2ab31cb79b894e2fbeb18a82cd75b149b4e99aba4a61fe0116b4186ab57ac44b",
-      "size": 4073181
+      "hash": "3b5288491a368337fcf45c539c7ae4f0a687355aa4669d2f82f6ab60ae604f44",
+      "size": 4073301
     },
     "assets/data/evidence-skill-map-browser.json": {
       "algorithm": "sha256",
-      "hash": "2ab2698aff98bccb29deecf87406dd4cf4f018ca04f2d0e27063f20637f893a9",
-      "size": 700975
+      "hash": "85555f89d770519329729805c61422e1ff3b864a64272aa7ac95f3a984035931",
+      "size": 700937
     },
     "systems-skills/evidence-map.html": {
       "algorithm": "sha256",
-      "hash": "46b765599d27d4f838bc9a99bd3d179789e273c756dfa05859ddcaac94d4cc52",
+      "hash": "9a023e67772e70078c766e91d2d0fbe4985d7721e70cf206bb7f9b7e7c926603",
       "size": 20325
     },
     "evidence/claim-map.html": {
       "algorithm": "sha256",
-      "hash": "07d8bb928f7cc45de7a6e082c2e652184f4538f27bca1b018a42f6bde302c2f7",
-      "size": 54175
+      "hash": "1367fccc9a861555ecd8817417327f9cf40c30ab1a2f19d1f2c4f953666c5225",
+      "size": 54138
     }
   }
 }
