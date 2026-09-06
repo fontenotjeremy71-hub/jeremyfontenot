@@ -23,21 +23,18 @@
       {
         "right": "WriteProperty",
         "attribute": "pwdLastSet",
-        "objectTypeGuid": "28630ebf-41d5-11d1-a9c1-0000f80367c1",
         "appliesTo": "descendant user objects",
         "explicit": true
       },
       {
         "right": "WriteProperty",
         "attribute": "lockoutTime",
-        "objectTypeGuid": "bf967a0a-0de6-11d0-a285-00aa003049e2",
         "appliesTo": "descendant user objects",
         "explicit": true
       },
       {
         "right": "ExtendedRight",
         "extendedRight": "Reset Password",
-        "objectTypeGuid": "00299570-246d-11d0-a768-00aa006e0529",
         "appliesTo": "descendant user objects",
         "explicit": true
       }
@@ -45,7 +42,7 @@
     "rdpAllowedGroup": {
       "right": "WriteProperty",
       "attribute": "member",
-      "objectTypeGuid": "bf9679c0-0de6-11d0-a285-00aa003049e2",
+      "schemaMappingValidated": true,
       "inheritance": "None",
       "explicit": true
     }
