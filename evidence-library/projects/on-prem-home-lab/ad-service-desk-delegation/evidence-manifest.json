@@ -52,5 +52,11 @@
     "relationship": "direct supporting evidence",
     "proposedPublicRoute": "/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html"
   },
-  "limitations": "Personal nonproduction lab only. No enterprise directory ownership, production change authority, privileged-access-management deployment, or organization-wide RBAC governance is claimed."
+  "limitations": "Personal nonproduction lab only. No enterprise directory ownership, production change authority, privileged-access-management deployment, or organization-wide RBAC governance is claimed.",
+  "derivativeRelationship": {
+    "type": "sanitized-presentation-derivative",
+    "originalDirectory": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/",
+    "originalSourceCommit": "06057b68753f2983f149851d1657bcf23dc65d36",
+    "preservation": "Original first-capture artifacts are retained byte-for-byte alongside this derivative."
+  }
 }

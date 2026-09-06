@@ -1,3 +1,6 @@
+SANITIZED PRESENTATION DERIVATIVE
+Original capture retained byte-for-byte at source-original/validation-public.txt
+
 ACTIVE DIRECTORY SERVICE DESK DELEGATION VALIDATION
 Captured: 2026-09-05
 Environment: personal nonproduction lab

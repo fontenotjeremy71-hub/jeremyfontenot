@@ -382,34 +382,82 @@
     {
       "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/README.md",
       "collection": "ad-service-desk-delegation",
-      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "reason": "Sanitized presentation derivative for validated least-privilege Active Directory Service Desk delegation.",
       "technologyRelationships": [
         "active-directory"
-      ]
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
     },
     {
       "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/validation-public.txt",
       "collection": "ad-service-desk-delegation",
-      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "reason": "Sanitized presentation derivative for validated least-privilege Active Directory Service Desk delegation.",
       "technologyRelationships": [
         "active-directory"
-      ]
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
     },
     {
       "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/evidence-manifest.json",
       "collection": "ad-service-desk-delegation",
-      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "reason": "Sanitized presentation derivative for validated least-privilege Active Directory Service Desk delegation.",
       "technologyRelationships": [
         "active-directory"
-      ]
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
     },
     {
       "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html",
       "collection": "ad-service-desk-delegation",
-      "reason": "Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.",
+      "reason": "Sanitized presentation derivative for validated least-privilege Active Directory Service Desk delegation.",
       "technologyRelationships": [
         "active-directory"
-      ]
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/README.md",
+      "collection": "ad-service-desk-delegation-source-original",
+      "reason": "Byte-preserved first-capture source retained to preserve evidence and provenance for the sanitized presentation derivative.",
+      "technologyRelationships": [
+        "active-directory"
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/validation-public.txt",
+      "collection": "ad-service-desk-delegation-source-original",
+      "reason": "Byte-preserved first-capture source retained to preserve evidence and provenance for the sanitized presentation derivative.",
+      "technologyRelationships": [
+        "active-directory"
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/evidence-manifest.json",
+      "collection": "ad-service-desk-delegation-source-original",
+      "reason": "Byte-preserved first-capture source retained to preserve evidence and provenance for the sanitized presentation derivative.",
+      "technologyRelationships": [
+        "active-directory"
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/index.html",
+      "collection": "ad-service-desk-delegation-source-original",
+      "reason": "Byte-preserved first-capture source retained to preserve evidence and provenance for the sanitized presentation derivative.",
+      "technologyRelationships": [
+        "active-directory"
+      ],
+      "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
+      "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
     }
   ],
   "reviewedExclusionRoots": [
