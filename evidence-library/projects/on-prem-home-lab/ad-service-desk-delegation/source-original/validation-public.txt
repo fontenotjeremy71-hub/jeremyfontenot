@@ -1,6 +1,3 @@
-SANITIZED PRESENTATION DERIVATIVE
-Original capture retained byte-for-byte at source-original/validation-public.txt
-
 ACTIVE DIRECTORY SERVICE DESK DELEGATION VALIDATION
 Captured: 2026-09-05
 Environment: personal nonproduction lab
@@ -30,7 +27,8 @@ PASS - attempt to disable test account was denied with insufficient access right
 GROUP MEMBERSHIP DELEGATION
 Target group: GG-RDP-Allowed
 Delegated right: WriteProperty
-Object type mapping: LDAP member attribute
+Object type: bf9679c0-0de6-11d0-a285-00aa003049e2
+Schema lookup: member
 Inheritance: None
 Explicit ACL: Yes
 

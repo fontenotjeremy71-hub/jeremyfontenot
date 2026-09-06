@@ -4,10 +4,6 @@ Captured: 2026-09-05
 
 Classification: sanitized public personal-lab evidence
 
-## Preservation and derivative relationship
-
-This public file is a sanitized presentation derivative. The first captured evidence is retained byte-for-byte in [`source-original/`](./source-original/README.md). The derivative preserves the validated tasks, results, scope, and limitations while omitting unnecessary raw directory identifiers.
-
 ## Purpose
 
 This evidence records a least-privilege Active Directory delegation exercise in the personal nonproduction `ad.jeremyfontenot.online` lab. The goal was to allow a Service Desk security group to perform bounded user-support and group-membership tasks without Domain Admin rights.
@@ -38,7 +34,10 @@ A negative-control test confirmed that the same account could **not** disable th
 
 `JFAD\GG-ServiceDesk` was granted explicit `WriteProperty` permission on only the `member` attribute of `GG-RDP-Allowed`.
 
-An Active Directory schema lookup confirmed that the ACL object type used for this delegation maps to the LDAP `member` attribute. The raw schema identifier is intentionally omitted from the public derivative because the attribute-name mapping is sufficient to support the bounded claim.
+The Active Directory schema lookup confirmed:
+
+- LDAP display name: `member`
+- Schema GUID: `bf9679c0-0de6-11d0-a285-00aa003049e2`
 
 The validation account successfully added and removed a test user from `GG-RDP-Allowed`.
 

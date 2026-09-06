@@ -29,6 +29,11 @@ const technologySkills = {
   },
 };
 
+const collectionRelationshipOverrides = {
+  "ad-service-desk-delegation": {skillIds: ["identity-administration"], systems: ["active-directory"]},
+  "ad-service-desk-delegation-source-original": {skillIds: ["identity-administration"], systems: ["active-directory"]},
+};
+
 function normalizeEvidenceType(value) {
   return String(value || "").toLowerCase().replace(/s$/, "");
 }
@@ -56,6 +61,8 @@ function validationStatus(record) {
 }
 
 function systemsFor(record) {
+  const override = collectionRelationshipOverrides[record.collection];
+  if (override?.systems) return [...override.systems];
   const haystack = `${record.technology} ${record.sourcePath} ${record.task}`.toLowerCase();
   const systems = [];
   const add = (id, pattern) => { if (pattern.test(haystack)) systems.push(id); };
@@ -72,6 +79,8 @@ function systemsFor(record) {
 }
 
 function skillIdsFor(record) {
+  const override = collectionRelationshipOverrides[record.collection];
+  if (override?.skillIds) return [...override.skillIds].sort();
   const base = technologySkills[record.lab]?.[record.technology] || [];
   const ids = [...base];
   const type = normalizeEvidenceType(record.evidenceType);

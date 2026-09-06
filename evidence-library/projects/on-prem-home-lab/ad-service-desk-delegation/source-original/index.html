@@ -31,7 +31,7 @@
     <p class="eyebrow">Active Directory · least privilege · validated</p>
     <h1>Service Desk delegation with positive and negative controls.</h1>
     <p class="lead">A bounded personal-lab exercise delegated common Service Desk identity tasks to a non-admin role while preserving denial of broader account and privileged-group administration.</p>
-    <div class="actions"><a class="button primary" href="./validation-public.txt">Open validation summary</a><a class="button" href="./evidence-manifest.json">Open evidence manifest</a><a class="button" href="./source-original/README.md">Preserved original capture</a></div>
+    <div class="actions"><a class="button primary" href="./validation-public.txt">Open validation summary</a><a class="button" href="./evidence-manifest.json">Open evidence manifest</a></div>
   </section>
 
   <section class="section">
@@ -39,7 +39,7 @@
     <div class="mapping-grid">
       <article class="scope-note-card"><h3>User-support delegation</h3><p><code>JFAD\GG-ServiceDesk</code> received explicit rights on descendant users in the Service Desk OU for Reset Password, writing <code>lockoutTime</code>, and writing <code>pwdLastSet</code>.</p></article>
       <article class="scope-note-card"><h3>Group-membership delegation</h3><p>The same group received explicit <code>WriteProperty</code> permission only on the <code>member</code> attribute of <code>GG-RDP-Allowed</code>.</p></article>
-      <article class="scope-note-card"><h3>Schema verification</h3><p>An Active Directory schema lookup confirmed that the ACL object type used for the group delegation maps to the LDAP <code>member</code> attribute. The raw schema identifier is omitted from this public derivative.</p></article>
+      <article class="scope-note-card"><h3>Schema verification</h3><p>The AD schema lookup mapped <code>bf9679c0-0de6-11d0-a285-00aa003049e2</code> to the LDAP <code>member</code> attribute.</p></article>
     </div>
   </section>
 

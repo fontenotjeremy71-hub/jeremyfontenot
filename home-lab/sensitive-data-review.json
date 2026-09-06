@@ -8,11 +8,11 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 479,
-    "textArtifactsInspected": 316,
+    "artifactsReviewed": 487,
+    "textArtifactsInspected": 324,
     "manualReviewRequired": 163,
     "highSeveritySecretFindings": 0,
-    "identifierFindings": 323,
+    "identifierFindings": 330,
     "unresolvedPublicIdentifierFindings": 0
   },
   "reviewedExceptions": [
@@ -231,6 +231,42 @@
         "on-prem-home-lab.html"
       ],
       "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "ad-delegation-standard-schema-readme-md",
+      "findingType": "tenant-or-object-identifier",
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/README.md"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
+    },
+    {
+      "id": "ad-delegation-standard-schema-validation-public-txt",
+      "findingType": "tenant-or-object-identifier",
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/validation-public.txt"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
+    },
+    {
+      "id": "ad-delegation-standard-schema-evidence-manifest-json",
+      "findingType": "tenant-or-object-identifier",
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/evidence-manifest.json"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
+    },
+    {
+      "id": "ad-delegation-standard-schema-index-html",
+      "findingType": "tenant-or-object-identifier",
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/index.html"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
     }
   ],
   "artifacts": [
@@ -638,6 +674,96 @@
       "publicationClassification": "public-original",
       "status": "manual-review-required",
       "findings": []
+    },
+    {
+      "evidenceId": "home-lab-current-fd337b403850c3d1",
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/evidence-manifest.json",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "ad-delegation-standard-schema-evidence-manifest-json",
+          "occurrences": 4,
+          "lines": [
+            26,
+            33,
+            40,
+            48
+          ],
+          "valueFingerprints": [
+            "24331cc3feeaee22",
+            "562a53f921e4824a",
+            "a5defee3e1b1560c",
+            "c7c6aa8206d516cf"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-b4d3e52a4b4d7de7",
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/index.html",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "ad-delegation-standard-schema-index-html",
+          "occurrences": 1,
+          "lines": [
+            42
+          ],
+          "valueFingerprints": [
+            "562a53f921e4824a"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-e7a860e1ab6ca372",
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/README.md",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "ad-delegation-standard-schema-readme-md",
+          "occurrences": 1,
+          "lines": [
+            40
+          ],
+          "valueFingerprints": [
+            "562a53f921e4824a"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "home-lab-current-96e1581865bb8207",
+      "path": "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/validation-public.txt",
+      "publicationClassification": "public-original",
+      "status": "reviewed-exceptions-applied",
+      "findings": [
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "reviewed-exception",
+          "exceptionId": "ad-delegation-standard-schema-validation-public-txt",
+          "occurrences": 1,
+          "lines": [
+            30
+          ],
+          "valueFingerprints": [
+            "562a53f921e4824a"
+          ]
+        }
+      ]
     },
     {
       "evidenceId": "home-lab-current-4b41f3ef66cef7ef",

@@ -297,6 +297,57 @@
         "on-prem-home-lab.html"
       ],
       "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
+    },
+    {
+      "id": "ad-delegation-standard-schema-readme-md",
+      "findingType": "tenant-or-object-identifier",
+      "valueFingerprints": [
+        "562a53f921e4824a0f5538e70e2ec12558b9c9be3b078eda99de4b4c2e378237"
+      ],
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/README.md"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
+    },
+    {
+      "id": "ad-delegation-standard-schema-validation-public-txt",
+      "findingType": "tenant-or-object-identifier",
+      "valueFingerprints": [
+        "562a53f921e4824a0f5538e70e2ec12558b9c9be3b078eda99de4b4c2e378237"
+      ],
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/validation-public.txt"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
+    },
+    {
+      "id": "ad-delegation-standard-schema-evidence-manifest-json",
+      "findingType": "tenant-or-object-identifier",
+      "valueFingerprints": [
+        "a5defee3e1b1560c2ba138c726a2fcfc344e14673a4d120d58123fb22606f66c",
+        "c7c6aa8206d516cf241e2f82f96724dc63ee959d42510ba89734962cd0a42cd1",
+        "562a53f921e4824a0f5538e70e2ec12558b9c9be3b078eda99de4b4c2e378237",
+        "24331cc3feeaee221340c5e3b9131c09763ad03a3d9455264610d8da2f7ade23"
+      ],
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/evidence-manifest.json"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
+    },
+    {
+      "id": "ad-delegation-standard-schema-index-html",
+      "findingType": "tenant-or-object-identifier",
+      "valueFingerprints": [
+        "562a53f921e4824a0f5538e70e2ec12558b9c9be3b078eda99de4b4c2e378237"
+      ],
+      "reason": "Standard Microsoft Active Directory schema or extended-right GUIDs retained only in the byte-preserved first-capture evidence; these are not tenant-specific secrets.",
+      "scope": [
+        "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/index.html"
+      ],
+      "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
     }
   ]
 }

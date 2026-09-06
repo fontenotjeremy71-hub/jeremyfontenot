@@ -233,7 +233,7 @@ function build() {
       id: 'home-lab-current-' + sha256(Buffer.from(sourcePath)).slice(0, 16), lab: 'home-lab', technology, evidenceType: type,
       sourceRepository: currentSource.repository, sourcePath, sourceCommit: currentSource.commit, sourceVerificationMethod: 'direct-git-object',
       collectionContext: manifestEntry.reason + (publicRoute ? ' The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.' : ' This repository-only artifact is cataloged as metadata and is not assigned a public route.'),
-      hashAlgorithm: 'sha256', hash, supportedClaims: claimIds, skill: taxonomyRecord.skill, task: taxonomyRecord.task,
+      hashAlgorithm: 'sha256', hash, supportedClaims: claimIds, skill: manifestEntry.skill || taxonomyRecord.skill, task: manifestEntry.task || taxonomyRecord.task,
       result: taxonomyRecord.result + ' Record state: ' + state + '.', resultState: state, scope: taxonomyRecord.scope,
       limitations: taxonomyRecord.limitations + (homeLab.TEXT_EXTENSIONS.has(path.extname(sourcePath).toLowerCase()) ? '' : ' Binary content is subject to documented manual-review limitations; OCR was not used.'),
       publicationClassification: classification, publicRoute, collection: manifestEntry.collection, publicPath: publicRoute ? sourcePath : null, size: buffer.length,
