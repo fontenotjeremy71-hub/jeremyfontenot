@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AD Service Desk Delegation Validation | Jeremy Fontenot</title>
+  <meta name="description" content="Sanitized personal-lab evidence for bounded Active Directory Service Desk delegation, positive functional tests, and negative least-privilege controls.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html">
+  <meta property="og:site_name" content="Jeremy Fontenot">
+  <meta property="og:title" content="AD Service Desk Delegation Validation | Jeremy Fontenot">
+  <meta property="og:description" content="Least-privilege Active Directory delegation validated in a personal nonproduction lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html">
+  <meta property="og:image" content="https://jeremyfontenot.online/assets/og/og-portfolio.png">
+  <link rel="icon" href="/assets/logos/favicon_64x64.png">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body class="foundation-page home-lab-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="/"><img src="/assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+    <div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="/systems-administration.html">Readiness</a><a href="/projects.html">Projects</a><a href="/proof.html">Proof</a><a href="/dashboard.html">Dashboard</a><a href="/resume.html">Resume</a><a href="/contact.html">Contact</a></div>
+  </nav>
+</header>
+<main id="main">
+  <section class="page page-hero">
+    <p class="eyebrow">Active Directory · least privilege · validated</p>
+    <h1>Service Desk delegation with positive and negative controls.</h1>
+    <p class="lead">A bounded personal-lab exercise delegated common Service Desk identity tasks to a non-admin role while preserving denial of broader account and privileged-group administration.</p>
+    <div class="actions"><a class="button primary" href="./validation-public.txt">Open validation summary</a><a class="button" href="./evidence-manifest.json">Open evidence manifest</a></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><p class="eyebrow">Validated scope</p><h2>Delegation was narrow, explicit, and tested.</h2></div>
+    <div class="mapping-grid">
+      <article class="scope-note-card"><h3>User-support delegation</h3><p><code>JFAD\GG-ServiceDesk</code> received explicit rights on descendant users in the Service Desk OU for Reset Password, writing <code>lockoutTime</code>, and writing <code>pwdLastSet</code>.</p></article>
+      <article class="scope-note-card"><h3>Group-membership delegation</h3><p>The same group received explicit <code>WriteProperty</code> permission only on the <code>member</code> attribute of <code>GG-RDP-Allowed</code>.</p></article>
+      <article class="scope-note-card"><h3>Schema verification</h3><p>The AD schema lookup mapped <code>bf9679c0-0de6-11d0-a285-00aa003049e2</code> to the LDAP <code>member</code> attribute.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><p class="eyebrow">Functional validation</p><h2>Allowed tasks succeeded; broader tasks were denied.</h2></div>
+    <div class="mapping-grid">
+      <article class="mapping-card"><span class="status-label validated">PASS</span><h3>Reset password</h3><p>The non-admin validation account reset a separate test user's password.</p></article>
+      <article class="mapping-card"><span class="status-label validated">PASS</span><h3>Unlock account</h3><p>The validation account unlocked a deliberately locked test user.</p></article>
+      <article class="mapping-card"><span class="status-label validated">PASS</span><h3>Force password change</h3><p>The validation account successfully set the test user to change password at next logon.</p></article>
+      <article class="mapping-card"><span class="status-label validated">PASS · negative control</span><h3>Disable account denied</h3><p>An attempt to disable the test account was rejected with insufficient access rights.</p></article>
+      <article class="mapping-card"><span class="status-label validated">PASS</span><h3>RDP group membership</h3><p>The validation account successfully added and removed a test user from <code>GG-RDP-Allowed</code>.</p></article>
+      <article class="mapping-card"><span class="status-label validated">PASS · negative control</span><h3>Privileged group modification denied</h3><p>An attempt to add the test user to <code>GG-Lab-Admins</code> was rejected with insufficient access rights.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="scope-note-card">
+      <p class="eyebrow">Result and boundary</p>
+      <h2>PASS — bounded least-privilege Service Desk delegation.</h2>
+      <p>This evidence supports the existing home-lab Active Directory administration claim. It is personal nonproduction lab evidence only and does not claim enterprise directory ownership, production change authority, enterprise PAM, or organization-wide RBAC governance.</p>
+      <div class="inline-actions"><a href="./README.md">Read documentation</a><a href="/evidence/claim-map.html#claim-home-lab-active-directory-administration">Related claim</a></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><p class="credibility">Personal-lab evidence remains separate from professional experience. Scope and limitations stay visible.</p><p class="footer-meta">Jeremy Fontenot · Abbeville, Louisiana · Central Time</p></footer>
+</body>
+</html>
