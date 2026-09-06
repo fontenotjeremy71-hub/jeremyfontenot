@@ -26,6 +26,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Pin AD delegation catalog relationships
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const manifestPath = 'content/home-lab/source-manifest.json';
+          const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+          const paths = [
+            'evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/README.md',
+            'evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/validation-public.txt',
+            'evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/evidence-manifest.json',
+            'evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/index.html'
+          ];
+          const pinned = new Set(paths);
+          manifest.approvedIndividualFiles = (manifest.approvedIndividualFiles || []).filter((item) => !pinned.has(item.path));
+          for (const path of paths) {
+            manifest.approvedIndividualFiles.push({
+              path,
+              collection: 'ad-service-desk-delegation',
+              reason: 'Sanitized public evidence for validated least-privilege Active Directory Service Desk delegation.',
+              technologyRelationships: ['active-directory']
+            });
+          }
+          fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
+          NODE
+
       - name: Regenerate portfolio outputs
         id: build
         shell: bash
@@ -57,5 +83,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Regenerate AD delegation evidence catalog and claim map"
+          git commit -m "Catalog AD delegation evidence under Active Directory"
           git push
