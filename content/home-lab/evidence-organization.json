@@ -8,7 +8,7 @@
   "sources": {
     "currentPortfolio": {
       "repository": "fontenotjeremy71-hub/jeremyfontenot",
-      "commit": "992ed3bd731de72e2569d389f4a334ff63bafa35"
+      "commit": "7cad1f4a6f13056520b8988c2568a467f87f324a"
     },
     "operationsRepository": {
       "repository": "fontenotjeremy71-hub/jeremy-homelab-ops",
@@ -20,19 +20,97 @@
     }
   },
   "technologies": [
-    {"slug":"environment","label":"Environment","claimId":"home-lab-environment-inventory","claim":"Inventoried and documented the bounded personal Home Lab environment and its operational context.","supportLevel":"directly-proven"},
-    {"slug":"proxmox","label":"Proxmox","claimId":"home-lab-proxmox-administration","claim":"Reviewed Proxmox platform, virtual-machine, storage, networking, backup, and controlled restore evidence in a personal lab.","supportLevel":"supported-with-limitations"},
-    {"slug":"active-directory","label":"Active Directory","claimId":"home-lab-active-directory-administration","claim":"Reviewed single-domain Active Directory structure, roles, policy, membership, and integration evidence in a personal lab.","supportLevel":"supported-with-limitations"},
-    {"slug":"dns-dhcp","label":"DNS and DHCP","claimId":"home-lab-dns-dhcp-administration","claim":"Reviewed and tested bounded DNS and DHCP configuration and service evidence in the personal lab.","supportLevel":"supported-with-limitations"},
-    {"slug":"networking","label":"Networking","claimId":"home-lab-networking-validation","claim":"Documented and tested bounded personal-lab routing, VLAN, VPN, name-resolution, and connectivity relationships.","supportLevel":"supported-with-limitations"},
-    {"slug":"pfsense","label":"pfSense","claimId":"home-lab-pfsense-administration","claim":"Documented pfSense configuration context and completed a bounded isolated restore exercise without claiming production firewall assurance.","supportLevel":"supported-with-limitations"},
-    {"slug":"windows-server","label":"Windows Server","claimId":"home-lab-windows-server-administration","claim":"Reviewed Windows Server roles, services, storage, directory, DNS, DHCP, and Group Policy evidence in a personal lab.","supportLevel":"supported-with-limitations"},
-    {"slug":"windows-clients","label":"Windows Clients","claimId":"home-lab-windows-client-administration","claim":"Reviewed bounded Windows client domain, policy, networking, and access-control evidence in a personal lab.","supportLevel":"supported-with-limitations"},
-    {"slug":"linux","label":"Linux","claimId":"home-lab-linux-administration","claim":"Reviewed Linux service, network, logging, security, and directory-integration evidence for a personal Ubuntu server.","supportLevel":"supported-with-limitations"},
-    {"slug":"backup-recovery","label":"Backup and Recovery","claimId":"home-lab-backup-and-isolated-restore","claim":"Documented backup state and completed selected isolated restore checks with unresolved and untested conditions preserved.","supportLevel":"supported-with-limitations"},
-    {"slug":"monitoring-logging","label":"Monitoring and Logging","claimId":"home-lab-monitoring-logging-documentation","claim":"Documented implemented logging evidence separately from planned or insufficient monitoring coverage.","supportLevel":"documented-only"},
-    {"slug":"security","label":"Security","claimId":"home-lab-security-conscious-operations","claim":"Demonstrated read-only collection, isolation, integrity checking, sanitization, and bounded evidence publication practices.","supportLevel":"supported-with-limitations"},
-    {"slug":"automation","label":"Automation","claimId":"home-lab-evidence-automation","claim":"Used repository-backed scripts and validation workflows for bounded inventory, testing, evidence capture, integrity, and publication tasks.","supportLevel":"directly-proven"}
+    {
+      "slug": "environment",
+      "label": "Environment",
+      "claimId": "home-lab-environment-inventory",
+      "claim": "Inventoried and documented the bounded personal Home Lab environment and its operational context.",
+      "supportLevel": "directly-proven"
+    },
+    {
+      "slug": "proxmox",
+      "label": "Proxmox",
+      "claimId": "home-lab-proxmox-administration",
+      "claim": "Reviewed Proxmox platform, virtual-machine, storage, networking, backup, and controlled restore evidence in a personal lab.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "active-directory",
+      "label": "Active Directory",
+      "claimId": "home-lab-active-directory-administration",
+      "claim": "Reviewed single-domain Active Directory structure, roles, policy, membership, and integration evidence in a personal lab.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "dns-dhcp",
+      "label": "DNS and DHCP",
+      "claimId": "home-lab-dns-dhcp-administration",
+      "claim": "Reviewed and tested bounded DNS and DHCP configuration and service evidence in the personal lab.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "networking",
+      "label": "Networking",
+      "claimId": "home-lab-networking-validation",
+      "claim": "Documented and tested bounded personal-lab routing, VLAN, VPN, name-resolution, and connectivity relationships.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "pfsense",
+      "label": "pfSense",
+      "claimId": "home-lab-pfsense-administration",
+      "claim": "Documented pfSense configuration context and completed a bounded isolated restore exercise without claiming production firewall assurance.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "windows-server",
+      "label": "Windows Server",
+      "claimId": "home-lab-windows-server-administration",
+      "claim": "Reviewed Windows Server roles, services, storage, directory, DNS, DHCP, and Group Policy evidence in a personal lab.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "windows-clients",
+      "label": "Windows Clients",
+      "claimId": "home-lab-windows-client-administration",
+      "claim": "Reviewed bounded Windows client domain, policy, networking, and access-control evidence in a personal lab.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "linux",
+      "label": "Linux",
+      "claimId": "home-lab-linux-administration",
+      "claim": "Reviewed Linux service, network, logging, security, and directory-integration evidence for a personal Ubuntu server.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "backup-recovery",
+      "label": "Backup and Recovery",
+      "claimId": "home-lab-backup-and-isolated-restore",
+      "claim": "Documented backup state and completed selected isolated restore checks with unresolved and untested conditions preserved.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "monitoring-logging",
+      "label": "Monitoring and Logging",
+      "claimId": "home-lab-monitoring-logging-documentation",
+      "claim": "Documented implemented logging evidence separately from planned or insufficient monitoring coverage.",
+      "supportLevel": "documented-only"
+    },
+    {
+      "slug": "security",
+      "label": "Security",
+      "claimId": "home-lab-security-conscious-operations",
+      "claim": "Demonstrated read-only collection, isolation, integrity checking, sanitization, and bounded evidence publication practices.",
+      "supportLevel": "supported-with-limitations"
+    },
+    {
+      "slug": "automation",
+      "label": "Automation",
+      "claimId": "home-lab-evidence-automation",
+      "claim": "Used repository-backed scripts and validation workflows for bounded inventory, testing, evidence capture, integrity, and publication tasks.",
+      "supportLevel": "directly-proven"
+    }
   ],
   "boundaries": [
     "Personal nonproduction Home Lab evidence only.",
