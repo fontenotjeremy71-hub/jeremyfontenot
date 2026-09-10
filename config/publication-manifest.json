@@ -19,7 +19,8 @@
     "systems-skills",
     "microsoft-365",
     "home-lab",
-    "evidence"
+    "evidence",
+    "projects/entra-cloud-sync/evidence"
   ],
   "forbiddenOutputRoots": [
     ".git",
