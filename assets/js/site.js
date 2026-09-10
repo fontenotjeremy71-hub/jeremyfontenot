@@ -92,6 +92,85 @@
       .replace(/partially validated/gi, "Validated within scope");
   });
 
+  /* Project 2: surface the completed Microsoft Entra Cloud Sync case study
+     across the primary reviewer routes without duplicating the source evidence. */
+  const cloudSyncUrl = "/entra-cloud-sync.html";
+
+  if (document.body.classList.contains("home-page")) {
+    const cloudCard = [...document.querySelectorAll("#capability article")]
+      .find((card) => card.querySelector("h3")?.textContent.includes("Microsoft 365 and Entra"));
+    if (cloudCard) {
+      const heading = cloudCard.querySelector("h3");
+      const summary = cloudCard.querySelector("p");
+      if (heading) heading.textContent = "Microsoft Entra hybrid identity and Microsoft 365";
+      if (summary) summary.textContent = "Validated Active Directory-to-Entra Cloud Sync, Password Hash Synchronization, scoped user and group provisioning, source-anchor correlation, provisioning-log analysis, and personal-tenant administration evidence.";
+      if (!cloudCard.querySelector('a[href$="entra-cloud-sync.html"]')) {
+        const caseStudyLink = document.createElement("a");
+        caseStudyLink.className = "evidence-link";
+        caseStudyLink.href = cloudSyncUrl;
+        caseStudyLink.innerHTML = "<span>validated case study</span>Review Entra Cloud Sync";
+        cloudCard.insertBefore(caseStudyLink, cloudCard.querySelector(".evidence-link"));
+      }
+    }
+  }
+
+  if (document.body.classList.contains("projects-page") && !document.body.classList.contains("entra-cloud-sync-page")) {
+    const projectGrid = document.querySelector(".project-supporting-grid");
+    if (projectGrid && !document.getElementById("entra-cloud-sync")) {
+      projectGrid.insertAdjacentHTML("afterbegin", `
+        <article id="entra-cloud-sync" class="project-panel reveal" data-project="m365">
+          <div class="project-card-head"><span class="status-label validated">Validated</span><span class="project-number">11</span></div>
+          <h2>Microsoft Entra Hybrid Identity & Cloud Sync</h2>
+          <p>Connected Windows Server 2022 Active Directory to Microsoft Entra ID with Microsoft Entra Cloud Sync, then validated scoped user and security-group provisioning, attribute synchronization, Password Hash Synchronization, source-anchor correlation, provisioning logs, and agent health.</p>
+          <dl class="project-facts">
+            <div><dt>Skills</dt><dd>Hybrid identity, Entra Cloud Sync, Password Hash Sync, Active Directory scoping, user and group lifecycle administration, gMSA troubleshooting, provisioning logs, PowerShell remoting, and source-authority validation.</dd></div>
+            <div><dt>Result</dt><dd>A controlled user, Department attribute, password change, security group, group membership, and source anchor were validated from Active Directory through Microsoft Entra; final provisioning-log review returned no failures.</dd></div>
+            <div><dt>Scope</dt><dd>Personal nonproduction Microsoft identity lab with a dedicated Cloud Sync OU and controlled test objects.</dd></div>
+          </dl>
+          <div class="proof-links"><a href="./entra-cloud-sync.html">Open hybrid identity case study</a><a href="./projects/entra-cloud-sync/evidence/09-cloudsync-overview-health.png">Inspect Cloud Sync health</a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/main/projects/entra-cloud-sync">Review project documentation</a></div>
+        </article>`);
+    }
+  }
+
+  if (document.body.classList.contains("readiness-page")) {
+    const entraCard = [...document.querySelectorAll("#capabilities .capability-card")]
+      .find((card) => card.querySelector("h3")?.textContent.includes("Microsoft 365 and Entra ID"));
+    if (entraCard) {
+      const summary = entraCard.querySelector("p");
+      if (summary) summary.textContent = "Microsoft Entra ID administration plus validated hybrid identity work with Active Directory-to-Entra Cloud Sync, scoped user and group provisioning, Password Hash Synchronization, source-anchor correlation, provisioning logs, agent health, and gMSA troubleshooting.";
+      const links = entraCard.querySelector(".proof-links") || entraCard;
+      if (!entraCard.querySelector('a[href$="entra-cloud-sync.html"]')) {
+        const link = document.createElement("a");
+        link.href = cloudSyncUrl;
+        link.textContent = "Open Entra Cloud Sync case study";
+        links.prepend(link);
+      }
+    }
+
+    const identityTask = [...document.querySelectorAll("#contribution article")]
+      .find((card) => card.querySelector("h3")?.textContent.includes("Maintain identity records"));
+    const identitySummary = identityTask?.querySelector("p");
+    if (identitySummary) identitySummary.textContent = "Create or update users and groups under procedure, review membership and access state, validate synchronized identity behavior across Active Directory and Microsoft Entra, and document changes with provisioning evidence.";
+  }
+
+  if (document.body.classList.contains("proof-page")) {
+    const proofMatrix = document.querySelector(".proof-matrix");
+    if (proofMatrix && !document.getElementById("entra-cloud-sync-proof")) {
+      proofMatrix.insertAdjacentHTML("afterbegin", `
+        <article id="entra-cloud-sync-proof" class="proof-chip verified reveal" data-proof-item data-project="m365" data-classification="validated" data-artifact-type="screenshot text">
+          <span class="chip-kind">Validated · screenshots and PowerShell</span>
+          <h3>Was Active Directory-to-Entra hybrid identity synchronization validated?</h3>
+          <dl class="claim-details">
+            <div><dt>Supported claim</dt><dd>Microsoft Entra Cloud Sync provisioned a controlled Active Directory user and security group to Microsoft Entra ID, synchronized a Department change and group membership, synchronized the user's password hash for cloud authentication, and preserved source-anchor correlation.</dd></div>
+            <div><dt>Why it supports the claim</dt><dd>Microsoft Entra screenshots, provisioning logs, on-premises PowerShell output, agent status, OU scope, source-authority evidence, and a final no-failures review document the complete controlled lifecycle.</dd></div>
+            <div><dt>Result</dt><dd>Cloud Sync configuration was healthy, the SYNC01 agent was active, user and group provisioning completed successfully, Password Hash Synchronization was validated by cloud sign-in, and the controlled lifecycle test was completed.</dd></div>
+            <div><dt>Scope</dt><dd>Personal nonproduction hybrid identity lab using a dedicated Cloud Sync OU and controlled test objects.</dd></div>
+          </dl>
+          <div class="proof-links"><a href="./entra-cloud-sync.html">Open hybrid identity case study</a><a href="./projects/entra-cloud-sync/evidence/09-cloudsync-overview-health.png">Inspect health overview</a><a href="./projects/entra-cloud-sync/evidence/06-cloudsync-user-provisioning-log.png">Inspect user provisioning</a><a href="./projects/entra-cloud-sync/evidence/11-cloudsync-group-provisioning-log.png">Inspect group provisioning</a><a href="./projects/entra-cloud-sync/evidence/10-cloudsync-no-failures.png">Inspect final failure review</a></div>
+        </article>`);
+    }
+  }
+
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
 
