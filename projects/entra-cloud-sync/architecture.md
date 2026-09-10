@@ -1,7 +1,7 @@
 # Architecture
 
 ## Project Status
-IN PROGRESS
+COMPLETE
 
 ## Hybrid Identity Architecture
 

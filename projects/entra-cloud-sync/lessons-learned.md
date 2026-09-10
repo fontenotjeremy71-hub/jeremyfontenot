@@ -1,7 +1,7 @@
 # Lessons Learned
 
 ## Project Status
-IN PROGRESS
+COMPLETE
 
 ## Preserve Working Infrastructure
 

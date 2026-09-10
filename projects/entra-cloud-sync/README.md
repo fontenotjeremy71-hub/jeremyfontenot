@@ -1,7 +1,7 @@
 # Microsoft Entra Hybrid Identity & Cloud Sync
 
 ## Project Status
-IN PROGRESS
+COMPLETE
 
 ## Overview
 

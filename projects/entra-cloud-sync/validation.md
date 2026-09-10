@@ -1,7 +1,7 @@
 # Validation
 
 ## Project Status
-IN PROGRESS
+COMPLETE
 
 ## Controlled Identity Lifecycle Test
 
