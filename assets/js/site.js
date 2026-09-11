@@ -174,6 +174,18 @@
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
 
+  /* Keep Project 2 directly discoverable from the site's primary navigation. */
+  if (navLinks && ![...navLinks.querySelectorAll("a")].some((link) => link.href.includes("entra-cloud-sync.html"))) {
+    const projectsLink = [...navLinks.querySelectorAll("a")].find((link) => link.textContent.trim() === "Projects");
+    if (projectsLink) {
+      const hybridIdentityLink = document.createElement("a");
+      hybridIdentityLink.href = cloudSyncUrl;
+      hybridIdentityLink.textContent = "Hybrid Identity";
+      if (location.pathname.endsWith("/entra-cloud-sync.html")) hybridIdentityLink.setAttribute("aria-current", "page");
+      projectsLink.insertAdjacentElement("afterend", hybridIdentityLink);
+    }
+  }
+
   if (navLinks && ![...navLinks.querySelectorAll("a")].some((link) => link.href.includes("systems-administration.html"))) {
     const homeLink = [...navLinks.querySelectorAll("a")].find((link) => link.textContent.trim() === "Home");
     if (homeLink) {
