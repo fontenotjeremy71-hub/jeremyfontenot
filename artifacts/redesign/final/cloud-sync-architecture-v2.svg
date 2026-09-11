@@ -10,9 +10,9 @@
       .box-strong { font: 700 26px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
       .body { font: 400 24px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
       .label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #5d6977; }
-      .arrow-label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #123463; text-anchor: middle; }
+      .arrow-label { font: 700 19px 'Segoe UI', Arial, sans-serif; fill: #123463; text-anchor: middle; }
       .footer-head { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #123463; text-anchor: middle; }
-      .footer-body { font: 400 20px 'Segoe UI', Arial, sans-serif; fill: #1f2937; text-anchor: middle; }
+      .footer-body { font: 400 19px 'Segoe UI', Arial, sans-serif; fill: #1f2937; text-anchor: middle; }
       .check { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: middle; }
     </style>
   </defs>
@@ -49,12 +49,17 @@
   <circle cx="1178" cy="550" r="14" fill="#2f9a57"/><text x="1178" y="550" class="check">✓</text><text x="1206" y="557" class="body">Source of authority:</text><text x="1206" y="588" class="body">Windows Server Active Directory</text>
 
   <line x1="476" y1="442" x2="585" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
-  <text x="531" y="414" class="arrow-label">Directory read</text>
-  <line x1="1015" y1="442" x2="1124" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
-  <text x="1070" y="414" class="arrow-label">HTTPS 443</text>
+  <rect x="488" y="382" width="86" height="54" rx="10" fill="#ffffff"/>
+  <text x="531" y="403" class="arrow-label">Directory</text>
+  <text x="531" y="426" class="arrow-label">read</text>
 
-  <rect x="230" y="738" width="1140" height="130" rx="22" fill="#f4f7fb"/>
-  <text x="800" y="786" class="footer-head">Validated capabilities</text>
-  <text x="800" y="824" class="footer-body">User provisioning  •  Attribute sync  •  Password Hash Sync</text>
-  <text x="800" y="854" class="footer-body">Group sync  •  Provisioning logs</text>
+  <line x1="1015" y1="442" x2="1124" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
+  <rect x="1027" y="382" width="86" height="54" rx="10" fill="#ffffff"/>
+  <text x="1070" y="403" class="arrow-label">HTTPS</text>
+  <text x="1070" y="426" class="arrow-label">443</text>
+
+  <rect x="270" y="742" width="1060" height="126" rx="22" fill="#f4f7fb"/>
+  <text x="800" y="784" class="footer-head">Validated capabilities</text>
+  <text x="800" y="821" class="footer-body">User provisioning  •  Attribute sync  •  Password Hash Sync</text>
+  <text x="800" y="851" class="footer-body">Group sync  •  Provisioning logs</text>
 </svg>
