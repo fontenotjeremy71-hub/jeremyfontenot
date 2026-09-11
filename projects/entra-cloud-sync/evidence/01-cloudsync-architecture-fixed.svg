@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Microsoft Entra Cloud Sync — Hybrid Identity Architecture</title>
+  <desc id="desc">Validated home-lab architecture showing on-premises Active Directory on DC01, the Microsoft Entra Cloud Sync agent on SYNC01, and Microsoft Entra ID with scoped synchronization, Password Hash Synchronization, group membership, and source authority.</desc>
+
+  <defs>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2f80c9"/>
+    </marker>
+    <marker id="arrowNavy" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2f80c9"/>
+    </marker>
+    <style>
+      .title { font: 700 46px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .subtitle { font: 400 24px 'Segoe UI', Arial, sans-serif; fill: #d9e7f7; }
+      .box-title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #123463; }
+      .box-strong { font: 700 26px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .body { font: 400 24px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #5d6977; }
+      .arrow-label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #123463; }
+      .footer-head { font: 700 25px 'Segoe UI', Arial, sans-serif; fill: #123463; }
+      .footer-body { font: 400 22px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .check { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: middle; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="122" fill="#133968"/>
+  <text x="42" y="63" class="title">Microsoft Entra Cloud Sync — Hybrid Identity Architecture</text>
+  <text x="42" y="98" class="subtitle">Validated home-lab path: Active Directory → SYNC01 Cloud Sync Agent → Microsoft Entra ID</text>
+
+  <!-- On-premises AD -->
+  <rect x="46" y="182" width="430" height="518" rx="20" fill="#eaf4ff" stroke="#2f80c9" stroke-width="3"/>
+  <text x="76" y="234" class="box-title">On-Premises AD</text>
+  <text x="76" y="274" class="box-strong">DC01  |  10.10.20.10</text>
+  <text x="76" y="312" class="body">Windows Server 2022</text>
+  <text x="76" y="354" class="label">Domain</text>
+  <text x="76" y="388" class="body">ad.jeremyfontenot.online</text>
+  <text x="76" y="430" class="body">NetBIOS: JFAD</text>
+  <text x="76" y="478" class="label">Scoped OU</text>
+  <text x="76" y="512" class="body">
+    <tspan x="76" dy="0">OU=Cloud Sync,OU=JFAD,</tspan>
+    <tspan x="76" dy="31">DC=ad,DC=jeremyfontenot,</tspan>
+    <tspan x="76" dy="31">DC=online</tspan>
+  </text>
+
+  <!-- Cloud Sync Agent -->
+  <rect x="585" y="182" width="430" height="518" rx="20" fill="#eefaf1" stroke="#2f9a57" stroke-width="3"/>
+  <text x="618" y="234" class="box-title">Cloud Sync Agent</text>
+  <text x="618" y="274" class="box-strong">SYNC01  |  10.10.20.105</text>
+  <text x="618" y="312" class="body">Windows Server 2022</text>
+
+  <circle cx="632" cy="364" r="14" fill="#2f9a57"/><text x="632" y="364" class="check">✓</text>
+  <text x="660" y="371" class="body">AADConnectProvisioningAgent</text>
+  <text x="660" y="402" class="body">Running</text>
+
+  <circle cx="632" cy="444" r="14" fill="#2f9a57"/><text x="632" y="444" class="check">✓</text>
+  <text x="660" y="451" class="body">Startup type: Automatic</text>
+
+  <circle cx="632" cy="506" r="14" fill="#2f9a57"/><text x="632" y="506" class="check">✓</text>
+  <text x="660" y="513" class="body">Agent status in Entra: Active</text>
+
+  <circle cx="632" cy="568" r="14" fill="#2f9a57"/><text x="632" y="568" class="check">✓</text>
+  <text x="660" y="575" class="body">Password Hash Sync: Enabled</text>
+
+  <!-- Entra -->
+  <rect x="1124" y="182" width="430" height="518" rx="20" fill="#f2f0ff" stroke="#6d63cc" stroke-width="3"/>
+  <text x="1158" y="234" class="box-title">Microsoft Entra ID</text>
+  <text x="1158" y="274" class="box-strong">jeremyfontenot.online</text>
+
+  <circle cx="1178" cy="364" r="14" fill="#2f9a57"/><text x="1178" y="364" class="check">✓</text>
+  <text x="1206" y="371" class="body">4 synchronized users</text>
+
+  <circle cx="1178" cy="426" r="14" fill="#2f9a57"/><text x="1178" y="426" class="check">✓</text>
+  <text x="1206" y="433" class="body">1 synchronized security group</text>
+
+  <circle cx="1178" cy="488" r="14" fill="#2f9a57"/><text x="1178" y="488" class="check">✓</text>
+  <text x="1206" y="495" class="body">Group membership synchronized</text>
+
+  <circle cx="1178" cy="550" r="14" fill="#2f9a57"/><text x="1178" y="550" class="check">✓</text>
+  <text x="1206" y="557" class="body">Source of authority:</text>
+  <text x="1206" y="588" class="body">Windows Server Active Directory</text>
+
+  <!-- Flow arrows -->
+  <line x1="476" y1="442" x2="585" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
+  <text x="487" y="415" class="arrow-label">Directory read</text>
+
+  <line x1="1015" y1="442" x2="1124" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowNavy)"/>
+  <text x="1034" y="415" class="arrow-label">HTTPS 443</text>
+
+  <!-- Validated capabilities -->
+  <rect x="230" y="752" width="1140" height="96" rx="22" fill="#f4f7fb"/>
+  <text x="266" y="808" class="footer-head">Validated capabilities:</text>
+  <text x="500" y="808" class="footer-body">User provisioning  •  Attribute sync  •  Password Hash Sync  •  Group sync  •  Provisioning logs</text>
+</svg>
