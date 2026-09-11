@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Microsoft Entra Cloud Sync vs. Microsoft Entra Connect Sync</title>
+  <desc id="desc">Comparison of Microsoft Entra Cloud Sync and Microsoft Entra Connect Sync with a design decision to retain the existing Cloud Sync deployment.</desc>
+  <defs>
+    <style>
+      .title{font:700 44px 'Segoe UI',Arial,sans-serif;fill:#fff}
+      .subtitle{font:400 23px 'Segoe UI',Arial,sans-serif;fill:#dce8f6}
+      .panel-title{font:700 34px 'Segoe UI',Arial,sans-serif;fill:#123463}
+      .body{font:400 24px 'Segoe UI',Arial,sans-serif;fill:#1f2937}
+      .check{font:700 21px 'Segoe UI',Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+      .decision{font:700 25px 'Segoe UI',Arial,sans-serif;fill:#123463;text-anchor:middle}
+      .decision-sub{font:400 20px 'Segoe UI',Arial,sans-serif;fill:#334155;text-anchor:middle}
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#fff"/>
+  <rect x="0" y="0" width="1600" height="120" fill="#133968"/>
+  <text x="42" y="62" class="title">Microsoft Entra Cloud Sync vs. Microsoft Entra Connect Sync</text>
+  <text x="42" y="96" class="subtitle">Design decision documented for this home lab</text>
+
+  <rect x="80" y="190" width="680" height="520" rx="22" fill="#eaf4ff" stroke="#2f80c9" stroke-width="3"/>
+  <text x="120" y="248" class="panel-title">Microsoft Entra Cloud Sync</text>
+
+  <g>
+    <circle cx="140" cy="314" r="14" fill="#2f9a57"/><text x="140" y="314" class="check">✓</text><text x="168" y="322" class="body">Lightweight provisioning agent</text>
+    <circle cx="140" cy="370" r="14" fill="#2f9a57"/><text x="140" y="370" class="check">✓</text><text x="168" y="378" class="body">Cloud-managed configuration</text>
+    <circle cx="140" cy="426" r="14" fill="#2f9a57"/><text x="140" y="426" class="check">✓</text><text x="168" y="434" class="body">OU-based scoping</text>
+    <circle cx="140" cy="482" r="14" fill="#2f9a57"/><text x="140" y="482" class="check">✓</text><text x="168" y="490" class="body">Users, groups, attributes, PHS</text>
+    <circle cx="140" cy="538" r="14" fill="#2f9a57"/><text x="140" y="538" class="check">✓</text><text x="168" y="546" class="body">Provisioning logs in Entra</text>
+    <circle cx="140" cy="594" r="14" fill="#2f9a57"/><text x="140" y="594" class="check">✓</text><text x="168" y="602" class="body">Users/groups cycle observed: 20 min</text>
+    <circle cx="140" cy="650" r="14" fill="#2f9a57"/><text x="140" y="650" class="check">✓</text><text x="168" y="658" class="body">Already working in this lab</text>
+  </g>
+
+  <rect x="840" y="190" width="680" height="520" rx="22" fill="#f2f0ff" stroke="#6d63cc" stroke-width="3"/>
+  <text x="880" y="248" class="panel-title">Microsoft Entra Connect Sync</text>
+
+  <g>
+    <circle cx="900" cy="314" r="14" fill="#2f9a57"/><text x="900" y="314" class="check">✓</text><text x="928" y="322" class="body">Traditional sync engine on Windows Server</text>
+    <circle cx="900" cy="386" r="14" fill="#2f9a57"/><text x="900" y="386" class="check">✓</text><text x="928" y="394" class="body">Administrator-triggered delta cycles</text>
+    <circle cx="900" cy="458" r="14" fill="#2f9a57"/><text x="900" y="458" class="check">✓</text><text x="928" y="466" class="body">Broader legacy/advanced sync scenarios</text>
+    <circle cx="900" cy="530" r="14" fill="#2f9a57"/><text x="900" y="530" class="check">✓</text><text x="928" y="538" class="body">Would introduce a second sync engine here</text>
+    <circle cx="900" cy="602" r="14" fill="#2f9a57"/><text x="900" y="602" class="check">✓</text><text x="928" y="610" class="body">Not installed for this project</text>
+  </g>
+
+  <rect x="180" y="754" width="1240" height="112" rx="24" fill="#eefaf1" stroke="#2f9a57" stroke-width="3"/>
+  <circle cx="242" cy="810" r="19" fill="#2f9a57"/><text x="242" y="810" class="check">✓</text>
+  <text x="820" y="801" class="decision">Design decision: retain the working Microsoft Entra Cloud Sync deployment.</text>
+  <text x="820" y="836" class="decision-sub">Do not add Connect Sync only to force manual synchronization.</text>
+</svg>
