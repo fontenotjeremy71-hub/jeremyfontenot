@@ -17,8 +17,8 @@
       .body { font: 400 24px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
       .label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #5d6977; }
       .arrow-label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #123463; }
-      .footer-head { font: 700 25px 'Segoe UI', Arial, sans-serif; fill: #123463; }
-      .footer-body { font: 400 22px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .footer-head { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #123463; }
+      .footer-body { font: 400 20px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
       .check { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: middle; }
     </style>
   </defs>
@@ -74,7 +74,7 @@
   <line x1="1015" y1="442" x2="1124" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowNavy)"/>
   <text x="1034" y="415" class="arrow-label">HTTPS 443</text>
 
-  <rect x="230" y="752" width="1140" height="96" rx="22" fill="#f4f7fb"/>
-  <text x="266" y="808" class="footer-head">Validated capabilities:</text>
-  <text x="500" y="808" class="footer-body">User provisioning  •  Attribute sync  •  Password Hash Sync  •  Group sync  •  Provisioning logs</text>
+  <rect x="230" y="742" width="1140" height="118" rx="22" fill="#f4f7fb"/>
+  <text x="266" y="790" class="footer-head">Validated capabilities</text>
+  <text x="266" y="826" class="footer-body">User provisioning  •  Attribute sync  •  Password Hash Sync  •  Group sync  •  Provisioning logs</text>
 </svg>
