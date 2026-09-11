@@ -2,18 +2,20 @@
   <title id="title">Microsoft Entra Cloud Sync — Hybrid Identity Architecture</title>
   <desc id="desc">Validated home-lab architecture showing on-premises Active Directory on DC01, the Microsoft Entra Cloud Sync agent on SYNC01, and Microsoft Entra ID with scoped synchronization, Password Hash Synchronization, group membership, and source authority.</desc>
   <defs>
-    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L12,6 L0,12 z" fill="#2f80c9"/></marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2f80c9"/>
+    </marker>
     <style>
       .title { font: 700 46px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
       .subtitle { font: 400 24px 'Segoe UI', Arial, sans-serif; fill: #d9e7f7; }
-      .box-title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #123463; }
-      .box-strong { font: 700 26px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
-      .body { font: 400 24px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
-      .label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #5d6977; }
-      .flow-label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #123463; text-anchor: middle; }
+      .box-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #123463; }
+      .box-strong { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .body { font: 400 22px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .label { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #5d6977; }
+      .arrow-label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #123463; text-anchor: middle; }
       .footer-head { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #123463; text-anchor: middle; }
-      .chip { font: 600 17px 'Segoe UI', Arial, sans-serif; fill: #1f2937; text-anchor: middle; dominant-baseline: middle; }
-      .check { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: middle; }
+      .chip-text { font: 600 17px 'Segoe UI', Arial, sans-serif; fill: #123463; text-anchor: middle; dominant-baseline: middle; }
+      .check { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: middle; }
     </style>
   </defs>
 
@@ -22,50 +24,62 @@
   <text x="42" y="63" class="title">Microsoft Entra Cloud Sync — Hybrid Identity Architecture</text>
   <text x="42" y="98" class="subtitle">Validated home-lab path: Active Directory → SYNC01 Cloud Sync Agent → Microsoft Entra ID</text>
 
-  <rect x="46" y="182" width="430" height="518" rx="20" fill="#eaf4ff" stroke="#2f80c9" stroke-width="3"/>
-  <text x="76" y="234" class="box-title">On-Premises AD</text>
-  <text x="76" y="274" class="box-strong">DC01  |  10.10.20.10</text>
-  <text x="76" y="312" class="body">Windows Server 2022</text>
-  <text x="76" y="354" class="label">Domain</text>
-  <text x="76" y="388" class="body">ad.jeremyfontenot.online</text>
-  <text x="76" y="430" class="body">NetBIOS: JFAD</text>
-  <text x="76" y="478" class="label">Scoped OU</text>
-  <text x="76" y="512" class="body"><tspan x="76" dy="0">OU=Cloud Sync,OU=JFAD,</tspan><tspan x="76" dy="31">DC=ad,DC=jeremyfontenot,</tspan><tspan x="76" dy="31">DC=online</tspan></text>
+  <rect x="40" y="182" width="400" height="510" rx="20" fill="#eaf4ff" stroke="#2f80c9" stroke-width="3"/>
+  <text x="70" y="232" class="box-title">On-Premises AD</text>
+  <text x="70" y="271" class="box-strong">DC01  |  10.10.20.10</text>
+  <text x="70" y="308" class="body">Windows Server 2022</text>
+  <text x="70" y="350" class="label">Domain</text>
+  <text x="70" y="382" class="body">ad.jeremyfontenot.online</text>
+  <text x="70" y="423" class="body">NetBIOS: JFAD</text>
+  <text x="70" y="469" class="label">Scoped OU</text>
+  <text x="70" y="501" class="body">
+    <tspan x="70" dy="0">OU=Cloud Sync,OU=JFAD,</tspan>
+    <tspan x="70" dy="29">DC=ad,DC=jeremyfontenot,</tspan>
+    <tspan x="70" dy="29">DC=online</tspan>
+  </text>
 
-  <rect x="585" y="182" width="430" height="518" rx="20" fill="#eefaf1" stroke="#2f9a57" stroke-width="3"/>
-  <text x="618" y="234" class="box-title">Cloud Sync Agent</text>
-  <text x="618" y="274" class="box-strong">SYNC01  |  10.10.20.105</text>
-  <text x="618" y="312" class="body">Windows Server 2022</text>
-  <circle cx="632" cy="364" r="14" fill="#2f9a57"/><text x="632" y="364" class="check">✓</text><text x="660" y="371" class="body">AADConnectProvisioningAgent</text><text x="660" y="402" class="body">Running</text>
-  <circle cx="632" cy="444" r="14" fill="#2f9a57"/><text x="632" y="444" class="check">✓</text><text x="660" y="451" class="body">Startup type: Automatic</text>
-  <circle cx="632" cy="506" r="14" fill="#2f9a57"/><text x="632" y="506" class="check">✓</text><text x="660" y="513" class="body">Agent status in Entra: Active</text>
-  <circle cx="632" cy="568" r="14" fill="#2f9a57"/><text x="632" y="568" class="check">✓</text><text x="660" y="575" class="body">Password Hash Sync: Enabled</text>
+  <rect x="600" y="182" width="400" height="510" rx="20" fill="#eefaf1" stroke="#2f9a57" stroke-width="3"/>
+  <text x="630" y="232" class="box-title">Cloud Sync Agent</text>
+  <text x="630" y="271" class="box-strong">SYNC01  |  10.10.20.105</text>
+  <text x="630" y="308" class="body">Windows Server 2022</text>
+  <circle cx="645" cy="365" r="13" fill="#2f9a57"/><text x="645" y="365" class="check">✓</text>
+  <text x="672" y="359" class="body">AADConnectProvisioningAgent</text>
+  <text x="672" y="389" class="body">Running</text>
+  <circle cx="645" cy="445" r="13" fill="#2f9a57"/><text x="645" y="445" class="check">✓</text>
+  <text x="672" y="452" class="body">Startup type: Automatic</text>
+  <circle cx="645" cy="507" r="13" fill="#2f9a57"/><text x="645" y="507" class="check">✓</text>
+  <text x="672" y="514" class="body">Agent status in Entra: Active</text>
+  <circle cx="645" cy="569" r="13" fill="#2f9a57"/><text x="645" y="569" class="check">✓</text>
+  <text x="672" y="576" class="body">Password Hash Sync: Enabled</text>
 
-  <rect x="1124" y="182" width="430" height="518" rx="20" fill="#f2f0ff" stroke="#6d63cc" stroke-width="3"/>
-  <text x="1158" y="234" class="box-title">Microsoft Entra ID</text>
-  <text x="1158" y="274" class="box-strong">jeremyfontenot.online</text>
-  <circle cx="1178" cy="364" r="14" fill="#2f9a57"/><text x="1178" y="364" class="check">✓</text><text x="1206" y="371" class="body">4 synchronized users</text>
-  <circle cx="1178" cy="426" r="14" fill="#2f9a57"/><text x="1178" y="426" class="check">✓</text><text x="1206" y="433" class="body">1 synchronized security group</text>
-  <circle cx="1178" cy="488" r="14" fill="#2f9a57"/><text x="1178" y="488" class="check">✓</text><text x="1206" y="495" class="body">Group membership synchronized</text>
-  <circle cx="1178" cy="550" r="14" fill="#2f9a57"/><text x="1178" y="550" class="check">✓</text><text x="1206" y="557" class="body">Source of authority:</text><text x="1206" y="588" class="body">Windows Server Active Directory</text>
+  <rect x="1160" y="182" width="400" height="510" rx="20" fill="#f2f0ff" stroke="#6d63cc" stroke-width="3"/>
+  <text x="1190" y="232" class="box-title">Microsoft Entra ID</text>
+  <text x="1190" y="271" class="box-strong">jeremyfontenot.online</text>
+  <circle cx="1205" cy="365" r="13" fill="#2f9a57"/><text x="1205" y="365" class="check">✓</text>
+  <text x="1232" y="372" class="body">4 synchronized users</text>
+  <circle cx="1205" cy="427" r="13" fill="#2f9a57"/><text x="1205" y="427" class="check">✓</text>
+  <text x="1232" y="434" class="body">1 synchronized security group</text>
+  <circle cx="1205" cy="489" r="13" fill="#2f9a57"/><text x="1205" y="489" class="check">✓</text>
+  <text x="1232" y="496" class="body">Group membership synchronized</text>
+  <circle cx="1205" cy="551" r="13" fill="#2f9a57"/><text x="1205" y="551" class="check">✓</text>
+  <text x="1232" y="546" class="body">Source of authority:</text>
+  <text x="1232" y="576" class="body">Windows Server Active Directory</text>
 
-  <line x1="476" y1="442" x2="585" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
-  <text x="530" y="486" class="flow-label">Directory read</text>
+  <text x="520" y="392" class="arrow-label">Directory read</text>
+  <line x1="452" y1="440" x2="588" y2="440" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
+  <text x="1080" y="392" class="arrow-label">HTTPS 443</text>
+  <line x1="1012" y1="440" x2="1148" y2="440" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
 
-  <line x1="1015" y1="442" x2="1124" y2="442" stroke="#2f80c9" stroke-width="8" marker-end="url(#arrowBlue)"/>
-  <text x="1069" y="486" class="flow-label">HTTPS 443</text>
-
-  <rect x="170" y="742" width="1260" height="126" rx="24" fill="#f4f7fb"/>
-  <text x="800" y="782" class="footer-head">Validated capabilities</text>
-
-  <rect x="226" y="808" width="196" height="36" rx="18" fill="#ffffff" stroke="#d8e0ea"/>
-  <text x="324" y="826" class="chip">User provisioning</text>
-  <rect x="438" y="808" width="170" height="36" rx="18" fill="#ffffff" stroke="#d8e0ea"/>
-  <text x="523" y="826" class="chip">Attribute sync</text>
-  <rect x="624" y="808" width="250" height="36" rx="18" fill="#ffffff" stroke="#d8e0ea"/>
-  <text x="749" y="826" class="chip">Password Hash Sync</text>
-  <rect x="890" y="808" width="160" height="36" rx="18" fill="#ffffff" stroke="#d8e0ea"/>
-  <text x="970" y="826" class="chip">Group sync</text>
-  <rect x="1066" y="808" width="286" height="36" rx="18" fill="#ffffff" stroke="#d8e0ea"/>
-  <text x="1209" y="826" class="chip">Provisioning logs</text>
+  <rect x="260" y="730" width="1080" height="145" rx="24" fill="#f4f7fb"/>
+  <text x="800" y="770" class="footer-head">Validated capabilities</text>
+  <rect x="330" y="798" width="170" height="42" rx="21" fill="#e8eef7"/>
+  <text x="415" y="819" class="chip-text">User provisioning</text>
+  <rect x="515" y="798" width="155" height="42" rx="21" fill="#e8eef7"/>
+  <text x="592.5" y="819" class="chip-text">Attribute sync</text>
+  <rect x="685" y="798" width="210" height="42" rx="21" fill="#e8eef7"/>
+  <text x="790" y="819" class="chip-text">Password Hash Sync</text>
+  <rect x="910" y="798" width="135" height="42" rx="21" fill="#e8eef7"/>
+  <text x="977.5" y="819" class="chip-text">Group sync</text>
+  <rect x="1060" y="798" width="210" height="42" rx="21" fill="#e8eef7"/>
+  <text x="1165" y="819" class="chip-text">Provisioning logs</text>
 </svg>
