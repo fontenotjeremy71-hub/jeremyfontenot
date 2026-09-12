@@ -48,7 +48,7 @@
       "path": "projects/entra-cloud-sync",
       "collection": "entra-cloud-sync-project",
       "reason": "Validated Microsoft Entra Cloud Sync hybrid identity project, including scoped AD-to-Entra provisioning, Password Hash Synchronization, source-anchor correlation, agent health, troubleshooting, scripts, and sanitized evidence.",
-      "sourceCommit": "bdae207d854c5a9b0f70676f5763bcbda4377ae0",
+      "sourceCommit": "442073391e53ea8cf417771039837798686a32c6",
       "technologyRelationships": [
         "entra-id",
         "automation"
