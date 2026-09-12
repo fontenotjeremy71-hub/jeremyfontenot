@@ -1,0 +1,22 @@
+Windows LAPS Active Directory Attribute Presence Validation
+==========================================================
+
+Purpose
+-------
+Validate that WS01 contains the expected Windows LAPS Active Directory state without displaying the encrypted password content.
+
+Sanitized result
+----------------
+Name                          : WS01
+msLAPS-PasswordExpirationTime : 134362343115244738
+EncryptedPasswordPresent      : True
+
+Result
+------
+PASS
+
+The WS01 computer object contains the Windows LAPS password-expiration metadata and an encrypted password attribute.
+
+Security / Portfolio Note
+-------------------------
+Only attribute presence is shown. The encrypted password value itself is intentionally not displayed, and no credential or authentication secret is published.
