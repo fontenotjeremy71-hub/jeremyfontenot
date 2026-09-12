@@ -141,15 +141,6 @@
     },
     {
       "algorithm": "sha256",
-      "hash": "d7e81a06dcfbd2e91eb8f52a02bdc795ac5b7084a70f343233f1104ccd297bdb",
-      "count": 2,
-      "evidenceIds": [
-        "home-lab-current-244f28fddaf3f63f",
-        "home-lab-current-e0297617a10aee56"
-      ]
-    },
-    {
-      "algorithm": "sha256",
       "hash": "e89cd0ee8c6b85a220bce2e2776c77caf3730195e9a18fa1f2b74ae7237fb57f",
       "count": 2,
       "evidenceIds": [
@@ -179,11 +170,13 @@
   "publicGroups": [
     {
       "algorithm": "sha256",
-      "hash": "d7e81a06dcfbd2e91eb8f52a02bdc795ac5b7084a70f343233f1104ccd297bdb",
-      "count": 2,
+      "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
+      "count": 4,
       "evidenceIds": [
-        "home-lab-current-244f28fddaf3f63f",
-        "home-lab-current-e0297617a10aee56"
+        "home-lab-attested-607933c1157385df",
+        "home-lab-attested-8d86f43a93aa1786",
+        "home-lab-attested-905a60e453f5f7b3",
+        "home-lab-attested-d31007e75a3604c2"
       ]
     }
   ]

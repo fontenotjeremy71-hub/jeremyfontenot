@@ -4,14 +4,18 @@
   "private": true,
   "description": "Static portfolio site and content-generation tooling.",
   "scripts": {
+    "check": "npm run test:cta && npm run check:sharepoint && node scripts/audits/validate-button-targets.js && node scripts/audits/validate-cta-semantics.js",
+    "test:cta": "node --test scripts/audits/cta-contracts.test.js",
+    "check:sharepoint": "node scripts/build/normalize-preserved-sharepoint-navigation.js --check",
+    "build:normalize-sharepoint": "node scripts/build/normalize-preserved-sharepoint-navigation.js",
     "build:evidence": "node scripts/build/generate-evidence-pages.js",
     "build:dashboard": "node scripts/build/generate-dashboard-data.js",
     "build:foundation": "node scripts/build/generate-site-foundation.js",
-    "build:m365": "node scripts/build/generate-m365-evidence-organization.js",
+    "build:m365": "npm run build:normalize-sharepoint && node scripts/build/generate-m365-evidence-organization.js",
     "build:home-lab": "node scripts/build/generate-home-lab-evidence-organization.js",
     "build:skill-map": "node scripts/build/generate-evidence-skill-mapping.js && node scripts/build/normalize-generated-semantics.js",
     "build:site": "npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && node scripts/build/prepare-public-site.js",
-    "build": "npm run build:evidence && npm run build:dashboard && npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation"
+    "build": "npm run build:evidence && npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && node scripts/build/sync-public-presentation-integrity.js && npm run build:dashboard"
   },
   "dependencies": {
     "markdown-it": "14.3.0"

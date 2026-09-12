@@ -44,7 +44,7 @@
         <p class="eyebrow">Completed exercise · Personal nonproduction lab</p>
         <h1 id="validation-title">Proxmox isolated restore validation across four systems.</h1>
         <p class="lead">I restored Linux01, WS01, DC01, and pfSense backup archives to temporary Proxmox VMs, isolated every restored NIC before first boot, performed bounded local checks, shut each guest down cleanly, removed the temporary resources, and verified that production VMs 100, 200, 300, and 400 remained protected.</p>
-        <div class="actions"><a class="button primary" href="../../../../on-prem-home-lab.html#restore-validation">Read the case study</a><a class="button" href="../../../../proof.html#restore-validation-proof">Open proof summary</a><a class="button" href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/commit/65899f08cb8d19207c5edad7723368ed04f1f1c4" target="_blank" rel="noopener noreferrer">Review source commit</a></div>
+        <div class="actions"><a class="button primary" href="../../../../on-prem-home-lab.html#restore">Read the case study</a><a class="button" href="../../../../proof.html#restore-validation-proof">Open proof summary</a><a class="button" href="#source-title">Review source provenance</a></div>
       </div>
     </section>
 
@@ -117,7 +117,7 @@
 
     <section class="section" id="integrity" aria-labelledby="integrity-title">
       <div class="section-head reveal"><p class="eyebrow">Evidence Integrity</p><h2 id="integrity-title">Source and publication artifacts remain traceable.</h2><p>The final source package includes an evidence manifest and master SHA-256 checksums. This public subset retains original screenshot filenames and records their hashes in a focused publication manifest.</p></div>
-      <div class="artifact-grid reveal"><a class="artifact-card" href="./evidence-manifest.csv"><span>CSV</span><strong>Public evidence manifest</strong><em>Filename, hash, supported claim, classification, and source commit.</em></a><a class="artifact-card" href="./checksums.sha256"><span>SHA-256</span><strong>Published screenshot checksums</strong><em>Integrity records for the selected public images.</em></a><a class="artifact-card" href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/tree/65899f08cb8d19207c5edad7723368ed04f1f1c4/evidence/infrastructure-validation/2026-07-10/11-results" target="_blank" rel="noopener noreferrer"><span>SOURCE</span><strong>Final result files</strong><em>Executive summary, findings matrix, gaps, assurance, RTO/RPO, and source manifest.</em></a></div>
+      <div class="artifact-grid reveal"><a class="artifact-card" href="./evidence-manifest.csv"><span>CSV</span><strong>Public evidence manifest</strong><em>Filename, hash, supported claim, classification, and source commit.</em></a><a class="artifact-card" href="./checksums.sha256"><span>SHA-256</span><strong>Published screenshot checksums</strong><em>Integrity records for the selected public images.</em></a><article class="artifact-card"><span>SOURCE BOUNDARY</span><strong>Source result files are access-restricted</strong><em>The public manifest records their provenance; unavailable private-repository links are not presented as recruiter CTAs.</em></article></div>
     </section>
 
     <section class="section" id="limitations" aria-labelledby="limitations-title">
@@ -129,8 +129,8 @@
     </section>
 
     <section class="section" id="source" aria-labelledby="source-title">
-      <div class="section-head reveal"><p class="eyebrow">Source and Traceability</p><h2 id="source-title">The final merged source commit is the authority.</h2><p>This portfolio summary traces to <code>jeremy-homelab-ops</code> commit <code>65899f08cb8d19207c5edad7723368ed04f1f1c4</code>, merged through PR #1. The source reviews and result files take precedence over this presentation layer.</p></div>
-      <div class="inline-actions"><a href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops" target="_blank" rel="noopener noreferrer">Open source repository</a><a href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/commit/65899f08cb8d19207c5edad7723368ed04f1f1c4" target="_blank" rel="noopener noreferrer">Open final source commit</a><a href="https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/pull/1" target="_blank" rel="noopener noreferrer">Review source PR #1</a><a href="../../../../on-prem-home-lab.html">Back to home lab</a><a href="../../../../proof.html">Open proof index</a></div>
+      <div class="section-head reveal"><p class="eyebrow">Source and Traceability</p><h2 id="source-title">The recorded source commit remains the authority.</h2><p>This portfolio summary traces to the access-restricted <code>jeremy-homelab-ops</code> repository at commit <code>65899f08cb8d19207c5edad7723368ed04f1f1c4</code>, merged through PR #1. Public manifests and sanitized evidence on this page provide recruiter-safe verification without linking visitors to private 404 pages.</p></div>
+      <div class="inline-actions"><a href="./evidence-manifest.csv">Review public evidence manifest</a><a href="../../../../on-prem-home-lab.html">Back to home lab</a><a href="../../../../proof.html">Open proof index</a></div>
     </section>
   </main>
   <footer class="site-footer compact-footer" aria-label="Site footer">

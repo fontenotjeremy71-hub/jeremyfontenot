@@ -20,6 +20,7 @@
     "microsoft-365",
     "home-lab",
     "evidence",
+    "projects/windows-laps-gpo/evidence",
     "projects/entra-cloud-sync/evidence"
   ],
   "forbiddenOutputRoots": [

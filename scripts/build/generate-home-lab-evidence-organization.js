@@ -16,10 +16,6 @@ const OUTPUTS = [
   'home-lab/duplicate-groups.json',
   'home-lab/sensitive-data-review.json',
   'home-lab/authoritative-source-decisions.json',
-  'active-directory-lab.html',
-  'infrastructure.html',
-  'network-segmentation.html',
-  'powershell-automation.html'
 ];
 const COMPATIBILITY_ROUTES = new Map([
   ['active-directory-lab.html', {title: 'Active Directory Lab Evidence', technology: 'active-directory'}],
@@ -27,6 +23,7 @@ const COMPATIBILITY_ROUTES = new Map([
   ['network-segmentation.html', {title: 'Network Segmentation Evidence', technology: 'networking'}],
   ['powershell-automation.html', {title: 'PowerShell Automation Evidence', technology: 'automation'}]
 ]);
+const RETAINED_CURRENT_ROUTES = new Set(COMPATIBILITY_ROUTES.keys());
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(root, relativePath), 'utf8'));
@@ -171,7 +168,12 @@ function build() {
   const trackedSet = new Set(trackedFiles);
   m365.validateExceptionManifest(exceptionManifest, trackedSet);
   const excludedRoots = sourceManifest.reviewedExclusionRoots || [];
-  const sourceFiles = trackedFiles.filter((file) => !(sourceManifest.generatedOutputRoots || []).some((prefix) => file.startsWith(prefix)));
+  const presentationDerivativePaths = new Set((sourceManifest.presentationDerivativePaths || []).map(homeLab.toPosix));
+  const evidencePageOutputs = new Set(readJson('scripts/config/evidence-pages.json').map((entry) => homeLab.toPosix(entry.output)));
+  for (const derivativePath of presentationDerivativePaths) {
+    if (!trackedSet.has(derivativePath)) throw new Error('Home Lab presentation derivative is missing: ' + derivativePath);
+  }
+  const sourceFiles = trackedFiles.filter((file) => !(sourceManifest.generatedOutputRoots || []).some((prefix) => file.startsWith(prefix)) && !evidencePageOutputs.has(file));
   const exclusions = new Map(sourceManifest.reviewedExclusions.map((item) => [homeLab.toPosix(item.path), item.reason]));
   const approved = new Map();
   for (const item of sourceManifest.approvedRecursiveRoots) {
@@ -186,11 +188,18 @@ function build() {
     approved.set(file, {...item, path: file, sourceRoot: null});
   }
   for (const excluded of exclusions.keys()) approved.delete(excluded);
+  for (const derivativePath of presentationDerivativePaths) {
+    const recursiveEntry = sourceManifest.approvedRecursiveRoots.find((item) => derivativePath.startsWith(homeLab.toPosix(item.path).replace(/\/+$/, '') + '/'));
+    const individualEntry = sourceManifest.approvedIndividualFiles.find((item) => homeLab.toPosix(item.path) === derivativePath);
+    const manifestEntry = individualEntry || recursiveEntry;
+    if (!manifestEntry) throw new Error('Home Lab presentation derivative lacks an approved source relationship: ' + derivativePath);
+    approved.set(derivativePath, {...manifestEntry, path: derivativePath, sourceRoot: individualEntry ? null : homeLab.toPosix(recursiveEntry.path).replace(/\/+$/, '')});
+  }
   const candidates = candidateFiles(sourceFiles, sourceManifest);
   const uncovered = candidates.filter((file) => !approved.has(file) && !exclusions.has(file) && !excludedRoots.some((item) => file === item.path || file.startsWith(item.path.replace(/\/+$/, '') + '/')));
   if (uncovered.length) throw new Error('Home Lab candidate files require catalog records or reviewed exclusions:\n' + uncovered.join('\n'));
   const drift = new Set(execFileSync('git', ['diff', '--name-only', 'HEAD', '--'], {cwd: root, encoding: 'utf8'}).split(/\r?\n/).filter(Boolean).map(homeLab.toPosix));
-  assertNoApprovedSourceDrift(approved.keys(), drift);
+  assertNoApprovedSourceDrift([...approved.keys()].filter((file) => !presentationDerivativePaths.has(file)), drift);
 
   const currentSource = config.sources.currentPortfolio;
   const headObjects = readGitObjects('HEAD', [...approved.keys()]);
@@ -214,9 +223,11 @@ function build() {
   }
 
   for (const [sourcePath, manifestEntry] of [...approved.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
-    const buffer = headObjects.get(sourcePath);
     const recorded = recordedObjects.get(sourcePath);
-    if (!recorded || sha256(buffer) !== sha256(recorded)) throw new Error('Current Home Lab source differs from recorded commit: ' + sourcePath);
+    const isPresentationDerivative = presentationDerivativePaths.has(sourcePath);
+    const publicBuffer = isPresentationDerivative ? fs.readFileSync(path.join(root, sourcePath)) : headObjects.get(sourcePath);
+    if (!recorded || (!isPresentationDerivative && sha256(publicBuffer) !== sha256(recorded))) throw new Error('Current Home Lab source differs from recorded commit: ' + sourcePath);
+    const sourceBuffer = recorded;
     const configured = manifestEntry.technologyRelationships || homeLab.technologiesFor(sourcePath);
     const relationships = [...new Set(configured)].filter((slug) => approvedTechnologies.has(slug));
     if (!relationships.length) throw new Error('No approved Home Lab technology relationship: ' + sourcePath);
@@ -225,23 +236,25 @@ function build() {
     const taxonomyRecord = taxonomyBySlug.get(technology);
     const type = homeLab.evidenceType(sourcePath);
     const publicRoute = publicRouteFor(sourcePath, publicationManifest);
-    const classification = publicRoute ? 'public-original' : 'metadata-only';
+    const classification = isPresentationDerivative ? 'sanitized-derivative' : (publicRoute ? 'public-original' : 'metadata-only');
     const relativeSource = manifestEntry.sourceRoot ? homeLab.toPosix(path.relative(manifestEntry.sourceRoot, sourcePath)) : sourcePath;
-    const hash = sha256(buffer);
+    const sourceHash = sha256(sourceBuffer);
+    const publicHash = sha256(publicBuffer);
+    const hash = isPresentationDerivative ? publicHash : sourceHash;
     const state = resultStateFor(sourcePath, claimsBySlug.get(technology).supportLevel);
     const record = {
       id: 'home-lab-current-' + sha256(Buffer.from(sourcePath)).slice(0, 16), lab: 'home-lab', technology, evidenceType: type,
       sourceRepository: currentSource.repository, sourcePath, sourceCommit: currentSource.commit, sourceVerificationMethod: 'direct-git-object',
-      collectionContext: manifestEntry.reason + (publicRoute ? ' The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.' : ' This repository-only artifact is cataloged as metadata and is not assigned a public route.'),
+      collectionContext: manifestEntry.reason + (isPresentationDerivative ? ' Original source integrity remains pinned to the recorded commit; the linked page is a recruiter-facing presentation derivative with independent public integrity.' : (publicRoute ? ' The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.' : ' This repository-only artifact is cataloged as metadata and is not assigned a public route.')),
       hashAlgorithm: 'sha256', hash, supportedClaims: claimIds, skill: manifestEntry.skill || taxonomyRecord.skill, task: manifestEntry.task || taxonomyRecord.task,
       result: taxonomyRecord.result + ' Record state: ' + state + '.', resultState: state, scope: taxonomyRecord.scope,
       limitations: taxonomyRecord.limitations + (homeLab.TEXT_EXTENSIONS.has(path.extname(sourcePath).toLowerCase()) ? '' : ' Binary content is subject to documented manual-review limitations; OCR was not used.'),
-      publicationClassification: classification, publicRoute, collection: manifestEntry.collection, publicPath: publicRoute ? sourcePath : null, size: buffer.length,
+      publicationClassification: classification, publicRoute, collection: manifestEntry.collection, publicPath: publicRoute ? sourcePath : null, size: isPresentationDerivative ? publicBuffer.length : sourceBuffer.length,
       technologyRelationships: relationships, logicalDestination: homeLab.logicalDestination(technology, type, manifestEntry.collection, relativeSource),
-      sourceIntegrity: {algorithm: 'sha256', hash, size: buffer.length, verificationMethod: 'direct-git-object'}
+      sourceIntegrity: {algorithm: 'sha256', hash: sourceHash, size: sourceBuffer.length, verificationMethod: 'direct-git-object'}
     };
-    if (publicRoute) record.publicIntegrity = {algorithm: 'sha256', hash, size: buffer.length, verificationMethod: 'current-working-tree'};
-    attachReview(record, buffer, sourcePath);
+    if (publicRoute) record.publicIntegrity = {algorithm: 'sha256', hash: publicHash, size: publicBuffer.length, verificationMethod: 'current-working-tree'};
+    attachReview(record, publicBuffer, sourcePath);
     records.push(record);
   }
 
@@ -253,8 +266,12 @@ function build() {
     const publicRoute = rootCompatibility ? '/' + source.sourcePath : null;
     let publicBuffer = null;
     if (rootCompatibility) {
-      publicBuffer = Buffer.from(compatibilityPage(source.sourcePath, source.sourcePath), 'utf8');
-      generatedPages.set(source.sourcePath, publicBuffer.toString('utf8'));
+      if (RETAINED_CURRENT_ROUTES.has(source.sourcePath)) {
+        publicBuffer = fs.readFileSync(path.join(root, source.sourcePath));
+      } else {
+        publicBuffer = Buffer.from(compatibilityPage(source.sourcePath, source.sourcePath), 'utf8');
+        generatedPages.set(source.sourcePath, publicBuffer.toString('utf8'));
+      }
     }
     const technology = relationships[0];
     const type = source.evidenceType;
@@ -277,6 +294,16 @@ function build() {
     if (publicBuffer) record.publicIntegrity = {algorithm: 'sha256', hash: sha256(publicBuffer), size: publicBuffer.length, verificationMethod: 'current-working-tree'};
     attachReview(record, publicBuffer || Buffer.alloc(0), source.sourcePath, publicBuffer ? homeLab.reviewArtifact(publicBuffer, source.sourcePath, publicRoute, exceptionManifest, matchedExceptions) : source.sensitiveDataReview);
     records.push(record);
+  }
+
+  const reviewedPresentationPaths = new Set(exceptionManifest.exceptions.flatMap((item) => item.scope || []).map(homeLab.toPosix).filter((publicPath) => evidencePageOutputs.has(publicPath) && !approved.has(publicPath)));
+  for (const publicPath of [...reviewedPresentationPaths].sort()) {
+    const absolutePath = path.join(root, publicPath);
+    if (!fs.existsSync(absolutePath)) throw new Error('Generated Home Lab evidence presentation is missing: ' + publicPath);
+    const review = homeLab.reviewArtifact(fs.readFileSync(absolutePath), publicPath, '/' + publicPath, exceptionManifest, matchedExceptions);
+    if (review.findings?.length || review.manualReviewRequired) reviewEntries.push({evidenceId: 'generated-presentation-' + sha256(Buffer.from(publicPath)).slice(0, 16), path: publicPath, publicationClassification: 'sanitized-derivative', status: review.status, findings: review.findings || []});
+    if (review.highSeverityFindings) highFailures.push(publicPath);
+    for (const finding of review.findings || []) if (finding.severity === 'medium' && finding.reviewStatus === 'review-required') unresolvedPublicIdentifiers.push(publicPath + ' [' + finding.type + ']');
   }
   if (highFailures.length) throw new Error('High-severity Home Lab findings:\n' + [...new Set(highFailures)].sort().join('\n'));
   if (unresolvedPublicIdentifiers.length) throw new Error('Public Home Lab identifier findings require exact reviewed exceptions:\n' + [...new Set(unresolvedPublicIdentifiers)].sort().join('\n'));
@@ -387,7 +414,7 @@ function main() {
         if (!fs.existsSync(absolute) || fs.readFileSync(absolute, 'utf8') !== content) {console.error('Home Lab generated output drift: ' + relativePath); failed = true;}
       } else {
         fs.mkdirSync(path.dirname(absolute), {recursive: true});
-        fs.writeFileSync(absolute, content, 'utf8');
+        if (!fs.existsSync(absolute) || fs.readFileSync(absolute, 'utf8') !== content) fs.writeFileSync(absolute, content, 'utf8');
       }
     }
     if (failed) process.exit(1);

@@ -96,17 +96,17 @@
     "output": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
     "title": "Microsoft 365 / Entra Site Proof Map",
     "category": "Microsoft 365 and Entra Evidence",
-    "parentLabel": "Microsoft 365 Proof",
-    "returnUrl": "/proof.html#m365-proof",
-    "returnLabel": "Back to Microsoft 365 Proof"
+    "parentLabel": "Microsoft 365 Evidence Catalog",
+    "returnUrl": "/microsoft-365/evidence-catalog.html",
+    "returnLabel": "Back to Microsoft 365 Evidence Catalog"
   },
   {
     "source": "evidence-library/projects/troubleshooting-rca/rca-report.md",
     "output": "evidence-library/projects/troubleshooting-rca/rca-report.html",
     "title": "Troubleshooting RCA Report",
     "category": "Troubleshooting and RCA Evidence",
-    "parentLabel": "Service Desk Projects",
-    "returnUrl": "/projects.html#service",
-    "returnLabel": "Back to Service Desk Projects"
+    "parentLabel": "Projects",
+    "returnUrl": "/projects.html",
+    "returnLabel": "Back to Projects"
   }
 ]

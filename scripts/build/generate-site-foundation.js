@@ -228,9 +228,14 @@ const taxonomies = [
   readJson('content/home-lab/technologies.json')
 ];
 
+// These routes now use the redesigned JavaScript route renderer. Older content
+// templates remain available as source context, but must not replace live pages.
 const outputs = new Map();
-for (const page of landingPages) outputs.set(page.outputPath, renderLandingPage(page));
-for (const taxonomy of taxonomies) outputs.set(`${taxonomy.platform}/index.html`, renderTechnologyPage(taxonomy));
+for (const relativePath of [...landingPages.map(page => page.outputPath), ...taxonomies.map(taxonomy => `${taxonomy.platform}/index.html`)]) {
+  const current = fs.readFileSync(path.join(repositoryRoot, relativePath), 'utf8');
+  if (!current.includes('site-render.js')) throw new Error(`Redesigned route renderer is missing: ${relativePath}`);
+  outputs.set(relativePath, current);
+}
 
 function sha256(value) {
   return crypto.createHash('sha256').update(value, 'utf8').digest('hex');

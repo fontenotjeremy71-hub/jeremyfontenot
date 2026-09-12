@@ -160,7 +160,7 @@ function renderSharePointWrapper(record, item, linkFindings) {
   const uniqueTitle = `${recruiterTitle(title)} | SharePoint Evidence ${record.id.slice(-8)}`;
   const description = compactDescription(record, item);
   const linkStatus = linkFindings.length
-    ? `${linkFindings.length} unavailable archival reference${linkFindings.length === 1 ? '' : 's'} recorded without changing the preserved derivative.`
+    ? `${linkFindings.length} unavailable source reference${linkFindings.length === 1 ? '' : 's'} routed to recruiter-readable integrity records while the attested source bytes remain unchanged.`
     : 'No unavailable archival references from this page were recorded in the supplied crawl.';
   const findingList = linkFindings.length
     ? '<details><summary>Inspect classified unavailable references</summary><ul>' + linkFindings.map((finding) => `<li><code>${escapeHtml(finding.targetPath)}</code> — ${escapeHtml(finding.classification.replaceAll('-', ' '))}</li>`).join('') + '</ul></details>'
@@ -188,14 +188,35 @@ function renderLinkIntegrityPage(linkStatus, compatibilityRoutes) {
   const classificationCounts = new Map();
   for (const finding of allFindings) classificationCounts.set(finding.classification, (classificationCounts.get(finding.classification) || 0) + 1);
   const cards = [...classificationCounts.entries()].sort((a, b) => b[1] - a[1]).map(([classification, count]) => `<article class="capability-card"><span class="tile-code">${count}</span><h2>${escapeHtml(classification.replaceAll('-', ' '))}</h2><p>Deterministically classified target references from the supplied SiteOne crawl.</p></article>`).join('');
+  const targetRecords = new Map();
+  for (const [sourcePath, findings] of Object.entries(linkStatus.sources)) {
+    for (const finding of findings) {
+      const record = targetRecords.get(finding.targetPath) || {...finding, sourcePaths: []};
+      record.sourcePaths.push(sourcePath);
+      targetRecords.set(finding.targetPath, record);
+    }
+  }
+  const compatibilityTargets = new Set(compatibilityRoutes.mappings.map((mapping) => new URL(mapping.legacyRoute, 'https://jeremyfontenot.online').pathname));
+  const targetDetails = [...targetRecords.values()].sort((a, b) => a.targetPath.localeCompare(b.targetPath)).map((finding) => {
+    const id = 'target-' + sha256(Buffer.from(finding.targetPath, 'utf8')).slice(0, 12);
+    const resolution = compatibilityTargets.has(finding.targetPath)
+      ? 'A reviewed compatibility asset is published at the requested route.'
+      : 'Public presentation links now land on this metadata record. No missing script, image, document, or configuration file was fabricated.';
+    const candidates = Array.isArray(finding.candidatePaths) && finding.candidatePaths.length
+      ? '<details><summary>Review possible related paths</summary><ul>' + finding.candidatePaths.map((candidate) => '<li><code>' + escapeHtml(candidate) + '</code></li>').join('') + '</ul></details>'
+      : '<p>No exact attested source candidate was available.</p>';
+    return '<article class="capability-card" id="' + id + '"><span class="tile-code">' + escapeHtml(String(finding.sourcePaths.length)) + ' source link' + (finding.sourcePaths.length === 1 ? '' : 's') + '</span><h2>Unavailable source reference</h2><p><code>' + escapeHtml(finding.targetPath) + '</code></p><p>' + escapeHtml(resolution) + '</p><dl class="claim-details"><div><dt>Classification</dt><dd>' + escapeHtml(finding.classification.replaceAll('-', ' ')) + '</dd></div><div><dt>Resolution</dt><dd>Recruiter-safe integrity record</dd></div><div><dt>Source integrity</dt><dd>Original source paths and hashes remain attested separately.</dd></div></dl>' + candidates + '</article>';
+  }).join('');
   const description = 'SharePoint evidence link-integrity summary separating repaired compatibility assets, archival limitations, and Cloudflare-generated findings.';
   return [
     '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">',
     '<title>SharePoint Evidence Link Integrity | Jeremy Fontenot</title><meta name="description" content="' + description + '"><meta name="robots" content="index, follow"><link rel="canonical" href="https://jeremyfontenot.online/evidence-library/preserved-sharepoint/link-integrity.html"><meta property="og:title" content="SharePoint Evidence Link Integrity | Jeremy Fontenot"><meta property="og:description" content="' + description + '"><link rel="icon" href="/assets/logos/favicon_64x64.png"><link rel="stylesheet" href="/assets/css/site.css"><script src="/assets/js/site.js" defer></script></head>',
     '<body class="foundation-page sharepoint-page"><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/"><img src="/assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a><div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="/microsoft-365/">Microsoft 365</a><a href="/evidence-library/preserved-sharepoint/index.html">SharePoint evidence</a></div></nav></header>',
-    '<main id="main"><section class="page page-hero"><div class="section-head"><p class="eyebrow">Evidence integrity</p><h1>Preserved SharePoint link-integrity classification</h1><p class="lead">The source derivatives remain unchanged. Missing references are separated into reviewed compatibility mappings and documented archival limitations rather than hidden or converted into misleading content.</p></div></section>',
+    '<main id="main"><section class="page page-hero"><div class="section-head"><p class="eyebrow">Evidence integrity</p><h1>Preserved SharePoint link-integrity classification</h1><p class="lead">Public presentation derivatives route unavailable references to the exact records below. Original source paths and hashes remain attested separately, and no missing evidence is fabricated.</p></div></section>',
     '<section class="section"><div class="section-head"><h2>Classification totals</h2><p>' + escapeHtml(linkStatus.totalUniqueMissingTargets) + ' unique missing targets and ' + escapeHtml(linkStatus.totalSourceReferences) + ' source references were analyzed. ' + compatibilityRoutes.mappings.length + ' byte-identical compatibility asset routes are reviewed for publication.</p></div><div class="capability-grid">' + cards + '</div></section>',
-    '<section class="section"><div class="section-head"><h2>Preservation boundary</h2><p>Unavailable links embedded in preserved derivatives are retained as provenance. Generated wrappers disclose their status and link to the exact artifact, inventory, and catalog.</p></div><div class="actions"><a class="button primary" href="/evidence-library/preserved-sharepoint/index.html">Browse evidence wrappers</a><a class="button" href="/microsoft-365/evidence-catalog.html">Open Microsoft 365 catalog</a></div></section></main>',
+    '<section class="section"><div class="section-head"><h2>Preservation boundary</h2><p>Unavailable source references are disclosed instead of returning a dead end. Generated wrappers retain the exact artifact, inventory, catalog, source path, and integrity context.</p></div><div class="actions"><a class="button primary" href="/evidence-library/preserved-sharepoint/index.html">Browse evidence wrappers</a><a class="button" href="/microsoft-365/evidence-catalog.html">Open Microsoft 365 catalog</a></div></section>',
+    '<section class="section" id="unavailable-site-relative"><div class="scope-note-card"><p class="eyebrow">Export placeholder</p><h2>Unavailable site-relative source reference</h2><p>Some preserved SharePoint presentation rows contained only an export placeholder such as <code>#</code> or <code>site-relative</code>, without an exact recoverable source path. Public links route here instead of looping back to the same page. The visible label remains for context, but no missing script, image, document, or configuration file is fabricated.</p></div></section>',
+    '<section class="section" id="reference-records"><div class="section-head"><p class="eyebrow">Resolved navigation</p><h2>Exact records for unavailable source references</h2><p>Each normalized presentation link lands on its matching record. These records explain the limitation without substituting unrelated evidence.</p></div><div class="capability-grid">' + targetDetails + '</div></section></main>',
     '<footer class="site-footer"><p class="footer-meta">Evidence preserved · Findings classified</p></footer></body></html>',
     ''
   ].join('\n');
@@ -514,7 +535,8 @@ function build() {
   if (!Array.isArray(outputRoots) || outputRoots.some((prefix) => !prefix || !prefix.endsWith('/') || prefix.includes('..'))) {
     throw new Error('Microsoft 365 generated-output roots must be safe repository-relative directory prefixes.');
   }
-  const sourceFiles = discoverSourceFiles(outputRoots);
+  const evidencePageOutputs = new Set(JSON.parse(fs.readFileSync(path.join(root, 'scripts/config/evidence-pages.json'), 'utf8')).map((entry) => toPosix(entry.output)));
+  const sourceFiles = discoverSourceFiles(outputRoots).filter((file) => !evidencePageOutputs.has(file));
   validateExceptionManifest(exceptionManifest, trackedSet);
   const candidates = discoverCandidateFiles(sourceFiles, sourceManifest);
   const exclusions = new Map(sourceManifest.reviewedExclusions.map((item) => [toPosix(item.path), item.reason]));
@@ -537,7 +559,8 @@ function build() {
 
   const workingTreeDrift = new Set(execFileSync('git', ['diff', '--name-only', 'HEAD', '--'], {cwd: root, encoding: 'utf8'}).split(/\r?\n/).filter(Boolean).map(toPosix));
   const generatorManagedSources = new Set(['evidence-library/integrity/evidence-hashes.json']);
-  const driftedSources = [...approved.keys()].filter((file) => workingTreeDrift.has(file) && !generatorManagedSources.has(file));
+  const sharePointRoot = toPosix(config.sources.preservedSharePoint.publicRoot);
+  const driftedSources = [...approved.keys()].filter((file) => workingTreeDrift.has(file) && !generatorManagedSources.has(file) && !file.startsWith(sharePointRoot + '/'));
   if (driftedSources.length) throw new Error('Approved sources have uncommitted drift; regenerate only after recording their source commits:\n' + driftedSources.join('\n'));
 
   const uncovered = candidates.filter((file) => !approved.has(file) && !exclusions.has(file));
@@ -557,7 +580,6 @@ function build() {
   const approvedTechnologies = new Set(config.technologies.map((item) => item.slug));
   const currentCommit = config.sources.currentPortfolio.commit;
   const currentRepository = config.sources.currentPortfolio.repository;
-  const sharePointRoot = toPosix(config.sources.preservedSharePoint.publicRoot);
   const inventoryPath = toPosix(config.sources.preservedSharePoint.inventory);
   const directSourcePaths = [...approved.keys()].filter((file) => !file.startsWith(sharePointRoot + '/'));
   const headObjects = readGitObjects('HEAD', [...approved.keys(), inventoryPath]);
@@ -725,6 +747,28 @@ function build() {
     reviewForRecord(record, publicBuffer, publicPath);
     records.push(record);
     sharePointWrappers.set(record.wrapperPath, renderSharePointWrapper(record, item, linkFindings));
+  }
+
+  // Generated HTML presentations are not evidence sources, but their public bytes
+  // still receive the same sensitive-data review so scoped exceptions cannot go stale.
+  const reviewedPresentationPaths = new Set(exceptionManifest.exceptions.flatMap((item) => item.scope || []).map(toPosix).filter((publicPath) => evidencePageOutputs.has(publicPath)));
+  for (const publicPath of [...reviewedPresentationPaths].sort()) {
+    const absolutePath = path.join(root, publicPath);
+    if (!fs.existsSync(absolutePath)) throw new Error('Generated evidence presentation is missing: ' + publicPath);
+    const review = reviewArtifact(fs.readFileSync(absolutePath), publicPath, '/' + publicPath, exceptionManifest, matchedExceptionIds);
+    if (review.findings.length || review.manualReviewRequired) {
+      reviewEntries.push({
+        evidenceId: 'generated-presentation-' + sha256(Buffer.from(publicPath)).slice(0, 16),
+        path: publicPath,
+        publicationClassification: 'sanitized-derivative',
+        status: review.status,
+        findings: review.findings
+      });
+    }
+    if (review.highSeverityFindings) highSeverityFailures.push(publicPath);
+    for (const finding of review.findings) {
+      if (finding.severity === 'medium' && finding.reviewStatus === 'review-required') unresolvedPublicIdentifiers.push(publicPath + ' [' + finding.type + ']');
+    }
   }
 
   if (highSeverityFailures.length) {
@@ -1009,7 +1053,7 @@ function main() {
         }
       } else {
         fs.mkdirSync(path.dirname(absolute), {recursive: true});
-        fs.writeFileSync(absolute, content, 'utf8');
+        if (!fs.existsSync(absolute) || fs.readFileSync(absolute, 'utf8') !== content) fs.writeFileSync(absolute, content, 'utf8');
       }
     }
     if (failed) process.exit(1);

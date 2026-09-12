@@ -7,11 +7,11 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 971,
-    "textArtifactsInspected": 965,
-    "manualReviewRequired": 6,
+    "artifactsReviewed": 1000,
+    "textArtifactsInspected": 972,
+    "manualReviewRequired": 28,
     "highSeveritySecretFindings": 0,
-    "identifierFindings": 4950,
+    "identifierFindings": 4952,
     "unresolvedPublicIdentifierFindings": 0
   },
   "reviewedExceptions": [
@@ -14127,9 +14127,9 @@
       ]
     },
     {
-      "evidenceId": "m365-microsoft-365-core-d1f62ef89301f87a",
+      "evidenceId": "generated-presentation-d1f62ef89301f87a",
       "path": "evidence-library/projects/microsoft-365-lab/m365-entra-site-proof-map-20260605.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -14148,9 +14148,9 @@
       ]
     },
     {
-      "evidenceId": "m365-exchange-mail-flow-rca-b053321affcc0467",
+      "evidenceId": "generated-presentation-b053321affcc0467",
       "path": "evidence-library/projects/troubleshooting-rca/rca-report.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -14164,6 +14164,236 @@
           ],
           "valueFingerprints": [
             "da6c02741702401d"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-fa26b59456f4cb5c",
+      "path": "projects/entra-cloud-sync/evidence/01-cloudsync-architecture.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-64a4650aa592e334",
+      "path": "projects/entra-cloud-sync/evidence/02-cloudsync-test01-initial-provisioning.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-7fbbe0352e5a2c26",
+      "path": "projects/entra-cloud-sync/evidence/02-identity-lifecycle.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-d4d7d1900e0ed06a",
+      "path": "projects/entra-cloud-sync/evidence/03-cloudsync-test01-attribute-sync.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-6528dd62598d99ab",
+      "path": "projects/entra-cloud-sync/evidence/03-source-anchor-correlation.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-72465ad9512f5909",
+      "path": "projects/entra-cloud-sync/evidence/04-cloudsync-test01-password-hash-sync.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-1d84f3773ce1b864",
+      "path": "projects/entra-cloud-sync/evidence/04-sync-timing.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-a1a319ed60a510a5",
+      "path": "projects/entra-cloud-sync/evidence/05-cloudsync-group-membership.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-040da1a5388ef1aa",
+      "path": "projects/entra-cloud-sync/evidence/05-troubleshooting-flow.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-2d838610e71d5a16",
+      "path": "projects/entra-cloud-sync/evidence/06-cloudsync-user-provisioning-log.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-031107a5bb96d30f",
+      "path": "projects/entra-cloud-sync/evidence/06-validation-summary.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-3cb37d295952bf6b",
+      "path": "projects/entra-cloud-sync/evidence/07-cloudsync-user-modified-properties.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-6cad212e886f8dac",
+      "path": "projects/entra-cloud-sync/evidence/07-cloudsync-vs-connect-sync.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-f72a295109a92056",
+      "path": "projects/entra-cloud-sync/evidence/08-cloudsync-source-authority.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-b16f9b6aa5baa314",
+      "path": "projects/entra-cloud-sync/evidence/09-cloudsync-overview-health.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-f3b11b922ae56496",
+      "path": "projects/entra-cloud-sync/evidence/10-cloudsync-no-failures.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-e9cd32b92cfce7c8",
+      "path": "projects/entra-cloud-sync/evidence/11-cloudsync-group-provisioning-log.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-296b8da784de3d33",
+      "path": "projects/entra-cloud-sync/evidence/12-cloudsync-group-modified-properties.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-e73e046eaa49b7a9",
+      "path": "projects/entra-cloud-sync/evidence/13-cloudsync-group-summary.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-f192d3ae962f301c",
+      "path": "projects/entra-cloud-sync/evidence/14-cloudsync-agent-status.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-3043e53912c6a479",
+      "path": "projects/entra-cloud-sync/evidence/15-cloudsync-ou-scope.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-6986dff60abc906f",
+      "path": "projects/entra-cloud-sync/evidence/16-cloudsync-group-attribute-mapping.png",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-e21d7f5c139d0166",
+      "path": "projects/entra-cloud-sync/implementation.md",
+      "publicationClassification": "metadata-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            50
+          ],
+          "valueFingerprints": [
+            "3b25972fe7240608"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-4b5389582d499939",
+      "path": "projects/entra-cloud-sync/README.md",
+      "publicationClassification": "metadata-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            66
+          ],
+          "valueFingerprints": [
+            "3b25972fe7240608"
+          ]
+        }
+      ]
+    },
+    {
+      "evidenceId": "m365-entra-cloud-sync-project-d07d49ad548d5ce2",
+      "path": "projects/entra-cloud-sync/validation.md",
+      "publicationClassification": "metadata-only",
+      "status": "automated-no-high-severity-findings",
+      "findings": [
+        {
+          "type": "personal-email-or-upn",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            10
+          ],
+          "valueFingerprints": [
+            "3b25972fe7240608"
+          ]
+        },
+        {
+          "type": "tenant-or-object-identifier",
+          "severity": "medium",
+          "reviewStatus": "not-published-source",
+          "exceptionId": null,
+          "occurrences": 1,
+          "lines": [
+            35
+          ],
+          "valueFingerprints": [
+            "2be1edae57f5b36d"
           ]
         }
       ]
