@@ -30,5 +30,8 @@ jobs:
       - name: Validate site links and assets
         run: node scripts/audits/validate-button-targets.js
 
+      - name: Validate CTA destinations
+        run: node scripts/audits/validate-cta-semantics.js
+
       - name: Build portfolio assets
         run: npm run build
