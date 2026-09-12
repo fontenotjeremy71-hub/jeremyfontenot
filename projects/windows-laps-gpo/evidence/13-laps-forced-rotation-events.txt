@@ -1,0 +1,23 @@
+Windows LAPS Forced Password Rotation Validation
+===============================================
+
+Purpose
+-------
+Validate an administrator-initiated Windows LAPS password rotation and the resulting client and Active Directory processing events.
+
+Sanitized operational events
+----------------------------
+10014 - Administrator-initiated password update
+10020 - LocalAdmin password successfully updated
+10018 - Active Directory successfully updated
+10004 - LAPS policy processing succeeded
+
+Result
+------
+PASS
+
+The event sequence confirms that a forced password rotation updated the managed local account, backed the new protected state to Active Directory, and completed policy processing successfully.
+
+Security / Portfolio Note
+-------------------------
+No managed password value, credential, token, or authentication secret is included in this evidence.
