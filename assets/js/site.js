@@ -23,7 +23,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
 
   const footerLinks=[...headerLinks,{href:'/sitemap.xml',label:'Sitemap',key:'sitemap'}];
-  document.querySelectorAll('.footer-links,.compact-footer-links').forEach(container=>{
+  let footerContainers=[...document.querySelectorAll('.footer-links,.compact-footer-links')];
+  if(footerContainers.length===0){
+    const footer=document.querySelector('.site-footer');
+    if(footer){
+      const footerNav=document.createElement('nav');
+      footerNav.className='footer-links';
+      footerNav.setAttribute('aria-label','Footer navigation');
+      footer.prepend(footerNav);
+      footerContainers=[footerNav];
+    }
+  }
+  footerContainers.forEach(container=>{
     container.innerHTML=footerLinks.map(link=>`<a href="${link.href}">${link.label}</a>`).join('');
   });
 
