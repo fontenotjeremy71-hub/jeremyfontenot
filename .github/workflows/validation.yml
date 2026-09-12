@@ -49,5 +49,37 @@ jobs:
       - name: Validate every published target and CTA contract
         run: npm run check
 
+      - name: Capture generated-output drift
+        if: always()
+        shell: bash
+        run: |
+          git status --short > generated-drift-status.txt
+          git diff --name-only > generated-drift-files.txt
+          git diff --stat > generated-drift-stat.txt
+          git diff > generated-drift.patch
+          mkdir -p .generated-drift
+          while IFS= read -r file; do
+            [ -n "$file" ] || continue
+            if [ -f "$file" ]; then
+              mkdir -p ".generated-drift/$(dirname "$file")"
+              cp -- "$file" ".generated-drift/$file"
+            fi
+          done < generated-drift-files.txt
+
+      - name: Preserve generated-output drift
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-validation-generated-drift-${{ github.sha }}
+          path: |
+            generated-drift-status.txt
+            generated-drift-files.txt
+            generated-drift-stat.txt
+            generated-drift.patch
+            .generated-drift/
+          if-no-files-found: ignore
+          include-hidden-files: true
+          retention-days: 7
+
       - name: Verify generated outputs are synchronized
         run: git diff --exit-code
