@@ -1,0 +1,20 @@
+Windows LAPS Negative Access Validation
+======================================
+
+Purpose
+-------
+Validate least-privilege behavior by testing Windows LAPS retrieval with a standard user that was not delegated LAPS password-read permissions.
+
+Sanitized result
+----------------
+ACCESS TEST RESULT: No LAPS record returned for unauthorized user.
+
+Result
+------
+PASS
+
+The negative access test confirmed that an unauthorized standard user could not retrieve the Windows LAPS record through the tested retrieval path.
+
+Security / Portfolio Note
+-------------------------
+No managed password value, credential, token, or authentication secret is included in this evidence.
