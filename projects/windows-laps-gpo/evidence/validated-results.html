@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Windows LAPS Validation Evidence | Jeremy Fontenot</title><meta name="robots" content="index,follow"><link rel="stylesheet" href="../../../assets/css/site.css"></head><body><main><section class="page-hero shell"><p class="eyebrow">Sanitized validation evidence</p><h1>Windows LAPS & Advanced Group Policy</h1><p class="lead">Portfolio-safe evidence reconstructed from the completed lab validation. No managed password is displayed.</p><div class="actions"><a class="button" href="../../../windows-laps-gpo.html">Back to case study</a><a class="button" href="../../../proof.html#laps-proof">Back to proof</a></div></section><section class="section"><div class="proof-grid"><article class="proof-card"><h3>Schema extension</h3><pre>msLAPS-EncryptedDSRMPassword
+msLAPS-EncryptedDSRMPasswordHistory
+msLAPS-EncryptedPassword
+msLAPS-EncryptedPasswordHistory
+msLAPS-Password
+msLAPS-PasswordExpirationTime</pre></article><article class="proof-card"><h3>Final encrypted retrieval</h3><pre>ComputerName        : WS01
+Account             : LocalAdmin
+Source              : EncryptedPassword
+DecryptionStatus    : Success
+AuthorizedDecryptor : JFAD\GG-LAPS-Password-Readers</pre></article><article class="proof-card"><h3>Effective policy</h3><pre>Policy source: GPO
+Backup directory: Active Directory
+Local administrator account name: LocalAdmin
+Password age in days: 30
+Password complexity: 4
+Password length: 14
+Password encryption enabled: 1</pre></article><article class="proof-card"><h3>Rotation events</h3><pre>10014 - Administrator initiated update
+10020 - LocalAdmin password updated
+10018 - Active Directory updated
+10004 - LAPS processing succeeded</pre></article><article class="proof-card"><h3>Negative access test</h3><pre>ACCESS TEST RESULT:
+No LAPS record returned for unauthorized user.</pre></article><article class="proof-card"><h3>AD attribute presence</h3><pre>Computer: WS01
+EncryptedPasswordPresent: True</pre></article></div></section></main></body></html>
