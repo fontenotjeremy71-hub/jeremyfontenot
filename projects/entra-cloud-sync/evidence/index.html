@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hybrid Identity Evidence Index | Jeremy Fontenot</title>
+<meta name="description" content="Sanitized validation evidence for the Microsoft Entra Hybrid Identity and Cloud Sync project.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://jeremyfontenot.online/projects/entra-cloud-sync/evidence/">
+<link rel="icon" href="/assets/logos/favicon_64x64.png">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="/index.html">
+        <img src="/assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="34" height="34" decoding="async">
+        <span>Jeremy Fontenot<small>Evidence-first IT portfolio</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+      <div class="nav-links" id="primary-menu">
+        <a href="/index.html">Home</a>
+        <a href="/systems-administration.html">Readiness</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/proof.html">Proof</a>
+        <a href="/resume.html">Resume</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumbs"><a href="/entra-cloud-sync.html">Microsoft Entra Hybrid Identity &amp; Cloud Sync</a> / Evidence</div>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Project 02 · sanitized evidence</p>
+          <h1>Hybrid Identity Evidence Index</h1>
+          <p class="lead">Project-specific proof for AD-to-Entra provisioning, source authority, Password Hash Sync, group synchronization, Cloud Sync health, scope, and troubleshooting validation.</p>
+          <div class="actions"><a class="button primary" href="/entra-cloud-sync.html">Return to project</a><a class="button" href="/proof.html#entra-proof">Review proof</a></div>
+        </div>
+        <aside class="hero-card" aria-label="Evidence boundary">
+          <p class="eyebrow">Evidence boundary</p>
+          <h2>Sanitized and project-specific.</h2>
+          <p>This index covers the Microsoft Entra Cloud Sync project only. Tenant-wide Microsoft 365 evidence remains in the separate Microsoft 365 evidence catalog.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="captured-title">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Captured validation</p><h2 id="captured-title">Cloud Sync implementation evidence</h2></div>
+      <div class="grid grid-3">
+        <article class="panel"><h3>Initial user provisioning</h3><p>Initial synchronized test user evidence.</p><div class="proof-links"><a href="02-cloudsync-test01-initial-provisioning.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Attribute synchronization</h3><p>Department attribute synchronization validation.</p><div class="proof-links"><a href="03-cloudsync-test01-attribute-sync.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Password Hash Sync</h3><p>Successful Entra authentication after an on-premises password change.</p><div class="proof-links"><a href="04-cloudsync-test01-password-hash-sync.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Group membership</h3><p>Synchronized membership in the Cloud Sync test group.</p><div class="proof-links"><a href="05-cloudsync-group-membership.png">Open evidence</a></div></article>
+        <article class="panel"><h3>User provisioning log</h3><p>Successful import, scope evaluation, and user provisioning.</p><div class="proof-links"><a href="06-cloudsync-user-provisioning-log.png">Open evidence</a></div></article>
+        <article class="panel"><h3>User modified properties</h3><p>User attribute and source-anchor processing.</p><div class="proof-links"><a href="07-cloudsync-user-modified-properties.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Source authority</h3><p>On-premises synchronization and immutable-ID evidence.</p><div class="proof-links"><a href="08-cloudsync-source-authority.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Cloud Sync health</h3><p>Healthy configuration and synchronized object counts.</p><div class="proof-links"><a href="09-cloudsync-overview-health.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Failure review</h3><p>Provisioning failure review showing no failure results.</p><div class="proof-links"><a href="10-cloudsync-no-failures.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Group provisioning log</h3><p>Successful group import and provisioning workflow.</p><div class="proof-links"><a href="11-cloudsync-group-provisioning-log.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Group modified properties</h3><p>Group membership and source-anchor processing.</p><div class="proof-links"><a href="12-cloudsync-group-modified-properties.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Group summary</h3><p>AD-to-Entra group provisioning summary.</p><div class="proof-links"><a href="13-cloudsync-group-summary.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Agent status</h3><p>SYNC01 provisioning agent shown active.</p><div class="proof-links"><a href="14-cloudsync-agent-status.png">Open evidence</a></div></article>
+        <article class="panel"><h3>OU scope</h3><p>Dedicated synchronization OU scope.</p><div class="proof-links"><a href="15-cloudsync-ou-scope.png">Open evidence</a></div></article>
+        <article class="panel"><h3>Group attribute mapping</h3><p>Cloud Sync group attribute mappings.</p><div class="proof-links"><a href="16-cloudsync-group-attribute-mapping.png">Open evidence</a></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="visuals-title">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Supporting documentation</p><h2 id="visuals-title">Architecture and troubleshooting visuals</h2></div>
+      <div class="grid grid-3">
+        <article class="panel"><h3>Cloud Sync architecture</h3><div class="proof-links"><a href="01-cloudsync-architecture.png">Open visual</a></div></article>
+        <article class="panel"><h3>Identity lifecycle</h3><div class="proof-links"><a href="02-identity-lifecycle.png">Open visual</a></div></article>
+        <article class="panel"><h3>Source-anchor correlation</h3><div class="proof-links"><a href="03-source-anchor-correlation.png">Open visual</a></div></article>
+        <article class="panel"><h3>Synchronization timing</h3><div class="proof-links"><a href="04-sync-timing.png">Open visual</a></div></article>
+        <article class="panel"><h3>Troubleshooting flow</h3><div class="proof-links"><a href="05-troubleshooting-flow.png">Open visual</a></div></article>
+        <article class="panel"><h3>Validation summary</h3><div class="proof-links"><a href="06-validation-summary.png">Open visual</a></div></article>
+        <article class="panel"><h3>Cloud Sync vs. Connect Sync</h3><div class="proof-links"><a href="07-cloudsync-vs-connect-sync.png">Open visual</a></div></article>
+        <article class="panel"><h3>Evidence README</h3><p>Project evidence descriptions and sanitization boundary.</p><div class="proof-links"><a href="README.md">Open README</a></div></article>
+        <article class="panel"><h3>Microsoft 365 evidence</h3><p>Separate preserved tenant and identity evidence outside this project-specific set.</p><div class="proof-links"><a href="/microsoft-365/evidence-catalog.html">Open M365 catalog</a></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer" aria-label="Site footer"><div class="wrap footer-inner"><div><strong>Jeremy Fontenot</strong><div class="note">Microsoft administration · systems operations · evidence-backed lab work</div></div><nav class="footer-links" aria-label="Footer navigation"><a href="/index.html">Home</a><a href="/projects.html">Projects</a><a href="/proof.html">Proof</a><a href="/evidence-library/">Evidence Library</a></nav></div></footer>
+</body>
+</html>
