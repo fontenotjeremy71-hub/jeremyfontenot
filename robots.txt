@@ -1,13 +1,14 @@
-# Keep the recruiter-facing portfolio and curated evidence catalogs crawlable.
+# Recruiter-facing portfolio and curated evidence remain crawlable.
 User-agent: *
 Allow: /
 
-# Cloudflare utility endpoints are delivery infrastructure, not site content.
+# Delivery infrastructure is not site content.
 Disallow: /cdn-cgi/
 
-# Raw preserved SharePoint exports remain publicly accessible as evidence,
-# but they are archival source material rather than search landing pages.
+# Preserved SharePoint exports remain directly accessible as archival evidence,
+# but they are not intended to become search-engine landing pages.
 Disallow: /evidence-library/preserved-sharepoint/source/
 Disallow: /evidence-library/preserved-sharepoint/docs/
+Disallow: /evidence-library/preserved-sharepoint/wrappers/
 
 Sitemap: https://jeremyfontenot.online/sitemap.xml
