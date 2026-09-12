@@ -6,8 +6,8 @@
   "scripts": {
     "check": "npm run test:cta && npm run check:sharepoint && node scripts/audits/validate-button-targets.js && node scripts/audits/validate-cta-semantics.js",
     "test:cta": "node --test scripts/audits/cta-contracts.test.js",
-    "check:sharepoint": "node scripts/build/normalize-preserved-sharepoint-navigation.js --check",
-    "build:normalize-sharepoint": "node scripts/build/normalize-preserved-sharepoint-navigation.js",
+    "check:sharepoint": "node scripts/build/normalize-preserved-exports.js --check",
+    "build:normalize-sharepoint": "node scripts/build/normalize-preserved-exports.js",
     "build:evidence": "node scripts/build/generate-evidence-pages.js",
     "build:dashboard": "node scripts/build/generate-dashboard-data.js",
     "build:foundation": "node scripts/build/generate-site-foundation.js",
