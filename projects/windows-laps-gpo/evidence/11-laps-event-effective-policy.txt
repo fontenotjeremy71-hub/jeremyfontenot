@@ -1,0 +1,28 @@
+Windows LAPS Effective Policy Validation
+========================================
+
+Evidence source
+---------------
+Windows LAPS Operational Event ID 10021 (sanitized effective policy state).
+
+Effective policy
+----------------
+Policy source: GPO
+Backup directory: Active Directory
+Local administrator account name: LocalAdmin
+Password age in days: 30
+Password complexity: 4
+Password length: 14
+Password expiration protection enabled: 1
+Password encryption enabled: 1
+Password encryption target principal: JFAD\GG-LAPS-Password-Readers
+
+Result
+------
+PASS
+
+The Windows LAPS client processed the intended Group Policy configuration and used Active Directory backup with password encryption enabled.
+
+Security / Portfolio Note
+-------------------------
+This evidence contains policy metadata only. No managed local administrator password, credential, or authentication secret is exposed.
