@@ -1,302 +1,165 @@
-# Jeremy Fontenot Portfolio
+# Jeremy Fontenot — Microsoft Systems Administration Portfolio
 
 [![Repository Validation](https://github.com/fontenotjeremy71-hub/jeremyfontenot/actions/workflows/validation.yml/badge.svg)](https://github.com/fontenotjeremy71-hub/jeremyfontenot/actions/workflows/validation.yml)
 
-Static professional portfolio for Jeremy Fontenot, focused on Service Desk experience, infrastructure operations, systems administration practice, Microsoft 365 administration, PowerShell automation, and evidence-backed technical documentation.
+**Service Desk experience. Systems Administration capability. Work backed by evidence.**
 
-Live site: https://jeremyfontenot.online
-Repository: https://github.com/fontenotjeremy71-hub/jeremyfontenot
+This repository publishes my professional IT portfolio and the sanitized evidence behind my transition from Service Desk into Microsoft-focused systems administration and infrastructure support.
 
----
+- Live site: https://jeremyfontenot.online
+- Systems readiness: https://jeremyfontenot.online/systems-administration.html
+- Projects: https://jeremyfontenot.online/projects.html
+- Proof index: https://jeremyfontenot.online/proof.html
 
-## Purpose
+## Career Target
 
-This repository publishes a professional IT portfolio designed to show:
+The portfolio is intentionally aligned to roles such as:
 
-* Service Desk and IT Support experience
-* Systems administration direction
-* Microsoft 365 and Entra administration practice
-* On-premises home-lab operations
-* PowerShell validation and evidence automation
-* Repository governance, link validation, accessibility checks, SEO checks, and proof-backed claims
+- Junior Systems Administrator
+- Infrastructure Support Technician
+- Systems Support Specialist
+- Microsoft 365 / Entra Support Administrator
 
-The site is intentionally structured so public claims trace back to reviewable artifacts, manifests, screenshots, validation records, and documented limitations.
+My professional experience supplies the user support, incident handling, access troubleshooting, documentation, and escalation foundation. The home lab demonstrates the administration work required for the next step: Windows Server, Active Directory, Group Policy, endpoint security, hybrid identity, virtualization, networking, PowerShell, backup operations, and evidence-driven troubleshooting.
 
----
+## Featured Microsoft Administration Projects
 
-## Public Site Pages
+### Windows LAPS & Advanced Group Policy
 
-| Page                             | Purpose                                                                                      |
-| -------------------------------- | -------------------------------------------------------------------------------------------- |
-| `index.html`                     | Main landing page and professional positioning                                               |
-| `projects.html`                  | Technical project catalog                                                                    |
-| `on-prem-home-lab.html`          | Proxmox, pfSense, Windows Server, Active Directory, Linux, backup, and validation case study |
-| `evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/index.html` | Azure Arc hybrid Windows and SQL Server case study with sanitized current-state evidence |
-| `evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html` | July 2026 four-system isolated restore-validation evidence index |
-| `proof.html`                     | Claim-to-artifact proof index                                                                |
-| `dashboard.html`                 | Evidence status dashboard                                                                    |
-| `resume.html`                    | Resume page                                                                                  |
-| `contact.html`                   | Professional contact page                                                                    |
-| `home-lab-operations-proof.html` | Home-lab operations proof page                                                               |
-| `systems-skills/evidence-map.html` | Filterable evidence-to-skill and readiness relationship index                              |
-| `evidence/claim-map.html`        | Reciprocal claim-to-evidence index with scope and limitations                                 |
+**Status: VALIDATED**
 
----
+Implemented modern Windows LAPS in a Windows Server 2022 Active Directory lab and validated the complete control path.
 
-## Featured Project Areas
+Demonstrated work includes:
 
-### On-Premises Home Lab and Operations Validation
+- Windows LAPS schema validation and extension
+- Dedicated OU and GPO scoping
+- Encrypted local-administrator password backup to Active Directory
+- Custom managed `LocalAdmin` account
+- Dedicated `GG-LAPS-Password-Readers` security group
+- Least-privilege password retrieval by a non-admin reader
+- Unauthorized-user negative access testing
+- `gpresult` and RSOP validation
+- Windows LAPS Operational event analysis
+- Administrator-initiated password rotation
+- WMI/RPC and firewall troubleshooting
+- Sanitized evidence handling with passwords excluded
 
-Personal systems-administration lab using:
+Case study: https://jeremyfontenot.online/windows-laps-gpo.html
 
-* Proxmox VE
-* pfSense
-* Windows Server
-* Active Directory Domain Services
-* DNS and DHCP
-* Group Policy
-* Windows workstation domain membership
-* Ubuntu Linux domain integration
-* Backup configuration
-* Restore validation records
-* Four-system isolated restore validation with scoped PASS and INCONCLUSIVE outcomes
-* PowerShell-based validation and evidence collection
-* Azure Arc-connected Windows Server and SQL Server 2022 Developer inventory with current portal, Windows Admin Center, Proxmox, and PowerShell evidence
+Project files: [`projects/windows-laps-gpo/`](projects/windows-laps-gpo/)
 
-This is a personal nonproduction lab. It does not claim enterprise scale, production availability, formal RTO/RPO assurance, or employer/client administration.
+### Microsoft Entra Hybrid Identity & Cloud Sync
 
-### Microsoft 365 and Entra Administration
+**Status: VALIDATED**
 
-Personal Microsoft 365 lab evidence covering:
+Connected the Windows Server Active Directory lab to Microsoft Entra ID with Microsoft Entra Cloud Sync and validated controlled hybrid-identity lifecycle behavior.
 
-* Domains
-* Users
-* Groups
-* Licensing
-* Directory roles
-* Conditional Access
-* Sign-ins
-* Audit activity
-* Devices
-* Applications
-* Service principals
-* CSV, JSON, Markdown, screenshot, and manifest artifacts
+Demonstrated work includes:
 
-### Service Desk Troubleshooting and RCA
+- Dedicated Cloud Sync OU scope
+- User and security-group provisioning
+- Department attribute synchronization
+- Password Hash Synchronization
+- Group membership synchronization
+- Source-anchor correlation
+- Provisioning-log analysis
+- Agent health validation
+- gMSA troubleshooting
+- Source-authority validation
 
-Documentation focused on:
+Case study: https://jeremyfontenot.online/entra-cloud-sync.html
 
-* Incident triage
-* Symptom capture
-* Scope definition
-* Troubleshooting notes
-* Root-cause framing
-* Remediation planning
-* Escalation-ready documentation
+Project files: [`projects/entra-cloud-sync/`](projects/entra-cloud-sync/)
 
-### PowerShell Validation and Evidence Automation
+### On-Premises Microsoft Home Lab
 
-Repository-local validation and automation scripts support:
+The broader lab supplies the infrastructure used for repeatable Microsoft administration practice:
 
-* PowerShell syntax validation
-* Repository structure validation
-* JSON validation
-* Evidence hash validation
-* Evidence claim validation
-* Evidence metadata validation
-* Accessibility validation
-* HTML validation
-* SEO validation
-* Sitemap validation
-* Internal link validation
-* Screenshot validation
-* Lighthouse score validation
+- Windows Server 2022
+- Active Directory Domain Services
+- DNS and DHCP
+- Group Policy
+- Windows clients
+- Windows Admin Center
+- Hyper-V
+- System Center Virtual Machine Manager 2022
+- Azure Arc
+- Proxmox VE
+- pfSense
+- Ubuntu Linux
+- macOS Active Directory integration
+- PowerShell remoting and validation
+- Backup and isolated restore exercises
 
----
+Primary case study: https://jeremyfontenot.online/on-prem-home-lab.html
+
+## Additional Validated Work
+
+| Area | Demonstrated work |
+| --- | --- |
+| Windows Admin Center | WinRM, firewall scoping, remote PowerShell, Windows server/client administration |
+| Hyper-V | VM lifecycle, checkpoints, virtual switching, storage expansion and post-change validation |
+| SCVMM 2022 | Host onboarding, Run As accounts, logical networks, logical switches, port classification |
+| Azure Arc | Connected Machine agent, Windows and SQL inventory, extensions, outbound connectivity |
+| Active Directory | Users, groups, OUs, domain clients, policy, identity troubleshooting |
+| Cross-platform | Windows, Ubuntu Linux, and macOS systems integrated in the routed home lab |
+| PowerShell | Inventory, AD queries, remoting, validation, connectivity testing, evidence collection |
+
+## Evidence Model
+
+Public claims are tied to reviewable evidence whenever practical. Evidence may include:
+
+- sanitized screenshots
+- PowerShell output
+- event-log findings
+- CSV / JSON exports
+- configuration summaries
+- validation records
+- architecture notes
+- troubleshooting records
+- reusable scripts
+
+The repository distinguishes professional experience from personal-lab work and does not present lab work as production ownership.
+
+Secrets are never portfolio evidence. Published artifacts exclude passwords, LAPS passwords, tokens, VPN credentials, recovery keys, private keys, and other authentication material.
 
 ## Repository Structure
 
 ```text
 .
-|-- .github/
-|   `-- workflows/
-|       `-- validation.yml
-|-- assets/
-|   |-- css/
-|   |-- documents/
-|   |-- js/
-|   |-- logos/
-|   |-- og/
-|   `-- resume/
-|-- artifacts/
-|-- evidence-library/
-|   `-- projects/
-|-- scripts/
-|   |-- audits/
-|   |-- lighthouse/
-|   `-- validation/
-|-- tests/
-|-- index.html
-|-- projects.html
-|-- on-prem-home-lab.html
-|-- proof.html
-|-- dashboard.html
+|-- .github/workflows/          # repository validation
+|-- assets/                     # site CSS, JS, images, documents
+|-- evidence-library/           # preserved sanitized evidence
+|-- projects/
+|   |-- entra-cloud-sync/
+|   `-- windows-laps-gpo/
+|-- scripts/                    # audits and validation tooling
+|-- tests/                      # browser / repository checks
+|-- index.html                  # recruiter landing page
+|-- systems-administration.html # Microsoft systems readiness
+|-- projects.html               # project catalog
+|-- proof.html                  # claim-to-artifact routes
 |-- resume.html
 |-- contact.html
-|-- home-lab-operations-proof.html
-|-- sitemap.xml
-`-- README.md
+`-- sitemap.xml
 ```
 
----
+## Repository Validation
 
-## Evidence Model
+GitHub Actions validates pushes and pull requests to `main`. Checks include repository structure, PowerShell syntax, JSON and evidence integrity, accessibility, HTML, SEO, sitemap state, internal links, screenshots, browser behavior, and hiring-manager-facing portfolio quality.
 
-Portfolio evidence is classified using clear boundaries:
+The public site is deployed from `main` through GitHub Pages.
 
-| Status     | Meaning                                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------------------- |
-| Validated  | Current evidence directly supports the stated system, configuration, or property                        |
-| Tested     | A behavior was exercised and recorded within a defined scope                                            |
-| Configured | Configuration is present, but broader behavior is not claimed                                           |
-| Limitation | Known gaps, historical values, timeouts, unsupported conclusions, or evidence boundaries are documented |
+## Portfolio Operating Principle
 
-This repository avoids unsupported claims. When evidence is incomplete, historical, limited, or scoped to a personal lab, that limitation is documented instead of being hidden.
+The purpose of this repository is not to collect technology names. It is to demonstrate a repeatable administration method:
 
----
-
-## Validation Workflow
-
-The GitHub Actions workflow runs on pushes and pull requests to `main`.
-
-Validation includes:
-
-* Generated evidence-page freshness checks
-* PowerShell syntax checks
-* Repository health dashboard generation
-* Repository structure validation
-* JSON validation
-* Evidence hash validation
-* Evidence claim validation
-* Evidence metadata validation
-* Accessibility validation
-* Public content quality checks
-* HTML validation
-* Hiring-manager portfolio review test
-* Screenshot validation
-* Lighthouse score validation
-* SEO metadata validation
-* Sitemap validation
-* Internal link validation
-
----
-
-## Local Validation
-
-Run validation from the repository root using PowerShell.
-
-```powershell
-npm ci
-npm run build:skill-map
-npm run check:skill-map
-npm run check:evidence
-npx playwright install chromium
-npm run test:browser
-```
-
-The Playwright suite starts its own loopback-only static server, reads the generated evidence-page allowlist and sitemap from the repository, and performs Chromium DOM, network, XSLT, safety, and responsive-overflow checks. Failure-only screenshots, traces, videos, and the HTML report are written beneath `artifacts/playwright/`; no success screenshot review is required.
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-powershell.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-repo-structure.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-json.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-evidence-hashes.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-evidence-claims.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-evidence-metadata.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-accessibility.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-html.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-seo.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-sitemap.ps1
-```
-
-```powershell
-pwsh -NoProfile -File .\scripts\validation\validate-links.ps1
-```
-
----
-
-## Deployment
-
-The public site is deployed from the `main` branch through GitHub Pages.
-
-Source of truth:
-
-* Website repository: `https://github.com/fontenotjeremy71-hub/jeremyfontenot`
-* Public site: `https://jeremyfontenot.online`
-* Default branch: `main`
-
----
-
-## Evidence and Privacy Boundaries
-
-This repository contains sanitized public portfolio evidence only.
-
-It does not contain:
-
-* Employer or client system data
-* Production system credentials
-* Private infrastructure secrets
-* Unsupported enterprise availability claims
-* Unsupported security assurance claims
-* Unsupported RTO/RPO claims
-
-Home-lab source material is copied only as sanitized public evidence where appropriate.
-
----
-
-## Maintenance Notes
-
-When updating the site:
-
-1. Keep visible claims aligned with the proof index.
-2. Update evidence manifests when artifacts change.
-3. Preserve limitations where evidence does not fully support a broader claim.
-4. Run repository validation before pushing.
-5. Keep public pages, sitemap entries, internal links, and downloadable artifacts synchronized.
-6. Do not add employer/client claims unless they are public, sanitized, and appropriate to disclose.
-
----
+**Understand → Configure → Troubleshoot → Validate → Document → Preserve Evidence**
 
 ## Contact
 
-* Website: https://jeremyfontenot.online
-* LinkedIn: https://www.linkedin.com/in/jeremy-fontenot/
-* GitHub: https://github.com/fontenotjeremy71-hub
-* Email: [jeremy.fontenot@jeremyfontenot.online](mailto:jeremy.fontenot@jeremyfontenot.online)
+- Website: https://jeremyfontenot.online
+- LinkedIn: https://www.linkedin.com/in/jeremy-fontenot/
+- GitHub: https://github.com/fontenotjeremy71-hub
+- Email: [jeremy.fontenot@jeremyfontenot.online](mailto:jeremy.fontenot@jeremyfontenot.online)
