@@ -16,9 +16,16 @@ const provenanceNew = `    const publicBuffer = headObjects.get(sourcePath);\n  
 const publicOld = `    if (publicRoute) record.publicIntegrity = {algorithm: 'sha256', hash: sourceHash, size: buffer.length, verificationMethod: 'current-working-tree'};\n    reviewForRecord(record, buffer, sourcePath);`;
 const publicNew = `    if (publicRoute) record.publicIntegrity = {algorithm: 'sha256', hash: sourceHash, size: buffer.length, verificationMethod: 'current-working-tree'};\n    if (isGeneratorManagedSource && publicRoute) {\n      const publicHash = sha256(publicBuffer);\n      record.publicationClassification = 'sanitized-derivative';\n      record.collectionContext = manifestEntry.reason + ' The original source relationship remains pinned to its recorded commit while the generator-managed public bytes are validated independently.';\n      record.hash = publicHash;\n      record.size = publicBuffer.length;\n      record.publicIntegrity = {algorithm: 'sha256', hash: publicHash, size: publicBuffer.length, verificationMethod: 'current-working-tree'};\n    }\n    reviewForRecord(record, isGeneratorManagedSource ? publicBuffer : buffer, sourcePath);`;
 
+const packageVersionOld = `  if (value === '1.4.8.1' && (/PackageManagement/i.test(context) || /href=['"][^'"]*1\\.4\\.8\\.1\\/index\\.html/i.test(context))) return false;`;
+const packageVersionNew = `  if (value === '1.4.8.1' && (/PackageManagement/i.test(text) || /href=['"][^'"]*1\\.4\\.8\\.1\\/index\\.html/i.test(context))) return false;`;
+
 if (!source.includes(provenanceOld)) throw new Error('Expected provenance block was not found in the Microsoft 365 organizer.');
 if (!source.includes(publicOld)) throw new Error('Expected public-integrity block was not found in the Microsoft 365 organizer.');
-source = source.replace(provenanceOld, provenanceNew).replace(publicOld, publicNew);
+if (!source.includes(packageVersionOld)) throw new Error('Expected PackageManagement version filter was not found in the Microsoft 365 organizer.');
+source = source
+  .replace(provenanceOld, provenanceNew)
+  .replace(publicOld, publicNew)
+  .replace(packageVersionOld, packageVersionNew);
 
 try {
   fs.writeFileSync(tempPath, source, 'utf8');
