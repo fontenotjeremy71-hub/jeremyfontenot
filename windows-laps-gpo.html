@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windows LAPS & Advanced Group Policy | Jeremy Fontenot</title>
+  <meta name="description" content="Validated modern Windows LAPS deployment using Active Directory, Group Policy, encrypted password storage, least-privilege delegation, RSOP, event logs, and forced rotation.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jeremyfontenot.online/windows-laps-gpo.html">
+  <link rel="icon" href="./assets/logos/favicon_64x64.png">
+  <link rel="stylesheet" href="./assets/css/site.css?v=20260815-scvmm-networking">
+  <script src="./assets/js/site.js" defer></script>
+</head>
+<body class="projects-page windows-laps-gpo-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="/"><img src="./assets/logos/header_logo_88x88.png" alt="Jeremy Fontenot logo" width="44" height="44"><span>Jeremy Fontenot</span><small>Support · systems · evidence</small></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button><div class="nav-links" id="primary-menu"><a href="/">Home</a><a href="./systems-administration.html">Readiness</a><a href="./projects.html">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></div></nav></header>
+  <main id="main">
+    <section class="page page-hero"><div class="section-head reveal is-visible"><p class="eyebrow kicker-line">Validated Microsoft systems administration project</p><h1>Windows LAPS & Advanced Group Policy</h1><p class="lead">Deployed modern Windows LAPS in a Windows Server 2022 Active Directory lab using schema validation, a dedicated workstation OU, Group Policy, encrypted password storage, least-privilege delegation, RSOP, event logs, and forced password rotation.</p><div class="technology-tags"><span>Windows LAPS</span><span>Active Directory</span><span>Group Policy</span><span>PowerShell</span><span>Windows Server 2022</span><span>Windows 10</span></div></div></section>
+    <section class="section"><div class="section-head reveal"><p class="eyebrow">Architecture</p><h2>Isolated scope with explicit delegation.</h2></div><div class="signal-matrix reveal"><article><span class="tile-code">AD</span><h3>Schema and OU</h3><p>Validated that LAPS schema attributes were absent, extended the schema on DC01, then scoped WS01 to a protected LAPS-Test OU beneath Workstations.</p></article><article><span class="tile-code">GPO</span><h3>Policy</h3><p>Backs passwords to AD, manages LocalAdmin, rotates every 30 days, uses 14-character complex passwords, enables expiration protection, and stores the password encrypted.</p></article><article><span class="tile-code">ACL</span><h3>Least privilege</h3><p>Computer self-permission was delegated to the OU and password-read permission was assigned to GG-LAPS-Password-Readers. A non-admin reader account proved delegated access.</p></article><article><span class="tile-code">VAL</span><h3>Validation</h3><p>gpresult, GUI RSOP, LAPS Operational events, AD attributes, encrypted retrieval, a negative-access control, and forced rotation all produced expected results.</p></article></div></section>
+    <section class="section"><div class="section-head reveal"><p class="eyebrow">Validated results</p><h2>End-to-end LAPS behavior was observed.</h2></div><div class="project-supporting-grid reveal"><article class="project-panel"><h2>Effective policy</h2><pre>Policy source: GPO
+Backup directory: Active Directory
+Local administrator account name: LocalAdmin
+Password age in days: 30
+Password complexity: 4
+Password length: 14
+Password encryption enabled: 1
+Password encryption target principal: JFAD\GG-LAPS-Password-Readers</pre></article><article class="project-panel"><h2>Sanitized retrieval</h2><pre>ComputerName        : WS01
+Account             : LocalAdmin
+Source              : EncryptedPassword
+DecryptionStatus    : Success
+AuthorizedDecryptor : JFAD\GG-LAPS-Password-Readers</pre></article><article class="project-panel"><h2>Forced rotation</h2><p>Event 10014 recorded the administrator-initiated request, Event 10020 confirmed the LocalAdmin password update, Event 10018 confirmed the AD backup, and Event 10004 confirmed successful policy processing.</p></article><article class="project-panel"><h2>Negative control</h2><pre>ACCESS TEST RESULT: No LAPS record returned for unauthorized user.</pre></article></div></section>
+    <section class="section"><div class="section-head reveal"><p class="eyebrow">Evidence and documentation</p><h2>Review the implementation record.</h2><p>No managed password value is published.</p></div><div class="proof-links reveal"><a href="./projects/windows-laps-gpo/README.md">Project README</a><a href="./projects/windows-laps-gpo/validation.md">Validation record</a><a href="./projects/windows-laps-gpo/evidence/validated-results.md">Sanitized evidence</a><a href="./projects/windows-laps-gpo/troubleshooting.md">Troubleshooting</a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/main/projects/windows-laps-gpo">GitHub project folder</a></div></section>
+  </main>
+  <footer class="site-footer compact-footer"><div class="compact-footer-grid"><div class="compact-footer-brand"><img src="./assets/logos/header_logo_88x88.png" alt="" width="46" height="46"><div><strong>Jeremy Fontenot</strong><p>Service Desk experience. Systems Administration capability. Work backed by evidence.</p></div></div><nav class="compact-footer-links"><a href="./systems-administration.html">Readiness</a><a href="./projects.html">Projects</a><a href="./proof.html">Proof</a><a href="./dashboard.html">Dashboard</a><a href="./resume.html">Resume</a><a href="./contact.html">Contact</a></nav></div></footer>
+</body>
+</html>
