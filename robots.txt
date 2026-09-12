@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /archive/
+
+# Portfolio rebuilt from scratch on 2026-09-12.
 Sitemap: https://jeremyfontenot.online/sitemap.xml
