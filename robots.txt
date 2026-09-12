@@ -1,14 +1,4 @@
-# Recruiter-facing portfolio and curated evidence remain crawlable.
 User-agent: *
 Allow: /
-
-# Delivery infrastructure is not site content.
-Disallow: /cdn-cgi/
-
-# Preserved SharePoint exports remain directly accessible as archival evidence,
-# but they are not intended to become search-engine landing pages.
-Disallow: /evidence-library/preserved-sharepoint/source/
-Disallow: /evidence-library/preserved-sharepoint/docs/
-Disallow: /evidence-library/preserved-sharepoint/wrappers/
-
+Disallow: /archive/
 Sitemap: https://jeremyfontenot.online/sitemap.xml
