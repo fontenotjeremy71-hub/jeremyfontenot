@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Live browser audit for jeremyfontenot.online.
 
-The audit uses Playwright/Chromium against the deployed custom domain. It:
+The audit uses Playwright/Chrome against the deployed custom domain. It:
 - visits every HTML page reachable from the public sitemap and internal links;
 - inventories every visible anchor/button on every visited page;
 - browser-clicks each unique visible link interaction;
@@ -31,6 +31,11 @@ BASE = os.environ.get("PORTFOLIO_BASE_URL", "https://jeremyfontenot.online").rst
 REPORT = Path(os.environ.get("PORTFOLIO_BROWSER_AUDIT_REPORT", "artifacts/live-browser-audit.json"))
 MAX_HTML_PAGES = int(os.environ.get("PORTFOLIO_BROWSER_AUDIT_MAX_PAGES", "300"))
 NAV_TIMEOUT = int(os.environ.get("PORTFOLIO_BROWSER_NAV_TIMEOUT_MS", "20000"))
+DESKTOP_UA = os.environ.get(
+    "PORTFOLIO_BROWSER_USER_AGENT",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+)
 
 SEEDS = [
     f"{BASE}/",
@@ -54,7 +59,6 @@ SEEDS = [
     f"{BASE}/systems-skills/",
 ]
 
-HTMLISH = {"", ".html", ".htm", "/"}
 FILE_OK = {".txt", ".json", ".csv", ".xml", ".md", ".pdf", ".docx", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".zip"}
 EVIDENCE_WORDS = {"evidence", "proof", "validation", "validated", "artifact", "claim", "manifest", "inventory", "report", "result", "output"}
 
@@ -101,7 +105,6 @@ def semantic_error(label: str, target: str, title: str, body_sample: str) -> Opt
     path = urlparse(target).path.lower()
     suffix = Path(path).suffix.lower()
 
-    # Global navigation and unambiguous utility labels.
     if re.fullmatch(r"home", l) and path not in {"", "/", "/index.html"}:
         return "Home label does not land on the site home page"
     if "resume" in l and not ("resume" in path or suffix in {".pdf", ".docx"}):
@@ -117,7 +120,6 @@ def semantic_error(label: str, target: str, title: str, body_sample: str) -> Opt
     if re.fullmatch(r"github", l) and "github.com" not in t:
         return "GitHub label does not land on github.com"
 
-    # Evidence/Proof labels must land on evidence/proof content, not a generic narrative-only case-study anchor.
     if any(word in l for word in ("evidence", "proof", "manifest", "claim map", "inventory", "validation output", "validation")):
         if suffix in FILE_OK:
             return None
@@ -125,14 +127,11 @@ def semantic_error(label: str, target: str, title: str, body_sample: str) -> Opt
         evidence_content = any(word in hay for word in EVIDENCE_WORDS)
         if not (evidence_target or evidence_content):
             return "Evidence/proof wording does not land on evidence/proof-oriented content"
-        # Explicitly block the regression that started this audit.
         if path in {"/windows-laps-gpo.html", "/entra-cloud-sync.html", "/on-prem-home-lab.html"} and "case study" not in l:
             return "Evidence/proof CTA lands on a general case-study page instead of direct evidence"
 
-    if "case study" in l:
-        if any(x in path for x in ("evidence-library", "/evidence/", "manifest", "claim-map")):
-            return "Case-study CTA lands on an evidence artifact/index instead of the project narrative"
-
+    if "case study" in l and any(x in path for x in ("evidence-library", "/evidence/", "manifest", "claim-map")):
+        return "Case-study CTA lands on an evidence artifact/index instead of the project narrative"
     if "manifest" in l and not ("manifest" in path or suffix == ".json" or "manifest" in hay):
         return "Manifest label does not land on manifest data"
     if "claim map" in l and not ("claim" in path or suffix == ".csv" or "claim" in hay):
@@ -178,13 +177,13 @@ async def extract_interactions(page):
     )
 
 
-async def click_unique_link(browser, source_url: str, ordinal: int, expected_href: str):
-    """Actually browser-click one link occurrence and return final URL/title/body/status-ish info."""
-    page = await browser.new_page(viewport={"width": 1440, "height": 1000})
+async def click_unique_link(context, source_url: str, ordinal: int, expected_href: str):
+    """Actually browser-click one link occurrence and return final URL/title/body info."""
+    page = await context.new_page()
     errors = []
     page.on("pageerror", lambda exc: errors.append(str(exc)))
     try:
-        status, nav_err = await goto_checked(page, source_url)
+        _status, nav_err = await goto_checked(page, source_url)
         if nav_err:
             return {"error": f"source navigation failed: {nav_err}", "url": page.url, "title": "", "body": "", "errors": errors}
         items = page.locator("a[href], button")
@@ -199,7 +198,6 @@ async def click_unique_link(browser, source_url: str, ordinal: int, expected_hre
         absolute = urljoin(source_url, href)
         if absolute.startswith(("mailto:", "tel:")):
             return {"error": None, "url": absolute, "title": "", "body": "", "errors": errors}
-        # Downloads are click-tested with Playwright's download event when applicable.
         if Path(urlparse(absolute).path).suffix.lower() in {".pdf", ".docx", ".zip"}:
             try:
                 async with page.expect_download(timeout=5000) as di:
@@ -207,7 +205,6 @@ async def click_unique_link(browser, source_url: str, ordinal: int, expected_hre
                 download = await di.value
                 return {"error": None, "url": absolute, "title": download.suggested_filename, "body": "download", "errors": errors}
             except Exception:
-                # Some file types open in-browser rather than download; navigate by click below.
                 pass
         try:
             await el.click(timeout=5000)
@@ -233,8 +230,26 @@ async def audit():
     queue = deque(norm_url(u) for u in SEEDS)
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        crawl_page = await browser.new_page(viewport={"width": 1440, "height": 1000})
+        # Use installed stable Chrome plus a normal desktop context. This avoids
+        # treating a valid public site as broken merely because a CDN rejects a
+        # default HeadlessChrome fingerprint.
+        browser = await p.chromium.launch(
+            channel="chrome",
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        context = await browser.new_context(
+            viewport={"width": 1440, "height": 1000},
+            user_agent=DESKTOP_UA,
+            locale="en-US",
+            timezone_id="America/Chicago",
+            extra_http_headers={
+                "Accept-Language": "en-US,en;q=0.9",
+                "Upgrade-Insecure-Requests": "1",
+            },
+        )
+        await context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined});")
+        crawl_page = await context.new_page()
         js_errors = []
         crawl_page.on("pageerror", lambda exc: js_errors.append(str(exc)))
 
@@ -268,23 +283,20 @@ async def audit():
                         target = f"{url}{raw}"
                     page_entry["interactions"].append({"kind": "link", "label": label, "target": target})
 
-                    # Recursively visit same-origin HTML pages (fragments removed).
                     plain = norm_url(target)
                     if same_origin(plain) and html_candidate(plain) and plain not in seen_pages:
                         queue.append(plain)
 
-                    # Actually click each unique visible label->target interaction in Chromium.
                     key = (label.lower(), target)
                     if key not in clicked_keys:
                         clicked_keys.add(key)
-                        result = await click_unique_link(browser, url, item["index"], target)
+                        result = await click_unique_link(context, url, item["index"], target)
                         if result["error"]:
                             findings.append(Finding("error", url, label, target, result["error"]))
                             continue
                         if result["errors"]:
                             findings.append(Finding("error", url, label, target, "JavaScript error after click: " + " | ".join(result["errors"][:3])))
                         final_url = result["url"] or target
-                        # For same-origin normal links, click should end at the intended target (fragment differences allowed).
                         if same_origin(target) and not target.startswith(("mailto:", "tel:")):
                             exp_path = urlparse(target).path.rstrip("/") or "/"
                             got_path = urlparse(final_url).path.rstrip("/") or "/"
@@ -294,14 +306,12 @@ async def audit():
                         if sem:
                             findings.append(Finding("error", url, label, target, sem))
                 else:
-                    # Buttons that are not anchors are still inventoried; click-test common UI controls below.
                     page_entry["interactions"].append({"kind": "button", "label": label, "target": ""})
 
             pages_report.append(page_entry)
 
-        # Button smoke test on every crawled page: clicking non-submit visible buttons must not throw JS errors.
         for url in list(seen_pages):
-            page = await browser.new_page(viewport={"width": 1440, "height": 1000})
+            page = await context.new_page()
             local_errors = []
             page.on("pageerror", lambda exc: local_errors.append(str(exc)))
             status, err = await goto_checked(page, url)
@@ -323,8 +333,15 @@ async def audit():
                     local_errors.clear()
             await page.close()
 
-        # Mobile navigation smoke test on the public home page.
-        mobile = await browser.new_page(viewport={"width": 390, "height": 844})
+        mobile_context = await browser.new_context(
+            viewport={"width": 390, "height": 844},
+            user_agent=DESKTOP_UA,
+            locale="en-US",
+            timezone_id="America/Chicago",
+            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+        )
+        await mobile_context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined});")
+        mobile = await mobile_context.new_page()
         status, err = await goto_checked(mobile, f"{BASE}/")
         if not err and (status is None or status < 400):
             menu = mobile.get_by_role("button", name=re.compile("menu", re.I))
@@ -338,10 +355,11 @@ async def audit():
                 except Exception as exc:
                     findings.append(Finding("error", f"{BASE}/", "Menu", "", f"Mobile menu click failed: {exc}"))
         await mobile.close()
+        await mobile_context.close()
         await crawl_page.close()
+        await context.close()
         await browser.close()
 
-    # Dedupe identical findings to keep logs readable.
     uniq = []
     seen_findings = set()
     for f in findings:
