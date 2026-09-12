@@ -39,7 +39,7 @@ function shouldAuditHtml(file) {
 
 function shouldAuditRouteSource(file) {
   const relative = rel(file);
-  return /^assets\/js\/(?:routes-[^/]+|site|site-render)\.js$/i.test(relative);
+  return /^assets\/js\/(?:routes-[^/]+|site|site-core|site-render)\.js$/i.test(relative);
 }
 
 function walk(directory) {
