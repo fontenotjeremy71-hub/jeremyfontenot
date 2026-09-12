@@ -6,6 +6,7 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..', '..');
 const htmlFiles = [];
+const routeSourceFiles = [];
 const ignoredPrefixes = [
   'archive/',
   'artifacts/',
@@ -19,15 +20,26 @@ function rel(file) {
   return path.relative(root, file).replaceAll('\\', '/');
 }
 
-function shouldAuditFile(file) {
-  const relative = rel(file);
-  if (ignoredPrefixes.some((prefix) => relative.startsWith(prefix))) return false;
+function isIgnored(relative) {
+  return ignoredPrefixes.some((prefix) => relative.startsWith(prefix));
+}
 
-  // Audit the visitor-facing portfolio pages and published case-study landing pages.
+function shouldAuditHtml(file) {
+  const relative = rel(file);
+  if (isIgnored(relative)) return false;
+
+  // Root-level portfolio pages and published visitor-facing landing pages.
   if (!relative.includes('/')) return true;
   if (/^(systems-skills|evidence|microsoft-365|home-lab)\/index\.html$/i.test(relative)) return true;
   if (/^evidence-library\/projects\/.+\/index\.html$/i.test(relative)) return true;
+  if (/^projects\/.+\/evidence\/index\.html$/i.test(relative)) return true;
+  if (/^projects\/.+\/index\.html$/i.test(relative)) return true;
   return false;
+}
+
+function shouldAuditRouteSource(file) {
+  const relative = rel(file);
+  return /^assets\/js\/(?:routes-[^/]+|site|site-render)\.js$/i.test(relative);
 }
 
 function walk(directory) {
@@ -35,9 +47,14 @@ function walk(directory) {
     if (entry.name.startsWith('.') && entry.name !== '.well-known') continue;
     const absolute = path.join(directory, entry.name);
     const relative = rel(absolute);
-    if (entry.isDirectory() && ignoredPrefixes.some((prefix) => `${relative}/`.startsWith(prefix))) continue;
-    if (entry.isDirectory()) walk(absolute);
-    else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html') && shouldAuditFile(absolute)) htmlFiles.push(absolute);
+    if (entry.isDirectory() && isIgnored(`${relative}/`)) continue;
+    if (entry.isDirectory()) {
+      walk(absolute);
+      continue;
+    }
+    if (!entry.isFile()) continue;
+    if (entry.name.toLowerCase().endsWith('.html') && shouldAuditHtml(absolute)) htmlFiles.push(absolute);
+    if (entry.name.toLowerCase().endsWith('.js') && shouldAuditRouteSource(absolute)) routeSourceFiles.push(absolute);
   }
 }
 
@@ -56,27 +73,38 @@ function stripTags(value) {
     .trim();
 }
 
-function resolveInternal(sourceFile, href) {
-  if (!href || /^(mailto:|tel:|javascript:|data:)/i.test(href)) return null;
-  let normalized = href.trim();
-  if (/^https?:\/\//i.test(normalized)) {
-    let url;
-    try { url = new URL(normalized); } catch { return null; }
-    if (!/^(www\.)?jeremyfontenot\.online$/i.test(url.hostname)) return null;
-    normalized = `${url.pathname}${url.search}${url.hash}`;
-  }
+function normalizeInternalHref(rawHref) {
+  if (!rawHref) return null;
+  let href = rawHref.trim();
+  if (!href || /^(mailto:|tel:|javascript:|data:|blob:)/i.test(href)) return null;
 
-  const [withoutFragment, fragment = ''] = normalized.split('#', 2);
-  const cleanPath = withoutFragment.split('?')[0];
+  if (/^https?:\/\//i.test(href)) {
+    let url;
+    try { url = new URL(href); } catch { return null; }
+    if (!/^(www\.)?jeremyfontenot\.online$/i.test(url.hostname)) return null;
+    href = `${url.pathname}${url.search}${url.hash}`;
+  }
+  return href;
+}
+
+function resolveInternal(sourceFile, rawHref, runtimeRoot = false) {
+  const normalized = normalizeInternalHref(rawHref);
+  if (normalized === null) return null;
+
+  const hashIndex = normalized.indexOf('#');
+  const beforeHash = hashIndex >= 0 ? normalized.slice(0, hashIndex) : normalized;
+  const fragment = hashIndex >= 0 ? normalized.slice(hashIndex + 1) : '';
+  const cleanPath = beforeHash.split('?')[0];
   let targetFile;
 
   if (!cleanPath) {
+    if (runtimeRoot) return null;
     targetFile = sourceFile;
   } else if (cleanPath === '/') {
     targetFile = path.join(root, 'index.html');
   } else {
-    const relative = cleanPath.startsWith('/')
-      ? cleanPath.slice(1)
+    const relative = cleanPath.startsWith('/') || runtimeRoot
+      ? cleanPath.replace(/^\//, '')
       : path.join(path.relative(root, path.dirname(sourceFile)), cleanPath);
     let resolved = path.resolve(root, relative);
     if (cleanPath.endsWith('/')) resolved = path.join(resolved, 'index.html');
@@ -86,12 +114,20 @@ function resolveInternal(sourceFile, href) {
   return {targetFile, fragment: decodeURIComponent(fragment || '')};
 }
 
+function allRuntimeSourceText() {
+  return routeSourceFiles.map((file) => fs.readFileSync(file, 'utf8')).join('\n');
+}
+const runtimeSourceText = allRuntimeSourceText();
+
 function hasFragment(targetFile, fragment) {
   if (!fragment) return true;
-  if (!fs.existsSync(targetFile) || !targetFile.toLowerCase().endsWith('.html')) return false;
-  const html = fs.readFileSync(targetFile, 'utf8');
   const escaped = fragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`\\b(?:id|name)\\s*=\\s*["']${escaped}["']`, 'i').test(html);
+  const marker = new RegExp(`\\b(?:id|name)\\s*=\\s*["']${escaped}["']`, 'i');
+  if (fs.existsSync(targetFile) && targetFile.toLowerCase().endsWith('.html')) {
+    if (marker.test(fs.readFileSync(targetFile, 'utf8'))) return true;
+  }
+  // Route-driven pages may define the anchor in JS rather than in their shell HTML.
+  return marker.test(runtimeSourceText);
 }
 
 function targetDescriptor(targetFile, fragment) {
@@ -112,6 +148,7 @@ function targetDescriptor(targetFile, fragment) {
       text += ` ${stripTags(html.slice(0, 5000)).toLowerCase()}`;
     }
   }
+  text += ` ${runtimeSourceText.toLowerCase()}`;
   return text;
 }
 
@@ -135,13 +172,44 @@ function isCtaLike(attrs, text) {
 }
 
 const errors = [];
+const checkedKeys = new Set();
 let anchorsChecked = 0;
 let internalChecked = 0;
+let assetTargetsChecked = 0;
+let runtimeLinksChecked = 0;
 let semanticChecked = 0;
+
+function validateTarget(sourceFile, href, label, options = {}) {
+  const resolved = resolveInternal(sourceFile, href, Boolean(options.runtimeRoot));
+  if (!resolved) return;
+  const {targetFile, fragment} = resolved;
+  const key = `${rel(sourceFile)}|${href}|${options.runtimeRoot ? 'runtime' : 'static'}`;
+  if (checkedKeys.has(key)) return;
+  checkedKeys.add(key);
+  internalChecked += 1;
+
+  if (!fs.existsSync(targetFile)) {
+    errors.push(`${rel(sourceFile)}: "${label}" -> ${href} (target does not exist)`);
+    return;
+  }
+  if (fragment && !hasFragment(targetFile, fragment)) {
+    errors.push(`${rel(sourceFile)}: "${label}" -> ${href} (fragment #${fragment} does not exist)`);
+    return;
+  }
+
+  if (!options.cta) return;
+  const descriptor = targetDescriptor(targetFile, fragment);
+  for (const rule of semanticRules) {
+    if (!rule.pattern.test(label)) continue;
+    semanticChecked += 1;
+    if (!rule.expect.test(`${href.toLowerCase()} ${descriptor}`)) {
+      errors.push(`${rel(sourceFile)}: "${label}" -> ${href} does not match its ${rule.label} label`);
+    }
+  }
+}
 
 for (const sourceFile of htmlFiles) {
   const html = fs.readFileSync(sourceFile, 'utf8');
-  const sourceRel = rel(sourceFile);
   const anchorRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   for (const match of html.matchAll(anchorRegex)) {
     anchorsChecked += 1;
@@ -149,41 +217,44 @@ for (const sourceFile of htmlFiles) {
     const text = stripTags(match[2]);
     const hrefMatch = /\bhref\s*=\s*["']([^"']+)["']/i.exec(attrs);
     if (!hrefMatch) {
-      if (isCtaLike(attrs, text)) errors.push(`${sourceRel}: CTA "${text || '<no text>'}" has no href`);
+      if (isCtaLike(attrs, text)) errors.push(`${rel(sourceFile)}: CTA "${text || '<no text>'}" has no href`);
       continue;
     }
+    validateTarget(sourceFile, hrefMatch[1], text || '<link>', {cta: isCtaLike(attrs, text)});
+  }
 
-    const href = hrefMatch[1];
-    const resolved = resolveInternal(sourceFile, href);
-    if (!resolved) continue;
-    internalChecked += 1;
+  // Verify local non-anchor assets such as scripts, stylesheets, images, icons, and media.
+  const assetRegex = /<(?:img|script|link|source|video|audio)\b[^>]*?\b(?:src|href|poster)\s*=\s*["']([^"']+)["'][^>]*>/gi;
+  for (const match of html.matchAll(assetRegex)) {
+    const href = match[1];
+    const before = internalChecked;
+    validateTarget(sourceFile, href, 'asset');
+    if (internalChecked > before) assetTargetsChecked += 1;
+  }
+}
 
-    const {targetFile, fragment} = resolved;
-    if (!fs.existsSync(targetFile)) {
-      errors.push(`${sourceRel}: "${text}" -> ${href} (target does not exist)`);
-      continue;
-    }
-    if (fragment && !hasFragment(targetFile, fragment)) {
-      errors.push(`${sourceRel}: "${text}" -> ${href} (fragment #${fragment} does not exist)`);
-      continue;
-    }
+// Route-driven pages store rendered anchors in JavaScript template strings. Audit all
+// root-relative href/src values here so CI catches broken links that static HTML scans miss.
+for (const sourceFile of routeSourceFiles) {
+  const source = fs.readFileSync(sourceFile, 'utf8');
+  const attrRegex = /\b(?:href|src)\\?=[\\]?["'](\/[^"']+)[\\]?["']/gi;
+  for (const match of source.matchAll(attrRegex)) {
+    runtimeLinksChecked += 1;
+    validateTarget(sourceFile, match[1].replaceAll('\\/', '/'), 'route-generated link', {runtimeRoot: true});
+  }
 
-    if (!isCtaLike(attrs, text)) continue;
-    const descriptor = targetDescriptor(targetFile, fragment);
-    for (const rule of semanticRules) {
-      if (!rule.pattern.test(text)) continue;
-      semanticChecked += 1;
-      if (!rule.expect.test(`${href.toLowerCase()} ${descriptor}`)) {
-        errors.push(`${sourceRel}: "${text}" -> ${href} does not match its ${rule.label} label`);
-      }
-    }
+  // Also audit path strings used by route helpers such as actions([...]) and evidence arrays.
+  const pathStringRegex = /["'](\/(?:assets|projects|evidence-library|microsoft-365|home-lab|systems-skills)[^"']*|\/[a-z0-9][a-z0-9._/-]*\.(?:html|txt|md|pdf|png|jpe?g|webp|svg|json)(?:#[^"']*)?)["']/gi;
+  for (const match of source.matchAll(pathStringRegex)) {
+    runtimeLinksChecked += 1;
+    validateTarget(sourceFile, match[1], 'route path', {runtimeRoot: true});
   }
 }
 
 if (errors.length) {
-  console.error(`CTA/link audit failed with ${errors.length} issue(s):`);
-  for (const error of errors) console.error(`- ${error}`);
+  console.error(`Portfolio link audit failed with ${errors.length} issue(s):`);
+  for (const error of [...new Set(errors)].sort()) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`CTA/link audit passed: ${htmlFiles.length} live pages, ${anchorsChecked} anchors checked, ${internalChecked} internal targets verified, ${semanticChecked} high-confidence label/target checks passed.`);
+console.log(`Portfolio link audit passed: ${htmlFiles.length} live HTML pages, ${routeSourceFiles.length} route sources, ${anchorsChecked} anchors, ${assetTargetsChecked} local asset references, ${runtimeLinksChecked} route-generated references, ${internalChecked} unique internal targets, and ${semanticChecked} high-confidence label/target checks verified.`);
