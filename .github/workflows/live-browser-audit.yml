@@ -62,6 +62,30 @@ jobs:
           python -m pip install --disable-pip-version-check playwright==1.55.0
           python -m playwright install --with-deps chromium
 
+      - name: Configure standard Chromium identity
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('scripts/audits/live-browser-audit.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'context = await browser.new_context(viewport={"width": VIEWPORT_WIDTH, "height": 1000}, locale="en-US", timezone_id="America/Chicago")'
+          new = '''context = await browser.new_context(
+              viewport={"width": VIEWPORT_WIDTH, "height": 1000},
+              locale="en-US",
+              timezone_id="America/Chicago",
+              user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+              extra_http_headers={
+                  "Accept-Language": "en-US,en;q=0.9",
+                  "Upgrade-Insecure-Requests": "1",
+              },
+          )'''
+          if old not in text:
+              raise SystemExit('Expected browser context line was not found; refusing to patch an unknown audit version.')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Run live Chromium click audit
         env:
           PORTFOLIO_BASE_URL: https://jeremyfontenot.online
