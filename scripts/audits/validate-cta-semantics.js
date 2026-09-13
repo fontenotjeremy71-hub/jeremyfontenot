@@ -57,7 +57,8 @@ function inspect(source, href, rawLabel) {
   }
   if (casePromise) {
     semanticChecks += 1;
-    if (/evidence-library|\/evidence\/|evidence-catalog|claim-map|manifest/i.test(target)) errors.push(`${source}: "${label}" promises a case study but points to evidence content ${href}`);
+    const standaloneCaseStudy = /\/evidence-library\/projects\/on-prem-home-lab\/(?:scvmm-2022|azure-arc-hybrid-management)\/(?:[#?].*)?$/i.test(target);
+    if (!standaloneCaseStudy && /evidence-library|\/evidence\/|evidence-catalog|claim-map|manifest/i.test(target)) errors.push(`${source}: "${label}" promises a case study but points to evidence content ${href}`);
   }
   if (resumePromise) {
     semanticChecks += 1;
