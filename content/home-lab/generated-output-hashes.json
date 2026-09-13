@@ -4,8 +4,8 @@
   "outputs": [
     {
       "path": "assets/data/home-lab-evidence-catalog.json",
-      "size": 1458470,
-      "hash": "2896140480c66bd317422bdb66b0aab4e5e321d0690e3c663d18b74e1445b804",
+      "size": 1428024,
+      "hash": "3891255803ea6fce3e8689b3307ab85002350cf214dcdf22ee9c82ebd75a0316",
       "metadataCoverage": [
         "integrity"
       ]
@@ -13,7 +13,7 @@
     {
       "path": "home-lab/evidence-catalog.html",
       "size": 17178,
-      "hash": "37f9e6d38525906c2adbf901dcbe6874c724354f8b03a7887d8b6a17b42fe2d0",
+      "hash": "46556f02ac5c654d562ff2c29e8ad83b5714df4be1624659dcf3c4496c693fdc",
       "metadataCoverage": [
         "integrity",
         "seo"
@@ -21,24 +21,24 @@
     },
     {
       "path": "home-lab/source-to-destination-matrix.csv",
-      "size": 460302,
-      "hash": "83118c8380d133ef09ffe5f9601017d175da631e653d32c3d40e3ad696474228",
+      "size": 450059,
+      "hash": "c267bef03f3dc81f44abcfda9b761d9547e0d4fb442c8f6af358e454b299cd0c",
       "metadataCoverage": [
         "integrity"
       ]
     },
     {
       "path": "home-lab/duplicate-groups.json",
-      "size": 5550,
-      "hash": "0942fb95dd6f5ba3d993af3fdad427a13d9867d6e67db7df8cc9e8cfcdc6cb0a",
+      "size": 5382,
+      "hash": "0ea53e90856e81b91fbd381b39cb6082305e905c039632aaee7c0044d025875e",
       "metadataCoverage": [
         "integrity"
       ]
     },
     {
       "path": "home-lab/sensitive-data-review.json",
-      "size": 130236,
-      "hash": "f305830b87ea0655f94355bcbd3cfee46b6d9b9ef6b12bed12e7df38b9d0566b",
+      "size": 130048,
+      "hash": "31e8f5f3f0637dde03ab52cc4b55c9dc29360547cc5a92c7b70a29abaaf1bd1c",
       "metadataCoverage": [
         "integrity"
       ]
@@ -46,45 +46,9 @@
     {
       "path": "home-lab/authoritative-source-decisions.json",
       "size": 8116,
-      "hash": "7d7f0b994423e71126f4fe07cd6a208da971dc0dbc367dd6417e028e7014a84f",
+      "hash": "3b833686c7a10179abd0878157a63ecc10e032ded602a5fec9aab16634d316d3",
       "metadataCoverage": [
         "integrity"
-      ]
-    },
-    {
-      "path": "active-directory-lab.html",
-      "size": 3272,
-      "hash": "50ccb0c15743cc0b70d99892c73da949019493e03f70422d95d2abd20d6ebc64",
-      "metadataCoverage": [
-        "integrity",
-        "seo"
-      ]
-    },
-    {
-      "path": "infrastructure.html",
-      "size": 3264,
-      "hash": "7270246f0c4d55025bb6bb39a1c86e29e22598fc06dce24959018529f3c46a86",
-      "metadataCoverage": [
-        "integrity",
-        "seo"
-      ]
-    },
-    {
-      "path": "network-segmentation.html",
-      "size": 3266,
-      "hash": "1ed81b0fbc31f317d9d6b7892ce49ba8ed9589c3fb8141cc28dedac0e1512c3b",
-      "metadataCoverage": [
-        "integrity",
-        "seo"
-      ]
-    },
-    {
-      "path": "powershell-automation.html",
-      "size": 3274,
-      "hash": "f0fa414306b88aeafb30c52537babefe6076fbd59c31e44c14e991a9d538c653",
-      "metadataCoverage": [
-        "integrity",
-        "seo"
       ]
     }
   ]

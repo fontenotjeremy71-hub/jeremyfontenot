@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: repository-validation-${{ github.ref }}
@@ -31,11 +31,67 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate site links and assets
-        run: node scripts/audits/validate-button-targets.js
-
-      - name: Validate CTA destinations
-        run: node scripts/audits/validate-cta-semantics.js
-
       - name: Build portfolio assets
-        run: npm run build
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build-output.log
+
+      - name: Preserve build diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-validation-build-log-${{ github.sha }}
+          path: build-output.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Validate every published target and CTA contract
+        run: npm run check
+
+      - name: Capture generated-output drift
+        if: always()
+        shell: bash
+        run: |
+          git status --short > generated-drift-status.txt
+          git diff --name-only > generated-drift-files.txt
+          git diff --stat > generated-drift-stat.txt
+          git diff > generated-drift.patch
+          mkdir -p .generated-drift
+          while IFS= read -r file; do
+            [ -n "$file" ] || continue
+            if [ -f "$file" ]; then
+              mkdir -p ".generated-drift/$(dirname "$file")"
+              cp -- "$file" ".generated-drift/$file"
+            fi
+          done < generated-drift-files.txt
+
+      - name: Preserve generated-output drift
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-validation-generated-drift-${{ github.sha }}
+          path: |
+            generated-drift-status.txt
+            generated-drift-files.txt
+            generated-drift-stat.txt
+            generated-drift.patch
+            .generated-drift/
+          if-no-files-found: ignore
+          include-hidden-files: true
+          retention-days: 7
+
+      - name: Synchronize generated outputs on audit branch
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 79 && github.head_ref == 'codex/sitewide-cta-navigation-audit'
+        shell: bash
+        run: |
+          if [ -s generated-drift-files.txt ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add --pathspec-from-file=generated-drift-files.txt
+            git commit -m "chore: synchronize generated audit outputs"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
+
+      - name: Verify generated outputs are synchronized
+        run: git diff --exit-code

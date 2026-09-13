@@ -8,11 +8,11 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 487,
-    "textArtifactsInspected": 324,
-    "manualReviewRequired": 163,
+    "artifactsReviewed": 477,
+    "textArtifactsInspected": 315,
+    "manualReviewRequired": 162,
     "highSeveritySecretFindings": 0,
-    "identifierFindings": 330,
+    "identifierFindings": 320,
     "unresolvedPublicIdentifierFindings": 0
   },
   "reviewedExceptions": [
@@ -885,9 +885,9 @@
       "findings": []
     },
     {
-      "evidenceId": "home-lab-current-45980e34ff3953e1",
+      "evidenceId": "generated-presentation-45980e34ff3953e1",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -906,9 +906,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-2c651c35e3ded047",
+      "evidenceId": "generated-presentation-2c651c35e3ded047",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -927,9 +927,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-86bdee5830b820fd",
+      "evidenceId": "generated-presentation-86bdee5830b820fd",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -948,9 +948,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-07554dcb597b49dc",
+      "evidenceId": "generated-presentation-07554dcb597b49dc",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -969,9 +969,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-3fe4e8ab7eade991",
+      "evidenceId": "generated-presentation-3fe4e8ab7eade991",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-inventory.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -990,9 +990,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-bd15b14b93fe2252",
+      "evidenceId": "generated-presentation-bd15b14b93fe2252",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -1011,9 +1011,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-5b5d0bd02bd36997",
+      "evidenceId": "generated-presentation-5b5d0bd02bd36997",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -1032,9 +1032,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-a28ad35a489b0d84",
+      "evidenceId": "generated-presentation-a28ad35a489b0d84",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -1053,9 +1053,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-7b38d5a4aa7c989d",
+      "evidenceId": "generated-presentation-7b38d5a4aa7c989d",
       "path": "evidence-library/projects/on-prem-home-lab/current-validated-state/README.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -1119,7 +1119,7 @@
     {
       "evidenceId": "home-lab-current-89127611ec0a7b71",
       "path": "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
@@ -1147,13 +1147,6 @@
     {
       "evidenceId": "home-lab-current-40fc27edec67a86a",
       "path": "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/screenshots/proxmox-dc01-rerun-service-validation-2026-07-11.png",
-      "publicationClassification": "public-original",
-      "status": "manual-review-required",
-      "findings": []
-    },
-    {
-      "evidenceId": "home-lab-current-e0297617a10aee56",
-      "path": "evidence-library/projects/on-prem-home-lab/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx",
       "publicationClassification": "public-original",
       "status": "manual-review-required",
       "findings": []
@@ -1544,9 +1537,9 @@
       ]
     },
     {
-      "evidenceId": "home-lab-current-d9f4f59bd8f6daed",
+      "evidenceId": "generated-presentation-d9f4f59bd8f6daed",
       "path": "evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
