@@ -144,3 +144,196 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     margin-bottom: 1.75rem;
   }
 }
+
+/* Azure Arc case-study presentation: keep the evidence-rich route structured
+   without changing the underlying claims, screenshots, or captions. */
+.azure-arc-evidence-page main {
+  width: min(calc(100% - 40px), var(--max));
+  margin-inline: auto;
+  overflow: clip;
+}
+
+.azure-arc-evidence-page .page-hero {
+  padding-block: clamp(3.5rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
+}
+
+.azure-arc-evidence-page .page-hero .section-head,
+.azure-arc-evidence-page .section-head {
+  max-width: 72ch;
+}
+
+.azure-arc-evidence-page .page-hero .section-head {
+  max-width: 1000px;
+}
+
+.azure-arc-evidence-page .page-hero h1 {
+  max-width: min(100%, 900px);
+  font-size: clamp(2.75rem, 4.4vw, 4.25rem);
+  line-height: 1.08;
+}
+
+.azure-arc-evidence-page .section {
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+}
+
+.azure-arc-evidence-page .section-head {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.azure-arc-evidence-page .section-head > p:not(.eyebrow) {
+  max-width: 70ch;
+}
+
+.azure-arc-evidence-page .project-panel,
+.azure-arc-evidence-page .proof-chip,
+.azure-arc-evidence-page .scope-note-card {
+  min-width: 0;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.azure-arc-evidence-page .project-panel h2,
+.azure-arc-evidence-page .project-panel h3,
+.azure-arc-evidence-page .proof-chip h3,
+.azure-arc-evidence-page .scope-note-card h2 {
+  line-height: 1.18;
+  letter-spacing: -.02em;
+}
+
+.azure-arc-evidence-page .project-panel h3,
+.azure-arc-evidence-page .proof-chip h3 {
+  margin-top: 0;
+}
+
+.azure-arc-evidence-page .project-panel p,
+.azure-arc-evidence-page .proof-chip p,
+.azure-arc-evidence-page .scope-note-card p {
+  max-width: 70ch;
+}
+
+.azure-arc-evidence-page .project-supporting-grid,
+.azure-arc-evidence-page .lab-proof-detail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.azure-arc-evidence-page .flagship-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, .65fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.azure-arc-evidence-page .project-facts {
+  margin: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(7, 16, 28, .6);
+}
+
+.azure-arc-evidence-page .project-facts div + div {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.azure-arc-evidence-page .project-facts dt {
+  color: var(--cyan);
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.azure-arc-evidence-page .project-facts dd {
+  margin: .25rem 0 0;
+  color: #bdcad9;
+}
+
+.azure-arc-evidence-page .evidence-gallery {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.azure-arc-evidence-page .screenshot-card {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(.75rem, 2vw, 1.25rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(9, 21, 38, .78);
+}
+
+.azure-arc-evidence-page .screenshot-preview {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #07101d;
+}
+
+.azure-arc-evidence-page .screenshot-preview img {
+  width: 100%;
+  height: auto;
+}
+
+.azure-arc-evidence-page .screenshot-card figcaption {
+  display: grid;
+  gap: .45rem;
+  padding: 1rem .25rem .25rem;
+}
+
+.azure-arc-evidence-page .screenshot-card figcaption strong {
+  line-height: 1.3;
+}
+
+.azure-arc-evidence-page .screenshot-card figcaption span {
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.azure-arc-evidence-page .compact-footer {
+  width: auto;
+  margin-top: 0;
+  padding: 3rem max(20px, calc((100vw - var(--max)) / 2)) 1.25rem;
+}
+
+@media(max-width:900px) {
+  .azure-arc-evidence-page .flagship-project {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:700px) {
+  .azure-arc-evidence-page main {
+    width: calc(100% - 28px);
+  }
+
+  .azure-arc-evidence-page .page-hero {
+    padding-block: 3rem 2.5rem;
+  }
+
+  .azure-arc-evidence-page .page-hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.15rem, 9vw, 3.1rem);
+    line-height: 1.1;
+  }
+
+  .azure-arc-evidence-page .section {
+    padding-block: 3.5rem;
+  }
+
+  .azure-arc-evidence-page .project-supporting-grid,
+  .azure-arc-evidence-page .lab-proof-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .azure-arc-evidence-page .compact-footer {
+    padding-inline: 14px;
+  }
+}

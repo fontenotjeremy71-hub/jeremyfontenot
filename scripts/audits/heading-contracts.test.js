@@ -8,6 +8,17 @@ const SITE_CSS = fs.readFileSync(path.join(ROOT, "assets", "css", "site.css"), "
 const EVIDENCE_CONFIG = JSON.parse(
   fs.readFileSync(path.join(ROOT, "scripts", "config", "evidence-pages.json"), "utf8"),
 );
+const AZURE_ARC_PAGE = fs.readFileSync(
+  path.join(
+    ROOT,
+    "evidence-library",
+    "projects",
+    "on-prem-home-lab",
+    "azure-arc-hybrid-management",
+    "index.html",
+  ),
+  "utf8",
+);
 
 test("shared typography keeps multiline headings readable", () => {
   assert.match(SITE_CSS, /\.hero h1,\s*\.page-hero h1\s*\{[\s\S]*?line-height:\s*1\.02/);
@@ -30,4 +41,13 @@ test("configured generated evidence pages use the canonical footer structure", (
     assert.match(html, /class="credibility"/, entry.output);
     assert.match(html, /class="footer-meta"/, entry.output);
   }
+});
+
+test("Azure Arc case study opts into its responsive presentation contract", () => {
+  assert.match(AZURE_ARC_PAGE, /<body class="scvmm-evidence-page azure-arc-evidence-page">/);
+  assert.match(SITE_CSS, /\.azure-arc-evidence-page \.evidence-gallery\s*\{[\s\S]*?max-width:\s*960px/);
+  assert.match(
+    SITE_CSS,
+    /\.azure-arc-evidence-page \.page-hero h1\s*\{[\s\S]*?line-height:\s*1\.08/,
+  );
 });
