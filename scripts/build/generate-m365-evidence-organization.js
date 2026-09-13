@@ -558,7 +558,7 @@ function build() {
   }
 
   const workingTreeDrift = new Set(execFileSync('git', ['diff', '--name-only', 'HEAD', '--'], {cwd: root, encoding: 'utf8'}).split(/\r?\n/).filter(Boolean).map(toPosix));
-  const generatorManagedSources = new Set(['evidence-library/integrity/evidence-hashes.json']);
+  const generatorManagedSources = new Set(['evidence-library/integrity/evidence-hashes.json', 'projects/entra-cloud-sync/evidence/index.html']);
   const sharePointRoot = toPosix(config.sources.preservedSharePoint.publicRoot);
   const driftedSources = [...approved.keys()].filter((file) => workingTreeDrift.has(file) && !generatorManagedSources.has(file) && !file.startsWith(sharePointRoot + '/'));
   if (driftedSources.length) throw new Error('Approved sources have uncommitted drift; regenerate only after recording their source commits:\n' + driftedSources.join('\n'));
