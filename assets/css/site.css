@@ -25,3 +25,122 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 .foundation-page .inline-actions{display:flex;flex-wrap:wrap;gap:14px}.foundation-page .inline-actions a{color:var(--cyan);text-underline-offset:4px}.foundation-page .inline-actions a:hover{color:var(--magenta)}
 @media(max-width:980px){.foundation-page .capability-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.foundation-page main,.foundation-page .nav,.foundation-page .site-footer{width:min(calc(100% - 28px),var(--max))}.foundation-page .capability-grid{grid-template-columns:1fr}}
+
+/* Shared typography guardrails for long portfolio headings. Keep display type expressive
+   without allowing narrow screens to turn headings into dense, oversized blocks. */
+.hero h1,
+.page-hero h1 {
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 5.4vw, 5.5rem);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.75rem, 4.8vw, 5.25rem);
+}
+
+.section h2,
+.section-head h2 {
+  line-height: 1.1;
+  letter-spacing: -.03em;
+}
+
+.content-block h2 {
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+.generated-evidence-page .evidence-introduction h1 {
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+
+.scvmm-evidence-page main {
+  overflow: clip;
+}
+
+.scvmm-evidence-page .page-hero {
+  padding-block: clamp(3.5rem, 8vw, 7rem) clamp(2.5rem, 6vw, 5rem);
+}
+
+.scvmm-evidence-page .page-hero .section-head {
+  max-width: 960px;
+}
+
+.scvmm-evidence-page .page-hero h1 {
+  max-width: 22ch;
+}
+
+.scvmm-evidence-page .section {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.scvmm-evidence-page .section-head {
+  max-width: 900px;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+
+.scvmm-evidence-page .section-head p:not(.eyebrow),
+.scvmm-evidence-page .project-panel p,
+.scvmm-evidence-page .scope-note-card p {
+  max-width: 70ch;
+}
+
+.scvmm-evidence-page .project-supporting-grid,
+.scvmm-evidence-page .lab-proof-detail,
+.scvmm-evidence-page .evidence-gallery {
+  min-width: 0;
+}
+
+.scvmm-evidence-page .project-panel,
+.scvmm-evidence-page .proof-chip,
+.scvmm-evidence-page .screenshot-card {
+  min-width: 0;
+}
+
+@media(max-width:700px) {
+  .hero h1,
+  .page-hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.2rem, 9.5vw, 3.25rem);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .section h2,
+  .section-head h2 {
+    line-height: 1.1;
+    letter-spacing: -.025em;
+  }
+
+  .content-block h2 {
+    line-height: 1.14;
+  }
+
+  .generated-evidence-page .evidence-introduction h1 {
+    font-size: clamp(2.25rem, 10.5vw, 3.25rem);
+    line-height: 1.08;
+  }
+
+  .scvmm-evidence-page .page-hero {
+    padding-block: 3rem 2rem;
+  }
+
+  .scvmm-evidence-page .page-hero h1 {
+    max-width: 22ch;
+    font-size: clamp(2.2rem, 9vw, 3.25rem);
+    line-height: 1.1;
+  }
+
+  .scvmm-evidence-page .section {
+    padding-block: 3rem;
+  }
+
+  .scvmm-evidence-page .section-head {
+    margin-bottom: 1.75rem;
+  }
+}
