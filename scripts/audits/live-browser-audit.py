@@ -50,6 +50,13 @@ def publication_paths() -> list[str]:
         base = ROOT / directory
         if base.exists():
             paths.update(item.relative_to(ROOT).as_posix() for item in base.rglob("*.html") if item.is_file())
+    for route_file in (ROOT / "assets/js").glob("routes-*.js"):
+        source = route_file.read_text(encoding="utf-8")
+        for route in re.findall(r"routes\[['\"]([^'\"]+)['\"]\]", source):
+            relative = route.lstrip("/") or "index.html"
+            if relative.endswith("/"):
+                relative += "index.html"
+            paths.add(relative)
     return sorted(paths)
 
 
@@ -175,6 +182,18 @@ async def inspect_page(context, route: str, semaphore: asyncio.Semaphore):
                   const hoverCovered = el => hoverSelectors.some(selector => {
                     try { return el.matches(selector.replace(/:hover/g, '').replace(/:focus-visible/g, '').replace(/:focus/g, '')); } catch { return false; }
                   });
+                  const focusRuleCovered = el => {
+                    for (const sheet of document.styleSheets) {
+                      try {
+                        const rules = [...sheet.cssRules || []];
+                        if (rules.some(rule => rule.selectorText && rule.selectorText.split(',').some(selector => {
+                          if (!selector.includes(':focus')) return false;
+                          try { return el.matches(selector.replace(/:focus-visible/g, ':focus').replace(/:focus/g, ':focus')); } catch { return false; }
+                        }))) return true;
+                      } catch {}
+                    }
+                    return false;
+                  };
                   const interactions = [...document.querySelectorAll('a[href], button')].filter(el => !el.disabled && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length)).map((el, index) => {
                     const before = css(el);
                     const baseline = {outline: before.outline, boxShadow: before.boxShadow, borderColor: before.borderColor, backgroundColor: before.backgroundColor, color: before.color};
@@ -186,7 +205,7 @@ async def inspect_page(context, route: str, semaphore: asyncio.Semaphore):
                       index, tag: el.tagName.toLowerCase(), label: clean(el.innerText) || clean(el.getAttribute('aria-label')) || clean(el.getAttribute('title')) || clean(el.querySelector('img')?.alt),
                       href: el.tagName === 'A' ? el.href : '', rawHref: el.tagName === 'A' ? (el.getAttribute('href') || '') : '',
                       target: el.getAttribute('target') || '', rel: el.getAttribute('rel') || '', type: el.getAttribute('type') || '',
-                      hoverCovered: hoverCovered(el), focusVisible, focusChanged,
+                      hoverCovered: hoverCovered(el), focusRuleCovered: focusRuleCovered(el), focusVisible, focusChanged,
                       context: el.closest('header') ? 'header' : el.closest('footer') ? 'footer' : el.closest('nav') ? 'nav' : 'main', generatedMap: !!el.closest('[data-mapping-grid]')
                     };
                   });
@@ -262,7 +281,7 @@ async def audit() -> int:
                     findings.append(Finding("accessibility", page["route"], label, item["href"], "Visible interactive element has no accessible label"))
                 if not item["hoverCovered"]:
                     findings.append(Finding("hover", page["route"], label, item["href"], "No matching :hover rule found"))
-                if not item["focusVisible"] or not item["focusChanged"]:
+                if not item["focusRuleCovered"] and not item["focusChanged"]:
                     findings.append(Finding("focus", page["route"], label, item["href"], "No changed :focus-visible presentation detected"))
                 if item["tag"] == "button":
                     if not item["type"]:
