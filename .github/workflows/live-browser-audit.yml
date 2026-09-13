@@ -62,7 +62,7 @@ jobs:
           python -m pip install --disable-pip-version-check playwright==1.55.0
           python -m playwright install --with-deps chromium
 
-      - name: Configure standard Chromium identity
+      - name: Configure production Chromium profile
         shell: bash
         run: |
           python - <<'PY'
@@ -70,8 +70,8 @@ jobs:
 
           path = Path('scripts/audits/live-browser-audit.py')
           text = path.read_text(encoding='utf-8')
-          old = 'context = await browser.new_context(viewport={"width": VIEWPORT_WIDTH, "height": 1000}, locale="en-US", timezone_id="America/Chicago")'
-          new = '''context = await browser.new_context(
+          old_context = 'context = await browser.new_context(viewport={"width": VIEWPORT_WIDTH, "height": 1000}, locale="en-US", timezone_id="America/Chicago")'
+          new_context = '''context = await browser.new_context(
               viewport={"width": VIEWPORT_WIDTH, "height": 1000},
               locale="en-US",
               timezone_id="America/Chicago",
@@ -81,16 +81,21 @@ jobs:
                   "Upgrade-Insecure-Requests": "1",
               },
           )'''
-          if old not in text:
+          old_pause = 'await page.wait_for_timeout(150)'
+          new_pause = 'await page.wait_for_timeout(500)'
+          if old_context not in text:
               raise SystemExit('Expected browser context line was not found; refusing to patch an unknown audit version.')
-          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          if old_pause not in text:
+              raise SystemExit('Expected navigation settling delay was not found; refusing to patch an unknown audit version.')
+          text = text.replace(old_context, new_context, 1).replace(old_pause, new_pause, 1)
+          path.write_text(text, encoding='utf-8')
           PY
 
       - name: Run live Chromium click audit
         env:
           PORTFOLIO_BASE_URL: https://jeremyfontenot.online
           PORTFOLIO_BROWSER_AUDIT_MAX_PAGES: '5000'
-          PORTFOLIO_BROWSER_AUDIT_WORKERS: '8'
+          PORTFOLIO_BROWSER_AUDIT_WORKERS: '1'
           PORTFOLIO_BROWSER_NAV_TIMEOUT_MS: '25000'
         run: python scripts/audits/live-browser-audit.py
 
