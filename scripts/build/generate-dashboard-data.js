@@ -73,7 +73,7 @@ function buildData() {
   let hashVerified = 0;
   let hashFailed = 0;
   hashRecords.forEach((entry) => {
-    const filePath = resolveRepositoryPath(entry.path);
+    const filePath = resolveRepositoryPath(entry.publicPath || entry.path);
     if (fs.existsSync(filePath) && normalizedHash(filePath) === String(entry.sha256).toUpperCase()) hashVerified += 1;
     else { hashFailed += 1; if (VERBOSE) console.error(`Hash check failed: ${entry.path}`); }
   });

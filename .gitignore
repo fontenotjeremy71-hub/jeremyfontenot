@@ -8,7 +8,9 @@ sorted-documents/
 legacy-site-backup/
 
 # Local tooling, caches, and temporary output
+.playwright-cli/
 node_modules/
+scripts/audits/__pycache__/
 .tmp-*
 test-output/
 screenshots/temp/
@@ -64,4 +66,3 @@ node_modules/
 test-results/
 artifacts/screenshots/temp/
 *.log
-

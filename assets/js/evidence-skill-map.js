@@ -84,7 +84,7 @@
     const proof = document.createElement("p");
     proof.className = "proof-links";
     if (relationship.publicRoute) {
-      const link = appendTextElement(proof, "a", "Inspect supporting proof");
+      const link = appendTextElement(proof, "a", "Inspect supporting evidence");
       link.href = relationship.publicRoute;
     } else {
       appendTextElement(proof, "span", "Metadata or source reference only; no public artifact route.");

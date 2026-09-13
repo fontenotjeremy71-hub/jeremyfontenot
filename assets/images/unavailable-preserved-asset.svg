@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Preserved source asset unavailable</title>
+  <desc id="desc">A disclosure card indicating that a referenced SharePoint export asset was not present in the attested source collection.</desc>
+  <defs>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#e879f9"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="#071426"/>
+  <rect x="36" y="36" width="888" height="468" rx="24" fill="#0b1b31" stroke="url(#accent)" stroke-width="4"/>
+  <path d="M130 154h700" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <text x="130" y="252" fill="#e6f7ff" font-family="Arial, sans-serif" font-size="42" font-weight="700">Preserved source asset unavailable</text>
+  <text x="130" y="320" fill="#b7cadb" font-family="Arial, sans-serif" font-size="26">The export reference was retained, but the original asset</text>
+  <text x="130" y="360" fill="#b7cadb" font-family="Arial, sans-serif" font-size="26">was not present in the attested public collection.</text>
+  <text x="130" y="430" fill="#22d3ee" font-family="Arial, sans-serif" font-size="22">No replacement evidence was fabricated.</text>
+</svg>
