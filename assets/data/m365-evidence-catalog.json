@@ -3532,7 +3532,7 @@
       "sourceVerificationMethod": "direct-git-object",
       "collectionContext": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes. The original source relationship remains pinned to its recorded commit while the generator-managed public bytes are validated independently.",
       "hashAlgorithm": "sha256",
-      "hash": "7c33b79ee3f5f309e4a683e634ca8708f2eaecabda608928d357155736231bdf",
+      "hash": "f32f79634a97b0d732096efe3fc5fc2ab8a35aa4596802ce8f9e38ec0476ecde",
       "supportedClaims": [
         "m365-evidence-governance"
       ],
@@ -3558,7 +3558,7 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "7c33b79ee3f5f309e4a683e634ca8708f2eaecabda608928d357155736231bdf",
+        "hash": "f32f79634a97b0d732096efe3fc5fc2ab8a35aa4596802ce8f9e38ec0476ecde",
         "size": 551697,
         "verificationMethod": "current-working-tree"
       },

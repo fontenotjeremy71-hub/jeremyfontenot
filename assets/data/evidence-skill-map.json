@@ -8,7 +8,7 @@
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
-      "sha256": "17bff0266dbf9a19ecaac2b694413a47e42428511d03c9f270dbfabad49c6381"
+      "sha256": "d753ef28cfec5614a72978c557cebff5fd6db85569b7a812e5acdd4469c9780b"
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
