@@ -8,7 +8,7 @@
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
-      "sha256": "b2f8869eddea67fc5be724d23cd24a17f32ba982b831137ddf3b06b000d4b40d"
+      "sha256": "17bff0266dbf9a19ecaac2b694413a47e42428511d03c9f270dbfabad49c6381"
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
@@ -27028,7 +27028,7 @@
       "sourceHash": "3fb1111547e9ee246ce9782c86017d1a2870e4a8786f66e89e2d061f3261020c",
       "sourceSize": 307806,
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "collectionContext": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes. The original source relationship remains pinned to its recorded commit while the generator-managed public bytes are validated independently.",
       "lab": "microsoft-365",
       "technology": "automation",
       "evidenceType": "exports",
@@ -27048,7 +27048,7 @@
       "observedResult": "Repeatable collection workflows produce reviewable CSV, JSON, Markdown, and manifest artifacts.",
       "scope": "Verified repository scripts and documented references.",
       "limitations": "Referenced scripts are not treated as executed or authored unless the raw source is present and verified.",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "publicRoute": "/evidence-library/integrity/evidence-hashes.json",
       "relatedArtifacts": {
         "logicalDestination": "content/microsoft-365/automation/evidence/exports/cross-cutting-evidence-governance/evidence-library/integrity/evidence-hashes.json",
