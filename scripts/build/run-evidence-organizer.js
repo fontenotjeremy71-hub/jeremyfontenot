@@ -19,13 +19,18 @@ const publicNew = `    if (publicRoute) record.publicIntegrity = {algorithm: 'sh
 const packageVersionOld = `  if (value === '1.4.8.1' && (/PackageManagement/i.test(context) || /href=['"][^'"]*1\\.4\\.8\\.1\\/index\\.html/i.test(context))) return false;`;
 const packageVersionNew = `  if (value === '1.4.8.1' && (/PackageManagement/i.test(text) || /href=['"][^'"]*1\\.4\\.8\\.1\\/index\\.html/i.test(context))) return false;`;
 
+const sharePointCatalogOld = `/microsoft-365/evidence-catalog.html#sharepoint`;
+const sharePointCatalogNew = `/microsoft-365/evidence-catalog.html`;
+
 if (!source.includes(provenanceOld)) throw new Error('Expected provenance block was not found in the Microsoft 365 organizer.');
 if (!source.includes(publicOld)) throw new Error('Expected public-integrity block was not found in the Microsoft 365 organizer.');
 if (!source.includes(packageVersionOld)) throw new Error('Expected PackageManagement version filter was not found in the Microsoft 365 organizer.');
+if (!source.includes(sharePointCatalogOld)) throw new Error('Expected SharePoint catalog fragment link was not found in the Microsoft 365 organizer.');
 source = source
   .replace(provenanceOld, provenanceNew)
   .replace(publicOld, publicNew)
-  .replace(packageVersionOld, packageVersionNew);
+  .replace(packageVersionOld, packageVersionNew)
+  .replace(sharePointCatalogOld, sharePointCatalogNew);
 
 try {
   fs.writeFileSync(tempPath, source, 'utf8');
