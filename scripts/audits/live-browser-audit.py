@@ -256,7 +256,12 @@ async def audit() -> int:
         context = await browser.new_context(viewport={"width": VIEWPORT_WIDTH, "height": 1000}, locale="en-US", timezone_id="America/Chicago")
         semaphore = asyncio.Semaphore(WORKERS)
         pages = await asyncio.gather(*(inspect_page(context, route, semaphore) for route in routes))
-        by_path = {canonical_page_path(page["url"]): page for page in pages if not page["error"]}
+        by_path = {
+            key: page
+            for page in pages
+            if not page["error"]
+            for key in (canonical_page_path(page["url"]), canonical_page_path(BASE + page["route"]))
+        }
 
         interactions: list[dict] = []
         unique_assets: set[str] = set()
