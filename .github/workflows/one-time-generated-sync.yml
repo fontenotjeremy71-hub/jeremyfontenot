@@ -1,0 +1,50 @@
+name: One-time Downstream Generated Sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-generated-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate portfolio outputs
+        run: npm run build
+
+      - name: Commit downstream generated outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add \
+            assets/data/evidence-skill-map.json \
+            assets/data/m365-evidence-catalog.json \
+            content/microsoft-365/generated-output-hashes.json \
+            content/site/generated-skill-map-hashes.json \
+            microsoft-365/source-to-destination-matrix.csv
+          if git diff --cached --quiet; then
+            echo 'Downstream generated outputs are already synchronized.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: synchronize downstream generated hashes'
+          git push origin HEAD:main
