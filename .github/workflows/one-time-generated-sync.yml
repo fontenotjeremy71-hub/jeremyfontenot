@@ -3,13 +3,14 @@ name: One-time Generated Catalog Sync
 on:
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/one-time-generated-sync.yml'
 
 permissions:
   contents: write
 
 jobs:
   sync:
-    if: github.event.head_commit.message == 'chore: sync generated catalog outputs'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
