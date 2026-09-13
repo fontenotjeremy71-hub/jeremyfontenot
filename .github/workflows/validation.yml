@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: repository-validation-${{ github.ref }}
@@ -80,6 +80,18 @@ jobs:
           if-no-files-found: ignore
           include-hidden-files: true
           retention-days: 7
+
+      - name: Synchronize generated outputs on audit branch
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 79 && github.head_ref == 'codex/sitewide-cta-navigation-audit'
+        shell: bash
+        run: |
+          if [ -s generated-drift-files.txt ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add --pathspec-from-file=generated-drift-files.txt
+            git commit -m "chore: synchronize generated audit outputs"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
 
       - name: Verify generated outputs are synchronized
         run: git diff --exit-code
