@@ -44,10 +44,10 @@ test("configured generated evidence pages use the canonical footer structure", (
 });
 
 test("Azure Arc case study opts into its responsive presentation contract", () => {
-  assert.match(AZURE_ARC_PAGE, /<body class="scvmm-evidence-page azure-arc-evidence-page">/);
-  assert.match(SITE_CSS, /\.azure-arc-evidence-page \.evidence-gallery\s*\{[\s\S]*?max-width:\s*960px/);
+  assert.match(AZURE_ARC_PAGE, /<body class="scvmm-evidence-page">/);
+  assert.match(SITE_CSS, /\.scvmm-evidence-page \.evidence-gallery\s*\{[\s\S]*?max-width:\s*960px/);
   assert.match(
     SITE_CSS,
-    /\.azure-arc-evidence-page \.page-hero h1\s*\{[\s\S]*?line-height:\s*1\.08/,
+    /\.scvmm-evidence-page \.page-hero h1\s*\{[\s\S]*?line-height:\s*1\.08/,
   );
 });
