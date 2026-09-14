@@ -22,15 +22,20 @@ const packageVersionNew = `  if (value === '1.4.8.1' && (/PackageManagement/i.te
 const sharePointCatalogOld = `/microsoft-365/evidence-catalog.html#sharepoint`;
 const sharePointCatalogNew = `/microsoft-365/evidence-catalog.html`;
 
+const sitemapOld = `  const wrapperSitemapRoutes = [...sharePointWrappers.keys(), 'evidence-library/preserved-sharepoint/link-integrity.html'].sort();\n  outputs.set('sitemap.xml', sitemapWithWrapperRoutes(fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8'), wrapperSitemapRoutes));`;
+const sitemapNew = `  // Keep the curated recruiter-facing sitemap unchanged. Preserved SharePoint wrappers\n  // remain directly accessible from evidence catalogs, but are intentionally excluded\n  // from sitemap discovery to avoid flooding search engines with archival derivatives.\n  outputs.set('sitemap.xml', fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8'));`;
+
 if (!source.includes(provenanceOld)) throw new Error('Expected provenance block was not found in the Microsoft 365 organizer.');
 if (!source.includes(publicOld)) throw new Error('Expected public-integrity block was not found in the Microsoft 365 organizer.');
 if (!source.includes(packageVersionOld)) throw new Error('Expected PackageManagement version filter was not found in the Microsoft 365 organizer.');
 if (!source.includes(sharePointCatalogOld)) throw new Error('Expected SharePoint catalog fragment link was not found in the Microsoft 365 organizer.');
+if (!source.includes(sitemapOld)) throw new Error('Expected SharePoint sitemap expansion block was not found in the Microsoft 365 organizer.');
 source = source
   .replace(provenanceOld, provenanceNew)
   .replace(publicOld, publicNew)
   .replace(packageVersionOld, packageVersionNew)
-  .replace(sharePointCatalogOld, sharePointCatalogNew);
+  .replace(sharePointCatalogOld, sharePointCatalogNew)
+  .replace(sitemapOld, sitemapNew);
 
 try {
   fs.writeFileSync(tempPath, source, 'utf8');
