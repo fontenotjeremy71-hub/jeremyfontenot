@@ -18,7 +18,6 @@ const expected = [
   'https://jeremyfontenot.online/windows-admin-center-lab.html',
   'https://jeremyfontenot.online/infrastructure.html',
   'https://jeremyfontenot.online/app01-storage-expansion.html',
-  'https://jeremyfontenot.online/home-lab-operations-proof.html',
   'https://jeremyfontenot.online/evidence-library/',
   'https://jeremyfontenot.online/evidence/claim-map.html',
   'https://jeremyfontenot.online/home-lab/evidence-catalog.html',
