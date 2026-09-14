@@ -11,13 +11,13 @@
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
-      "sha256": "3891255803ea6fce3e8689b3307ab85002350cf214dcdf22ee9c82ebd75a0316"
+      "sha256": "a824a5b47856252e2d04c9196ebc4a4e444070042dcffabe9c5e45a16c0baba0"
     }
   },
   "outputs": {
     "assets/data/evidence-skill-map.json": {
       "algorithm": "sha256",
-      "hash": "cdeb655b5283f98924cd26c1229984538e2b4f91ba41f54cd6f32597d437a121",
+      "hash": "b578c6081d591678f30e2a46b05b4e1c0951f37645ef687ffbad507c27b380e4",
       "size": 4124330
     },
     "assets/data/evidence-skill-map-browser.json": {

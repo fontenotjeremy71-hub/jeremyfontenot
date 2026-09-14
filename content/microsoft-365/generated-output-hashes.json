@@ -7281,8 +7281,8 @@
     },
     {
       "path": "sitemap.xml",
-      "size": 145462,
-      "hash": "b66f661f0bf3a8081863ebf28c96fe1e68d757621d33bd0f148041cb5350b80a",
+      "size": 1356,
+      "hash": "5f8098ecc98a84d02ee046c63d1e7bcd4f824e07b5c6ea60fe957356c705905c",
       "metadataCoverage": [
         "integrity"
       ]

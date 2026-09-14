@@ -171,12 +171,11 @@
     {
       "algorithm": "sha256",
       "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
-      "count": 4,
+      "count": 3,
       "evidenceIds": [
         "home-lab-attested-607933c1157385df",
         "home-lab-attested-8d86f43a93aa1786",
-        "home-lab-attested-905a60e453f5f7b3",
-        "home-lab-attested-d31007e75a3604c2"
+        "home-lab-attested-905a60e453f5f7b3"
       ]
     }
   ]
