@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#07111f">
+<title>ServiceNow Request Fulfillment | Jeremy Fontenot</title>
+<meta name="description" content="Validated ServiceNow Personal Developer Instance request lifecycle covering approval, procurement, deployment, role-qualified assignment, and automatic closure.">
+<link rel="canonical" href="https://jeremyfontenot.online/servicenow-request-fulfillment.html">
+<link rel="icon" href="/assets/logos/favicon_64x64.png">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260912rebuild2">
+<script src="/assets/js/site-core.js?v=20260912rebuild4" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/">Jeremy Fontenot</a><div class="nav-links"><a href="/">Home</a><a href="/systems-administration.html">Readiness</a><a href="/projects.html">Projects</a><a href="/proof.html">Proof</a><a href="/resume.html">Resume</a><a href="/contact.html">Contact</a></div></nav></header>
+<main id="main">
+<section class="page-hero"><div class="wrap"><p class="eyebrow">Personal lab · ServiceNow</p><h1>ServiceNow Request Fulfillment &amp; Procurement Workflow</h1><p class="lead">A validated ServiceNow Personal Developer Instance workflow from catalog request through approval, procurement, deployment, and automatic request completion.</p><div class="actions"><a class="button primary" href="/projects.html">Back to projects</a><a class="button" href="/proof.html#servicenow-proof">Review proof summary</a></div></div></section>
+<section class="section"><div class="wrap grid grid-2">
+<article class="panel"><p class="eyebrow">Skill</p><h2>Service Catalog fulfillment</h2><p>Worked across Request (REQ), Requested Item (RITM), approval, and Catalog Task (SCTASK) records while preserving requester, approver, Procurement, and Field Services responsibilities.</p></article>
+<article class="panel"><p class="eyebrow">Observed result</p><h2>Workflow completed automatically</h2><p>After the final Field Services task was closed complete, ServiceNow automatically completed the RITM and then closed the parent request because all line items were complete.</p></article>
+</div></section>
+<section class="section"><div class="wrap"><p class="eyebrow">Workflow</p><h2>Request → approval → procurement → deployment → completion</h2><div class="grid grid-2">
+<article class="panel"><h3>Request and approval</h3><p>A Standard Laptop request generated <strong>REQ0010001</strong> and <strong>RITM0010001</strong>. David Loo approved the requested item, after which ServiceNow automatically created Procurement task <strong>SCTASK0010001</strong>.</p></article>
+<article class="panel"><h3>Assignment troubleshooting</h3><p>A dedicated <strong>procurement.agent</strong> lab identity was added to Procurement but initially could not be selected in Assigned to. Inspection of the Task assigned-to reference configuration identified an <strong>itil</strong> role requirement. Granting the required role resolved the invalid-reference condition without weakening the platform qualifier.</p></article>
+<article class="panel"><h3>Procurement fulfillment</h3><p>The Procurement Agent experience was validated through impersonation. Because no stock asset was established, the request used a vendor-order lab scenario. Backorder status, estimated delivery, internal work notes, and a customer-visible fulfillment update were recorded.</p></article>
+<article class="panel"><h3>Deployment and closure</h3><p>Closing Procurement advanced the RITM to Deployment and created <strong>SCTASK0010002</strong> for Field Services. A separate <strong>field.services.agent</strong> identity completed the simulated deployment. The Configuration item remained blank because no legitimate CI or physical asset was created.</p></article>
+</div></div></section>
+<section class="section"><div class="wrap grid grid-2">
+<article class="panel"><p class="eyebrow">Validation</p><h2>Automatic lifecycle behavior</h2><ul><li>Procurement task automatically followed approval.</li><li>Deployment task automatically followed Procurement completion.</li><li>RITM automatically changed to Closed Complete / Completed.</li><li>Parent REQ automatically changed from Open to Closed Complete.</li><li>The RITM and REQ were not manually forced closed.</li></ul></article>
+<article class="panel"><p class="eyebrow">Claim boundary</p><h2>What this proves</h2><p>This project demonstrates hands-on ServiceNow workflow understanding, request fulfillment, assignment-group administration, role-qualified assignee troubleshooting, impersonation, documentation, and lifecycle validation in a Personal Developer Instance.</p><p>Physical laptop procurement, vendor delivery, software installation, and user handoff were <strong>lab simulations</strong>. This does not claim production ServiceNow administration or employer-owned configuration.</p></article>
+</div></section>
+<section class="section"><div class="wrap"><article class="panel"><p class="eyebrow">Repository documentation</p><h2>Detailed project record</h2><p>The repository preserves the implementation narrative and claim boundary for review.</p><div class="proof-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/servicenow-request-fulfillment/README.md">Review project documentation on GitHub</a></div></article></div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><p>Experienced IT support professional with demonstrated junior systems administration capability.</p><nav aria-label="Footer navigation"><a href="/projects.html">Projects</a> · <a href="/proof.html">Proof</a> · <a href="/contact.html">Contact</a></nav></div></footer>
+</body>
+</html>
