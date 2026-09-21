@@ -83,7 +83,7 @@ jobs:
 
       - name: Synchronize generated outputs on audit branch or one-time SEO repair
         if: >-
-          (github.event_name == 'pull_request' && github.event.pull_request.number == 79 && github.head_ref == 'codex/sitewide-cta-navigation-audit') ||
+          ((github.event_name == 'pull_request' && github.event.pull_request.number == 79 && github.head_ref == 'codex/sitewide-cta-navigation-audit') || (github.event_name == 'pull_request' && github.event.pull_request.number == 88 && github.head_ref == 'project3-m365-messaging-security-portfolio')) ||
           (github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.head_commit.message == 'QA: synchronize generated metadata after SEO updates')
         shell: bash
         run: |
