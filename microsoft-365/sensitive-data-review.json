@@ -7,9 +7,9 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 1000,
-    "textArtifactsInspected": 972,
-    "manualReviewRequired": 28,
+    "artifactsReviewed": 1017,
+    "textArtifactsInspected": 978,
+    "manualReviewRequired": 39,
     "highSeveritySecretFindings": 0,
     "identifierFindings": 4952,
     "unresolvedPublicIdentifierFindings": 0
@@ -8529,6 +8529,83 @@
           ]
         }
       ]
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/01-exchange-powershell-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-89459889596ddbf4",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/02-exchange-message-trace-sendas-delivered.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-737ff3a302ffc73d",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/03-defender-explorer-external-sender-validation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-3a0ae6041a2ffdc7",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/04-ca-policy-scope-update-success.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-1a21f7235b90a0ff",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/05-post-remediation-myapps-success.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-931823f80813c642",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/06-signin-log-pre-post-remediation.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-e1fc5db39688e9e3",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/07-signin-success-details.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-920602b1d952ef60",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/08-conditional-access-evaluation-success.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-04ab3d0bc48df731",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/09-m365-e5-group-assignment-list.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-5efd6143154496eb",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/10-m365-license-errors-zero.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-6ad5082035cee59e",
+      "path": "evidence-library/projects/m365-messaging-security/evidence/screenshots/11-m365-group-apps-services.png",
+      "publicationClassification": "public-original",
+      "status": "manual-review-required",
+      "findings": []
     },
     {
       "evidenceId": "m365-microsoft-365-core-0a831a62455de431",

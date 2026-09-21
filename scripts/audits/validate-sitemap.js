@@ -14,6 +14,7 @@ const expected = [
   'https://jeremyfontenot.online/contact.html',
   'https://jeremyfontenot.online/windows-laps-gpo.html',
   'https://jeremyfontenot.online/entra-cloud-sync.html',
+  'https://jeremyfontenot.online/m365-messaging-security.html',
   'https://jeremyfontenot.online/on-prem-home-lab.html',
   'https://jeremyfontenot.online/windows-admin-center-lab.html',
   'https://jeremyfontenot.online/infrastructure.html',

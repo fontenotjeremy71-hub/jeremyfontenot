@@ -495,6 +495,10 @@
     {
       "path": "scripts/automation",
       "reason": "Portfolio generation and remediation implementation scripts are tooling, not collected Home Lab evidence."
+    },
+    {
+      "path": "evidence-library/projects/m365-messaging-security",
+      "reason": "Microsoft 365 messaging, security, Conditional Access, and licensing evidence belongs to the Microsoft 365 evidence catalog, not the Home Lab evidence phase."
     }
   ],
   "reviewedExclusions": [

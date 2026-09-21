@@ -1,37 +1,41 @@
-PROJECT 3 - SANITIZED COMMAND EVIDENCE
-======================================
+PROJECT 3 - PUBLIC SANITIZED COMMAND EVIDENCE
+============================================
+
+This public derivative preserves the validated administrative results while
+removing tenant-specific user principal names, object identifiers, and other
+unnecessary identifiers from the published portfolio.
 
 Exchange Online
 ---------------
 Shared mailbox:
 DisplayName          : IT Support Shared
-PrimarySmtpAddress   : shared-it@dev.jeremyfontenot.online
+PrimarySmtpAddress   : <shared-mailbox-smtp>
 RecipientTypeDetails : SharedMailbox
 
 Full Access:
-User         : jeremy.admin@1x76s5767.onmicrosoft.com
+User         : <lab-administrator>
 AccessRights : FullAccess
 Deny         : False
 IsInherited  : False
 
 Send As:
-Trustee      : jeremy.admin@1x76s5767.onmicrosoft.com
+Trustee      : <lab-administrator>
 AccessRights : SendAs
 IsInherited  : False
 
 Send on Behalf resolution:
-DisplayName        : Jeremy Fontenot
-PrimarySmtpAddress : jeremy.admin@1x76s5767.onmicrosoft.com
+DisplayName        : Lab Administrator
+PrimarySmtpAddress : <lab-administrator>
 RecipientType      : UserMailbox
 
 Distribution group:
 DisplayName          : Project 3 Distribution List
-PrimarySmtpAddress   : project3-dl@dev.jeremyfontenot.online
+PrimarySmtpAddress   : <distribution-group-smtp>
 RecipientTypeDetails : MailUniversalDistributionGroup
 
 Members:
-- Jeremy Fontenot / jeremy.admin@1x76s5767.onmicrosoft.com
-- Adele Vance / AdeleV@1x76s5767.onmicrosoft.com
+- Lab Administrator
+- Lab Test Member
 
 Transport rule:
 Name           : Project 3 - External Sender Pilot
@@ -39,7 +43,7 @@ State          : Enabled
 Mode           : Enforce
 Priority       : 0
 FromScope      : NotInOrganization
-SentTo         : jeremy.admin@1x76s5767.onmicrosoft.com
+SentTo         : <lab-administrator>
 PrependSubject : [ EXTERNAL]
 
 Microsoft Graph licensing
@@ -49,25 +53,26 @@ SkuPartNumber : DEVELOPERPACK_V2_E5
 EnabledUnits  : 25
 
 Project 3 License Test effective assignment:
-SkuId           : 0d1bdf5e-c580-4ee9-9618-c9a88a800cdc
+SkuId           : <redacted-sku-id>
 State           : Active
 Error           : None
 AssignedByGroup : null (Graph metadata at capture time)
 
 Project 3 E5 Licensing group:
-Id                   : 8101f2c8-e498-4400-98e5-d7575ffd7b03
-SecurityEnabled      : true
-MailEnabled          : false
-GroupTypes           : []
-MembershipRule       : null
-AssignedLicenses     : [] (Graph metadata at capture time)
+Id                    : <redacted-group-object-id>
+SecurityEnabled       : true
+MailEnabled           : false
+GroupTypes            : []
+MembershipRule        : null
+AssignedLicenses      : [] (Graph metadata at capture time)
 LicenseProcessingState: null
 
 Observed service behavior:
 A direct license-removal attempt returned:
 "User license is inherited from a group membership and it cannot be removed directly from the user"
 
-This conflicts with the Graph assignment metadata above and is documented as a platform-state discrepancy.
+This conflicts with the Graph assignment metadata above and is documented as a
+platform-state discrepancy.
 
 Conditional Access
 ------------------
