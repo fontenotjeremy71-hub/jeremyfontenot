@@ -8,7 +8,7 @@
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
-      "sha256": "d753ef28cfec5614a72978c557cebff5fd6db85569b7a812e5acdd4469c9780b"
+      "sha256": "6f506069655f84f08a2862977f2cc4fd364b214b288e79b346475c6d65ccc3c1"
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
@@ -16,31 +16,31 @@
     }
   },
   "totals": {
-    "evidenceRecords": 1477,
-    "mappedEvidenceRecords": 1477,
+    "evidenceRecords": 1494,
+    "mappedEvidenceRecords": 1494,
     "unmappedEvidenceRecords": 0,
     "skills": 12,
     "claims": 23,
-    "publicEvidenceRecords": 1140,
+    "publicEvidenceRecords": 1157,
     "metadataOrSourceReferenceRecords": 337,
     "byLab": {
       "home-lab": 477,
-      "microsoft-365": 1000
+      "microsoft-365": 1017
     },
     "byRelationshipType": {
       "configuration-evidence": 23,
       "context-only": 337,
-      "direct-validation": 51,
-      "documentation-support": 96,
-      "inventory-evidence": 32,
+      "direct-validation": 52,
+      "documentation-support": 98,
+      "inventory-evidence": 33,
       "operational-test": 1,
       "restore-test": 4,
-      "supporting-evidence": 933
+      "supporting-evidence": 946
     },
     "byValidationStatus": {
-      "demonstrated-in-lab": 1121,
-      "documented-and-reviewed": 159,
-      "validated-through-testing": 197
+      "demonstrated-in-lab": 1135,
+      "documented-and-reviewed": 161,
+      "validated-through-testing": 198
     }
   },
   "relationshipTypes": [
@@ -590,6 +590,23 @@
         "m365-m365-architecture-59ca909afc274b5d",
         "m365-m365-architecture-7825913a0c959d67",
         "m365-m365-architecture-d1e44df0b12021d3",
+        "m365-m365-messaging-security-project-04ab3d0bc48df731",
+        "m365-m365-messaging-security-project-1a21f7235b90a0ff",
+        "m365-m365-messaging-security-project-2d96a90bdeac84ef",
+        "m365-m365-messaging-security-project-3a0ae6041a2ffdc7",
+        "m365-m365-messaging-security-project-4e56d934e4c332e5",
+        "m365-m365-messaging-security-project-5efd6143154496eb",
+        "m365-m365-messaging-security-project-6ad5082035cee59e",
+        "m365-m365-messaging-security-project-737ff3a302ffc73d",
+        "m365-m365-messaging-security-project-80f1733f88e25b91",
+        "m365-m365-messaging-security-project-89459889596ddbf4",
+        "m365-m365-messaging-security-project-920602b1d952ef60",
+        "m365-m365-messaging-security-project-931823f80813c642",
+        "m365-m365-messaging-security-project-b98d7c21204c92ea",
+        "m365-m365-messaging-security-project-c52eafce618b4400",
+        "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
+        "m365-m365-messaging-security-project-e1fc5db39688e9e3",
+        "m365-m365-messaging-security-project-f5f071cc1e785776",
         "m365-m365-project-documentation-6c46a2fcadabec73",
         "m365-microsoft-365-core-014b9000a1fb96d3",
         "m365-microsoft-365-core-09067e853441537a",
@@ -2249,6 +2266,7 @@
         "m365-cross-cutting-evidence-governance-ee0be1d7ebc0a402",
         "m365-entra-cloud-sync-project-a80a5936ca2ba8bd",
         "m365-exchange-automation-4201d865b1ed04c7",
+        "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-33be93828f231f1e",
         "m365-microsoft-365-core-36ec6af4e3f1e4de",
@@ -2564,6 +2582,23 @@
         "m365-exchange-mail-flow-rca-eb5e7a2ed89463bf",
         "m365-intune-project-documentation-583ee809724b5361",
         "m365-intune-project-documentation-7e07b2db5011c28f",
+        "m365-m365-messaging-security-project-04ab3d0bc48df731",
+        "m365-m365-messaging-security-project-1a21f7235b90a0ff",
+        "m365-m365-messaging-security-project-2d96a90bdeac84ef",
+        "m365-m365-messaging-security-project-3a0ae6041a2ffdc7",
+        "m365-m365-messaging-security-project-4e56d934e4c332e5",
+        "m365-m365-messaging-security-project-5efd6143154496eb",
+        "m365-m365-messaging-security-project-6ad5082035cee59e",
+        "m365-m365-messaging-security-project-737ff3a302ffc73d",
+        "m365-m365-messaging-security-project-80f1733f88e25b91",
+        "m365-m365-messaging-security-project-89459889596ddbf4",
+        "m365-m365-messaging-security-project-920602b1d952ef60",
+        "m365-m365-messaging-security-project-931823f80813c642",
+        "m365-m365-messaging-security-project-b98d7c21204c92ea",
+        "m365-m365-messaging-security-project-c52eafce618b4400",
+        "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
+        "m365-m365-messaging-security-project-e1fc5db39688e9e3",
+        "m365-m365-messaging-security-project-f5f071cc1e785776",
         "m365-microsoft-365-core-2b21248f53c774e8",
         "m365-microsoft-365-core-2f68fb344427a6b3",
         "m365-microsoft-365-core-30d636a3ea181819",
@@ -2796,6 +2831,8 @@
         "m365-exchange-mail-flow-rca-d1c960ef9da3efeb",
         "m365-exchange-mail-flow-rca-eb5e7a2ed89463bf",
         "m365-m365-architecture-020a8d16711bfbab",
+        "m365-m365-messaging-security-project-80f1733f88e25b91",
+        "m365-m365-messaging-security-project-b98d7c21204c92ea",
         "m365-microsoft-365-core-09067e853441537a",
         "m365-microsoft-365-core-13754be6ac039d5d",
         "m365-microsoft-365-core-28534aff92e1fee4",
@@ -3842,6 +3879,7 @@
         "m365-exchange-mail-flow-rca-754d13523d9abd0b",
         "m365-exchange-mail-flow-rca-9b153bba55b580e0",
         "m365-exchange-mail-flow-rca-ae59f792e414391d",
+        "m365-m365-messaging-security-project-2d96a90bdeac84ef",
         "m365-microsoft-365-core-09067e853441537a",
         "m365-microsoft-365-core-2befcb3ae34f8ed9",
         "m365-microsoft-365-core-30d636a3ea181819",
@@ -5177,6 +5215,23 @@
         "m365-entra-cloud-sync-project-f516d1f1b2f7ddb0",
         "m365-entra-cloud-sync-project-f72a295109a92056",
         "m365-entra-cloud-sync-project-fa26b59456f4cb5c",
+        "m365-m365-messaging-security-project-04ab3d0bc48df731",
+        "m365-m365-messaging-security-project-1a21f7235b90a0ff",
+        "m365-m365-messaging-security-project-2d96a90bdeac84ef",
+        "m365-m365-messaging-security-project-3a0ae6041a2ffdc7",
+        "m365-m365-messaging-security-project-4e56d934e4c332e5",
+        "m365-m365-messaging-security-project-5efd6143154496eb",
+        "m365-m365-messaging-security-project-6ad5082035cee59e",
+        "m365-m365-messaging-security-project-737ff3a302ffc73d",
+        "m365-m365-messaging-security-project-80f1733f88e25b91",
+        "m365-m365-messaging-security-project-89459889596ddbf4",
+        "m365-m365-messaging-security-project-920602b1d952ef60",
+        "m365-m365-messaging-security-project-931823f80813c642",
+        "m365-m365-messaging-security-project-b98d7c21204c92ea",
+        "m365-m365-messaging-security-project-c52eafce618b4400",
+        "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
+        "m365-m365-messaging-security-project-e1fc5db39688e9e3",
+        "m365-m365-messaging-security-project-f5f071cc1e785776",
         "m365-microsoft-365-core-014b9000a1fb96d3",
         "m365-microsoft-365-core-09067e853441537a",
         "m365-microsoft-365-core-0a831a62455de431",
@@ -5374,14 +5429,31 @@
         "m365-exchange-mail-flow-rca-ae59f792e414391d",
         "m365-exchange-mail-flow-rca-d1c960ef9da3efeb",
         "m365-exchange-mail-flow-rca-eb5e7a2ed89463bf",
+        "m365-m365-messaging-security-project-04ab3d0bc48df731",
+        "m365-m365-messaging-security-project-1a21f7235b90a0ff",
+        "m365-m365-messaging-security-project-2d96a90bdeac84ef",
+        "m365-m365-messaging-security-project-3a0ae6041a2ffdc7",
+        "m365-m365-messaging-security-project-4e56d934e4c332e5",
+        "m365-m365-messaging-security-project-5efd6143154496eb",
+        "m365-m365-messaging-security-project-6ad5082035cee59e",
+        "m365-m365-messaging-security-project-737ff3a302ffc73d",
+        "m365-m365-messaging-security-project-80f1733f88e25b91",
+        "m365-m365-messaging-security-project-89459889596ddbf4",
+        "m365-m365-messaging-security-project-920602b1d952ef60",
+        "m365-m365-messaging-security-project-931823f80813c642",
+        "m365-m365-messaging-security-project-b98d7c21204c92ea",
+        "m365-m365-messaging-security-project-c52eafce618b4400",
+        "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
+        "m365-m365-messaging-security-project-e1fc5db39688e9e3",
+        "m365-m365-messaging-security-project-f5f071cc1e785776",
         "m365-microsoft-365-core-30d636a3ea181819",
         "m365-microsoft-365-core-4d661d704c370161",
         "m365-microsoft-365-core-5a2594eb904d81d0",
         "m365-microsoft-365-core-a413856a7657119e"
       ],
       "supportLevel": "supported-with-limitations",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "lab": "microsoft-365",
       "sourceCatalog": "assets/data/m365-evidence-catalog.json",
       "skillIds": [
@@ -5431,6 +5503,23 @@
       "evidenceIds": [
         "m365-conditional-access-evidence-c70111e0ec9bfaa1",
         "m365-intune-project-documentation-583ee809724b5361",
+        "m365-m365-messaging-security-project-04ab3d0bc48df731",
+        "m365-m365-messaging-security-project-1a21f7235b90a0ff",
+        "m365-m365-messaging-security-project-2d96a90bdeac84ef",
+        "m365-m365-messaging-security-project-3a0ae6041a2ffdc7",
+        "m365-m365-messaging-security-project-4e56d934e4c332e5",
+        "m365-m365-messaging-security-project-5efd6143154496eb",
+        "m365-m365-messaging-security-project-6ad5082035cee59e",
+        "m365-m365-messaging-security-project-737ff3a302ffc73d",
+        "m365-m365-messaging-security-project-80f1733f88e25b91",
+        "m365-m365-messaging-security-project-89459889596ddbf4",
+        "m365-m365-messaging-security-project-920602b1d952ef60",
+        "m365-m365-messaging-security-project-931823f80813c642",
+        "m365-m365-messaging-security-project-b98d7c21204c92ea",
+        "m365-m365-messaging-security-project-c52eafce618b4400",
+        "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
+        "m365-m365-messaging-security-project-e1fc5db39688e9e3",
+        "m365-m365-messaging-security-project-f5f071cc1e785776",
         "m365-m365-project-documentation-6c46a2fcadabec73",
         "m365-microsoft-365-core-014b9000a1fb96d3",
         "m365-microsoft-365-core-1ca1eed6d8ab6689",
@@ -5455,8 +5544,8 @@
         "m365-microsoft-365-core-fc14b3d889393df9"
       ],
       "supportLevel": "configured-not-behavior-tested",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "lab": "microsoft-365",
       "sourceCatalog": "assets/data/m365-evidence-catalog.json",
       "skillIds": [
@@ -27004,10 +27093,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/conditional-access/conditional-access-baseline-evidence.md",
       "relatedArtifacts": {
@@ -28660,10 +28749,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/architecture-diagrams/mail-flow-troubleshooting-preview.svg",
       "relatedArtifacts": {
@@ -28701,10 +28790,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/experience/remediation-disable-transportrule.patch",
       "relatedArtifacts": {
@@ -28743,10 +28832,10 @@
         "microsoft-365",
         "powershell"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "metadata-only",
       "publicRoute": null,
       "relatedArtifacts": {
@@ -28783,10 +28872,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/public/remediation-disable-transportrule.yaml",
       "relatedArtifacts": {
@@ -28824,10 +28913,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/troubleshooting-rca/troubleshooting-notes.md",
       "relatedArtifacts": {
@@ -28865,10 +28954,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/troubleshooting-rca/post-incident-review.md",
       "relatedArtifacts": {
@@ -28907,10 +28996,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/troubleshooting-rca/rca-report.md",
       "relatedArtifacts": {
@@ -28947,10 +29036,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/public/rca-2025-02-10.yaml",
       "relatedArtifacts": {
@@ -28987,10 +29076,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/public/incident-2025-02-10-logs.txt",
       "relatedArtifacts": {
@@ -29027,10 +29116,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/troubleshooting-rca/troubleshooting-rca-incident-log-2025.txt",
       "relatedArtifacts": {
@@ -29069,10 +29158,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/troubleshooting-rca/incident-summary.md",
       "relatedArtifacts": {
@@ -29110,10 +29199,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/troubleshooting-rca/validation-checklist.md",
       "relatedArtifacts": {
@@ -29151,10 +29240,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/troubleshooting-rca/remediation-plan.md",
       "relatedArtifacts": {
@@ -29192,10 +29281,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/public/rca-2025-02-10.md",
       "relatedArtifacts": {
@@ -29448,6 +29537,725 @@
       }
     },
     {
+      "evidenceId": "m365-m365-messaging-security-project-04ab3d0bc48df731",
+      "title": "09-m365-e5-group-assignment-list.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/09-m365-e5-group-assignment-list.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/09-m365-e5-group-assignment-list.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "adafc55bf0c16f0f54aca15d592cbefe077bf2572256d5a7d23777f13f16ba1d",
+      "sourceSize": 225322,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/09-m365-e5-group-assignment-list.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/09-m365-e5-group-assignment-list.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/09-m365-e5-group-assignment-list.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-1a21f7235b90a0ff",
+      "title": "05-post-remediation-myapps-success.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/05-post-remediation-myapps-success.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/05-post-remediation-myapps-success.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "ce22cc341f7028d0525b010e58ef2c37ecc08d1165362837fdd8f5deaa033f45",
+      "sourceSize": 687850,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/05-post-remediation-myapps-success.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/05-post-remediation-myapps-success.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/05-post-remediation-myapps-success.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-2d96a90bdeac84ef",
+      "title": "validation.md",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/validation.md",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/validation.md",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "f00caea1a663104354327d69cb8368df5a19d662d45dd8ea7f7a928e00c42233",
+      "sourceSize": 5247,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "validation",
+      "skillIds": [
+        "escalation",
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "direct-validation",
+      "validationStatus": "validated-through-testing",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/validation.md",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/validation/m365-messaging-security-project/validation.md",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/validation.md"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-3a0ae6041a2ffdc7",
+      "title": "04-ca-policy-scope-update-success.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/04-ca-policy-scope-update-success.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/04-ca-policy-scope-update-success.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "b52da575e1197c2c8bf1289db0c6e2f59d3181964bac68edcfe466cf0478921f",
+      "sourceSize": 168942,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/04-ca-policy-scope-update-success.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/04-ca-policy-scope-update-success.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/04-ca-policy-scope-update-success.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-4e56d934e4c332e5",
+      "title": "license-details-output.txt",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/logs/license-details-output.txt",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/logs/license-details-output.txt",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "e8d482d723ba41cab357fb25bf2013994f367fa7c48516b0f6877bfe993617cb",
+      "sourceSize": 1127,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "scripts-output",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/logs/license-details-output.txt",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/scripts-output/m365-messaging-security-project/evidence/logs/license-details-output.txt",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/logs/license-details-output.txt"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-5efd6143154496eb",
+      "title": "10-m365-license-errors-zero.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/10-m365-license-errors-zero.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/10-m365-license-errors-zero.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "ccad6d852f5b263d63c207c8ea743b7d1409bf3e0fbea8f42b3a7790c573dc8d",
+      "sourceSize": 128110,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/10-m365-license-errors-zero.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/10-m365-license-errors-zero.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/10-m365-license-errors-zero.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-6ad5082035cee59e",
+      "title": "11-m365-group-apps-services.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/11-m365-group-apps-services.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/11-m365-group-apps-services.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "01117d8852bfdfbd7bce3d97b508c63a2bf10b472373df7cb5d2e62ca3ef1bb5",
+      "sourceSize": 151807,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/11-m365-group-apps-services.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/11-m365-group-apps-services.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/11-m365-group-apps-services.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-737ff3a302ffc73d",
+      "title": "03-defender-explorer-external-sender-validation.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/03-defender-explorer-external-sender-validation.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/03-defender-explorer-external-sender-validation.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "d2c92480a5f4f0b54f17fa9e102a1ec5818de51eaff22c43cc2521aa42bf6e14",
+      "sourceSize": 216655,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/03-defender-explorer-external-sender-validation.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/03-defender-explorer-external-sender-validation.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/03-defender-explorer-external-sender-validation.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-80f1733f88e25b91",
+      "title": "README.md",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/README.md",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/README.md",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "6953beee2f6482882615775ba6cf489503f326d35818e10d703d374a2688b22e",
+      "sourceSize": 2020,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "skillIds": [
+        "microsoft-365-entra",
+        "technical-documentation",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "documentation-support",
+      "validationStatus": "documented-and-reviewed",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/README.md",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/documentation/m365-messaging-security-project/README.md",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/README.md"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-89459889596ddbf4",
+      "title": "02-exchange-message-trace-sendas-delivered.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/02-exchange-message-trace-sendas-delivered.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/02-exchange-message-trace-sendas-delivered.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "5eef2c060dc6889019c96680ee12c06c2476f8aa7968d7325500cef240eff070",
+      "sourceSize": 98562,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/02-exchange-message-trace-sendas-delivered.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/02-exchange-message-trace-sendas-delivered.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/02-exchange-message-trace-sendas-delivered.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-920602b1d952ef60",
+      "title": "08-conditional-access-evaluation-success.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/08-conditional-access-evaluation-success.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/08-conditional-access-evaluation-success.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "c7035d916604a324a8b7c2da14aabbedc7700ae4d147829377551ca098208f39",
+      "sourceSize": 45763,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/08-conditional-access-evaluation-success.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/08-conditional-access-evaluation-success.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/08-conditional-access-evaluation-success.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-931823f80813c642",
+      "title": "06-signin-log-pre-post-remediation.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/06-signin-log-pre-post-remediation.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/06-signin-log-pre-post-remediation.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "b872e84b8ba1b8b943525a652da07ae91304804335a282022b8d02521902d474",
+      "sourceSize": 263734,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/06-signin-log-pre-post-remediation.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/06-signin-log-pre-post-remediation.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/06-signin-log-pre-post-remediation.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-b98d7c21204c92ea",
+      "title": "evidence-index.md",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence-index.md",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence-index.md",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "8e7a1f35513c25f1a585db975e509d806cbea1b2517b46214336b4518d89bb82",
+      "sourceSize": 2405,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "documentation",
+      "skillIds": [
+        "microsoft-365-entra",
+        "technical-documentation",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "documentation-support",
+      "validationStatus": "documented-and-reviewed",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence-index.md",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/documentation/m365-messaging-security-project/evidence-index.md",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence-index.md"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-c52eafce618b4400",
+      "title": "AuditLogs_2026-09-21.csv",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/logs/AuditLogs_2026-09-21.csv",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/logs/AuditLogs_2026-09-21.csv",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "ea225a72912ed37c306bcf59d9e0a5a2ca93bc9aad2c7e36144aaec42f80b566",
+      "sourceSize": 368,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "inventories",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "inventory-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/logs/AuditLogs_2026-09-21.csv",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/inventories/m365-messaging-security-project/evidence/logs/AuditLogs_2026-09-21.csv",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/logs/AuditLogs_2026-09-21.csv"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-d8fe9cb07ab7ca4c",
+      "title": "01-exchange-powershell-validation.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/01-exchange-powershell-validation.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/01-exchange-powershell-validation.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "9f616b10170844a67e428ebffc171e843fe60e2178693f29afacfca0dbb13af9",
+      "sourceSize": 720081,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "powershell-automation",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365",
+        "powershell"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/01-exchange-powershell-validation.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/01-exchange-powershell-validation.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/01-exchange-powershell-validation.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-e1fc5db39688e9e3",
+      "title": "07-signin-success-details.png",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/07-signin-success-details.png",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/07-signin-success-details.png",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "148fb0ca2a1f6c1c44d590d9069d1fe184318e25e0b2bffac8e52c589c372a16",
+      "sourceSize": 327591,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "screenshots",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/evidence/screenshots/07-signin-success-details.png",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/screenshots/m365-messaging-security-project/evidence/screenshots/07-signin-success-details.png",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/evidence/screenshots/07-signin-success-details.png"
+      }
+    },
+    {
+      "evidenceId": "m365-m365-messaging-security-project-f5f071cc1e785776",
+      "title": "command-evidence.txt",
+      "sourceCatalog": "assets/data/m365-evidence-catalog.json",
+      "currentRepositoryPath": "evidence-library/projects/m365-messaging-security/command-evidence.txt",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "evidence-library/projects/m365-messaging-security/command-evidence.txt",
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996",
+      "sourceHashAlgorithm": "sha256",
+      "sourceHash": "f6cc90250e8ef941da9923e89f5c5ad558411ca7907d90716470a1917e2d1ea8",
+      "sourceSize": 2893,
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details. The tracked public artifact remains at its established route and is logically organized without moving or rewriting it.",
+      "lab": "microsoft-365",
+      "technology": "exchange-online",
+      "evidenceType": "scripts-output",
+      "skillIds": [
+        "microsoft-365-entra",
+        "troubleshooting"
+      ],
+      "supportedClaims": [
+        "m365-entra-identity-review",
+        "m365-exchange-support-familiarity",
+        "m365-security-policy-review"
+      ],
+      "relationshipType": "supporting-evidence",
+      "validationStatus": "demonstrated-in-lab",
+      "systems": [
+        "microsoft-365"
+      ],
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
+      "publicationClassification": "public-original",
+      "publicRoute": "/evidence-library/projects/m365-messaging-security/command-evidence.txt",
+      "relatedArtifacts": {
+        "logicalDestination": "content/microsoft-365/exchange-online/evidence/scripts-output/m365-messaging-security-project/command-evidence.txt",
+        "attestationPath": null,
+        "publicPath": "evidence-library/projects/m365-messaging-security/command-evidence.txt"
+      }
+    },
+    {
       "evidenceId": "m365-m365-project-documentation-6c46a2fcadabec73",
       "title": "conditional-access-baseline.yaml",
       "sourceCatalog": "assets/data/m365-evidence-catalog.json",
@@ -29475,10 +30283,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "metadata-only",
       "publicRoute": null,
       "relatedArtifacts": {
@@ -29516,10 +30324,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-authentication-methods-policy.json",
       "relatedArtifacts": {
@@ -29801,10 +30609,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-sg-block-legacy-auth-group.csv",
       "relatedArtifacts": {
@@ -30129,10 +30937,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-conditional-access-policies-summary.csv",
       "relatedArtifacts": {
@@ -30334,10 +31142,10 @@
         "microsoft-365",
         "powershell"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-online-powershell-connection-attempt.md",
       "relatedArtifacts": {
@@ -30375,10 +31183,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-conditional-access-named-locations.json",
       "relatedArtifacts": {
@@ -30416,10 +31224,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/security-defaults-policy.json",
       "relatedArtifacts": {
@@ -30627,10 +31435,10 @@
         "microsoft-365",
         "powershell"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request-beta.json",
       "relatedArtifacts": {
@@ -30875,10 +31683,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership. Binary content is subject to documented manual-review limitations.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility. Binary content is subject to documented manual-review limitations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-20260605.png",
       "relatedArtifacts": {
@@ -30957,10 +31765,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/authentication-method-configurations.json",
       "relatedArtifacts": {
@@ -31079,10 +31887,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-mail-enabled-security-group-check.md",
       "relatedArtifacts": {
@@ -31447,10 +32255,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-conditional-access-named-locations-summary.csv",
       "relatedArtifacts": {
@@ -31488,10 +32296,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/authorization-policy.json",
       "relatedArtifacts": {
@@ -31571,10 +32379,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-sg-block-legacy-auth-members.csv",
       "relatedArtifacts": {
@@ -31733,10 +32541,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/conditional-access-named-locations.json",
       "relatedArtifacts": {
@@ -31982,10 +32790,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/conditional-access-policies-summary.csv",
       "relatedArtifacts": {
@@ -32026,10 +32834,10 @@
         "microsoft-365",
         "powershell"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/authentication-method-policy-graph-request.json",
       "relatedArtifacts": {
@@ -32351,10 +33159,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/conditional-access-policies.json",
       "relatedArtifacts": {
@@ -32640,10 +33448,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/authentication-method-policy.json",
       "relatedArtifacts": {
@@ -32682,10 +33490,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Reviewed Microsoft 365 group information, admin-center evidence, and connection-attempt documentation.",
-      "observedResult": "The repository supports bounded Exchange administration familiarity and troubleshooting context.",
-      "scope": "Personal-tenant support evidence.",
-      "limitations": "Does not prove production mail-flow, transport-rule, retention, or organization-wide Exchange ownership.",
+      "task": "Configured and validated a shared mailbox with delegation, a distribution group, an enforced external-sender transport rule, and message delivery tracing.",
+      "observedResult": "PowerShell and message-trace evidence confirm the scoped Exchange objects, delegation, rule state, and delivered test messages.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove production mail-flow ownership, retention governance, enterprise-scale messaging administration, or client tenant responsibility.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/exchange-admin-center-microsoft-365-groups-export-20260605.csv",
       "relatedArtifacts": {
@@ -32846,10 +33654,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-authorization-policy-security-defaults.json",
       "relatedArtifacts": {
@@ -33780,10 +34588,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/microsoft-365-lab-conditional-access-baseline-configuration-2026.yaml",
       "relatedArtifacts": {
@@ -33865,10 +34673,10 @@
         "microsoft-365",
         "powershell"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/authentication-method-configurations-graph-request-beta.json",
       "relatedArtifacts": {
@@ -33949,10 +34757,10 @@
         "microsoft-365",
         "powershell"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-fallback-20260605-043558/conditional-access-policies-graph-request.json",
       "relatedArtifacts": {
@@ -34320,10 +35128,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/evidence/entra-exports-20260605-073748/entra-conditional-access-policies.json",
       "relatedArtifacts": {
@@ -34567,10 +35375,10 @@
       "systems": [
         "microsoft-365"
       ],
-      "task": "Inspected Conditional Access, named locations, authentication-method policy, authorization settings, and security-default state.",
-      "observedResult": "Policy configuration and targeting records are available for inspection.",
-      "scope": "Configuration review within a personal tenant.",
-      "limitations": "Does not prove organization-wide enforcement, security assurance, or production incident response.",
+      "task": "Reviewed Defender mail protections and Conditional Access evaluation, corrected an external-user policy scope issue, and validated the resulting sign-in behavior.",
+      "observedResult": "Audit and sign-in evidence show the policy update succeeded, MFA remained effective, and the external-user block no longer applied to the internal test account.",
+      "scope": "Personal Microsoft 365 developer tenant.",
+      "limitations": "Does not prove organization-wide security assurance, production incident response, or enterprise policy ownership.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-security-proof-20260605-043352/conditional-access-named-locations-summary.csv",
       "relatedArtifacts": {
