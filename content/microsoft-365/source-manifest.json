@@ -98,7 +98,8 @@
         "exchange-online",
         "security-compliance",
         "entra-id"
-      ]
+      ],
+      "sourceCommit": "6955da40a494a3a6e7a5f901de87c77d0f3955a4"
     }
   ],
   "approvedIndividualFiles": [
