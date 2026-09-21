@@ -362,10 +362,6 @@
   ],
   "reviewedExclusions": [
     {
-      "path": "scripts/build/normalize-preserved-sharepoint-navigation.js",
-      "reason": "Public presentation navigation generator, not collected Microsoft 365 evidence; original evidence records remain independently cataloged."
-    },
-    {
       "path": "m365-messaging-security.html",
       "reason": "Public Project 3 case-study presentation page; the underlying Microsoft 365 messaging and security artifacts are cataloged from evidence-library/projects/m365-messaging-security."
     },
