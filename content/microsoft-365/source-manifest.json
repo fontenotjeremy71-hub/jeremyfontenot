@@ -86,7 +86,7 @@
     {
       "path": "evidence-library/projects/m365-messaging-security",
       "collection": "m365-messaging-security-project",
-      "reason": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3.",
+      "reason": "Validated personal-tenant Microsoft 365 messaging, Defender, Conditional Access, sign-in, audit, and Developer E5 licensing evidence for Project 3. Public text artifacts are sanitized derivatives that omit unnecessary tenant-specific identifiers and source IP details.",
       "technologyRelationships": [
         "exchange-online",
         "security-compliance",
@@ -99,7 +99,7 @@
         "security-compliance",
         "entra-id"
       ],
-      "sourceCommit": "6955da40a494a3a6e7a5f901de87c77d0f3955a4"
+      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996"
     }
   ],
   "approvedIndividualFiles": [
