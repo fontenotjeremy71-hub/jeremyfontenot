@@ -13,10 +13,10 @@
 | E09 | `evidence/screenshots/09-m365-e5-group-assignment-list.png` | M365 Developer E5 product page showing Project 3 E5 Licensing as Type Group |
 | E10 | `evidence/screenshots/10-m365-license-errors-zero.png` | Licensing errors = 0 and members without licenses = 0 |
 | E11 | `evidence/screenshots/11-m365-group-apps-services.png` | Apps & services configuration view for the selected licensing group |
-| L01 | `evidence/logs/AuditLogs_2026-09-21.csv` | Raw Entra audit-log export used to validate Conditional Access policy update |
-| L02 | `evidence/logs/license-details-output.txt` | Effective E5 licenseDetails response and service-plan provisioning states |
+| L01 | `evidence/logs/AuditLogs_2026-09-21.csv` | Public sanitized audit-event derivative validating the Conditional Access policy update |
+| L02 | `evidence/logs/license-details-output.txt` | Public sanitized summary of effective E5 licenseDetails and relevant service-plan provisioning states |
 | C01 | `command-evidence.txt` | Sanitized PowerShell evidence transcribed from validated commands in the project session |
 
 ## Recommended portfolio subset
 
-Use E01, E02, E03, E04, E07, and E08 as the primary visible evidence set. Use E09/E10 for licensing administration if licensing is discussed on the project page. Keep L01/L02 as downloadable or internal supporting evidence rather than displaying their full raw contents on a public page.
+Use E01, E02, E03, E04, E07, and E08 as the primary visible evidence set. Use E09/E10 for licensing administration if licensing is discussed on the project page. L01/L02 are sanitized public derivatives intended for supporting review; tenant-specific identifiers and source IP details are intentionally omitted.
