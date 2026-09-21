@@ -9,14 +9,14 @@
 Validated object:
 
 - Display name: `IT Support Shared`
-- Primary SMTP address: `shared-it@dev.jeremyfontenot.online`
+- Primary SMTP address: `<shared-mailbox-smtp>`
 - Recipient type: `SharedMailbox`
 
 Delegation validated:
 
-- Full Access: `jeremy.admin@1x76s5767.onmicrosoft.com`
-- Send As: `jeremy.admin@1x76s5767.onmicrosoft.com`
-- Send on Behalf: resolved to Jeremy Fontenot / `jeremy.admin@1x76s5767.onmicrosoft.com`
+- Full Access: `<lab-administrator>`
+- Send As: `<lab-administrator>`
+- Send on Behalf: resolved to Lab Administrator / `<lab-administrator>`
 
 Functional message trace evidence shows a message sent as the shared mailbox with status `Delivered`.
 
@@ -27,7 +27,7 @@ Functional message trace evidence shows a message sent as the shared mailbox wit
 Validated object:
 
 - Display name: `Project 3 Distribution List`
-- Primary SMTP address: `project3-dl@dev.jeremyfontenot.online`
+- Primary SMTP address: `<distribution-group-smtp>`
 - Recipient type: `MailUniversalDistributionGroup`
 
 Validated members:
@@ -46,7 +46,7 @@ Validated rule:
 - Mode: `Enforce`
 - Priority: `0`
 - Sender scope: `NotInOrganization`
-- Recipient: `jeremy.admin@1x76s5767.onmicrosoft.com`
+- Recipient: `<lab-administrator>`
 - Action: prepend subject with `[ EXTERNAL]`
 
 Functional validation:
@@ -121,7 +121,7 @@ The audit record shows the policy changed away from `includeUsers: ["All"]` to e
 Validated successful sign-in:
 
 - User: `Project 3 License Test`
-- UPN: `project3.license.test@1x76s5767.onmicrosoft.com`
+- UPN: `<test-user-upn>`
 - Application: `My Apps`
 - Time: 2026-09-21T20:53:15Z
 - Status: `Success`
@@ -146,7 +146,7 @@ This demonstrates that the scope remediation removed the incorrect block without
 The `Project 3 License Test` account has an active effective license:
 
 - SKU: `DEVELOPERPACK_V2_E5`
-- SKU ID: `0d1bdf5e-c580-4ee9-9618-c9a88a800cdc`
+- SKU ID: `<redacted-sku-id>`
 
 The license-details response shows the majority of service plans provisioned successfully. At the captured point in time:
 
@@ -178,4 +178,4 @@ An attempted direct removal of the user license returned the service error that 
 
 ## Evidence handling
 
-No passwords, tokens, private keys, recovery keys, LAPS passwords, or other secrets are included in this package.
+No passwords, tokens, private keys, recovery keys, LAPS passwords, or other secrets are included in this package. Public text derivatives also omit unnecessary tenant-specific UPNs, object identifiers, local workstation paths, and source IP addresses.
