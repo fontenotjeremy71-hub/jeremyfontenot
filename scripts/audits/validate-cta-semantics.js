@@ -119,7 +119,7 @@ const projectSupportContracts = [
   ['01', '/proof.html#laps-proof'],
   ['02', '/proof.html#entra-proof'],
   ['03', '/proof.html#home-lab-proof'],
-  ['04', '/proof.html#home-lab-proof'],
+  ['04', '/windows-admin-center-lab.html#validation'],
   ['05', '/proof.html#scvmm-proof'],
   ['06', '/proof.html#azure-arc-proof'],
   ['07', '/app01-storage-expansion.html#validation'],
