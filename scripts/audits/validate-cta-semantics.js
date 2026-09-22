@@ -134,7 +134,7 @@ for (const [project, destination] of projectSupportContracts) {
     errors.push(`Project ${project} support link must resolve to its project-specific proof or validation target ${destination}`);
   }
 }
-if (/supportLinks[\s\S]*?'\/proof\.html'\s*\]/.test(projectRouteSource)) {
+if (/['"]\d{2}['"]\s*:\s*\[[^\]]*?,\s*['"]\/proof\.html['"]\s*\]/.test(projectRouteSource)) {
   errors.push('Project cards must not use the generic /proof.html route as their support destination');
 }
 
