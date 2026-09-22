@@ -3337,7 +3337,7 @@
     {
       "evidenceId": "home-lab-current-403a830a35808e7f",
       "path": "on-prem-home-lab.html",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "status": "reviewed-exceptions-applied",
       "findings": [
         {
