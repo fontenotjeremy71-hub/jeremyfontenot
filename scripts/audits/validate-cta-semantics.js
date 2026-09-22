@@ -115,6 +115,29 @@ for (const bad of ['/windows-laps-gpo.html#evidence', '/entra-cloud-sync.html#ev
 }
 if (routeSources.includes("['Project evidence','Case evidence and validation','/app01-storage-expansion.html#evidence']")) errors.push('APP01 evidence CTA is self-referential');
 
+const projectSupportContracts = [
+  ['01', '/proof.html#laps-proof'],
+  ['02', '/proof.html#entra-proof'],
+  ['03', '/proof.html#home-lab-proof'],
+  ['04', '/proof.html#home-lab-proof'],
+  ['05', '/proof.html#scvmm-proof'],
+  ['06', '/proof.html#azure-arc-proof'],
+  ['07', '/app01-storage-expansion.html#validation'],
+  ['08', '/home-lab-operations-proof.html#validation'],
+  ['09', '/proof.html#servicenow-proof'],
+  ['10', '/proof.html#m365-messaging-security-proof']
+];
+const projectRouteSource = fs.readFileSync(path.join(root, 'assets/js/routes-projects.js'), 'utf8');
+for (const [project, destination] of projectSupportContracts) {
+  const contract = `'${project}':['`;
+  if (!projectRouteSource.includes(contract) || !projectRouteSource.includes(`'${destination}'`)) {
+    errors.push(`Project ${project} support link must resolve to its project-specific proof or validation target ${destination}`);
+  }
+}
+if (/supportLinks[\s\S]*?'\/proof\.html'\s*\]/.test(projectRouteSource)) {
+  errors.push('Project cards must not use the generic /proof.html route as their support destination');
+}
+
 if (errors.length) {
   const unique = [...new Set(errors)].sort();
   console.error(`CTA semantics validation failed with ${unique.length} issue(s):`);
