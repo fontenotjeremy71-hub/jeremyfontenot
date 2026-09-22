@@ -4,7 +4,7 @@ const supportLinks={
 '01':['Open project proof','/proof.html#laps-proof'],
 '02':['Open project proof','/proof.html#entra-proof'],
 '03':['Open project proof','/proof.html#home-lab-proof'],
-'04':['Open supporting proof','/proof.html#home-lab-proof'],
+'04':['Open validation','/windows-admin-center-lab.html#validation'],
 '05':['Open project proof','/proof.html#scvmm-proof'],
 '06':['Open project proof','/proof.html#azure-arc-proof'],
 '07':['Open validation','/app01-storage-expansion.html#validation'],
