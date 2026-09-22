@@ -37,7 +37,8 @@ function inspect(source, href, rawLabel) {
   try { target = normalizePath(source, href); } catch { return; }
   const sourcePath = '/' + source.toLowerCase();
   const evidencePromise = /^(?:(?:view|open|review|inspect|browse|supporting|validation)\s+)?evidence(?:\s+(?:catalog|library|record|records|index))?$|^(?:view|open)\s+(?:validation|supporting)\s+evidence$/i.test(label);
-  const proofPromise = /^(?:view|open|review|inspect)?\s*(?:proof|proof summary|proof index|supporting proof)$/i.test(label);
+  const proofIndexPromise = /^(?:view|open|review|inspect)?\s*(?:proof summary|proof index)$/i.test(label);
+  const directProofPromise = /^(?:view|open|review|inspect)?\s*(?:proof|supporting proof)$/i.test(label) || /\bproof$/i.test(label) && !/\b(?:summary|index)\b/i.test(label);
   const casePromise = /^(?:view|read|open|review)\s+(?:the\s+)?(?:case study|project|project details)$/i.test(label) || /^case study$/i.test(label);
   const resumePromise = /^(?:view|open|download|review)?\s*(?:resume|résumé)$/i.test(label);
   const contactPromise = /^(?:contact|contact me|discuss role fit|get in touch)$/i.test(label);
@@ -51,9 +52,14 @@ function inspect(source, href, rawLabel) {
     const [targetBase] = target.replace(/^https?:\/\/[^/]+/i, '').split('#');
     if (sourceBase === targetBase && (!target.includes('#') || target.endsWith('#evidence'))) errors.push(`${source}: "${label}" creates a circular evidence path ${href}`);
   }
-  if (proofPromise) {
+  if (proofIndexPromise) {
     semanticChecks += 1;
-    if (!/proof|claim-map/i.test(target)) errors.push(`${source}: "${label}" promises recruiter-facing proof but points to ${href}`);
+    if (!/proof|claim-map/i.test(target)) errors.push(`${source}: "${label}" promises a proof index/summary but points to ${href}`);
+  }
+  if (directProofPromise) {
+    semanticChecks += 1;
+    const directEvidence = /(?:#evidence\b|\/evidence(?:\/|[-.]|$)|evidence-library|evidence-catalog|validation|\.(?:txt|md|json|csv|png|jpe?g|webp|pdf)(?:[#?].*)?$)/i.test(target);
+    if (!directEvidence || /\/proof\.html(?:#|$)/i.test(target)) errors.push(`${source}: "${label}" promises direct proof but points to summary/index content ${href}`);
   }
   if (casePromise) {
     semanticChecks += 1;
