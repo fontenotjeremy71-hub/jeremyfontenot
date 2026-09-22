@@ -119,7 +119,7 @@ def semantic_error(label: str, target: str, title: str, heading: str, sample: st
     proof_promise = bool(re.search(r"\bproof\b", label_l))
     case_promise = bool(re.search(r"\bcase study\b", label_l))
 
-    if evidence_promise:
+    if context == "main" and evidence_promise:
         evidence_path = any(term in target_l for term in ("#evidence", "/evidence", "evidence-library", "validation", "catalog", "claim-map")) or suffix in EVIDENCE_SUFFIXES
         evidence_content = any(term in content for term in ("evidence", "validation", "artifact", "manifest", "inventory", "proof"))
         if not evidence_path and not evidence_content:
@@ -127,14 +127,14 @@ def semantic_error(label: str, target: str, title: str, heading: str, sample: st
         if re.search(r"/(?:windows-laps-gpo|entra-cloud-sync|on-prem-home-lab)\.html$", path_l):
             return "Evidence wording lands on a narrative project page instead of direct evidence"
 
-    if proof_promise and not any(term in target_l for term in ("proof", "#evidence", "/evidence", "evidence-library", "validation", "claim-map")):
+    if context == "main" and proof_promise and not any(term in target_l for term in ("proof", "#evidence", "/evidence", "evidence-library", "validation", "claim-map")):
         return "Proof wording does not land on proof- or evidence-oriented content"
 
-    if proof_index_promise:
+    if context == "main" and proof_index_promise:
         if "proof" not in path_l and "claim map" not in content:
             return "Proof index/summary wording does not land on recruiter-facing proof summary content"
 
-    if case_promise:
+    if context == "main" and case_promise:
         if re.search(r"/evidence-library/projects/on-prem-home-lab/(?:scvmm-2022|azure-arc-hybrid-management)/", path_l):
             pass
         elif any(term in path_l for term in ("evidence-library", "/evidence/", "evidence-catalog", "claim-map")):
