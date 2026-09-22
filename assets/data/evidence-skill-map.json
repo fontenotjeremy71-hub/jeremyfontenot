@@ -12,7 +12,7 @@
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
-      "sha256": "a824a5b47856252e2d04c9196ebc4a4e444070042dcffabe9c5e45a16c0baba0"
+      "sha256": "6437e38829e02c35efc3c0ddcfb8dc88955b5e15a8a196171d3b909274f3cb4e"
     }
   },
   "totals": {
@@ -21570,7 +21570,7 @@
       "sourceHash": "1ab9e1c45a92933502e9a8cd50e08cc8867c74de176b46291fab23cd36de5772",
       "sourceSize": 22797,
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Established public Home Lab case-study route. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
+      "collectionContext": "Established public Home Lab case-study route. Original source integrity remains pinned to the recorded commit; the linked page is a recruiter-facing presentation derivative with independent public integrity.",
       "lab": "home-lab",
       "technology": "environment",
       "evidenceType": "documentation",
@@ -21593,7 +21593,7 @@
       "observedResult": "The environment is represented through system inventories, topology context, validation records, and operational documentation. Record state: directly-proven.",
       "scope": "Personally operated nonproduction lab.",
       "limitations": "Does not represent enterprise scale, production availability, or employer infrastructure.",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "publicRoute": "/on-prem-home-lab.html",
       "relatedArtifacts": {
         "logicalDestination": "content/home-lab/environment/documentation/home-lab-public-pages/on-prem-home-lab.html",

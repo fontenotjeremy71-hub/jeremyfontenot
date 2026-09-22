@@ -19318,9 +19318,9 @@
       "sourcePath": "on-prem-home-lab.html",
       "sourceCommit": "34f053d9ee59c718d15931f673f5617aba40b79d",
       "sourceVerificationMethod": "direct-git-object",
-      "collectionContext": "Established public Home Lab case-study route. The tracked artifact remains at its established public route and is logically organized without moving or rewriting it.",
+      "collectionContext": "Established public Home Lab case-study route. Original source integrity remains pinned to the recorded commit; the linked page is a recruiter-facing presentation derivative with independent public integrity.",
       "hashAlgorithm": "sha256",
-      "hash": "1ab9e1c45a92933502e9a8cd50e08cc8867c74de176b46291fab23cd36de5772",
+      "hash": "4d7538fa42483b85df3681e7c289aed71f7e0fdbadde4de4aaefd509d81dee89",
       "supportedClaims": [
         "home-lab-environment-inventory"
       ],
@@ -19330,11 +19330,11 @@
       "resultState": "directly-proven",
       "scope": "Personally operated nonproduction lab.",
       "limitations": "Does not represent enterprise scale, production availability, or employer infrastructure.",
-      "publicationClassification": "public-original",
+      "publicationClassification": "sanitized-derivative",
       "publicRoute": "/on-prem-home-lab.html",
       "collection": "home-lab-public-pages",
       "publicPath": "on-prem-home-lab.html",
-      "size": 22797,
+      "size": 22811,
       "technologyRelationships": [
         "environment"
       ],
@@ -19347,8 +19347,8 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "1ab9e1c45a92933502e9a8cd50e08cc8867c74de176b46291fab23cd36de5772",
-        "size": 22797,
+        "hash": "4d7538fa42483b85df3681e7c289aed71f7e0fdbadde4de4aaefd509d81dee89",
+        "size": 22811,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {

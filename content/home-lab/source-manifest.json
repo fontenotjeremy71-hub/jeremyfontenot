@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "presentationDerivativePaths": [
-    "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html"
+    "evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html",
+    "on-prem-home-lab.html"
   ],
   "generatedOutputRoots": [
     "site/",
