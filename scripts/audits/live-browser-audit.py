@@ -100,11 +100,12 @@ async def detect_edge_block(page, status: int | None, url: str) -> bool:
     return bool(re.search(r"(?:just a moment|verify you are human|cloudflare|cf-chl-|attention required)", marker, re.I))
 
 
-def semantic_error(label: str, target: str, title: str, heading: str, sample: str) -> str | None:
+def semantic_error(label: str, target: str, title: str, heading: str, sample: str, context: str = "main") -> str | None:
     label_l = label.lower()
     path_l = urlparse(target).path.lower()
     target_l = target.lower()
     content = f"{title} {heading} {sample}".lower()
+    destination_text = f"{target_l} {content}"
     suffix = Path(path_l).suffix.lower()
     if re.fullmatch(r"(?:view|open|download|review)?\s*(?:resume|résumé)", label_l):
         if "resume" not in path_l and suffix not in {".pdf", ".docx"}:
@@ -112,22 +113,47 @@ def semantic_error(label: str, target: str, title: str, heading: str, sample: st
     if re.fullmatch(r"contact|contact me|get in touch|discuss role fit", label_l):
         if "contact" not in path_l and not target_l.startswith("mailto:") and "contact" not in content:
             return "Contact wording does not land on a contact page, section, or method"
-    evidence_promise = bool(re.fullmatch(r"(?:(?:view|open|review|inspect|browse|supporting|validation)\s+)?evidence(?:\s+(?:catalog|library|record|records|index))?|(?:view|open)\s+(?:validation|supporting)\s+evidence", label_l))
+
+    evidence_promise = bool(re.search(r"\bevidence\b|\bvalidation\b", label_l))
+    proof_index_promise = bool(re.search(r"\bproof\s+(?:summary|index)\b", label_l))
+    direct_proof_promise = context == "main" and bool(re.search(r"\bproof\b", label_l)) and not proof_index_promise
+    case_promise = bool(re.search(r"\bcase study\b", label_l))
+
     if evidence_promise:
-        evidence_path = any(term in path_l for term in ("evidence", "validation", "catalog", "claim-map", "proof")) or suffix in EVIDENCE_SUFFIXES
+        evidence_path = any(term in target_l for term in ("#evidence", "/evidence", "evidence-library", "validation", "catalog", "claim-map")) or suffix in EVIDENCE_SUFFIXES
         evidence_content = any(term in content for term in ("evidence", "validation", "artifact", "manifest", "inventory", "proof"))
         if not evidence_path and not evidence_content:
-            return "Evidence wording does not land on evidence-oriented content"
+            return "Evidence/validation wording does not land on evidence-oriented content"
         if re.search(r"/(?:windows-laps-gpo|entra-cloud-sync|on-prem-home-lab)\.html$", path_l):
             return "Evidence wording lands on a narrative project page instead of direct evidence"
-    if re.fullmatch(r"(?:view|read|open|review)\s+(?:the\s+)?(?:case study|project|project details)|case study", label_l):
-        if re.search(r"/evidence-library/projects/on-prem-home-lab/(?:scvmm-2022|azure-arc-hybrid-management)/", path_l):
-            return None
-        if any(term in path_l for term in ("evidence-library", "/evidence/", "evidence-catalog", "claim-map")):
-            return "Case-study wording lands on an evidence record instead of the project narrative"
-    if re.fullmatch(r"(?:view|open|review|inspect)?\s*(?:proof|proof summary|proof index|supporting proof)", label_l):
+
+    if direct_proof_promise:
+        direct_evidence = any(term in target_l for term in ("#evidence", "/evidence", "evidence-library", "validation", "evidence-catalog")) or suffix in EVIDENCE_SUFFIXES
+        if not direct_evidence or re.search(r"/proof\.html(?:#|$)", target_l):
+            return "Proof wording promises direct proof but lands on a proof summary/index instead of the evidence"
+
+    if proof_index_promise:
         if "proof" not in path_l and "claim map" not in content:
-            return "Proof wording does not land on a recruiter-facing proof summary"
+            return "Proof index/summary wording does not land on recruiter-facing proof summary content"
+
+    if case_promise:
+        if re.search(r"/evidence-library/projects/on-prem-home-lab/(?:scvmm-2022|azure-arc-hybrid-management)/", path_l):
+            pass
+        elif any(term in path_l for term in ("evidence-library", "/evidence/", "evidence-catalog", "claim-map")):
+            return "Case-study wording lands on an evidence record instead of the project narrative"
+
+    if context == "main" and (evidence_promise or direct_proof_promise or case_promise):
+        generic = {
+            "view", "open", "review", "inspect", "browse", "supporting", "validation", "evidence",
+            "proof", "case", "study", "project", "details", "summary", "index", "the", "and"
+        }
+        topic_tokens = [
+            token for token in re.findall(r"[a-z0-9]+", label_l)
+            if len(token) >= 4 and token not in generic
+        ]
+        if topic_tokens and not any(token in destination_text for token in topic_tokens):
+            return f"Link topic does not match destination content; expected one of: {', '.join(topic_tokens)}"
+
     if "linkedin" == label_l and "linkedin.com" not in target_l:
         return "LinkedIn label does not land on LinkedIn"
     if "github" == label_l and "github.com" not in target_l:
@@ -309,7 +335,7 @@ async def audit() -> int:
                         else:
                             if fragment and unquote(fragment) not in destination["ids"]:
                                 findings.append(Finding("fragment", page["route"], label, target, f"Fragment #{unquote(fragment)} is absent from the rendered destination"))
-                            mismatch = semantic_error(label, target, destination["title"], destination["heading"], destination["sample"])
+                            mismatch = semantic_error(label, target, destination["title"], destination["heading"], destination["sample"], item["context"])
                             if mismatch:
                                 findings.append(Finding("semantics", page["route"], label, target, mismatch))
                     else:
