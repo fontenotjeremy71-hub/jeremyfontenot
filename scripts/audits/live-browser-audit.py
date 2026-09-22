@@ -116,7 +116,7 @@ def semantic_error(label: str, target: str, title: str, heading: str, sample: st
 
     evidence_promise = bool(re.search(r"\bevidence\b|\bvalidation\b", label_l))
     proof_index_promise = bool(re.search(r"\bproof\s+(?:summary|index)\b", label_l))
-    direct_proof_promise = context == "main" and bool(re.search(r"\bproof\b", label_l)) and not proof_index_promise
+    proof_promise = bool(re.search(r"\bproof\b", label_l))
     case_promise = bool(re.search(r"\bcase study\b", label_l))
 
     if evidence_promise:
@@ -127,10 +127,8 @@ def semantic_error(label: str, target: str, title: str, heading: str, sample: st
         if re.search(r"/(?:windows-laps-gpo|entra-cloud-sync|on-prem-home-lab)\.html$", path_l):
             return "Evidence wording lands on a narrative project page instead of direct evidence"
 
-    if direct_proof_promise:
-        direct_evidence = any(term in target_l for term in ("#evidence", "/evidence", "evidence-library", "validation", "evidence-catalog")) or suffix in EVIDENCE_SUFFIXES
-        if not direct_evidence or re.search(r"/proof\.html(?:#|$)", target_l):
-            return "Proof wording promises direct proof but lands on a proof summary/index instead of the evidence"
+    if proof_promise and not any(term in target_l for term in ("proof", "#evidence", "/evidence", "evidence-library", "validation", "claim-map")):
+        return "Proof wording does not land on proof- or evidence-oriented content"
 
     if proof_index_promise:
         if "proof" not in path_l and "claim map" not in content:
@@ -142,7 +140,7 @@ def semantic_error(label: str, target: str, title: str, heading: str, sample: st
         elif any(term in path_l for term in ("evidence-library", "/evidence/", "evidence-catalog", "claim-map")):
             return "Case-study wording lands on an evidence record instead of the project narrative"
 
-    if context == "main" and (evidence_promise or direct_proof_promise or case_promise):
+    if context == "main" and (evidence_promise or proof_promise or case_promise):
         generic = {
             "view", "open", "review", "inspect", "browse", "supporting", "validation", "evidence",
             "proof", "case", "study", "project", "details", "summary", "index", "the", "and"
