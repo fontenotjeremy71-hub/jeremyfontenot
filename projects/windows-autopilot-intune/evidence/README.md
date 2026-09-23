@@ -4,12 +4,12 @@ Public evidence is sanitized. Passwords, recovery keys, MFA codes, private keys,
 
 ## Screenshots
 
-1. `screenshots/01-autopilot-branded-oobe.jpg` — Autopilot retrieved the tenant experience and displayed custom work/school branding.
-2. `screenshots/02-esp-device-preparation.jpg` — Enrollment Status Page began device preparation.
-3. `screenshots/03-esp-device-setup-complete.jpg` — Device preparation and device setup completed while account setup continued.
-4. `screenshots/04-compliance-before-remediation.png` — Compliance policy identified BitLocker and Secure Boot as not compliant; device identifier redacted.
-5. `screenshots/05-intune-final-compliant.png` — Final Intune inventory showed the corporate device compliant; device identifier and UPN redacted.
-6. `screenshots/06-settings-catalog-success.png` — Settings Catalog check-in reported 2 succeeded, 0 errors, 0 conflicts, 0 not applicable, 0 in progress.
+1. `screenshots/01-autopilot-branded-oobe.webp` — Autopilot retrieved the tenant experience and displayed custom work/school branding.
+2. `screenshots/02-esp-device-preparation.webp` — Enrollment Status Page began device preparation.
+3. `screenshots/03-esp-device-setup-complete.webp` — Device preparation and device setup completed while account setup continued.
+4. `screenshots/04-compliance-before-remediation.webp` — Compliance policy identified BitLocker and Secure Boot as not compliant; device identifier redacted.
+5. `screenshots/05-intune-final-compliant.webp` — Final Intune inventory showed the corporate device compliant; device identifier and UPN redacted.
+6. `screenshots/06-settings-catalog-success.webp` — Settings Catalog check-in reported 2 succeeded, 0 errors, 0 conflicts, 0 not applicable, 0 in progress.
 
 ## Command evidence
 
