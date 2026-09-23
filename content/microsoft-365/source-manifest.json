@@ -105,7 +105,7 @@
       "path": "projects/windows-autopilot-intune",
       "collection": "windows-autopilot-intune-project",
       "reason": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment.",
-      "sourceCommit": "5da98c91ff226ef844a4f910e6aef163c37e9381",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
       "technologyRelationships": [
         "intune",
         "entra-id",
