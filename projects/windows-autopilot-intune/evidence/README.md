@@ -1,5 +1,7 @@
 # Project 1 Evidence Index
 
+All linked screenshots are sanitized public derivatives.
+
 Public evidence is sanitized. Passwords, recovery keys, MFA codes, private keys, VPN configuration contents, browser password exports, recovery codes, device IDs, certificate thumbprints, and hardware serial numbers are excluded or redacted.
 
 ## Screenshots
