@@ -85,6 +85,7 @@ jobs:
         if: >-
           (github.event_name == 'pull_request' && github.event.pull_request.number == 79 && github.head_ref == 'codex/sitewide-cta-navigation-audit') ||
           (github.event_name == 'pull_request' && github.event.pull_request.number == 91 && github.head_ref == 'fix/full-site-semantic-link-audit-20260921') ||
+          (github.event_name == 'pull_request' && github.event.pull_request.number == 95 && github.head_ref == 'fix/project-1-evidence-catalog') ||
           (github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.head_commit.message == 'QA: synchronize generated metadata after SEO updates')
         shell: bash
         run: |
