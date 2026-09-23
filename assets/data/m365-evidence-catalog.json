@@ -17,14 +17,14 @@
     "sensitiveDataExceptions": "content/microsoft-365/sensitive-data-exceptions.json"
   },
   "totals": {
-    "artifacts": 1017,
+    "artifacts": 1038,
     "preservedSharePointArtifacts": 802,
     "sourceDuplicateGroups": 127,
     "publicDuplicateGroups": 5,
     "sensitiveDataReview": {
-      "artifactsReviewed": 1017,
-      "textArtifactsInspected": 978,
-      "manualReviewRequired": 39,
+      "artifactsReviewed": 1038,
+      "textArtifactsInspected": 993,
+      "manualReviewRequired": 45,
       "highSeveritySecretFindings": 0,
       "identifierFindings": 4952,
       "unresolvedPublicIdentifierFindings": 0
@@ -342,16 +342,16 @@
       "claimId": "m365-entra-identity-review",
       "claim": "Reviewed users, groups, memberships, directory roles, devices, sign-ins, directory audits, and identity-policy state in a personal tenant.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 241,
+      "evidenceCount": 262,
       "counts": {
-        "documentation": 22,
-        "screenshots": 39,
+        "documentation": 29,
+        "screenshots": 45,
         "scripts": 1,
-        "validation": 3,
-        "scripts-output": 11,
+        "validation": 8,
+        "scripts-output": 13,
         "inventories": 29,
         "configuration": 14,
-        "reports": 18,
+        "reports": 19,
         "exports": 102,
         "manifests": 1,
         "testing": 1
@@ -597,24 +597,46 @@
         "m365-preserved-sharepoint-f617919f22529e84",
         "m365-preserved-sharepoint-f716b910bdd5ab25",
         "m365-preserved-sharepoint-f7fafacbd8ce4cab",
-        "m365-preserved-sharepoint-ff9230209c1b10c2"
+        "m365-preserved-sharepoint-ff9230209c1b10c2",
+        "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+        "m365-windows-autopilot-intune-project-20819708340bb4f8",
+        "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+        "m365-windows-autopilot-intune-project-36e15196201bb83b",
+        "m365-windows-autopilot-intune-project-43cf890f100ed666",
+        "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+        "m365-windows-autopilot-intune-project-51471878359146fd",
+        "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+        "m365-windows-autopilot-intune-project-8413d933af911085",
+        "m365-windows-autopilot-intune-project-856008c27d850112",
+        "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+        "m365-windows-autopilot-intune-project-b04e25588873eb04",
+        "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+        "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+        "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+        "m365-windows-autopilot-intune-project-d45006867e6ece74",
+        "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+        "m365-windows-autopilot-intune-project-d660ed78682720cc",
+        "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+        "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+        "m365-windows-autopilot-intune-project-f54586232bff6410"
       ]
     },
     {
       "slug": "intune",
       "label": "Intune",
       "destination": "content/microsoft-365/intune",
-      "claimId": "m365-intune-workflow-documentation",
-      "claim": "Documented endpoint-management concepts and a bounded managed-device validation attempt.",
-      "supportLevel": "documented-only",
-      "evidenceCount": 39,
+      "claimId": "m365-intune-autopilot-validation",
+      "claim": "Implemented and validated a scoped Windows Autopilot and Microsoft Intune deployment on a physical endpoint, including Entra join, MDM enrollment, ESP, required applications, security configuration, compliance remediation, and final compliant state.",
+      "supportLevel": "directly-proven",
+      "evidenceCount": 60,
       "counts": {
-        "documentation": 3,
+        "documentation": 10,
         "exports": 27,
         "inventories": 4,
-        "scripts-output": 2,
-        "reports": 1,
-        "screenshots": 2
+        "scripts-output": 4,
+        "reports": 2,
+        "screenshots": 8,
+        "validation": 5
       },
       "evidenceIds": [
         "m365-cross-cutting-evidence-governance-d8af469e4531d855",
@@ -655,7 +677,28 @@
         "m365-public-evidence-preview-cef7624b17aa91d3",
         "m365-public-m365-evidence-04f912387338d3a8",
         "m365-public-m365-evidence-aae447bd2d0ecf9a",
-        "m365-public-m365-evidence-cf0f392918c13c62"
+        "m365-public-m365-evidence-cf0f392918c13c62",
+        "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+        "m365-windows-autopilot-intune-project-20819708340bb4f8",
+        "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+        "m365-windows-autopilot-intune-project-36e15196201bb83b",
+        "m365-windows-autopilot-intune-project-43cf890f100ed666",
+        "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+        "m365-windows-autopilot-intune-project-51471878359146fd",
+        "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+        "m365-windows-autopilot-intune-project-8413d933af911085",
+        "m365-windows-autopilot-intune-project-856008c27d850112",
+        "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+        "m365-windows-autopilot-intune-project-b04e25588873eb04",
+        "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+        "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+        "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+        "m365-windows-autopilot-intune-project-d45006867e6ece74",
+        "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+        "m365-windows-autopilot-intune-project-d660ed78682720cc",
+        "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+        "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+        "m365-windows-autopilot-intune-project-f54586232bff6410"
       ]
     },
     {
@@ -1614,16 +1657,16 @@
       "claimId": "m365-security-policy-review",
       "claim": "Reviewed Conditional Access, named locations, authentication methods, authorization settings, security-default state, and related targeting records.",
       "supportLevel": "configured-not-behavior-tested",
-      "evidenceCount": 65,
+      "evidenceCount": 86,
       "counts": {
         "configuration": 17,
         "exports": 27,
-        "screenshots": 11,
-        "validation": 1,
-        "scripts-output": 2,
-        "documentation": 2,
+        "screenshots": 17,
+        "validation": 6,
+        "scripts-output": 4,
+        "documentation": 9,
         "inventories": 1,
-        "reports": 4
+        "reports": 5
       },
       "evidenceIds": [
         "m365-conditional-access-evidence-c70111e0ec9bfaa1",
@@ -1690,7 +1733,28 @@
         "m365-preserved-sharepoint-d3beefcb3bb82410",
         "m365-preserved-sharepoint-e7a7c8be5d07b730",
         "m365-preserved-sharepoint-e993d62638272753",
-        "m365-preserved-sharepoint-e9d92e43caa98413"
+        "m365-preserved-sharepoint-e9d92e43caa98413",
+        "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+        "m365-windows-autopilot-intune-project-20819708340bb4f8",
+        "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+        "m365-windows-autopilot-intune-project-36e15196201bb83b",
+        "m365-windows-autopilot-intune-project-43cf890f100ed666",
+        "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+        "m365-windows-autopilot-intune-project-51471878359146fd",
+        "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+        "m365-windows-autopilot-intune-project-8413d933af911085",
+        "m365-windows-autopilot-intune-project-856008c27d850112",
+        "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+        "m365-windows-autopilot-intune-project-b04e25588873eb04",
+        "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+        "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+        "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+        "m365-windows-autopilot-intune-project-d45006867e6ece74",
+        "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+        "m365-windows-autopilot-intune-project-d660ed78682720cc",
+        "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+        "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+        "m365-windows-autopilot-intune-project-f54586232bff6410"
       ]
     },
     {
@@ -1723,16 +1787,17 @@
       "claimId": "m365-evidence-automation",
       "claim": "Used repository-backed PowerShell and Microsoft Graph workflows to capture and organize read-only tenant evidence.",
       "supportLevel": "supported-with-limitations",
-      "evidenceCount": 663,
+      "evidenceCount": 684,
       "counts": {
         "exports": 603,
-        "documentation": 15,
-        "screenshots": 33,
+        "documentation": 22,
+        "screenshots": 39,
         "scripts": 2,
-        "validation": 3,
-        "scripts-output": 2,
+        "validation": 8,
+        "scripts-output": 4,
         "inventories": 1,
-        "configuration": 4
+        "configuration": 4,
+        "reports": 1
       },
       "evidenceIds": [
         "m365-cross-cutting-evidence-governance-031acd4c7ab33dd2",
@@ -2397,7 +2462,28 @@
         "m365-preserved-sharepoint-fd8f56f1f3e0d940",
         "m365-preserved-sharepoint-fde8bb92ab278093",
         "m365-preserved-sharepoint-fdffb35b4bbfb3e4",
-        "m365-preserved-sharepoint-fe7c46fd11d1f612"
+        "m365-preserved-sharepoint-fe7c46fd11d1f612",
+        "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+        "m365-windows-autopilot-intune-project-20819708340bb4f8",
+        "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+        "m365-windows-autopilot-intune-project-36e15196201bb83b",
+        "m365-windows-autopilot-intune-project-43cf890f100ed666",
+        "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+        "m365-windows-autopilot-intune-project-51471878359146fd",
+        "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+        "m365-windows-autopilot-intune-project-8413d933af911085",
+        "m365-windows-autopilot-intune-project-856008c27d850112",
+        "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+        "m365-windows-autopilot-intune-project-b04e25588873eb04",
+        "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+        "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+        "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+        "m365-windows-autopilot-intune-project-d45006867e6ece74",
+        "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+        "m365-windows-autopilot-intune-project-d660ed78682720cc",
+        "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+        "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+        "m365-windows-autopilot-intune-project-f54586232bff6410"
       ]
     }
   ],
@@ -2610,15 +2696,36 @@
         "m365-microsoft-365-core-f68dfaadd7c66444",
         "m365-microsoft-365-core-f917c6ac95262fd4",
         "m365-microsoft-365-core-fc14b3d889393df9",
-        "m365-microsoft-365-core-fc4d7207c0ce693a"
+        "m365-microsoft-365-core-fc4d7207c0ce693a",
+        "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+        "m365-windows-autopilot-intune-project-20819708340bb4f8",
+        "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+        "m365-windows-autopilot-intune-project-36e15196201bb83b",
+        "m365-windows-autopilot-intune-project-43cf890f100ed666",
+        "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+        "m365-windows-autopilot-intune-project-51471878359146fd",
+        "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+        "m365-windows-autopilot-intune-project-8413d933af911085",
+        "m365-windows-autopilot-intune-project-856008c27d850112",
+        "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+        "m365-windows-autopilot-intune-project-b04e25588873eb04",
+        "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+        "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+        "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+        "m365-windows-autopilot-intune-project-d45006867e6ece74",
+        "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+        "m365-windows-autopilot-intune-project-d660ed78682720cc",
+        "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+        "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+        "m365-windows-autopilot-intune-project-f54586232bff6410"
       ],
       "supportLevel": "supported-with-limitations",
       "scope": "Read-only review and evidence capture in a personal tenant.",
       "limitations": "Does not prove large-scale lifecycle ownership or privileged production administration."
     },
     {
-      "claimId": "m365-intune-workflow-documentation",
-      "claimText": "Documented endpoint-management concepts and a bounded managed-device validation attempt.",
+      "claimId": "m365-intune-autopilot-validation",
+      "claimText": "Implemented and validated a scoped Windows Autopilot and Microsoft Intune deployment on a physical endpoint, including Entra join, MDM enrollment, ESP, required applications, security configuration, compliance remediation, and final compliant state.",
       "evidenceIds": [
         "m365-intune-project-documentation-583ee809724b5361",
         "m365-intune-project-documentation-7e07b2db5011c28f",
@@ -2635,11 +2742,32 @@
         "m365-public-evidence-preview-cef7624b17aa91d3",
         "m365-public-m365-evidence-04f912387338d3a8",
         "m365-public-m365-evidence-aae447bd2d0ecf9a",
-        "m365-public-m365-evidence-cf0f392918c13c62"
+        "m365-public-m365-evidence-cf0f392918c13c62",
+        "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+        "m365-windows-autopilot-intune-project-20819708340bb4f8",
+        "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+        "m365-windows-autopilot-intune-project-36e15196201bb83b",
+        "m365-windows-autopilot-intune-project-43cf890f100ed666",
+        "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+        "m365-windows-autopilot-intune-project-51471878359146fd",
+        "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+        "m365-windows-autopilot-intune-project-8413d933af911085",
+        "m365-windows-autopilot-intune-project-856008c27d850112",
+        "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+        "m365-windows-autopilot-intune-project-b04e25588873eb04",
+        "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+        "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+        "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+        "m365-windows-autopilot-intune-project-d45006867e6ece74",
+        "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+        "m365-windows-autopilot-intune-project-d660ed78682720cc",
+        "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+        "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+        "m365-windows-autopilot-intune-project-f54586232bff6410"
       ],
-      "supportLevel": "documented-only",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement."
+      "supportLevel": "directly-proven",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations."
     },
     {
       "claimId": "m365-exchange-support-familiarity",
@@ -3552,7 +3680,28 @@
         "m365-microsoft-365-core-dfc1c0f23d583169",
         "m365-microsoft-365-core-e06c1a82a7bb26d0",
         "m365-microsoft-365-core-f3361f3ce6a22749",
-        "m365-microsoft-365-core-fc14b3d889393df9"
+        "m365-microsoft-365-core-fc14b3d889393df9",
+        "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+        "m365-windows-autopilot-intune-project-20819708340bb4f8",
+        "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+        "m365-windows-autopilot-intune-project-36e15196201bb83b",
+        "m365-windows-autopilot-intune-project-43cf890f100ed666",
+        "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+        "m365-windows-autopilot-intune-project-51471878359146fd",
+        "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+        "m365-windows-autopilot-intune-project-8413d933af911085",
+        "m365-windows-autopilot-intune-project-856008c27d850112",
+        "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+        "m365-windows-autopilot-intune-project-b04e25588873eb04",
+        "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+        "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+        "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+        "m365-windows-autopilot-intune-project-d45006867e6ece74",
+        "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+        "m365-windows-autopilot-intune-project-d660ed78682720cc",
+        "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+        "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+        "m365-windows-autopilot-intune-project-f54586232bff6410"
       ],
       "supportLevel": "configured-not-behavior-tested",
       "scope": "Personal Microsoft 365 developer tenant.",
@@ -6108,14 +6257,14 @@
       "hashAlgorithm": "sha256",
       "hash": "ad31126c041161a22f74126e24d0e9a1b16488c6ebcbb898580ef93f15fcdaa6",
       "supportedClaims": [
-        "m365-intune-workflow-documentation",
+        "m365-intune-autopilot-validation",
         "m365-security-policy-review"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "metadata-only",
       "publicRoute": null,
       "collection": "intune-project-documentation",
@@ -6152,13 +6301,13 @@
       "hashAlgorithm": "sha256",
       "hash": "540f47236ef8cde1ab4e2f539494bacd0c26e3949e19db9b6ea78573ba319aaa",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "metadata-only",
       "publicRoute": null,
       "collection": "intune-project-documentation",
@@ -8030,14 +8179,14 @@
       "hashAlgorithm": "sha256",
       "hash": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
       "supportedClaims": [
-        "m365-intune-workflow-documentation",
+        "m365-intune-autopilot-validation",
         "m365-entra-identity-review"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-device-proof-20260605-043942/intune-managed-devices.json",
       "collection": "microsoft-365-core",
@@ -8226,13 +8375,13 @@
       "hashAlgorithm": "sha256",
       "hash": "6b356d3fc39f13f7e5313688d5400636914a5550dbc980101d7436829be438b7",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-device-proof-fallback-transcript-20260605-044051.txt",
       "collection": "microsoft-365-core",
@@ -9266,13 +9415,13 @@
       "hashAlgorithm": "sha256",
       "hash": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-devices.json",
       "collection": "microsoft-365-core",
@@ -10586,13 +10735,13 @@
       "hashAlgorithm": "sha256",
       "hash": "f9e10a3d5fca56d2a5a92781c8c205e050edd980f4fb1833886fa2307293ebdd",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/README.md",
       "collection": "microsoft-365-core",
@@ -11812,13 +11961,13 @@
       "hashAlgorithm": "sha256",
       "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-devices-sanitized.csv",
       "collection": "microsoft-365-core",
@@ -11958,13 +12107,13 @@
       "hashAlgorithm": "sha256",
       "hash": "b0223d8b87fa0316673adafbcf1561f9ddadcf6795e3e17ed726c0135db71728",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-device-proof-summary.json",
       "collection": "microsoft-365-core",
@@ -12200,13 +12349,13 @@
       "hashAlgorithm": "sha256",
       "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-managed-device-errors.csv",
       "collection": "microsoft-365-core",
@@ -12394,14 +12543,14 @@
       "hashAlgorithm": "sha256",
       "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "supportedClaims": [
-        "m365-intune-workflow-documentation",
+        "m365-intune-autopilot-validation",
         "m365-entra-identity-review"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/entra-device-proof-20260605-043942/intune-managed-devices.csv",
       "collection": "microsoft-365-core",
@@ -13278,13 +13427,13 @@
       "hashAlgorithm": "sha256",
       "hash": "38dd0825ee1eb56384240dd7de8aedc8024db4643d52e16dc9891b7adfc0c3e8",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence-library/projects/microsoft-365-lab/intune-managed-device-proof-fallback-20260605-044051/intune-access-limitation-review-notes.md",
       "collection": "microsoft-365-core",
@@ -64677,13 +64826,13 @@
       "hashAlgorithm": "sha256",
       "hash": "4738c6e8d907568dbb18e2b2bc2aff0aa1c22f554898bfb5d1b87d35ee720bfd",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/assets/evidence/intune-baseline-preview.svg",
       "collection": "public-evidence-preview",
@@ -64773,13 +64922,13 @@
       "hashAlgorithm": "sha256",
       "hash": "a052b25cdfa258a7c88ade6061623c0cfdf5309df9598b8684cf3c9787b1e95f",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/experience/thumbnails/intune-profile-sample.svg",
       "collection": "public-evidence-preview",
@@ -64869,13 +65018,13 @@
       "hashAlgorithm": "sha256",
       "hash": "edfac4400050d313d6cc6b40175a94d6c409c0718df37704722a27aac4019d44",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/public/intune-validate-2024-10-05.log",
       "collection": "public-m365-evidence",
@@ -64965,13 +65114,13 @@
       "hashAlgorithm": "sha256",
       "hash": "9f0ef3490be3fb15035a2e02f20f6fcfa99eddba55caccce81a1f0ef6b7f68e0",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/public/intune-profile-sample.yaml",
       "collection": "public-m365-evidence",
@@ -65061,13 +65210,13 @@
       "hashAlgorithm": "sha256",
       "hash": "639d30b5a755fd7195964e90c90d19a375cda34f2499971879ad58102abede63",
       "supportedClaims": [
-        "m365-intune-workflow-documentation"
+        "m365-intune-autopilot-validation"
       ],
-      "skill": "Endpoint-management review",
-      "task": "Documented Intune setup concepts and a managed-device validation attempt.",
-      "result": "The evidence records the attempted workflow and the boundary that prevented a stronger result.",
-      "scope": "Personal-lab documentation and limited validation.",
-      "limitations": "Does not prove management of an enrolled device fleet or production compliance enforcement.",
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
       "publicationClassification": "public-original",
       "publicRoute": "/evidence/public/intune-profile-sample.json",
       "collection": "public-m365-evidence",
@@ -65088,6 +65237,993 @@
         "hash": "639d30b5a755fd7195964e90c90d19a375cda34f2499971879ad58102abede63",
         "size": 314,
         "verificationMethod": "current-working-tree"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-1f2ebd022ff09f89",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "validation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/06-firewall-vbs-secureboot-validation.txt",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "87a86d777720ee9f31eb2fc4563d6ea81c57d750dcc8dd98e22e6130789292d3",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 637,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/validation/windows-autopilot-intune-project/evidence/06-firewall-vbs-secureboot-validation.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "87a86d777720ee9f31eb2fc4563d6ea81c57d750dcc8dd98e22e6130789292d3",
+        "size": 637,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-20819708340bb4f8",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "screenshots",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/screenshots/04-compliance-before-remediation.webp",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "542c66d2e60a2722af32788f8e6bdcef4693bf430105cf8c96344d2894c29a1c",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 9153,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/screenshots/windows-autopilot-intune-project/evidence/screenshots/04-compliance-before-remediation.webp",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "542c66d2e60a2722af32788f8e6bdcef4693bf430105cf8c96344d2894c29a1c",
+        "size": 9153,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "screenshots",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/screenshots/01-autopilot-branded-oobe.webp",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "3f1439538f91b165270782eec1b8d1118866e6e88410f71b7fd919cd3ecdc807",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 5660,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/screenshots/windows-autopilot-intune-project/evidence/screenshots/01-autopilot-branded-oobe.webp",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "3f1439538f91b165270782eec1b8d1118866e6e88410f71b7fd919cd3ecdc807",
+        "size": 5660,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-36e15196201bb83b",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "screenshots",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/screenshots/02-esp-device-preparation.webp",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "75a5cc48c17e91b4454c7253ddf7a3ddc235c624c7cf0c838f45f6fad9b1dcec",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 6014,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/screenshots/windows-autopilot-intune-project/evidence/screenshots/02-esp-device-preparation.webp",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "75a5cc48c17e91b4454c7253ddf7a3ddc235c624c7cf0c838f45f6fad9b1dcec",
+        "size": 6014,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-43cf890f100ed666",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/lessons-learned.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "18aefc87428dd33aae1df9bf2ea32072d14928bd7f5a848f1c41209c87924f32",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 907,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/documentation/windows-autopilot-intune-project/lessons-learned.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "18aefc87428dd33aae1df9bf2ea32072d14928bd7f5a848f1c41209c87924f32",
+        "size": 907,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-4b6a2c89aa02c738",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/architecture.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "a2b23596fb5b524b251043b9cb4b190318aff28d991e5c5f1dc8c1b7cfc6674a",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 1641,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/documentation/windows-autopilot-intune-project/architecture.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "a2b23596fb5b524b251043b9cb4b190318aff28d991e5c5f1dc8c1b7cfc6674a",
+        "size": 1641,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-51471878359146fd",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/troubleshooting.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "640a159bc5a0646ef0b0b6379393da8861db57437b71df5819575cb8c4b26e82",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 1738,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/documentation/windows-autopilot-intune-project/troubleshooting.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "640a159bc5a0646ef0b0b6379393da8861db57437b71df5819575cb8c4b26e82",
+        "size": 1738,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-5f79dd2730f2aff5",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/README.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "eb6f39270213a3f876134a28f363d58da9db24355e59235372dee4892568719e",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 1446,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/documentation/windows-autopilot-intune-project/evidence/README.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "eb6f39270213a3f876134a28f363d58da9db24355e59235372dee4892568719e",
+        "size": 1446,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-8413d933af911085",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "screenshots",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/screenshots/03-esp-device-setup-complete.webp",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "034a312eb7f923956b22e1f9ecd63fd1b37efdf6da38e85fed5f1fee15c926fa",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 8162,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/screenshots/windows-autopilot-intune-project/evidence/screenshots/03-esp-device-setup-complete.webp",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "034a312eb7f923956b22e1f9ecd63fd1b37efdf6da38e85fed5f1fee15c926fa",
+        "size": 8162,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-856008c27d850112",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/README.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "da522d2e076fa1d3c438452e71294cfdf73fd895930bea261ea576797a786544",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 2069,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/documentation/windows-autopilot-intune-project/README.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "da522d2e076fa1d3c438452e71294cfdf73fd895930bea261ea576797a786544",
+        "size": 2069,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-a4ab64a8e99962c1",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "validation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/03-m365-apps-validation.txt",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "d8197ef4b2dc66d86fba8ba60c3de8d8aae9c887bc409ee4e3d39683e16f307b",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 343,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/validation/windows-autopilot-intune-project/evidence/03-m365-apps-validation.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "d8197ef4b2dc66d86fba8ba60c3de8d8aae9c887bc409ee4e3d39683e16f307b",
+        "size": 343,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-b04e25588873eb04",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "scripts-output",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/01-dsregcmd-sanitized.txt",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "55a3b702833cb0d70eeb9cf9acdff8b8bfb7ab9a1596fa0c7194805a1da0346f",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 809,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/scripts-output/windows-autopilot-intune-project/evidence/01-dsregcmd-sanitized.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "55a3b702833cb0d70eeb9cf9acdff8b8bfb7ab9a1596fa0c7194805a1da0346f",
+        "size": 809,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "screenshots",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/screenshots/05-intune-final-compliant.webp",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "d485936fddf4eebf179faf820eb6e8b02aa6d0e30cbdd6b1183c99c93ab2a7d1",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 1774,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/screenshots/windows-autopilot-intune-project/evidence/screenshots/05-intune-final-compliant.webp",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "d485936fddf4eebf179faf820eb6e8b02aa6d0e30cbdd6b1183c99c93ab2a7d1",
+        "size": 1774,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-c751f3e3717d5932",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "reports",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/portfolio-summary.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "a1c94ad131882e1e97034525ab8f9050660e44e23a3b907db26da7a4b740f0ac",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 1129,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/reports/windows-autopilot-intune-project/portfolio-summary.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "a1c94ad131882e1e97034525ab8f9050660e44e23a3b907db26da7a4b740f0ac",
+        "size": 1129,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-c8e7a35a013353fb",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/implementation.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "3ef857699c9809eb9d6359d48c57fab724a4ca0714366a51355a4a0949a26119",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 2125,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/documentation/windows-autopilot-intune-project/implementation.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "3ef857699c9809eb9d6359d48c57fab724a4ca0714366a51355a4a0949a26119",
+        "size": 2125,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-d45006867e6ece74",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "screenshots",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/screenshots/06-settings-catalog-success.webp",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "0101941e3a134b83590eb5d8b2a74d6427635580cec74fca59facb7dd63c0fc0",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations. Binary content is subject to documented manual-review limitations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 4984,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/screenshots/windows-autopilot-intune-project/evidence/screenshots/06-settings-catalog-success.webp",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "0101941e3a134b83590eb5d8b2a74d6427635580cec74fca59facb7dd63c0fc0",
+        "size": 4984,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "manual-review-required",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": true
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-d5605fda8c765e03",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "validation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/05-defender-validation.txt",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "dbfe477f8abf968808ea4538b9d2df9dcf21f3bb716c267ae6cf72be26e4461f",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 396,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/validation/windows-autopilot-intune-project/evidence/05-defender-validation.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "dbfe477f8abf968808ea4538b9d2df9dcf21f3bb716c267ae6cf72be26e4461f",
+        "size": 396,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-d660ed78682720cc",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "scripts-output",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/02-intune-enterprisemgmt-tasks-sanitized.txt",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "f4ae3234d9965ed2038de09fe4b9612f98f3d524bdc06d189dccacf9746d73b9",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 422,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/scripts-output/windows-autopilot-intune-project/evidence/02-intune-enterprisemgmt-tasks-sanitized.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "f4ae3234d9965ed2038de09fe4b9612f98f3d524bdc06d189dccacf9746d73b9",
+        "size": 422,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-d9feda1d49d6c6bb",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "validation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/validation.md",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "f5f4821d50c614161b78a481f2f3ba46f5e0cd6ebc090dc306a91ab287cd5218",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 2308,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/validation/windows-autopilot-intune-project/validation.md",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "f5f4821d50c614161b78a481f2f3ba46f5e0cd6ebc090dc306a91ab287cd5218",
+        "size": 2308,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-f2329f1334fd9485",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "validation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/04-bitlocker-validation.txt",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "64f73ce2c7169ff7098c7d1bedb8111dd082718be374dbc7861577f0e75253e0",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 389,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/evidence/validation/windows-autopilot-intune-project/evidence/04-bitlocker-validation.txt",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "64f73ce2c7169ff7098c7d1bedb8111dd082718be374dbc7861577f0e75253e0",
+        "size": 389,
+        "verificationMethod": "direct-git-object"
+      },
+      "sensitiveDataReview": {
+        "status": "automated-no-high-severity-findings",
+        "highSeverityFindings": 0,
+        "identifierFindings": 0,
+        "manualReviewRequired": false
+      }
+    },
+    {
+      "id": "m365-windows-autopilot-intune-project-f54586232bff6410",
+      "lab": "microsoft-365",
+      "technology": "intune",
+      "evidenceType": "documentation",
+      "sourceRepository": "fontenotjeremy71-hub/jeremyfontenot",
+      "sourcePath": "projects/windows-autopilot-intune/evidence/index.html",
+      "sourceCommit": "808974c9ccaf9bbbb9cf858f52335e35402eafca",
+      "sourceVerificationMethod": "direct-git-object",
+      "collectionContext": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment. This repository-only source is cataloged as metadata and is not assigned a public route.",
+      "hashAlgorithm": "sha256",
+      "hash": "b4bbf272ecbbb78eda3f9eaf234700f3b819b96d9128b9053a999d32fd084465",
+      "supportedClaims": [
+        "m365-intune-autopilot-validation",
+        "m365-entra-identity-review",
+        "m365-security-policy-review"
+      ],
+      "skill": "Windows Autopilot and Microsoft Intune endpoint administration",
+      "task": "Registered and targeted a physical Windows endpoint, completed user-driven Microsoft Entra join and Intune enrollment through branded OOBE and ESP, deployed required Microsoft 365 Apps and security settings, and remediated Secure Boot compliance.",
+      "result": "Endpoint and Intune evidence confirm Entra join, active MDM enrollment, required application deployment, BitLocker, Defender, firewall, VBS, Secure Boot, successful Settings Catalog check-in, and final compliant state.",
+      "scope": "One physical Lenovo endpoint in a scoped personal Microsoft 365 developer tenant pilot.",
+      "limitations": "Demonstrates a controlled single-device Autopilot and Intune pilot, not production fleet ownership or enterprise-scale endpoint operations.",
+      "publicationClassification": "metadata-only",
+      "publicRoute": null,
+      "collection": "windows-autopilot-intune-project",
+      "publicPath": null,
+      "size": 4070,
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "logicalDestination": "content/microsoft-365/intune/documentation/windows-autopilot-intune-project/evidence/index.html",
+      "sourceIntegrity": {
+        "algorithm": "sha256",
+        "hash": "b4bbf272ecbbb78eda3f9eaf234700f3b819b96d9128b9053a999d32fd084465",
+        "size": 4070,
+        "verificationMethod": "direct-git-object"
       },
       "sensitiveDataReview": {
         "status": "automated-no-high-severity-findings",
