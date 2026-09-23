@@ -100,6 +100,23 @@
         "entra-id"
       ],
       "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996"
+    },
+    {
+      "path": "projects/windows-autopilot-intune",
+      "collection": "windows-autopilot-intune-project",
+      "reason": "Validated Windows Autopilot and Microsoft Intune Project 1 documentation and sanitized runtime evidence from a live physical-device deployment.",
+      "sourceCommit": "5da98c91ff226ef844a4f910e6aef163c37e9381",
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "automation"
+      ],
+      "claimTechnologies": [
+        "intune",
+        "entra-id",
+        "security-compliance"
+      ]
     }
   ],
   "approvedIndividualFiles": [
@@ -361,6 +378,10 @@
     }
   ],
   "reviewedExclusions": [
+    {
+      "path": "windows-autopilot-intune.html",
+      "reason": "Public Project 1 Windows Autopilot and Intune case-study presentation page; the underlying documentation and sanitized runtime evidence are cataloged from projects/windows-autopilot-intune."
+    },
     {
       "path": "m365-messaging-security.html",
       "reason": "Public Project 3 case-study presentation page; the underlying Microsoft 365 messaging and security artifacts are cataloged from evidence-library/projects/m365-messaging-security."
