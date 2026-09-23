@@ -7,9 +7,9 @@
     "valuesInReport": "redacted; stable fingerprints only"
   },
   "summary": {
-    "artifactsReviewed": 1017,
-    "textArtifactsInspected": 978,
-    "manualReviewRequired": 39,
+    "artifactsReviewed": 1038,
+    "textArtifactsInspected": 993,
+    "manualReviewRequired": 45,
     "highSeveritySecretFindings": 0,
     "identifierFindings": 4952,
     "unresolvedPublicIdentifierFindings": 0
@@ -14474,6 +14474,48 @@
           ]
         }
       ]
+    },
+    {
+      "evidenceId": "m365-windows-autopilot-intune-project-278b5b4c9e49540a",
+      "path": "projects/windows-autopilot-intune/evidence/screenshots/01-autopilot-branded-oobe.webp",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-windows-autopilot-intune-project-36e15196201bb83b",
+      "path": "projects/windows-autopilot-intune/evidence/screenshots/02-esp-device-preparation.webp",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-windows-autopilot-intune-project-8413d933af911085",
+      "path": "projects/windows-autopilot-intune/evidence/screenshots/03-esp-device-setup-complete.webp",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-windows-autopilot-intune-project-20819708340bb4f8",
+      "path": "projects/windows-autopilot-intune/evidence/screenshots/04-compliance-before-remediation.webp",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-windows-autopilot-intune-project-b58b03eea4e040fd",
+      "path": "projects/windows-autopilot-intune/evidence/screenshots/05-intune-final-compliant.webp",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
+    },
+    {
+      "evidenceId": "m365-windows-autopilot-intune-project-d45006867e6ece74",
+      "path": "projects/windows-autopilot-intune/evidence/screenshots/06-settings-catalog-success.webp",
+      "publicationClassification": "metadata-only",
+      "status": "manual-review-required",
+      "findings": []
     }
   ]
 }
