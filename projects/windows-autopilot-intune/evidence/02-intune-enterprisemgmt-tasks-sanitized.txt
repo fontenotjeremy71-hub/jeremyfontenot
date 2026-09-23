@@ -1,0 +1,12 @@
+Project: Windows Autopilot & Intune MDM Provisioning
+Evidence: Local Intune MDM enrollment scheduled tasks
+Date: 2026-09-22
+
+EnterpriseMgmt enrollment task sets were present and Ready.
+
+Observed tasks:
+- Login Schedule created by enrollment client — Ready
+- PushLaunch — Ready
+- PushRenewal — Ready
+
+Two EnterpriseMgmt enrollment GUID paths were present. GUID values are intentionally redacted from public evidence.

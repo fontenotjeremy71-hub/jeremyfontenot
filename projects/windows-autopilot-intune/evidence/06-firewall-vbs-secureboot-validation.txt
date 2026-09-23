@@ -1,0 +1,23 @@
+Project: Windows Autopilot & Intune MDM Provisioning
+Evidence: Firewall, Virtualization Based Security, and Secure Boot validation
+Date: 2026-09-22
+
+Windows Firewall
+----------------
+Domain  : True
+Private : True
+Public  : True
+
+Virtualization Based Security
+-----------------------------
+VirtualizationBasedSecurityStatus : 2
+SecurityServicesConfigured        : {2}
+SecurityServicesRunning           : {2}
+
+Secure Boot remediation
+-----------------------
+Initial Confirm-SecureBootUEFI : False
+Firmware remediation          : Secure Boot enabled
+Final Confirm-SecureBootUEFI   : True
+
+Intune subsequently reported the device Compliant.

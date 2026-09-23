@@ -1,0 +1,9 @@
+Project: Windows Autopilot & Intune MDM Provisioning
+Evidence: Microsoft 365 Apps post-enrollment validation
+Date: 2026-09-22
+
+ProductReleaseIds : O365ProPlusRetail
+Platform          : x64
+UpdateChannel     : Microsoft Office CDN channel configured
+
+Result: Microsoft 365 Apps installed successfully as the required Autopilot/ESP application.
