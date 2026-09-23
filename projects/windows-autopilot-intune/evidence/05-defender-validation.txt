@@ -1,0 +1,11 @@
+Project: Windows Autopilot & Intune MDM Provisioning
+Evidence: Microsoft Defender validation
+Date: 2026-09-22
+
+AntivirusEnabled                : True
+AntispywareEnabled              : True
+RealTimeProtectionEnabled       : True
+BehaviorMonitorEnabled          : True
+IoavProtectionEnabled           : True
+AntivirusSignatureLastUpdated   : 2026-09-22
+AntispywareSignatureLastUpdated : 2026-09-22
