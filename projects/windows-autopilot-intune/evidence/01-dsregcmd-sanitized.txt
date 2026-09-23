@@ -1,0 +1,36 @@
+Project: Windows Autopilot & Intune MDM Provisioning
+Evidence: Post-Autopilot Microsoft Entra join and SSO validation
+Date: 2026-09-22
+
+Device State
+------------
+AzureAdJoined : YES
+EnterpriseJoined : NO
+DomainJoined : NO
+Virtual Desktop : NOT SET
+
+Device Details
+--------------
+TpmProtected : YES
+DeviceAuthStatus : SUCCESS
+
+User State
+----------
+WorkplaceJoined : NO
+WamDefaultSet : YES
+WamDefaultAuthority : organizations
+
+SSO State
+---------
+AzureAdPrt : YES
+EnterprisePrt : NO
+CloudTgt : YES
+
+Diagnostic Data
+---------------
+DisplayNameUpdated : Managed by MDM
+OsVersionUpdated : Managed by MDM
+HostNameUpdated : YES
+KeySignTest : PASSED
+
+Redacted: device name/serial-derived value, DeviceId, certificate thumbprint, key container ID, tenant ID, user identifiers, URLs containing tenant-specific values.
