@@ -21,7 +21,8 @@
     "home-lab",
     "evidence",
     "projects/windows-laps-gpo/evidence",
-    "projects/entra-cloud-sync/evidence"
+    "projects/entra-cloud-sync/evidence",
+    "projects/windows-autopilot-intune/evidence"
   ],
   "forbiddenOutputRoots": [
     ".git",
