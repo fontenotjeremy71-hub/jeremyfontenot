@@ -100,6 +100,24 @@
         "entra-id"
       ],
       "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996"
+    },
+    {
+      "path": "projects/windows-autopilot-intune",
+      "collection": "windows-autopilot-intune-project",
+      "reason": "Validated Windows Autopilot and Microsoft Intune MDM provisioning project covering user-driven Microsoft Entra join, branded OOBE, Enrollment Status Page, required Microsoft 365 Apps, endpoint security, compliance troubleshooting, and sanitized validation evidence.",
+      "technologyRelationships": [
+        "intune",
+        "entra-id",
+        "security-compliance",
+        "applications",
+        "automation"
+      ],
+      "claimTechnologies": [
+        "intune",
+        "entra-id",
+        "security-compliance"
+      ],
+      "sourceCommit": "29584ec6e46efe5bab16ba3398394381cabebc2c"
     }
   ],
   "approvedIndividualFiles": [
@@ -740,6 +758,10 @@
     {
       "path": "systems-skills/evidence-map.html",
       "reason": "Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."
+    },
+    {
+      "path": "windows-autopilot-intune.html",
+      "reason": "Recruiter-facing Project 1 case-study route; the underlying validated project artifacts are cataloged under projects/windows-autopilot-intune."
     }
   ]
 }
