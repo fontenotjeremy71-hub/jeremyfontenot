@@ -41,9 +41,9 @@
       "slug": "intune",
       "label": "Intune",
       "destination": "content/microsoft-365/intune",
-      "claimId": "m365-intune-workflow-documentation",
-      "claim": "Documented endpoint-management concepts and a bounded managed-device validation attempt.",
-      "supportLevel": "documented-only"
+      "claimId": "m365-intune-autopilot-validation",
+      "claim": "Implemented and validated a scoped Windows Autopilot and Microsoft Intune deployment on a physical endpoint, including Entra join, MDM enrollment, ESP, required applications, security configuration, compliance remediation, and final compliant state.",
+      "supportLevel": "directly-proven"
     },
     {
       "slug": "exchange-online",
