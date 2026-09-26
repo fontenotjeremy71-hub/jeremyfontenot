@@ -77,18 +77,3 @@ True
 ```
 
 No recovery keys, passwords, tokens, device IDs, certificate thumbprints, or hardware serial numbers are included.
-
-
-## Post-project lifecycle validation — 2026-09-26
-
-After the completed Autopilot pilot, the physical endpoint was intentionally repurposed as `LT-JF01` in the on-premises AD DS lab. This is a later lifecycle state, not part of the Autopilot success criteria.
-
-Validated transition outcomes:
-
-- Microsoft Entra registration/join removed before the AD DS transition.
-- `LT-JF01` joined `ad.jeremyfontenot.online` and interactive `JFAD` domain sign-in succeeded.
-- `Test-ComputerSecureChannel -Verbose` returned `True`.
-- `nltest /dsgetdc:ad.jeremyfontenot.online` discovered `DC01.ad.jeremyfontenot.online` at `10.10.20.10`.
-- Windows Time synchronized from `DC01.ad.jeremyfontenot.online`.
-- `gpresult /r` showed computer policy applied from DC01, including the Default Domain Policy and four baseline GPOs for Windows Firewall, RDP restrictions, PowerShell logging, and Windows Update.
-- Over the rebuilt OpenVPN path, SMB TCP 445 and RPC TCP 135 succeeded from the VPN client address; remote session enumeration, Group Policy refresh, and administrative RDP to DC01 were also validated.
