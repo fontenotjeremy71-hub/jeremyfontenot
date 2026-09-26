@@ -20,8 +20,4 @@ Public evidence is sanitized. Passwords, recovery keys, MFA codes, private keys,
 - `05-defender-validation.txt`
 - `06-firewall-vbs-secureboot-validation.txt`
 
-## Post-project lifecycle evidence
-
-The endpoint's later AD DS transition is documented in [`../validation.md`](../validation.md#post-project-lifecycle-validation--2026-09-26). It is intentionally separated from the historical Autopilot state.
-
 See [validation.md](../validation.md) for the consolidated validation matrix.
