@@ -18,8 +18,5 @@ The Autopilot profile intentionally created a standard user. BitLocker managemen
 ## Initial compliance failure
 The first compliance report showed BitLocker and Secure Boot as not compliant. Local BitLocker validation showed the OS volume was already fully encrypted. `Confirm-SecureBootUEFI` returned `False`, identifying the real firmware gap. Secure Boot was enabled in UEFI, then an Intune sync was performed. Final compliance changed to `Compliant`.
 
-## Management boundary during Autopilot validation
-During the completed Autopilot validation, the endpoint was Microsoft Entra joined and Intune-managed rather than AD DS domain joined. Intune/MDM was the authoritative management path for that project phase.
-
-## Post-project lifecycle transition
-After the Autopilot evidence was captured and the pilot was complete, the same physical endpoint was intentionally removed from the Autopilot/Entra pilot and returned to the on-premises lab as `LT-JF01`. The later AD DS state is documented separately so it does not overwrite or misrepresent the historical Autopilot validation.
+## Management boundary
+After Autopilot, the endpoint is Microsoft Entra joined and Intune-managed rather than AD DS domain joined. Intune/MDM is the authoritative management path for this project endpoint.
