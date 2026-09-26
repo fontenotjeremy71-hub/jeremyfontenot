@@ -13,8 +13,3 @@ A real compliance issue was identified and remediated: Secure Boot was disabled 
 The Autopilot user remains a standard user. Administrative elevation is provided separately through the Microsoft Entra Device Administrators role.
 
 **Status: COMPLETE**
-
-
-## Device lifecycle follow-through
-
-After the Autopilot pilot was completed and its evidence preserved, the same physical endpoint was intentionally transitioned back into the on-premises lab as `LT-JF01`. Domain authentication, secure channel, DC discovery, domain time, Group Policy, SMB, RPC, VPN transport, and RDP were validated in the new AD DS state. This later lifecycle state is documented separately from the completed Autopilot results.
