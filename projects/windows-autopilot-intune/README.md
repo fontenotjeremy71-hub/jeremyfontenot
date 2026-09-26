@@ -35,4 +35,4 @@ Public evidence excludes passwords, recovery keys, MFA codes, private SSH keys, 
 
 After the Autopilot/Intune validation was completed, the same physical endpoint was intentionally removed from the Autopilot/Entra-managed pilot and repurposed as `LT-JF01`, a member workstation in the on-premises `ad.jeremyfontenot.online` lab domain. This later transition does not change the completed Autopilot results above; it demonstrates controlled device lifecycle management and recovery to a known-good AD DS state.
 
-See [lifecycle-transition.md](lifecycle-transition.md) for the post-project transition and [evidence/README.md](evidence/README.md) for the evidence index.
+See [validation.md](validation.md#post-project-lifecycle-validation--2026-09-26) for the post-project transition validation and [evidence/README.md](evidence/README.md) for the evidence index.
