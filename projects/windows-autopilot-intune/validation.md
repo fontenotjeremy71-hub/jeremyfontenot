@@ -92,5 +92,3 @@ Validated transition outcomes:
 - Windows Time synchronized from `DC01.ad.jeremyfontenot.online`.
 - `gpresult /r` showed computer policy applied from DC01, including the Default Domain Policy and four baseline GPOs for Windows Firewall, RDP restrictions, PowerShell logging, and Windows Update.
 - Over the rebuilt OpenVPN path, SMB TCP 445 and RPC TCP 135 succeeded from the VPN client address; remote session enumeration, Group Policy refresh, and administrative RDP to DC01 were also validated.
-
-See `evidence/07-post-autopilot-lifecycle-validation.txt` for the sanitized validation summary.
