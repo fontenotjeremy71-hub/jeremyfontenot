@@ -1,0 +1,54 @@
+POST-AUTOPILOT DEVICE LIFECYCLE VALIDATION
+Date: 2026-09-26
+Endpoint: LT-JF01
+Scope: Post-project lifecycle validation
+
+AD DS DOMAIN
+Domain: ad.jeremyfontenot.online
+NetBIOS: JFAD
+Domain controller: DC01.ad.jeremyfontenot.online
+DC address: 10.10.20.10
+
+SECURE CHANNEL
+Test-ComputerSecureChannel -Verbose
+Result: True
+Secure channel between LT-JF01 and ad.jeremyfontenot.online: good condition
+
+DOMAIN CONTROLLER DISCOVERY
+nltest /dsgetdc:ad.jeremyfontenot.online
+DC: DC01.ad.jeremyfontenot.online
+Address: 10.10.20.10
+Result: command completed successfully
+Capabilities observed: PDC, GC, LDAP, KDC, time service, writable DC, DNS
+
+TIME
+w32tm /query /status
+Source: DC01.ad.jeremyfontenot.online
+Reference source IP: 10.10.20.10
+Leap Indicator: no warning
+Last successful synchronization: 2026-09-26
+
+GROUP POLICY
+gpresult /r
+Computer: LT-JF01
+Domain: JFAD
+Policy source: DC01.ad.jeremyfontenot.online
+Slow link: No
+Applied computer GPOs:
+- Default Domain Policy
+- GPO - Baseline - Windows Firewall
+- GPO - Baseline - RDP Restrictions
+- GPO - Baseline - PowerShell Logging
+- GPO - Baseline - Windows Update
+
+VPN / REMOTE SERVICES
+VPN client network: 10.10.40.0/24
+SMB TCP 445 to DC01: True
+RPC TCP 135 to DC01: True
+Remote session enumeration: succeeded
+Group Policy refresh: computer and user policy succeeded
+Administrative RDP to DC01: succeeded
+pfSense state policy after validation: Interface Bound States
+
+SECURITY / PRIVACY
+Passwords, keys, tokens, unique device identifiers, certificate material, and recovery secrets are excluded.
