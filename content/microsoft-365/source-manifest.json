@@ -117,22 +117,6 @@
         "entra-id",
         "security-compliance"
       ]
-    },
-    {
-      "path": "projects/macos-abm-intune-runbook",
-      "collection": "macos-abm-intune-runbook-project",
-      "reason": "Project 5 macOS enterprise management runbook containing real Microsoft Intune configuration, sanitized screenshot evidence, explicit Apple Business Manager/ADE simulation boundaries, operational renewal guidance, lifecycle documentation, and validation records.",
-      "sourceCommit": "7e23a83233e1dbfcb329922b3b93f003069a1a88",
-      "technologyRelationships": [
-        "intune",
-        "entra-id",
-        "security-compliance"
-      ],
-      "claimTechnologies": [
-        "intune",
-        "entra-id",
-        "security-compliance"
-      ]
     }
   ],
   "approvedIndividualFiles": [
@@ -394,6 +378,58 @@
     }
   ],
   "reviewedExclusions": [
+    {
+      "path": "projects/macos-abm-intune-runbook/validation.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/troubleshooting.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/simulated-deployment-scenario.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/renewal-calendar.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/portfolio-summary.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/lessons-learned.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/implementation.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/evidence/index.html",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/evidence/evidence-board-security.webp",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/evidence/README.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/device-lifecycle.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/architecture.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/README.md",
+      "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
+    },
     {
       "path": "macos-abm-intune-runbook.html",
       "reason": "Public Project 5 macOS ABM-to-Intune case-study presentation page; the underlying runbook, validation records, and sanitized screenshot evidence are cataloged from projects/macos-abm-intune-runbook."
