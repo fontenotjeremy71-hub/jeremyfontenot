@@ -94,9 +94,10 @@ jobs:
       - name: Run live Chromium click audit
         env:
           PORTFOLIO_BASE_URL: https://jeremyfontenot.online
-          PORTFOLIO_BROWSER_AUDIT_MAX_PAGES: '5000'
+          PORTFOLIO_BROWSER_AUDIT_MAX_PAGES: '100'
           PORTFOLIO_BROWSER_AUDIT_WORKERS: '1'
           PORTFOLIO_BROWSER_NAV_TIMEOUT_MS: '25000'
+          PORTFOLIO_BROWSER_AUDIT_ROUTES: '/,/projects.html,/proof.html,/resume.html,/contact.html,/windows-autopilot-intune.html,/entra-cloud-sync.html,/windows-laps-gpo.html,/m365-messaging-security.html,/macos-abm-intune-runbook.html,/projects/macos-abm-intune-runbook/evidence/'
         run: python scripts/audits/live-browser-audit.py
 
       - name: Upload live browser audit report

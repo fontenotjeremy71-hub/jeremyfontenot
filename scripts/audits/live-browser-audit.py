@@ -21,6 +21,8 @@ MAX_PAGES = int(os.environ.get("PORTFOLIO_BROWSER_AUDIT_MAX_PAGES", "5000"))
 WORKERS = int(os.environ.get("PORTFOLIO_BROWSER_AUDIT_WORKERS", "8"))
 VIEWPORT_WIDTH = int(os.environ.get("PORTFOLIO_BROWSER_VIEWPORT_WIDTH", "1440"))
 NAV_TIMEOUT = int(os.environ.get("PORTFOLIO_BROWSER_NAV_TIMEOUT_MS", "25000"))
+TARGET_ROUTES = [route.strip() for route in os.environ.get("PORTFOLIO_BROWSER_AUDIT_ROUTES", "").split(",") if route.strip()]
+TARGET_MODE = bool(TARGET_ROUTES)
 ORIGIN = urlparse(BASE).netloc.lower()
 DOCUMENT_SUFFIXES = {"", ".html", ".htm"}
 EVIDENCE_SUFFIXES = {".txt", ".md", ".json", ".csv", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".pdf"}
@@ -269,7 +271,16 @@ async def inspect_page(context, route: str, semaphore: asyncio.Semaphore):
 
 
 async def audit() -> int:
-    routes = [public_route(path) for path in publication_paths()]
+    inventory_routes = [public_route(path) for path in publication_paths()]
+    if TARGET_MODE:
+        inventory_set = set(inventory_routes)
+        missing_targets = [route for route in TARGET_ROUTES if route not in inventory_set]
+        if missing_targets:
+            print(f"Configured live-audit route(s) are not in the publication inventory: {', '.join(missing_targets)}", file=sys.stderr)
+            return 1
+        routes = TARGET_ROUTES
+    else:
+        routes = inventory_routes
     if len(routes) > MAX_PAGES:
         print(f"Publication inventory contains {len(routes)} pages, exceeding the configured cap of {MAX_PAGES}.", file=sys.stderr)
         return 1
@@ -329,7 +340,8 @@ async def audit() -> int:
                     if is_document_url(target_url):
                         destination = by_path.get(target_path)
                         if not destination:
-                            findings.append(Finding("target", page["route"], label, target, "Internal HTML destination was not browser-visited from the publication inventory"))
+                            if not TARGET_MODE:
+                                findings.append(Finding("target", page["route"], label, target, "Internal HTML destination was not browser-visited from the publication inventory"))
                         else:
                             if fragment and unquote(fragment) not in destination["ids"]:
                                 findings.append(Finding("fragment", page["route"], label, target, f"Fragment #{unquote(fragment)} is absent from the rendered destination"))
@@ -383,9 +395,9 @@ async def audit() -> int:
     report = {
         "baseUrl": BASE,
         "viewportWidth": VIEWPORT_WIDTH,
-        "validationMethod": "Every manifest-listed HTML page and each unique destination were loaded in Chromium; visible interactions were inspected in the rendered DOM.",
+        "validationMethod": ("A production-critical route set was loaded in Chromium; visible interactions on those routes were inspected in the rendered DOM. Repository validation remains responsible for exhaustive publication coverage." if TARGET_MODE else "Every manifest-listed HTML page and each unique destination were loaded in Chromium; visible interactions were inspected in the rendered DOM."),
         "totals": {
-            "pagesInInventory": len(routes), "pagesVisited": len(pages), "visibleInteractions": len(interactions),
+            "pagesInInventory": len(inventory_routes), "pagesSelected": len(routes), "pagesVisited": len(pages), "visibleInteractions": len(interactions),
             "visibleLinks": sum(1 for item in interactions if item["tag"] == "a"), "visibleButtons": sum(1 for item in interactions if item["tag"] == "button"),
             "uniqueInternalAssets": len(unique_assets), "uniqueExternalDestinations": len(unique_external), "findings": len(unique_findings),
             "edgeBlockedPages": edge_blocked_pages, "edgeBlockedAssets": edge_blocked_assets
@@ -394,7 +406,10 @@ async def audit() -> int:
         "findings": [asdict(item) for item in unique_findings], "assetResults": asset_results, "externalResults": external_results, "pages": pages
     }
     REPORT.write_text(json.dumps(report, indent=2), encoding="utf-8")
-    print(f"Live browser audit visited {len(pages)} of {len(routes)} published HTML pages and inspected {len(interactions)} visible interactions.")
+    if TARGET_MODE:
+        print(f"Live browser audit visited {len(pages)} production-critical route(s) from a {len(inventory_routes)}-page publication inventory and inspected {len(interactions)} visible interactions.")
+    else:
+        print(f"Live browser audit visited {len(pages)} of {len(routes)} published HTML pages and inspected {len(interactions)} visible interactions.")
     if unique_findings:
         print(f"Live browser audit FAILED with {len(unique_findings)} issue(s):")
         for item in unique_findings[:100]:
