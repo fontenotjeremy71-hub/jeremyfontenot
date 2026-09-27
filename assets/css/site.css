@@ -337,3 +337,58 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     padding-inline: 14px;
   }
 }
+
+
+/* Project 5 — macOS / Intune control-plane case study */
+.macos-project{position:relative;overflow:hidden;background:
+radial-gradient(circle at 84% 8%,rgba(94,231,255,.08),transparent 26%),
+radial-gradient(circle at 18% 30%,rgba(215,92,255,.07),transparent 28%)}
+.macos-project::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:
+linear-gradient(rgba(94,231,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(94,231,255,.025) 1px,transparent 1px);
+background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.72),transparent 72%)}
+.macos-project>.section,.macos-project>.page-hero{position:relative;z-index:1}
+.macos-hero{padding-block:clamp(4.5rem,9vw,8rem);border-bottom:1px solid rgba(94,231,255,.12)}
+.macos-hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);gap:clamp(2.5rem,6vw,6rem);align-items:center}
+.macos-hero h1{max-width:14ch;font-size:clamp(3.3rem,6vw,6.4rem)}
+.macos-orbit{position:relative;min-height:420px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
+background:radial-gradient(circle,rgba(94,231,255,.08),rgba(215,92,255,.025) 36%,transparent 64%);
+border:1px solid rgba(94,231,255,.16);box-shadow:inset 0 0 80px rgba(94,231,255,.04),0 0 90px rgba(215,92,255,.08)}
+.macos-orbit::before,.macos-orbit::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(148,163,184,.14)}
+.macos-orbit::before{inset:13%}.macos-orbit::after{inset:29%}
+.orbit-core{position:relative;z-index:3;display:grid;place-items:center;width:128px;aspect-ratio:1;border-radius:50%;
+font-weight:950;letter-spacing:.13em;color:#07111f;background:linear-gradient(135deg,var(--cyan),#80a7ff 48%,var(--magenta));
+box-shadow:0 0 60px rgba(94,231,255,.24),0 0 80px rgba(215,92,255,.18)}
+.orbit-node{position:absolute;z-index:2;padding:.5rem .7rem;border:1px solid rgba(94,231,255,.34);border-radius:999px;
+background:rgba(7,17,31,.88);color:#dcecff;font-size:.68rem;font-weight:900;letter-spacing:.09em;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.node-1{top:8%;left:39%}.node-2{top:28%;right:4%}.node-3{bottom:23%;right:7%}.node-4{bottom:5%;left:37%}.node-5{bottom:25%;left:4%}.node-6{top:29%;left:2%}
+.macos-status-band .metric{background:linear-gradient(145deg,rgba(13,31,52,.96),rgba(7,18,32,.96));border-color:rgba(94,231,255,.18)}
+.macos-flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;position:relative}
+.macos-flow::before{content:"";position:absolute;left:6%;right:6%;top:34px;height:1px;background:linear-gradient(90deg,var(--magenta),var(--cyan),var(--magenta));opacity:.28}
+.macos-flow>div{position:relative;z-index:1;min-height:160px;padding:20px 16px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(14,28,48,.96),rgba(8,19,34,.92));box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.macos-flow span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;margin-bottom:20px;background:#0a1728;border:1px solid #355574;color:var(--cyan);font-weight:900}
+.macos-flow strong{display:block;line-height:1.15}.macos-flow small{display:block;margin-top:12px;color:#94a9c0;font-size:.68rem;letter-spacing:.08em}
+.macos-flow .flow-real{border-color:rgba(94,231,255,.42);background:linear-gradient(145deg,rgba(18,57,76,.62),rgba(18,22,48,.94))}
+.macos-glass{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(18,37,62,.84),rgba(8,19,34,.76));backdrop-filter:blur(12px)}
+.macos-glass::after{content:"";position:absolute;width:220px;aspect-ratio:1;right:-80px;bottom:-100px;border-radius:50%;border:1px solid rgba(94,231,255,.08);box-shadow:0 0 0 45px rgba(215,92,255,.018),0 0 0 90px rgba(94,231,255,.012)}
+.macos-boundary{border-color:rgba(215,92,255,.28)}
+.macos-cap-grid .panel{min-height:210px;position:relative;overflow:hidden}
+.macos-cap-grid .panel::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent 42%,var(--magenta));opacity:.55}
+.macos-evidence-section{background:linear-gradient(180deg,rgba(5,13,25,.38),rgba(11,21,39,.72))}
+.macos-doc-strip{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.macos-doc-strip a{display:inline-flex;align-items:center;min-height:42px;padding:9px 13px;border:1px solid #355574;border-radius:999px;text-decoration:none;background:rgba(8,20,36,.72);color:#dfeaf6;font-weight:800;font-size:.8rem}
+.macos-doc-strip a:hover{border-color:var(--magenta);color:#fff;background:linear-gradient(90deg,rgba(94,231,255,.08),rgba(215,92,255,.14))}
+@media(max-width:1100px){.macos-hero-grid{grid-template-columns:1fr}.macos-orbit{width:min(100%,520px);margin-inline:auto}.macos-flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.macos-hero{padding-block:3.25rem}.macos-hero h1{font-size:clamp(2.55rem,12vw,4rem)}.macos-orbit{min-height:310px}.orbit-core{width:100px}.orbit-node{font-size:.58rem;padding:.4rem .55rem}.macos-flow{grid-template-columns:1fr 1fr}.macos-flow::before{display:none}.macos-flow>div{min-height:140px}}
+@media(prefers-reduced-motion:reduce){.macos-project *{scroll-behavior:auto}}
+
+.macos-shot-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:20px;align-items:stretch;margin:0 0 28px}
+.macos-shot-card,.macos-shot-note{min-width:0;border:1px solid rgba(94,231,255,.18);border-radius:20px;background:linear-gradient(145deg,rgba(16,34,57,.94),rgba(7,18,32,.94));box-shadow:0 24px 60px rgba(0,0,0,.24);overflow:hidden}
+.macos-shot-card{margin:0}.macos-shot-card a{display:block;overflow:hidden}.macos-shot-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .35s ease,filter .35s ease}.macos-shot-card a:hover img{transform:scale(1.018);filter:saturate(1.08) contrast(1.03)}
+.macos-shot-card figcaption{padding:16px 18px;color:#afc0d4;font-size:.9rem;line-height:1.55}.macos-shot-card figcaption strong{color:#fff}
+.macos-shot-note{padding:clamp(1.5rem,3vw,2.25rem);position:relative}.macos-shot-note::after{content:"";position:absolute;width:170px;aspect-ratio:1;right:-65px;bottom:-75px;border-radius:50%;border:1px solid rgba(215,92,255,.12);box-shadow:0 0 0 35px rgba(94,231,255,.018)}
+.macos-shot-note h3{font-size:clamp(1.45rem,2.3vw,2.1rem);line-height:1.08;margin:.35em 0 .55em}.macos-shot-note p{color:#b8c6d8}
+.macos-evidence-page{min-height:100vh;background:radial-gradient(circle at 78% 7%,rgba(94,231,255,.08),transparent 28%),radial-gradient(circle at 18% 40%,rgba(215,92,255,.06),transparent 30%),var(--bg)}
+.macos-evidence-board{margin:0;border:1px solid rgba(94,231,255,.18);border-radius:22px;background:linear-gradient(145deg,rgba(16,34,57,.94),rgba(7,18,32,.94));overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.28)}
+.macos-evidence-board a{display:block}.macos-evidence-board img{display:block;width:100%;height:auto}.macos-evidence-board figcaption{padding:18px 20px;color:#afc0d4;line-height:1.55}.macos-evidence-board figcaption strong{color:#fff}
+@media(max-width:850px){.macos-shot-grid{grid-template-columns:1fr}}

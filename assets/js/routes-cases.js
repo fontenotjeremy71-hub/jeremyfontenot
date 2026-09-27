@@ -8,4 +8,131 @@ routes['/windows-admin-center-lab.html']=wrap('Windows Admin Center Lab Manageme
 routes['/infrastructure.html']=wrap('Infrastructure | Jeremy Fontenot','Supporting virtualization, network, and Azure Arc infrastructure projects.','Projects',hero('Infrastructure depth','Virtualization, management, networking, and hybrid control.','Supporting infrastructure projects strengthen the Microsoft administration story without competing with the primary Windows and identity projects.')+`<section class="section"><div class="wrap grid grid-2"><article id="scvmm" class="panel"><span class="tile-code">PROJECT 05 · SCVMM 2022</span><h3>Hyper-V management</h3><p>Host and VM inventory, vSwitch state, network configuration, and centralized virtualization administration on Windows Server 2022.</p><div class="proof-links"><a href="/evidence-library/projects/on-prem-home-lab/scvmm-2022/">Open SCVMM case study</a></div></article><article id="azure-arc" class="panel"><span class="tile-code">PROJECT 06 · AZURE ARC</span><h3>Hybrid Windows management</h3><p>Azure Connected Machine Agent onboarding, resource-group placement, tags, outbound connectivity, and hybrid-management validation.</p><div class="proof-links"><a href="/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/">Open Azure Arc case study</a></div></article><article class="panel"><span class="tile-code">HYPER-V</span><h3>Nested virtualization lab</h3><p>HVHOST01 provides a Windows Server 2022 Hyper-V layer inside the broader home lab for Microsoft virtualization practice.</p><div class="proof-links"><a href="/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html">View Home Lab evidence</a></div></article><article class="panel"><span class="tile-code">NETWORK</span><h3>pfSense and segmented paths</h3><p>Remote-management traffic is scoped with firewall rules and tested with direct connectivity checks before management tooling is blamed.</p><div class="proof-links"><a href="/evidence-library/network/network-infrastructure-validation-report-2026.html">View network evidence</a></div></article></div></section>`);
 routes['/app01-storage-expansion.html']=wrap('APP01 Hyper-V Storage Expansion | Jeremy Fontenot','A documented Hyper-V storage expansion showing change control, guest validation, and before/after state.','Projects',casePage('APP01 Hyper-V Storage Expansion','Project 07 · validated','A documented Hyper-V storage expansion showing change control, guest validation, and before/after state.',[['APP01','Target VM'],['Hyper-V','Platform'],['VHDX','Virtual disk'],['Validated','Guest volume']],[['change','Change','Virtual disk and filesystem expansion','<p>APP01 storage was expanded through the virtualization layer and then validated inside Windows. The project documents capacity before and after the change and confirms the filesystem recognized the additional space.</p>'],['method','Method','Smallest necessary change','<p>The task was handled as a scoped infrastructure change: inspect state, expand the correct virtual disk, rescan/extend the guest volume, then capture post-change validation.</p>'],['validation','Validation','Before/after state preserved','<p>The documented workflow records storage state before expansion, the virtualization-side change, guest detection, volume extension, and final free-space validation. No separate public evidence artifact is currently linked from this rebuilt page.</p>']],[]));
 routes['/home-lab-operations-proof.html']=wrap('Home Lab Operations Proof | Jeremy Fontenot','Cross-platform lab operations and troubleshooting methodology.','Projects',hero('Project 08 · operations method','Cross-platform administration with a Microsoft center of gravity.','Windows remains the primary administration track; Linux, macOS, pfSense, and Proxmox support broader troubleshooting and infrastructure understanding.')+`<section class="section"><div id="inventory" class="wrap grid grid-3"><article id="validation" class="panel"><span class="tile-code">WINDOWS</span><h3>Server and endpoint operations</h3><p>PowerShell, WinRM, WMI, Event Viewer, Group Policy, AD tools, Windows Admin Center, Hyper-V, and SCVMM.</p><div class="proof-links"><a href="/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html">View Home Lab evidence</a></div></article><article id="sssd" class="panel"><span class="tile-code">LINUX</span><h3>Domain integration</h3><p>Linux01 was joined to the AD domain with SSSD/Kerberos and validated AD user authentication and group-based access.</p><div class="proof-links"><a href="/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.html">View Linux validation</a></div></article><article id="boundaries" class="panel"><span class="tile-code">macOS</span><h3>Cross-platform endpoint practice</h3><p>macOS lab work is documented as supporting capability and is not presented as production Mac fleet administration.</p></article></div></section>`);
+routes['/macos-abm-intune-runbook.html']=wrap(
+  'macOS ABM to Intune Enterprise Runbook | Jeremy Fontenot',
+  'Portfolio-quality macOS enterprise management runbook using real Microsoft Intune configuration with clearly separated Apple Business Manager and ADE simulation.',
+  'Projects',
+  `<div class="macos-project">
+  <section class="page-hero macos-hero">
+    <div class="wrap macos-hero-grid">
+      <div>
+        <p class="eyebrow">M365 Lab Project 05 · COMPLETE</p>
+        <h1>macOS management, designed like an <span class="accent">enterprise control plane.</span></h1>
+        <p class="lead">Real Microsoft Intune configuration for APNs, macOS compliance, and FileVault—paired with a rigorously bounded Apple Business Manager, ADE, Platform SSO, certificate, and lifecycle runbook.</p>
+        ${actions([['Explore proof','/proof.html#macos-abm-intune-proof'],['Review documentation','https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/main/projects/macos-abm-intune-runbook']])}
+      </div>
+      <div class="macos-orbit" aria-label="Architecture overview">
+        <span class="orbit-core">INTUNE</span>
+        <span class="orbit-node node-1">ABM</span>
+        <span class="orbit-node node-2">ADE</span>
+        <span class="orbit-node node-3">ENTRA</span>
+        <span class="orbit-node node-4">FILEVAULT</span>
+        <span class="orbit-node node-5">EAP-TLS</span>
+        <span class="orbit-node node-6">LIFECYCLE</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section macos-status-band">
+    <div class="wrap">
+      <div class="metric-strip">
+        <div class="metric"><strong>REAL</strong><span>APNs relationship</span></div>
+        <div class="metric"><strong>REAL</strong><span>Compliance policy</span></div>
+        <div class="metric"><strong>REAL</strong><span>FileVault baseline</span></div>
+        <div class="metric"><strong>BOUND</strong><span>ABM / ADE simulation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Architecture</p>
+        <h2>One chain of trust. Three explicit evidence states.</h2>
+        <p>Every major component is labeled as real configuration, validated capability, or simulated/documented procedure. No endpoint result is claimed without an enrolled Mac.</p>
+      </div>
+      <div class="macos-flow" aria-label="Apple Business Manager to Intune architecture">
+        <div><span>01</span><strong>Apple Business Manager</strong><small>SIMULATED / DOCUMENTED</small></div>
+        <div><span>02</span><strong>Enrollment Program Token</strong><small>SIMULATED / DOCUMENTED</small></div>
+        <div><span>03</span><strong>Automated Device Enrollment</strong><small>SIMULATED / DOCUMENTED</small></div>
+        <div class="flow-real"><span>04</span><strong>Microsoft Intune</strong><small>REAL CONFIGURATION</small></div>
+        <div class="flow-real"><span>05</span><strong>Compliance + FileVault</strong><small>REAL CONFIGURATION</small></div>
+        <div><span>06</span><strong>Managed macOS endpoint</strong><small>NOT VALIDATED</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section macos-split">
+    <div class="wrap grid grid-2">
+      <article class="panel macos-glass">
+        <p class="eyebrow">Implemented in the real tenant</p>
+        <h2>Microsoft-side controls that actually exist.</h2>
+        <ul class="list-clean">
+          <li>Apple MDM Push certificate created and accepted by Intune.</li>
+          <li>APNs expiration documented for 2027-09-26.</li>
+          <li><strong>Project 5 - macOS Enterprise Compliance</strong> created.</li>
+          <li>System Integrity Protection, password, encryption, firewall, Stealth Mode, and Gatekeeper requirements configured.</li>
+          <li><strong>Project 5 - macOS FileVault Baseline</strong> created in Settings Catalog.</li>
+          <li>FileVault enabled, anti-disable control configured, and recovery-key escrow location guidance defined.</li>
+        </ul>
+      </article>
+      <article class="panel macos-glass macos-boundary">
+        <p class="eyebrow">Intentionally not overstated</p>
+        <h2>Apple-side and endpoint-only work stays documented.</h2>
+        <ul class="list-clean">
+          <li>No Apple Business Manager organization was fabricated.</li>
+          <li>No Enrollment Program Token or ADE device sync is claimed.</li>
+          <li>No Platform SSO registration is claimed on a managed Mac.</li>
+          <li>No EAP-TLS authentication or certificate issuance is claimed.</li>
+          <li>No FileVault recovery key is published or represented as escrowed.</li>
+          <li>No retire, wipe, or reassignment action is claimed as executed.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Validated capability surface</p>
+        <h2>What the real tenant exposes for macOS administration.</h2>
+      </div>
+      <div class="grid grid-3 macos-cap-grid">
+        <article class="panel"><span class="tile-code">IDENTITY</span><h3>Platform SSO</h3><p>Platform SSO settings were located in the real macOS Settings Catalog. Endpoint registration remains unvalidated without a managed Mac.</p></article>
+        <article class="panel"><span class="tile-code">NETWORK ACCESS</span><h3>Enterprise Wi-Fi</h3><p>Intune exposes WPA-Enterprise, WPA2-Enterprise, EAP-FAST, EAP-SIM, EAP-TLS, EAP-TTLS, LEAP, and PEAP. The documented design uses WPA2-Enterprise + EAP-TLS.</p></article>
+        <article class="panel"><span class="tile-code">CERTIFICATES</span><h3>SCEP / PKCS</h3><p>macOS SCEP, PKCS, imported PKCS, and trusted-certificate workflows are available. No live enterprise PKI issuance is claimed.</p></article>
+        <article class="panel"><span class="tile-code">APPLICATIONS</span><h3>DMG, PKG, M365, Edge</h3><p>macOS app deployment types include DMG, PKG, line-of-business apps, Microsoft 365 Apps, Microsoft Edge, Defender, web clips, and links.</p></article>
+        <article class="panel"><span class="tile-code">INVENTORY</span><h3>0 enrolled Macs</h3><p>The real inventory view was validated and currently contains zero managed macOS devices—a deliberate boundary, not a hidden gap.</p></article>
+        <article class="panel"><span class="tile-code">LIFECYCLE</span><h3>Retire, wipe, delete, restart, rename, sync</h3><p>The real bulk-action surface exposes the expected lifecycle controls. None was executed without a managed test Mac.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section macos-evidence-section" id="evidence">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Evidence-backed documentation</p>
+        <h2>Every claim has a narrow proof target.</h2>
+        <p>The project documentation records implementation state, validation boundaries, operational renewal work, lifecycle administration, and troubleshooting without publishing secrets.</p>
+      </div>
+      <div class="macos-shot-grid">
+        <figure class="macos-shot-card"><a href="/projects/macos-abm-intune-runbook/evidence/evidence-board-security.webp"><img loading="lazy" src="/projects/macos-abm-intune-runbook/evidence/evidence-board-security.webp" alt="Sanitized composite of real Apple MDM push certificate, macOS compliance, FileVault, and Platform SSO configuration evidence"></a><figcaption><strong>Real tenant security evidence.</strong> APNs issuance, compliance policy settings, FileVault controls, and Platform SSO capability—derived from screenshots captured during this project.</figcaption></figure>
+        <article class="macos-shot-note"><span class="tile-code">EVIDENCE BOUNDARY</span><h3>The screenshot says exactly what the caption says.</h3><p>This published derivative intentionally excludes Apple account identifiers and certificate details. It proves Microsoft-side configuration and capability only; ABM, ADE, endpoint enforcement, recovery-key escrow, and destructive lifecycle actions remain documented rather than fabricated.</p><div class="proof-links"><a class="proof-primary" href="/projects/macos-abm-intune-runbook/evidence/">Open evidence gallery</a></div></article>
+      </div>
+      <div class="grid grid-2">
+        <article class="proof-card"><span class="tile-code">IMPLEMENTATION</span><h3>Real configuration record</h3><p>APNs, compliance, FileVault, enrollment restrictions, Platform SSO capability, Wi-Fi, SCEP, apps, inventory, and lifecycle inspection.</p><div class="proof-links"><a class="proof-primary" href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/implementation.md">Read implementation</a></div></article>
+        <article class="proof-card"><span class="tile-code">VALIDATION</span><h3>Real vs. simulated matrix</h3><p>A complete matrix distinguishes configured objects, validated capabilities, endpoint-dependent checks, and simulation-only procedures.</p><div class="proof-links"><a class="proof-primary" href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/validation.md">Read validation</a></div></article>
+        <article class="proof-card"><span class="tile-code">OPERATIONS</span><h3>Renewal calendar</h3><p>APNs renewal, ABM token renewal, certificate trust, application review, compliance review, and FileVault recovery validation are treated as recurring operational responsibilities.</p><div class="proof-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/renewal-calendar.md">Open renewal calendar</a></div></article>
+        <article class="proof-card"><span class="tile-code">LIFECYCLE</span><h3>Retire, wipe, reassignment, lost/stolen</h3><p>The runbook separates record deletion from destructive wipe and documents ownership checks, authorization, asset state, identity revocation, and reassignment.</p><div class="proof-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/device-lifecycle.md">Open lifecycle runbook</a></div></article>
+      </div>
+      <div class="macos-doc-strip">
+        <a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/architecture.md">Architecture</a>
+        <a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/troubleshooting.md">Troubleshooting</a>
+        <a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/lessons-learned.md">Lessons learned</a>
+        <a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/simulated-deployment-scenario.md">Simulated deployment</a>
+      </div>
+    </div>
+  </section>
+</div>`
+);
 })();
