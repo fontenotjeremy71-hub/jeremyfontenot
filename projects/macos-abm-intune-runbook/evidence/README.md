@@ -1,26 +1,42 @@
 # Project 5 Evidence Index
 
-All screenshots in this folder support narrow, explicit claims. No screenshot should be interpreted as proof of a managed macOS endpoint unless the caption says so.
+The public evidence in this folder is deliberately sanitized and narrowly captioned. It proves Microsoft-side configuration and capability without implying that Apple Business Manager, Automated Device Enrollment, or a managed macOS endpoint exists in this lab.
 
-| File | What it proves | Classification |
-|---|---|---|
-| 01-apns-apple-confirmation.webp | Apple issued a Microsoft MDM push certificate with a one-year expiration | REAL CONFIGURATION |
-| 02-apns-intune-upload.webp | Intune accepted the MDM push certificate upload | REAL CONFIGURATION |
-| 03-compliance-review.webp | The configured macOS compliance controls before creation | REAL CONFIGURATION |
-| 04-compliance-created.webp | The macOS compliance policy exists; 0 devices are assigned/evaluated | REAL CONFIGURATION |
-| 05-filevault-settings.webp | FileVault enablement, anti-disable control, and escrow guidance are configured | REAL CONFIGURATION |
-| 06-filevault-created.webp | The macOS FileVault Settings Catalog policy exists in Intune | REAL CONFIGURATION |
-| 07-platform-sso-capability.webp | Platform SSO settings are available in the real Intune Settings Catalog | REAL CAPABILITY |
-| 08-app-deployment-types.webp | Intune exposes multiple macOS application deployment types | REAL CAPABILITY |
-| 09-macos-inventory-zero.webp | macOS inventory is available and currently contains 0 enrolled Macs | REAL CAPABILITY / BOUNDARY |
-| 10-lifecycle-actions.webp | Delete, Retire, Wipe, Restart, Rename, and Sync actions are available for macOS | REAL CAPABILITY |
-| 11-enterprise-wifi.webp | Intune exposes enterprise macOS Wi-Fi settings | REAL CAPABILITY |
-| 12-eap-methods.webp | EAP methods include EAP-TLS and other enterprise authentication choices | REAL CAPABILITY |
-| 13-scep-capability.webp | Intune exposes macOS SCEP certificate configuration controls | REAL CAPABILITY |
+## Published screenshot evidence
 
-## Evidence handling
+### Security and management proof board
 
-- Apple account identifiers are not published.
-- Certificate private material is not published.
-- No APNs PEM, private key, recovery key, ABM token, password, session cookie, or bearer token is stored here.
-- Simulated ABM/ADE workflows use documentation and architecture diagrams, not fabricated portal screenshots.
+[Open the screenshot proof board](evidence-board-security.webp)
+
+The board is a derived composite built from four screenshots captured during this Project 5 session:
+
+1. **Apple Push Certificates Portal confirmation** — proves Apple issued a new Mobile Device Management push certificate for Microsoft Corporation with expiration **September 26, 2027**.
+2. **macOS compliance policy review** — proves the real Intune policy was configured with System Integrity Protection, password, storage encryption, firewall, Stealth Mode, and Gatekeeper requirements before creation.
+3. **macOS FileVault Settings Catalog configuration** — proves FileVault was set to On, users were prevented from disabling it, and recovery-key escrow location guidance was configured.
+4. **Platform SSO settings discovery** — proves the real Intune Settings Catalog exposes the Platform SSO configuration surface.
+
+The board proves only the states described above. It does **not** prove macOS endpoint enforcement, recovery-key escrow, Platform SSO registration, or ADE enrollment.
+
+## Additional validated observations
+
+The following real Intune capability observations are documented in the project runbook and were captured during the same session:
+
+- macOS app deployment types included Microsoft Edge, Microsoft 365 Apps, Microsoft Defender for Endpoint, web clips, web links, line-of-business apps, DMG, and PKG.
+- macOS inventory was available and showed **0 devices**.
+- macOS bulk device actions exposed Delete, Retire, Wipe, Restart, Rename, and Sync.
+- Enterprise Wi-Fi exposed WPA-Enterprise and WPA2-Enterprise.
+- EAP methods included EAP-FAST, EAP-SIM, EAP-TLS, EAP-TTLS, LEAP, and PEAP.
+- macOS SCEP configuration exposed certificate type, subject/SAN, validity, key usage, key size, root certificate, and EKU controls.
+
+These observations are classified as **REAL CAPABILITY VALIDATION**, not endpoint implementation.
+
+## Why only a sanitized derivative is published
+
+Source screenshots from the working session are retained in the conversation/evidence workflow, but only the sanitized composite is published here. This prevents unnecessary exposure of Apple account identifiers, certificate identifiers, or other tenant-specific details while preserving direct visual proof of the configuration work.
+
+## Evidence handling rules
+
+- No Apple account identifier is intentionally published.
+- No APNs PEM file, certificate private key, recovery key, enrollment token, ABM token, password, bearer token, session cookie, or MFA secret is stored here.
+- No simulated ABM/ADE screenshot is used.
+- Documentation, not fabricated portal evidence, is used for simulated Apple Business Manager and Automated Device Enrollment workflows.
