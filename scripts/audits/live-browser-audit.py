@@ -23,6 +23,7 @@ VIEWPORT_WIDTH = int(os.environ.get("PORTFOLIO_BROWSER_VIEWPORT_WIDTH", "1440"))
 NAV_TIMEOUT = int(os.environ.get("PORTFOLIO_BROWSER_NAV_TIMEOUT_MS", "25000"))
 TARGET_ROUTES = [route.strip() for route in os.environ.get("PORTFOLIO_BROWSER_AUDIT_ROUTES", "").split(",") if route.strip()]
 TARGET_MODE = bool(TARGET_ROUTES)
+ROUTE_DELAY_MS = int(os.environ.get("PORTFOLIO_BROWSER_AUDIT_ROUTE_DELAY_MS", "0"))
 ORIGIN = urlparse(BASE).netloc.lower()
 DOCUMENT_SUFFIXES = {"", ".html", ".htm"}
 EVIDENCE_SUFFIXES = {".txt", ".md", ".json", ".csv", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".pdf"}
@@ -268,6 +269,8 @@ async def inspect_page(context, route: str, semaphore: asyncio.Semaphore):
             return {"route": route, "url": page.url, "status": status, "error": None, "edgeBlocked": False, "pageErrors": page_errors, "buttonErrors": button_errors, **result}
         finally:
             await page.close()
+            if TARGET_MODE and ROUTE_DELAY_MS > 0:
+                await asyncio.sleep(ROUTE_DELAY_MS / 1000)
 
 
 async def audit() -> int:
@@ -294,7 +297,7 @@ async def audit() -> int:
         by_path = {
             key: page
             for page in pages
-            if not page["error"]
+            if not page["error"] and not page.get("edgeBlocked")
             for key in (canonical_page_path(page["url"]), canonical_page_path(BASE + page["route"]))
         }
 
