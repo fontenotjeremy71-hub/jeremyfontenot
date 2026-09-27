@@ -16,6 +16,7 @@ const expected = [
   'https://jeremyfontenot.online/entra-cloud-sync.html',
   'https://jeremyfontenot.online/m365-messaging-security.html',
   'https://jeremyfontenot.online/windows-autopilot-intune.html',
+  'https://jeremyfontenot.online/macos-abm-intune-runbook.html',
   'https://jeremyfontenot.online/on-prem-home-lab.html',
   'https://jeremyfontenot.online/windows-admin-center-lab.html',
   'https://jeremyfontenot.online/infrastructure.html',
