@@ -92,9 +92,9 @@ const routeSupportSource = fs.readFileSync(path.join(root, 'assets/js/routes-sup
 const directProofContracts = [
   ['Homepage Windows LAPS proof', routeMainSource, 'href="/projects/windows-laps-gpo/evidence/">Proof</a>'],
   ['Homepage Entra proof', routeMainSource, 'href="/projects/entra-cloud-sync/evidence/">Proof</a>'],
-  ['Homepage Microsoft 365 proof', routeMainSource, 'href="/m365-messaging-security.html#evidence">Proof</a>'],
+  ['Homepage Microsoft 365 proof', routeMainSource, 'href="/proof.html#m365-messaging-security-proof">Proof</a>'],
   ['Homepage Home Lab proof', routeMainSource, 'href="/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html">Proof</a>'],
-  ['Support Microsoft 365 proof', routeSupportSource, 'href="/m365-messaging-security.html#evidence">Messaging & security proof</a>'],
+  ['Support Microsoft 365 proof', routeSupportSource, 'href="/proof.html#m365-messaging-security-proof">Messaging & security proof</a>'],
   ['Support hybrid identity proof', routeSupportSource, 'href="/projects/entra-cloud-sync/evidence/">Hybrid identity proof</a>']
 ];
 for (const [name, sourceText, expected] of directProofContracts) {
