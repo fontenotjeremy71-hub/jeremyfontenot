@@ -352,6 +352,8 @@ async def audit() -> int:
                             if mismatch:
                                 findings.append(Finding("semantics", page["route"], label, target, mismatch))
                     else:
+                        if TARGET_MODE and urlparse(target_url).path == "/sitemap.xml":
+                            continue
                         unique_assets.add(target_url)
                 else:
                     unique_external.add(target)
