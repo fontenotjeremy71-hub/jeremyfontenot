@@ -20,18 +20,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - label: project5
-            route: /macos-abm-intune-runbook.html
-          - label: project5-evidence
-            route: /projects/macos-abm-intune-runbook/evidence/
-          - label: home
-            route: /
-          - label: projects
-            route: /projects.html
-          - label: proof
-            route: /proof.html
-          - label: resume
-            route: /resume.html
+          - label: core-navigation
+            routes: '/,/systems-administration.html,/projects.html,/proof.html,/dashboard.html,/resume.html,/contact.html'
+          - label: primary-projects
+            routes: '/windows-laps-gpo.html,/entra-cloud-sync.html,/m365-messaging-security.html,/windows-autopilot-intune.html,/macos-abm-intune-runbook.html,/on-prem-home-lab.html,/windows-admin-center-lab.html'
+          - label: supporting-projects
+            routes: '/home-lab-operations-proof.html,/active-directory-lab.html,/network-segmentation.html,/macvm01.html,/infrastructure.html,/app01-storage-expansion.html,/servicenow-request-fulfillment.html'
+          - label: evidence-hubs
+            routes: '/evidence-library/,/evidence/,/evidence/claim-map.html,/home-lab/,/home-lab/evidence-catalog.html,/microsoft-365/,/microsoft-365/evidence-catalog.html'
+          - label: skills-and-project-evidence
+            routes: '/systems-skills/,/systems-skills/evidence-map.html,/evidence-library/projects/on-prem-home-lab/scvmm-2022/,/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/,/projects/windows-laps-gpo/evidence/,/projects/windows-autopilot-intune/evidence/,/projects/macos-abm-intune-runbook/evidence/'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -114,7 +112,7 @@ jobs:
           PORTFOLIO_BROWSER_AUDIT_MAX_PAGES: '100'
           PORTFOLIO_BROWSER_AUDIT_WORKERS: '1'
           PORTFOLIO_BROWSER_NAV_TIMEOUT_MS: '25000'
-          PORTFOLIO_BROWSER_AUDIT_ROUTES: '${{ matrix.route }}'
+          PORTFOLIO_BROWSER_AUDIT_ROUTES: '${{ matrix.routes }}'
           PORTFOLIO_BROWSER_AUDIT_ROUTE_DELAY_MS: '0'
         run: python scripts/audits/live-browser-audit.py
 
@@ -180,4 +178,11 @@ jobs:
           fi
           grep -q '<urlset' "$body"
           grep -q 'https://jeremyfontenot.online/macos-abm-intune-runbook.html' "$body"
-          echo "Production sitemap validation SUCCESS."
+          count="$(grep -o '<loc>' "$body" | wc -l | tr -d ' ')"
+          if [[ "$count" != "35" ]]; then
+            echo "Expected 35 sitemap URLs, found $count." >&2
+            exit 1
+          fi
+          grep -q 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/scvmm-2022/' "$body"
+          grep -q 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/' "$body"
+          echo "Production sitemap validation SUCCESS: 35 canonical discovery URLs."

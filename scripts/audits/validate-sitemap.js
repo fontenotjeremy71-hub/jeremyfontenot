@@ -36,6 +36,8 @@ const expected = [
   "https://jeremyfontenot.online/microsoft-365/evidence-catalog.html",
   "https://jeremyfontenot.online/systems-skills/",
   "https://jeremyfontenot.online/systems-skills/evidence-map.html",
+  "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/scvmm-2022/",
+  "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/",
   "https://jeremyfontenot.online/projects/windows-laps-gpo/evidence/",
   "https://jeremyfontenot.online/projects/windows-autopilot-intune/evidence/",
   "https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/"
@@ -59,6 +61,32 @@ const missing = expected.filter((url) => !urls.includes(url));
 const unexpected = urls.filter((url) => !expected.includes(url));
 if (missing.length) failures.push(`Missing canonical portfolio URLs: ${missing.join(', ')}`);
 if (unexpected.length) failures.push(`Unexpected sitemap URLs: ${unexpected.join(', ')}`);
+
+function sourceText(relative) {
+  return fs.readFileSync(path.join(process.cwd(), relative), 'utf8');
+}
+
+const requiredDiscoveryRoutes = new Set();
+const siteCore = sourceText('assets/js/site-core.js');
+const navMatch = siteCore.match(/const links=\[(.*?)\];return/s);
+if (navMatch) {
+  for (const match of navMatch[1].matchAll(/\['[^']+','([^']+)'\]/g)) requiredDiscoveryRoutes.add(match[1]);
+}
+
+const projectRoutes = sourceText('assets/js/routes-projects.js');
+const projectsMatch = projectRoutes.match(/const projects=\[(.*?)\];\nconst supportLinks=/s);
+if (projectsMatch) {
+  for (const match of projectsMatch[1].matchAll(/\['\d+','[^']*','[^']*','[^']*','[^']*','([^']+)'\]/g)) requiredDiscoveryRoutes.add(match[1]);
+}
+
+for (const route of requiredDiscoveryRoutes) {
+  const cleanRoute = route.split('#')[0];
+  if (!cleanRoute.startsWith('/')) continue;
+  const requiredUrl = `https://jeremyfontenot.online${cleanRoute}`;
+  if (!urls.includes(requiredUrl)) {
+    failures.push(`Navbar/project discovery route missing from sitemap: ${requiredUrl}`);
+  }
+}
 
 if (failures.length) {
   console.error('Sitemap validation failed.');
