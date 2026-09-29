@@ -4,6 +4,7 @@
   <url><loc>https://jeremyfontenot.online/systems-administration.html</loc></url>
   <url><loc>https://jeremyfontenot.online/projects.html</loc></url>
   <url><loc>https://jeremyfontenot.online/proof.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/dashboard.html</loc></url>
   <url><loc>https://jeremyfontenot.online/resume.html</loc></url>
   <url><loc>https://jeremyfontenot.online/contact.html</loc></url>
   <url><loc>https://jeremyfontenot.online/windows-laps-gpo.html</loc></url>
@@ -12,12 +13,24 @@
   <url><loc>https://jeremyfontenot.online/windows-autopilot-intune.html</loc></url>
   <url><loc>https://jeremyfontenot.online/macos-abm-intune-runbook.html</loc></url>
   <url><loc>https://jeremyfontenot.online/on-prem-home-lab.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/home-lab-operations-proof.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/active-directory-lab.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/network-segmentation.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/macvm01.html</loc></url>
   <url><loc>https://jeremyfontenot.online/windows-admin-center-lab.html</loc></url>
   <url><loc>https://jeremyfontenot.online/infrastructure.html</loc></url>
   <url><loc>https://jeremyfontenot.online/app01-storage-expansion.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/servicenow-request-fulfillment.html</loc></url>
   <url><loc>https://jeremyfontenot.online/evidence-library/</loc></url>
+  <url><loc>https://jeremyfontenot.online/evidence/</loc></url>
   <url><loc>https://jeremyfontenot.online/evidence/claim-map.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/home-lab/</loc></url>
   <url><loc>https://jeremyfontenot.online/home-lab/evidence-catalog.html</loc></url>
   <url><loc>https://jeremyfontenot.online/microsoft-365/</loc></url>
+  <url><loc>https://jeremyfontenot.online/microsoft-365/evidence-catalog.html</loc></url>
   <url><loc>https://jeremyfontenot.online/systems-skills/</loc></url>
+  <url><loc>https://jeremyfontenot.online/systems-skills/evidence-map.html</loc></url>
+  <url><loc>https://jeremyfontenot.online/projects/windows-laps-gpo/evidence/</loc></url>
+  <url><loc>https://jeremyfontenot.online/projects/windows-autopilot-intune/evidence/</loc></url>
+  <url><loc>https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/</loc></url>
 </urlset>
