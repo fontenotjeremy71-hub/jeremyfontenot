@@ -127,7 +127,7 @@ def semantic_error(label: str, target: str, title: str, heading: str, sample: st
         evidence_content = any(term in content for term in ("evidence", "validation", "artifact", "manifest", "inventory", "proof"))
         if not evidence_path and not evidence_content:
             return "Evidence/validation wording does not land on evidence-oriented content"
-        if re.search(r"/(?:windows-laps-gpo|entra-cloud-sync|on-prem-home-lab)\.html$", path_l):
+        if re.search(r"/(?:windows-laps-gpo|entra-cloud-sync|on-prem-home-lab)\.html$", path_l) and "#evidence" not in target_l:
             return "Evidence wording lands on a narrative project page instead of direct evidence"
 
     if context == "main" and proof_promise and not any(term in target_l for term in ("proof", "#evidence", "/evidence", "evidence-library", "validation", "claim-map")):
