@@ -1,5 +1,9 @@
 # ServiceNow Request Fulfillment & Procurement Workflow
 
+## Status
+
+**COMPLETE**
+
 ## Objective
 
 Validate a realistic ServiceNow Personal Developer Instance workflow from catalog request through approval, procurement fulfillment, deployment, and automatic request completion.
