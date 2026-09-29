@@ -2,7 +2,9 @@
 
 ## Status
 
-**COMPLETE**
+**IN PROGRESS**
+
+This is an ongoing ServiceNow administration learning project. The request fulfillment and procurement workflow documented below is a completed and validated milestone within the broader project.
 
 ## Objective
 
