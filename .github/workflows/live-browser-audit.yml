@@ -23,7 +23,7 @@ jobs:
           - label: core-navigation
             routes: '/,/systems-administration.html,/projects.html,/proof.html,/dashboard.html,/resume.html,/contact.html'
           - label: primary-projects
-            routes: '/windows-laps-gpo.html,/entra-cloud-sync.html,/m365-messaging-security.html,/windows-autopilot-intune.html,/macos-abm-intune-runbook.html,/on-prem-home-lab.html,/windows-admin-center-lab.html'
+            routes: '/windows-laps-gpo.html,/entra-cloud-sync.html,/m365-messaging-security.html,/windows-autopilot-intune.html,/macos-abm-intune-runbook.html,/m365-graph-administration-lab.html,/on-prem-home-lab.html,/windows-admin-center-lab.html'
           - label: supporting-projects
             routes: '/home-lab-operations-proof.html,/active-directory-lab.html,/network-segmentation.html,/macvm01.html,/infrastructure.html,/app01-storage-expansion.html,/servicenow-request-fulfillment.html'
           - label: evidence-hubs
@@ -178,11 +178,12 @@ jobs:
           fi
           grep -q '<urlset' "$body"
           grep -q 'https://jeremyfontenot.online/macos-abm-intune-runbook.html' "$body"
+          grep -q 'https://jeremyfontenot.online/m365-graph-administration-lab.html' "$body"
           count="$(grep -o '<loc>' "$body" | wc -l | tr -d ' ')"
-          if [[ "$count" != "35" ]]; then
-            echo "Expected 35 sitemap URLs, found $count." >&2
+          if [[ "$count" != "36" ]]; then
+            echo "Expected 36 sitemap URLs, found $count." >&2
             exit 1
           fi
           grep -q 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/scvmm-2022/' "$body"
           grep -q 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/' "$body"
-          echo "Production sitemap validation SUCCESS: 35 canonical discovery URLs."
+          echo "Production sitemap validation SUCCESS: 36 canonical discovery URLs."
