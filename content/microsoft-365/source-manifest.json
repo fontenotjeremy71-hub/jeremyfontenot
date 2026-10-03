@@ -379,6 +379,46 @@
   ],
   "reviewedExclusions": [
     {
+      "path": "projects/m365-graph-administration-lab/scripts/Get-M365UserInventory.ps1",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/scripts/Get-M365TenantInventory.ps1",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/scripts/Get-M365LicenseAssignment.ps1",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/scripts/Get-M365GroupMembership.ps1",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/scripts/Get-IntuneManagedDeviceInventory.ps1",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/scripts/Get-EntraStaleAccounts.ps1",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/scripts/Get-EntraRoleInventory.ps1",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/docs/Troubleshooting.md",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/README.md",
+      "reason": "Self-contained Microsoft 365 Graph Administration Lab documentation or reusable read-only PowerShell source. It is published directly from the Project 13 case study and intentionally excluded from the legacy Microsoft 365 evidence organizer so the active development lab is not conflated with the older generated tenant evidence catalog."
+    },
+    {
+      "path": "m365-graph-administration-lab.html",
+      "reason": "Public Microsoft 365 Graph Administration Lab case-study presentation page; the self-contained lab documentation and reusable scripts are published under projects/m365-graph-administration-lab and are intentionally excluded from the legacy Microsoft 365 evidence organizer."
+    },
+    {
       "path": "projects/macos-abm-intune-runbook/validation.md",
       "reason": "Project 5 self-contained macOS/Intune runbook or sanitized evidence artifact. It is published and linked directly from the Project 5 case study, but is intentionally excluded from the legacy Microsoft 365 evidence organizer to avoid conflating a mixed real/simulated Apple-management project with the existing tenant evidence catalog."
     },
