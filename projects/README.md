@@ -4,7 +4,7 @@ Project folders and public case-study pages contain the implementation record be
 
 ## Public project set
 
-Eleven recruiter-facing projects are complete within their documented scope. The ServiceNow administration project remains ongoing and is intentionally marked IN PROGRESS. "Complete" means the planned portfolio project, validation, and documentation are finished; it does not expand any claim beyond the explicit lab or simulation boundaries on each project page.
+The portfolio currently includes thirteen public projects. "Complete" means the planned portfolio project, validation, and documentation are finished; it does not expand any claim beyond the explicit lab or simulation boundaries on each project page. Projects marked **IN PROGRESS** remain active learning and implementation environments.
 
 1. Windows LAPS & Advanced Group Policy — **COMPLETE**
 2. Microsoft Entra Hybrid Identity & Cloud Sync — **COMPLETE**
@@ -18,5 +18,6 @@ Eleven recruiter-facing projects are complete within their documented scope. The
 10. Microsoft 365 Messaging & Security Administration — **COMPLETE**
 11. Windows Autopilot & Intune MDM Provisioning — **COMPLETE**
 12. macOS ABM to Intune Enterprise Runbook — **COMPLETE** (Microsoft-side configuration real where validated; ABM/ADE and endpoint-dependent work explicitly simulated/documented)
+13. Microsoft 365 Graph Administration Lab — **IN PROGRESS** (seven read-only Microsoft Graph/PowerShell administration and reporting scripts validated; additional Graph, Intune, Autopilot, governance, and security work remains planned)
 
 The public numbering reflects hiring relevance and portfolio organization, not build date. Evidence and historical project files are preserved even when they are not the primary recruiter entry point.
