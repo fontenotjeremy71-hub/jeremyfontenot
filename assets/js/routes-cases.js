@@ -135,4 +135,34 @@ routes['/macos-abm-intune-runbook.html']=wrap(
   </section>
 </div>`
 );
+routes['/m365-graph-administration-lab.html']=wrap(
+  'Microsoft 365 Graph Administration Lab | Jeremy Fontenot',
+  'Read-only Microsoft 365 administration automation using Microsoft Graph, PowerShell, Entra ID, Intune, delegated permissions, validation, and documented troubleshooting.',
+  'Projects',
+  casePage(
+    'Microsoft 365 Graph Administration Lab',
+    'Project 13 · IN PROGRESS',
+    'A reusable Microsoft Graph and PowerShell administration lab focused on legitimate Microsoft 365, Entra ID, and Intune reporting, least-privilege delegated access, validation, and evidence-backed troubleshooting.',
+    [['7 scripts','Validated'],['Microsoft Graph','REST + PowerShell'],['Read-only','Current scope'],['Intune','Integrated']],
+    [
+      ['scope','Scope','Reusable read-only Microsoft 365 administration tooling','<p>The lab uses a Microsoft 365 E5 Developer tenant to build reusable administration and reporting scripts without creating meaningless tenant activity. Current work is intentionally read-only and focuses on tenant inventory, identity, licensing, directory roles, sign-in activity, and Intune managed-device reporting.</p>'],
+      ['authentication','Authentication','Delegated Device Code with required-scope validation','<p>Scripts use the Microsoft Graph PowerShell authentication module with delegated permissions. The stale-account and Intune scripts validate the active Graph context before reuse and reconnect when required scopes are missing.</p>'],
+      ['graph','Microsoft Graph','REST endpoints, pagination, and PowerShell 5.1 compatibility','<p>The lab exercises organization, users, groups, group membership, subscribed SKUs, directory roles, directory-role members, devices, and Intune managed-device endpoints. Collection helpers follow <strong>@odata.nextLink</strong>, and hashtable-style response handling is used for Windows PowerShell 5.1 compatibility.</p>'],
+      ['validation','Validated results','Point-in-time tenant and device reporting','<p>Validated results currently include 3 domains, 22 users, 12 groups, 1 subscribed SKU, 4 activated directory roles, 2 Entra devices, 19 licensed users, 3 unlicensed users, and 1 compliant encrypted Intune managed device. These values are documented as a point-in-time lab snapshot rather than permanent tenant state.</p>'],
+      ['troubleshooting','Troubleshooting','Permission and query failures preserved as evidence','<p>A directory-role membership query returned 400 Bad Request until an unsupported <strong>$top</strong> parameter was removed. A stale-account query returned 403 Forbidden until <strong>AuditLog.Read.All</strong> was added and the Graph session was reauthenticated. These failures and corrections are documented instead of hidden.</p>'],
+      ['security','Publication boundary','Reusable code public; live tenant exports withheld','<p>The GitHub project publishes reusable scripts and sanitized validation notes. Live CSV exports are intentionally excluded because they can contain user principal names, object IDs, device identifiers, serial numbers, and other tenant-specific data.</p>']
+    ],
+    [
+      ['GitHub lab','Scripts, README, and troubleshooting documentation','https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/main/projects/m365-graph-administration-lab'],
+      ['Tenant inventory script','Organization, users, groups, SKUs, roles, and Entra devices','https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/m365-graph-administration-lab/scripts/Get-M365TenantInventory.ps1'],
+      ['User inventory script','User state, sync state, and license mapping','https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/m365-graph-administration-lab/scripts/Get-M365UserInventory.ps1'],
+      ['Group membership script','Group inventory and direct member reporting','https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/m365-graph-administration-lab/scripts/Get-M365GroupMembership.ps1'],
+      ['License reporting script','SKU capacity and user assignment reporting','https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/m365-graph-administration-lab/scripts/Get-M365LicenseAssignment.ps1'],
+      ['Entra role script','Activated directory roles and membership reporting','https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/m365-graph-administration-lab/scripts/Get-EntraRoleInventory.ps1'],
+      ['Stale-account script','Sign-in activity and stale-account analysis','https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/m365-graph-administration-lab/scripts/Get-EntraStaleAccounts.ps1'],
+      ['Intune device script','Managed-device compliance and encryption inventory','https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/m365-graph-administration-lab/scripts/Get-IntuneManagedDeviceInventory.ps1']
+    ]
+  )
+);
+
 })();
