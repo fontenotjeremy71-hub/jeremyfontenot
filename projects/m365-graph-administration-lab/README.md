@@ -2,6 +2,8 @@
 
 **Status:** IN PROGRESS — seven read-only administration/reporting scripts validated.
 
+Portfolio case study: https://jeremyfontenot.online/m365-graph-administration-lab.html
+
 This lab demonstrates Microsoft 365, Microsoft Entra ID, Microsoft Intune, Microsoft Graph, and PowerShell administration using a Microsoft 365 E5 Developer tenant.
 
 ## Objectives
