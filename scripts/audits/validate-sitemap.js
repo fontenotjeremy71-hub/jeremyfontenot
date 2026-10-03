@@ -18,6 +18,7 @@ const expected = [
   "https://jeremyfontenot.online/m365-messaging-security.html",
   "https://jeremyfontenot.online/windows-autopilot-intune.html",
   "https://jeremyfontenot.online/macos-abm-intune-runbook.html",
+  "https://jeremyfontenot.online/m365-graph-administration-lab.html",
   "https://jeremyfontenot.online/on-prem-home-lab.html",
   "https://jeremyfontenot.online/home-lab-operations-proof.html",
   "https://jeremyfontenot.online/active-directory-lab.html",
