@@ -164,3 +164,5 @@ doc.add_paragraph(
 OUT.mkdir(parents=True, exist_ok=True)
 doc.save(DOCX)
 print(DOCX)
+
+# Rebuild trigger for updated downloadable resume assets.
