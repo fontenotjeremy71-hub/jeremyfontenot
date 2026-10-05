@@ -16,6 +16,108 @@
 6. When a status, completion date, evidence path, or validation date cannot be confirmed, use `NEEDS VERIFICATION`.
 7. Update this file whenever a project's status, completion date, publication state, evidence package, or next milestone changes.
 
+## Portfolio Evidence Philosophy
+
+This portfolio is a skills-validation portfolio intended to demonstrate hands-on capability to perform systems administration, cloud administration, endpoint management, identity, networking, automation, ITSM, security, and related IT job duties.
+
+The primary purpose of retained evidence is to prove that a configuration, administration task, troubleshooting scenario, or workflow was personally performed and successfully validated.
+
+### Evidence priorities
+
+Evaluate projects primarily by:
+
+1. What was configured or administered.
+2. What technical skill the work demonstrates.
+3. Whether the configuration or workflow was successfully validated.
+4. Whether sufficient evidence exists to support the stated claim.
+5. Whether troubleshooting and remediation were demonstrated where applicable.
+6. Whether claim boundaries accurately distinguish lab, simulated, tenant, endpoint, and production experience.
+
+Exact completion dates, execution dates, and last-validation dates are not required for portfolio validity unless a date is materially relevant to the technical claim.
+
+Do not classify otherwise valid portfolio evidence as incomplete merely because an exact completion date, script execution date, phase date, or final validation date is unavailable.
+
+### Ephemeral lab environments
+
+Some projects use temporary, renewable, trial, developer, educational, or lab environments.
+
+These environments may later expire, reset, become unavailable, be deleted, or be repurposed.
+
+Examples include Microsoft 365 Developer tenants, ServiceNow Personal Developer Instances, temporary cloud resources, virtual machines, test servers, and lab endpoints.
+
+Loss or expiration of the original environment does not invalidate previously captured evidence.
+
+A project remains valid portfolio evidence when the retained documentation demonstrates that the work was performed and successfully validated at the time of implementation.
+
+The portfolio is not intended to prove continuous operation of historical lab environments.
+
+A project that was previously completed and validated should not be downgraded solely because the original environment is no longer available.
+
+### Microsoft 365 Developer tenant
+
+Microsoft 365 projects may use a Microsoft 365 Developer Program tenant whose continued availability is not guaranteed.
+
+The portfolio should preserve evidence of the administration work performed while the tenant was available rather than require the tenant to remain operational indefinitely.
+
+Future tenant expiration, suspension, reset, licensing changes, or loss of access do not invalidate previously retained and validated evidence.
+
+Future inability to reproduce a live tenant screen must not by itself downgrade previously validated work.
+
+The objective is to demonstrate Microsoft 365 administration skills, including areas such as Entra ID, Exchange Online, Microsoft Graph, Intune, Autopilot, Conditional Access, identity, licensing, security, and device administration.
+
+### Project completion
+
+A project is portfolio-complete when its intended technical scope has been:
+
+- performed;
+- validated;
+- evidenced;
+- documented;
+- bounded accurately.
+
+A project does not require an exact completion date to be classified as COMPLETE.
+
+Do not retain an `IN PROGRESS` status merely because optional future improvements are possible. Use `IN PROGRESS` only when meaningful intended technical scope remains unfinished.
+
+### Dates
+
+Dates may be retained when useful for historical context, troubleshooting chronology, certificate expiration, renewal requirements, version-specific behavior, deployment sequencing, or other technically relevant reasons.
+
+Dates are metadata, not a core portfolio success criterion.
+
+Do not spend project effort reconstructing historical completion, script execution, ServiceNow phase, or validation dates solely for portfolio completeness when the underlying skill and technical evidence are already established.
+
+Do not create `NEEDS VERIFICATION` remediation items solely because a historical date is unavailable.
+
+A missing date should only require action when the date is materially important to understanding or validating the technical claim.
+
+### Evidence durability
+
+Evidence should remain useful even after the original lab environment no longer exists.
+
+Where practical, preserve durable artifacts such as:
+
+- sanitized screenshots;
+- scripts;
+- command output;
+- validation results;
+- configuration documentation;
+- architecture records;
+- troubleshooting notes;
+- workflow records;
+- evidence manifests;
+- sanitized exports.
+
+The goal is to preserve enough evidence for a reviewer to determine that the technical work was actually performed and understood.
+
+### Governing principle
+
+Evidence proves the skill.
+
+Dates provide context.
+
+The continued availability of a temporary lab environment is not required to preserve the validity of previously demonstrated technical capability.
+
 ## Current Public Portfolio Set
 
 The current `main` branch and deployed project routing define **13 public projects**. The repository `projects/README.md`, `assets/js/routes-projects.js`, and the non-JavaScript `projects.html` shell are synchronized on the 13-project state and use "Thirteen projects" where the count is presented.
