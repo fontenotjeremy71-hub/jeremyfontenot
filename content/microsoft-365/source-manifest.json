@@ -99,7 +99,7 @@
         "security-compliance",
         "entra-id"
       ],
-      "sourceCommit": "4d3f7ed00ee5d5a969405ecf574c731817442996"
+      "sourceCommit": "d32dd83ae417a76fb4356b3419b465d99077f1e5"
     },
     {
       "path": "projects/windows-autopilot-intune",
