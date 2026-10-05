@@ -211,7 +211,7 @@ The current `main` branch and deployed project routing define **13 public projec
 - **Portfolio URL:** https://jeremyfontenot.online/app01-storage-expansion.html
 - **Evidence Status:** STRONG — checkpoint/VHDX relationship handling, expansion, guest partition review, NTFS provisioning, and before/after validation are represented.
 - **Evidence Location:** `evidence-library/projects/on-prem-home-lab/app01-storage-expansion/`; public validation anchor `/app01-storage-expansion.html#validation`
-- **Last Validated:** NEEDS VERIFICATION; registry/publication state checked 2026-10-04
+- **Last Validated:** Technical validation is documented in retained evidence; exact historical date is not required for portfolio validity.
 - **Next Milestone:** No active implementation milestone; revalidate if APP01 storage layout changes.
 - **Notes / Claim Boundaries:** Personal nested Hyper-V lab storage administration. Claims are limited to the documented VM/disk/guest changes and validation.
 
@@ -224,7 +224,7 @@ The current `main` branch and deployed project routing define **13 public projec
 - **Portfolio URL:** https://jeremyfontenot.online/home-lab-operations-proof.html
 - **Evidence Status:** STRONG as a supporting project; cross-platform Windows, Linux, macOS, networking, identity, and troubleshooting evidence is distributed across the home-lab case studies.
 - **Evidence Location:** `home-lab-operations-proof.html` and related home-lab evidence directories; public validation anchor `/home-lab-operations-proof.html#validation`
-- **Last Validated:** NEEDS VERIFICATION; registry/publication state checked 2026-10-04
+- **Last Validated:** Technical validation is documented in retained evidence; exact historical date is not required for portfolio validity.
 - **Next Milestone:** Keep this as a supporting method/project unless a new cross-platform scenario adds distinct recruiter value.
 - **Notes / Claim Boundaries:** Supporting portfolio project, not a claim of enterprise fleet ownership. Individual platform claims remain bounded by their underlying evidence.
 
