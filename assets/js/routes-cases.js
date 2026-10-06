@@ -141,8 +141,8 @@ routes['/m365-graph-administration-lab.html']=wrap(
   'Projects',
   casePage(
     'Microsoft 365 Graph Administration Lab',
-    'Project 13 · IN PROGRESS',
-    'A reusable Microsoft Graph and PowerShell administration lab focused on legitimate Microsoft 365, Entra ID, and Intune reporting, least-privilege delegated access, validation, and evidence-backed troubleshooting.',
+    'Project 13 · COMPLETE',
+    'Validated read-only Microsoft Graph administration and reporting automation across Microsoft 365, Entra ID, and Intune, with least-privilege delegated access and evidence-backed troubleshooting.',
     [['7 scripts','Validated'],['Microsoft Graph','REST + PowerShell'],['Read-only','Current scope'],['Intune','Integrated']],
     [
       ['scope','Scope','Reusable read-only Microsoft 365 administration tooling','<p>The lab uses a Microsoft 365 E5 Developer tenant to build reusable administration and reporting scripts without creating meaningless tenant activity. Current work is intentionally read-only and focuses on tenant inventory, identity, licensing, directory roles, sign-in activity, and Intune managed-device reporting.</p>'],
