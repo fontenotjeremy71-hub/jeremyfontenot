@@ -231,14 +231,14 @@ The current `main` branch and deployed project routing define **13 public projec
 ## 09 — ServiceNow Request Fulfillment & Procurement Workflow
 
 - **Project Name:** ServiceNow Request Fulfillment & Procurement Workflow
-- **Current Status:** IN PROGRESS — current request-fulfillment milestone is complete and validated.
-- **Completion Date:** N/A — project remains in progress.
+- **Current Status:** COMPLETE
+- **Completion Date:** Not required for portfolio validation
 - **GitHub Repository Path:** `projects/servicenow-request-fulfillment/`
 - **Portfolio URL:** https://jeremyfontenot.online/servicenow-request-fulfillment.html
-- **Evidence Status:** STRONG for the completed workflow milestone.
+- **Evidence Status:** STRONG — the complete request-fulfillment workflow, automatic lifecycle behavior, role-qualified assignment troubleshooting, and simulation boundaries are documented.
 - **Evidence Location:** `projects/servicenow-request-fulfillment/README.md`; public proof anchor `/proof.html#servicenow-proof`
-- **Last Validated:** The completed workflow milestone is documented and validated; exact historical milestone date is not required.
-- **Next Milestone:** Define the remaining scope required to move the overall project from `IN PROGRESS` to `COMPLETE`, or deliberately retain it as an ongoing learning project.
+- **Last Validated:** The intended workflow is documented and validated; exact historical completion date is not required.
+- **Next Milestone:** Maintenance-only. Further ServiceNow administration belongs in the separate ServiceNow Administration & ITSM Lab.
 - **Notes / Claim Boundaries:** Personal ServiceNow PDI. Physical laptop procurement, vendor delivery, software installation, and user handoff were simulated. The project demonstrates ServiceNow workflow understanding and hands-on lab administration, not employer production ownership.
 
 ## 10 — Microsoft 365 Messaging & Security Administration
@@ -283,14 +283,14 @@ The current `main` branch and deployed project routing define **13 public projec
 ## 13 — Microsoft 365 Graph Administration Lab
 
 - **Project Name:** Microsoft 365 Graph Administration Lab
-- **Current Status:** IN PROGRESS — seven read-only administration/reporting scripts validated.
-- **Completion Date:** N/A — project remains in progress.
+- **Current Status:** COMPLETE — validated read-only Microsoft Graph administration and reporting automation.
+- **Completion Date:** Not required for portfolio validation
 - **GitHub Repository Path:** `projects/m365-graph-administration-lab/`
 - **Portfolio URL:** https://jeremyfontenot.online/m365-graph-administration-lab.html
-- **Evidence Status:** STRONG for the seven validated scripts and documented Graph authentication/permission/troubleshooting behavior.
+- **Evidence Status:** STRONG — seven validated read-only scripts, delegated authentication, scope handling, CSV/report output, Intune inventory, and documented Graph troubleshooting are preserved.
 - **Evidence Location:** `projects/m365-graph-administration-lab/scripts/`; `projects/m365-graph-administration-lab/docs/`; public proof anchor `/proof.html#m365-graph-admin-proof`
 - **Last Validated:** Seven scripts are documented as validated. Exact historical execution dates for each script are not required unless a date becomes technically material.
-- **Next Milestone:** Define and complete the remaining Graph, Intune, Autopilot, governance, and security scope required before changing the project to COMPLETE.
+- **Next Milestone:** Maintenance-only. Graph write operations or broader automation are optional future enhancements only when they serve a legitimate administrative requirement.
 - **Notes / Claim Boundaries:** Read-only delegated administration/reporting is currently proven. Live CSV exports are intentionally not public because they may contain UPNs, object IDs, device identifiers, and tenant-specific data. Do not imply write automation or broader Graph coverage that has not been validated.
 
 ---
@@ -343,14 +343,12 @@ These items should not increase the public project count unless a deliberate por
 
 1. **RESOLVED — Public project count shell mismatch:** `projects.html`, `assets/js/routes-projects.js`, and `projects/README.md` are synchronized on the authoritative 13-project state.
 2. **RESOLVED — Microsoft 365 Messaging & Security status mismatch:** `evidence-library/projects/m365-messaging-security/README.md`, current routing, and `projects/README.md` now consistently represent the project as COMPLETE. Existing evidence limitations and the Microsoft Graph licensing-metadata discrepancy remain explicitly documented.
-3. **ServiceNow Request Fulfillment:** The major workflow milestone is complete, but the broader project remains IN PROGRESS. The remaining completion criteria need to be defined.
+3. **RESOLVED — ServiceNow Request Fulfillment:** The intended REQ → RITM → approval → Procurement SCTASK → Field Services SCTASK → automatic RITM/REQ closure workflow is complete and validated. Further ServiceNow administration is tracked separately.
 4. **ServiceNow Administration & ITSM Lab:** Phases 1–4 are validated, but the project is not yet part of the authoritative 13-project public set.
 5. **Cloudflare hardening:** Operationally meaningful, but no confirmed dedicated case-study/evidence package exists yet.
 
 # Immediate Registry Priorities
 
 1. Finish ServiceNow Administration & ITSM Lab Phases 5–10 and publish it only after the Phase 10 evidence audit.
-2. Define Microsoft 365 Graph Administration Lab completion criteria and continue the planned scope.
-3. Decide the final completion criteria for ServiceNow Request Fulfillment.
-4. Package Cloudflare hardening evidence and decide whether it becomes a standalone case study.
-5. Update this registry whenever project status, publication state, evidence package, material claim boundaries, or next milestones change. Historical dates are optional metadata unless technically material.
+2. Package Cloudflare hardening evidence and decide whether it becomes a standalone case study.
+3. Update this registry whenever project status, publication state, evidence package, material claim boundaries, or next milestones change. Historical dates are optional metadata unless technically material.
