@@ -14,10 +14,10 @@ The portfolio currently includes thirteen public projects. "Complete" means the 
 6. Azure Arc Hybrid Windows Management — **COMPLETE**
 7. APP01 Hyper-V Storage Expansion — **COMPLETE**
 8. Cross-Platform Administration & Support Method — **COMPLETE** (supporting project)
-9. ServiceNow Request Fulfillment & Procurement Workflow — **IN PROGRESS** (ongoing ServiceNow administration learning project; current request-fulfillment milestone validated)
+9. ServiceNow Request Fulfillment & Procurement Workflow — **COMPLETE** (validated REQ → RITM → approval → Procurement SCTASK → Field Services SCTASK → automatic RITM/REQ closure workflow)
 10. Microsoft 365 Messaging & Security Administration — **COMPLETE**
 11. Windows Autopilot & Intune MDM Provisioning — **COMPLETE**
 12. macOS ABM to Intune Enterprise Runbook — **COMPLETE** (Microsoft-side configuration real where validated; ABM/ADE and endpoint-dependent work explicitly simulated/documented)
-13. Microsoft 365 Graph Administration Lab — **IN PROGRESS** (seven read-only Microsoft Graph/PowerShell administration and reporting scripts validated; additional Graph, Intune, Autopilot, governance, and security work remains planned)
+13. Microsoft 365 Graph Administration Lab — **COMPLETE** (validated read-only Microsoft Graph administration and reporting automation across seven scripts)
 
 The public numbering reflects hiring relevance and portfolio organization, not build date. Evidence and historical project files are preserved even when they are not the primary recruiter entry point.
