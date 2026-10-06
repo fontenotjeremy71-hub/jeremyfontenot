@@ -1,6 +1,6 @@
 # Microsoft 365 Graph Administration Lab
 
-**Status:** IN PROGRESS — seven read-only administration/reporting scripts validated.
+**Status:** COMPLETE — validated read-only Microsoft Graph administration and reporting automation.
 
 Portfolio case study: https://jeremyfontenot.online/m365-graph-administration-lab.html
 
@@ -90,6 +90,10 @@ m365-graph-administration-lab/
 └── docs/
     └── Troubleshooting.md
 ```
+
+## Completion and claim boundary
+
+The intended portfolio scope is complete: seven read-only administration/reporting scripts were validated across Microsoft 365, Entra ID, and Intune. The project demonstrates delegated Microsoft Graph authentication, required-scope handling, read-only administration/reporting, CSV output, pagination, and documented troubleshooting. It does not claim Graph write automation or broader administrative coverage that was not validated.
 
 ## Security and publication notes
 
