@@ -1,1 +1,309 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><meta name="theme-color" content="#07111f"><title>Windows LAPS & Advanced Group Policy | Jeremy Fontenot</title><meta name="description" content="Enterprise-style local administrator password management with encrypted AD backup, delegated readers, policy validation, and documented troubleshooting."><link rel="canonical" href="https://jeremyfontenot.online/windows-laps-gpo.html"><link rel="icon" href="/assets/logos/favicon_64x64.png"><link rel="stylesheet" href="/assets/css/site.css?v=20260912rebuild2"><script src="/assets/js/site-core.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-main.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-projects.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-cases.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-support.js?v=20260912rebuild4" defer></script><script src="/assets/js/site-render.js?v=20260912rebuild4" defer></script></head><body><a class="skip" href="#main">Skip to content</a><div id="app"><main id="main"><section class="page-hero"><div class="wrap"><p class="eyebrow">Project 01 · validated</p><h1>Windows LAPS & Advanced Group Policy</h1></div></section></main></div><noscript><div class="wrap legacy"><p><strong>JavaScript is required for the interactive portfolio experience.</strong></p><p>Please enable JavaScript to view this case study.</p></div></noscript></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Windows LAPS &amp; Advanced Group Policy | Jeremy Fontenot</title><meta name="description" content="Encrypted local administrator passwords, scoped Group Policy, delegated readers, and positive and negative access tests."><meta property="og:title" content="Windows LAPS &amp; Advanced Group Policy"><meta property="og:description" content="Encrypted local administrator passwords, scoped Group Policy, delegated readers, and positive and negative access tests."><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/windows-laps-gpo.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/windows-laps-gpo.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="projects/windows-laps-gpo"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><span class="nav-current" aria-current="page">Projects</span><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Windows LAPS &amp; Advanced Group Policy</span></div><div class="page-heading"><p class="eyebrow">Project 01 / Identity & security</p><h1>Windows LAPS &amp; Advanced Group Policy</h1><p class="lead">Encrypted local administrator passwords, scoped Group Policy, delegated readers, and positive and negative access tests.</p><div class="tags"><span class="status">COMPLETE</span><span class="tag">Validated lab work</span></div><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/" target="_blank" rel="noopener noreferrer" class="">GitHub documentation <span aria-hidden="true">↗</span></a><a href="https://jeremyfontenot.online/windows-laps-gpo.html" rel="noopener noreferrer" class="">Original portfolio <span aria-hidden="true">↗</span></a><a href="/evidence-browser.html" class="">Evidence library</a></div></div><div class="case-layout"><aside class="case-toc"><p class="eyebrow">Inside this case study</p><a href="#overview">Overview</a><a href="#scenario">Operational scenario & objectives</a><a href="#environment">Environment & technologies</a><a href="#architecture">Architecture</a><a href="#implementation">Implementation & administration</a><a href="#troubleshooting">Troubleshooting</a><a href="#validation">Validation & results</a><a href="#evidence">Evidence</a><a href="#skills">Skills demonstrated</a><a href="#limitations">Limitations & claim boundaries</a><a href="#next">Next milestones</a></aside><article><section class="content-block" id="overview"><h2>Overview</h2><p>Encrypted local administrator passwords, scoped Group Policy, delegated readers, and positive and negative access tests.</p><p><strong>Classification:</strong> Validated lab work.</p></section><section class="content-block" id="scenario"><h2>Operational scenario & objectives</h2><p>Protect local administrator credentials with encrypted AD backup while proving that authorized readers can retrieve metadata and unauthorized users cannot.</p></section><section class="content-block" id="environment"><h2>Environment & technologies</h2><p>Personal AD lab: DC01 and the WS01 endpoint in a dedicated LAPS-Test OU; an enabled LocalAdmin account and a delegated reader group.</p><div class="tags"><span class="tag">Windows LAPS</span><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">PowerShell</span></div></section><section class="content-block" id="architecture"><h2>Architecture</h2><p>Personal AD lab: DC01 and the WS01 endpoint in a dedicated LAPS-Test OU; an enabled LocalAdmin account and a delegated reader group.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-a090b3c23be8.html" class="">Architecture<small>projects/windows-laps-gpo/architecture.md</small></a></div></section><section class="content-block" id="implementation"><h2>Implementation & administration</h2><div class="imported"><section class="page-hero"><div class="wrap"><p class="eyebrow">Project 01 · COMPLETE</p><h2>Windows LAPS &amp; Advanced Group Policy</h2><p class="lead">Enterprise-style local administrator password management with encrypted AD backup, delegated readers, policy validation, and documented troubleshooting.</p><div class="actions"><a class="button primary" href="/projects.html">Back to projects</a><a class="button" href="/evidence-browser.html">Review proof index</a></div></div></section><section class="section"><div class="wrap"><div class="metric-strip"><div class="metric"><strong>WS01</strong><span>Managed endpoint</span></div><div class="metric"><strong>14 chars</strong><span>Password length</span></div><div class="metric"><strong>30 days</strong><span>Password age</span></div><div class="metric"><strong>Encrypted</strong><span>AD backup</span></div></div></div></section><section class="section"><div class="wrap case-layout"><article><section class="content-block" id="source-4d0da469-scope"><p class="eyebrow">Scope</p><h2>Windows LAPS on a controlled AD test scope</h2><p>Modern Windows LAPS was implemented against WS01 in a dedicated protected OU under the existing AD domain. The project intentionally reused working identity infrastructure and avoided unnecessary rebuilds.</p></section><section class="content-block" id="source-4d0da469-design"><p class="eyebrow">Design</p><h2>Least privilege and encrypted AD backup</h2><p>The design uses modern Windows LAPS, encrypted Active Directory password storage, a dedicated reader group, OU-scoped permissions, and a managed local <strong>LocalAdmin</strong> account instead of enabling the built-in Administrator.</p></section><section class="content-block" id="source-4d0da469-implementation"><p class="eyebrow">Implementation</p><h2>Schema, OU permissions, GPO, managed account</h2><p>The AD schema was extended for modern LAPS. WS01 was moved into the LAPS-Test OU. Computer self-permission and reader delegation were applied. A GPO configured AD backup, password complexity, 14-character passwords, 30-day age, encryption, authorized decryptors, and the managed account name.</p></section><section class="content-block" id="source-4d0da469-validation"><p class="eyebrow">Validation</p><h2>Positive and negative access tests</h2><p>Validation included gpresult, RSOP, LAPS operational events, safe metadata retrieval, forced password rotation, encrypted AD attribute presence, delegated reader success, and an unauthorized-user test that returned no LAPS record.</p></section><section class="content-block" id="source-4d0da469-troubleshooting"><p class="eyebrow">Troubleshooting</p><h2>RPC/WMI and client-side RDP issues</h2><p>RSOP initially failed because WS01 WMI firewall rules were disabled. Enabling only the required Domain-profile WMI rules restored remote WMI and Group Policy Results. A separate mstsc client hang was isolated to the administrative laptop, not DC01.</p></section><section class="content-block" id="source-4d0da469-evidence"><p class="eyebrow">Evidence</p><h2>Sanitized validation</h2><ul class="evidence-list"><li><a href="https://jeremyfontenot.online/projects/windows-laps-gpo/evidence/" rel="noopener noreferrer">Evidence index<span>Recruiter-friendly Windows LAPS validation</span></a></li><li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/01-schema-attributes.txt" rel="noopener noreferrer" target="_blank">Schema attributes<span>Modern msLAPS attributes present</span></a></li><li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/11-laps-event-effective-policy.txt" rel="noopener noreferrer" target="_blank">Effective policy<span>Event 10021 sanitized policy state</span></a></li><li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/12-laps-final-retrieval-success.txt" rel="noopener noreferrer" target="_blank">Final retrieval<span>Encrypted source and successful delegated decryption</span></a></li><li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/13-laps-forced-rotation-events.txt" rel="noopener noreferrer" target="_blank">Forced rotation<span>Events 10014, 10020, 10018, 10004</span></a></li><li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/14-laps-unauthorized-access-denied.txt" rel="noopener noreferrer" target="_blank">Negative access test<span>Unauthorized user returned no LAPS record</span></a></li><li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/16-ad-laps-attribute-presence.txt" rel="noopener noreferrer" target="_blank">AD attribute presence<span>Encrypted password attribute confirmed without exposing content</span></a></li></ul></section></article><aside class="case-nav panel"><p class="eyebrow">Case study</p><a href="/windows-laps-gpo.html">Windows LAPS on a controlled AD test scope</a><a href="/windows-laps-gpo.html">Least privilege and encrypted AD backup</a><a href="/windows-laps-gpo.html">Schema, OU permissions, GPO, managed account</a><a href="/windows-laps-gpo.html">Positive and negative access tests</a><a href="/windows-laps-gpo.html">RPC/WMI and client-side RDP issues</a><a href="/windows-laps-gpo.html">Validation links</a></aside></div></section></div><details><summary>Windows LAPS &amp; Advanced Group Policy <small> / README.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/README.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-766e6fce41e2.html" class="">Open document page</a></div><h2>Windows LAPS &amp; Advanced Group Policy</h2>
+<h2>Status</h2>
+<p><strong>COMPLETE</strong></p>
+<p>This project demonstrates a validated deployment of modern Windows LAPS in the <code>ad.jeremyfontenot.online</code> Active Directory lab using a dedicated test OU, Group Policy, encrypted password storage, least-privilege delegation, event-log validation, and forced password rotation.</p>
+<h2>Environment</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AD domain</td>
+<td><code>ad.jeremyfontenot.online</code></td>
+</tr>
+<tr>
+<td>NetBIOS</td>
+<td><code>JFAD</code></td>
+</tr>
+<tr>
+<td>Domain controller</td>
+<td><code>DC01</code> - Windows Server 2022</td>
+</tr>
+<tr>
+<td>Test endpoint</td>
+<td><code>WS01</code> - Windows 10 Pro 10.0.19045</td>
+</tr>
+<tr>
+<td>Test OU</td>
+<td><code>OU=LAPS-Test,OU=Workstations,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online</code></td>
+</tr>
+<tr>
+<td>LAPS GPO</td>
+<td><code>GPO - Workstations - Windows LAPS</code></td>
+</tr>
+<tr>
+<td>Managed account</td>
+<td><code>LocalAdmin</code></td>
+</tr>
+<tr>
+<td>Reader group</td>
+<td><code>JFAD\GG-LAPS-Password-Readers</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2>Validated controls</h2>
+<ul>
+<li>Modern Windows LAPS module present on DC01 and WS01</li>
+<li>AD schema inspected before modification</li>
+<li><code>Update-LapsADSchema</code> completed and six <code>msLAPS-*</code> attributes validated</li>
+<li>Dedicated <code>LAPS-Test</code> OU created and WS01 moved into scope</li>
+<li>Computer self-permission delegated with <code>Set-LapsADComputerSelfPermission</code></li>
+<li>Dedicated password-reader group created and delegated with <code>Set-LapsADReadPasswordPermission</code></li>
+<li>GPO configured for AD backup, 30-day age, 14-character complex passwords, encrypted storage, and an authorized decryptor group</li>
+<li><code>gpupdate</code>, <code>gpresult</code>, and GUI Group Policy Results/RSOP validated</li>
+<li>Windows LAPS Event IDs 10021, 10020, 10018, 10014, and 10004 validated</li>
+<li>Delegated non-admin retrieval succeeded</li>
+<li>Unauthorized standard-user retrieval returned no LAPS record</li>
+<li>Forced password rotation changed the password update and expiration timestamps</li>
+</ul>
+<h2>Security design</h2>
+<p>The built-in RID-500 <code>Administrator</code> account remains disabled. Windows LAPS manages the existing enabled <code>WS01\LocalAdmin</code> account instead. Passwords are stored using encrypted Windows LAPS attributes in Active Directory. The actual password is intentionally excluded from all portfolio evidence.</p>
+<h2>Documentation</h2>
+<ul>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/architecture.md" rel="noopener noreferrer" target="_blank">Architecture</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/implementation.md" rel="noopener noreferrer" target="_blank">Implementation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/validation.md" rel="noopener noreferrer" target="_blank">Validation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/troubleshooting.md" rel="noopener noreferrer" target="_blank">Troubleshooting</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/lessons-learned.md" rel="noopener noreferrer" target="_blank">Lessons learned</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/README.md" rel="noopener noreferrer" target="_blank">Sanitized evidence</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/scripts/Validate-WindowsLAPS.ps1" rel="noopener noreferrer" target="_blank">Validation script</a></li>
+</ul></div></details><details><summary>Architecture <small> / architecture.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/architecture.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-a090b3c23be8.html" class="">Open document page</a></div><h2>Architecture</h2>
+<h2>Objective</h2>
+<p>Deploy modern Windows LAPS in a controlled Active Directory test scope using Group Policy, encrypted password storage, and delegated least-privilege access.</p>
+<h2>Logical path</h2>
+<p><code>Administrative laptop -&gt; DC01 -&gt; LAPS-Test OU -&gt; WS01 -&gt; LocalAdmin</code></p>
+<p>The administrative laptop is not domain joined, so domain-integrated administration was performed through DC01 by PowerShell remoting and RDP.</p>
+<h2>AD and endpoint design</h2>
+<ul>
+<li>Domain: <code>ad.jeremyfontenot.online</code></li>
+<li>Domain controller / Schema Master: <code>DC01</code></li>
+<li>Domain functional level: Windows Server 2016</li>
+<li>Endpoint: <code>WS01</code></li>
+<li>Endpoint OS: Windows 10 Pro build 19045</li>
+<li>OU: <code>OU=LAPS-Test,OU=Workstations,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online</code></li>
+</ul>
+<h2>LAPS schema</h2>
+<p>The schema was first queried for <code>msLAPS-*</code> attributes. None were present. <code>Update-LapsADSchema</code> was then run with temporary Schema Admin membership, after which the membership was removed.</p>
+<p>Validated attributes:</p>
+<ul>
+<li><code>msLAPS-Password</code></li>
+<li><code>msLAPS-PasswordExpirationTime</code></li>
+<li><code>msLAPS-EncryptedPassword</code></li>
+<li><code>msLAPS-EncryptedPasswordHistory</code></li>
+<li><code>msLAPS-EncryptedDSRMPassword</code></li>
+<li><code>msLAPS-EncryptedDSRMPasswordHistory</code></li>
+</ul>
+<h2>Group Policy</h2>
+<p>GPO: <code>GPO - Workstations - Windows LAPS</code></p>
+<p>Settings:</p>
+<ul>
+<li>Backup directory: Active Directory</li>
+<li>Managed account: <code>LocalAdmin</code></li>
+<li>Password age: 30 days</li>
+<li>Password length: 14</li>
+<li>Complexity: uppercase + lowercase + numbers + special characters</li>
+<li>Password expiration protection: enabled</li>
+<li>Password encryption: enabled</li>
+<li>Authorized decryptor: <code>JFAD\GG-LAPS-Password-Readers</code></li>
+</ul>
+<h2>Delegation</h2>
+<p><code>Set-LapsADComputerSelfPermission</code> grants managed computers permission to update their own LAPS attributes. <code>Set-LapsADReadPasswordPermission</code> delegates password-read rights to <code>JFAD\GG-LAPS-Password-Readers</code>.</p>
+<p>The final test reader account <code>laps.reader01</code> belongs only to <code>Domain Users</code> and <code>GG-LAPS-Password-Readers</code>, demonstrating delegated access independent of Domain Admin privileges.</p></div></details><details><summary>Sanitized Evidence Index <small> / README.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/README.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-f31de6857df0.html" class="">Open document page</a></div><h2>Sanitized Evidence Index</h2>
+<p>This folder contains portfolio-safe evidence reconstructed from the validated command output captured during the lab. Managed passwords and authentication secrets are intentionally excluded.</p>
+<h2>Core evidence</h2>
+<ul>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/validated-results.md" rel="noopener noreferrer" target="_blank">Validated results</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/troubleshooting-evidence.md" rel="noopener noreferrer" target="_blank">Troubleshooting evidence</a></li>
+</ul>
+<h2>Security handling</h2>
+<p>Never publish:</p>
+<ul>
+<li>Windows LAPS managed passwords</li>
+<li>domain passwords</li>
+<li>recovery secrets</li>
+<li>private keys</li>
+<li>tokens</li>
+<li>VPN credentials</li>
+</ul>
+<p>The repository intentionally records only non-secret metadata such as account name, timestamps, encryption source, decryption status, authorized decryptor, event IDs, and GPO configuration.</p></div></details><details><summary>Troubleshooting Evidence <small> / troubleshooting-evidence.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/troubleshooting-evidence.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-b2ce94f11b7f.html" class="">Open document page</a></div><h2>Troubleshooting Evidence</h2>
+<h2>RDP</h2>
+<ul>
+<li>TCP 3389 to DC01: reachable</li>
+<li>Local client failure: <code>mstsc.exe</code> AppHangB1 / Event ID 1002</li>
+<li>Working launch: <code>mstsc /public /admin /v:dc01.ad.jeremyfontenot.online</code></li>
+</ul>
+<h2>WMI / RSOP</h2>
+<p>Initial WMI result:</p>
+<pre><code class="language-text">The RPC server is unavailable. (Exception from HRESULT: 0x800706BA)
+</code></pre>
+<p>WMI firewall rule source:</p>
+<pre><code class="language-text">PolicyStoreSourceType : Local
+PolicyStoreSource     : PersistentStore
+Enabled               : False
+Profile               : Domain
+</code></pre>
+<p>After enabling the Domain-profile PersistentStore WMI rules:</p>
+<pre><code class="language-text">CSName  : WS01
+Caption : Microsoft Windows 10 Pro
+Version : 10.0.19045
+</code></pre>
+<p>The Group Policy Results wizard then completed successfully.</p></div></details><details><summary>Windows LAPS Validated Results <small> / validated-results.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/validated-results.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-f9a626e4009a.html" class="">Open document page</a></div><h2>Windows LAPS Validated Results</h2>
+<h2>Schema extension</h2>
+<p>Post-extension query returned all required modern attributes:</p>
+<pre><code class="language-text">msLAPS-EncryptedDSRMPassword
+msLAPS-EncryptedDSRMPasswordHistory
+msLAPS-EncryptedPassword
+msLAPS-EncryptedPasswordHistory
+msLAPS-Password
+msLAPS-PasswordExpirationTime
+</code></pre>
+<h2>OU and delegation</h2>
+<p>WS01 final OU:</p>
+<pre><code class="language-text">OU=LAPS-Test,OU=Workstations,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online
+</code></pre>
+<p>Extended-right holders:</p>
+<pre><code class="language-text">NT AUTHORITY\SYSTEM
+JFAD\Domain Admins
+JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<p>Final reader group membership:</p>
+<pre><code class="language-text">Name           : LAPS Reader Test
+SamAccountName : laps.reader01
+ObjectClass    : user
+</code></pre>
+<p><code>laps.reader01</code> group memberships:</p>
+<pre><code class="language-text">Domain Users
+GG-LAPS-Password-Readers
+</code></pre>
+<h2>GPO application</h2>
+<p><code>gpresult /r /scope computer</code> included:</p>
+<pre><code class="language-text">GPO - Workstations - Windows LAPS
+</code></pre>
+<h2>Effective policy - Event 10021</h2>
+<pre><code class="language-text">Policy source: GPO
+Backup directory: Active Directory
+Local administrator account name: LocalAdmin
+Password age in days: 30
+Password complexity: 4
+Password length: 14
+Password expiration protection enabled: 1
+Password encryption enabled: 1
+Password encryption target principal: JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<h2>Final encrypted retrieval</h2>
+<pre><code class="language-text">ComputerName        : WS01
+Account             : LocalAdmin
+PasswordUpdateTime  : 9/11/2026 7:06:17 PM
+ExpirationTimestamp : 10/11/2026 7:06:17 PM
+Source              : EncryptedPassword
+DecryptionStatus    : Success
+AuthorizedDecryptor : JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<h2>AD attribute presence</h2>
+<pre><code class="language-text">Name                          : WS01
+msLAPS-PasswordExpirationTime : 134362343115244738
+EncryptedPasswordPresent      : True
+</code></pre>
+<h2>Final rotation events</h2>
+<pre><code class="language-text">10014 - Administrator-initiated password update
+10020 - LocalAdmin password successfully updated
+10018 - Active Directory successfully updated
+10004 - LAPS policy processing succeeded
+</code></pre>
+<h2>Negative access test</h2>
+<pre><code class="language-text">ACCESS TEST RESULT: No LAPS record returned for unauthorized user.
+</code></pre>
+<p>No managed password value is present in this evidence.</p></div></details><details><summary>Implementation <small> / implementation.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/implementation.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-f0fb6888ddbb.html" class="">Open document page</a></div><h2>Implementation</h2>
+<ol>
+<li>Validated the modern <code>LAPS</code> PowerShell module on DC01 and WS01.</li>
+<li>Queried the AD schema for <code>msLAPS-*</code> attributes before making changes.</li>
+<li>Temporarily added <code>jeremy.fontenot</code> to <code>Schema Admins</code>, refreshed the logon token, and ran <code>Update-LapsADSchema -Verbose</code>.</li>
+<li>Verified all six modern Windows LAPS schema attributes and removed the temporary Schema Admin membership.</li>
+<li>Created <code>OU=LAPS-Test</code> under <code>OU=Workstations</code> with accidental-deletion protection.</li>
+<li>Moved WS01 from the existing Windows 10 OU into <code>LAPS-Test</code>.</li>
+<li>Delegated computer self-permission with <code>Set-LapsADComputerSelfPermission</code>.</li>
+<li>Created <code>GG-LAPS-Password-Readers</code> and delegated read permission with <code>Set-LapsADReadPasswordPermission</code>.</li>
+<li>Created and linked <code>GPO - Workstations - Windows LAPS</code> to the LAPS-Test OU.</li>
+<li>Configured AD backup, 30-day age, 14-character complex passwords, encryption, and <code>GG-LAPS-Password-Readers</code> as the authorized decryptor.</li>
+<li>Initially allowed LAPS to target the built-in Administrator account. Event ID 10067 showed that the account was disabled.</li>
+<li>Reviewed WS01 local Administrators and found the existing enabled <code>LocalAdmin</code> account.</li>
+<li>Updated the GPO to manage <code>LocalAdmin</code> rather than enabling the built-in Administrator account.</li>
+<li>Forced Group Policy processing and validated the effective policy through Event ID 10021.</li>
+<li>Created non-admin reader account <code>laps.reader01</code>, added it to the reader group, and validated encrypted retrieval.</li>
+<li>Created a temporary unauthorized standard user and confirmed it could not retrieve the LAPS record; the account was then deleted.</li>
+<li>Forced a final <code>Reset-LapsPassword</code> and validated the new timestamps and Event IDs 10014, 10020, 10018, and 10004.</li>
+</ol></div></details><details><summary>Lessons Learned <small> / lessons-learned.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/lessons-learned.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-cf8e9d648157.html" class="">Open document page</a></div><h2>Lessons Learned</h2>
+<ul>
+<li>Verify <code>msLAPS-*</code> schema state before running <code>Update-LapsADSchema</code>.</li>
+<li>Use temporary privilege for schema changes and remove it immediately afterward.</li>
+<li>Scope testing to a dedicated OU rather than broad workstation containers.</li>
+<li>Separate LAPS password-read rights from Domain Admin privileges.</li>
+<li>Prefer encrypted password storage and an explicit decryptor group.</li>
+<li>Select the managed account intentionally; LAPS can rotate a disabled account, but that does not make the account usable for recovery.</li>
+<li>Event IDs 10021, 10020, 10018, 10014, and 10004 provide strong operational evidence.</li>
+<li><code>gpresult</code> and GUI RSOP validate complementary layers of Group Policy application.</li>
+<li>Troubleshoot the failing layer from evidence: transport, WMI/RPC, firewall policy source, policy application, and finally LAPS processing.</li>
+<li>Portfolio evidence should show timestamps, source, account, decryption status, and authorization metadata while excluding the password itself.</li>
+</ul></div></details><details><summary>Troubleshooting <small> / troubleshooting.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-c3c22f68fe5b.html" class="">Open document page</a></div><h2>Troubleshooting</h2>
+<h2>RDP client hang</h2>
+<p>TCP 3389 to DC01 was reachable, but the local Remote Desktop Connection client hung or closed. Windows Error Reporting showed <code>mstsc.exe</code> <code>AppHangB1</code> / Application Hang Event ID 1002.</p>
+<p>Resolution:</p>
+<pre><code class="language-text">mstsc /public /admin /v:dc01.ad.jeremyfontenot.online
+</code></pre>
+<p>The administrative RDP session then opened successfully.</p>
+<h2>RSOP / WMI RPC failure</h2>
+<p>The Group Policy Results wizard initially failed to query WS01. A direct WMI test returned <code>0x800706BA - The RPC server is unavailable</code>.</p>
+<p>Inspection showed all <code>Windows Management Instrumentation (WMI)</code> firewall rules were disabled and originated from the local <code>PersistentStore</code>.</p>
+<p>The Domain-profile WMI rules were enabled in <code>PersistentStore</code>. A subsequent <code>Get-WmiObject Win32_OperatingSystem -ComputerName WS01</code> succeeded and the GUI Group Policy Results report generated correctly.</p>
+<h2>Disabled built-in Administrator</h2>
+<p>LAPS Event ID 10067 reported that the built-in <code>Administrator</code> account was disabled. WS01 already had an enabled custom <code>LocalAdmin</code> account in the local Administrators group.</p>
+<p>The LAPS GPO was updated to manage <code>LocalAdmin</code>. Event IDs 10021 and 10020 then confirmed the intended account and successful password update.</p>
+<h2>Reader account could not WinRM to DC01</h2>
+<p><code>laps.reader01</code> intentionally lacked administrative/WinRM rights on DC01. Rather than granting unnecessary remote-administration permission, <code>Get-LapsADPassword -Credential</code> and <code>-DecryptionCredential</code> were used inside the existing administrative remoting session to validate the delegated reader credentials.</p></div></details><details><summary>Validation <small> / validation.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/validation.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-2044a931d6f0.html" class="">Open document page</a></div><h2>Validation</h2>
+<h2>Group Policy</h2>
+<p><code>gpupdate /force</code> completed successfully on WS01. <code>gpresult /r /scope computer</code> listed <code>GPO - Workstations - Windows LAPS</code> under Applied Group Policy Objects. The Group Policy Results wizard was also generated after WMI/RPC remediation.</p>
+<h2>Effective policy</h2>
+<p>Event ID 10021 reported:</p>
+<pre><code class="language-text">Policy source: GPO
+Backup directory: Active Directory
+Local administrator account name: LocalAdmin
+Password age in days: 30
+Password complexity: 4
+Password length: 14
+Password expiration protection enabled: 1
+Password encryption enabled: 1
+Password encryption target principal: JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<h2>AD backup and retrieval</h2>
+<p>Sanitized final retrieval:</p>
+<pre><code class="language-text">ComputerName        : WS01
+Account             : LocalAdmin
+PasswordUpdateTime  : 9/11/2026 7:06:17 PM
+ExpirationTimestamp : 10/11/2026 7:06:17 PM
+Source              : EncryptedPassword
+DecryptionStatus    : Success
+AuthorizedDecryptor : JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<p>The <code>Password</code> property was deliberately excluded.</p>
+<h2>Forced rotation</h2>
+<p>Event sequence:</p>
+<ul>
+<li>10014 - administrator-initiated password update</li>
+<li>10020 - <code>LocalAdmin</code> password updated</li>
+<li>10018 - Active Directory updated with the new password</li>
+<li>10004 - LAPS policy processing succeeded</li>
+</ul>
+<h2>Least privilege</h2>
+<p><code>laps.reader01</code> was validated with only <code>Domain Users</code> and <code>GG-LAPS-Password-Readers</code> memberships and successfully decrypted the encrypted LAPS record.</p>
+<p>A standard user outside the reader group produced:</p>
+<pre><code class="language-text">ACCESS TEST RESULT: No LAPS record returned for unauthorized user.
+</code></pre>
+<h2>AD attribute presence</h2>
+<pre><code class="language-text">Name                          : WS01
+msLAPS-PasswordExpirationTime : 134362343115244738
+EncryptedPasswordPresent      : True
+</code></pre></div></details></section><section class="content-block" id="troubleshooting"><h2>Troubleshooting</h2><p>RSOP failed with RPC error 0x800706BA because WS01 WMI firewall rules were disabled. Enabling the required Domain-profile rules restored WMI and Group Policy Results. Event 10067 also led to targeting the existing LocalAdmin account instead of the disabled built-in Administrator.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-b2ce94f11b7f.html" class="">Troubleshooting Evidence<small>projects/windows-laps-gpo/evidence/troubleshooting-evidence.md</small></a><a href="/portfolio-documents/documentation-c3c22f68fe5b.html" class="">Troubleshooting<small>projects/windows-laps-gpo/troubleshooting.md</small></a></div></section><section class="content-block" id="validation"><h2>Validation & results</h2><p>Encrypted attribute presence, delegated retrieval, unauthorized-access denial, effective policy, and forced-rotation events support the completed Windows LAPS scope.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-2044a931d6f0.html" class="">Validation<small>projects/windows-laps-gpo/validation.md</small></a></div></section><section class="content-block" id="evidence"><h2>Evidence</h2><p>STRONG — implementation, validation, troubleshooting, sanitized evidence, and a reusable validation script are documented.</p><div class="doc-grid"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/README.md" target="_blank" rel="noopener noreferrer" class="">README.md<small>Retained documentation supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/architecture.md" target="_blank" rel="noopener noreferrer" class="">architecture.md<small>Retained documentation supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/01-schema-attributes.txt" target="_blank" rel="noopener noreferrer" class="">01-schema-attributes.txt<small>Retained validation records supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/11-laps-event-effective-policy.txt" target="_blank" rel="noopener noreferrer" class="">11-laps-event-effective-policy.txt<small>Retained validation records supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/12-laps-final-retrieval-success.txt" target="_blank" rel="noopener noreferrer" class="">12-laps-final-retrieval-success.txt<small>Retained validation records supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/13-laps-forced-rotation-events.txt" target="_blank" rel="noopener noreferrer" class="">13-laps-forced-rotation-events.txt<small>Retained validation records supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/14-laps-unauthorized-access-denied.txt" target="_blank" rel="noopener noreferrer" class="">14-laps-unauthorized-access-denied.txt<small>Retained validation records supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/16-ad-laps-attribute-presence.txt" target="_blank" rel="noopener noreferrer" class="">16-ad-laps-attribute-presence.txt<small>Retained validation records supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/README.md" target="_blank" rel="noopener noreferrer" class="">README.md<small>Retained documentation supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/index.html" target="_blank" rel="noopener noreferrer" class="">index.html<small>Retained documentation supporting Windows LAPS &amp; Advanced Group Policy.</small> <span aria-hidden="true">↗</span></a></div><div class="source-links"><a href="/evidence-browser.html" class="">Browse and filter the complete evidence library</a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/" target="_blank" rel="noopener noreferrer" class="">GitHub project source <span aria-hidden="true">↗</span></a></div></section><section class="content-block" id="skills"><h2>Skills demonstrated</h2><div class="tags"><span class="tag">Windows LAPS</span><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">PowerShell</span></div><a href="/skills.html" class="">View the complete capability map →</a></section><section class="content-block" id="limitations"><h2>Limitations & claim boundaries</h2><div class="note">Personal Active Directory lab. Evidence supports modern Windows LAPS schema extension, OU scoping, GPO configuration, encrypted AD password storage, least-privilege retrieval, negative access testing, RSOP/event validation, and forced rotation. Actual passwords are excluded.</div></section><section class="content-block" id="next"><h2>Next milestones</h2><p>Maintenance-only unless the lab changes; revalidate after material AD/GPO/LAPS changes.</p></section></article></div><section class="section"><p class="eyebrow">Continue exploring</p><h2>Related projects</h2><div class="grid grid-2"><article class="project-card" data-project data-category="Identity &amp; security" data-search="microsoft entra hybrid identity &amp; cloud sync scoped ad-to-entra provisioning with source-anchor correlation, password hash sync, and lifecycle validation. entra id cloud sync password hash sync ad ds"><div class="card-head"><span class="project-number">PROJECT 02</span><span class="status">COMPLETE</span></div><h3><a href="/entra-cloud-sync.html" class="">Microsoft Entra Hybrid Identity &amp; Cloud Sync</a></h3><p>Scoped AD-to-Entra provisioning with source-anchor correlation, Password Hash Sync, and lifecycle validation.</p><div class="tags"><span class="tag">Entra ID</span><span class="tag">Cloud Sync</span><span class="tag">Password Hash Sync</span><span class="tag">AD DS</span></div><div class="card-footer"><a href="/entra-cloud-sync.html" class="">Read case study <span class=arrow>↗</span></a><a href="/evidence-browser.html" class="text-link">Evidence</a></div></article><article class="project-card" data-project data-category="Infrastructure" data-search="windows admin center lab management centralized windows administration backed by connectivity, authentication, and remote-management validation. windows admin center winrm powershell"><div class="card-head"><span class="project-number">PROJECT 04</span><span class="status">COMPLETE</span></div><h3><a href="/windows-admin-center-lab.html" class="">Windows Admin Center Lab Management</a></h3><p>Centralized Windows administration backed by connectivity, authentication, and remote-management validation.</p><div class="tags"><span class="tag">Windows Admin Center</span><span class="tag">WinRM</span><span class="tag">PowerShell</span></div><div class="card-footer"><a href="/windows-admin-center-lab.html" class="">Read case study <span class=arrow>↗</span></a><a href="/evidence-browser.html" class="text-link">Evidence</a></div></article></div></section></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

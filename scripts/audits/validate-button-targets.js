@@ -62,7 +62,7 @@ function fragmentExists(relative, fragment) {
   const absolute = path.join(root, relative);
   if (!fs.existsSync(absolute) || !/\.html?$/i.test(relative)) return false;
   const html = fs.readFileSync(absolute, 'utf8');
-  const runtimePage = html.includes('site-render.js') || ['on-prem-home-lab.html', 'home-lab-operations-proof.html'].includes(relative);
+  const runtimePage = !html.includes('portfolio-preview.js') && (html.includes('site-render.js') || ['on-prem-home-lab.html', 'home-lab-operations-proof.html'].includes(relative));
   if (!runtimePage) return marker.test(html);
   const route = relative === 'index.html' ? '/' : '/' + relative;
   const routeText = runtimeText.split(/\r?\n/).filter((line) => line.includes(`routes['${route}']`) || line.includes(`routes["${route}"]`)).join('\n');

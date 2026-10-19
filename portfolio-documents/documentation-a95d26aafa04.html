@@ -1,0 +1,163 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ServiceNow Administration &amp; ITSM Lab | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: ServiceNow Administration &amp; ITSM Lab"><meta property="og:title" content="ServiceNow Administration &amp; ITSM Lab"><meta property="og:description" content="Retained technical documentation: ServiceNow Administration &amp; ITSM Lab"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-a95d26aafa04.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-a95d26aafa04.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/a95d26aafa04"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>ServiceNow Administration &amp; ITSM Lab</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>ServiceNow Administration &amp; ITSM Lab</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/servicenow-administration-itsm-lab/README.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>ServiceNow Administration &amp; ITSM Lab</h2>
+<p><strong>Status:</strong> In progress — Phases 1–4 completed and validated<br/>
+<strong>Environment:</strong> ServiceNow Personal Developer Instance (PDI)<br/>
+<strong>Scope:</strong> Administrative configuration and ITSM operations lab. This is not production or employer-owned ServiceNow administration.</p>
+<h2>Project objective</h2>
+<p>Build and validate a realistic small internal IT support model while demonstrating ServiceNow administration beyond catalog request fulfillment.</p>
+<p>The project follows this operating model:</p>
+<pre><code class="language-text">Requirement
+→ Intended Configuration
+→ Implementation
+→ Validation
+→ Result
+</code></pre>
+<p>Configuration is added only when it solves a realistic operational problem. Native declarative platform features are preferred over unnecessary scripting.</p>
+<h2>Current checkpoint</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Area</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Administration Foundation &amp; Incident Routing</td>
+<td>Complete / validated</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Incident Experience Configuration</td>
+<td>Complete / validated</td>
+</tr>
+<tr>
+<td>03</td>
+<td>SLA Administration</td>
+<td>Complete / validated</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Notifications &amp; Escalation</td>
+<td>Complete / validated</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Flow Designer Automation</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>06</td>
+<td>UI Policies &amp; Business Rules</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Knowledge Management Administration</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Service Catalog Administration</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>09</td>
+<td>Reports &amp; Dashboards</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Final Validation &amp; Portfolio Publication</td>
+<td>Not started</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Phase 01 — Administration Foundation &amp; Incident Routing</h2>
+<h3>Requirement</h3>
+<p>Provide centralized Service Desk intake with least-privilege technician access and manual escalation to specialist support groups.</p>
+<h3>Configuration</h3>
+<p>Dedicated lab support groups:</p>
+<ul>
+<li><code>Lab Service Desk</code></li>
+<li><code>Lab Endpoint Support</code></li>
+<li><code>Lab Network Support</code></li>
+</ul>
+<p>Access is provided through group-derived <code>itil</code> role membership rather than broad direct administrator access.</p>
+<p>Separate requester and technician identities are used for impersonation-based validation.</p>
+<h3>Validation</h3>
+<p>Primary routing test record:</p>
+<pre><code class="language-text">INC0010010
+</code></pre>
+<p>Validated routing path:</p>
+<pre><code class="language-text">Lab Requester
+→ new Incident
+→ auto-assigned to Lab Service Desk
+→ triaged
+→ reassigned to Lab Network Support
+→ visible/workable by Network Technician
+</code></pre>
+<h3>Result</h3>
+<p>The lab demonstrates centralized Tier 1 intake, manual Service Desk triage, specialist escalation, and role-qualified technician access without allowing requesters to route their own incidents directly to specialist teams.</p>
+<h2>Phase 02 — Incident Experience Configuration</h2>
+<h3>Requirement</h3>
+<p>Make the Incident workspace useful for Service Desk triage without adding configuration merely to demonstrate platform features.</p>
+<h3>Configuration</h3>
+<p>The existing Incident form was evaluated before making changes. The form already provided useful grouping for:</p>
+<ul>
+<li>classification</li>
+<li>impact and urgency</li>
+<li>calculated priority</li>
+<li>ownership</li>
+<li>activity</li>
+</ul>
+<p>Priority remained platform-calculated/read-only rather than manually controlled.</p>
+<p>The Incident list was adjusted for operational visibility so technicians can review classification and ownership information without opening every record.</p>
+<p>The existing Phase 1 routing incident was reused instead of creating unnecessary duplicate test records.</p>
+<h3>Validation</h3>
+<p>The final Incident experience was reviewed against the Service Desk operating model rather than against a checklist of available features.</p>
+<h3>Result</h3>
+<p>The phase retained useful native behavior, improved technician visibility where needed, and avoided unnecessary UI Policies or other configuration reserved for later phases.</p>
+<h2>Phase 03 — SLA Administration</h2>
+<h3>Requirement</h3>
+<p>Apply meaningful SLA administration to the Incident process and validate actual Task SLA behavior rather than merely creating SLA definitions.</p>
+<h3>Result</h3>
+<p>SLA administration has been completed and validated in the PDI. Detailed SLA configuration, final test evidence, and any troubleshooting findings will be consolidated during Phase 10 so the repository does not publish unverified intermediate notes.</p>
+<h2>Phase 04 — Notifications &amp; Escalation</h2>
+<h3>Requirement</h3>
+<p>Use notifications for operationally useful Incident communication and escalation rather than generic email testing.</p>
+<h3>Result</h3>
+<p>Notification and escalation administration has been completed and validated in the PDI. Detailed final notification conditions, recipients, evidence, and troubleshooting findings will be consolidated during Phase 10 after the remaining project phases are complete.</p>
+<h2>Previous ServiceNow project boundary</h2>
+<p>A separate earlier project already demonstrates:</p>
+<ul>
+<li>Service Catalog fulfillment</li>
+<li>REQ → RITM → SCTASK relationships</li>
+<li>approvals</li>
+<li>Procurement and Field Services fulfillment</li>
+<li>users and groups</li>
+<li><code>itil</code> role-qualified assignment</li>
+<li>reference-qualifier troubleshooting</li>
+<li>impersonation</li>
+<li>work notes and comments</li>
+<li>vendor/backorder handling</li>
+<li>automatic progression and closure</li>
+</ul>
+<p>This administration lab intentionally does not rebuild those items simply for feature coverage.</p>
+<p>See the prior project:</p>
+<pre><code class="language-text">projects/servicenow-request-fulfillment/
+</code></pre>
+<h2>Evidence policy</h2>
+<p>Evidence is retained when it proves a meaningful final administrative outcome. Routine intermediate clicks are not treated as portfolio evidence.</p>
+<p>The final Phase 10 audit will reconcile screenshots with:</p>
+<ul>
+<li>configuration demonstrated</li>
+<li>observed behavior</li>
+<li>troubleshooting findings</li>
+<li>evidence identifiers</li>
+<li>final vs supporting evidence</li>
+</ul>
+<p>No feature will be claimed as proven unless it was actually configured and validated.</p>
+<h2>Claim boundary</h2>
+<p>All work in this project is performed in a ServiceNow Personal Developer Instance for hands-on administration practice. It demonstrates lab-based ServiceNow administration capability and ITSM understanding; it does not represent production or employer-owned configuration.</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

@@ -233,7 +233,7 @@ const taxonomies = [
 const outputs = new Map();
 for (const relativePath of [...landingPages.map(page => page.outputPath), ...taxonomies.map(taxonomy => `${taxonomy.platform}/index.html`)]) {
   const current = fs.readFileSync(path.join(repositoryRoot, relativePath), 'utf8');
-  if (!current.includes('site-render.js')) throw new Error(`Redesigned route renderer is missing: ${relativePath}`);
+  if (!current.includes('site-render.js') && !current.includes('portfolio-preview.js')) throw new Error(`Redesigned route renderer is missing: ${relativePath}`);
   outputs.set(relativePath, current);
 }
 

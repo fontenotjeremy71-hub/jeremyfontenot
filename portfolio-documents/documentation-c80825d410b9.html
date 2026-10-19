@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Remediation Plan | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Remediation Plan"><meta property="og:title" content="Remediation Plan"><meta property="og:description" content="Retained technical documentation: Remediation Plan"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-c80825d410b9.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-c80825d410b9.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/c80825d410b9"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Remediation Plan</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Remediation Plan</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/projects/troubleshooting-rca/remediation-plan.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Remediation Plan</h2>
+<p>Status: Sanitized portfolio evidence
+Scope: Mail transport remediation and prevention planning
+Evidence type: Remediation plan</p>
+<h2>Objective</h2>
+<p>Define the corrective action sequence for a sanitized transport rule precedence issue while preserving rollback checkpoints, validation steps, and follow-up documentation.</p>
+<h2>Technical Areas Demonstrated</h2>
+<ul>
+<li>Change sequencing and controlled remediation.</li>
+<li>Mail transport rule review.</li>
+<li>Queue health validation.</li>
+<li>Rollback planning.</li>
+<li>Post-change documentation and prevention controls.</li>
+</ul>
+<h2>Issue Summary</h2>
+<p>This plan documents the corrective approach for a sanitized mail flow delay case. It is written in enterprise service desk language and avoids private identifiers, ticket numbers, and credentials.</p>
+<h2>Scope</h2>
+<ul>
+<li>Transport rule order.</li>
+<li>Queue behavior.</li>
+<li>Post-change verification.</li>
+</ul>
+<h2>Symptoms</h2>
+<ul>
+<li>Delayed mail delivery.</li>
+<li>Temporary queue growth.</li>
+<li>Recovery after rule review.</li>
+</ul>
+<h2>Impact</h2>
+<ul>
+<li>Delays were user-visible but short-lived.</li>
+<li>The event stayed within a single mail path.</li>
+</ul>
+<h2>Timeline</h2>
+<ul>
+<li>09:15 UTC: Incident reported.</li>
+<li>09:22 UTC: Transport review started.</li>
+<li>10:03 UTC: Corrective rule order was applied in the test workflow.</li>
+<li>10:41 UTC: Normal delivery timing returned.</li>
+</ul>
+<h2>Triage Steps</h2>
+<ul>
+<li>Confirmed the issue before making changes.</li>
+<li>Isolated the transport path.</li>
+<li>Verified the backlog was not caused by a wider outage.</li>
+</ul>
+<h2>Root Cause</h2>
+<p>A rule precedence problem created a delay in the mail transport sequence. The transport path was functional, but the processing order caused messages to wait too long before completion.</p>
+<h2>Corrective Actions</h2>
+<ul>
+<li>Reorder the transport rules in the approved workflow.</li>
+<li>Revalidate message delivery after the change.</li>
+<li>Save a rollback point before future transport edits.</li>
+</ul>
+<h2>Validation Performed</h2>
+<ul>
+<li>Confirmed a test message delivered successfully.</li>
+<li>Confirmed queue depth returned to expected levels.</li>
+<li>Confirmed the mail path remained stable after the correction.</li>
+</ul>
+<h2>Prevention Steps</h2>
+<ul>
+<li>Review transport rule order during any change window.</li>
+<li>Add a queue-depth check to the standard validation set.</li>
+<li>Document a rollback option before transport updates.</li>
+</ul>
+<h2>Lessons Learned</h2>
+<ul>
+<li>A small precedence change can have noticeable user impact.</li>
+<li>Remediation plans should always include verification steps.</li>
+<li>Clear recovery notes help future reviewers understand the decision path.</li>
+</ul></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

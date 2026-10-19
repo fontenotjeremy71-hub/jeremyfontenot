@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Microsoft 365 Graph Administration Lab | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Microsoft 365 Graph Administration Lab"><meta property="og:title" content="Microsoft 365 Graph Administration Lab"><meta property="og:description" content="Retained technical documentation: Microsoft 365 Graph Administration Lab"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-0a6bca1f3ed6.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-0a6bca1f3ed6.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/0a6bca1f3ed6"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Microsoft 365 Graph Administration Lab</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Microsoft 365 Graph Administration Lab</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/m365-graph-administration-lab/README.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Microsoft 365 Graph Administration Lab</h2>
+<p><strong>Status:</strong> COMPLETE — validated read-only Microsoft Graph administration and reporting automation.</p>
+<p>Portfolio case study: https://jeremyfontenot.online/m365-graph-administration-lab.html</p>
+<p>This lab demonstrates Microsoft 365, Microsoft Entra ID, Microsoft Intune, Microsoft Graph, and PowerShell administration using a Microsoft 365 E5 Developer tenant.</p>
+<h2>Objectives</h2>
+<ul>
+<li>Build reusable Microsoft Graph administration tooling.</li>
+<li>Prefer read-only validation before configuration changes.</li>
+<li>Use delegated permissions with least-privilege scope selection.</li>
+<li>Exercise both Graph REST endpoints and PowerShell automation.</li>
+<li>Document authentication, permissions, API behavior, troubleshooting, and validation.</li>
+<li>Produce portfolio-quality evidence without creating meaningless tenant activity.</li>
+</ul>
+<h2>Validated scripts</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Purpose</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Get-M365TenantInventory.ps1</code></td>
+<td>Tenant, domain, user, group, SKU, role, and Entra-device inventory</td>
+<td>Validated</td>
+</tr>
+<tr>
+<td><code>Get-M365UserInventory.ps1</code></td>
+<td>Detailed Entra/M365 user and licensing inventory</td>
+<td>Validated</td>
+</tr>
+<tr>
+<td><code>Get-M365GroupMembership.ps1</code></td>
+<td>Group and direct-membership reporting</td>
+<td>Validated</td>
+</tr>
+<tr>
+<td><code>Get-M365LicenseAssignment.ps1</code></td>
+<td>License capacity and assignment reporting</td>
+<td>Validated</td>
+</tr>
+<tr>
+<td><code>Get-EntraRoleInventory.ps1</code></td>
+<td>Activated Entra directory roles and membership</td>
+<td>Validated</td>
+</tr>
+<tr>
+<td><code>Get-EntraStaleAccounts.ps1</code></td>
+<td>Potentially stale account analysis using sign-in activity</td>
+<td>Validated</td>
+</tr>
+<tr>
+<td><code>Get-IntuneManagedDeviceInventory.ps1</code></td>
+<td>Intune managed-device inventory</td>
+<td>Validated</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Validated environment snapshot</h2>
+<ul>
+<li>Verified domains: 3</li>
+<li>Users: 22</li>
+<li>Groups: 12</li>
+<li>Subscribed SKUs: 1</li>
+<li>Activated directory roles: 4</li>
+<li>Entra devices: 2</li>
+<li>Licensed users: 19</li>
+<li>Unlicensed users: 3</li>
+<li>Intune managed devices: 1</li>
+</ul>
+<p>These values are a point-in-time lab snapshot and will change as the environment evolves.</p>
+<h2>Graph permissions exercised</h2>
+<ul>
+<li><code>Organization.Read.All</code></li>
+<li><code>User.Read.All</code></li>
+<li><code>Group.Read.All</code></li>
+<li><code>Directory.Read.All</code></li>
+<li><code>AuditLog.Read.All</code></li>
+<li><code>DeviceManagementManagedDevices.Read.All</code></li>
+</ul>
+<h2>Graph endpoints exercised</h2>
+<pre><code class="language-text">GET /v1.0/organization
+GET /v1.0/users
+GET /v1.0/groups
+GET /v1.0/groups/{id}/members
+GET /v1.0/subscribedSkus
+GET /v1.0/directoryRoles
+GET /v1.0/directoryRoles/{id}/members
+GET /v1.0/devices
+GET /v1.0/deviceManagement/managedDevices
+</code></pre>
+<h2>Validation highlights</h2>
+<ul>
+<li>Device Code delegated authentication validated.</li>
+<li>Existing Graph sessions are checked for required scopes before reuse.</li>
+<li>Graph collection pagination is handled where supported.</li>
+<li>Windows PowerShell 5.1 hashtable behavior is handled explicitly.</li>
+<li>CSV reporting was validated for tenant, user, group, licensing, role, stale-account, and Intune inventory.</li>
+<li>A <code>400 Bad Request</code> on directory-role membership was traced to an unsupported <code>$top</code> query parameter and corrected.</li>
+<li>A <code>403 Forbidden</code> on <code>signInActivity</code> was traced to a missing <code>AuditLog.Read.All</code> scope and corrected.</li>
+</ul>
+<h2>Repository layout</h2>
+<pre><code class="language-text">m365-graph-administration-lab/
+├── README.md
+├── scripts/
+│   ├── Get-M365TenantInventory.ps1
+│   ├── Get-M365UserInventory.ps1
+│   ├── Get-M365GroupMembership.ps1
+│   ├── Get-M365LicenseAssignment.ps1
+│   ├── Get-EntraRoleInventory.ps1
+│   ├── Get-EntraStaleAccounts.ps1
+│   └── Get-IntuneManagedDeviceInventory.ps1
+└── docs/
+    └── Troubleshooting.md
+</code></pre>
+<h2>Completion and claim boundary</h2>
+<p>The intended portfolio scope is complete: seven read-only administration/reporting scripts were validated across Microsoft 365, Entra ID, and Intune. The project demonstrates delegated Microsoft Graph authentication, required-scope handling, read-only administration/reporting, CSV output, pagination, and documented troubleshooting. It does not claim Graph write automation or broader administrative coverage that was not validated.</p>
+<h2>Security and publication notes</h2>
+<p>Live CSV exports are intentionally not published because they can contain user principal names, object IDs, device identifiers, and other tenant-specific information. The public repository contains the reusable code and sanitized validation documentation only.</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

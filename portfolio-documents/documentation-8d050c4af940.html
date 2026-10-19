@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lessons Learned | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Lessons Learned"><meta property="og:title" content="Lessons Learned"><meta property="og:description" content="Retained technical documentation: Lessons Learned"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-8d050c4af940.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-8d050c4af940.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/8d050c4af940"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Lessons Learned</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Lessons Learned</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/lessons-learned.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Lessons Learned</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Preserve Working Infrastructure</h2>
+<p>The existing Microsoft Entra Cloud Sync deployment was already functioning and did not need to be rebuilt.</p>
+<p>A key operational lesson from this project was to validate the current state before making changes. The working agent, OU scope, Password Hash Synchronization, and existing synchronized users provided a known-good baseline.</p>
+<h2>Understand Cloud Sync Timing</h2>
+<p>Microsoft Entra Cloud Sync uses separate synchronization intervals for different functions.</p>
+<p>Observed in this lab:</p>
+<ul>
+<li>Users and Groups provisioning: 20 minutes</li>
+<li>Password Hash Synchronization: 5 minutes</li>
+</ul>
+<p>A newly created or modified directory object should not be treated as failed until the expected provisioning interval has been considered.</p>
+<p>This distinction prevents unnecessary troubleshooting, restarts, or configuration changes.</p>
+<h2>Source of Authority Matters</h2>
+<p>For synchronized identities, on-premises Active Directory remained the authoritative source for the tested attributes.</p>
+<p>Changes were made in Active Directory first and then validated in Microsoft Entra.</p>
+<p>The source relationship was verified using:</p>
+<ul>
+<li>Active Directory <code>objectGUID</code></li>
+<li>Base64 source-anchor conversion</li>
+<li>Microsoft Entra on-premises immutable ID</li>
+<li>Provisioning log source and target identifiers</li>
+</ul>
+<h2>Source Anchors Provide Strong Identity Correlation</h2>
+<p>The controlled user's Active Directory <code>objectGUID</code> was converted to its Base64 source-anchor representation.</p>
+<p>That value matched the Microsoft Entra on-premises immutable ID and the provisioning-log source anchor.</p>
+<p>This provided direct evidence that the cloud identity was linked to the intended on-premises AD object.</p>
+<h2>Password Hash Synchronization Is Independent of User Provisioning Timing</h2>
+<p>Password Hash Synchronization completed on a shorter cycle than Users and Groups provisioning.</p>
+<p>Successful Microsoft Entra authentication after an on-premises password change provided practical proof that Password Hash Synchronization was functioning.</p>
+<h2>Group Synchronization Includes Membership Relationships</h2>
+<p>Creating a synchronized group is only part of group lifecycle validation.</p>
+<p>This project also confirmed that:</p>
+<ul>
+<li>The security group synchronized to Microsoft Entra</li>
+<li>The user membership synchronized</li>
+<li>Provisioning logs processed the membership relationship</li>
+<li>The group <code>Member</code> property referenced the synchronized user's source anchor</li>
+</ul>
+<h2>Provisioning Logs Are Essential Troubleshooting Evidence</h2>
+<p>Provisioning logs provided visibility into:</p>
+<ul>
+<li>Import from Active Directory</li>
+<li>Scope evaluation</li>
+<li>Provisioning into Microsoft Entra ID</li>
+<li>Modified properties</li>
+<li>Source IDs</li>
+<li>Target IDs</li>
+<li>Success or failure status</li>
+</ul>
+<p>They were more useful for determining actual synchronization behavior than relying only on portal object visibility.</p>
+<h2>Service Running Does Not Mean Every Component Is Healthy</h2>
+<p>The provisioning agent service was Running while the event log still contained performance-counter errors.</p>
+<p>Reviewing the agent event log identified a permissions issue affecting the metrics collector.</p>
+<p>Adding the provisioning gMSA to the local <code>Performance Log Users</code> group resolved the registry-access error without reinstalling Cloud Sync.</p>
+<h2>Validate Commands in Their Correct Context</h2>
+<p><code>Test-ADServiceAccount</code> returned <code>False</code> when executed on DC01 because the Cloud Sync gMSA was assigned for use by SYNC01.</p>
+<p>The result demonstrated the importance of understanding what a validation command actually tests before interpreting its output as a failure.</p>
+<h2>Do Not Troubleshoot Normal Delay as an Outage</h2>
+<p>The group initially appeared missing from Microsoft Entra because a Users and Groups provisioning cycle had not yet completed.</p>
+<p>The object eventually synchronized successfully after the expected Cloud Sync interval.</p>
+<p>The main operational lesson is:</p>
+<blockquote>
+<p>Confirm the synchronization schedule before escalating normal propagation delay into troubleshooting.</p>
+</blockquote>
+<h2>Portfolio Evidence Should Be Sanitized</h2>
+<p>Useful evidence includes:</p>
+<ul>
+<li>AD object properties</li>
+<li>OU scope</li>
+<li>provisioning status</li>
+<li>group membership</li>
+<li>provisioning logs</li>
+<li>source-anchor correlation</li>
+<li>synchronization timestamps</li>
+<li>agent health</li>
+</ul>
+<p>Passwords, tokens, authentication secrets, private keys, and other credentials should never be included in portfolio evidence.</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

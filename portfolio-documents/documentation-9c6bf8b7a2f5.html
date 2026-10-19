@@ -1,0 +1,313 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VLAN Architecture Walkthrough 2026 | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: VLAN Architecture Walkthrough 2026"><meta property="og:title" content="VLAN Architecture Walkthrough 2026"><meta property="og:description" content="Retained technical documentation: VLAN Architecture Walkthrough 2026"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-9c6bf8b7a2f5.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-9c6bf8b7a2f5.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/9c6bf8b7a2f5"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>VLAN Architecture Walkthrough 2026</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>VLAN Architecture Walkthrough 2026</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/projects/infrastructure-networking/vlan-architecture-walkthrough-2026.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><hr/>
+<p>title: "VLAN Architecture Walkthrough 2026"
+description: "Enterprise-style VLAN segmentation case study documenting pfSense routing, Proxmox bridge mapping, Windows Server services, DHCP ownership, firewall boundaries, VPN reachability, and validation evidence."
+type: "TechArticle"
+og_title: "VLAN Architecture Walkthrough 2026"
+og_description: "A recruiter-ready infrastructure case study showing VLAN design, network segmentation, DHCP/DNS architecture, firewall policy, virtualization networking, and validation evidence."
+og_image: "../../architecture-diagrams/vlan-architecture-diagram-dark.png"</p>
+<hr/>
+<h2>VLAN Architecture Walkthrough 2026</h2>
+<p>Status: Sanitized lab architecture documentation<br/>
+Scope: Home lab VLAN segmentation, infrastructure planning, firewall policy, and validation methodology<br/>
+Primary artifact: <a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/architecture-diagrams/vlan-architecture-diagram.svg" rel="noopener noreferrer" target="_blank">VLAN Architecture Evidence Diagram</a></p>
+
+
+
+<div class="case-shell">
+<div>
+
+## Executive Summary
+
+I built this VLAN Architecture Walkthrough to document how a small infrastructure environment can be segmented, routed, secured, and validated using enterprise-style practices. The project connects pfSense firewall administration, Proxmox virtualization networking, Windows Server services, DHCP/DNS planning, VPN access control, switch port mapping, and validation evidence into one reviewable package.
+
+The business problem is straightforward: flat networks are harder to troubleshoot, harder to secure, and harder to explain during operational review. This case study demonstrates how I break infrastructure into clear trust zones, document the supporting paths, and validate expected behavior without overstating the lab as a production deployment.
+
+The technical objectives were to:
+
+- Define VLAN boundaries for management, server, client, IoT, and guest traffic.
+- Map switch ports and trunk/access behavior for traceable physical support.
+- Show pfSense as the routing and firewall enforcement point.
+- Show Proxmox bridge relationships for virtualized workloads.
+- Preserve Windows Server, Active Directory, DNS, and DHCP as core infrastructure services.
+- Document DHCP ownership and relay behavior between trusted and untrusted VLANs.
+- Preserve validation evidence for gateway, DHCP, DNS, routing, firewall, VPN, and internet reachability checks.
+
+The operational value is recruiter-readable: this project shows that I can plan an infrastructure change, document the architecture, define security boundaries, validate the result, and organize the evidence so another technician, administrator, or hiring manager can review it.
+
+<div class="hero-diagram">
+<a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/architecture-diagrams/vlan-architecture-diagram.svg" rel="noopener noreferrer" target="_blank">
+<a href="https://jeremyfontenot.online/evidence-library/architecture-diagrams/vlan-architecture-diagram.svg" rel="noopener noreferrer">Open original screenshot: VLAN Architecture Walkthrough evidence diagram showing switch ports, pfSense VLAN interfaces, Proxmox bridge mapping, DHCP ownership, firewall boundaries, validation coverage, and documentation references.</a>
+</a>
+</div>
+<div aria-label="Evidence navigation panel" class="evidence-nav">
+
+**Evidence navigation**
+
+- [Open light SVG diagram](../../architecture-diagrams/vlan-architecture-diagram.svg)
+- [Open light PNG diagram](../../architecture-diagrams/vlan-architecture-diagram.png)
+- [Open dark SVG diagram](../../architecture-diagrams/vlan-architecture-diagram-dark.svg)
+- [Open dark PNG diagram](../../architecture-diagrams/vlan-architecture-diagram-dark.png)
+- [Open diagram README](../../architecture-diagrams/vlan-architecture-diagram-README.md)
+- [Open validation checklist](../../validation-reports/network-validation-checklist-2026.md)
+
+</div>
+
+## Environment Overview
+
+| Component | Role in the architecture | Operational purpose |
+| --- | --- | --- |
+| Dell R710 | Physical virtualization host | Provides the lab compute platform for virtualized infrastructure workloads. |
+| Proxmox | Hypervisor and bridge layer | Separates management and workload traffic through documented bridge mappings. |
+| pfSense | Firewall, router, VPN edge, DHCP for untrusted VLANs | Enforces routed boundaries and policy control between VLANs. |
+| Windows Server | Core infrastructure services | Hosts Active Directory, DNS, DHCP, authentication, and domain services. |
+| Active Directory | Identity and authentication | Provides centralized identity concepts for trusted infrastructure services. |
+| DNS | Name resolution | Supports internal resolution and troubleshooting workflows. |
+| DHCP | Address assignment | Provides scope ownership for trusted VLANs and documents relay expectations. |
+| VPN | Administrative access path | Supports controlled remote reachability for management workflows. |
+| Managed switch | Physical VLAN and port boundary | Distinguishes trunk and access behavior for physical traceability. |
+| Wireless AP | Tagged wireless network edge | Supports guest and IoT SSID segmentation through trunked VLANs. |
+
+## Architecture Overview
+
+The architecture uses pfSense as the routed enforcement point, a managed switch as the trunk/access boundary, Proxmox as the virtualization bridge layer, and Windows Server as the trusted core service node. VLANs define policy boundaries rather than just IP ranges. Each VLAN has a business and operational purpose, and each supporting artifact explains a different layer of the design.
+
+<div class="diagram-pair">
+<figure>
+<a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/architecture-diagrams/vlan-architecture-diagram.svg" rel="noopener noreferrer" target="_blank">
+<a href="https://jeremyfontenot.online/evidence-library/architecture-diagrams/vlan-architecture-diagram.svg" rel="noopener noreferrer">Open original screenshot: Light VLAN architecture evidence diagram.</a>
+</a>
+<figcaption>Light version for printed documentation and neutral review surfaces.</figcaption>
+</figure>
+<figure>
+<a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.svg" rel="noopener noreferrer" target="_blank">
+<a href="https://jeremyfontenot.online/evidence-library/architecture-diagrams/vlan-architecture-diagram-dark.svg" rel="noopener noreferrer">Open original screenshot: Dark VLAN architecture evidence diagram.</a>
+</a>
+<figcaption>Dark version aligned to the portfolio visual system.</figcaption>
+</figure>
+</div>
+
+### Design Rationale
+
+- pfSense is positioned as the gateway and firewall policy enforcement point so routing decisions and segmentation rules are centralized.
+- Windows Server owns trusted DHCP responsibilities for VLAN 20 and VLAN 30 through relay relationships because those zones depend on core infrastructure services.
+- pfSense owns DHCP for untrusted VLAN 40 and VLAN 50 because IoT and guest networks should not depend on domain services.
+- The managed switch documents physical traceability so troubleshooting can start with cable, port, and mode verification before moving into routing or firewall logic.
+- Proxmox bridge mappings separate management, trusted workloads, untrusted workloads, and isolated internal testing.
+
+### Tradeoffs
+
+- More VLANs improve policy clarity but increase documentation and troubleshooting requirements.
+- DHCP relay keeps trusted scope management centralized but requires clear gateway and relay validation.
+- Guest and IoT isolation reduces lateral movement risk but must be tested carefully so internet access remains available where expected.
+- Management isolation protects administrative surfaces but requires a documented recovery path if routing or firewall changes block access.
+
+### Scalability Considerations
+
+The model is intentionally expandable. Future VLANs should only be added when they introduce a real policy boundary, monitoring requirement, or operational risk difference. Candidate additions include monitoring, backups, storage, centralized logging, and Microsoft 365 hybrid administration workflows.
+
+## VLAN Segmentation Strategy
+
+| VLAN | Segment | Gateway | DHCP ownership | Access model |
+| --- | --- | --- | --- | --- |
+| VLAN 10 | Management | 10.10.10.1 | Static or controlled management assignment | Management-only access for switch, firewall, hypervisor, and administrative interfaces. |
+| VLAN 20 | Servers | 10.20.20.1 | Windows Server DHCP through relay | Trusted infrastructure services including Active Directory, DNS, DHCP, and domain services. |
+| VLAN 30 | Clients | 10.30.30.1 | Windows Server DHCP through relay | Client/workstation access to approved AD and DNS services only. |
+| VLAN 40 | IoT | 10.40.40.1 | pfSense DHCP | Untrusted device access with internet-only routing and blocked trusted-LAN paths. |
+| VLAN 50 | Guest | 10.50.50.1 | pfSense DHCP | Guest internet access with no LAN access. |
+
+<div class="card-grid">
+<section class="case-card">
+<h3>Architecture Callout</h3>
+<p>pfSense acts as the control plane for inter-VLAN routing, firewall enforcement, DHCP relay handling, VPN reachability, and outbound access policy.</p>
+</section>
+<section class="case-card">
+<h3>Security Callout</h3>
+<p>Trusted services are separated from untrusted IoT and guest networks. Allowed paths are explicit, and blocked paths enforce trust boundaries.</p>
+</section>
+<section class="case-card">
+<h3>Operations Callout</h3>
+<p>The switch port map, bridge map, DHCP notes, firewall evidence, and validation checklist create a repeatable troubleshooting path.</p>
+</section>
+</div>
+
+## Technical Components
+
+### pfSense
+
+pfSense provides the WAN interface, LAN parent interface, VLAN gateways, firewall rule enforcement, VPN reachability, and DHCP services for untrusted networks. In this design, pfSense is the segmentation boundary rather than just an internet gateway.
+
+Key documented interfaces:
+
+- WAN: `igb0`
+- LAN parent: `igb1`
+- VLAN 10 Management
+- VLAN 20 Servers
+- VLAN 30 Clients
+- VLAN 40 IoT
+- VLAN 50 Guest
+
+### Proxmox
+
+Proxmox represents the virtualization layer and demonstrates how VLAN-aware bridge planning supports workload separation. The bridge names in the diagram document intended operational boundaries:
+
+- `vmbr0`: management bridge
+- `vmbr1`: server and client bridge
+- `vmbr2`: IoT and guest bridge
+- `vmbr999`: internal isolated bridge
+
+### Windows Server, Active Directory, DNS, and DHCP
+
+Windows Server is documented as the core infrastructure services node. It supports Active Directory, DNS, DHCP, authentication, and domain services for trusted infrastructure and client segments. The case study keeps this role clear so reviewers can understand how identity, resolution, and address assignment support the segmented network.
+
+### VPN
+
+VPN reachability is treated as an administrative path, not a blanket bypass. The validation notes preserve VPN reachability as a review item so access can be tested without weakening segmentation.
+
+### Managed Switch and Wireless AP
+
+The managed switch provides the physical boundary for access and trunk behavior:
+
+- Port 1 -&gt; pfSense Trunk
+- Port 2 -&gt; Proxmox Management
+- Port 3 -&gt; Proxmox VM Trunk
+- Port 4 -&gt; Windows Server
+- Port 8 -&gt; Wireless AP Trunk
+
+The Wireless AP is documented as a trunked endpoint for IoT and guest SSIDs mapped to VLAN 40 and VLAN 50.
+
+## Evidence Package
+
+Each evidence item supports one part of the architecture. Together, they form the evidence chain behind the diagram.
+
+| Artifact | Purpose | What it demonstrates | Why it matters | Skills validated |
+| --- | --- | --- | --- | --- |
+| [Switch Port Map](../../network/network-infrastructure-validation-report-2026.md) | Documents physical switch relationships and port mode intent. | pfSense trunk, Proxmox management, Proxmox VM trunk, Windows Server access, Wireless AP trunk. | Physical traceability improves troubleshooting and reduces guesswork during changes. | Network documentation, Layer 1/Layer 2 troubleshooting, port mapping. |
+| [pfSense VLAN Interface Export](../../network/network-infrastructure-validation-report-2026.md) | Captures the VLAN interface model and gateway role. | WAN, LAN parent, VLAN gateways, firewall enforcement point, routing boundaries. | Interface evidence supports segmentation review and firewall policy validation. | pfSense administration, routing, VLAN design. |
+| [Proxmox Bridge Mapping](../../proxmox/proxmox-host-validation-report-2026.md) | Documents virtualization network boundaries. | Bridge-to-VLAN relationships and management/workload separation. | Virtual networking must align with switch and firewall expectations. | Proxmox administration, virtualization networking, infrastructure planning. |
+| [DHCP Scope Mapping](../../network/dhcp-dns-validation-report-2026.md) | Defines ownership for trusted and untrusted address assignment. | Windows Server DHCP for VLAN 20/30 and pfSense DHCP for VLAN 40/50. | Clear DHCP ownership prevents conflicting scopes and speeds lease troubleshooting. | DHCP administration, DNS/DHCP operations, service ownership. |
+| [Firewall Rule Review](../../network/firewall-rule-validation-report-2026.md) | Preserves firewall policy intent and segmentation behavior. | Allowed paths, blocked paths, guest isolation, IoT isolation, and administrative separation. | Firewall policy is the enforcement layer behind VLAN design. | Firewall management, security fundamentals, rule review. |
+| [Validation Checklist Results](../../validation-reports/network-validation-checklist-2026.md) | Provides repeatable testing methodology. | Gateway, DHCP, DNS, firewall, VPN, routing, and internet connectivity checks. | Validation evidence turns architecture into reviewable operational proof. | Troubleshooting, validation planning, technical documentation. |
+
+## Security Architecture
+
+This design uses segmentation as a practical zero-trust control. VLANs do not automatically create security; the security comes from defined trust boundaries, explicit allowed paths, blocked lateral movement, and validation that confirms the intended policy.
+
+<div class="card-grid">
+<section class="case-card">
+<h3>Administrative Separation</h3>
+<p>Management access is restricted to documented administrative paths. Management interfaces are not treated as general client resources.</p>
+</section>
+<section class="case-card">
+<h3>Guest and IoT Isolation</h3>
+<p>Guest and IoT networks are untrusted. Their expected behavior is internet access without trusted LAN reachability.</p>
+</section>
+<section class="case-card">
+<h3>Firewall Segmentation</h3>
+<p>Firewall policy defines allowed and blocked routes. The traffic matrix keeps the intent readable during review.</p>
+</section>
+</div>
+
+### Traffic Matrix
+
+| Source | Allowed destination | Blocked or restricted paths |
+| --- | --- | --- |
+| Management | Management resources only | General workstation, IoT, and guest access unless explicitly approved. |
+| Clients | AD/DNS services | Management interfaces and untrusted VLAN lateral movement. |
+| IoT | Internet only | Trusted LAN, management, and server resources. |
+| Guest | Internet only | Trusted LAN, management, server, and IoT resources. |
+
+## Validation Methodology
+
+Validation is documented as a repeatable process. The goal is to confirm the architecture from physical connectivity through service behavior and firewall enforcement.
+
+| Validation area | Method | Expected result | Observed result | Outcome |
+| --- | --- | --- | --- | --- |
+| Gateway reachability | Test each VLAN gateway from an appropriate host or test point. | Each VLAN reaches its assigned gateway. | Documented in the validation checklist package. | <span class="status-pass">Pass-ready methodology</span> |
+| DHCP validation | Confirm lease behavior from the correct DHCP owner or relay path. | VLAN 20/30 receive trusted DHCP through relay; VLAN 40/50 use pfSense DHCP. | Documented in DHCP/DNS and validation evidence. | <span class="status-pass">Pass-ready methodology</span> |
+| DNS validation | Test internal and external resolution paths from trusted segments. | Trusted clients resolve internal names and internet DNS as expected. | Documented in DHCP/DNS evidence. | <span class="status-pass">Pass-ready methodology</span> |
+| Firewall validation | Test allowed and blocked paths from each security zone. | Approved traffic succeeds; restricted lateral movement fails. | Documented in firewall rule evidence. | <span class="status-pass">Pass-ready methodology</span> |
+| Routing validation | Confirm expected VLAN-to-gateway and VLAN-to-internet routing behavior. | Routed paths match the traffic matrix. | Documented in validation checklist package. | <span class="status-pass">Pass-ready methodology</span> |
+| VPN validation | Confirm administrative reachability without bypassing segmentation policy. | VPN access reaches approved administrative targets only. | Documented as a validation checklist item. | <span class="status-pass">Pass-ready methodology</span> |
+| Internet connectivity | Test outbound access from approved networks. | Clients, IoT, and guest networks reach the internet according to policy. | Documented in validation checklist package. | <span class="status-pass">Pass-ready methodology</span> |
+
+## Troubleshooting Methodology
+
+I troubleshoot VLAN and segmentation issues from the physical layer upward:
+
+1. Confirm cable, link light, and switch port.
+2. Confirm switch port mode: access or trunk.
+3. Confirm VLAN tag expectations on pfSense, the managed switch, Proxmox, and the Wireless AP.
+4. Confirm gateway reachability.
+5. Confirm DHCP lease assignment and scope ownership.
+6. Confirm DNS resolution.
+7. Confirm firewall rule path and rule order.
+8. Confirm service-specific traffic such as AD/DNS authentication dependencies.
+9. Confirm VPN route behavior only after local routing and firewall logic are understood.
+
+This process keeps troubleshooting disciplined. It avoids jumping directly to firewall rules when the root cause may be a port mode, VLAN tag, bridge mapping, gateway, or DHCP relay issue.
+
+## Skills Demonstrated
+
+<div class="card-grid">
+<section class="case-card"><h3>Network Administration</h3><p>VLAN planning, trunk/access documentation, routing boundaries, and physical port mapping.</p></section>
+<section class="case-card"><h3>Infrastructure Design</h3><p>Service placement, trust zones, management boundaries, and operational dependency mapping.</p></section>
+<section class="case-card"><h3>Active Directory</h3><p>Core identity service placement, trusted segment dependencies, authentication context, and domain-service documentation.</p></section>
+<section class="case-card"><h3>DHCP Administration</h3><p>Scope ownership, relay design, pfSense DHCP boundaries, and lease troubleshooting methodology.</p></section>
+<section class="case-card"><h3>DNS Administration</h3><p>Internal resolution planning, trusted DNS dependency mapping, and validation workflows.</p></section>
+<section class="case-card"><h3>Firewall Management</h3><p>Allowed/blocked path documentation, guest isolation, IoT isolation, and administrative separation.</p></section>
+<section class="case-card"><h3>Virtualization</h3><p>Proxmox bridge planning, VLAN-aware workload separation, and isolated internal bridge documentation.</p></section>
+<section class="case-card"><h3>Security Fundamentals</h3><p>Least privilege, zero-trust segmentation concepts, trust boundaries, and route validation.</p></section>
+<section class="case-card"><h3>Technical Documentation</h3><p>Evidence chain mapping, review-ready diagrams, validation records, and recruiter-readable summaries.</p></section>
+</div>
+
+## Lessons Learned
+
+- VLAN design is most useful when each segment has a clear access policy, not just a different subnet.
+- Firewall policy and DHCP ownership must be documented together because both affect what users experience during support calls.
+- Proxmox bridge naming should be predictable and mapped to the physical switch plan so VM connectivity issues can be isolated quickly.
+- Guest and IoT isolation must be validated from the client perspective, not assumed from the diagram.
+- Evidence is stronger when the diagram, checklist, and supporting notes all point to the same architecture.
+
+## Future Roadmap
+
+Potential future extensions should be added only when they create a real operational boundary:
+
+- Monitoring VLAN for observability tooling.
+- Backup VLAN for protected backup traffic.
+- Storage VLAN for dedicated storage access.
+- Microsoft 365 hybrid administration segment.
+- Multi-node Proxmox cluster planning.
+- Centralized logging for firewall, DHCP, DNS, VPN, and authentication events.
+
+## Recruiter Takeaways
+
+This project demonstrates that I can work across infrastructure layers: physical switching, VLAN design, firewall policy, virtualization networking, Windows Server services, DNS, DHCP, VPN, and validation documentation. It also shows that I organize proof in a way hiring managers can inspect instead of relying on broad claims.
+
+Related internal links:
+
+- [Evidence Library](../../index.html)
+- [Network Validation Lab Notes](../../network/network-infrastructure-validation-report-2026.md)
+- [Firewall Rule Evidence](../../network/firewall-rule-validation-report-2026.md)
+- [DHCP and DNS Evidence](../../network/dhcp-dns-validation-report-2026.md)
+- [Network Validation Checklist](../../validation-reports/network-validation-checklist-2026.md)
+
+</div>
+<aside aria-label="Table of contents" class="toc">
+
+**On this page**
+
+- [Executive Summary](#executive-summary)
+- [Environment Overview](#environment-overview)
+- [Architecture Overview](#architecture-overview)
+- [VLAN Segmentation Strategy](#vlan-segmentation-strategy)
+- [Technical Components](#technical-components)
+- [Evidence Package](#evidence-package)
+- [Security Architecture](#security-architecture)
+- [Validation Methodology](#validation-methodology)
+- [Troubleshooting Methodology](#troubleshooting-methodology)
+- [Skills Demonstrated](#skills-demonstrated)
+- [Lessons Learned](#lessons-learned)
+- [Future Roadmap](#future-roadmap)
+
+</aside>
+</div></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

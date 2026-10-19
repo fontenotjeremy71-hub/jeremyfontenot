@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux01 SSSD Remediation Validation | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Linux01 SSSD Remediation Validation"><meta property="og:title" content="Linux01 SSSD Remediation Validation"><meta property="og:description" content="Retained technical documentation: Linux01 SSSD Remediation Validation"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-bb9fe57b6085.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-bb9fe57b6085.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/bb9fe57b6085"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Linux01 SSSD Remediation Validation</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Linux01 SSSD Remediation Validation</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Linux01 SSSD Remediation Validation</h2>
+<h2>Claim supported</h2>
+<p>Direct Linux01 remediation evidence supports a narrow Linux01-only SSSD responder/socket conflict remediation and post-remediation validation.</p>
+<h2>Directly observed values</h2>
+<ul>
+<li>Initial condition: SSSD NSS, PAM, and PAC sockets were enabled and failed.</li>
+<li>Initial condition: SSSD was configured for direct responder activation through <code>services = nss, pam</code>.</li>
+<li>Initial condition: <code>config_file_version = 2</code> was rejected by SSSD 2.12 config validation.</li>
+<li>Remediation action: removed only the rejected <code>config_file_version = 2</code> directive.</li>
+<li>Remediation action: disabled conflicting NSS, PAM, and PAC sockets.</li>
+<li>Remediation action: restarted sssd.service.</li>
+<li>Remediation action: cleared failed-unit state.</li>
+<li>Post-remediation service state: sssd.service enabled and active/running.</li>
+<li>Post-remediation failed-unit state: zero failed units.</li>
+<li>SSSD configuration validation: passed.</li>
+<li>AD identity lookup: passed.</li>
+<li>New AD-authenticated SSH session: passed.</li>
+<li>Initial diagnostic SHA-256: 3CAD0FB73202D777D41DEE40D6F4D19D4019B9AD30552B37970B55A5CA5AB3BB.</li>
+<li>Original/backup configuration SHA-256: 23ACE1BECA5FF6F7D58200EFE054EA8E5A938E02F37FCE25B1CA1B5D2F05BD14.</li>
+<li>Post-remediation diagnostic SHA-256: FD55604BFB94487B86FBF631703FA995B9726471689385CCB2D277492AA7CBEE.</li>
+</ul>
+<h2>Source command or source object</h2>
+<p>Linux01 SSSD remediation evidence record.</p>
+<h2>Source repository</h2>
+<p>fontenotjeremy71-hub/jeremy-homelab-ops</p>
+<h2>Source commit</h2>
+<p>fb6c286873285778d88d6d5cfde0b9bd00b96f36</p>
+<h2>Source path</h2>
+<p><code>evidence/linux01-sssd-remediation-20260626-110159.md</code></p>
+<h2>Source file SHA-256</h2>
+<p><code>evidence/linux01-sssd-remediation-20260626-110159.md</code>: 04773570FBE305353F5EB370B8F9629AC335E35A7BEF7151A2CBB98D7371CC49</p>
+<h2>Public artifact SHA-256</h2>
+<p>Recorded in <code>evidence-library/integrity/evidence-hashes.json</code> for this artifact path. The self-hash is recorded outside this file so the digest does not invalidate itself.</p>
+<h2>Sanitization performed</h2>
+<p>Removed diagnostic artifact paths, backup filesystem path, account context, raw command history, and implementation details not needed to support the remediation claim. Retained hashes because they are part of the validation evidence.</p>
+<h2>Limitations</h2>
+<ul>
+<li>Personal nonproduction home lab only.</li>
+<li>Captured-state evidence only.</li>
+<li>Linux01 only.</li>
+<li>This does not claim that all Linux domain-authentication paths were tested.</li>
+<li>This does not prove production readiness, employer-system administration, or recurring assurance.</li>
+</ul>
+<h2>Validation date</h2>
+<p>2026-06-30</p>
+<h2>Classification</h2>
+<p>Validated</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

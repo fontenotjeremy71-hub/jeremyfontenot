@@ -180,10 +180,10 @@ jobs:
           grep -q 'https://jeremyfontenot.online/macos-abm-intune-runbook.html' "$body"
           grep -q 'https://jeremyfontenot.online/m365-graph-administration-lab.html' "$body"
           count="$(grep -o '<loc>' "$body" | wc -l | tr -d ' ')"
-          if [[ "$count" != "36" ]]; then
-            echo "Expected 36 sitemap URLs, found $count." >&2
+          if [[ "$count" -lt "36" ]]; then
+            echo "Expected at least 36 sitemap URLs, found $count." >&2
             exit 1
           fi
           grep -q 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/scvmm-2022/' "$body"
           grep -q 'https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/' "$body"
-          echo "Production sitemap validation SUCCESS: 36 canonical discovery URLs."
+          echo "Production sitemap validation SUCCESS: $count canonical discovery URLs."

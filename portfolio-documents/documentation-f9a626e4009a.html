@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Windows LAPS Validated Results | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Windows LAPS Validated Results"><meta property="og:title" content="Windows LAPS Validated Results"><meta property="og:description" content="Retained technical documentation: Windows LAPS Validated Results"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-f9a626e4009a.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-f9a626e4009a.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/f9a626e4009a"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Windows LAPS Validated Results</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Windows LAPS Validated Results</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/validated-results.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Windows LAPS Validated Results</h2>
+<h2>Schema extension</h2>
+<p>Post-extension query returned all required modern attributes:</p>
+<pre><code class="language-text">msLAPS-EncryptedDSRMPassword
+msLAPS-EncryptedDSRMPasswordHistory
+msLAPS-EncryptedPassword
+msLAPS-EncryptedPasswordHistory
+msLAPS-Password
+msLAPS-PasswordExpirationTime
+</code></pre>
+<h2>OU and delegation</h2>
+<p>WS01 final OU:</p>
+<pre><code class="language-text">OU=LAPS-Test,OU=Workstations,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online
+</code></pre>
+<p>Extended-right holders:</p>
+<pre><code class="language-text">NT AUTHORITY\SYSTEM
+JFAD\Domain Admins
+JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<p>Final reader group membership:</p>
+<pre><code class="language-text">Name           : LAPS Reader Test
+SamAccountName : laps.reader01
+ObjectClass    : user
+</code></pre>
+<p><code>laps.reader01</code> group memberships:</p>
+<pre><code class="language-text">Domain Users
+GG-LAPS-Password-Readers
+</code></pre>
+<h2>GPO application</h2>
+<p><code>gpresult /r /scope computer</code> included:</p>
+<pre><code class="language-text">GPO - Workstations - Windows LAPS
+</code></pre>
+<h2>Effective policy - Event 10021</h2>
+<pre><code class="language-text">Policy source: GPO
+Backup directory: Active Directory
+Local administrator account name: LocalAdmin
+Password age in days: 30
+Password complexity: 4
+Password length: 14
+Password expiration protection enabled: 1
+Password encryption enabled: 1
+Password encryption target principal: JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<h2>Final encrypted retrieval</h2>
+<pre><code class="language-text">ComputerName        : WS01
+Account             : LocalAdmin
+PasswordUpdateTime  : 9/11/2026 7:06:17 PM
+ExpirationTimestamp : 10/11/2026 7:06:17 PM
+Source              : EncryptedPassword
+DecryptionStatus    : Success
+AuthorizedDecryptor : JFAD\GG-LAPS-Password-Readers
+</code></pre>
+<h2>AD attribute presence</h2>
+<pre><code class="language-text">Name                          : WS01
+msLAPS-PasswordExpirationTime : 134362343115244738
+EncryptedPasswordPresent      : True
+</code></pre>
+<h2>Final rotation events</h2>
+<pre><code class="language-text">10014 - Administrator-initiated password update
+10020 - LocalAdmin password successfully updated
+10018 - Active Directory successfully updated
+10004 - LAPS policy processing succeeded
+</code></pre>
+<h2>Negative access test</h2>
+<pre><code class="language-text">ACCESS TEST RESULT: No LAPS record returned for unauthorized user.
+</code></pre>
+<p>No managed password value is present in this evidence.</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

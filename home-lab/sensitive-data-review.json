@@ -12,7 +12,7 @@
     "textArtifactsInspected": 315,
     "manualReviewRequired": 162,
     "highSeveritySecretFindings": 0,
-    "identifierFindings": 320,
+    "identifierFindings": 319,
     "unresolvedPublicIdentifierFindings": 0
   },
   "reviewedExceptions": [
@@ -220,15 +220,6 @@
       "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
       "scope": [
         "evidence-library/scripts/powershell-automation-provisioning-script-v1.ps1"
-      ],
-      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
-    },
-    {
-      "id": "home-lab-reviewed-c0264365ddf05a02",
-      "findingType": "personal-email-or-upn",
-      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
-      "scope": [
-        "on-prem-home-lab.html"
       ],
       "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
     },
@@ -3330,27 +3321,6 @@
             "07b42a2c7c98a6c3",
             "0e2708d3507b23d8",
             "d3d3dc8f2e4dc167"
-          ]
-        }
-      ]
-    },
-    {
-      "evidenceId": "home-lab-current-403a830a35808e7f",
-      "path": "on-prem-home-lab.html",
-      "publicationClassification": "sanitized-derivative",
-      "status": "reviewed-exceptions-applied",
-      "findings": [
-        {
-          "type": "personal-email-or-upn",
-          "severity": "medium",
-          "reviewStatus": "reviewed-exception",
-          "exceptionId": "home-lab-reviewed-c0264365ddf05a02",
-          "occurrences": 1,
-          "lines": [
-            128
-          ],
-          "valueFingerprints": [
-            "da6c02741702401d"
           ]
         }
       ]

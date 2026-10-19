@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Windows LAPS &amp; Advanced Group Policy | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Windows LAPS &amp; Advanced Group Policy"><meta property="og:title" content="Windows LAPS &amp; Advanced Group Policy"><meta property="og:description" content="Retained technical documentation: Windows LAPS &amp; Advanced Group Policy"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-766e6fce41e2.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-766e6fce41e2.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/766e6fce41e2"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Windows LAPS &amp; Advanced Group Policy</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Windows LAPS &amp; Advanced Group Policy</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/README.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Windows LAPS &amp; Advanced Group Policy</h2>
+<h2>Status</h2>
+<p><strong>COMPLETE</strong></p>
+<p>This project demonstrates a validated deployment of modern Windows LAPS in the <code>ad.jeremyfontenot.online</code> Active Directory lab using a dedicated test OU, Group Policy, encrypted password storage, least-privilege delegation, event-log validation, and forced password rotation.</p>
+<h2>Environment</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AD domain</td>
+<td><code>ad.jeremyfontenot.online</code></td>
+</tr>
+<tr>
+<td>NetBIOS</td>
+<td><code>JFAD</code></td>
+</tr>
+<tr>
+<td>Domain controller</td>
+<td><code>DC01</code> - Windows Server 2022</td>
+</tr>
+<tr>
+<td>Test endpoint</td>
+<td><code>WS01</code> - Windows 10 Pro 10.0.19045</td>
+</tr>
+<tr>
+<td>Test OU</td>
+<td><code>OU=LAPS-Test,OU=Workstations,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online</code></td>
+</tr>
+<tr>
+<td>LAPS GPO</td>
+<td><code>GPO - Workstations - Windows LAPS</code></td>
+</tr>
+<tr>
+<td>Managed account</td>
+<td><code>LocalAdmin</code></td>
+</tr>
+<tr>
+<td>Reader group</td>
+<td><code>JFAD\GG-LAPS-Password-Readers</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2>Validated controls</h2>
+<ul>
+<li>Modern Windows LAPS module present on DC01 and WS01</li>
+<li>AD schema inspected before modification</li>
+<li><code>Update-LapsADSchema</code> completed and six <code>msLAPS-*</code> attributes validated</li>
+<li>Dedicated <code>LAPS-Test</code> OU created and WS01 moved into scope</li>
+<li>Computer self-permission delegated with <code>Set-LapsADComputerSelfPermission</code></li>
+<li>Dedicated password-reader group created and delegated with <code>Set-LapsADReadPasswordPermission</code></li>
+<li>GPO configured for AD backup, 30-day age, 14-character complex passwords, encrypted storage, and an authorized decryptor group</li>
+<li><code>gpupdate</code>, <code>gpresult</code>, and GUI Group Policy Results/RSOP validated</li>
+<li>Windows LAPS Event IDs 10021, 10020, 10018, 10014, and 10004 validated</li>
+<li>Delegated non-admin retrieval succeeded</li>
+<li>Unauthorized standard-user retrieval returned no LAPS record</li>
+<li>Forced password rotation changed the password update and expiration timestamps</li>
+</ul>
+<h2>Security design</h2>
+<p>The built-in RID-500 <code>Administrator</code> account remains disabled. Windows LAPS manages the existing enabled <code>WS01\LocalAdmin</code> account instead. Passwords are stored using encrypted Windows LAPS attributes in Active Directory. The actual password is intentionally excluded from all portfolio evidence.</p>
+<h2>Documentation</h2>
+<ul>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/architecture.md" rel="noopener noreferrer" target="_blank">Architecture</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/implementation.md" rel="noopener noreferrer" target="_blank">Implementation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/validation.md" rel="noopener noreferrer" target="_blank">Validation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/troubleshooting.md" rel="noopener noreferrer" target="_blank">Troubleshooting</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/lessons-learned.md" rel="noopener noreferrer" target="_blank">Lessons learned</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/evidence/README.md" rel="noopener noreferrer" target="_blank">Sanitized evidence</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/scripts/Validate-WindowsLAPS.ps1" rel="noopener noreferrer" target="_blank">Validation script</a></li>
+</ul></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

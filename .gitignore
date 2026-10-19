@@ -66,3 +66,6 @@ node_modules/
 test-results/
 artifacts/screenshots/temp/
 *.log
+
+# Owned static publication output
+/site/

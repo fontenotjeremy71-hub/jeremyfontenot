@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Public evidence review log | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Public evidence review log"><meta property="og:title" content="Public evidence review log"><meta property="og:description" content="Retained technical documentation: Public evidence review log"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-1845f2189c16.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-1845f2189c16.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/1845f2189c16"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Public evidence review log</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Public evidence review log</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/projects/on-prem-home-lab/validated-2026-06-21/redaction-log.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Public evidence review log</h2>
+<p>Reviewed on June 21, 2026. The raw source archives remain outside the repository.</p>
+<h2>Published with redaction</h2>
+<ul>
+<li>DHCP screenshot: virtual NIC client identifiers derived from MAC addresses were covered; IP, hostname, lease state, and scope configuration remain visible.</li>
+<li>Linux01 SHA-256 screenshot: the local home-directory path was covered; the archive filename, command context, and SHA-256 digest remain visible.</li>
+<li>Kerberos text: the temporary ticket-cache identifier was replaced with a redaction marker.</li>
+<li>Network excerpt: link-local IPv6 addresses, interface hardware addresses, and unrelated command output were omitted.</li>
+<li>VM summary: virtual MAC addresses, SMBIOS UUIDs, VM generation identifiers, and creation timestamps were omitted.</li>
+<li>pfSense snapshot listing: the upstream administrative-source address was omitted; the snapshot name, timestamp, forwarding target, and validation boundary remain visible.</li>
+</ul>
+<h2>Excluded</h2>
+<ul>
+<li>Raw chat-image ZIP.</li>
+<li>Raw complete evidence archive.</li>
+<li>Embedded Linux network screenshot containing an unnecessary virtual MAC address.</li>
+<li>Screenshots containing unrelated browser, desktop, or contact content.</li>
+<li>Raw VM configuration exports containing MAC addresses and UUIDs.</li>
+<li>Raw Kerberos output containing a temporary ticket-cache identifier.</li>
+<li>Full Proxmox network dump because it included substantially more interface detail than needed for the public claim.</li>
+</ul>
+<h2>Retained technical context</h2>
+<ul>
+<li>The generic <code>%USERPROFILE%</code> PowerShell prompt visible in the supplied validation document and selected DC01 screenshots was retained because it provides command context and does not expose the portfolio workstation path, repository checkout, or a personal Windows profile.</li>
+<li>Domain-qualified Linux account and home-directory values were retained where they directly support Active Directory integration and command provenance.</li>
+</ul>
+<h2>Claim boundaries</h2>
+<ul>
+<li>Backup files and scheduled-job membership are validated; an isolated restore test is outstanding.</li>
+<li>Snapshot presence is validated; snapshots are not represented as independent backups.</li>
+<li>Firewall configuration intent and the isolated bridge are documented; exclusive source restriction was not independently tested in this evidence set.</li>
+<li>The environment has one domain controller and is a personal nonproduction lab.</li>
+</ul></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

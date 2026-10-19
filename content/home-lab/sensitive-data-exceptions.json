@@ -287,18 +287,6 @@
       "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
     },
     {
-      "id": "home-lab-reviewed-c0264365ddf05a02",
-      "findingType": "personal-email-or-upn",
-      "valueFingerprints": [
-        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
-      ],
-      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
-      "scope": [
-        "on-prem-home-lab.html"
-      ],
-      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact."
-    },
-    {
       "id": "ad-delegation-standard-schema-readme-md",
       "findingType": "tenant-or-object-identifier",
       "valueFingerprints": [
@@ -348,6 +336,21 @@
         "evidence-library/projects/on-prem-home-lab/ad-service-desk-delegation/source-original/index.html"
       ],
       "reviewerNote": "Reviewed for PR 78 evidence-preservation remediation. Sanitized presentation derivatives are the preferred review path."
+    }
+  ],
+  "resolvedExceptions": [
+    {
+      "id": "home-lab-reviewed-c0264365ddf05a02",
+      "findingType": "personal-email-or-upn",
+      "valueFingerprints": [
+        "da6c02741702401dcb47d05d405fa2fc56b2cf1fbfc9dc16d0bc235ef11ad04a"
+      ],
+      "reason": "Reviewed identifier is retained in an established public personal-lab artifact because it provides necessary technical context and is not secret material.",
+      "scope": [
+        "on-prem-home-lab.html"
+      ],
+      "reviewerNote": "Reviewed for Phase 3B publication. The exact file and full SHA-256 value fingerprints limit this exception to the existing public artifact.",
+      "resolution": "The redesigned public Home Lab presentation no longer emits this reviewed identifier; source evidence remains unchanged."
     }
   ]
 }

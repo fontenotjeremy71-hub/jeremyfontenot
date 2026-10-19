@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Troubleshooting | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Troubleshooting"><meta property="og:title" content="Troubleshooting"><meta property="og:description" content="Retained technical documentation: Troubleshooting"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-649e173ee41c.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-649e173ee41c.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/649e173ee41c"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Troubleshooting</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Troubleshooting</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Troubleshooting</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Cloud Sync Agent Validation</h2>
+<p>The existing Microsoft Entra Cloud Sync agent on <code>SYNC01</code> was preserved and not reinstalled.</p>
+<p>Validation confirmed:</p>
+<ul>
+<li>Service name: <code>AADConnectProvisioningAgent</code></li>
+<li>Service state: Running</li>
+<li>Startup mode: Automatic</li>
+<li>Service account: existing gMSA</li>
+<li>Entra agent status: Active</li>
+<li>Outbound TCP 443 connectivity to the Cloud Sync bootstrap endpoint: Successful</li>
+</ul>
+<h2>gMSA Validation</h2>
+<p>The provisioning agent runs under:</p>
+<p><code>JFAD\pGMSA_126bbe50$</code></p>
+<p>Active Directory validation confirmed that <code>SYNC01</code> is authorized to retrieve the gMSA managed password.</p>
+<p>A <code>Test-ADServiceAccount</code> command executed from <code>DC01</code> returned <code>False</code>.</p>
+<p>This result was not treated as evidence that the gMSA was broken because <code>Test-ADServiceAccount</code> validates whether the computer executing the command can use the account. The Cloud Sync gMSA is assigned to <code>SYNC01</code>, not <code>DC01</code>.</p>
+<h2>Performance Counter Permission Issue</h2>
+<p>The Cloud Sync agent event log initially contained:</p>
+<ul>
+<li>Event ID <code>12033</code></li>
+<li>Error indicating access to the registry key <code>Global</code> was denied</li>
+</ul>
+<p>The local <code>Performance Log Users</code> group on <code>SYNC01</code> contained no members.</p>
+<p>The Cloud Sync gMSA was added to the local:</p>
+<p><code>Performance Log Users</code></p>
+<p>group.</p>
+<p>After the agent service was restarted, the previous registry-access error did not recur and the event log reported:</p>
+<ul>
+<li>Event ID <code>14013</code></li>
+<li><code>Metrics Agent was initialized successfully.</code></li>
+</ul>
+<h2>Remaining Performance Counter Event</h2>
+<p>The agent also logged Event ID <code>12009</code> indicating failure to initialize performance counters.</p>
+<p>Because:</p>
+<ul>
+<li>the provisioning agent remained Running</li>
+<li>Microsoft Entra reported the agent as Active</li>
+<li>the metrics agent initialized successfully</li>
+<li>user synchronization succeeded</li>
+<li>Password Hash Synchronization succeeded</li>
+<li>group synchronization succeeded</li>
+<li>provisioning logs showed successful processing</li>
+</ul>
+<p>the agent was not reinstalled based solely on this event.</p>
+<h2>Cloud Sync Provisioning Delay</h2>
+<p>During group synchronization testing, the newly created <code>GG-CloudSync-Test</code> group did not immediately appear in Microsoft Entra.</p>
+<p>Initial troubleshooting verified:</p>
+<ul>
+<li>The group existed in Active Directory</li>
+<li>ObjectClass was <code>group</code></li>
+<li>The group was located inside the configured Cloud Sync OU</li>
+<li>The Cloud Sync job contained a Groups attribute mapping</li>
+<li>OU scope was correct</li>
+<li>The provisioning agent was active</li>
+<li>Outbound connectivity was successful</li>
+</ul>
+<p>The Cloud Sync Overview later confirmed that Users and Groups provisioning uses a fixed:</p>
+<p><code>20 minute</code></p>
+<p>interval.</p>
+<p>After the expected provisioning cycle completed, the group appeared successfully in Microsoft Entra with its synchronized member.</p>
+<p>This behavior was documented as normal propagation delay rather than a synchronization failure.</p>
+<h2>Provision on Demand Limitation Encountered</h2>
+<p>A group was tested through the AD-to-Entra <code>Provision on demand</code> interface.</p>
+<p>The request returned:</p>
+<p><code>ResourceNotFound</code></p>
+<p>with a message indicating the input entry was not found or was out of scope.</p>
+<p>Further inspection of the interface showed that this AD-to-Entra provisioning workflow was operating on user objects.</p>
+<p>The group test result was therefore not used as evidence of a failed group synchronization.</p>
+<h2>Final Health Validation</h2>
+<p>At the end of testing:</p>
+<ul>
+<li>Cloud Sync configuration: Healthy</li>
+<li>Cloud Sync agent: Active</li>
+<li>Users synchronized: 4</li>
+<li>Groups synchronized: 1</li>
+<li>Password Hash Sync: Enabled</li>
+<li>Provisioning failure filter for the final validation window: No results</li>
+</ul>
+<h2>Troubleshooting Principle</h2>
+<p>The environment was troubleshot from observed evidence rather than by reinstalling Cloud Sync or changing scope without cause.</p>
+<p>The working synchronization infrastructure was preserved throughout the project.</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Proxmox Restore Validation | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Proxmox Restore Validation"><meta property="og:title" content="Proxmox Restore Validation"><meta property="og:description" content="Retained technical documentation: Proxmox Restore Validation"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-9f8e98caeacd.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-9f8e98caeacd.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/9f8e98caeacd"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Proxmox Restore Validation</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Proxmox Restore Validation</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Proxmox Restore Validation</h2>
+<h2>Claim supported</h2>
+<p>Direct restore validation evidence supports one isolated Linux01 restore drill from source VM 400 to temporary VM 401.</p>
+<h2>Directly observed values</h2>
+<ul>
+<li>Source VM: 400.</li>
+<li>Temporary restore VM: 401.</li>
+<li>Restored disk size boundary: VM 400 boot disk shown as 40 GB in the retained restore validation source.</li>
+<li>Temporary VM network isolation: temporary VM network isolated before boot.</li>
+<li>Guest validation: Ubuntu 26.04 LTS boot and QEMU Guest Agent response were validated in the retained restore evidence.</li>
+<li>Cleanup: temporary VM 401 was shut down and purged successfully.</li>
+<li>The source set inspected for this publication does not include a retained per-command restore transcript with archive filename, progress percentage, or literal final <code>TASK OK</code> line; those details are therefore not claimed here.</li>
+<li>Operational limitation retained: Proxmox thin-pool risk remains visible and is not framed as a failed restore.</li>
+</ul>
+<h2>Source command or source object</h2>
+<p>Backup and restore validation text: VM state and restore drill sections.</p>
+<h2>Source repository</h2>
+<p>fontenotjeremy71-hub/jeremy-homelab-ops</p>
+<h2>Source commit</h2>
+<p>fb6c286873285778d88d6d5cfde0b9bd00b96f36</p>
+<h2>Source path</h2>
+<p><code>evidence/home-lab-backup-restore-validation-20260629.txt</code></p>
+<h2>Source file SHA-256</h2>
+<p><code>evidence/home-lab-backup-restore-validation-20260629.txt</code>: 4637E848C9B318B8C74BB9C6E4569B3CC03E6686CE64FA367CF6DEC05FA52E13</p>
+<h2>Public artifact SHA-256</h2>
+<p>Recorded in <code>evidence-library/integrity/evidence-hashes.json</code> for this artifact path. The self-hash is recorded outside this file so the digest does not invalidate itself.</p>
+<h2>Sanitization performed</h2>
+<p>Removed PIDs and retained only the VM IDs, restore scope, network isolation, guest identity, guest-agent response, and cleanup outcome needed to support the public claim.</p>
+<h2>Limitations</h2>
+<ul>
+<li>Personal nonproduction home lab only.</li>
+<li>Captured-state evidence only.</li>
+<li>One isolated Linux01 restore drill only.</li>
+<li>No recurring restore assurance.</li>
+<li>No RTO or RPO claim.</li>
+<li>No disaster-recovery readiness, SLA, production, or employer-system claim.</li>
+<li>Thin-pool warnings are operational limitations and are not evidence of a failed restore.</li>
+</ul>
+<h2>Validation date</h2>
+<p>2026-06-30</p>
+<h2>Classification</h2>
+<p>Tested</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

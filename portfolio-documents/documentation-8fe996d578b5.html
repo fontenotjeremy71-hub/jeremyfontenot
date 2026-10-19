@@ -1,0 +1,159 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home Lab Operations Validation - June 26, 2026 | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Home Lab Operations Validation - June 26, 2026"><meta property="og:title" content="Home Lab Operations Validation - June 26, 2026"><meta property="og:description" content="Retained technical documentation: Home Lab Operations Validation - June 26, 2026"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-8fe996d578b5.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-8fe996d578b5.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/8fe996d578b5"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Home Lab Operations Validation - June 26, 2026</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Home Lab Operations Validation - June 26, 2026</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/projects/on-prem-home-lab/validated-2026-06-26/README.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Home Lab Operations Validation - June 26, 2026</h2>
+<h2>Scope</h2>
+<p>This public evidence summary describes Jeremy Fontenot's personal, nonproduction on-premises home lab. It is a sanitized portfolio artifact derived from the separate private operations repository <code>jeremy-homelab-ops</code>.</p>
+<p>The source operations repository remained private because it contains target-local inventories, operational diagnostics, and environment-specific collection details. This public summary intentionally excludes raw inventories, raw event logs, full service configuration files, local workstation paths, authentication attempts, ticket-cache identifiers, secrets, keys, tokens, cookies, and private user details.</p>
+<h2>Current Supported Architecture</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Supported public state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Physical host</td>
+<td>Dell PowerEdge R710</td>
+</tr>
+<tr>
+<td>Hypervisor</td>
+<td>Proxmox VE 9.2.3</td>
+</tr>
+<tr>
+<td>pfSense</td>
+<td>VM 100</td>
+</tr>
+<tr>
+<td>Core LAN gateway</td>
+<td>10.10.20.1/24</td>
+</tr>
+<tr>
+<td>Linux VLAN gateway</td>
+<td>10.10.30.1/24</td>
+</tr>
+<tr>
+<td>OpenVPN network</td>
+<td>10.10.40.0/24</td>
+</tr>
+<tr>
+<td>DC01</td>
+<td>VM 200, Windows Server 2022, 10.10.20.10/24</td>
+</tr>
+<tr>
+<td>AD domain</td>
+<td>ad.jeremyfontenot.online</td>
+</tr>
+<tr>
+<td>NetBIOS domain</td>
+<td>JFAD</td>
+</tr>
+<tr>
+<td>WS01</td>
+<td>VM 300, Windows 10 Pro 10.0.19045 build 19045, 10.10.20.100/24</td>
+</tr>
+<tr>
+<td>Linux01</td>
+<td>VM 400, Ubuntu 26.04 LTS, kernel 7.0.0-22-generic, 10.10.30.20/24, VLAN tag 30</td>
+</tr>
+</tbody>
+</table></div>
+<p>Linux01 is supported as a VLAN 30 Ubuntu domain member with gateway 10.10.30.1, DNS 10.10.20.10, SSH active and listening, rsyslog active with TCP and UDP 514 listening on 10.10.30.20, QEMU guest agent configured and responding, and AD identity resolution validated.</p>
+<p>The scheduled Proxmox backup job includes VMs 100, 200, 300, and 400. Retained June 24 documentation records isolated WS01 and Linux01 startup restore checks. Those checks do not establish recurring disaster-recovery assurance, RTO, or RPO.</p>
+<h2>Authenticated Inventory Validation</h2>
+<p>The private operations repository contains authenticated target-local inventory validation for:</p>
+<ul>
+<li>DC01 guest operating system, AD domain, NetBIOS domain, DNS/DHCP/GPO inventory, critical service state, and summary event health.</li>
+<li>WS01 Windows 10 Pro guest state, domain membership, secure channel, addressing, gateway, DNS, critical service state, and summary event health.</li>
+<li>Linux01 Ubuntu guest state, VLAN 30 addressing, gateway, DNS, time sync, SSH, rsyslog, QEMU guest agent, realmd/SSSD/Kerberos indicators, AD identity resolution, AppArmor, automatic updates, and security-update status.</li>
+</ul>
+<p>Only summarized, recruiter-readable claims are published here. Raw target-local JSON inventories remain excluded from the public website.</p>
+<h2>Read-Only Operations Framework</h2>
+<p>The validated operations repository demonstrates:</p>
+<ul>
+<li>Git-based change tracking.</li>
+<li>Architecture documentation.</li>
+<li>Change plans.</li>
+<li>Recovery documentation.</li>
+<li>Runbooks.</li>
+<li>Read-only inventory collectors.</li>
+<li>Target-local collection packages.</li>
+<li>Monitoring scripts.</li>
+<li>Structured inventories.</li>
+<li>Timestamped evidence.</li>
+<li>Repository validation.</li>
+<li>Portfolio drift validation.</li>
+<li>Policy-aware connectivity validation.</li>
+<li>PowerShell parser validation.</li>
+<li>JSON parse validation.</li>
+<li>Bash syntax validation.</li>
+<li>Explicit claim boundaries.</li>
+<li>Rollback documentation.</li>
+</ul>
+<h2>Validation Results</h2>
+<p>The source operations repository was validated at commit <code>3d42a4808a6a0607d78f4f4e7fd1e71783729a6b</code>.</p>
+<p>Required operations validation scripts passed:</p>
+<pre><code class="language-powershell">pwsh -NoProfile -File .\tests\Test-RepositoryStructure.ps1
+pwsh -NoProfile -File .\tests\Test-HomeLabBaselineFramework.ps1
+pwsh -NoProfile -File .\tests\Test-PortfolioHomeLabDrift.ps1
+</code></pre>
+<p>The public website update was built from those validated results and from the Linux01 remediation commit <code>f2a8802</code>.</p>
+<h2>Linux01 SSSD Remediation</h2>
+<p>Initial classification: SSSD responder activation conflict.</p>
+<p>Initial condition:</p>
+<ul>
+<li>Direct responders were configured.</li>
+<li><code>sssd-nss.socket</code>, <code>sssd-pam.socket</code>, and <code>sssd-pac.socket</code> were enabled and failed.</li>
+<li><code>config_file_version = 2</code> was rejected by SSSD 2.12 validation.</li>
+</ul>
+<p>Controlled remediation:</p>
+<ul>
+<li>A preserved backup and rollback path were created first.</li>
+<li>Only the rejected directive was removed.</li>
+<li>Conflicting responder sockets were disabled.</li>
+<li>SSSD was restarted.</li>
+<li>Historical failed-unit state was cleared.</li>
+</ul>
+<p>Post-remediation validation:</p>
+<ul>
+<li><code>sssd.service</code> enabled.</li>
+<li><code>sssd.service</code> active.</li>
+<li>Zero failed systemd units.</li>
+<li>NSS, PAM, and PAC responder sockets disabled as intended.</li>
+<li>SSSD configuration validation passed.</li>
+<li>AD identity lookup passed.</li>
+<li>A completely new AD-authenticated SSH session passed.</li>
+</ul>
+<p>Diagnostic hashes:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-remediation</td>
+<td>3CAD0FB73202D777D41DEE40D6F4D19D4019B9AD30552B37970B55A5CA5AB3BB</td>
+</tr>
+<tr>
+<td>Post-remediation</td>
+<td>FD55604BFB94487B86FBF631703FA995B9726471689385CCB2D277492AA7CBEE</td>
+</tr>
+</tbody>
+</table></div>
+<p>The public site does not publish the root backup path, raw diagnostic JSON, complete SSSD configuration, private ticket-cache data, or authentication attempt details.</p>
+<h2>Commit Traceability</h2>
+<ul>
+<li>Operations repository validated endpoint: <code>3d42a4808a6a0607d78f4f4e7fd1e71783729a6b</code></li>
+<li>Linux01 SSSD remediation commit: <code>f2a8802</code></li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>This is a personal lab only, not a client, employer, production, business, or enterprise-scale claim.</li>
+<li>Raw private inventories and raw event logs are not public.</li>
+<li>TCP reachability is not complete service validation.</li>
+<li>The read-only baseline does not authenticate to remote systems or prove administrative access.</li>
+<li>Retained isolated restore startup checks do not prove recurring disaster-recovery assurance, RTO, or RPO.</li>
+<li>Historical June 21 evidence and retained June 24 documentation remain separate evidence layers from this Current operations validation.</li>
+</ul></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

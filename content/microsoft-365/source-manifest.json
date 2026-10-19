@@ -857,6 +857,58 @@
     {
       "path": "systems-skills/evidence-map.html",
       "reason": "Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."
+    },
+    {
+      "path": "portfolio-documents/automation-get-entraroleinventory.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/automation-get-entrastaleaccounts.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/automation-get-intunemanageddeviceinventory.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/automation-get-m365groupmembership.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/automation-get-m365licenseassignment.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/automation-get-m365tenantinventory.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/automation-get-m365userinventory.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/original-microsoft-365-evidence-catalog.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/original-microsoft-365.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/troubleshooting-entra-cloud-sync.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/troubleshooting-m365-graph-administration-lab.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/troubleshooting-m365-messaging-security.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/troubleshooting-windows-autopilot-intune.html",
+      "reason": "Generated presentation derivative imported from the owner-supplied preview. Existing source evidence remains cataloged at its original paths; presentation provenance and hashes are in content/site/preview/."
     }
   ]
 }
