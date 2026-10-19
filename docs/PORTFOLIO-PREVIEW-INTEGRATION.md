@@ -43,10 +43,10 @@ Browser results and desktop/mobile screenshots are in `artifacts/preview-integra
 
 Unavailable or not run:
 
-- PowerShell baseline: `pwsh` is not installed; most referenced validation scripts and `tests/Test-HiringManagerPortfolioReview.ps1` are absent from this checkout. These were not reported as passing.
-- `npm run test:browser`: no such package script exists. The Chromium checks above cover the changed presentation and interactions.
+- Initial implementation limitation: PowerShell and the referenced validation scripts were unavailable. The subsequent validation repair restores these entry points and tests them; see `docs/VALIDATION-RECOVERY.md`.
+- Initial implementation used a separate Chromium audit. The subsequent validation repair supplies `npm run test:browser` and the rendered hiring-review checks.
 - Lighthouse score validation was not run.
-- Production deployment and live-site verification are pending merge. Repository instructions prohibit this implementation agent from merging.
+- The owner subsequently authorized merge of PR #105. Deployment and live verification must be confirmed independently; GitHub reported an Actions/Pages service incident during this work.
 
 ## Publication
 

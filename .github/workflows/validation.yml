@@ -16,6 +16,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -48,6 +49,33 @@ jobs:
 
       - name: Validate every published target and CTA contract
         run: npm run check
+
+      - name: Verify PowerShell 7
+        shell: pwsh
+        run: |
+          if ($PSVersionTable.PSVersion.Major -lt 7) { throw 'PowerShell 7 is required.' }
+          $PSVersionTable.PSVersion.ToString()
+
+      - name: Run recovered repository validation
+        shell: pwsh
+        run: ./scripts/validation/Invoke-PortfolioValidation.ps1
+
+      - name: Install Chromium for browser validation
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate responsive pages and hiring-review paths
+        run: npm run test:browser
+
+      - name: Preserve browser validation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-validation-${{ github.sha }}
+          path: |
+            artifacts/browser-validation/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Capture generated-output drift
         if: always()

@@ -4,8 +4,8 @@
   "outputs": [
     {
       "path": "assets/data/m365-evidence-catalog.json",
-      "size": 3826357,
-      "hash": "859d05ec585a3883155bb376351d64d06e6ffa9e326009944e45b520d41711eb",
+      "size": 3826383,
+      "hash": "e78c5f77e393e7642506fe0a82035368a8fb252f4a3982a07b0d097490353856",
       "metadataCoverage": [
         "integrity"
       ]
@@ -21,8 +21,8 @@
     },
     {
       "path": "microsoft-365/source-to-destination-matrix.csv",
-      "size": 1075634,
-      "hash": "9a3764ff10663252a201d42ff0df9de3e77f7684552e0f3944592cfa07f28690",
+      "size": 1075660,
+      "hash": "65537e468a2db45353de788e7d3034b320cc2a92c614213630f14c5a73bdaa8d",
       "metadataCoverage": [
         "integrity"
       ]

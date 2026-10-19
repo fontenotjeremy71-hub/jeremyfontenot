@@ -237,6 +237,23 @@ for (const relativePath of [...landingPages.map(page => page.outputPath), ...tax
   outputs.set(relativePath, current);
 }
 
+// Rendered compatibility pages also need useful metadata before JavaScript runs.
+// Only authored presentation shells are changed; retained evidence is untouched.
+const {publicHtmlFiles} = require('../lib/publication-inventory.js');
+for (const relativePath of publicHtmlFiles()) {
+  let current = fs.readFileSync(path.join(repositoryRoot, relativePath), 'utf8');
+  if (!current.includes('site-render.js')) continue;
+  const title = current.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || 'Jeremy Fontenot';
+  const description = current.match(/<meta\b[^>]*name="description"[^>]*content="([^"]*)"/i)?.[1] || 'Evidence-backed IT portfolio.';
+  const route = relativePath === 'index.html' ? '/' : '/' + (relativePath.endsWith('/index.html') ? relativePath.slice(0,-10) : relativePath);
+  const additions = [];
+  if (!/<link\b[^>]*rel="canonical"/i.test(current)) additions.push(`<link rel="canonical" href="https://jeremyfontenot.online${route}">`);
+  if (!/<meta\b[^>]*property="og:title"/i.test(current)) additions.push(`<meta property="og:title" content="${title.replaceAll('"', '&quot;')}">`);
+  if (!/<meta\b[^>]*property="og:description"/i.test(current)) additions.push(`<meta property="og:description" content="${description}">`);
+  if (additions.length) current = current.replace('</head>', additions.join('') + '</head>');
+  outputs.set(relativePath, current);
+}
+
 function sha256(value) {
   return crypto.createHash('sha256').update(value, 'utf8').digest('hex');
 }
