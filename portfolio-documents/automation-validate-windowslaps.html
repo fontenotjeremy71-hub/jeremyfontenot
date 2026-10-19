@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Validate-WindowsLAPS.ps1 | Jeremy Fontenot</title><meta name="description" content="Inspect AD LAPS attributes, safe password metadata, and delegated OU rights without displaying the managed password."><meta property="og:title" content="Validate-WindowsLAPS.ps1"><meta property="og:description" content="Inspect AD LAPS attributes, safe password metadata, and delegated OU rights without displaying the managed password."><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/automation-validate-windowslaps.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/automation-validate-windowslaps.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="automation/validate-windowslaps"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Validate-WindowsLAPS.ps1</span></div><div class="page-heading"><p class="eyebrow">PowerShell source / read-only remote queries</p><h1>Validate-WindowsLAPS.ps1</h1><p class="lead">Inspect AD LAPS attributes, safe password metadata, and delegated OU rights without displaying the managed password.</p></div><div class="script-info"><article class="panel"><h4>Requirements</h4><p>A suitable PowerShell environment, the modules/cmdlets named in the source, and authorized access to the target lab systems.</p><h4>Permissions</h4><p>Authorized access to the target systems and documented read/delegation rights. Review the source before execution.</p></article><article class="panel"><h4>Expected output</h4><p>Console validation output and selected configuration metadata; see source for exact fields.</p><h4>Safety</h4><p>Review against your environment before execution. Reports may contain personal or tenant identifiers. Do not publish live exports. This page does not run commands.</p></article></div><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/windows-laps-gpo/scripts/Validate-WindowsLAPS.ps1" target="_blank" rel="noopener noreferrer" class="">GitHub source <span aria-hidden="true">↗</span></a><a href="/windows-laps-gpo.html" class="">Related project</a></div><details><summary>Inspect complete script</summary><div class="document"><pre><code># Portfolio-safe Windows LAPS validation script
+# Does not display the managed password.
+
+param(
+    [string]$ComputerName = &quot;WS01&quot;
+)
+
+Write-Host &quot;=== Windows LAPS Validation: $ComputerName ===&quot;
+
+Write-Host &quot;`n[1] AD computer and LAPS attribute presence&quot;
+Get-ADComputer $ComputerName `
+    -Properties msLAPS-PasswordExpirationTime,msLAPS-EncryptedPassword |
+Select-Object Name,
+    msLAPS-PasswordExpirationTime,
+    @{N=&#x27;EncryptedPasswordPresent&#x27;;E={[bool]$_.&#x27;msLAPS-EncryptedPassword&#x27;}}
+
+Write-Host &quot;`n[2] LAPS password metadata&quot;
+Get-LapsADPassword -Identity $ComputerName |
+Select-Object ComputerName,
+    Account,
+    PasswordUpdateTime,
+    ExpirationTimestamp,
+    Source,
+    DecryptionStatus,
+    AuthorizedDecryptor
+
+Write-Host &quot;`n[3] LAPS OU extended rights&quot;
+Find-LapsADExtendedRights `
+    -Identity &quot;OU=LAPS-Test,OU=Workstations,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online&quot;
+</code></pre></div></details></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

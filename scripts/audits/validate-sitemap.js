@@ -44,6 +44,12 @@ const expected = [
   "https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/"
 ];
 
+const previewManifest = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content/site/preview/generated-hashes.json'), 'utf8'));
+for (const [key, route] of Object.entries(previewManifest.routes)) {
+  const url = 'https://jeremyfontenot.online/' + (key === 'home' ? '' : route);
+  if (!expected.includes(url)) expected.push(url);
+}
+
 const forbiddenPatterns = [
   '/evidence-library/preserved-sharepoint/',
   '/wrappers/',

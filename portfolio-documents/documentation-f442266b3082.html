@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux01 System, Network, and Domain Validation | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Linux01 System, Network, and Domain Validation"><meta property="og:title" content="Linux01 System, Network, and Domain Validation"><meta property="og:description" content="Retained technical documentation: Linux01 System, Network, and Domain Validation"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-f442266b3082.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-f442266b3082.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/f442266b3082"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Linux01 System, Network, and Domain Validation</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Linux01 System, Network, and Domain Validation</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Linux01 System, Network, and Domain Validation</h2>
+<h2>Claim supported</h2>
+<p>Direct Linux01 inventory, Proxmox inventory, and source reconciliation evidence support Linux01 VM association, Ubuntu version, kernel, VLAN, IP addressing, DNS, gateway, current-versus-historical address boundary, and directly proven domain integration state.</p>
+<h2>Directly observed values</h2>
+<ul>
+<li>Proxmox VM association: VM 400 name linux01, running.</li>
+<li>Operating system: Ubuntu 26.04 LTS.</li>
+<li>Kernel: Linux 7.0.0-22-generic.</li>
+<li>Architecture: x86_64.</li>
+<li>VLAN: 30, from current source reconciliation.</li>
+<li>Interface state: ens18 UP.</li>
+<li>Current IPv4 address: 10.10.30.20/24.</li>
+<li>Default gateway: 10.10.30.1.</li>
+<li>DNS server: 10.10.20.10.</li>
+<li>DNS domain: ad.jeremyfontenot.online.</li>
+<li>Current-versus-historical boundary: current Linux01 address is 10.10.30.20/24; older Linux01 10.10.20.x evidence is historical.</li>
+<li>Domain integration state: realmd reports ad.jeremyfontenot.online configured as a Kerberos member, server software active-directory, client software SSSD, and domain identity resolution returned <code>resolved</code>.</li>
+<li>Kerberos configuration: present.</li>
+</ul>
+<h2>Source command or source object</h2>
+<ul>
+<li>Authenticated Linux01 target-local inventory result objects: Distribution, Kernel, IP addresses, Routes, DNS, realmd, Domain identity resolution, and Kerberos config.</li>
+<li>Proxmox read-only inventory object: <code>virtualMachines[]</code> entry for VM 400.</li>
+<li>Source reconciliation table for Linux01 VLAN and current-versus-historical address boundary.</li>
+</ul>
+<h2>Source repository</h2>
+<p>fontenotjeremy71-hub/jeremy-homelab-ops</p>
+<h2>Source commit</h2>
+<p>fb6c286873285778d88d6d5cfde0b9bd00b96f36</p>
+<h2>Source path</h2>
+<ul>
+<li><code>inventories/linux01-inventory-20260626-084312.json</code></li>
+<li><code>inventories/proxmox-inventory-20260626-010601.json</code></li>
+<li><code>evidence/home-lab-source-reconciliation-20260626-012606.md</code></li>
+</ul>
+<h2>Source file SHA-256</h2>
+<ul>
+<li><code>inventories/linux01-inventory-20260626-084312.json</code>: 75F82AF4882FA9C869C78C1AC127C5D4F37C5CB62F4E8894361A352695EFC40D</li>
+<li><code>inventories/proxmox-inventory-20260626-010601.json</code>: D652D1EF753E14242C07F84F19FBF09F642F07C3B09CFE2E98AA7F2B176ADE3D</li>
+<li><code>evidence/home-lab-source-reconciliation-20260626-012606.md</code>: 2D377A7A6703F8C3C5FBB77AA093569806DDB7939CFA88FD6A0ECF801484C3EE</li>
+</ul>
+<h2>Public artifact SHA-256</h2>
+<p>Recorded in <code>evidence-library/integrity/evidence-hashes.json</code> for this artifact path. The self-hash is recorded outside this file so the digest does not invalidate itself.</p>
+<h2>Sanitization performed</h2>
+<p>Removed executing account, machine identifiers, link-local IPv6 address, raw boot/session identifiers, unrelated package/service details, unnecessary filesystem paths, and distro metadata not needed for the public claim.</p>
+<h2>Limitations</h2>
+<ul>
+<li>Personal nonproduction home lab only.</li>
+<li>Captured-state evidence only.</li>
+<li>Domain integration is limited to the directly observed realmd, SSSD client, Kerberos config, and identity-resolution indicators.</li>
+<li>This artifact does not claim that all Linux domain-authentication paths were tested.</li>
+<li>Timeout or listener observations are not complete firewall validation.</li>
+</ul>
+<h2>Validation date</h2>
+<p>2026-06-30</p>
+<h2>Classification</h2>
+<p>Validated</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

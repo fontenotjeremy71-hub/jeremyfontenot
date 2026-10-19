@@ -1,1 +1,1319 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><meta name="theme-color" content="#07111f"><title>macOS ABM to Intune Enterprise Runbook | Jeremy Fontenot</title><meta name="description" content="Real Microsoft Intune configuration for Apple MDM, macOS compliance, FileVault, identity, enterprise Wi-Fi, certificates, apps, and lifecycle administration with clearly bounded ABM and ADE simulation."><link rel="canonical" href="https://jeremyfontenot.online/macos-abm-intune-runbook.html"><link rel="icon" href="/assets/logos/favicon_64x64.png"><link rel="stylesheet" href="/assets/css/site.css?v=20260927p5"><script src="/assets/js/site-core.js?v=20260927p5" defer></script><script src="/assets/js/routes-main.js?v=20260927p5" defer></script><script src="/assets/js/routes-projects.js?v=20260927p5" defer></script><script src="/assets/js/routes-cases.js?v=20260927p5" defer></script><script src="/assets/js/routes-support.js?v=20260927p5" defer></script><script src="/assets/js/site-render.js?v=20260927p5" defer></script></head><body><a class="skip" href="#main">Skip to content</a><div id="app"><main id="main"><section class="page-hero"><div class="wrap"><p class="eyebrow">M365 Lab Project 05 · COMPLETE</p><h1>macOS ABM to Intune Enterprise Runbook</h1></div></section></main></div><noscript><div class="wrap legacy"><p><strong>JavaScript is required for the interactive portfolio experience.</strong></p><p>Please enable JavaScript to view this case study.</p></div></noscript></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>macOS ABM to Intune Enterprise Runbook | Jeremy Fontenot</title><meta name="description" content="Real Microsoft-side configuration paired with explicitly simulated Apple enrollment and endpoint workflows."><meta property="og:title" content="macOS ABM to Intune Enterprise Runbook"><meta property="og:description" content="Real Microsoft-side configuration paired with explicitly simulated Apple enrollment and endpoint workflows."><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/macos-abm-intune-runbook.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/macos-abm-intune-runbook.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="projects/macos-abm-intune-runbook"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><span class="nav-current" aria-current="page">Projects</span><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>macOS ABM to Intune Enterprise Runbook</span></div><div class="page-heading"><p class="eyebrow">Project 12 / Endpoint management</p><h1>macOS ABM to Intune Enterprise Runbook</h1><p class="lead">Real Microsoft-side configuration paired with explicitly simulated Apple enrollment and endpoint workflows.</p><div class="tags"><span class="status">COMPLETE</span><span class="tag">Real configuration + simulation</span></div><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/" target="_blank" rel="noopener noreferrer" class="">GitHub documentation <span aria-hidden="true">↗</span></a><a href="https://jeremyfontenot.online/macos-abm-intune-runbook.html" rel="noopener noreferrer" class="">Original portfolio <span aria-hidden="true">↗</span></a><a href="/evidence-browser.html" class="">Evidence library</a></div></div><div class="case-layout"><aside class="case-toc"><p class="eyebrow">Inside this case study</p><a href="#overview">Overview</a><a href="#scenario">Operational scenario & objectives</a><a href="#environment">Environment & technologies</a><a href="#architecture">Architecture</a><a href="#implementation">Implementation & administration</a><a href="#troubleshooting">Troubleshooting</a><a href="#validation">Validation & results</a><a href="#evidence">Evidence</a><a href="#skills">Skills demonstrated</a><a href="#limitations">Limitations & claim boundaries</a><a href="#next">Next milestones</a></aside><article><section class="content-block" id="overview"><h2>Overview</h2><p>Real Microsoft-side configuration paired with explicitly simulated Apple enrollment and endpoint workflows.</p><p><strong>Classification:</strong> Real configuration + simulation.</p></section><section class="content-block" id="scenario"><h2>Operational scenario & objectives</h2><p>Document a complete enterprise management runbook while clearly separating configured controls, available capabilities, and simulated endpoint procedures.</p></section><section class="content-block" id="environment"><h2>Environment & technologies</h2><p>Real Intune tenant and APNs relationship; macOS policy configuration. No managed Mac or legitimate ABM/ADE deployment is claimed.</p><div class="tags"><span class="tag">Intune</span><span class="tag">APNs</span><span class="tag">FileVault</span><span class="tag">ABM / ADE simulation</span></div></section><section class="content-block" id="architecture"><h2>Architecture</h2><p>Real Intune tenant and APNs relationship; macOS policy configuration. No managed Mac or legitimate ABM/ADE deployment is claimed.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-425951ec3f27.html" class="">Architecture — macOS ABM to Intune<small>projects/macos-abm-intune-runbook/architecture.md</small></a></div></section><section class="content-block" id="implementation"><h2>Implementation & administration</h2><div class="imported"><div class="macos-project">
+<section class="page-hero macos-hero">
+<div class="wrap macos-hero-grid">
+<div>
+<p class="eyebrow">M365 Lab Project 05 · COMPLETE</p>
+<h2>macOS management, designed like an <span class="accent">enterprise control plane.</span></h2>
+<p class="lead">Real Microsoft Intune configuration for APNs, macOS compliance, and FileVault—paired with a rigorously bounded Apple Business Manager, ADE, Platform SSO, certificate, and lifecycle runbook.</p>
+<div class="actions"><a class="button primary" href="/evidence-browser.html">Explore proof</a><a class="button" href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/main/projects/macos-abm-intune-runbook" rel="noopener noreferrer" target="_blank">Review documentation</a></div>
+</div>
+<div aria-label="Architecture overview" class="macos-orbit">
+<span class="orbit-core">INTUNE</span>
+<span class="orbit-node node-1">ABM</span>
+<span class="orbit-node node-2">ADE</span>
+<span class="orbit-node node-3">ENTRA</span>
+<span class="orbit-node node-4">FILEVAULT</span>
+<span class="orbit-node node-5">EAP-TLS</span>
+<span class="orbit-node node-6">LIFECYCLE</span>
+</div>
+</div>
+</section>
+<section class="section macos-status-band">
+<div class="wrap">
+<div class="metric-strip">
+<div class="metric"><strong>REAL</strong><span>APNs relationship</span></div>
+<div class="metric"><strong>REAL</strong><span>Compliance policy</span></div>
+<div class="metric"><strong>REAL</strong><span>FileVault baseline</span></div>
+<div class="metric"><strong>BOUND</strong><span>ABM / ADE simulation</span></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Architecture</p>
+<h2>One chain of trust. Three explicit evidence states.</h2>
+<p>Every major component is labeled as real configuration, validated capability, or simulated/documented procedure. No endpoint result is claimed without an enrolled Mac.</p>
+</div>
+<div aria-label="Apple Business Manager to Intune architecture" class="macos-flow">
+<div><span>01</span><strong>Apple Business Manager</strong><small>SIMULATED / DOCUMENTED</small></div>
+<div><span>02</span><strong>Enrollment Program Token</strong><small>SIMULATED / DOCUMENTED</small></div>
+<div><span>03</span><strong>Automated Device Enrollment</strong><small>SIMULATED / DOCUMENTED</small></div>
+<div class="flow-real"><span>04</span><strong>Microsoft Intune</strong><small>REAL CONFIGURATION</small></div>
+<div class="flow-real"><span>05</span><strong>Compliance + FileVault</strong><small>REAL CONFIGURATION</small></div>
+<div><span>06</span><strong>Managed macOS endpoint</strong><small>NOT VALIDATED</small></div>
+</div>
+</div>
+</section>
+<section class="section macos-split">
+<div class="wrap grid grid-2">
+<article class="panel macos-glass">
+<p class="eyebrow">Implemented in the real tenant</p>
+<h2>Microsoft-side controls that actually exist.</h2>
+<ul class="list-clean">
+<li>Apple MDM Push certificate created and accepted by Intune.</li>
+<li>APNs expiration documented for 2027-09-26.</li>
+<li><strong>Project 5 - macOS Enterprise Compliance</strong> created.</li>
+<li>System Integrity Protection, password, encryption, firewall, Stealth Mode, and Gatekeeper requirements configured.</li>
+<li><strong>Project 5 - macOS FileVault Baseline</strong> created in Settings Catalog.</li>
+<li>FileVault enabled, anti-disable control configured, and recovery-key escrow location guidance defined.</li>
+</ul>
+</article>
+<article class="panel macos-glass macos-boundary">
+<p class="eyebrow">Intentionally not overstated</p>
+<h2>Apple-side and endpoint-only work stays documented.</h2>
+<ul class="list-clean">
+<li>No Apple Business Manager organization was fabricated.</li>
+<li>No Enrollment Program Token or ADE device sync is claimed.</li>
+<li>No Platform SSO registration is claimed on a managed Mac.</li>
+<li>No EAP-TLS authentication or certificate issuance is claimed.</li>
+<li>No FileVault recovery key is published or represented as escrowed.</li>
+<li>No retire, wipe, or reassignment action is claimed as executed.</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Validated capability surface</p>
+<h2>What the real tenant exposes for macOS administration.</h2>
+</div>
+<div class="grid grid-3 macos-cap-grid">
+<article class="panel"><span class="tile-code">IDENTITY</span><h3>Platform SSO</h3><p>Platform SSO settings were located in the real macOS Settings Catalog. Endpoint registration remains unvalidated without a managed Mac.</p></article>
+<article class="panel"><span class="tile-code">NETWORK ACCESS</span><h3>Enterprise Wi-Fi</h3><p>Intune exposes WPA-Enterprise, WPA2-Enterprise, EAP-FAST, EAP-SIM, EAP-TLS, EAP-TTLS, LEAP, and PEAP. The documented design uses WPA2-Enterprise + EAP-TLS.</p></article>
+<article class="panel"><span class="tile-code">CERTIFICATES</span><h3>SCEP / PKCS</h3><p>macOS SCEP, PKCS, imported PKCS, and trusted-certificate workflows are available. No live enterprise PKI issuance is claimed.</p></article>
+<article class="panel"><span class="tile-code">APPLICATIONS</span><h3>DMG, PKG, M365, Edge</h3><p>macOS app deployment types include DMG, PKG, line-of-business apps, Microsoft 365 Apps, Microsoft Edge, Defender, web clips, and links.</p></article>
+<article class="panel"><span class="tile-code">INVENTORY</span><h3>0 enrolled Macs</h3><p>The real inventory view was validated and currently contains zero managed macOS devices—a deliberate boundary, not a hidden gap.</p></article>
+<article class="panel"><span class="tile-code">LIFECYCLE</span><h3>Retire, wipe, delete, restart, rename, sync</h3><p>The real bulk-action surface exposes the expected lifecycle controls. None was executed without a managed test Mac.</p></article>
+</div>
+</div>
+</section>
+<section class="section macos-evidence-section" id="source-b32f94a8-evidence">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Evidence-backed documentation</p>
+<h2>Every claim has a narrow proof target.</h2>
+<p>The project documentation records implementation state, validation boundaries, operational renewal work, lifecycle administration, and troubleshooting without publishing secrets.</p>
+</div>
+<div class="macos-shot-grid">
+<figure class="macos-shot-card"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/evidence/evidence-board-security.webp" rel="noopener noreferrer" target="_blank"><a href="https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/evidence-board-security.webp" rel="noopener noreferrer">Open original screenshot: Sanitized composite of real Apple MDM push certificate, macOS compliance, FileVault, and Platform SSO configuration evidence</a></a><figcaption><strong>Real tenant security evidence.</strong> APNs issuance, compliance policy settings, FileVault controls, and Platform SSO capability—derived from screenshots captured during this project.</figcaption></figure>
+<article class="macos-shot-note"><span class="tile-code">EVIDENCE BOUNDARY</span><h3>The screenshot says exactly what the caption says.</h3><p>This published derivative intentionally excludes Apple account identifiers and certificate details. It proves Microsoft-side configuration and capability only; ABM, ADE, endpoint enforcement, recovery-key escrow, and destructive lifecycle actions remain documented rather than fabricated.</p><div class="proof-links"><a class="proof-primary" href="https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/" rel="noopener noreferrer">Open evidence gallery</a></div></article>
+</div>
+<div class="grid grid-2">
+<article class="proof-card"><span class="tile-code">IMPLEMENTATION</span><h3>Real configuration record</h3><p>APNs, compliance, FileVault, enrollment restrictions, Platform SSO capability, Wi-Fi, SCEP, apps, inventory, and lifecycle inspection.</p><div class="proof-links"><a class="proof-primary" href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/implementation.md" rel="noopener noreferrer" target="_blank">Read implementation</a></div></article>
+<article class="proof-card"><span class="tile-code">VALIDATION</span><h3>Real vs. simulated matrix</h3><p>A complete matrix distinguishes configured objects, validated capabilities, endpoint-dependent checks, and simulation-only procedures.</p><div class="proof-links"><a class="proof-primary" href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/validation.md" rel="noopener noreferrer" target="_blank">Read validation</a></div></article>
+<article class="proof-card"><span class="tile-code">OPERATIONS</span><h3>Renewal calendar</h3><p>APNs renewal, ABM token renewal, certificate trust, application review, compliance review, and FileVault recovery validation are treated as recurring operational responsibilities.</p><div class="proof-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/renewal-calendar.md" rel="noopener noreferrer" target="_blank">Open renewal calendar</a></div></article>
+<article class="proof-card"><span class="tile-code">LIFECYCLE</span><h3>Retire, wipe, reassignment, lost/stolen</h3><p>The runbook separates record deletion from destructive wipe and documents ownership checks, authorization, asset state, identity revocation, and reassignment.</p><div class="proof-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/device-lifecycle.md" rel="noopener noreferrer" target="_blank">Open lifecycle runbook</a></div></article>
+</div>
+<div class="macos-doc-strip">
+<a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/architecture.md" rel="noopener noreferrer" target="_blank">Architecture</a>
+<a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/troubleshooting.md" rel="noopener noreferrer" target="_blank">Troubleshooting</a>
+<a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/lessons-learned.md" rel="noopener noreferrer" target="_blank">Lessons learned</a>
+<a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/projects/macos-abm-intune-runbook/simulated-deployment-scenario.md" rel="noopener noreferrer" target="_blank">Simulated deployment</a>
+</div>
+</div>
+</section>
+</div></div><details><summary>Project 5 — Simulated macOS ABM to Intune Runbook <small> / README.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/README.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-eb7faf9d899d.html" class="">Open document page</a></div><h2>Project 5 — Simulated macOS ABM to Intune Runbook</h2>
+<p><strong>Status:</strong> COMPLETE<br/>
+<strong>Project type:</strong> FREE WITH SIMULATION<br/>
+<strong>Microsoft-side implementation:</strong> REAL CONFIGURATION where validated<br/>
+<strong>Apple Business Manager / ADE:</strong> SIMULATED / DOCUMENTED</p>
+<h2>Objective</h2>
+<p>Demonstrate an enterprise macOS management design spanning Apple Business Manager (ABM), Microsoft Intune, Automated Device Enrollment (ADE), Microsoft Entra authentication, Platform SSO, enterprise Wi-Fi, certificates, FileVault, compliance, application deployment, inventory, and lifecycle administration.</p>
+<p>The project deliberately separates what was actually configured in the Microsoft Intune tenant from Apple- and endpoint-dependent workflows that could not be executed legitimately in the lab.</p>
+<h2>What was actually configured</h2>
+<p>The following work was performed in the real Microsoft Intune tenant:</p>
+<ul>
+<li>Apple MDM Push (APNs) certificate created through Apple's Push Certificates Portal and uploaded to Intune.</li>
+<li>APNs certificate validated as active in Intune; renewal due <strong>2027-09-26</strong>.</li>
+<li>macOS compliance policy created:</li>
+<li>System Integrity Protection required.</li>
+<li>Password required to unlock.</li>
+<li>Storage encryption required.</li>
+<li>Firewall enabled.</li>
+<li>Stealth Mode enabled.</li>
+<li>Gatekeeper limited to the Mac App Store and identified developers.</li>
+<li>Noncompliance marked immediately.</li>
+<li>macOS FileVault Settings Catalog profile created:</li>
+<li>FileVault enabled.</li>
+<li>Users prevented from disabling FileVault.</li>
+<li>Recovery-key escrow location guidance configured.</li>
+<li>Intune macOS enrollment restrictions reviewed and validated.</li>
+<li>Platform SSO configuration capability reviewed in the Settings Catalog.</li>
+<li>Enterprise Wi-Fi capability reviewed, including WPA/WPA2-Enterprise and EAP methods.</li>
+<li>SCEP certificate profile capability reviewed.</li>
+<li>macOS app deployment types reviewed.</li>
+<li>macOS inventory and bulk lifecycle actions reviewed.</li>
+</ul>
+<h2>What remains simulated/documented</h2>
+<p>The following workflows are documented but were <strong>not</strong> represented as implemented:</p>
+<ul>
+<li>Apple Business Manager organization enrollment and verification.</li>
+<li>Reseller/device assignment into ABM.</li>
+<li>Intune Enrollment Program Token exchange with ABM.</li>
+<li>Automated Device Enrollment synchronization.</li>
+<li>ADE enrollment profile deployment.</li>
+<li>macOS Setup Assistant ADE experience.</li>
+<li>Platform SSO registration on a managed Mac.</li>
+<li>Certificate issuance through a live enterprise PKI/SCEP path.</li>
+<li>Enterprise RADIUS authentication.</li>
+<li>FileVault recovery-key escrow from an enrolled Mac.</li>
+<li>Compliance evaluation on an enrolled Mac.</li>
+<li>App installation on a managed Mac.</li>
+<li>Device reassignment, retire, wipe, and lost/stolen execution against a real Mac.</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code class="language-text">Apple procurement / reseller
+        ↓
+Apple Business Manager
+        ↓
+Intune Enrollment Program Token
+        ↓
+Automated Device Enrollment profile
+        ↓
+macOS Setup Assistant
+        ↓
+Microsoft Entra authentication
+        ↓
+Microsoft Intune enrollment
+        ↓
+Configuration + applications + compliance
+        ↓
+FileVault + recovery-key escrow
+        ↓
+Inventory + lifecycle administration
+</code></pre>
+<p>See <a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/architecture.md" rel="noopener noreferrer" target="_blank">architecture.md</a> for the full real-versus-simulated boundary.</p>
+<h2>Evidence</h2>
+<p>The evidence gallery is available at:</p>
+<ul>
+<li><a href="https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/" rel="noopener noreferrer">Project 5 evidence index</a></li>
+<li><a href="/macos-abm-intune-runbook.html">Live case study</a></li>
+</ul>
+<p>Screenshots are direct captures from the real Intune tenant or Apple Push Certificates Portal. No simulated screenshot is presented as real administration.</p>
+<h2>Documentation</h2>
+<ul>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/architecture.md" rel="noopener noreferrer" target="_blank">Architecture</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/implementation.md" rel="noopener noreferrer" target="_blank">Implementation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/validation.md" rel="noopener noreferrer" target="_blank">Validation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/troubleshooting.md" rel="noopener noreferrer" target="_blank">Troubleshooting</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/lessons-learned.md" rel="noopener noreferrer" target="_blank">Lessons learned</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/renewal-calendar.md" rel="noopener noreferrer" target="_blank">Renewal calendar</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/device-lifecycle.md" rel="noopener noreferrer" target="_blank">Device lifecycle</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/simulated-deployment-scenario.md" rel="noopener noreferrer" target="_blank">Simulated deployment scenario</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/portfolio-summary.md" rel="noopener noreferrer" target="_blank">Portfolio summary</a></li>
+</ul>
+<h2>Security and evidence handling</h2>
+<p>The repository does not publish Apple credentials, private keys, enrollment tokens, bearer tokens, FileVault recovery keys, passwords, MFA secrets, or session cookies. Screenshots selected for publication avoid personal Apple-account identifiers and sensitive certificate material.</p>
+<h2>Technologies demonstrated</h2>
+<p>Apple Business Manager architecture, Apple Push Notification service, Microsoft Intune, Microsoft Entra ID, Automated Device Enrollment concepts, Platform SSO, Settings Catalog, FileVault, macOS compliance, enterprise Wi-Fi, EAP-TLS, SCEP/PKCS concepts, macOS application deployment, inventory, device lifecycle, renewal operations, and evidence-based administration.</p></div></details><details><summary>Architecture — macOS ABM to Intune <small> / architecture.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/architecture.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-425951ec3f27.html" class="">Open document page</a></div><h2>Architecture — macOS ABM to Intune</h2>
+<h2>Status boundary</h2>
+<p>This project uses three explicit implementation states:</p>
+<ul>
+<li><strong>REAL CONFIGURATION</strong> — actually configured or directly validated in the real Microsoft Intune tenant.</li>
+<li><strong>SIMULATED / DOCUMENTED</strong> — accurately designed and documented, but not executed because the required Apple infrastructure or managed macOS endpoint is unavailable.</li>
+<li><strong>NOT VALIDATED</strong> — a Microsoft-side policy may exist, but endpoint behavior was not tested on an enrolled Mac.</li>
+</ul>
+<h2>Intended enterprise flow</h2>
+<pre><code class="language-text">Authorized reseller / Apple procurement
+        │
+        ▼
+Apple Business Manager
+        │
+        │ device assignment to MDM server
+        ▼
+Microsoft Intune MDM server
+        │
+        │ Enrollment Program Token
+        ▼
+Automated Device Enrollment
+        │
+        ▼
+macOS Setup Assistant
+        │
+        ▼
+Microsoft Entra authentication
+        │
+        ▼
+Microsoft Intune enrollment
+        │
+        ├───────────────┬────────────────┬────────────────┐
+        ▼               ▼                ▼                ▼
+Configuration       Applications      Compliance       Security
+profiles                                                controls
+        │               │                │                │
+        ├─ Platform SSO │                │                ├─ FileVault
+        ├─ Wi-Fi / PKI  │                │                └─ Firewall
+        └─ restrictions │                │
+        └───────────────┴────────────────┴────────────────┘
+                                │
+                                ▼
+                    Inventory + lifecycle
+                                │
+                  ┌─────────────┼─────────────┐
+                  ▼             ▼             ▼
+                Retire         Wipe       Reassignment
+</code></pre>
+<h2>Apple service boundary</h2>
+<h3>Apple Push Notification service — REAL CONFIGURATION</h3>
+<p>A real Apple MDM Push certificate was created in Apple's Push Certificates Portal using the Intune-generated CSR and uploaded back to the Intune tenant.</p>
+<p>Validated state:</p>
+<ul>
+<li>Vendor: Microsoft Corporation.</li>
+<li>APNs certificate created successfully.</li>
+<li>Intune upload completed successfully.</li>
+<li>Certificate expiration: <strong>2027-09-26</strong>.</li>
+</ul>
+<p>The Apple account used to own the certificate is intentionally excluded from public evidence.</p>
+<h3>Apple Business Manager — SIMULATED / DOCUMENTED</h3>
+<p>No Apple Business Manager organization is available in the lab. Therefore, the following are not represented as implemented:</p>
+<ul>
+<li>organization verification;</li>
+<li>reseller/device assignment;</li>
+<li>MDM server creation in ABM;</li>
+<li>ABM server token issuance;</li>
+<li>Enrollment Program Token import;</li>
+<li>ADE device sync;</li>
+<li>ADE profile assignment;</li>
+<li>Setup Assistant ADE behavior.</li>
+</ul>
+<h2>Microsoft service boundary</h2>
+<h3>Microsoft Intune — REAL CONFIGURATION</h3>
+<p>The real tenant was used to create or inspect:</p>
+<ul>
+<li>Apple enrollment administration;</li>
+<li>macOS compliance policy;</li>
+<li>macOS FileVault Settings Catalog profile;</li>
+<li>macOS enrollment restrictions;</li>
+<li>Platform SSO settings;</li>
+<li>enterprise Wi-Fi settings;</li>
+<li>SCEP certificate settings;</li>
+<li>macOS application types;</li>
+<li>macOS inventory;</li>
+<li>macOS bulk device lifecycle actions.</li>
+</ul>
+<h3>Microsoft Entra ID</h3>
+<p>Microsoft Entra is the intended identity provider for Company Portal enrollment and Platform SSO. Endpoint Platform SSO registration is <strong>NOT VALIDATED</strong> because there is no enrolled macOS endpoint.</p>
+<h2>Real vs. simulated matrix</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Classification</th>
+<th>Evidence / boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intune tenant access</td>
+<td>REAL CONFIGURATION</td>
+<td>Real portal configuration captured</td>
+</tr>
+<tr>
+<td>APNs certificate</td>
+<td>REAL CONFIGURATION — COMPLETE</td>
+<td>Created in Apple portal; uploaded to Intune</td>
+</tr>
+<tr>
+<td>ABM organization</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>No ABM organization available</td>
+</tr>
+<tr>
+<td>Enrollment Program Token</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>Intune creation workflow inspected only</td>
+</tr>
+<tr>
+<td>ADE</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>Requires ABM + eligible device</td>
+</tr>
+<tr>
+<td>macOS compliance policy</td>
+<td>REAL CONFIGURATION — COMPLETE</td>
+<td>Policy created in Intune</td>
+</tr>
+<tr>
+<td>Compliance enforcement</td>
+<td>NOT VALIDATED</td>
+<td>No enrolled macOS endpoint</td>
+</tr>
+<tr>
+<td>FileVault policy</td>
+<td>REAL CONFIGURATION — COMPLETE</td>
+<td>Settings Catalog profile created</td>
+</tr>
+<tr>
+<td>FileVault encryption on endpoint</td>
+<td>NOT VALIDATED</td>
+<td>No enrolled macOS endpoint</td>
+</tr>
+<tr>
+<td>Recovery-key escrow</td>
+<td>NOT VALIDATED</td>
+<td>No enrolled macOS endpoint</td>
+</tr>
+<tr>
+<td>Platform SSO capability</td>
+<td>REAL CONFIGURATION — VALIDATED</td>
+<td>Settings exposed in Intune</td>
+</tr>
+<tr>
+<td>Platform SSO endpoint registration</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>No managed Mac</td>
+</tr>
+<tr>
+<td>Enterprise Wi-Fi capability</td>
+<td>REAL CONFIGURATION — VALIDATED</td>
+<td>Enterprise profile surface inspected</td>
+</tr>
+<tr>
+<td>WPA2-Enterprise + EAP-TLS</td>
+<td>SIMULATED / DOCUMENTED DESIGN</td>
+<td>No RADIUS/PKI deployment</td>
+</tr>
+<tr>
+<td>SCEP certificate capability</td>
+<td>REAL CONFIGURATION — VALIDATED</td>
+<td>SCEP profile surface inspected</td>
+</tr>
+<tr>
+<td>Certificate issuance</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>No live enterprise PKI/SCEP service</td>
+</tr>
+<tr>
+<td>macOS application deployment capability</td>
+<td>REAL CONFIGURATION — VALIDATED</td>
+<td>Supported app types inspected</td>
+</tr>
+<tr>
+<td>Application installation</td>
+<td>NOT VALIDATED</td>
+<td>No managed Mac</td>
+</tr>
+<tr>
+<td>macOS inventory</td>
+<td>REAL CONFIGURATION — VALIDATED</td>
+<td>Inventory page available; 0 Macs enrolled</td>
+</tr>
+<tr>
+<td>Retire / Wipe / Delete / Restart / Rename / Sync</td>
+<td>REAL CONFIGURATION — VALIDATED CAPABILITY</td>
+<td>Actions exposed; none executed</td>
+</tr>
+<tr>
+<td>Device reassignment</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>No enrolled Mac</td>
+</tr>
+<tr>
+<td>Lost/stolen workflow</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>Operational procedure only</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Enterprise Wi-Fi design</h2>
+<p>The intended secure WLAN model is:</p>
+<pre><code class="language-text">macOS device
+   │
+   ├─ trusted root certificate
+   ├─ SCEP/PKCS device certificate
+   │
+   ▼
+WPA2-Enterprise / EAP-TLS
+   │
+   ▼
+RADIUS / network policy service
+   │
+   ▼
+Enterprise wireless network
+</code></pre>
+<p>The Intune tenant exposed WPA-Enterprise, WPA2-Enterprise, EAP-FAST, EAP-SIM, EAP-TLS, EAP-TTLS, LEAP, and PEAP. EAP-TLS is the documented design because it supports certificate-based device authentication without depending on user passwords for Wi-Fi access.</p>
+<h2>Security design principles</h2>
+<ul>
+<li>Require FileVault encryption.</li>
+<li>Prevent users from disabling FileVault after policy enforcement.</li>
+<li>Escrow the personal recovery key to the management service when a managed Mac exists.</li>
+<li>Require System Integrity Protection.</li>
+<li>Require password-protected unlock.</li>
+<li>Enable firewall and Stealth Mode.</li>
+<li>Preserve Gatekeeper restrictions.</li>
+<li>Prefer certificate-based enterprise Wi-Fi.</li>
+<li>Keep APNs renewal ownership documented.</li>
+<li>Separate destructive lifecycle operations from routine sync/restart actions.</li>
+<li>Never publish recovery keys, token contents, credentials, or certificate private material.</li>
+</ul></div></details><details><summary>macOS Device Lifecycle Runbook <small> / device-lifecycle.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/device-lifecycle.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-092c22682705.html" class="">Open document page</a></div><h2>macOS Device Lifecycle Runbook</h2>
+<h2>1. Procurement and assignment</h2>
+<p><strong>SIMULATED / DOCUMENTED</strong></p>
+<p>Preferred enterprise path:</p>
+<ol>
+<li>Purchase through Apple or an authorized reseller linked to the ABM organization.</li>
+<li>Verify the device appears in Apple Business Manager.</li>
+<li>Assign the device to the Microsoft Intune MDM server.</li>
+<li>Synchronize the Enrollment Program Token in Intune.</li>
+<li>Assign the correct ADE profile.</li>
+</ol>
+<h2>2. Enrollment</h2>
+<p><strong>SIMULATED / DOCUMENTED</strong></p>
+<ol>
+<li>User powers on or resets the Mac.</li>
+<li>Apple activation identifies the device as organization-owned.</li>
+<li>ADE directs the device to Intune.</li>
+<li>Setup Assistant applies the configured enrollment experience.</li>
+<li>User authenticates where required.</li>
+<li>Intune enrollment completes.</li>
+<li>Company Portal / Platform SSO registration follows the organization design.</li>
+</ol>
+<h2>3. Configuration and security</h2>
+<p>Microsoft-side configuration demonstrated in the real tenant includes:</p>
+<ul>
+<li>compliance baseline;</li>
+<li>FileVault baseline;</li>
+<li>Platform SSO capability;</li>
+<li>enterprise Wi-Fi capability;</li>
+<li>certificate profile capability;</li>
+<li>app deployment capability.</li>
+</ul>
+<p>Endpoint enforcement remains unvalidated without an enrolled Mac.</p>
+<h2>4. Inventory and ownership</h2>
+<p>The Intune macOS inventory surface exposes:</p>
+<ul>
+<li>device name;</li>
+<li>management authority;</li>
+<li>ownership;</li>
+<li>compliance;</li>
+<li>OS and version;</li>
+<li>primary user;</li>
+<li>last check-in.</li>
+</ul>
+<p>Current lab inventory: <strong>0 macOS devices</strong>.</p>
+<h2>5. Routine operations</h2>
+<p>Available real Intune actions include:</p>
+<ul>
+<li>Sync — request management check-in.</li>
+<li>Restart — restart the managed device.</li>
+<li>Rename — change device display/name where supported.</li>
+</ul>
+<h2>6. Retirement</h2>
+<p><strong>SIMULATED / DOCUMENTED</strong></p>
+<p>Use when management should be removed without treating the device as stolen or requiring a factory reset. Confirm ownership and data-handling requirements before choosing Retire.</p>
+<h2>7. Wipe</h2>
+<p><strong>SIMULATED / DOCUMENTED</strong></p>
+<p>Use only after validating:</p>
+<ul>
+<li>device identity;</li>
+<li>ownership;</li>
+<li>authorization;</li>
+<li>data-retention requirements;</li>
+<li>reassignment or disposal plan.</li>
+</ul>
+<p>A wipe is destructive and should be treated as a controlled administrative action.</p>
+<h2>8. Delete</h2>
+<p>Deleting the Intune object is not equivalent to securely wiping the device. Confirm the device has already been retired/wiped or otherwise handled appropriately before deleting the management record.</p>
+<h2>9. Reassignment</h2>
+<p><strong>SIMULATED / DOCUMENTED</strong></p>
+<p>For corporate devices:</p>
+<ol>
+<li>Capture required asset state.</li>
+<li>Retire/wipe according to policy.</li>
+<li>Reassign in ABM if the MDM destination changes.</li>
+<li>Ensure the correct ADE profile is assigned.</li>
+<li>Reset the Mac.</li>
+<li>Enroll the next user through Setup Assistant.</li>
+<li>Validate inventory, compliance, FileVault, apps, and authentication.</li>
+</ol>
+<h2>10. Lost or stolen device</h2>
+<p><strong>SIMULATED / DOCUMENTED</strong></p>
+<ol>
+<li>Verify the asset and user.</li>
+<li>Escalate to security/management.</li>
+<li>Revoke or block identity sessions as policy requires.</li>
+<li>Evaluate remote wipe.</li>
+<li>Revoke device certificates where appropriate.</li>
+<li>Preserve incident records.</li>
+<li>Update asset ownership/status.</li>
+<li>Do not expose recovery keys or credentials during evidence capture.</li>
+</ol></div></details><details><summary>Project 5 Evidence Index <small> / README.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/evidence/README.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-15569e574dbb.html" class="">Open document page</a></div><h2>Project 5 Evidence Index</h2>
+<p>The public evidence in this folder is deliberately sanitized and narrowly captioned. It proves Microsoft-side configuration and capability without implying that Apple Business Manager, Automated Device Enrollment, or a managed macOS endpoint exists in this lab.</p>
+<h2>Published screenshot evidence</h2>
+<h3>Security and management proof board</h3>
+<p><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/evidence/evidence-board-security.webp" rel="noopener noreferrer" target="_blank">Open the screenshot proof board</a></p>
+<p>The board is a derived composite built from four screenshots captured during this Project 5 session:</p>
+<ol>
+<li><strong>Apple Push Certificates Portal confirmation</strong> — proves Apple issued a new Mobile Device Management push certificate for Microsoft Corporation with expiration <strong>September 26, 2027</strong>.</li>
+<li><strong>macOS compliance policy review</strong> — proves the real Intune policy was configured with System Integrity Protection, password, storage encryption, firewall, Stealth Mode, and Gatekeeper requirements before creation.</li>
+<li><strong>macOS FileVault Settings Catalog configuration</strong> — proves FileVault was set to On, users were prevented from disabling it, and recovery-key escrow location guidance was configured.</li>
+<li><strong>Platform SSO settings discovery</strong> — proves the real Intune Settings Catalog exposes the Platform SSO configuration surface.</li>
+</ol>
+<p>The board proves only the states described above. It does <strong>not</strong> prove macOS endpoint enforcement, recovery-key escrow, Platform SSO registration, or ADE enrollment.</p>
+<h2>Additional validated observations</h2>
+<p>The following real Intune capability observations are documented in the project runbook and were captured during the same session:</p>
+<ul>
+<li>macOS app deployment types included Microsoft Edge, Microsoft 365 Apps, Microsoft Defender for Endpoint, web clips, web links, line-of-business apps, DMG, and PKG.</li>
+<li>macOS inventory was available and showed <strong>0 devices</strong>.</li>
+<li>macOS bulk device actions exposed Delete, Retire, Wipe, Restart, Rename, and Sync.</li>
+<li>Enterprise Wi-Fi exposed WPA-Enterprise and WPA2-Enterprise.</li>
+<li>EAP methods included EAP-FAST, EAP-SIM, EAP-TLS, EAP-TTLS, LEAP, and PEAP.</li>
+<li>macOS SCEP configuration exposed certificate type, subject/SAN, validity, key usage, key size, root certificate, and EKU controls.</li>
+</ul>
+<p>These observations are classified as <strong>REAL CAPABILITY VALIDATION</strong>, not endpoint implementation.</p>
+<h2>Why only a sanitized derivative is published</h2>
+<p>Source screenshots from the working session are retained in the conversation/evidence workflow, but only the sanitized composite is published here. This prevents unnecessary exposure of Apple account identifiers, certificate identifiers, or other tenant-specific details while preserving direct visual proof of the configuration work.</p>
+<h2>Evidence handling rules</h2>
+<ul>
+<li>No Apple account identifier is intentionally published.</li>
+<li>No APNs PEM file, certificate private key, recovery key, enrollment token, ABM token, password, bearer token, session cookie, or MFA secret is stored here.</li>
+<li>No simulated ABM/ADE screenshot is used.</li>
+<li>Documentation, not fabricated portal evidence, is used for simulated Apple Business Manager and Automated Device Enrollment workflows.</li>
+</ul></div></details><details><summary>Implementation <small> / implementation.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/implementation.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-8381f00c7c09.html" class="">Open document page</a></div><h2>Implementation</h2>
+<h2>1. Apple MDM Push certificate — REAL CONFIGURATION</h2>
+<p>The Intune Apple enrollment page initially showed the Apple MDM Push Certificate as <strong>Not set up</strong>.</p>
+<p>Implementation sequence:</p>
+<ol>
+<li>Accepted Microsoft's Apple data-sharing permission prompt in Intune.</li>
+<li>Downloaded the Intune certificate signing request (CSR).</li>
+<li>Opened Apple's Push Certificates Portal.</li>
+<li>Accepted Apple's MDM certificate terms.</li>
+<li>Uploaded the Intune-generated CSR.</li>
+<li>Apple issued a new Mobile Device Management push certificate for Microsoft Corporation.</li>
+<li>Downloaded the resulting PEM certificate.</li>
+<li>Returned to Intune.</li>
+<li>Entered the Apple account used to create the certificate.</li>
+<li>Uploaded the PEM certificate.</li>
+<li>Intune reported successful MDM push certificate creation.</li>
+<li>Final Intune state showed the certificate as active.</li>
+</ol>
+<p>Validated expiration: <strong>2027-09-26</strong>.</p>
+<p>No Apple credentials, PEM file, private key material, certificate serial number, or Apple account identifier are published.</p>
+<h2>2. Enrollment Program Token / ADE — SIMULATED / DOCUMENTED</h2>
+<p>The real Intune tenant was used to inspect the Enrollment Program Token workflow.</p>
+<p>Intune exposes the expected sequence:</p>
+<ol>
+<li>Grant Microsoft permission to exchange device/user information with Apple.</li>
+<li>Download the Intune public-key certificate.</li>
+<li>Open Apple Business Manager.</li>
+<li>Create the ABM MDM server relationship.</li>
+<li>Upload the Intune public key in ABM.</li>
+<li>Download the ABM server token.</li>
+<li>Enter the Apple ID used for token ownership.</li>
+<li>Upload the token to Intune.</li>
+<li>Sync assigned devices.</li>
+<li>Create and assign ADE profiles.</li>
+</ol>
+<p>The lab has no Apple Business Manager organization, so no token was created and no device was synchronized.</p>
+<h2>3. macOS compliance baseline — REAL CONFIGURATION</h2>
+<p>Policy:</p>
+<p><code>Project 5 - macOS Enterprise Compliance</code></p>
+<p>Configured settings:</p>
+<ul>
+<li>Require System Integrity Protection.</li>
+<li>Require a password to unlock devices.</li>
+<li>Require encryption of data storage.</li>
+<li>Enable Firewall.</li>
+<li>Enable Stealth Mode.</li>
+<li>Gatekeeper: allow apps from the Mac App Store and identified developers.</li>
+<li>Mark device noncompliant immediately.</li>
+</ul>
+<p>Assignment:</p>
+<ul>
+<li>intentionally unassigned because there is no managed macOS test endpoint.</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>policy object created successfully in the real Intune tenant;</li>
+<li>monitoring showed 0 devices, which matches the known lab inventory.</li>
+</ul>
+<h2>4. FileVault baseline — REAL CONFIGURATION</h2>
+<p>Policy:</p>
+<p><code>Project 5 - macOS FileVault Baseline</code></p>
+<p>Profile type:</p>
+<ul>
+<li>macOS Settings Catalog.</li>
+</ul>
+<p>Configured controls:</p>
+<ul>
+<li><code>FileVault &gt; Enable = On</code></li>
+<li><code>FileVault Options &gt; Prevent FileVault From Being Disabled = True</code></li>
+<li>recovery-key escrow <code>Location</code> guidance configured.</li>
+</ul>
+<p>The profile was intentionally left unassigned because there is no managed macOS endpoint.</p>
+<p>What is proven:</p>
+<ul>
+<li>the policy exists;</li>
+<li>the configured settings are visible in the real Intune tenant.</li>
+</ul>
+<p>What is not proven:</p>
+<ul>
+<li>FileVault was enabled on a Mac;</li>
+<li>a recovery key was successfully escrowed;</li>
+<li>the recovery key was rotated or recovered.</li>
+</ul>
+<h2>5. Platform SSO — REAL CAPABILITY, DOCUMENTED DEPLOYMENT</h2>
+<p>A macOS Settings Catalog review confirmed:</p>
+<p><code>Authentication &gt; Extensible Single Sign On (SSO) &gt; Platform SSO</code></p>
+<p>The review profile was canceled after capability inspection to avoid leaving a nonfunctional placeholder policy.</p>
+<p>A production deployment would also require a managed macOS endpoint, Company Portal / Microsoft Enterprise SSO plug-in prerequisites, supported macOS version, and actual registration validation.</p>
+<h2>6. Enterprise Wi-Fi — REAL CAPABILITY, DOCUMENTED DEPLOYMENT</h2>
+<p>The macOS Wi-Fi template exposes:</p>
+<ul>
+<li>Device Channel deployment;</li>
+<li>Basic and Enterprise profile types;</li>
+<li>WPA-Enterprise;</li>
+<li>WPA2-Enterprise;</li>
+<li>EAP-FAST;</li>
+<li>EAP-SIM;</li>
+<li>EAP-TLS;</li>
+<li>EAP-TTLS;</li>
+<li>LEAP;</li>
+<li>PEAP;</li>
+<li>proxy options;</li>
+<li>MAC address randomization controls.</li>
+</ul>
+<p>The portfolio design uses <strong>WPA2-Enterprise + EAP-TLS</strong> with trusted-root and client-certificate deployment.</p>
+<p>No fake SSID, RADIUS server, or certificate authority was created.</p>
+<h2>7. Certificate deployment — REAL CAPABILITY, DOCUMENTED ISSUANCE</h2>
+<p>The macOS SCEP certificate template exposes:</p>
+<ul>
+<li>deployment channel;</li>
+<li>certificate type;</li>
+<li>subject name format;</li>
+<li>subject alternative names;</li>
+<li>validity period;</li>
+<li>key usage;</li>
+<li>key size;</li>
+<li>trusted root certificate;</li>
+<li>extended key usage.</li>
+</ul>
+<p>No certificate was issued because the lab does not have a configured enterprise SCEP/PKI path for macOS.</p>
+<h2>8. Application deployment — REAL CAPABILITY</h2>
+<p>The real Intune macOS app surface exposes:</p>
+<ul>
+<li>Microsoft Edge for macOS;</li>
+<li>Microsoft 365 Apps for macOS;</li>
+<li>Microsoft Defender for Endpoint (macOS);</li>
+<li>macOS web clip;</li>
+<li>web link;</li>
+<li>line-of-business app;</li>
+<li>macOS app (DMG);</li>
+<li>macOS app (PKG).</li>
+</ul>
+<p>No placeholder application was created because there is no managed Mac on which to validate installation.</p>
+<h2>9. Enrollment restrictions — REAL VALIDATION</h2>
+<p>Default macOS enrollment restrictions were reviewed.</p>
+<p>Observed state:</p>
+<ul>
+<li>macOS enrollment: Allow.</li>
+<li>personally owned macOS devices: Allow.</li>
+<li>minimum OS: not configured.</li>
+<li>maximum OS: not configured.</li>
+</ul>
+<p>The default tenant-wide restriction was not modified merely for portfolio appearance.</p>
+<h2>10. Inventory and lifecycle — REAL CAPABILITY</h2>
+<p>The macOS inventory page showed <strong>0 devices</strong>.</p>
+<p>The bulk action workflow exposed these macOS actions:</p>
+<ul>
+<li>Delete</li>
+<li>Retire</li>
+<li>Wipe</li>
+<li>Restart</li>
+<li>Rename</li>
+<li>Sync</li>
+</ul>
+<p>No destructive action was executed.</p></div></details><details><summary>Lessons Learned <small> / lessons-learned.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/lessons-learned.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-8b539b065334.html" class="">Open document page</a></div><h2>Lessons Learned</h2>
+<h2>1. Apple management has two control planes</h2>
+<p>Intune can expose Apple enrollment, configuration, compliance, application, and lifecycle administration even when Apple Business Manager is not available. ABM is a separate Apple control plane for organization ownership, device assignment, and ADE.</p>
+<p>Treating these as one system would overstate what was actually implemented.</p>
+<h2>2. APNs is foundational and operationally sensitive</h2>
+<p>The Apple MDM Push certificate is not a one-time setup artifact. It is an annual operational dependency. The same Apple account must remain available for renewal, and the existing certificate relationship should be renewed rather than casually replaced.</p>
+<h2>3. Policy creation is not endpoint validation</h2>
+<p>Creating a macOS compliance policy or FileVault profile in Intune proves administrative configuration capability. It does not prove that a Mac received, enforced, or reported the setting.</p>
+<p>This project intentionally keeps those claims separate.</p>
+<h2>4. Portfolio accuracy is stronger than fabricated completeness</h2>
+<p>ABM, ADE, Platform SSO registration, EAP-TLS authentication, FileVault escrow, and lifecycle execution are valuable concepts, but inventing screenshots or pretending a managed Mac exists would weaken the portfolio.</p>
+<p>A clearly bounded simulation demonstrates sound administration judgment.</p>
+<h2>5. Current Intune design should avoid deprecated templates</h2>
+<p>The deprecated macOS Endpoint Protection template was visible, but FileVault was configured through the current Settings Catalog instead.</p>
+<h2>6. Enterprise Wi-Fi is a dependency chain</h2>
+<p>A Wi-Fi profile alone is not enterprise authentication. EAP-TLS depends on:</p>
+<ul>
+<li>trusted root certificate;</li>
+<li>device/user certificate issuance;</li>
+<li>certificate identity/EKU design;</li>
+<li>RADIUS trust;</li>
+<li>network policy;</li>
+<li>managed endpoint delivery.</li>
+</ul>
+<p>Documenting that dependency chain is more meaningful than creating a fake SSID.</p>
+<h2>7. Lifecycle administration requires ownership context</h2>
+<p>Retire, wipe, delete, restart, rename, and sync are exposed in Intune, but the correct action depends on ownership, incident type, reassignment plan, and data-retention requirements.</p>
+<h2>8. Evidence should prove exactly what the caption claims</h2>
+<p>The evidence gallery pairs each screenshot with a narrow claim. A capability screenshot proves capability. A policy review proves settings. A policy-monitor screenshot proves the policy exists. None are used to imply an enrolled Mac where none exists.</p></div></details><details><summary>Portfolio Summary <small> / portfolio-summary.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/portfolio-summary.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-45686c1c2a2a.html" class="">Open document page</a></div><h2>Portfolio Summary</h2>
+<h2>Recruiter-facing description</h2>
+<p>Designed and documented an enterprise macOS management runbook spanning Apple Business Manager, Microsoft Intune, Automated Device Enrollment, Microsoft Entra authentication, Platform SSO, FileVault, compliance, enterprise Wi-Fi, certificates, application deployment, inventory, and device lifecycle administration. Implemented the Microsoft-side controls that were legitimately available in a real Intune tenant—including APNs, macOS compliance, and a FileVault Settings Catalog profile—while clearly separating ABM/ADE and endpoint-only validation as simulated/documented.</p>
+<h2>Resume bullet</h2>
+<ul>
+<li>Built a portfolio-grade macOS enterprise management runbook integrating Apple Business Manager architecture with Microsoft Intune; configured real APNs, macOS compliance, and FileVault policies, and documented ADE, Platform SSO, EAP-TLS certificate Wi-Fi, application deployment, renewal, and lifecycle operations with explicit validation boundaries.</li>
+</ul>
+<h2>LinkedIn project description</h2>
+<p>Created an enterprise macOS management project focused on accurate operational design rather than fabricated completeness. In a real Microsoft Intune tenant, I configured an Apple MDM Push certificate, created a macOS compliance baseline, built a FileVault Settings Catalog profile, and validated available Platform SSO, enterprise Wi-Fi, certificate, app-deployment, inventory, and lifecycle controls. Because I do not have an Apple Business Manager organization or managed Mac in this lab, ADE, ABM token exchange, endpoint Platform SSO, FileVault escrow, and destructive lifecycle operations are clearly documented as simulated procedures instead of being presented as completed production work.</p>
+<h2>Interview explanation</h2>
+<blockquote>
+<p>I wanted the project to show both technical knowledge and administrative judgment. I used the real Intune tenant for everything I could legitimately configure, including APNs, compliance, and FileVault. I also inspected the real Platform SSO, Wi-Fi, SCEP, app, inventory, and lifecycle surfaces. The Apple Business Manager and ADE portions are documented as simulations because I do not have an ABM organization or enrolled Mac. That boundary matters because creating an Intune policy is not the same as proving endpoint enforcement.</p>
+</blockquote></div></details><details><summary>Renewal Calendar and Operational Ownership <small> / renewal-calendar.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/renewal-calendar.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-9fab6a424a55.html" class="">Open document page</a></div><h2>Renewal Calendar and Operational Ownership</h2>
+<h2>Renewal schedule</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Cadence</th>
+<th>Current / planned date</th>
+<th>Owner responsibility</th>
+<th>Validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apple MDM Push certificate (APNs)</td>
+<td>Annual</td>
+<td>Expires <strong>2027-09-26</strong></td>
+<td>Renew with the same Apple account before expiration</td>
+<td>Confirm Intune status and expiration</td>
+</tr>
+<tr>
+<td>ABM / Intune Enrollment Program Token</td>
+<td>Annual</td>
+<td>Not created in this lab</td>
+<td>Renew existing ABM server token before expiration</td>
+<td>Sync devices and confirm token state</td>
+</tr>
+<tr>
+<td>SCEP/PKCS issuing certificate chain</td>
+<td>Based on PKI policy</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>Track CA and connector certificate expiration</td>
+<td>Test issuance before renewal window</td>
+</tr>
+<tr>
+<td>Wi-Fi/RADIUS server certificates</td>
+<td>Based on PKI policy</td>
+<td>SIMULATED / DOCUMENTED</td>
+<td>Renew before trust expires</td>
+<td>EAP-TLS test from pilot Mac</td>
+</tr>
+<tr>
+<td>Application packages</td>
+<td>Continuous</td>
+<td>N/A</td>
+<td>Review new versions, signing, compatibility</td>
+<td>Pilot deployment</td>
+</tr>
+<tr>
+<td>macOS compliance baseline</td>
+<td>At least quarterly + OS release</td>
+<td>N/A</td>
+<td>Review minimum OS/security requirements</td>
+<td>Test on pilot group</td>
+</tr>
+<tr>
+<td>Platform SSO profile</td>
+<td>At OS/Company Portal changes</td>
+<td>N/A</td>
+<td>Review supported settings and registration behavior</td>
+<td>Pilot sign-in validation</td>
+</tr>
+<tr>
+<td>FileVault policy</td>
+<td>At security baseline review</td>
+<td>N/A</td>
+<td>Confirm policy and recovery workflow</td>
+<td>Escrow + recovery test on pilot Mac</td>
+</tr>
+</tbody>
+</table></div>
+<h2>APNs renewal procedure</h2>
+<ol>
+<li>Start renewal well before expiration.</li>
+<li>Identify the Apple account that owns the existing certificate.</li>
+<li>In Intune, confirm the existing APNs certificate identity.</li>
+<li>Open Apple's Push Certificates Portal using the same owning Apple account.</li>
+<li>Renew the existing certificate.</li>
+<li>Download the renewed certificate.</li>
+<li>Upload it into the existing Intune APNs configuration.</li>
+<li>Confirm status and new expiration.</li>
+<li>Record the renewal date and next renewal deadline.</li>
+<li>Do not publish certificate material or Apple-account identifiers.</li>
+</ol>
+<h2>ABM token renewal procedure</h2>
+<p><strong>SIMULATED / DOCUMENTED</strong></p>
+<ol>
+<li>Confirm the existing Intune Enrollment Program Token and corresponding ABM MDM server.</li>
+<li>Sign in to ABM with an authorized account.</li>
+<li>Download a renewed server token for the same MDM server.</li>
+<li>Upload it to the existing Intune token object.</li>
+<li>Synchronize devices.</li>
+<li>Confirm device count and token expiration.</li>
+<li>Record renewal ownership.</li>
+</ol>
+<h2>Operational rule</h2>
+<p>Renew existing trust relationships whenever continuity is required. Replacing APNs certificates or recreating ABM MDM server relationships without a change reason can break management continuity.</p></div></details><details><summary>Simulated Enterprise Deployment Scenario <small> / simulated-deployment-scenario.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/simulated-deployment-scenario.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-7aa5e620028b.html" class="">Open document page</a></div><h2>Simulated Enterprise Deployment Scenario</h2>
+<h2>Scenario</h2>
+<p>A company purchases a batch of corporate Macs from an Apple-authorized reseller. The devices are automatically assigned to the organization's Apple Business Manager tenant and then to Microsoft Intune.</p>
+<p>This scenario is <strong>SIMULATED / DOCUMENTED</strong>. It is used to demonstrate the intended operational sequence without claiming that an ABM tenant or physical managed Mac exists in this lab.</p>
+<h2>Workflow</h2>
+<ol>
+<li><strong>Procurement</strong></li>
+<li>
+<p>Reseller associates devices with the ABM organization.</p>
+</li>
+<li>
+<p><strong>Apple Business Manager</strong></p>
+</li>
+<li>Devices appear in ABM.</li>
+<li>
+<p>Administrator assigns them to the Microsoft Intune MDM server.</p>
+</li>
+<li>
+<p><strong>Enrollment Program Token</strong></p>
+</li>
+<li>
+<p>Intune synchronizes assigned devices from ABM.</p>
+</li>
+<li>
+<p><strong>ADE profile</strong></p>
+</li>
+<li>Corporate enrollment profile is assigned.</li>
+<li>
+<p>Required Setup Assistant panes are shown or skipped according to policy.</p>
+</li>
+<li>
+<p><strong>Setup Assistant</strong></p>
+</li>
+<li>Device connects to the network.</li>
+<li>Apple activation identifies the device as organization-managed.</li>
+<li>
+<p>Remote management begins.</p>
+</li>
+<li>
+<p><strong>Microsoft Entra authentication</strong></p>
+</li>
+<li>
+<p>User authenticates with organizational identity.</p>
+</li>
+<li>
+<p><strong>Intune enrollment</strong></p>
+</li>
+<li>
+<p>Device becomes managed and appears in inventory.</p>
+</li>
+<li>
+<p><strong>Security baseline</strong></p>
+</li>
+<li>Compliance evaluates System Integrity Protection, password state, encryption, firewall, Stealth Mode, and Gatekeeper.</li>
+<li>
+<p>FileVault policy enables encryption and recovery-key escrow.</p>
+</li>
+<li>
+<p><strong>Identity</strong></p>
+</li>
+<li>
+<p>Platform SSO registration links the local macOS sign-in experience with Microsoft Entra according to the chosen authentication method.</p>
+</li>
+<li>
+<p><strong>Enterprise Wi-Fi</strong></p>
+<ul>
+<li>Trusted root certificate and client certificate are delivered.</li>
+<li>WPA2-Enterprise / EAP-TLS profile connects the device to corporate wireless.</li>
+</ul>
+</li>
+<li>
+<p><strong>Applications</strong></p>
+<ul>
+<li>Required productivity/security applications install from Intune.</li>
+</ul>
+</li>
+<li>
+<p><strong>Operations</strong></p>
+<ul>
+<li>Help desk/admin teams use inventory, sync, restart, rename, retire, wipe, and reassignment workflows according to policy.</li>
+</ul>
+</li>
+</ol>
+<h2>Validation checkpoints</h2>
+<p>A real deployment would not be marked complete until the following were observed on an enrolled Mac:</p>
+<ul>
+<li>ADE profile applied during Setup Assistant;</li>
+<li>Entra authentication succeeds;</li>
+<li>device appears in Intune;</li>
+<li>configuration profiles report success;</li>
+<li>FileVault is enabled;</li>
+<li>recovery key is escrowed;</li>
+<li>compliance reports compliant;</li>
+<li>required apps install;</li>
+<li>Platform SSO registration succeeds;</li>
+<li>enterprise Wi-Fi authenticates;</li>
+<li>lifecycle actions behave as expected.</li>
+</ul></div></details><details><summary>Troubleshooting Runbook <small> / troubleshooting.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-980d98ed3406.html" class="">Open document page</a></div><h2>Troubleshooting Runbook</h2>
+<p>Every troubleshooting scenario below distinguishes between actions that can be performed in Intune now and actions that require Apple Business Manager or an enrolled Mac.</p>
+<h2>Device not appearing in Apple Business Manager</h2>
+<p><strong>Classification:</strong> SIMULATED / DOCUMENTED</p>
+<p>Check:</p>
+<ol>
+<li>Purchase source is an Apple-authorized reseller or Apple direct channel that supports ABM assignment.</li>
+<li>Organization ID and reseller/customer identifiers are correct.</li>
+<li>Device serial is eligible for automated assignment.</li>
+<li>Reseller has assigned the device to the correct ABM organization.</li>
+<li>ABM sync/import has completed.</li>
+</ol>
+<p>Do not troubleshoot Intune until the device exists in ABM.</p>
+<h2>Device not synchronizing from ABM to Intune</h2>
+<p><strong>Classification:</strong> SIMULATED / DOCUMENTED</p>
+<p>Check:</p>
+<ol>
+<li>Enrollment Program Token has not expired.</li>
+<li>Token was created for the correct ABM MDM server.</li>
+<li>Device is assigned to that MDM server in ABM.</li>
+<li>Intune token sync completes without error.</li>
+<li>Device serial appears under the correct token.</li>
+</ol>
+<p>If the token has expired, renew the existing relationship rather than creating an unrelated replacement unless the relationship is intentionally being rebuilt.</p>
+<h2>ADE profile not assigned</h2>
+<p>Check:</p>
+<ul>
+<li>device exists under the Enrollment Program Token;</li>
+<li>device was synchronized after assignment;</li>
+<li>profile assignment scope includes the device;</li>
+<li>no competing assignment exists;</li>
+<li>profile is active.</li>
+</ul>
+<h2>Setup Assistant does not show expected panes</h2>
+<p>Check:</p>
+<ul>
+<li>device is actually using ADE;</li>
+<li>device has been erased/reset after the ADE assignment;</li>
+<li>latest ADE profile has synchronized;</li>
+<li>skipped Setup Assistant panes match the assigned profile;</li>
+<li>network access to Apple activation services is available.</li>
+</ul>
+<h2>APNs communication problems</h2>
+<p><strong>REAL operational dependency</strong></p>
+<p>Check:</p>
+<ul>
+<li>Intune Apple MDM Push Certificate status;</li>
+<li>certificate expiration date;</li>
+<li>same Apple account ownership used for renewal;</li>
+<li>certificate was renewed rather than replaced;</li>
+<li>device can reach Apple Push Notification service.</li>
+</ul>
+<p>Replacing instead of renewing the APNs certificate can sever management continuity and should be treated as a high-risk administrative change.</p>
+<h2>Company Portal / Entra authentication failure</h2>
+<p>Check:</p>
+<ul>
+<li>user can authenticate to Microsoft Entra;</li>
+<li>user is licensed for required Intune services;</li>
+<li>device time is correct;</li>
+<li>Conditional Access does not unintentionally block enrollment;</li>
+<li>Company Portal is supported on the installed macOS version;</li>
+<li>browser/web authentication completes successfully.</li>
+</ul>
+<h2>Platform SSO registration failure</h2>
+<p><strong>Classification:</strong> SIMULATED / DOCUMENTED endpoint procedure</p>
+<p>Check:</p>
+<ul>
+<li>supported macOS version;</li>
+<li>Company Portal / Enterprise SSO plug-in prerequisites;</li>
+<li>Platform SSO profile is assigned;</li>
+<li>extension identifier and team identifier are correct;</li>
+<li>user completed required registration;</li>
+<li>Entra sign-in logs for authentication failures;</li>
+<li>profile conflicts or duplicate SSO payloads.</li>
+</ul>
+<h2>FileVault not enabling</h2>
+<p>Check:</p>
+<ul>
+<li>FileVault policy assignment;</li>
+<li>device is supervised/managed as required by the chosen workflow;</li>
+<li>user has secure token capability where required;</li>
+<li>no conflicting FileVault payload exists;</li>
+<li>device has checked in after policy assignment;</li>
+<li>Intune per-setting status for policy errors.</li>
+</ul>
+<h2>FileVault recovery key not escrowed</h2>
+<p>Check:</p>
+<ul>
+<li>FileVault is actually enabled;</li>
+<li>recovery-key escrow policy is assigned;</li>
+<li>device has checked in after FileVault activation;</li>
+<li>personal recovery key exists;</li>
+<li>recovery key is visible in the authorized Intune recovery workflow;</li>
+<li>no policy conflict is present.</li>
+</ul>
+<p>Never collect or publish the actual recovery key in portfolio evidence.</p>
+<h2>Compliance failure</h2>
+<p>Check each configured requirement individually:</p>
+<ul>
+<li>System Integrity Protection;</li>
+<li>password requirement;</li>
+<li>storage encryption;</li>
+<li>firewall;</li>
+<li>Stealth Mode;</li>
+<li>Gatekeeper state.</li>
+</ul>
+<p>Use per-setting compliance status rather than guessing from the overall state.</p>
+<h2>Enterprise Wi-Fi failure</h2>
+<p>Check:</p>
+<ul>
+<li>SSID spelling;</li>
+<li>security type;</li>
+<li>EAP type;</li>
+<li>trusted root certificate;</li>
+<li>client certificate availability;</li>
+<li>certificate subject/SAN requirements;</li>
+<li>certificate EKU;</li>
+<li>RADIUS trust chain;</li>
+<li>device time;</li>
+<li>wireless controller/NPS/RADIUS logs.</li>
+</ul>
+<p>For EAP-TLS, troubleshoot certificate trust and identity before user credentials because the design is certificate-based.</p>
+<h2>Application deployment failure</h2>
+<p>Check:</p>
+<ul>
+<li>app type matches packaging format;</li>
+<li>package is signed and compatible with the target macOS version;</li>
+<li>assignment is correct;</li>
+<li>detection logic/version metadata is valid;</li>
+<li>required privacy/system extension settings are deployed;</li>
+<li>device has checked in;</li>
+<li>Intune app install status and local logs.</li>
+</ul>
+<h2>Expired Enrollment Program Token</h2>
+<p>Renew through the existing Apple Business Manager server relationship and upload the renewed token to Intune. Confirm the device count and sync after renewal.</p>
+<h2>Device retirement</h2>
+<p>For user offboarding or BYOD-style management removal, prefer the least destructive action that satisfies the requirement. Preserve corporate data handling policy and confirm whether retire removes managed configuration without factory reset.</p>
+<h2>Lost or stolen device</h2>
+<p>Escalate according to organization policy. Evaluate wipe, lock-related capabilities, identity-session revocation, certificate revocation, and asset reporting. Do not execute destructive actions without identity and ownership verification.</p></div></details><details><summary>Validation <small> / validation.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/validation.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-57955486d8ae.html" class="">Open document page</a></div><h2>Validation</h2>
+<h2>Final validation matrix</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Real / Simulated</th>
+<th>Configured</th>
+<th>Validated</th>
+<th>Evidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intune Apple enrollment administration</td>
+<td>Real</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Apple enrollment baseline</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>APNs certificate creation</td>
+<td>Real</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Apple Push Certificates Portal confirmation</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>APNs upload to Intune</td>
+<td>Real</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Intune upload confirmation</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>ABM organization</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>Architecture/runbook only</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+<tr>
+<td>Enrollment Program Token</td>
+<td>Simulated</td>
+<td>No</td>
+<td>Workflow only</td>
+<td>Token creation page reviewed</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+<tr>
+<td>ADE device synchronization</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>Runbook only</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+<tr>
+<td>ADE profile</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>Runbook only</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+<tr>
+<td>macOS compliance policy</td>
+<td>Real</td>
+<td>Yes</td>
+<td>Policy object yes</td>
+<td>Review + policy monitor</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Compliance on enrolled Mac</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>No enrolled Mac</td>
+<td>NOT VALIDATED</td>
+</tr>
+<tr>
+<td>FileVault policy</td>
+<td>Real</td>
+<td>Yes</td>
+<td>Policy object yes</td>
+<td>Settings + policy list</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>FileVault encryption on Mac</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>No enrolled Mac</td>
+<td>NOT VALIDATED</td>
+</tr>
+<tr>
+<td>Recovery-key escrow</td>
+<td>Simulated</td>
+<td>Policy intent only</td>
+<td>No</td>
+<td>No enrolled Mac</td>
+<td>NOT VALIDATED</td>
+</tr>
+<tr>
+<td>Platform SSO capability</td>
+<td>Real</td>
+<td>No policy retained</td>
+<td>Yes</td>
+<td>Settings Catalog capability</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>Platform SSO endpoint registration</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>No enrolled Mac</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+<tr>
+<td>Enterprise Wi-Fi capability</td>
+<td>Real</td>
+<td>No policy retained</td>
+<td>Yes</td>
+<td>Enterprise profile settings</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>EAP-TLS availability</td>
+<td>Real</td>
+<td>No policy retained</td>
+<td>Yes</td>
+<td>EAP dropdown</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>SCEP profile capability</td>
+<td>Real</td>
+<td>No policy retained</td>
+<td>Yes</td>
+<td>SCEP configuration surface</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>Certificate issuance</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>No enterprise PKI/SCEP path</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+<tr>
+<td>macOS app deployment capability</td>
+<td>Real</td>
+<td>No app retained</td>
+<td>Yes</td>
+<td>App type selector</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>App install on Mac</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>No enrolled Mac</td>
+<td>NOT VALIDATED</td>
+</tr>
+<tr>
+<td>macOS enrollment restrictions</td>
+<td>Real</td>
+<td>Existing default</td>
+<td>Yes</td>
+<td>Restriction properties</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>macOS device inventory</td>
+<td>Real</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>0-device inventory page</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>Bulk device actions</td>
+<td>Real capability</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>Action list</td>
+<td>VALIDATED</td>
+</tr>
+<tr>
+<td>Retire / wipe execution</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>No enrolled Mac</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+<tr>
+<td>Device reassignment</td>
+<td>Simulated</td>
+<td>No</td>
+<td>No</td>
+<td>Lifecycle runbook</td>
+<td>SIMULATED / DOCUMENTED</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Evidence interpretation</h2>
+<p>A screenshot proving that an Intune configuration surface exists is classified as <strong>capability validation</strong>, not endpoint implementation.</p>
+<p>A policy object created in Intune is classified as <strong>REAL CONFIGURATION</strong>.</p>
+<p>A result that requires an enrolled Mac is not marked validated unless an actual device reports the state.</p>
+<h2>Evidence index</h2>
+<p>See <a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/evidence/README.md" rel="noopener noreferrer" target="_blank">evidence/README.md</a> and the live <a href="https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/" rel="noopener noreferrer">evidence gallery</a>.</p></div></details></section><section class="content-block" id="troubleshooting"><h2>Troubleshooting</h2><p>Troubleshooting procedures distinguish actual Intune configuration from hypothetical ABM/ADE and managed-Mac failures. No endpoint remediation is presented as executed without an enrolled Mac.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-980d98ed3406.html" class="">Troubleshooting Runbook<small>projects/macos-abm-intune-runbook/troubleshooting.md</small></a></div></section><section class="content-block" id="validation"><h2>Validation & results</h2><p>APNs, compliance, FileVault Settings Catalog, and capability review are documented. ABM/ADE and managed-Mac enforcement remain simulation/documentation.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-57955486d8ae.html" class="">Validation<small>projects/macos-abm-intune-runbook/validation.md</small></a></div></section><section class="content-block" id="evidence"><h2>Evidence</h2><p>STRONG for Microsoft/Apple-side configuration actually performed; appropriately documentary for simulated portions.</p><div class="doc-grid"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/README.md" target="_blank" rel="noopener noreferrer" class="">README.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/architecture.md" target="_blank" rel="noopener noreferrer" class="">architecture.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/device-lifecycle.md" target="_blank" rel="noopener noreferrer" class="">device-lifecycle.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/evidence/README.md" target="_blank" rel="noopener noreferrer" class="">README.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/evidence/index.html" target="_blank" rel="noopener noreferrer" class="">index.html<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/implementation.md" target="_blank" rel="noopener noreferrer" class="">implementation.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/lessons-learned.md" target="_blank" rel="noopener noreferrer" class="">lessons-learned.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/portfolio-summary.md" target="_blank" rel="noopener noreferrer" class="">portfolio-summary.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/renewal-calendar.md" target="_blank" rel="noopener noreferrer" class="">renewal-calendar.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/simulated-deployment-scenario.md" target="_blank" rel="noopener noreferrer" class="">simulated-deployment-scenario.md<small>Retained documentation supporting macOS ABM to Intune Enterprise Runbook.</small> <span aria-hidden="true">↗</span></a></div><div class="source-links"><a href="/evidence-browser.html" class="">Browse and filter the complete evidence library</a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/" target="_blank" rel="noopener noreferrer" class="">GitHub project source <span aria-hidden="true">↗</span></a></div></section><section class="content-block" id="skills"><h2>Skills demonstrated</h2><div class="tags"><span class="tag">Intune</span><span class="tag">APNs</span><span class="tag">FileVault</span><span class="tag">ABM / ADE simulation</span></div><a href="/skills.html" class="">View the complete capability map →</a></section><section class="content-block" id="limitations"><h2>Limitations & claim boundaries</h2><div class="note">Real configuration includes APNs, macOS compliance, FileVault Settings Catalog, enrollment restriction review, and capability review. ABM organization, ADE assignment/enrollment, managed-Mac Platform SSO, live PKI/SCEP issuance, RADIUS auth, FileVault escrow from a managed Mac, managed-Mac compliance evaluation, app installation, and destructive lifecycle actions were not performed and must not be claimed as implemented.</div></section><section class="content-block" id="next"><h2>Next milestones</h2><p>Maintain/renew the APNs certificate before 2027-09-26 and preserve the simulated boundary unless a legitimate ABM/ADE/managed-Mac environment becomes available.</p></section></article></div><section class="section"><p class="eyebrow">Continue exploring</p><h2>Related projects</h2><div class="grid grid-2"><article class="project-card" data-project data-category="Endpoint management" data-search="windows autopilot &amp; intune mdm provisioning physical-device provisioning through branded oobe, esp, entra join, security policy, and final intune compliance. autopilot intune entra join bitlocker"><div class="card-head"><span class="project-number">PROJECT 11</span><span class="status">COMPLETE</span></div><h3><a href="/projects/windows-autopilot-intune/evidence/" class="">Windows Autopilot &amp; Intune MDM Provisioning</a></h3><p>Physical-device provisioning through branded OOBE, ESP, Entra join, security policy, and final Intune compliance.</p><div class="tags"><span class="tag">Autopilot</span><span class="tag">Intune</span><span class="tag">Entra join</span><span class="tag">BitLocker</span></div><div class="card-footer"><a href="/windows-autopilot-intune.html" class="">Read case study <span class=arrow>↗</span></a><a href="/evidence-browser.html" class="text-link">Evidence</a></div></article></div></section></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

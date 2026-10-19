@@ -187,7 +187,7 @@
       "textArtifactsInspected": 315,
       "manualReviewRequired": 162,
       "highSeveritySecretFindings": 0,
-      "identifierFindings": 320,
+      "identifierFindings": 319,
       "unresolvedPublicIdentifierFindings": 0
     }
   },
@@ -19320,7 +19320,7 @@
       "sourceVerificationMethod": "direct-git-object",
       "collectionContext": "Established public Home Lab case-study route. Original source integrity remains pinned to the recorded commit; the linked page is a recruiter-facing presentation derivative with independent public integrity.",
       "hashAlgorithm": "sha256",
-      "hash": "4d7538fa42483b85df3681e7c289aed71f7e0fdbadde4de4aaefd509d81dee89",
+      "hash": "69f3b2d8620571da56de67835180abbdff4abb1f4eebc099e597d7c6703b3321",
       "supportedClaims": [
         "home-lab-environment-inventory"
       ],
@@ -19334,7 +19334,7 @@
       "publicRoute": "/on-prem-home-lab.html",
       "collection": "home-lab-public-pages",
       "publicPath": "on-prem-home-lab.html",
-      "size": 22811,
+      "size": 87815,
       "technologyRelationships": [
         "environment"
       ],
@@ -19347,14 +19347,14 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "4d7538fa42483b85df3681e7c289aed71f7e0fdbadde4de4aaefd509d81dee89",
-        "size": 22811,
+        "hash": "69f3b2d8620571da56de67835180abbdff4abb1f4eebc099e597d7c6703b3321",
+        "size": 87815,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {
-        "status": "reviewed-exceptions-applied",
+        "status": "automated-no-high-severity-findings",
         "highSeverityFindings": 0,
-        "identifierFindings": 1,
+        "identifierFindings": 0,
         "manualReviewRequired": false
       }
     },

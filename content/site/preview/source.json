@@ -1,0 +1,46 @@
+{
+  "uploadedFilename": "Jeremy-Fontenot-Portfolio-Preview(1).html",
+  "sha256": "34498cb62bc8621213486f88a5be05073cff6a7ca30f9d028fed9c472278a65f",
+  "repositoryCommit": "5c130c816cd22a70f734b2c2ee6d6480732b1dc2",
+  "purpose": "Owner supplied presentation source. Technical evidence is retained in its existing paths.",
+  "brandMagenta": "#d946ef",
+  "derivation": [
+    "Extracted embedded images byte-for-byte into assets/preview; source image hashes recorded.",
+    "Linked embedded resume to existing downloadable resume assets.",
+    "Preserved supplied text as presentation input; production sanitization applies in generator."
+  ],
+  "extractedImages": [
+    {
+      "path": "assets/preview/59de0dd082159fda1e75.png",
+      "sha256": "59de0dd082159fda1e751ce42fae2c7fb2f7701f76b8e46e870670f52d16f2c6"
+    },
+    {
+      "path": "assets/preview/59de0dd082159fda1e75.png",
+      "sha256": "59de0dd082159fda1e751ce42fae2c7fb2f7701f76b8e46e870670f52d16f2c6"
+    },
+    {
+      "path": "assets/preview/36c0241a74ab9e9b80a0.png",
+      "sha256": "36c0241a74ab9e9b80a0a73fe8baf7d6fdade58cd594133c5881abba209b09bb"
+    },
+    {
+      "path": "assets/preview/36c0241a74ab9e9b80a0.png",
+      "sha256": "36c0241a74ab9e9b80a0a73fe8baf7d6fdade58cd594133c5881abba209b09bb"
+    },
+    {
+      "path": "assets/preview/86cf772c1c81ab531f56.png",
+      "sha256": "86cf772c1c81ab531f56c39abd95c02370af606e4f309353138204876d2cc78a"
+    },
+    {
+      "path": "assets/preview/86cf772c1c81ab531f56.png",
+      "sha256": "86cf772c1c81ab531f56c39abd95c02370af606e4f309353138204876d2cc78a"
+    },
+    {
+      "path": "assets/preview/7aa1068723f1965db280.png",
+      "sha256": "7aa1068723f1965db280de0705226a3acd5211da38f91cb2a44d2d1e013d15d2"
+    },
+    {
+      "path": "assets/preview/7aa1068723f1965db280.png",
+      "sha256": "7aa1068723f1965db280de0705226a3acd5211da38f91cb2a44d2d1e013d15d2"
+    }
+  ]
+}

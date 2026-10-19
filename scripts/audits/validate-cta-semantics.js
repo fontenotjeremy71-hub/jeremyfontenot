@@ -26,7 +26,7 @@ function normalizePath(source, href) {
 }
 
 function isEvidenceTarget(target) {
-  return /(?:#evidence(?:$|[-_])|\/(?:active-directory-lab|infrastructure|network-segmentation|powershell-automation)\.html$|\/evidence(?:\/|[-.]|$)|evidence-library|evidence-catalog|validation|evidence-manifest|claim-map|proof\.html|\.(?:txt|md|json|csv|png|jpe?g|webp)(?:[#?].*)?$)/i.test(target);
+  return /(?:#evidence(?:$|[-_])|\/(?:active-directory-lab|infrastructure|network-segmentation|powershell-automation)\.html$|\/evidence(?:\/|[-.]|$)|evidence-library|portfolio-documents|evidence-catalog|validation|evidence-manifest|claim-map|proof\.html|\.(?:txt|md|json|csv|png|jpe?g|webp)(?:[#?].*)?$)/i.test(target);
 }
 
 function inspect(source, href, rawLabel) {
@@ -53,7 +53,7 @@ function inspect(source, href, rawLabel) {
   }
   if (proofPromise) {
     semanticChecks += 1;
-    if (!/proof|claim-map|#evidence|\/evidence|evidence-library|validation/i.test(target)) errors.push(`${source}: "${label}" promises proof-oriented content but points to ${href}`);
+    if (!/proof|claim-map|#evidence|\/evidence|evidence-library|portfolio-documents|validation/i.test(target)) errors.push(`${source}: "${label}" promises proof-oriented content but points to ${href}`);
   }
   if (casePromise) {
     semanticChecks += 1;

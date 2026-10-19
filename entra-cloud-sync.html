@@ -1,1 +1,813 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><meta name="theme-color" content="#07111f"><title>Microsoft Entra Hybrid Identity & Cloud Sync | Jeremy Fontenot</title><meta name="description" content="Hybrid identity provisioning from on-premises Active Directory to Microsoft Entra ID with scoped users, groups, Password Hash Sync, and troubleshooting evidence."><link rel="canonical" href="https://jeremyfontenot.online/entra-cloud-sync.html"><link rel="icon" href="/assets/logos/favicon_64x64.png"><link rel="stylesheet" href="/assets/css/site.css?v=20260912rebuild2"><script src="/assets/js/site-core.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-main.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-projects.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-cases.js?v=20260912rebuild4" defer></script><script src="/assets/js/routes-support.js?v=20260912rebuild4" defer></script><script src="/assets/js/site-render.js?v=20260912rebuild4" defer></script></head><body><a class="skip" href="#main">Skip to content</a><div id="app"><main id="main"><section class="page-hero"><div class="wrap"><p class="eyebrow">Project 02 · validated</p><h1>Microsoft Entra Hybrid Identity & Cloud Sync</h1></div></section></main></div><noscript><div class="wrap legacy"><p><strong>JavaScript is required for the interactive portfolio experience.</strong></p><p>Please enable JavaScript to view this case study.</p></div></noscript></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Microsoft Entra Hybrid Identity &amp; Cloud Sync | Jeremy Fontenot</title><meta name="description" content="Scoped AD-to-Entra provisioning with source-anchor correlation, Password Hash Sync, and lifecycle validation."><meta property="og:title" content="Microsoft Entra Hybrid Identity &amp; Cloud Sync"><meta property="og:description" content="Scoped AD-to-Entra provisioning with source-anchor correlation, Password Hash Sync, and lifecycle validation."><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/entra-cloud-sync.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/entra-cloud-sync.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="projects/entra-cloud-sync"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><span class="nav-current" aria-current="page">Projects</span><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Microsoft Entra Hybrid Identity &amp; Cloud Sync</span></div><div class="page-heading"><p class="eyebrow">Project 02 / Identity & security</p><h1>Microsoft Entra Hybrid Identity &amp; Cloud Sync</h1><p class="lead">Scoped AD-to-Entra provisioning with source-anchor correlation, Password Hash Sync, and lifecycle validation.</p><div class="tags"><span class="status">COMPLETE</span><span class="tag">Validated lab work</span></div><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/" target="_blank" rel="noopener noreferrer" class="">GitHub documentation <span aria-hidden="true">↗</span></a><a href="https://jeremyfontenot.online/entra-cloud-sync.html" rel="noopener noreferrer" class="">Original portfolio <span aria-hidden="true">↗</span></a><a href="/evidence-browser.html" class="">Evidence library</a></div></div><div class="case-layout"><aside class="case-toc"><p class="eyebrow">Inside this case study</p><a href="#overview">Overview</a><a href="#scenario">Operational scenario & objectives</a><a href="#environment">Environment & technologies</a><a href="#architecture">Architecture</a><a href="#implementation">Implementation & administration</a><a href="#troubleshooting">Troubleshooting</a><a href="#validation">Validation & results</a><a href="#evidence">Evidence</a><a href="#skills">Skills demonstrated</a><a href="#limitations">Limitations & claim boundaries</a><a href="#next">Next milestones</a></aside><article><section class="content-block" id="overview"><h2>Overview</h2><p>Scoped AD-to-Entra provisioning with source-anchor correlation, Password Hash Sync, and lifecycle validation.</p><p><strong>Classification:</strong> Validated lab work.</p></section><section class="content-block" id="scenario"><h2>Operational scenario & objectives</h2><p>Synchronize only the intended identities, retain AD source authority, and validate provisioning and password synchronization without introducing an unnecessary second sync engine.</p></section><section class="content-block" id="environment"><h2>Environment & technologies</h2><p>Retained project architecture: DC01 supplies AD DS; SYNC01 hosts the provisioning agent. The tested dedicated OU limits synchronization to selected users and groups.</p><div class="tags"><span class="tag">Entra ID</span><span class="tag">Cloud Sync</span><span class="tag">Password Hash Sync</span><span class="tag">AD DS</span></div></section><section class="content-block" id="architecture"><h2>Architecture</h2><p>Retained project architecture: DC01 supplies AD DS; SYNC01 hosts the provisioning agent. The tested dedicated OU limits synchronization to selected users and groups.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-4fb28c09432c.html" class="">Architecture<small>projects/entra-cloud-sync/architecture.md</small></a></div></section><section class="content-block" id="implementation"><h2>Implementation & administration</h2><div class="imported"><section class="page-hero"><div class="wrap"><p class="eyebrow">Project 02 · COMPLETE</p><h2>Microsoft Entra Hybrid Identity &amp; Cloud Sync</h2><p class="lead">Hybrid identity provisioning from on-premises Active Directory to Microsoft Entra ID with scoped users, groups, Password Hash Sync, and troubleshooting evidence.</p><div class="actions"><a class="button primary" href="/projects.html">Back to projects</a><a class="button" href="/evidence-browser.html">Review proof index</a></div></div></section><section class="section"><div class="wrap"><div class="metric-strip"><div class="metric"><strong>AD → Entra</strong><span>Provisioning</span></div><div class="metric"><strong>20 min</strong><span>Cloud Sync cycle</span></div><div class="metric"><strong>PHS</strong><span>Password sync</span></div><div class="metric"><strong>Validated</strong><span>Agent health</span></div></div></div></section><section class="section"><div class="wrap case-layout"><article><section class="content-block" id="source-b29b31fd-scope"><p class="eyebrow">Scope</p><h2>Controlled AD-to-Entra provisioning</h2><p>Microsoft Entra Cloud Sync is already working in the lab. The project focuses on scoped provisioning, source authority, password synchronization, agent health, and evidence-driven troubleshooting without rebuilding the working sync service.</p></section><section class="content-block" id="source-b29b31fd-design"><p class="eyebrow">Design</p><h2>Dedicated synchronization scope</h2><p>Cloud-bound identities are organized in a dedicated AD OU and use the verified <strong>jeremyfontenot.online</strong> UPN domain. Test users and groups are separated from unrelated directory objects.</p></section><section class="content-block" id="source-b29b31fd-validation"><p class="eyebrow">Validation</p><h2>Provisioning behavior and source authority</h2><p>Validation covers users, groups, AD source authority, Cloud Sync agent state, and the expected fixed provisioning interval. Password Hash Sync is treated as a separate flow with different timing.</p></section><section class="content-block" id="source-b29b31fd-troubleshooting"><p class="eyebrow">Troubleshooting</p><h2>Logs before resets</h2><p>Provisioning-agent trace logs and directory state are used before any restart or rebuild. The 20-minute Cloud Sync provisioning interval is accounted for before treating changes as failures.</p></section><section class="content-block" id="source-b29b31fd-evidence"><p class="eyebrow">Evidence</p><h2>Sanitized validation</h2><ul class="evidence-list"><li><a href="https://jeremyfontenot.online/projects/entra-cloud-sync/evidence/" rel="noopener noreferrer">Evidence index<span>Hybrid identity validation artifacts</span></a></li><li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/microsoft-365/evidence-catalog.html" rel="noopener noreferrer" target="_blank">Microsoft 365 evidence catalog<span>Preserved identity and tenant evidence</span></a></li></ul></section></article><aside class="case-nav panel"><p class="eyebrow">Case study</p><a href="/entra-cloud-sync.html">Controlled AD-to-Entra provisioning</a><a href="/entra-cloud-sync.html">Dedicated synchronization scope</a><a href="/entra-cloud-sync.html">Provisioning behavior and source authority</a><a href="/entra-cloud-sync.html">Logs before resets</a><a href="/entra-cloud-sync.html">Validation links</a></aside></div></section></div><details><summary>Microsoft Entra Hybrid Identity &amp; Cloud Sync <small> / README.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/README.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-175635baeeb5.html" class="">Open document page</a></div><h2>Microsoft Entra Hybrid Identity &amp; Cloud Sync</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Overview</h2>
+<p>This project demonstrates a validated hybrid identity implementation using Microsoft Entra Cloud Sync to synchronize selected Active Directory users and groups from an on-premises Windows Server environment to Microsoft Entra ID.</p>
+<p>The project focuses on controlled identity lifecycle validation, source-of-authority verification, Password Hash Synchronization, security-group synchronization, provisioning-log analysis, and troubleshooting without rebuilding the existing working Cloud Sync deployment.</p>
+<h2>Environment</h2>
+<h3>On-Premises</h3>
+<ul>
+<li>Active Directory domain: <code>ad.jeremyfontenot.online</code></li>
+<li>NetBIOS domain: <code>JFAD</code></li>
+<li>Domain Controller: <code>DC01</code></li>
+<li>DC01 IP: <code>10.10.20.10</code></li>
+<li>Operating System: Windows Server 2022</li>
+<li>Domain functional level: Windows Server 2016</li>
+</ul>
+<h3>Cloud Sync</h3>
+<ul>
+<li>Cloud Sync server: <code>SYNC01</code></li>
+<li>SYNC01 IP: <code>10.10.20.105</code></li>
+<li>Operating System: Windows Server 2022</li>
+<li>Synchronization technology: Microsoft Entra Cloud Sync</li>
+<li>Password Hash Synchronization: Enabled</li>
+</ul>
+<h3>Microsoft Entra</h3>
+<ul>
+<li>Verified domain: <code>jeremyfontenot.online</code></li>
+<li>Synchronization direction: Active Directory → Microsoft Entra ID</li>
+</ul>
+<h2>Cloud Sync Scope</h2>
+<p>Synchronization is intentionally limited to:</p>
+<p><code>OU=Cloud Sync,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online</code></p>
+<p>This provides a controlled boundary for hybrid identity testing without synchronizing unrelated Active Directory objects.</p>
+<h2>Validated Capabilities</h2>
+<p>The project successfully validated:</p>
+<ul>
+<li>Cloud Sync provisioning-agent health</li>
+<li>Dedicated OU scoping</li>
+<li>New user provisioning from Active Directory to Microsoft Entra ID</li>
+<li>On-premises attribute synchronization</li>
+<li>Password Hash Synchronization</li>
+<li>Cloud authentication after an on-premises password change</li>
+<li>Security-group synchronization</li>
+<li>Group-membership synchronization</li>
+<li>Provisioning logs</li>
+<li>Source-anchor correlation</li>
+<li>Source-of-authority behavior</li>
+<li>Provisioning-failure review</li>
+<li>Cloud Sync troubleshooting</li>
+</ul>
+<h2>Controlled Lifecycle Test</h2>
+<p>The primary test identity was:</p>
+<p><code>cloudsync.test01@jeremyfontenot.online</code></p>
+<p>The lifecycle test validated:</p>
+<ol>
+<li>Creation in on-premises Active Directory</li>
+<li>Placement in the dedicated Cloud Sync OU</li>
+<li>Provisioning to Microsoft Entra ID</li>
+<li>Synchronization of the <code>Department</code> attribute</li>
+<li>Password change on-premises</li>
+<li>Successful Microsoft Entra authentication with the updated password</li>
+<li>Membership in <code>GG-CloudSync-Test</code></li>
+<li>Security-group and membership synchronization</li>
+<li>Provisioning-log confirmation</li>
+<li>Source-anchor and immutable-ID correlation</li>
+</ol>
+<h2>Source of Authority</h2>
+<p>For the synchronized objects tested in this project, on-premises Active Directory remained the authoritative identity source.</p>
+<p>The identity relationship was validated by correlating:</p>
+<ul>
+<li>Active Directory <code>objectGUID</code></li>
+<li>Cloud Sync <code>SourceAnchor</code></li>
+<li>Microsoft Entra on-premises immutable ID</li>
+<li>Provisioning-log source and target identifiers</li>
+</ul>
+<h2>Synchronization Timing</h2>
+<p>Observed Cloud Sync intervals:</p>
+<ul>
+<li>Users and Groups provisioning: 20 minutes</li>
+<li>Password Hash Synchronization: 5 minutes</li>
+</ul>
+<p>These separate intervals were accounted for during validation and troubleshooting.</p>
+<h2>Troubleshooting Highlights</h2>
+<p>During validation, the Cloud Sync agent reported a permissions-related metrics error involving access to the registry key <code>Global</code>.</p>
+<p>The provisioning agent gMSA was added to the local <code>Performance Log Users</code> group on <code>SYNC01</code>.</p>
+<p>After the agent service restarted:</p>
+<ul>
+<li>the registry-access error did not recur</li>
+<li>the metrics agent initialized successfully</li>
+<li>Cloud Sync remained active</li>
+<li>user synchronization succeeded</li>
+<li>group synchronization succeeded</li>
+<li>Password Hash Synchronization succeeded</li>
+</ul>
+<p>The existing Cloud Sync installation was preserved.</p>
+<h2>Project Documentation</h2>
+<ul>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/architecture.md" rel="noopener noreferrer" target="_blank">Architecture</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/implementation.md" rel="noopener noreferrer" target="_blank">Implementation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/validation.md" rel="noopener noreferrer" target="_blank">Validation</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/troubleshooting.md" rel="noopener noreferrer" target="_blank">Troubleshooting</a></li>
+<li><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/lessons-learned.md" rel="noopener noreferrer" target="_blank">Lessons Learned</a></li>
+</ul>
+<h2>Security and Evidence Handling</h2>
+<p>Portfolio evidence is sanitized.</p>
+<p>The project does not publish:</p>
+<ul>
+<li>passwords</li>
+<li>authentication tokens</li>
+<li>session cookies</li>
+<li>private keys</li>
+<li>VPN credentials</li>
+<li>other authentication secrets</li>
+</ul>
+<h2>Technologies Demonstrated</h2>
+<ul>
+<li>Windows Server 2022</li>
+<li>Active Directory Domain Services</li>
+<li>Microsoft Entra ID</li>
+<li>Microsoft Entra Cloud Sync</li>
+<li>Password Hash Synchronization</li>
+<li>Group Managed Service Accounts</li>
+<li>PowerShell</li>
+<li>PowerShell Remoting</li>
+<li>Microsoft Entra provisioning logs</li>
+<li>Hybrid identity troubleshooting</li>
+</ul>
+<h2>Validation Script</h2>
+<p>A reusable PowerShell validation script is included at:</p>
+<p><code>scripts/Test-CloudSyncADState.ps1</code></p>
+<p>The script validates the current on-premises source state for:</p>
+<ul>
+<li><code>cloudsync.test01</code></li>
+<li><code>GG-CloudSync-Test</code></li>
+<li>Direct group membership</li>
+<li>Objects located in the dedicated Cloud Sync OU</li>
+</ul>
+<p>The script is designed to be executed against a domain controller with the Active Directory PowerShell module available.</p>
+<p>Example execution from the administrative workstation:</p>
+<pre><code class="language-powershell">Invoke-Command -Session $dc -FilePath ".\scripts\Test-CloudSyncADState.ps1"
+</code></pre>
+<p>The script provides repeatable evidence of the Active Directory state without modifying directory objects.</p>
+<h2>Interview Explanation</h2>
+<p>I built and validated a hybrid identity lab using Microsoft Entra Cloud Sync between an on-premises Active Directory environment and Microsoft Entra ID.</p>
+<p>The environment uses Windows Server 2022 with a dedicated Cloud Sync server and a scoped synchronization OU. I preserved the existing working Cloud Sync deployment rather than rebuilding it.</p>
+<p>For the validation, I created a controlled Active Directory user and confirmed that it provisioned to Microsoft Entra. I then changed a supported on-premises attribute, verified the cloud update, changed the user password on-premises, and validated Password Hash Synchronization by successfully authenticating to Microsoft Entra with the new password.</p>
+<p>I also created a security group, synchronized the group and its membership, reviewed provisioning logs, and correlated the Active Directory objectGUID with the Cloud Sync source anchor and the Microsoft Entra immutable ID.</p>
+<p>During troubleshooting, I identified a permissions issue affecting Cloud Sync metrics, corrected the gMSA permissions on SYNC01, and validated that the agent remained healthy. I also documented the difference between the 20-minute Users and Groups provisioning interval and the 5-minute Password Hash Sync interval so that normal propagation delay is not mistaken for a failure.</p>
+<p>The project demonstrates hybrid identity administration, Active Directory, Microsoft Entra ID, Cloud Sync, Password Hash Synchronization, group synchronization, PowerShell remoting, provisioning-log analysis, and evidence-based troubleshooting.</p>
+<h2>Resume Bullet</h2>
+<ul>
+<li>Built and validated a Microsoft Entra hybrid identity lab using Windows Server 2022 Active Directory and Microsoft Entra Cloud Sync, including scoped user and security-group synchronization, Password Hash Synchronization, attribute lifecycle testing, source-anchor correlation, provisioning-log analysis, gMSA troubleshooting, and PowerShell-based remote administration.</li>
+</ul>
+<h2>LinkedIn Project Description</h2>
+<p>Built and validated a Microsoft Entra hybrid identity lab integrating Windows Server 2022 Active Directory with Microsoft Entra ID through Microsoft Entra Cloud Sync.</p>
+<p>The project included controlled user provisioning, attribute synchronization, Password Hash Synchronization, security-group and group-membership synchronization, source-anchor correlation, provisioning-log analysis, and PowerShell-based remote administration.</p>
+<p>I also troubleshot Cloud Sync agent permissions using event logs, validated the provisioning agent gMSA configuration, and confirmed the difference between the 20-minute Users and Groups provisioning cycle and the separate 5-minute Password Hash Sync cycle.</p>
+<p>Technologies used: Windows Server 2022, Active Directory Domain Services, Microsoft Entra ID, Microsoft Entra Cloud Sync, Password Hash Synchronization, gMSA, PowerShell, PowerShell Remoting, and Entra provisioning logs.</p></div></details><details><summary>Architecture <small> / architecture.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/architecture.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-4fb28c09432c.html" class="">Open document page</a></div><h2>Architecture</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Hybrid Identity Architecture</h2>
+<p>This project uses Microsoft Entra Cloud Sync to synchronize selected identities from on-premises Active Directory to Microsoft Entra ID.</p>
+<h2>Core Components</h2>
+<h3>On-Premises Active Directory</h3>
+<ul>
+<li>Domain: <code>ad.jeremyfontenot.online</code></li>
+<li>NetBIOS: <code>JFAD</code></li>
+<li>Domain Controller: <code>DC01</code></li>
+<li>IP address: <code>10.10.20.10</code></li>
+<li>Operating System: Windows Server 2022</li>
+<li>Domain functional level: Windows Server 2016</li>
+</ul>
+<p>Directory services provided by DC01 include:</p>
+<ul>
+<li>Active Directory Domain Services</li>
+<li>DNS</li>
+<li>DHCP</li>
+<li>Kerberos</li>
+<li>Global Catalog</li>
+<li>Active Directory Web Services</li>
+</ul>
+<h3>Cloud Sync Server</h3>
+<ul>
+<li>Server: <code>SYNC01</code></li>
+<li>IP address: <code>10.10.20.105</code></li>
+<li>Operating System: Windows Server 2022</li>
+<li>Role: Microsoft Entra Cloud Sync provisioning agent host</li>
+</ul>
+<p>The Cloud Sync agent runs under an existing group Managed Service Account.</p>
+<h3>Microsoft Entra ID</h3>
+<ul>
+<li>Verified domain: <code>jeremyfontenot.online</code></li>
+<li>Synchronization direction: Active Directory to Microsoft Entra ID</li>
+<li>Synchronization technology: Microsoft Entra Cloud Sync</li>
+<li>Password Hash Synchronization: Enabled</li>
+</ul>
+<h2>Synchronization Scope</h2>
+<p>Cloud Sync is intentionally limited to:</p>
+<p><code>OU=Cloud Sync,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online</code></p>
+<p>This dedicated OU provides a controlled boundary for synchronized users and groups without broadly synchronizing unrelated Active Directory objects.</p>
+<h2>Identity Flow</h2>
+<p>The validated identity path is:</p>
+<p><code>DC01 Active Directory</code>
+→ <code>Dedicated Cloud Sync OU</code>
+→ <code>SYNC01 Microsoft Entra Cloud Sync Agent</code>
+→ <code>Microsoft Entra ID</code></p>
+<p>Password changes follow a separate Password Hash Synchronization process through the same Cloud Sync deployment.</p>
+<h2>Validated Object Types</h2>
+<p>The project validated synchronization of:</p>
+<ul>
+<li>User objects</li>
+<li>User attributes</li>
+<li>Security groups</li>
+<li>Group membership</li>
+<li>Password hashes</li>
+</ul>
+<h2>Source of Authority</h2>
+<p>For the identities tested in this project, on-premises Active Directory is the authoritative source.</p>
+<p>Microsoft Entra receives synchronized identity data through Cloud Sync.</p>
+<p>The identity relationship was validated through:</p>
+<ul>
+<li>Active Directory <code>objectGUID</code></li>
+<li>Cloud Sync <code>SourceAnchor</code></li>
+<li>Microsoft Entra on-premises immutable ID</li>
+<li>Provisioning-log source and target identifiers</li>
+</ul>
+<h2>Synchronization Timing</h2>
+<p>Observed configuration intervals:</p>
+<ul>
+<li>Users and Groups provisioning: 20 minutes</li>
+<li>Password Hash Synchronization: 5 minutes</li>
+</ul>
+<p>These are separate processing cycles and should be considered during troubleshooting.</p>
+<h2>Administrative Access Model</h2>
+<p>The administrative laptop is not domain joined.</p>
+<p>Administration is therefore performed primarily through:</p>
+<ul>
+<li>PowerShell Remoting to <code>DC01</code></li>
+<li>PowerShell Remoting to <code>SYNC01</code></li>
+<li>Microsoft Entra admin center</li>
+</ul>
+<p>This avoids relying on laptop Kerberos or domain-integrated RSAT functionality.</p>
+<h2>Design Principle</h2>
+<p>The architecture preserves the existing working Cloud Sync deployment.</p>
+<p>No additional synchronization engine was introduced, and Microsoft Entra Connect Sync was not installed simply to obtain manual delta-sync capability.</p>
+<h2>Cloud Sync vs. Microsoft Entra Connect Sync</h2>
+<p>This lab uses Microsoft Entra Cloud Sync rather than Microsoft Entra Connect Sync.</p>
+<h3>Microsoft Entra Cloud Sync</h3>
+<p>Cloud Sync uses a lightweight provisioning agent installed on <code>SYNC01</code>.</p>
+<p>In this lab it provides:</p>
+<ul>
+<li>Active Directory to Microsoft Entra ID user synchronization</li>
+<li>Security-group synchronization</li>
+<li>Group-membership synchronization</li>
+<li>Password Hash Synchronization</li>
+<li>OU-based scoping</li>
+<li>Cloud-managed provisioning configuration</li>
+<li>Provisioning-log visibility in Microsoft Entra</li>
+</ul>
+<p>The observed Users and Groups provisioning interval is 20 minutes.</p>
+<h3>Microsoft Entra Connect Sync</h3>
+<p>Microsoft Entra Connect Sync uses the traditional synchronization engine installed on a Windows Server.</p>
+<p>A key operational difference relevant to this lab is that Connect Sync supports administrator-triggered synchronization cycles, such as a delta synchronization, whereas the Cloud Sync Users and Groups provisioning job operates on its service-managed schedule.</p>
+<p>Connect Sync was not installed in this project because the existing Cloud Sync deployment was already functioning and introducing another synchronization engine was unnecessary for the project objectives.</p>
+<h3>Design Decision</h3>
+<p>Cloud Sync was retained because it already met the requirements of this controlled hybrid identity implementation.</p>
+<p>The architecture therefore remained:</p>
+<p><code>Active Directory</code>
+→ <code>Microsoft Entra Cloud Sync</code>
+→ <code>Microsoft Entra ID</code></p>
+<p>rather than adding Microsoft Entra Connect Sync solely to obtain manually triggered synchronization cycles.</p>
+<p>This preserves the existing working infrastructure and avoids overlapping synchronization engines for the same test objects.</p></div></details><details><summary>Evidence Manifest <small> / README.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/README.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-824e99df914f.html" class="">Open document page</a></div><h2>Evidence Manifest</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<p>This folder contains sanitized evidence and supporting visuals for the Microsoft Entra Hybrid Identity &amp; Cloud Sync project.</p>
+<h2>Captured Evidence</h2>
+<ol>
+<li><code>02-cloudsync-test01-initial-provisioning.png</code></li>
+<li>
+<p>Initial synchronized user in Microsoft Entra</p>
+</li>
+<li>
+<p><code>03-cloudsync-test01-attribute-sync.png</code></p>
+</li>
+<li>
+<p>Department attribute synchronized to <code>Hybrid Identity Lab</code></p>
+</li>
+<li>
+<p><code>04-cloudsync-test01-password-hash-sync.png</code></p>
+</li>
+<li>
+<p>Successful Microsoft Entra authentication after on-premises password change</p>
+</li>
+<li>
+<p><code>05-cloudsync-group-membership.png</code></p>
+</li>
+<li>
+<p><code>Cloud Sync Test 01</code> synchronized as a member of <code>GG-CloudSync-Test</code></p>
+</li>
+<li>
+<p><code>06-cloudsync-user-provisioning-log.png</code></p>
+</li>
+<li>
+<p>Successful user import, scope evaluation, and provisioning</p>
+</li>
+<li>
+<p><code>07-cloudsync-user-modified-properties.png</code></p>
+</li>
+<li>
+<p>User attribute and source-anchor processing</p>
+</li>
+<li>
+<p><code>08-cloudsync-source-authority.png</code></p>
+</li>
+<li>
+<p>On-premises synchronization and immutable-ID evidence</p>
+</li>
+<li>
+<p><code>09-cloudsync-overview-health.png</code></p>
+</li>
+<li>
+<p>Healthy Cloud Sync configuration and synchronization counts</p>
+</li>
+<li>
+<p><code>10-cloudsync-no-failures.png</code></p>
+</li>
+<li>
+<p>Final provisioning-log failure review with no results</p>
+</li>
+<li>
+<p><code>11-cloudsync-group-provisioning-log.png</code></p>
+<ul>
+<li>Successful group provisioning event</li>
+</ul>
+</li>
+<li>
+<p><code>12-cloudsync-group-modified-properties.png</code></p>
+<ul>
+<li>Group membership/source-anchor processing</li>
+</ul>
+</li>
+<li>
+<p><code>13-cloudsync-group-summary.png</code></p>
+<ul>
+<li>AD-to-Entra group provisioning summary</li>
+</ul>
+</li>
+<li>
+<p><code>14-cloudsync-agent-status.png</code></p>
+<ul>
+<li>SYNC01 Cloud Sync agent shown as Active</li>
+</ul>
+</li>
+<li>
+<p><code>15-cloudsync-ou-scope.png</code></p>
+<ul>
+<li>Dedicated Cloud Sync OU scope</li>
+</ul>
+</li>
+<li>
+<p><code>16-cloudsync-group-attribute-mapping.png</code></p>
+<ul>
+<li>Group attribute mappings</li>
+</ul>
+</li>
+</ol>
+<h2>Supporting Visuals</h2>
+<ul>
+<li><code>01-cloudsync-architecture.png</code></li>
+<li><code>02-identity-lifecycle.png</code></li>
+<li><code>03-source-anchor-correlation.png</code></li>
+<li><code>04-sync-timing.png</code></li>
+<li><code>05-troubleshooting-flow.png</code></li>
+<li><code>06-validation-summary.png</code></li>
+<li><code>07-cloudsync-vs-connect-sync.png</code></li>
+</ul>
+<p>These visuals summarize only validated Project 2 lab architecture, workflow, timing, troubleshooting, and validation results.</p>
+<h2>Evidence Note</h2>
+<p>The original pre-test OU baseline was captured as PowerShell output rather than as a screenshot. No screenshot was fabricated for that step.</p>
+<h2>Sanitization Requirements</h2>
+<p>Before publishing evidence, verify screenshots do not expose:</p>
+<ul>
+<li>passwords</li>
+<li>authentication tokens</li>
+<li>session cookies</li>
+<li>bearer tokens</li>
+<li>private keys</li>
+<li>VPN credentials</li>
+<li>recovery secrets</li>
+<li>other authentication secrets</li>
+</ul>
+<p>Directory object GUIDs, source anchors, lab UPNs, server names, and lab IP addresses may remain where intentionally used as technical evidence.</p></div></details><details><summary>Implementation <small> / implementation.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/implementation.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-23159e4114b3.html" class="">Open document page</a></div><h2>Implementation</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Existing Hybrid Identity Architecture</h2>
+<p>This project uses an existing Microsoft Entra Cloud Sync deployment. The synchronization infrastructure was already operational before this validation project and was not rebuilt.</p>
+<h3>On-Premises Active Directory</h3>
+<ul>
+<li>Domain: <code>ad.jeremyfontenot.online</code></li>
+<li>NetBIOS domain: <code>JFAD</code></li>
+<li>Domain Controller: <code>DC01</code></li>
+<li>Domain Controller IP: <code>10.10.20.10</code></li>
+<li>Operating System: Windows Server 2022</li>
+<li>Domain functional level: Windows Server 2016</li>
+</ul>
+<p>DC01 provides:</p>
+<ul>
+<li>Active Directory Domain Services</li>
+<li>DNS</li>
+<li>DHCP</li>
+<li>Kerberos</li>
+<li>Global Catalog</li>
+<li>Active Directory Web Services</li>
+</ul>
+<h3>Microsoft Entra</h3>
+<ul>
+<li>Verified domain: <code>jeremyfontenot.online</code></li>
+<li>Synchronization technology: Microsoft Entra Cloud Sync</li>
+<li>Cloud Sync server: <code>SYNC01</code></li>
+<li>SYNC01 IP: <code>10.10.20.105</code></li>
+<li>Operating System: Windows Server 2022</li>
+</ul>
+<h2>Cloud Sync Scope</h2>
+<p>Synchronization is intentionally limited to the dedicated organizational unit:</p>
+<p><code>OU=Cloud Sync,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online</code></p>
+<p>The scope was validated in the Microsoft Entra admin center before performing the controlled identity lifecycle test.</p>
+<h2>Controlled Test User</h2>
+<p>A dedicated test identity was created in the Cloud Sync OU:</p>
+<ul>
+<li>Display name: <code>Cloud Sync Test 01</code></li>
+<li>SAM account name: <code>cloudsync.test01</code></li>
+<li>UPN: <code>cloudsync.test01@jeremyfontenot.online</code></li>
+<li>Enabled: Yes</li>
+<li>Password expiration: Disabled for the controlled lab account</li>
+</ul>
+<p>The account was created on-premises and allowed to synchronize through the existing Cloud Sync configuration.</p>
+<h2>Attribute Synchronization Test</h2>
+<p>The on-premises <code>Department</code> attribute was changed to:</p>
+<p><code>Hybrid Identity Lab</code></p>
+<p>The value was first validated in Active Directory and subsequently verified in Microsoft Entra.</p>
+<h2>Password Hash Synchronization Test</h2>
+<p>The controlled user's password was changed on-premises.</p>
+<p>The change was validated by:</p>
+<ol>
+<li>Confirming a new <code>PasswordLastSet</code> timestamp in Active Directory.</li>
+<li>Authenticating successfully to Microsoft Entra using the updated password.</li>
+</ol>
+<p>No password value was recorded in project evidence.</p>
+<h2>Security Group Synchronization Test</h2>
+<p>A controlled Active Directory security group was created:</p>
+<ul>
+<li>Group: <code>GG-CloudSync-Test</code></li>
+<li>Category: Security</li>
+<li>Scope: Global</li>
+<li>Location: Dedicated Cloud Sync OU</li>
+</ul>
+<p><code>cloudsync.test01</code> was added as a direct member.</p>
+<p>After the normal Cloud Sync provisioning cycle, Microsoft Entra showed:</p>
+<ul>
+<li>Source: Windows Server AD</li>
+<li>Type: Security</li>
+<li>One synchronized direct user member</li>
+</ul>
+<h2>Synchronization Intervals Observed</h2>
+<p>The Cloud Sync configuration reports:</p>
+<ul>
+<li>Users and Groups provisioning interval: 20 minutes</li>
+<li>Password Hash Sync interval: 5 minutes</li>
+</ul>
+<p>These separate synchronization schedules were accounted for during validation to distinguish expected propagation delay from actual synchronization failures.</p>
+<h2>Provisioning Agent</h2>
+<p>The existing agent on <code>SYNC01</code> was retained.</p>
+<p>Agent validation confirmed:</p>
+<ul>
+<li>Service: <code>AADConnectProvisioningAgent</code></li>
+<li>Service state: Running</li>
+<li>Startup mode: Automatic</li>
+<li>Microsoft Entra agent status: Active</li>
+</ul>
+<p>The agent runs under its existing group Managed Service Account and was not reinstalled or replaced.</p>
+<h2>Implementation Principle</h2>
+<p>All lifecycle changes originated in on-premises Active Directory. Microsoft Entra was treated as the synchronized target for the tested identities and attributes.</p>
+<p>Existing Cloud Sync infrastructure was preserved throughout the project.</p></div></details><details><summary>Lessons Learned <small> / lessons-learned.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/lessons-learned.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-8d050c4af940.html" class="">Open document page</a></div><h2>Lessons Learned</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Preserve Working Infrastructure</h2>
+<p>The existing Microsoft Entra Cloud Sync deployment was already functioning and did not need to be rebuilt.</p>
+<p>A key operational lesson from this project was to validate the current state before making changes. The working agent, OU scope, Password Hash Synchronization, and existing synchronized users provided a known-good baseline.</p>
+<h2>Understand Cloud Sync Timing</h2>
+<p>Microsoft Entra Cloud Sync uses separate synchronization intervals for different functions.</p>
+<p>Observed in this lab:</p>
+<ul>
+<li>Users and Groups provisioning: 20 minutes</li>
+<li>Password Hash Synchronization: 5 minutes</li>
+</ul>
+<p>A newly created or modified directory object should not be treated as failed until the expected provisioning interval has been considered.</p>
+<p>This distinction prevents unnecessary troubleshooting, restarts, or configuration changes.</p>
+<h2>Source of Authority Matters</h2>
+<p>For synchronized identities, on-premises Active Directory remained the authoritative source for the tested attributes.</p>
+<p>Changes were made in Active Directory first and then validated in Microsoft Entra.</p>
+<p>The source relationship was verified using:</p>
+<ul>
+<li>Active Directory <code>objectGUID</code></li>
+<li>Base64 source-anchor conversion</li>
+<li>Microsoft Entra on-premises immutable ID</li>
+<li>Provisioning log source and target identifiers</li>
+</ul>
+<h2>Source Anchors Provide Strong Identity Correlation</h2>
+<p>The controlled user's Active Directory <code>objectGUID</code> was converted to its Base64 source-anchor representation.</p>
+<p>That value matched the Microsoft Entra on-premises immutable ID and the provisioning-log source anchor.</p>
+<p>This provided direct evidence that the cloud identity was linked to the intended on-premises AD object.</p>
+<h2>Password Hash Synchronization Is Independent of User Provisioning Timing</h2>
+<p>Password Hash Synchronization completed on a shorter cycle than Users and Groups provisioning.</p>
+<p>Successful Microsoft Entra authentication after an on-premises password change provided practical proof that Password Hash Synchronization was functioning.</p>
+<h2>Group Synchronization Includes Membership Relationships</h2>
+<p>Creating a synchronized group is only part of group lifecycle validation.</p>
+<p>This project also confirmed that:</p>
+<ul>
+<li>The security group synchronized to Microsoft Entra</li>
+<li>The user membership synchronized</li>
+<li>Provisioning logs processed the membership relationship</li>
+<li>The group <code>Member</code> property referenced the synchronized user's source anchor</li>
+</ul>
+<h2>Provisioning Logs Are Essential Troubleshooting Evidence</h2>
+<p>Provisioning logs provided visibility into:</p>
+<ul>
+<li>Import from Active Directory</li>
+<li>Scope evaluation</li>
+<li>Provisioning into Microsoft Entra ID</li>
+<li>Modified properties</li>
+<li>Source IDs</li>
+<li>Target IDs</li>
+<li>Success or failure status</li>
+</ul>
+<p>They were more useful for determining actual synchronization behavior than relying only on portal object visibility.</p>
+<h2>Service Running Does Not Mean Every Component Is Healthy</h2>
+<p>The provisioning agent service was Running while the event log still contained performance-counter errors.</p>
+<p>Reviewing the agent event log identified a permissions issue affecting the metrics collector.</p>
+<p>Adding the provisioning gMSA to the local <code>Performance Log Users</code> group resolved the registry-access error without reinstalling Cloud Sync.</p>
+<h2>Validate Commands in Their Correct Context</h2>
+<p><code>Test-ADServiceAccount</code> returned <code>False</code> when executed on DC01 because the Cloud Sync gMSA was assigned for use by SYNC01.</p>
+<p>The result demonstrated the importance of understanding what a validation command actually tests before interpreting its output as a failure.</p>
+<h2>Do Not Troubleshoot Normal Delay as an Outage</h2>
+<p>The group initially appeared missing from Microsoft Entra because a Users and Groups provisioning cycle had not yet completed.</p>
+<p>The object eventually synchronized successfully after the expected Cloud Sync interval.</p>
+<p>The main operational lesson is:</p>
+<blockquote>
+<p>Confirm the synchronization schedule before escalating normal propagation delay into troubleshooting.</p>
+</blockquote>
+<h2>Portfolio Evidence Should Be Sanitized</h2>
+<p>Useful evidence includes:</p>
+<ul>
+<li>AD object properties</li>
+<li>OU scope</li>
+<li>provisioning status</li>
+<li>group membership</li>
+<li>provisioning logs</li>
+<li>source-anchor correlation</li>
+<li>synchronization timestamps</li>
+<li>agent health</li>
+</ul>
+<p>Passwords, tokens, authentication secrets, private keys, and other credentials should never be included in portfolio evidence.</p></div></details><details><summary>Troubleshooting <small> / troubleshooting.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-649e173ee41c.html" class="">Open document page</a></div><h2>Troubleshooting</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Cloud Sync Agent Validation</h2>
+<p>The existing Microsoft Entra Cloud Sync agent on <code>SYNC01</code> was preserved and not reinstalled.</p>
+<p>Validation confirmed:</p>
+<ul>
+<li>Service name: <code>AADConnectProvisioningAgent</code></li>
+<li>Service state: Running</li>
+<li>Startup mode: Automatic</li>
+<li>Service account: existing gMSA</li>
+<li>Entra agent status: Active</li>
+<li>Outbound TCP 443 connectivity to the Cloud Sync bootstrap endpoint: Successful</li>
+</ul>
+<h2>gMSA Validation</h2>
+<p>The provisioning agent runs under:</p>
+<p><code>JFAD\pGMSA_126bbe50$</code></p>
+<p>Active Directory validation confirmed that <code>SYNC01</code> is authorized to retrieve the gMSA managed password.</p>
+<p>A <code>Test-ADServiceAccount</code> command executed from <code>DC01</code> returned <code>False</code>.</p>
+<p>This result was not treated as evidence that the gMSA was broken because <code>Test-ADServiceAccount</code> validates whether the computer executing the command can use the account. The Cloud Sync gMSA is assigned to <code>SYNC01</code>, not <code>DC01</code>.</p>
+<h2>Performance Counter Permission Issue</h2>
+<p>The Cloud Sync agent event log initially contained:</p>
+<ul>
+<li>Event ID <code>12033</code></li>
+<li>Error indicating access to the registry key <code>Global</code> was denied</li>
+</ul>
+<p>The local <code>Performance Log Users</code> group on <code>SYNC01</code> contained no members.</p>
+<p>The Cloud Sync gMSA was added to the local:</p>
+<p><code>Performance Log Users</code></p>
+<p>group.</p>
+<p>After the agent service was restarted, the previous registry-access error did not recur and the event log reported:</p>
+<ul>
+<li>Event ID <code>14013</code></li>
+<li><code>Metrics Agent was initialized successfully.</code></li>
+</ul>
+<h2>Remaining Performance Counter Event</h2>
+<p>The agent also logged Event ID <code>12009</code> indicating failure to initialize performance counters.</p>
+<p>Because:</p>
+<ul>
+<li>the provisioning agent remained Running</li>
+<li>Microsoft Entra reported the agent as Active</li>
+<li>the metrics agent initialized successfully</li>
+<li>user synchronization succeeded</li>
+<li>Password Hash Synchronization succeeded</li>
+<li>group synchronization succeeded</li>
+<li>provisioning logs showed successful processing</li>
+</ul>
+<p>the agent was not reinstalled based solely on this event.</p>
+<h2>Cloud Sync Provisioning Delay</h2>
+<p>During group synchronization testing, the newly created <code>GG-CloudSync-Test</code> group did not immediately appear in Microsoft Entra.</p>
+<p>Initial troubleshooting verified:</p>
+<ul>
+<li>The group existed in Active Directory</li>
+<li>ObjectClass was <code>group</code></li>
+<li>The group was located inside the configured Cloud Sync OU</li>
+<li>The Cloud Sync job contained a Groups attribute mapping</li>
+<li>OU scope was correct</li>
+<li>The provisioning agent was active</li>
+<li>Outbound connectivity was successful</li>
+</ul>
+<p>The Cloud Sync Overview later confirmed that Users and Groups provisioning uses a fixed:</p>
+<p><code>20 minute</code></p>
+<p>interval.</p>
+<p>After the expected provisioning cycle completed, the group appeared successfully in Microsoft Entra with its synchronized member.</p>
+<p>This behavior was documented as normal propagation delay rather than a synchronization failure.</p>
+<h2>Provision on Demand Limitation Encountered</h2>
+<p>A group was tested through the AD-to-Entra <code>Provision on demand</code> interface.</p>
+<p>The request returned:</p>
+<p><code>ResourceNotFound</code></p>
+<p>with a message indicating the input entry was not found or was out of scope.</p>
+<p>Further inspection of the interface showed that this AD-to-Entra provisioning workflow was operating on user objects.</p>
+<p>The group test result was therefore not used as evidence of a failed group synchronization.</p>
+<h2>Final Health Validation</h2>
+<p>At the end of testing:</p>
+<ul>
+<li>Cloud Sync configuration: Healthy</li>
+<li>Cloud Sync agent: Active</li>
+<li>Users synchronized: 4</li>
+<li>Groups synchronized: 1</li>
+<li>Password Hash Sync: Enabled</li>
+<li>Provisioning failure filter for the final validation window: No results</li>
+</ul>
+<h2>Troubleshooting Principle</h2>
+<p>The environment was troubleshot from observed evidence rather than by reinstalling Cloud Sync or changing scope without cause.</p>
+<p>The working synchronization infrastructure was preserved throughout the project.</p></div></details><details><summary>Validation <small> / validation.md</small></summary><div class="document"><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/validation.md" target="_blank" rel="noopener noreferrer" class="">Original source <span aria-hidden="true">↗</span></a><a href="/portfolio-documents/documentation-c16a404bc237.html" class="">Open document page</a></div><h2>Validation</h2>
+<h2>Project Status</h2>
+<p>COMPLETE</p>
+<h2>Controlled Identity Lifecycle Test</h2>
+<h3>User Provisioning</h3>
+<ul>
+<li>Source user: <code>cloudsync.test01</code></li>
+<li>Source UPN: <code>cloudsync.test01@jeremyfontenot.online</code></li>
+<li>Source OU: <code>OU=Cloud Sync,OU=JFAD,DC=ad,DC=jeremyfontenot,DC=online</code></li>
+<li>Microsoft Entra provisioning: Validated</li>
+<li>On-premises sync enabled: Yes</li>
+</ul>
+<h3>Attribute Synchronization</h3>
+<ul>
+<li>Attribute tested: <code>Department</code></li>
+<li>On-premises value: <code>Hybrid Identity Lab</code></li>
+<li>Microsoft Entra value: <code>Hybrid Identity Lab</code></li>
+<li>Result: Validated</li>
+</ul>
+<h3>Password Hash Synchronization</h3>
+<ul>
+<li>Password changed on-premises</li>
+<li>Microsoft Entra authentication succeeded using the updated password</li>
+<li>Result: Validated</li>
+</ul>
+<h3>Group Synchronization</h3>
+<ul>
+<li>Source group: <code>GG-CloudSync-Test</code></li>
+<li>Group type: Global Security</li>
+<li>Source: Windows Server Active Directory</li>
+<li>Microsoft Entra provisioning: Validated</li>
+<li>Direct synchronized members: 1</li>
+<li>Member: <code>Cloud Sync Test 01</code></li>
+</ul>
+<h3>Source Anchor Correlation</h3>
+<ul>
+<li>AD ObjectGUID: <code>1e49a065-aa0d-4415-87d2-ee0ad0f4f1d2</code></li>
+<li>Calculated source anchor: <code>ZaBJHg2qFUSH0u4K0PTx0g==</code></li>
+<li>Microsoft Entra on-premises immutable ID matched the calculated source anchor</li>
+<li>Result: Validated</li>
+</ul>
+<h3>Cloud Sync Health</h3>
+<ul>
+<li>Configuration status: Healthy</li>
+<li>Provisioning agent: Active</li>
+<li>Users synchronized: 4</li>
+<li>Groups synchronized: 1</li>
+<li>Users/groups provisioning interval: 20 minutes</li>
+<li>Password Hash Sync interval: 5 minutes</li>
+<li>Provisioning failures in final validation window: None</li>
+</ul>
+<h2>Overall Result</h2>
+<p>The controlled hybrid identity lifecycle test successfully validated Active Directory to Microsoft Entra provisioning, attribute synchronization, Password Hash Synchronization, security-group synchronization, membership synchronization, provisioning logs, and source-anchor correlation.</p>
+<h2>Validation Matrix</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Validation Area</th>
+<th>Source / Test</th>
+<th>Expected Result</th>
+<th>Actual Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Sync agent service</td>
+<td><code>SYNC01</code> service state</td>
+<td>Running / Automatic</td>
+<td>Running / Automatic</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Cloud Sync agent in Entra</td>
+<td>Cloud Sync Agents page</td>
+<td>Active</td>
+<td>Active</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>OU scope</td>
+<td>Dedicated Cloud Sync OU</td>
+<td>Correct OU selected</td>
+<td>Correct OU selected</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>New user creation</td>
+<td><code>cloudsync.test01</code></td>
+<td>Enabled in scoped OU</td>
+<td>Enabled in scoped OU</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>User provisioning</td>
+<td>AD → Microsoft Entra</td>
+<td>User appears in Entra</td>
+<td>User synchronized successfully</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Attribute synchronization</td>
+<td><code>Department</code></td>
+<td><code>Hybrid Identity Lab</code> in Entra</td>
+<td>Value synchronized</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Password Hash Sync</td>
+<td>On-prem password change</td>
+<td>New password authenticates to Entra</td>
+<td>Authentication successful</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Security group sync</td>
+<td><code>GG-CloudSync-Test</code></td>
+<td>Group appears in Entra</td>
+<td>Group synchronized</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Group membership sync</td>
+<td><code>cloudsync.test01</code> membership</td>
+<td>Member appears in Entra group</td>
+<td>Membership synchronized</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Source anchor correlation</td>
+<td>AD <code>objectGUID</code> → Base64</td>
+<td>Matches Entra immutable ID</td>
+<td>Exact match confirmed</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Provisioning logs</td>
+<td>User provisioning event</td>
+<td>Successful processing</td>
+<td>Success</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Group provisioning logs</td>
+<td>Group provisioning event</td>
+<td>Successful processing</td>
+<td>Success</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Provisioning failures</td>
+<td>Final failure review</td>
+<td>No current failures</td>
+<td>No results</td>
+<td>COMPLETE</td>
+</tr>
+<tr>
+<td>Agent outbound connectivity</td>
+<td>Microsoft bootstrap endpoint TCP 443</td>
+<td>Connection succeeds</td>
+<td><code>TcpTestSucceeded = True</code></td>
+<td>COMPLETE</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Lifecycle Validation Result</h2>
+<p>The controlled identity lifecycle test is COMPLETE.</p>
+<p>The broader portfolio project remains IN PROGRESS until final portfolio presentation material and evidence files are organized and committed.</p></div></details></section><section class="content-block" id="troubleshooting"><h2>Troubleshooting</h2><p>Provisioning logs, source-anchor correlation, OU scope, and agent traces were inspected before resets. The retained implementation distinguishes the 20-minute user/group interval from the separate Password Hash Sync process.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-649e173ee41c.html" class="">Troubleshooting<small>projects/entra-cloud-sync/troubleshooting.md</small></a></div></section><section class="content-block" id="validation"><h2>Validation & results</h2><p>User and group synchronization, Password Hash Sync, source authority, provisioning logs, and agent health are documented as validated.</p><div class="doc-grid"><a href="/portfolio-documents/documentation-c16a404bc237.html" class="">Validation<small>projects/entra-cloud-sync/validation.md</small></a></div></section><section class="content-block" id="evidence"><h2>Evidence</h2><p>STRONG — lifecycle validation, provisioning logs, source-anchor correlation, Password Hash Sync, group sync, troubleshooting, and a validation script are documented.</p><div class="doc-grid"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/README.md" target="_blank" rel="noopener noreferrer" class="">README.md<small>Retained documentation supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/architecture.md" target="_blank" rel="noopener noreferrer" class="">architecture.md<small>Retained documentation supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/01-cloudsync-architecture.png" target="_blank" rel="noopener noreferrer" class="">01-cloudsync-architecture.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/02-cloudsync-test01-initial-provisioning.png" target="_blank" rel="noopener noreferrer" class="">02-cloudsync-test01-initial-provisioning.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/02-identity-lifecycle.png" target="_blank" rel="noopener noreferrer" class="">02-identity-lifecycle.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/03-cloudsync-test01-attribute-sync.png" target="_blank" rel="noopener noreferrer" class="">03-cloudsync-test01-attribute-sync.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/03-source-anchor-correlation.png" target="_blank" rel="noopener noreferrer" class="">03-source-anchor-correlation.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/04-cloudsync-test01-password-hash-sync.png" target="_blank" rel="noopener noreferrer" class="">04-cloudsync-test01-password-hash-sync.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/04-sync-timing.png" target="_blank" rel="noopener noreferrer" class="">04-sync-timing.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/evidence/05-cloudsync-group-membership.png" target="_blank" rel="noopener noreferrer" class="">05-cloudsync-group-membership.png<small>Retained screenshots supporting Microsoft Entra Hybrid Identity &amp; Cloud Sync.</small> <span aria-hidden="true">↗</span></a></div><div class="source-links"><a href="/evidence-browser.html" class="">Browse and filter the complete evidence library</a><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/tree/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/entra-cloud-sync/" target="_blank" rel="noopener noreferrer" class="">GitHub project source <span aria-hidden="true">↗</span></a></div></section><section class="content-block" id="skills"><h2>Skills demonstrated</h2><div class="tags"><span class="tag">Entra ID</span><span class="tag">Cloud Sync</span><span class="tag">Password Hash Sync</span><span class="tag">AD DS</span></div><a href="/skills.html" class="">View the complete capability map →</a></section><section class="content-block" id="limitations"><h2>Limitations & claim boundaries</h2><div class="note">Personal hybrid-identity lab. On-premises AD remains the source of authority for the tested synchronized objects. Scope is intentionally limited to the documented Cloud Sync OU.</div></section><section class="content-block" id="next"><h2>Next milestones</h2><p>Maintenance-only unless Cloud Sync scope, agent placement, or tenant configuration changes.</p></section></article></div><section class="section"><p class="eyebrow">Continue exploring</p><h2>Related projects</h2><div class="grid grid-2"><article class="project-card" data-project data-category="Identity &amp; security" data-search="windows laps &amp; advanced group policy encrypted local administrator passwords, scoped group policy, delegated readers, and positive and negative access tests. windows laps active directory group policy powershell"><div class="card-head"><span class="project-number">PROJECT 01</span><span class="status">COMPLETE</span></div><h3><a href="/windows-laps-gpo.html" class="">Windows LAPS &amp; Advanced Group Policy</a></h3><p>Encrypted local administrator passwords, scoped Group Policy, delegated readers, and positive and negative access tests.</p><div class="tags"><span class="tag">Windows LAPS</span><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">PowerShell</span></div><div class="card-footer"><a href="/windows-laps-gpo.html" class="">Read case study <span class=arrow>↗</span></a><a href="/evidence-browser.html" class="text-link">Evidence</a></div></article></div></section></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

@@ -16,8 +16,9 @@
     "build:m365": "npm run build:normalize-sharepoint && node scripts/build/run-evidence-organizer.js",
     "build:home-lab": "node scripts/build/generate-home-lab-evidence-organization.js",
     "build:skill-map": "node scripts/build/generate-evidence-skill-mapping.js && node scripts/build/normalize-generated-semantics.js",
-    "build:site": "npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && node scripts/build/prepare-public-site.js",
-    "build": "npm run build:evidence && npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && node scripts/build/sync-public-presentation-integrity.js && npm run build:dashboard"
+    "build:site": "npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && npm run build:preview && node scripts/build/prepare-public-site.js",
+    "build": "npm run build:evidence && npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && node scripts/build/sync-public-presentation-integrity.js && npm run build:dashboard && npm run build:preview",
+    "build:preview": "node scripts/build/integrate-portfolio-preview.js"
   },
   "dependencies": {
     "markdown-it": "14.3.0"

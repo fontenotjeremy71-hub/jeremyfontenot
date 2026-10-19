@@ -1,0 +1,139 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Troubleshooting Runbook | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Troubleshooting Runbook"><meta property="og:title" content="Troubleshooting Runbook"><meta property="og:description" content="Retained technical documentation: Troubleshooting Runbook"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-980d98ed3406.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-980d98ed3406.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/980d98ed3406"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Troubleshooting Runbook</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Troubleshooting Runbook</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Troubleshooting Runbook</h2>
+<p>Every troubleshooting scenario below distinguishes between actions that can be performed in Intune now and actions that require Apple Business Manager or an enrolled Mac.</p>
+<h2>Device not appearing in Apple Business Manager</h2>
+<p><strong>Classification:</strong> SIMULATED / DOCUMENTED</p>
+<p>Check:</p>
+<ol>
+<li>Purchase source is an Apple-authorized reseller or Apple direct channel that supports ABM assignment.</li>
+<li>Organization ID and reseller/customer identifiers are correct.</li>
+<li>Device serial is eligible for automated assignment.</li>
+<li>Reseller has assigned the device to the correct ABM organization.</li>
+<li>ABM sync/import has completed.</li>
+</ol>
+<p>Do not troubleshoot Intune until the device exists in ABM.</p>
+<h2>Device not synchronizing from ABM to Intune</h2>
+<p><strong>Classification:</strong> SIMULATED / DOCUMENTED</p>
+<p>Check:</p>
+<ol>
+<li>Enrollment Program Token has not expired.</li>
+<li>Token was created for the correct ABM MDM server.</li>
+<li>Device is assigned to that MDM server in ABM.</li>
+<li>Intune token sync completes without error.</li>
+<li>Device serial appears under the correct token.</li>
+</ol>
+<p>If the token has expired, renew the existing relationship rather than creating an unrelated replacement unless the relationship is intentionally being rebuilt.</p>
+<h2>ADE profile not assigned</h2>
+<p>Check:</p>
+<ul>
+<li>device exists under the Enrollment Program Token;</li>
+<li>device was synchronized after assignment;</li>
+<li>profile assignment scope includes the device;</li>
+<li>no competing assignment exists;</li>
+<li>profile is active.</li>
+</ul>
+<h2>Setup Assistant does not show expected panes</h2>
+<p>Check:</p>
+<ul>
+<li>device is actually using ADE;</li>
+<li>device has been erased/reset after the ADE assignment;</li>
+<li>latest ADE profile has synchronized;</li>
+<li>skipped Setup Assistant panes match the assigned profile;</li>
+<li>network access to Apple activation services is available.</li>
+</ul>
+<h2>APNs communication problems</h2>
+<p><strong>REAL operational dependency</strong></p>
+<p>Check:</p>
+<ul>
+<li>Intune Apple MDM Push Certificate status;</li>
+<li>certificate expiration date;</li>
+<li>same Apple account ownership used for renewal;</li>
+<li>certificate was renewed rather than replaced;</li>
+<li>device can reach Apple Push Notification service.</li>
+</ul>
+<p>Replacing instead of renewing the APNs certificate can sever management continuity and should be treated as a high-risk administrative change.</p>
+<h2>Company Portal / Entra authentication failure</h2>
+<p>Check:</p>
+<ul>
+<li>user can authenticate to Microsoft Entra;</li>
+<li>user is licensed for required Intune services;</li>
+<li>device time is correct;</li>
+<li>Conditional Access does not unintentionally block enrollment;</li>
+<li>Company Portal is supported on the installed macOS version;</li>
+<li>browser/web authentication completes successfully.</li>
+</ul>
+<h2>Platform SSO registration failure</h2>
+<p><strong>Classification:</strong> SIMULATED / DOCUMENTED endpoint procedure</p>
+<p>Check:</p>
+<ul>
+<li>supported macOS version;</li>
+<li>Company Portal / Enterprise SSO plug-in prerequisites;</li>
+<li>Platform SSO profile is assigned;</li>
+<li>extension identifier and team identifier are correct;</li>
+<li>user completed required registration;</li>
+<li>Entra sign-in logs for authentication failures;</li>
+<li>profile conflicts or duplicate SSO payloads.</li>
+</ul>
+<h2>FileVault not enabling</h2>
+<p>Check:</p>
+<ul>
+<li>FileVault policy assignment;</li>
+<li>device is supervised/managed as required by the chosen workflow;</li>
+<li>user has secure token capability where required;</li>
+<li>no conflicting FileVault payload exists;</li>
+<li>device has checked in after policy assignment;</li>
+<li>Intune per-setting status for policy errors.</li>
+</ul>
+<h2>FileVault recovery key not escrowed</h2>
+<p>Check:</p>
+<ul>
+<li>FileVault is actually enabled;</li>
+<li>recovery-key escrow policy is assigned;</li>
+<li>device has checked in after FileVault activation;</li>
+<li>personal recovery key exists;</li>
+<li>recovery key is visible in the authorized Intune recovery workflow;</li>
+<li>no policy conflict is present.</li>
+</ul>
+<p>Never collect or publish the actual recovery key in portfolio evidence.</p>
+<h2>Compliance failure</h2>
+<p>Check each configured requirement individually:</p>
+<ul>
+<li>System Integrity Protection;</li>
+<li>password requirement;</li>
+<li>storage encryption;</li>
+<li>firewall;</li>
+<li>Stealth Mode;</li>
+<li>Gatekeeper state.</li>
+</ul>
+<p>Use per-setting compliance status rather than guessing from the overall state.</p>
+<h2>Enterprise Wi-Fi failure</h2>
+<p>Check:</p>
+<ul>
+<li>SSID spelling;</li>
+<li>security type;</li>
+<li>EAP type;</li>
+<li>trusted root certificate;</li>
+<li>client certificate availability;</li>
+<li>certificate subject/SAN requirements;</li>
+<li>certificate EKU;</li>
+<li>RADIUS trust chain;</li>
+<li>device time;</li>
+<li>wireless controller/NPS/RADIUS logs.</li>
+</ul>
+<p>For EAP-TLS, troubleshoot certificate trust and identity before user credentials because the design is certificate-based.</p>
+<h2>Application deployment failure</h2>
+<p>Check:</p>
+<ul>
+<li>app type matches packaging format;</li>
+<li>package is signed and compatible with the target macOS version;</li>
+<li>assignment is correct;</li>
+<li>detection logic/version metadata is valid;</li>
+<li>required privacy/system extension settings are deployed;</li>
+<li>device has checked in;</li>
+<li>Intune app install status and local logs.</li>
+</ul>
+<h2>Expired Enrollment Program Token</h2>
+<p>Renew through the existing Apple Business Manager server relationship and upload the renewed token to Intune. Confirm the device count and sync after renewal.</p>
+<h2>Device retirement</h2>
+<p>For user offboarding or BYOD-style management removal, prefer the least destructive action that satisfies the requirement. Preserve corporate data handling policy and confirm whether retire removes managed configuration without factory reset.</p>
+<h2>Lost or stolen device</h2>
+<p>Escalate according to organization policy. Evaluate wipe, lock-related capabilities, identity-session revocation, certificate revocation, and asset reporting. Do not execute destructive actions without identity and ownership verification.</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

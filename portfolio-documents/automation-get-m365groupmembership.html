@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Get-M365GroupMembership.ps1 | Jeremy Fontenot</title><meta name="description" content="Report groups and direct group membership."><meta property="og:title" content="Get-M365GroupMembership.ps1"><meta property="og:description" content="Report groups and direct group membership."><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/automation-get-m365groupmembership.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/automation-get-m365groupmembership.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="automation/get-m365groupmembership"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Get-M365GroupMembership.ps1</span></div><div class="page-heading"><p class="eyebrow">PowerShell source / read-only remote queries</p><h1>Get-M365GroupMembership.ps1</h1><p class="lead">Report groups and direct group membership.</p></div><div class="script-info"><article class="panel"><h4>Requirements</h4><p>Microsoft.Graph.Authentication; delegated sign-in with required consent; appropriate tenant service availability.</p><h4>Permissions</h4><p>Group.Read.All, User.Read.All, Directory.Read.All</p></article><article class="panel"><h4>Expected output</h4><p>Local CSV reports and console inventory. Tenant reads are read-only; creating report directories and files writes to the local filesystem.</p><h4>Safety</h4><p>Review against your environment before execution. Reports may contain personal or tenant identifiers. Do not publish live exports. This page does not run commands.</p></article></div><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/m365-graph-administration-lab/scripts/Get-M365GroupMembership.ps1" target="_blank" rel="noopener noreferrer" class="">GitHub source <span aria-hidden="true">↗</span></a><a href="/m365-graph-administration-lab.html" class="">Related project</a></div><details><summary>Inspect complete script</summary><div class="document"><pre><code>&lt;#
+.SYNOPSIS
+    Collects Microsoft 365 and Entra group membership information.
+#&gt;
+
+$ErrorActionPreference = &quot;Stop&quot;
+$ProjectRoot = Split-Path $PSScriptRoot -Parent
+$ReportsPath = Join-Path $ProjectRoot &quot;reports&quot;
+if (-not (Test-Path $ReportsPath)) { New-Item -ItemType Directory -Path $ReportsPath -Force | Out-Null }
+
+Import-Module Microsoft.Graph.Authentication -ErrorAction Stop
+
+$RequiredScopes = @(&quot;Group.Read.All&quot;,&quot;User.Read.All&quot;,&quot;Directory.Read.All&quot;)
+$Context = Get-MgContext
+if (-not $Context) {
+    Connect-MgGraph -Scopes $RequiredScopes -UseDeviceCode -NoWelcome
+    $Context = Get-MgContext
+}
+if (-not $Context) { throw &quot;Microsoft Graph authentication could not be established.&quot; }
+
+function Get-GraphCollection {
+    param([Parameter(Mandatory=$true)][string]$Uri)
+    $Results = @(); $NextUri = $Uri
+    while ($NextUri) {
+        $Response = Invoke-MgGraphRequest -Method GET -Uri $NextUri
+        if ($Response[&quot;value&quot;]) { $Results += @($Response[&quot;value&quot;]) }
+        $NextUri = $Response[&quot;@odata.nextLink&quot;]
+    }
+    return $Results
+}
+
+$Groups = @(Get-GraphCollection -Uri &quot;https://graph.microsoft.com/v1.0/groups?`$select=id,displayName,mail,mailEnabled,securityEnabled,groupTypes&amp;`$top=999&quot;)
+$MembershipReport = @()
+
+foreach ($Group in $Groups) {
+    $GroupId = $Group[&quot;id&quot;]
+    $Members = @(Get-GraphCollection -Uri &quot;https://graph.microsoft.com/v1.0/groups/$GroupId/members?`$select=id,displayName,userPrincipalName,mail&amp;`$top=999&quot;)
+
+    if ($Members.Count -eq 0) {
+        $MembershipReport += [PSCustomObject]@{
+            GroupDisplayName=$Group[&quot;displayName&quot;]; GroupId=$GroupId; GroupMail=$Group[&quot;mail&quot;]
+            MailEnabled=$Group[&quot;mailEnabled&quot;]; SecurityEnabled=$Group[&quot;securityEnabled&quot;]
+            GroupTypes=(@($Group[&quot;groupTypes&quot;]) -join &quot;; &quot;); MemberDisplayName=&quot;&quot;; MemberUPN=&quot;&quot;
+            MemberMail=&quot;&quot;; MemberId=&quot;&quot;; MemberType=&quot;&quot;
+        }
+        continue
+    }
+
+    foreach ($Member in $Members) {
+        $MembershipReport += [PSCustomObject]@{
+            GroupDisplayName=$Group[&quot;displayName&quot;]; GroupId=$GroupId; GroupMail=$Group[&quot;mail&quot;]
+            MailEnabled=$Group[&quot;mailEnabled&quot;]; SecurityEnabled=$Group[&quot;securityEnabled&quot;]
+            GroupTypes=(@($Group[&quot;groupTypes&quot;]) -join &quot;; &quot;); MemberDisplayName=$Member[&quot;displayName&quot;]
+            MemberUPN=$Member[&quot;userPrincipalName&quot;]; MemberMail=$Member[&quot;mail&quot;]; MemberId=$Member[&quot;id&quot;]
+            MemberType=$Member[&quot;@odata.type&quot;]
+        }
+    }
+}
+
+$ReportPath = Join-Path $ReportsPath &quot;M365-Group-Membership.csv&quot;
+$MembershipReport | Sort-Object GroupDisplayName,MemberDisplayName | Export-Csv -Path $ReportPath -NoTypeInformation -Encoding UTF8
+
+Write-Host &quot;Total Groups:           $($Groups.Count)&quot;
+Write-Host &quot;Groups With Members:    $(@($MembershipReport | Where-Object MemberId -ne &#x27;&#x27; | Select-Object -ExpandProperty GroupId -Unique).Count)&quot;
+Write-Host &quot;Groups Without Members: $(@($MembershipReport | Where-Object MemberId -eq &#x27;&#x27; | Select-Object -ExpandProperty GroupId -Unique).Count)&quot;
+Write-Host &quot;Membership Rows:        $(@($MembershipReport | Where-Object MemberId -ne &#x27;&#x27;).Count)&quot;
+Write-Host &quot;Report exported to: $ReportPath&quot; -ForegroundColor Green
+</code></pre></div></details></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

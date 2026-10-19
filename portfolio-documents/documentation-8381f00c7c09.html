@@ -1,0 +1,155 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Implementation | Jeremy Fontenot</title><meta name="description" content="Retained technical documentation: Implementation"><meta property="og:title" content="Implementation"><meta property="og:description" content="Retained technical documentation: Implementation"><meta property="og:type" content="website"><meta property="og:url" content="https://jeremyfontenot.online/portfolio-documents/documentation-8381f00c7c09.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://jeremyfontenot.online/portfolio-documents/documentation-8381f00c7c09.html"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script></head><body data-current="documentation/8381f00c7c09"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links"><a data-route="home" href="/index.html">Home</a><a data-route="about" href="/about.html">About</a><a data-route="experience" href="/experience.html">Experience</a><a data-route="skills" href="/skills.html">Skills</a><a data-route="certifications" href="/certifications.html">Certifications</a><a data-route="projects" href="/projects.html">Projects</a><a data-route="home-lab" href="/home-lab-overview.html">Home Lab</a><a data-route="evidence" href="/evidence-browser.html">Evidence</a><a data-route="resume" href="/resume.html">Resume</a><a data-route="contact" href="/contact.html">Contact</a></div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content"><div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Implementation</span></div><div class="page-heading"><p class="eyebrow">Technical source document</p><h1>Implementation</h1><p class="lead">Rendered from the retained public repository snapshot. Original wording and result boundaries are preserved.</p><div class="source-links"><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/5c130c816cd22a70f734b2c2ee6d6480732b1dc2/projects/macos-abm-intune-runbook/implementation.md" target="_blank" rel="noopener noreferrer" class="">Original GitHub document <span aria-hidden="true">↗</span></a><a href="/documentation.html" class="">All documentation</a></div></div><article class="document readable"><h2>Implementation</h2>
+<h2>1. Apple MDM Push certificate — REAL CONFIGURATION</h2>
+<p>The Intune Apple enrollment page initially showed the Apple MDM Push Certificate as <strong>Not set up</strong>.</p>
+<p>Implementation sequence:</p>
+<ol>
+<li>Accepted Microsoft's Apple data-sharing permission prompt in Intune.</li>
+<li>Downloaded the Intune certificate signing request (CSR).</li>
+<li>Opened Apple's Push Certificates Portal.</li>
+<li>Accepted Apple's MDM certificate terms.</li>
+<li>Uploaded the Intune-generated CSR.</li>
+<li>Apple issued a new Mobile Device Management push certificate for Microsoft Corporation.</li>
+<li>Downloaded the resulting PEM certificate.</li>
+<li>Returned to Intune.</li>
+<li>Entered the Apple account used to create the certificate.</li>
+<li>Uploaded the PEM certificate.</li>
+<li>Intune reported successful MDM push certificate creation.</li>
+<li>Final Intune state showed the certificate as active.</li>
+</ol>
+<p>Validated expiration: <strong>2027-09-26</strong>.</p>
+<p>No Apple credentials, PEM file, private key material, certificate serial number, or Apple account identifier are published.</p>
+<h2>2. Enrollment Program Token / ADE — SIMULATED / DOCUMENTED</h2>
+<p>The real Intune tenant was used to inspect the Enrollment Program Token workflow.</p>
+<p>Intune exposes the expected sequence:</p>
+<ol>
+<li>Grant Microsoft permission to exchange device/user information with Apple.</li>
+<li>Download the Intune public-key certificate.</li>
+<li>Open Apple Business Manager.</li>
+<li>Create the ABM MDM server relationship.</li>
+<li>Upload the Intune public key in ABM.</li>
+<li>Download the ABM server token.</li>
+<li>Enter the Apple ID used for token ownership.</li>
+<li>Upload the token to Intune.</li>
+<li>Sync assigned devices.</li>
+<li>Create and assign ADE profiles.</li>
+</ol>
+<p>The lab has no Apple Business Manager organization, so no token was created and no device was synchronized.</p>
+<h2>3. macOS compliance baseline — REAL CONFIGURATION</h2>
+<p>Policy:</p>
+<p><code>Project 5 - macOS Enterprise Compliance</code></p>
+<p>Configured settings:</p>
+<ul>
+<li>Require System Integrity Protection.</li>
+<li>Require a password to unlock devices.</li>
+<li>Require encryption of data storage.</li>
+<li>Enable Firewall.</li>
+<li>Enable Stealth Mode.</li>
+<li>Gatekeeper: allow apps from the Mac App Store and identified developers.</li>
+<li>Mark device noncompliant immediately.</li>
+</ul>
+<p>Assignment:</p>
+<ul>
+<li>intentionally unassigned because there is no managed macOS test endpoint.</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>policy object created successfully in the real Intune tenant;</li>
+<li>monitoring showed 0 devices, which matches the known lab inventory.</li>
+</ul>
+<h2>4. FileVault baseline — REAL CONFIGURATION</h2>
+<p>Policy:</p>
+<p><code>Project 5 - macOS FileVault Baseline</code></p>
+<p>Profile type:</p>
+<ul>
+<li>macOS Settings Catalog.</li>
+</ul>
+<p>Configured controls:</p>
+<ul>
+<li><code>FileVault &gt; Enable = On</code></li>
+<li><code>FileVault Options &gt; Prevent FileVault From Being Disabled = True</code></li>
+<li>recovery-key escrow <code>Location</code> guidance configured.</li>
+</ul>
+<p>The profile was intentionally left unassigned because there is no managed macOS endpoint.</p>
+<p>What is proven:</p>
+<ul>
+<li>the policy exists;</li>
+<li>the configured settings are visible in the real Intune tenant.</li>
+</ul>
+<p>What is not proven:</p>
+<ul>
+<li>FileVault was enabled on a Mac;</li>
+<li>a recovery key was successfully escrowed;</li>
+<li>the recovery key was rotated or recovered.</li>
+</ul>
+<h2>5. Platform SSO — REAL CAPABILITY, DOCUMENTED DEPLOYMENT</h2>
+<p>A macOS Settings Catalog review confirmed:</p>
+<p><code>Authentication &gt; Extensible Single Sign On (SSO) &gt; Platform SSO</code></p>
+<p>The review profile was canceled after capability inspection to avoid leaving a nonfunctional placeholder policy.</p>
+<p>A production deployment would also require a managed macOS endpoint, Company Portal / Microsoft Enterprise SSO plug-in prerequisites, supported macOS version, and actual registration validation.</p>
+<h2>6. Enterprise Wi-Fi — REAL CAPABILITY, DOCUMENTED DEPLOYMENT</h2>
+<p>The macOS Wi-Fi template exposes:</p>
+<ul>
+<li>Device Channel deployment;</li>
+<li>Basic and Enterprise profile types;</li>
+<li>WPA-Enterprise;</li>
+<li>WPA2-Enterprise;</li>
+<li>EAP-FAST;</li>
+<li>EAP-SIM;</li>
+<li>EAP-TLS;</li>
+<li>EAP-TTLS;</li>
+<li>LEAP;</li>
+<li>PEAP;</li>
+<li>proxy options;</li>
+<li>MAC address randomization controls.</li>
+</ul>
+<p>The portfolio design uses <strong>WPA2-Enterprise + EAP-TLS</strong> with trusted-root and client-certificate deployment.</p>
+<p>No fake SSID, RADIUS server, or certificate authority was created.</p>
+<h2>7. Certificate deployment — REAL CAPABILITY, DOCUMENTED ISSUANCE</h2>
+<p>The macOS SCEP certificate template exposes:</p>
+<ul>
+<li>deployment channel;</li>
+<li>certificate type;</li>
+<li>subject name format;</li>
+<li>subject alternative names;</li>
+<li>validity period;</li>
+<li>key usage;</li>
+<li>key size;</li>
+<li>trusted root certificate;</li>
+<li>extended key usage.</li>
+</ul>
+<p>No certificate was issued because the lab does not have a configured enterprise SCEP/PKI path for macOS.</p>
+<h2>8. Application deployment — REAL CAPABILITY</h2>
+<p>The real Intune macOS app surface exposes:</p>
+<ul>
+<li>Microsoft Edge for macOS;</li>
+<li>Microsoft 365 Apps for macOS;</li>
+<li>Microsoft Defender for Endpoint (macOS);</li>
+<li>macOS web clip;</li>
+<li>web link;</li>
+<li>line-of-business app;</li>
+<li>macOS app (DMG);</li>
+<li>macOS app (PKG).</li>
+</ul>
+<p>No placeholder application was created because there is no managed Mac on which to validate installation.</p>
+<h2>9. Enrollment restrictions — REAL VALIDATION</h2>
+<p>Default macOS enrollment restrictions were reviewed.</p>
+<p>Observed state:</p>
+<ul>
+<li>macOS enrollment: Allow.</li>
+<li>personally owned macOS devices: Allow.</li>
+<li>minimum OS: not configured.</li>
+<li>maximum OS: not configured.</li>
+</ul>
+<p>The default tenant-wide restriction was not modified merely for portfolio appearance.</p>
+<h2>10. Inventory and lifecycle — REAL CAPABILITY</h2>
+<p>The macOS inventory page showed <strong>0 devices</strong>.</p>
+<p>The bulk action workflow exposed these macOS actions:</p>
+<ul>
+<li>Delete</li>
+<li>Retire</li>
+<li>Wipe</li>
+<li>Restart</li>
+<li>Rename</li>
+<li>Sync</li>
+</ul>
+<p>No destructive action was executed.</p></article></div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages"><a href="/architecture.html">Architecture</a><a href="/automation.html">Automation</a><a href="/troubleshooting.html">Troubleshooting</a><a href="/documentation.html">Documentation</a><a href="/gallery.html">Gallery</a><a href="/additional-labs.html">Additional Labs</a><a href="/site-map.html">Site Map</a><a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>

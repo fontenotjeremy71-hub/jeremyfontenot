@@ -714,6 +714,22 @@
     {
       "path": "systems-skills/evidence-map.html",
       "reason": "Phase 4 generated cross-platform evidence relationship index; every physical artifact remains represented by its source catalog."
+    },
+    {
+      "path": "home-lab-overview.html",
+      "reason": "Generated presentation derivative from the owner-supplied preview. Source evidence stays cataloged at its existing paths; provenance and output hashes are recorded in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/original-active-directory-lab.html",
+      "reason": "Generated presentation derivative from the owner-supplied preview. Source evidence stays cataloged at its existing paths; provenance and output hashes are recorded in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/original-home-lab-evidence-catalog.html",
+      "reason": "Generated presentation derivative from the owner-supplied preview. Source evidence stays cataloged at its existing paths; provenance and output hashes are recorded in content/site/preview/."
+    },
+    {
+      "path": "portfolio-documents/original-network-segmentation.html",
+      "reason": "Generated presentation derivative from the owner-supplied preview. Source evidence stays cataloged at its existing paths; provenance and output hashes are recorded in content/site/preview/."
     }
   ]
 }

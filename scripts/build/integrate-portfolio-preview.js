@@ -1,0 +1,74 @@
+#!/usr/bin/env node
+'use strict';
+// Owner-supplied presentation input; evidence sources remain at their original paths.
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const root = path.resolve(__dirname, '../..');
+const read = p => fs.readFileSync(path.join(root, p), 'utf8');
+const chunks = stem => fs.readdirSync(path.join(root, 'content/site/preview')).filter(f => f.startsWith(stem + '-') && f.endsWith('.json')).sort().map(f => JSON.parse(read('content/site/preview/' + f)));
+const pages = Object.assign({}, ...chunks('pages'));
+const escape = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const routes = {home:'index.html', 'home-lab':'home-lab-overview.html', evidence:'evidence-browser.html', skills:'skills.html', architecture:'architecture.html', automation:'automation.html', troubleshooting:'troubleshooting.html', 'additional-labs':'additional-labs.html', documentation:'documentation.html', gallery:'gallery.html', 'site-map':'site-map.html'};
+for (const key of Object.keys(pages)) {
+  if (routes[key]) continue;
+  if (key.startsWith('projects/')) routes[key] = key.slice(9) + '.html';
+  else if (key.includes('/')) routes[key] = 'portfolio-documents/' + key.replaceAll('/', '-') + '.html';
+  else routes[key] = key + '.html';
+}
+delete routes['review-report']; // Preview QA notes are build inputs, not public portfolio claims.
+const href = key => '/' + routes[key];
+function convert(html) {
+  return html.replace(/<button(?![^>]*\btype=)/g, '<button type="button"').replace(/<a\b[^>]*>/g, tag => {
+    const route = tag.match(/data-route="([^"]+)"/);
+    const anchor = tag.match(/data-anchor="([^"]+)"/);
+    if (route && routes[route[1]]) {
+      tag = tag.replace(/href="[^"]*"/, `href="${href(route[1])}${anchor ? '#' + anchor[1] : ''}"`);
+    } else if (anchor) tag = tag.replace(/href="[^"]*"/, `href="#${anchor[1]}"`);
+    else if (route) return tag.replace(/href="[^"]*"/, 'href="/site-map.html"').replace(/ data-route="[^"]*"/, '');
+    if (/href="(?:https:\/\/jeremyfontenot\.online\/|\/|#)/.test(tag)) tag = tag.replace(/ target="_blank"/, '');
+    return tag.replace(/ data-route="[^"]*"/, '').replace(/ data-anchor="[^"]*"/, '');
+  }).replace(/(?:href|src)="data:application\/pdf;base64,[^"]+"/g, m => m.split('=')[0] + '="/assets/resume/jeremy-fontenot-resume.pdf"')
+    .replace(/href="data:application\/vnd\.openxmlformats-officedocument\.wordprocessingml\.document;base64,[^"]+"/g, 'href="/assets/resume/jeremy-fontenot-resume.docx"');
+}
+const nav = [['home','Home'],['about','About'],['experience','Experience'],['skills','Skills'],['certifications','Certifications'],['projects','Projects'],['home-lab','Home Lab'],['evidence','Evidence'],['resume','Resume'],['contact','Contact']];
+function shell(key, page) {
+  const canonical = 'https://jeremyfontenot.online/' + (key === 'home' ? '' : routes[key]);
+  const active = key.startsWith('projects/') ? 'projects' : key;
+  const navigation = nav.map(([k,label]) => k === active ? `<span class="nav-current" aria-current="page">${label}</span>` : `<a data-route="${k}" href="${href(k)}"${k === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  const crumb = key === 'home' ? '' : `<div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>${escape(page.title)}</span></div>`;
+  let body = key === 'site-map' ? `<section class="page-heading"><h1>Site Map</h1><p class="lead">Explore the portfolio and its retained technical documentation.</p></section><div class="doc-grid">${Object.keys(routes).filter(k => k !== 'site-map').map(k => `<a href="${href(k)}">${escape(pages[k].title)}</a>`).join('')}</div>` : convert(page.body);
+  if (key === 'projects/on-prem-home-lab') {
+    for (const name of ['restore','restore-validation','artifacts','limits']) body = body.replace(new RegExp('id="(source-[^" ]+-' + name + ')"'), `id="${name}"`);
+  }
+  if (key === 'projects') {
+    const ids = {'scvmm-2022':'scvmm','azure-arc-hybrid-management':'azure-arc','servicenow-request-fulfillment':'servicenow','m365-messaging-security':'m365-messaging-security','windows-autopilot-intune':'autopilot-intune','macos-abm-intune-runbook':'macos-abm-intune','m365-graph-administration-lab':'m365-graph-admin'};
+    body = body.replace(/<article\b[^>]*>[\s\S]*?<\/article>/g, article => {
+      for (const [slug,id] of Object.entries(ids)) if (article.includes('href="/' + slug + '.html"')) return article.replace('<article', '<article id="' + id + '"');
+      return article;
+    });
+  }
+  body = body.replace(/<a\b[^>]*>Endpoint and management-plane proof<\/a>/g, '<a href="/projects/windows-autopilot-intune/evidence/">Endpoint and management-plane proof</a>');
+  body = body.replace('<a href="/windows-autopilot-intune.html"', '<a href="/projects/windows-autopilot-intune/evidence/"');
+  body = body.replace(/C:\\Users\\[^\\<\s]+/gi, '%USERPROFILE%');
+  body = body.replaceAll('https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx', '/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx');
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)} | Jeremy Fontenot</title><meta name="description" content="${escape(page.description)}"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:type" content="website"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary"><link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script>${key === 'evidence' ? '<script defer src="/assets/js/portfolio-evidence-data.js"></script>' : ''}</head><body data-current="${escape(key)}"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links">${navigation}</div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content">${crumb}${body}</div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages">${[['architecture','Architecture'],['automation','Automation'],['troubleshooting','Troubleshooting'],['documentation','Documentation'],['gallery','Gallery'],['additional-labs','Additional Labs'],['site-map','Site Map']].map(([k,label]) => `<a href="${href(k)}">${label}</a>`).join('')}<a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>\n`;
+}
+const outputs = {};
+for (const [key, relative] of Object.entries(routes)) outputs[relative] = shell(key, pages[key]);
+outputs['assets/js/portfolio-evidence-data.js'] = 'window.EVIDENCE=' + JSON.stringify(chunks('evidence').flat()) + ';\n';
+// Defer scripts execute in document order: load data before initialization.
+outputs[routes.evidence] = outputs[routes.evidence].replace('<script defer src="/assets/js/portfolio-preview.js"></script><script defer src="/assets/js/portfolio-evidence-data.js"></script>', '<script defer src="/assets/js/portfolio-evidence-data.js"></script><script defer src="/assets/js/portfolio-preview.js"></script>');
+// Extend discovery while keeping every existing canonical route.
+const existing = read('sitemap.xml');
+const urls = new Set([...existing.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]));
+for (const [key, relative] of Object.entries(routes)) urls.add('https://jeremyfontenot.online/' + (key === 'home' ? '' : relative));
+outputs['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + [...urls].sort().map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n';
+const hashes = {};
+for (const [relative, content] of Object.entries(outputs)) {
+  fs.mkdirSync(path.dirname(path.join(root, relative)), {recursive:true});
+  fs.writeFileSync(path.join(root, relative), content);
+  hashes[relative] = crypto.createHash('sha256').update(content).digest('hex');
+}
+fs.writeFileSync(path.join(root, 'content/site/preview/generated-hashes.json'), JSON.stringify({routes, files:hashes}, null, 2) + '\n');
+console.log(`Integrated ${Object.keys(routes).length} static preview pages with existing magenta branding; original evidence paths preserved.`);
