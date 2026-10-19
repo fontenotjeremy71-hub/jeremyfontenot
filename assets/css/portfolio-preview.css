@@ -11,3 +11,10 @@ body{overflow-wrap:anywhere}.panel,.script-info,.script-info>div{min-width:0}@me
 
 /* Reserved magenta signature: subtle branded accents, not the entire UI palette. */
 .brand small{color:var(--magenta)}.brand-logo{filter:drop-shadow(0 0 5px rgba(217,70,239,.2))}.footer-bottom a:hover{color:var(--magenta)}
+
+/* Owner-provided professional headshot, balanced against the infrastructure layout. */
+.portfolio-portrait{float:right;width:clamp(116px,15vw,174px);margin:0 0 16px 22px;border:2px solid #38516d;border-radius:12px;overflow:hidden;background:#252d3b;box-shadow:0 12px 28px #0005}
+.portfolio-portrait img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover}
+.page-heading:has(>.portfolio-portrait){min-height:260px}
+.page-heading>.portfolio-portrait{width:170px;float:right;margin:0 0 16px 28px}
+@media(max-width:700px){.portfolio-portrait,.page-heading>.portfolio-portrait{width:116px;margin:0 0 12px 16px;border-radius:8px}.page-heading:has(>.portfolio-portrait){min-height:0}}
