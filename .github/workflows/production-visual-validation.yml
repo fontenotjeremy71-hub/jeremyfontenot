@@ -1,0 +1,43 @@
+name: Production Visual Validation
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 12 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: production-visual-validation
+  cancel-in-progress: true
+jobs:
+  inspect-production:
+    name: Inspect live site on four viewport sizes
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Prepare screenshot output
+        run: mkdir -p artifacts/production-screenshots
+      - name: Allow Pages/CDN deployment to settle
+        if: github.event_name == 'push'
+        run: sleep 75
+      - name: Check published site, capture screenshots, and fail on regressions
+        run: npx playwright test --config=playwright.production.config.js
+      - name: Keep visual evidence even when checks fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-visual-evidence-${{ github.run_id }}
+          path: |
+            artifacts/production-screenshots/
+            artifacts/production-validation/
+            test-results/
+          if-no-files-found: warn
+          retention-days: 30
