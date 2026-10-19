@@ -15,6 +15,19 @@ function addPortfolioPortrait(){
   const host=page==='home'?document.querySelector('.hero-grid > div:nth-child(2)'):page==='about'?document.querySelector('.page-heading'):null;
   if(!host||host.querySelector('.portfolio-portrait'))return;
   host.classList.add('with-portrait');
+  if(page==='home'){
+    const diagram=host.querySelector('.blueprint');
+    const caption=host.querySelector('.hero-caption');
+    const hero=host.closest('.hero');
+    if(diagram&&hero&&!document.querySelector('.portfolio-lab-overview')){
+      const overview=document.createElement('section');
+      overview.className='portfolio-lab-overview';
+      overview.setAttribute('aria-label','Documented home lab architecture');
+      overview.append(diagram);
+      if(caption)overview.append(caption);
+      hero.insertAdjacentElement('afterend',overview);
+    }
+  }
   const figure=document.createElement('figure');
   figure.className='portfolio-portrait';
   const photo=document.createElement('img');
