@@ -181,7 +181,7 @@
     "attestedSourceArtifacts": 301,
     "sourceAttestations": 22,
     "sourceDuplicateGroups": 18,
-    "publicDuplicateGroups": 1,
+    "publicDuplicateGroups": 0,
     "sensitiveDataReview": {
       "artifactsReviewed": 477,
       "textArtifactsInspected": 315,
@@ -7991,7 +7991,7 @@
       "attestationHash": "be74d3e72e1d23553a9e6c452c1d9aab88dc8cd7b4e26140085876a88a1ef051",
       "collectionContext": "Original source integrity is attested by the reviewed source manifest. The linked public page is a presentation derivative retained for route compatibility and is not described as byte-preserved.",
       "hashAlgorithm": "sha256",
-      "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
+      "hash": "806151efe94df1df72a8c77f226a6dc4d09e3979a1ace2dc5fb89458aa89ce38",
       "supportedClaims": [
         "home-lab-networking-validation"
       ],
@@ -8005,7 +8005,7 @@
       "publicRoute": "/network-segmentation.html",
       "collection": "original-portfolio-source-only",
       "publicPath": "network-segmentation.html",
-      "size": 1399,
+      "size": 1703,
       "technologyRelationships": [
         "networking"
       ],
@@ -8018,8 +8018,8 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
-        "size": 1399,
+        "hash": "806151efe94df1df72a8c77f226a6dc4d09e3979a1ace2dc5fb89458aa89ce38",
+        "size": 1703,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {
@@ -10885,7 +10885,7 @@
       "attestationHash": "be74d3e72e1d23553a9e6c452c1d9aab88dc8cd7b4e26140085876a88a1ef051",
       "collectionContext": "Original source integrity is attested by the reviewed source manifest. The linked public page is a presentation derivative retained for route compatibility and is not described as byte-preserved.",
       "hashAlgorithm": "sha256",
-      "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
+      "hash": "2d7036d145302b6db28eced374edaa1d829e7dcc2b1cb37ad5c96efbe8cfd49e",
       "supportedClaims": [
         "home-lab-evidence-automation"
       ],
@@ -10899,7 +10899,7 @@
       "publicRoute": "/powershell-automation.html",
       "collection": "original-portfolio-source-only",
       "publicPath": "powershell-automation.html",
-      "size": 1399,
+      "size": 1704,
       "technologyRelationships": [
         "automation"
       ],
@@ -10912,8 +10912,8 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
-        "size": 1399,
+        "hash": "2d7036d145302b6db28eced374edaa1d829e7dcc2b1cb37ad5c96efbe8cfd49e",
+        "size": 1704,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {
@@ -11277,7 +11277,7 @@
       "attestationHash": "be74d3e72e1d23553a9e6c452c1d9aab88dc8cd7b4e26140085876a88a1ef051",
       "collectionContext": "Original source integrity is attested by the reviewed source manifest. The linked public page is a presentation derivative retained for route compatibility and is not described as byte-preserved.",
       "hashAlgorithm": "sha256",
-      "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
+      "hash": "ce74531ec12ca5241d1ce651685d32e4e3b31e03d81b319db3403cf41d12a9f7",
       "supportedClaims": [
         "home-lab-active-directory-administration"
       ],
@@ -11291,7 +11291,7 @@
       "publicRoute": "/active-directory-lab.html",
       "collection": "original-portfolio-source-only",
       "publicPath": "active-directory-lab.html",
-      "size": 1399,
+      "size": 1703,
       "technologyRelationships": [
         "active-directory"
       ],
@@ -11304,8 +11304,8 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
-        "size": 1399,
+        "hash": "ce74531ec12ca5241d1ce651685d32e4e3b31e03d81b319db3403cf41d12a9f7",
+        "size": 1703,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {
@@ -14609,7 +14609,7 @@
       "attestationHash": "be74d3e72e1d23553a9e6c452c1d9aab88dc8cd7b4e26140085876a88a1ef051",
       "collectionContext": "Original source integrity is attested by the reviewed source manifest. The linked public page is a presentation derivative retained for route compatibility and is not described as byte-preserved.",
       "hashAlgorithm": "sha256",
-      "hash": "bba5678edddb7240c92bfb6c16adfef62e767c0786e6353f18d795ab5921b44b",
+      "hash": "cdc54198f8993271ecf99612d3d3b28a58c6f9d900c5917d13455c73761e3d25",
       "supportedClaims": [
         "home-lab-environment-inventory"
       ],
@@ -14623,7 +14623,7 @@
       "publicRoute": "/infrastructure.html",
       "collection": "original-portfolio-source-only",
       "publicPath": "infrastructure.html",
-      "size": 1524,
+      "size": 1710,
       "technologyRelationships": [
         "environment"
       ],
@@ -14636,8 +14636,8 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "bba5678edddb7240c92bfb6c16adfef62e767c0786e6353f18d795ab5921b44b",
-        "size": 1524,
+        "hash": "cdc54198f8993271ecf99612d3d3b28a58c6f9d900c5917d13455c73761e3d25",
+        "size": 1710,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {
@@ -19320,7 +19320,7 @@
       "sourceVerificationMethod": "direct-git-object",
       "collectionContext": "Established public Home Lab case-study route. Original source integrity remains pinned to the recorded commit; the linked page is a recruiter-facing presentation derivative with independent public integrity.",
       "hashAlgorithm": "sha256",
-      "hash": "69f3b2d8620571da56de67835180abbdff4abb1f4eebc099e597d7c6703b3321",
+      "hash": "4a939685e7e8fac33454b71f5e555042092f42760a31a4f9ac70518631ca639a",
       "supportedClaims": [
         "home-lab-environment-inventory"
       ],
@@ -19334,7 +19334,7 @@
       "publicRoute": "/on-prem-home-lab.html",
       "collection": "home-lab-public-pages",
       "publicPath": "on-prem-home-lab.html",
-      "size": 87815,
+      "size": 87884,
       "technologyRelationships": [
         "environment"
       ],
@@ -19347,8 +19347,8 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "69f3b2d8620571da56de67835180abbdff4abb1f4eebc099e597d7c6703b3321",
-        "size": 87815,
+        "hash": "4a939685e7e8fac33454b71f5e555042092f42760a31a4f9ac70518631ca639a",
+        "size": 87884,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {

@@ -18,9 +18,15 @@
     "build:skill-map": "node scripts/build/generate-evidence-skill-mapping.js && node scripts/build/normalize-generated-semantics.js",
     "build:site": "npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && npm run build:preview && node scripts/build/prepare-public-site.js",
     "build": "npm run build:evidence && npm run build:m365 && npm run build:home-lab && npm run build:skill-map && npm run build:foundation && node scripts/build/sync-public-presentation-integrity.js && npm run build:dashboard && npm run build:preview",
-    "build:preview": "node scripts/build/integrate-portfolio-preview.js"
+    "build:preview": "node scripts/build/integrate-portfolio-preview.js",
+    "check:powershell": "pwsh -NoLogo -NoProfile -File scripts/validation/Invoke-PortfolioValidation.ps1",
+    "test:browser": "playwright test"
   },
   "dependencies": {
     "markdown-it": "14.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "parse5": "8.0.0"
   }
 }

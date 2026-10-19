@@ -1,0 +1,100 @@
+{
+  "phase": "Validation recovery",
+  "powerShellVersion": "7.6.7",
+  "powerShellChecks": {
+    "passed": 13,
+    "failed": 0
+  },
+  "browserTests": {
+    "passed": 140,
+    "failed": 0,
+    "widths": [
+      360,
+      768,
+      1024,
+      1440
+    ]
+  },
+  "standardCheck": "passed",
+  "recoveredScripts": [
+    {
+      "path": "scripts/validation/validate-no-date-proof.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "7959fc18b1c7a16b2bec895e7e2e41bf0f8d4425",
+      "currentSha256": "73d8e13593f6ababb897171cef84f0fd4682b5123fce10ba8077e1ea03891608"
+    },
+    {
+      "path": "scripts/validation/validate-powershell.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "683480351229bd5fdba1fd56c97cdd1b8994c848",
+      "currentSha256": "3f806bf5ff723f0e6fe3f19e1d920cae97c60d6941ba176c76bb83f69ab441ec"
+    },
+    {
+      "path": "scripts/validation/validate-repo-structure.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "7429f90c2bc36778750abcfde0eae207b36e259f",
+      "currentSha256": "070ab5dc3efd09a4d931f040168d415e826c8980a66c240a1c7b6fe731a67172"
+    },
+    {
+      "path": "scripts/validation/validate-json.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "cbbbd8fc94cf79a09fcdf062c0c982dcf23f3f3b",
+      "currentSha256": "833eb948e66f7081bf8d9c6b55a0f2e4a4687b4196ca2c03eb11457f3bd24722"
+    },
+    {
+      "path": "scripts/validation/validate-evidence-hashes.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "d54281ca820584adbb39cae9977621ceaa47f0c1",
+      "currentSha256": "fbbbe1eec4e03a5281c2659af3e74561f13e5d7e19fd3af0ee93a850ed9bc657"
+    },
+    {
+      "path": "scripts/validation/validate-evidence-claims.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "5c3a5c9cd03adb466ee100f08671ac21f5fd3efb",
+      "currentSha256": "b77173d73c307d3559263a6c68d0ab176eca376ab2eb29b6e1ee0ab1faeea6d3"
+    },
+    {
+      "path": "scripts/validation/validate-evidence-metadata.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "c5f5d7dba815ac2882364f5bc325d15705a9f7e9",
+      "currentSha256": "079796b0fee3107787877a641a691440e9d6435eccb6ba44355aa9f91a925ea2"
+    },
+    {
+      "path": "scripts/validation/validate-accessibility.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "a9ff78f9bbf24899bbe6b0773cceb85b76616ea6",
+      "currentSha256": "52337b2cfbcd0d7e513c84e06f4ab726b1fd67de6bfa500e16678bbe06c997fe"
+    },
+    {
+      "path": "scripts/validation/validate-content.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "132a4d4acf855231e001a26bcbd7a2e27d107440",
+      "currentSha256": "7a34bd6d0916a3babc6e08b903412f22d56bdfeb303161113fca1d5924c4e578"
+    },
+    {
+      "path": "scripts/validation/validate-html.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "7daa37919e862e8a5ef333671d5bb8620e3d7c1d",
+      "currentSha256": "6b5c59653ca718e37f2399e156fbde6df0dae50cd32441dd89167900629f5cc8"
+    },
+    {
+      "path": "scripts/validation/validate-seo.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "055b3affc4dde9590eb81f071c53a8b99a9db6c6",
+      "currentSha256": "8b558a6723a465c63d98e07859e0a08b9d0baf96fb713bfa243ae4b80a058fdf"
+    },
+    {
+      "path": "scripts/validation/validate-sitemap.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "50738e8f19d33de5492d7282cac7c2da81649e7a",
+      "currentSha256": "4c70f780aaff10f3d7b0bcb24db92fe2499af92c7e45ef414bd50872ab0545cd"
+    },
+    {
+      "path": "scripts/validation/validate-links.ps1",
+      "recoveredFromCommit": "c4afad9a6a97a1165a724412433188aed5dfb5b9",
+      "recoveredBlob": "25cde6a614a9c676dee757858fb03c245eb49647",
+      "currentSha256": "8e3b1a2c488a83850c04cc12eb5eb2d5c584ef0bfd87216dafdf4789c2825b35"
+    }
+  ],
+  "scope": "Syntax, metadata, integrity, presentation, link, responsive, and review-path checks; no new lab technical-work claims."
+}

@@ -1,9 +1,18 @@
 {
   "schemaVersion": 1,
   "files": {
-    "evidence/index.html": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
-    "home-lab/index.html": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
-    "microsoft-365/index.html": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef",
-    "systems-skills/index.html": "70a4cb7677874ac93ecbf1f56b289dff52523ed4fd8771457ef49b2f8add1aef"
+    "active-directory-lab.html": "ce74531ec12ca5241d1ce651685d32e4e3b31e03d81b319db3403cf41d12a9f7",
+    "dashboard.html": "500f966ee81ace22ef1514878b227c322203f1cc649f23613f893a29597988cb",
+    "evidence-library/index.html": "6f66f9355b0002cae841f88ce2eb49d1817a46e3d5e72b5c2a0244064fd3c57a",
+    "evidence/index.html": "260c0d083342707963613345932fb7f159666b858a255b2ca2acf53d549308df",
+    "home-lab/index.html": "190bd7f05fc5255b1e7a814baa3092c5f001f3cecbb275f723424b3c4ccc628d",
+    "infrastructure.html": "cdc54198f8993271ecf99612d3d3b28a58c6f9d900c5917d13455c73761e3d25",
+    "macvm01.html": "db80cdb92115e4ee970879c9488e460fb4df20c1536af5cd6acf9834283dc0ad",
+    "microsoft-365/index.html": "a1f2f2314547e4f8c9ecd7ef4d4eda9ffa3ad2952b5e5995fb2078ae0bdc8d10",
+    "network-segmentation.html": "806151efe94df1df72a8c77f226a6dc4d09e3979a1ace2dc5fb89458aa89ce38",
+    "powershell-automation.html": "2d7036d145302b6db28eced374edaa1d829e7dcc2b1cb37ad5c96efbe8cfd49e",
+    "proof.html": "bd00f8cb1776fbc3bc391d63022ab12195d3a218cb3491cb2796b4fc57f71fb5",
+    "systems-administration.html": "18b5dce87a17e346d045534a0dae05a4f1695e32d17c3cb6a67da16405dd844f",
+    "systems-skills/index.html": "91c81b01cda8b7aba4f071927fdab4f86286e5529870bc18981c895c249d350b"
   }
 }
