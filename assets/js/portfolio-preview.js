@@ -9,6 +9,24 @@ if(typeof module!=='undefined')module.exports={filterProjects,filterEvidence,pag
 if(typeof document==='undefined')return;
 const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
 let evidencePage=0,category='All',lastImageTrigger=null;
+// Owner-provided portrait: added to the home and about pages without altering evidence or lab claims.
+function addPortfolioPortrait(){
+  const page=document.body.dataset.current;
+  const host=page==='home'?document.querySelector('.hero-grid > div:first-child'):page==='about'?document.querySelector('.page-heading'):null;
+  if(!host||host.querySelector('.portfolio-portrait'))return;
+  const figure=document.createElement('figure');
+  figure.className='portfolio-portrait';
+  const photo=document.createElement('img');
+  photo.src='/assets/images/jeremy-fontenot-professional-portrait.svg';
+  photo.alt='Professional portrait of Jeremy C. Fontenot';
+  photo.width=720;photo.height=960;photo.loading=page==='home'?'eager':'lazy';
+  photo.decoding='async';
+  figure.append(photo);
+  if(page==='home')host.insertBefore(figure,host.firstChild);
+  else host.append(figure);
+}
+addPortfolioPortrait();
+
 function evidenceRender(){if(!$('#evidence-results'))return;const list=filterEvidence(window.EVIDENCE||[],$('#evidence-search').value,$('#evidence-project').value,$('#evidence-type').value,$('#evidence-technology')?.value||'',$('#evidence-skill')?.value||'');const page=pageSlice(list,evidencePage,16);evidencePage=page.page;$('#evidence-count').textContent=list.length.toLocaleString()+' source references';$('#evidence-page').textContent='Page '+(page.page+1)+' of '+page.total;$('#evidence-prev').disabled=page.page===0;$('#evidence-next').disabled=page.page===page.total-1;$('#evidence-results').innerHTML=page.items.length?page.items.map(e=>`<article class="evidence-row"><div><div class="tags"><span class="tag">${escapeHTML(e.type)}</span><span class="tag">${escapeHTML(e.technology)}</span></div><h3 style="margin-top:12px">${escapeHTML(e.name)}</h3><p>${escapeHTML(e.description)}</p>${e.result?`<p><strong>Recorded result:</strong> ${escapeHTML(e.result)}</p>`:''}<details><summary>Scope & provenance</summary><div class="document"><p><strong>Skill:</strong> ${escapeHTML(e.skill)}</p><p><strong>Project:</strong> ${escapeHTML(e.project)}</p><p>${escapeHTML(e.limitations||'Inspect the original record for its exact scope. A file listing does not establish new technical validation.')}</p><p><code>${escapeHTML(e.path)}</code></p></div></details></div><div class="evidence-actions"><a href="${escapeHTML(e.url)}" target="_blank" rel="noopener noreferrer" class="text-link">Open source ↗</a></div></article>`).join(''):'<p class="empty">No evidence matches these filters. Try a broader search or choose All projects.</p>';}
 function projectRender(){const cards=$$('[data-project]');const filtered=new Set(filterProjects(cards.map((el,i)=>({i,category:el.dataset.category,search:el.dataset.search})),$('#project-search')?.value||'',category).map(x=>x.i));cards.forEach((el,i)=>el.hidden=!filtered.has(i));if($('#project-count'))$('#project-count').textContent=filtered.size+' of '+cards.length+' projects';if($('#project-empty'))$('#project-empty').hidden=filtered.size!==0;}
 function closeMenu(){const menu=$('#primary-nav'),toggle=$('.nav-toggle');if(menu)menu.classList.remove('open');if(toggle)toggle.setAttribute('aria-expanded','false');}
