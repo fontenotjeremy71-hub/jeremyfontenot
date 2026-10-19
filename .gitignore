@@ -69,3 +69,7 @@ artifacts/screenshots/temp/
 
 # Owned static publication output
 /site/
+
+# Reproducible browser validation reports and temporary build bridge
+/artifacts/browser-validation/
+/scripts/build/.generated-organizer.tmp.js

@@ -18,6 +18,29 @@ for (const key of Object.keys(pages)) {
 }
 delete routes['review-report']; // Preview QA notes are build inputs, not public portfolio claims.
 const href = key => '/' + routes[key];
+const projectEvidence = {
+  'windows-laps-gpo':'/projects/windows-laps-gpo/evidence/',
+  'entra-cloud-sync':'/projects/entra-cloud-sync/evidence/',
+  'on-prem-home-lab':'/evidence-library/projects/on-prem-home-lab/current-validated-state/README.html',
+  'windows-admin-center-lab':'/windows-admin-center-lab.html#validation',
+  'scvmm-2022':'/evidence-library/projects/on-prem-home-lab/scvmm-2022/',
+  'azure-arc-hybrid-management':'/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/',
+  'app01-storage-expansion':'/app01-storage-expansion.html#validation',
+  'cross-platform-administration':'/home-lab-operations-proof.html',
+  'servicenow-request-fulfillment':'/proof.html#servicenow-proof',
+  'm365-messaging-security':'/proof.html#m365-messaging-security-proof',
+  'windows-autopilot-intune':'/projects/windows-autopilot-intune/evidence/',
+  'macos-abm-intune-runbook':'/projects/macos-abm-intune-runbook/evidence/',
+  'm365-graph-administration-lab':'/proof.html#m365-graph-admin-proof'
+};
+function connectProjectEvidence(html) {
+  return html.replace(/<article\b(?=[^>]*\bdata-project\b)[^>]*>[\s\S]*?<\/article>/g, card => {
+    for (const [slug,target] of Object.entries(projectEvidence)) {
+      if (card.includes(`href="/${slug}.html"`)) return card.replace('href="/evidence-browser.html"', `href="${target}"`);
+    }
+    return card;
+  });
+}
 function convert(html) {
   return html.replace(/<button(?![^>]*\btype=)/g, '<button type="button"').replace(/<a\b[^>]*>/g, tag => {
     const route = tag.match(/data-route="([^"]+)"/);
@@ -37,7 +60,7 @@ function shell(key, page) {
   const active = key.startsWith('projects/') ? 'projects' : key;
   const navigation = nav.map(([k,label]) => k === active ? `<span class="nav-current" aria-current="page">${label}</span>` : `<a data-route="${k}" href="${href(k)}"${k === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   const crumb = key === 'home' ? '' : `<div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>${escape(page.title)}</span></div>`;
-  let body = key === 'site-map' ? `<section class="page-heading"><h1>Site Map</h1><p class="lead">Explore the portfolio and its retained technical documentation.</p></section><div class="doc-grid">${Object.keys(routes).filter(k => k !== 'site-map').map(k => `<a href="${href(k)}">${escape(pages[k].title)}</a>`).join('')}</div>` : convert(page.body);
+  let body = key === 'site-map' ? `<section class="page-heading"><h1>Site Map</h1><p class="lead">Explore the portfolio and its retained technical documentation.</p></section><div class="doc-grid">${Object.keys(routes).filter(k => k !== 'site-map').map(k => `<a href="${href(k)}">${escape(pages[k].title)}</a>`).join('')}</div>` : connectProjectEvidence(convert(page.body));
   if (key === 'projects/on-prem-home-lab') {
     for (const name of ['restore','restore-validation','artifacts','limits']) body = body.replace(new RegExp('id="(source-[^" ]+-' + name + ')"'), `id="${name}"`);
   }
@@ -49,7 +72,6 @@ function shell(key, page) {
     });
   }
   body = body.replace(/<a\b[^>]*>Endpoint and management-plane proof<\/a>/g, '<a href="/projects/windows-autopilot-intune/evidence/">Endpoint and management-plane proof</a>');
-  body = body.replace('<a href="/windows-autopilot-intune.html"', '<a href="/projects/windows-autopilot-intune/evidence/"');
   body = body.replace(/C:\\Users\\[^\\<\s]+/gi, '%USERPROFILE%');
   body = body.replaceAll('https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx', '/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx');
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)} | Jeremy Fontenot</title><meta name="description" content="${escape(page.description)}"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:type" content="website"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary"><link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/portfolio-preview.css"><script defer src="/assets/js/portfolio-preview.js"></script>${key === 'evidence' ? '<script defer src="/assets/js/portfolio-evidence-data.js"></script>' : ''}</head><body data-current="${escape(key)}"><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="/"><img class="brand-logo" src="/assets/logos/header_logo_88x88.png" alt="" width="44" height="44"><span>Jeremy Fontenot<small>Systems · cloud · infrastructure</small></span></a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button><div id="primary-nav" class="nav-links">${navigation}</div></nav></header><main id="main" tabindex="-1"><div class="wrap" id="page-content">${crumb}${body}</div></main><footer class="site-footer"><div class="wrap"><div class="footer-top"><div><strong>Jeremy C. Fontenot</strong><p>Professional IT support experience. Evidence-backed personal-lab administration.</p></div><nav class="footer-links" aria-label="More portfolio pages">${[['architecture','Architecture'],['automation','Automation'],['troubleshooting','Troubleshooting'],['documentation','Documentation'],['gallery','Gallery'],['additional-labs','Additional Labs'],['site-map','Site Map']].map(([k,label]) => `<a href="${href(k)}">${label}</a>`).join('')}<a href="/systems-administration.html">Readiness</a><a href="/proof.html">Proof index</a><a href="/microsoft-365/">Microsoft 365</a><a href="/home-lab/">Home Lab catalog</a></nav></div><div class="footer-bottom"><span>Jeremy Fontenot · Abbeville, Louisiana</span><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot">Portfolio repository</a></div></div></footer><button type="button" class="back-top" aria-label="Back to top">↑</button><dialog id="image-dialog" aria-labelledby="dialog-caption"><button type="button" id="close-image">Close image</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog></body></html>\n`;
