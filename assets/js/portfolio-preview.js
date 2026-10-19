@@ -12,18 +12,18 @@ let evidencePage=0,category='All',lastImageTrigger=null;
 // Owner-provided portrait: added to the home and about pages without altering evidence or lab claims.
 function addPortfolioPortrait(){
   const page=document.body.dataset.current;
-  const host=page==='home'?document.querySelector('.hero-grid > div:first-child'):page==='about'?document.querySelector('.page-heading'):null;
+  const host=page==='home'?document.querySelector('.hero-grid > div:nth-child(2)'):page==='about'?document.querySelector('.page-heading'):null;
   if(!host||host.querySelector('.portfolio-portrait'))return;
+  host.classList.add('with-portrait');
   const figure=document.createElement('figure');
   figure.className='portfolio-portrait';
   const photo=document.createElement('img');
-  photo.src='/assets/images/jeremy-fontenot-professional-portrait.svg';
-  photo.alt='Professional portrait of Jeremy C. Fontenot';
-  photo.width=720;photo.height=960;photo.loading=page==='home'?'eager':'lazy';
+  photo.src='/assets/images/jeremy-fontenot-cutout.svg';
+  photo.alt='Jeremy C. Fontenot, professional portrait';
+  photo.width=650;photo.height=867;photo.loading=page==='home'?'eager':'lazy';
   photo.decoding='async';
   figure.append(photo);
-  if(page==='home')host.insertBefore(figure,host.firstChild);
-  else host.append(figure);
+  host.append(figure);
 }
 addPortfolioPortrait();
 
