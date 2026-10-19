@@ -31,3 +31,14 @@ body{overflow-wrap:anywhere}.panel,.script-info,.script-info>div{min-width:0}@me
 .page-heading.with-portrait .portfolio-portrait img{display:block;width:100%;height:100%;object-fit:contain;object-position:bottom;aspect-ratio:auto;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 75%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 75%,transparent 100%)}
 @media(max-width:980px){.hero-grid > .with-portrait{min-height:390px}.hero-grid > .with-portrait .portfolio-portrait{bottom:-20px}.page-heading.with-portrait{padding-right:215px}.page-heading.with-portrait .portfolio-portrait{width:185px;height:270px}}
 @media(max-width:700px){.hero-grid > .with-portrait{min-height:315px}.hero-grid > .with-portrait .portfolio-portrait{right:3%;bottom:-20px;width:80%;height:345px}.page-heading.with-portrait{padding-right:0;padding-bottom:245px;min-height:0}.page-heading.with-portrait .portfolio-portrait{width:180px;height:245px;right:calc(50% - 90px);bottom:0}.page-heading.with-portrait::before{right:calc(50% - 140px);top:auto;bottom:0}}
+
+/* Hero correction: the portrait is its own feature, not an overlay on the topology. */
+.hero-grid > .with-portrait{min-height:620px;display:flex;align-items:flex-end;justify-content:center;overflow:visible}
+.hero-grid > .with-portrait .portfolio-portrait{position:relative;right:auto;bottom:auto;width:min(100%,540px);height:610px;max-height:100%;margin:0;display:flex;align-items:flex-end;justify-content:center}
+.hero-grid > .with-portrait .portfolio-portrait img{height:100%;width:100%;object-fit:contain;object-position:bottom center;filter:drop-shadow(0 0 22px rgba(0,184,255,.09));-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 79%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 79%,transparent 100%)}
+.hero-grid > .with-portrait::before{inset:18% -8% 8%;background:radial-gradient(ellipse at 50% 60%,rgba(0,184,255,.10),transparent 63%)}
+.portfolio-lab-overview{max-width:1000px;margin:25px auto 65px;padding:0 28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.5fr);align-items:center;gap:32px}
+.portfolio-lab-overview .blueprint{opacity:1;filter:none;width:100%;max-width:640px}
+.portfolio-lab-overview .hero-caption{max-width:290px;font-size:13px;line-height:1.8}
+@media(max-width:980px){.hero-grid > .with-portrait{min-height:480px}.hero-grid > .with-portrait .portfolio-portrait{height:475px;width:min(100%,420px)}.portfolio-lab-overview{margin-top:15px}}
+@media(max-width:700px){.hero-grid > .with-portrait{min-height:360px}.hero-grid > .with-portrait .portfolio-portrait{height:355px;width:min(100%,370px)}.portfolio-lab-overview{grid-template-columns:1fr;margin:30px auto 50px;gap:14px;padding:0 18px}.portfolio-lab-overview .hero-caption{max-width:none}}
