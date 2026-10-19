@@ -7,7 +7,7 @@
     },
     "microsoft365": {
       "path": "assets/data/m365-evidence-catalog.json",
-      "sha256": "e78c5f77e393e7642506fe0a82035368a8fb252f4a3982a07b0d097490353856"
+      "sha256": "5d75827a506daea084f6f8e6bdd2d0f0a15ca4bd333d68a27fd36584e361de47"
     },
     "homeLab": {
       "path": "assets/data/home-lab-evidence-catalog.json",
@@ -17,7 +17,7 @@
   "outputs": {
     "assets/data/evidence-skill-map.json": {
       "algorithm": "sha256",
-      "hash": "aaafc8da585baf044e802db81c9bd590602275e8527451be2851a8107f1e75af",
+      "hash": "cd9b6b9c67c5c9ca6fc27304c31f7b14489f768d54fdd01c7f7005286b65e861",
       "size": 4252801
     },
     "assets/data/evidence-skill-map-browser.json": {

@@ -3825,7 +3825,7 @@
       "sourceVerificationMethod": "direct-git-object",
       "collectionContext": "Published cross-cutting integrity manifest containing Microsoft 365 artifact hashes. The original source relationship remains pinned to its recorded commit while the generator-managed public bytes are validated independently.",
       "hashAlgorithm": "sha256",
-      "hash": "f32f79634a97b0d732096efe3fc5fc2ab8a35aa4596802ce8f9e38ec0476ecde",
+      "hash": "9f5da5502aa18ff17adb23b96c5bf10a1a2120d61c672a77d2456d98eeb7ad5b",
       "supportedClaims": [
         "m365-evidence-governance"
       ],
@@ -3851,7 +3851,7 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "f32f79634a97b0d732096efe3fc5fc2ab8a35aa4596802ce8f9e38ec0476ecde",
+        "hash": "9f5da5502aa18ff17adb23b96c5bf10a1a2120d61c672a77d2456d98eeb7ad5b",
         "size": 551697,
         "verificationMethod": "current-working-tree"
       },
@@ -3873,7 +3873,7 @@
       "sourceVerificationMethod": "direct-git-object",
       "collectionContext": "Established Microsoft 365 and Entra evidence-library landing route. The original source relationship remains pinned to its recorded commit while the generator-managed public bytes are validated independently.",
       "hashAlgorithm": "sha256",
-      "hash": "4370ca94db0efce4ae02cd25f719dae96890be526f21fd3ca64d1a2ae4786500",
+      "hash": "6f66f9355b0002cae841f88ce2eb49d1817a46e3d5e72b5c2a0244064fd3c57a",
       "supportedClaims": [
         "m365-evidence-governance"
       ],
@@ -3886,7 +3886,7 @@
       "publicRoute": "/evidence-library/index.html",
       "collection": "cross-cutting-evidence-governance",
       "publicPath": "evidence-library/index.html",
-      "size": 1659,
+      "size": 1955,
       "technologyRelationships": [
         "automation",
         "entra-id",
@@ -3901,8 +3901,8 @@
       },
       "publicIntegrity": {
         "algorithm": "sha256",
-        "hash": "4370ca94db0efce4ae02cd25f719dae96890be526f21fd3ca64d1a2ae4786500",
-        "size": 1659,
+        "hash": "6f66f9355b0002cae841f88ce2eb49d1817a46e3d5e72b5c2a0244064fd3c57a",
+        "size": 1955,
         "verificationMethod": "current-working-tree"
       },
       "sensitiveDataReview": {
