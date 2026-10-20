@@ -33,6 +33,26 @@ const projectEvidence = {
   'macos-abm-intune-runbook':'/projects/macos-abm-intune-runbook/evidence/',
   'm365-graph-administration-lab':'/proof.html#m365-graph-admin-proof'
 };
+function createHumanSiteMap(){
+  const navKeys=['home','about','experience','skills','certifications','projects','home-lab','evidence','resume','contact'];
+  const isProject=k=>k.startsWith('projects/')||(routes[k]&&/^(windows-laps-gpo|entra-cloud-sync|on-prem-home-lab|windows-admin-center-lab|scvmm-2022|azure-arc-hybrid-management|app01-storage-expansion|cross-platform-administration|servicenow-request-fulfillment|m365-messaging-security|windows-autopilot-intune|macos-abm-intune-runbook|m365-graph-administration-lab)\\.html$/.test(routes[k]));
+  const groups=[
+    ['Main navigation',navKeys.filter(k=>routes[k])],
+    ['Projects and case studies',Object.keys(routes).filter(k=>!navKeys.includes(k)&&isProject(k))],
+    ['Technical topics and evidence',Object.keys(routes).filter(k=>!navKeys.includes(k)&&!isProject(k)&&!k.includes('/')&&k!=='site-map')],
+    ['Technical source documents',Object.keys(routes).filter(k=>k.includes('/')&&!isProject(k))]
+  ];
+  const present=new Set(Object.values(routes).map(x=>'/'+x));
+  present.add('/');
+  const existing=read('sitemap.xml');
+  const extras=[...new Set([...existing.matchAll(/<loc>https:\/\/jeremyfontenot\\.online(\\/[^<]*)<\/loc>/g)].map(m=>m[1]))]
+    .filter(x=>!present.has(x)&&!present.has(x.replace(/\\/$/,'/index.html'))&&!/\\.(?:xml|json|txt)$/i.test(x));
+  const titleOf=x=>x.replace(/^\\//,'').replace(/\\/index\\.html$/,'/').replace(/\\.html$/,'').replace(/[\\/_-]+/g,' ').replace(/\\b\\w/g,c=>c.toUpperCase())||'Home';
+  const section=(title,links)=>'<section class="site-map-group"><h2>'+escape(title)+'</h2><div class="doc-grid">'+links.join('')+'</div></section>';
+  const blocks=groups.map(([title,keys])=>section(title,keys.map(k=>'<a href="'+href(k)+'">'+escape(pages[k]?.title||k)+'</a>')));
+  if(extras.length)blocks.push(section('Additional published resources',extras.sort().map(u=>'<a href="'+escape(u)+'">'+escape(titleOf(u))+'</a>')));
+  return '<section class="page-heading"><p class="eyebrow">Portfolio navigation</p><h1>Site Map</h1><p class="lead">Browse the main portfolio pages, projects, supporting technical documentation, and additional published resources. This directory is regenerated from the site routes and XML sitemap during each build.</p></section><div class="site-map-directory">'+blocks.join('')+'</div>';
+}
 function connectProjectEvidence(html) {
   return html.replace(/<article\b(?=[^>]*\bdata-project\b)[^>]*>[\s\S]*?<\/article>/g, card => {
     for (const [slug,target] of Object.entries(projectEvidence)) {
@@ -60,7 +80,7 @@ function shell(key, page) {
   const active = key.startsWith('projects/') ? 'projects' : key;
   const navigation = nav.map(([k,label]) => k === active ? `<span class="nav-current" aria-current="page">${label}</span>` : `<a data-route="${k}" href="${href(k)}"${k === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   const crumb = key === 'home' ? '' : `<div class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>${escape(page.title)}</span></div>`;
-  let body = key === 'site-map' ? `<section class="page-heading"><h1>Site Map</h1><p class="lead">Explore the portfolio and its retained technical documentation.</p></section><div class="doc-grid">${Object.keys(routes).filter(k => k !== 'site-map').map(k => `<a href="${href(k)}">${escape(pages[k].title)}</a>`).join('')}</div>` : connectProjectEvidence(convert(page.body));
+  let body = key === 'site-map' ? createHumanSiteMap() : connectProjectEvidence(convert(page.body));
   if (key === 'projects/on-prem-home-lab') {
     for (const name of ['restore','restore-validation','artifacts','limits']) body = body.replace(new RegExp('id="(source-[^" ]+-' + name + ')"'), `id="${name}"`);
   }
