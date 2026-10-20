@@ -76,6 +76,7 @@ function convert(html) {
 }
 const nav = [['home','Home'],['about','About'],['experience','Experience'],['skills','Skills'],['certifications','Certifications'],['projects','Projects'],['home-lab','Home Lab'],['evidence','Evidence'],['resume','Resume'],['contact','Contact']];
 function shell(key, page) {
+  if(key==='site-map')page={...page,description:'Navigation directory of published portfolio pages, project case studies, technical documents, and evidence resources.'};
   const canonical = 'https://jeremyfontenot.online/' + (key === 'home' ? '' : routes[key]);
   const active = key.startsWith('projects/') ? 'projects' : key;
   const navigation = nav.map(([k,label]) => k === active ? `<span class="nav-current" aria-current="page">${label}</span>` : `<a data-route="${k}" href="${href(k)}"${k === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
