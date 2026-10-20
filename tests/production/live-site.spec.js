@@ -39,7 +39,7 @@ test('public navigation destinations respond and essential assets load',async({p
     const r=await request.get(target);
     expect(r.status(),target+' must be reachable').toBe(200);
   }
-  for(const target of ['/assets/js/portfolio-preview.js','/assets/css/portfolio-preview.css','/assets/images/jeremy-fontenot-cutout.svg']){
+  for(const target of ['/assets/js/portfolio-preview.js','/assets/css/portfolio-preview.css','/assets/images/jeremy-fontenot-ear-corrected.svg']){
     const r=await request.get(target);
     expect(r.status(),target+' must load').toBe(200);
   }
