@@ -60,3 +60,47 @@ body{overflow-wrap:anywhere}.panel,.script-info,.script-info>div{min-width:0}@me
 .site-map-group .doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:10px}
 .site-map-group .doc-grid a{display:flex;align-items:center;min-height:48px;padding:12px 15px;border:1px solid #294053;border-radius:8px;background:#0c1726;overflow-wrap:anywhere}
 .site-map-group .doc-grid a:hover,.site-map-group .doc-grid a:focus-visible{border-color:var(--blue);background:#10273a}
+
+
+/* Signature visual system — deep navy / electric blue / sea-glass teal / restrained magenta.
+   An editorial, evidence-first design; no dependencies or background imagery. */
+:root{--magenta:#d946a8;--azure:#00b8ff;--glow:rgba(0,184,255,.16);--glass:rgba(14,25,42,.84);--display:"Segoe UI Variable Display","Aptos Display","Segoe UI",sans-serif}
+body{background:
+ radial-gradient(ellipse 65% 780px at 85% -330px,rgba(0,184,255,.09),transparent 72%),
+ radial-gradient(ellipse 45% 540px at -16% 310px,rgba(217,70,168,.035),transparent 72%),
+ var(--bg);font-feature-settings:"kern" 1}
+::selection{background:rgba(22,214,197,.32);color:#fff}
+h1,h2,h3{font-family:var(--display);text-wrap:balance}
+p{max-width:78ch}
+.site-header{background:rgba(8,13,22,.87);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);box-shadow:0 13px 32px rgba(2,6,17,.15)}
+.site-header:after{content:"";height:1px;display:block;background:linear-gradient(90deg,transparent,rgba(0,184,255,.38) 38%,rgba(22,214,197,.32) 63%,rgba(217,70,168,.24),transparent)}
+.brand-logo{filter:drop-shadow(0 0 11px rgba(0,184,255,.16))}
+.nav-links a,.nav-current{transition:color .2s ease,border-color .2s ease}
+.nav-links a:hover{color:#eefcff}
+.page-heading{position:relative;isolation:isolate}
+.page-heading:after{content:"";position:absolute;z-index:-1;right:0;top:5%;width:min(29vw,285px);aspect-ratio:1;border:1px solid rgba(22,214,197,.08);border-radius:50%;box-shadow:0 0 0 34px rgba(0,184,255,.018),0 0 0 70px rgba(217,70,168,.012);pointer-events:none}
+.page-heading h1,.hero h1{letter-spacing:-.062em}
+.eyebrow{letter-spacing:.19em}
+.eyebrow:before{background:linear-gradient(90deg,var(--teal),var(--magenta));width:25px}
+.accent{background:linear-gradient(105deg,#8ce8ff 5%,#16d6c5 78%,#d946a8 125%);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.section{position:relative}
+.section-head{position:relative}
+.section-head:before{content:"";display:block;width:54px;height:2px;margin-bottom:22px;background:linear-gradient(90deg,var(--blue),var(--teal),var(--magenta))}
+.panel,.project-card,.card,.callout,.credential,.site-map-group .doc-grid a{transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease;background-clip:padding-box}
+.panel:hover,.project-card:hover,.card:hover{border-color:rgba(0,184,255,.29);box-shadow:0 15px 46px rgba(0,0,0,.2),0 0 0 1px rgba(22,214,197,.035) inset}
+a:focus-visible,button:focus-visible{outline-color:var(--teal);outline-offset:4px}
+.button.primary{box-shadow:0 8px 30px rgba(0,184,255,.16)}
+.button.primary:hover{box-shadow:0 12px 38px rgba(0,184,255,.23)}
+.tags .tag,.tag{border-color:rgba(22,214,197,.16)}
+.breadcrumb{font-size:.82rem;letter-spacing:.02em}
+.breadcrumb a{text-decoration:underline;text-decoration-color:rgba(0,184,255,.35);text-underline-offset:3px}
+.footer-top{position:relative}
+.site-footer{position:relative;overflow:hidden}
+.site-footer:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),var(--teal),var(--magenta),transparent)}
+.site-footer:after{content:"JF / SYSTEMS • CLOUD • EVIDENCE";position:absolute;right:4%;bottom:0;font:700 clamp(20px,4vw,68px)/1 var(--display);letter-spacing:-.065em;color:rgba(133,189,215,.035);white-space:nowrap;pointer-events:none}
+.back-top{transition:transform .2s ease,opacity .2s ease}
+.back-top:hover{transform:translateY(-3px)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.project-card:hover,.panel:hover{transform:translateY(-3px)}}
+@media(max-width:700px){.page-heading:after{display:none}.site-header{-webkit-backdrop-filter:none;backdrop-filter:none}.section-head:before{margin-bottom:15px}.site-footer:after{font-size:23px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media print{body{background:#fff!important;color:#111!important}.site-header{position:static;box-shadow:none}.site-header:after,.site-footer:before,.site-footer:after,.page-heading:after{display:none}.panel,.card,.project-card{box-shadow:none!important;break-inside:avoid}}
