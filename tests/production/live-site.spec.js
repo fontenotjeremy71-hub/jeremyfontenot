@@ -64,3 +64,20 @@ test('live education page uses authentic matching certification badge images',as
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
   await page.screenshot({path:path.join('artifacts/production-screenshots',info.project.name+'-certifications.png'),fullPage:true,animations:'disabled'});
 });
+
+
+test('live human site map stays organized and all listed local destinations respond',async({page,request},info)=>{
+  const response=await page.goto('/site-map.html',{waitUntil:'domcontentloaded'});
+  expect(response?.status()).toBe(200);
+  await expect(page.getByRole('heading',{name:'Site Map'})).toBeVisible();
+  const groups=page.locator('.site-map-group');
+  await expect(groups).toHaveCount(5);
+  const links=await page.locator('.site-map-directory a[href]').evaluateAll(nodes=>[...new Set(nodes.map(n=>n.getAttribute('href')))].filter(x=>x?.startsWith('/')));
+  expect(links.length).toBeGreaterThan(170);
+  for(const href of links){
+    const r=await request.get(href,{timeout:30000});
+    expect(r.status(),href+' in human site map').toBe(200);
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+  await page.screenshot({path:path.join('artifacts/production-screenshots',info.project.name+'-site-map.png'),fullPage:true,animations:'disabled'});
+});
