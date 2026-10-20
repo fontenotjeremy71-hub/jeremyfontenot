@@ -129,3 +129,27 @@ body[data-current="home-lab"] .topology,body[data-current="home-lab"] .diagram{b
 #page-content a:not(.button):not(.brand):not(.credential-badge-link):focus-visible{border-radius:2px}
 @media(max-width:700px){body[data-current="home"] .hero h1{font-size:clamp(2.9rem,11vw,4.2rem)}body[data-current="home"] .hero:before{width:100%;height:460px}body[data-current="home"] .portfolio-lab-overview:before{left:18px}}
 @media(forced-colors:active){body[data-current="projects"] [data-project]:before{background:CanvasText}.accent{color:CanvasText!important;-webkit-text-fill-color:CanvasText!important}}
+
+
+/* Page-specific compositions: every primary destination gets a considered visual rhythm. */
+body[data-current="about"] .page-heading{min-height:330px}
+body[data-current="about"] .split{border-top:1px solid rgba(22,214,197,.21);padding-top:clamp(36px,5vw,70px)}
+body[data-current="about"] .split>div:first-child{position:relative}
+body[data-current="about"] .split>div:first-child:before{content:"01 / ORIGIN";display:block;margin-bottom:24px;color:rgba(108,219,251,.56);font:600 11px/1.3 ui-monospace,Consolas,monospace;letter-spacing:.19em}
+body[data-current="about"] .grid.grid-3>.panel{border-top:2px solid rgba(22,214,197,.45)}
+body[data-current="about"] .grid.grid-3>.panel:nth-child(2){border-top-color:rgba(0,184,255,.65)}
+body[data-current="about"] .grid.grid-3>.panel:nth-child(3){border-top-color:rgba(217,70,168,.55)}
+body[data-current="contact"] .grid.grid-2>.panel{position:relative;overflow:hidden;min-height:310px;display:flex;flex-direction:column;align-items:flex-start}
+body[data-current="contact"] .grid.grid-2>.panel .button{margin-top:auto}
+body[data-current="contact"] .grid.grid-2>.panel:after{content:"↗";position:absolute;right:23px;top:12px;font:300 72px/1 var(--display);color:rgba(22,214,197,.08);pointer-events:none}
+body[data-current="contact"] .grid.grid-2>.panel:first-child{background:radial-gradient(ellipse at 90% 0,rgba(0,184,255,.07),transparent 65%),var(--panel)}
+body[data-current="contact"] .grid.grid-2>.panel:nth-child(2){background:radial-gradient(ellipse at 90% 0,rgba(217,70,168,.045),transparent 65%),var(--panel)}
+body[data-current="skills"] .grid>.panel,body[data-current="home-lab"] .grid>.panel{position:relative;border-top:2px solid rgba(22,214,197,.32)}
+body[data-current="skills"] .grid>.panel:nth-child(3n+2),body[data-current="home-lab"] .grid>.panel:nth-child(3n+2){border-top-color:rgba(0,184,255,.48)}
+body[data-current="skills"] .grid>.panel:nth-child(3n),body[data-current="home-lab"] .grid>.panel:nth-child(3n){border-top-color:rgba(217,70,168,.35)}
+body[data-current="evidence"] .toolbar,body[data-current="projects"] .toolbar{border:1px solid rgba(22,214,197,.12);border-radius:15px;padding:clamp(14px,2vw,24px);background:linear-gradient(135deg,rgba(17,36,56,.8),rgba(9,17,31,.9))}
+body[data-current="evidence"] .pagination{padding:22px 0;border-top:1px solid rgba(22,214,197,.14)}
+body[data-current="site-map"] .site-map-group{border-left:2px solid rgba(22,214,197,.24);padding-left:clamp(16px,2vw,28px)}
+body[data-current="site-map"] .site-map-group:nth-child(3n+2){border-left-color:rgba(0,184,255,.3)}
+body[data-current="site-map"] .site-map-group:nth-child(3n){border-left-color:rgba(217,70,168,.24)}
+@media(max-width:700px){body[data-current="about"] .page-heading{min-height:0}body[data-current="contact"] .grid.grid-2>.panel{min-height:230px}body[data-current="site-map"] .site-map-group{padding-left:14px}}
