@@ -90,6 +90,8 @@ function enhanceCertificationBadges(){
     img.alt='WCITP award';img.width=85;img.height=85;img.loading='lazy';
     a.append(img);school.append(a);
   }
+  const introduction=document.querySelector('.page-heading .lead');
+  if(introduction)introduction.textContent='Education and credentials are supported by the repository resume. Existing issuer badge images and previously recorded credential links are displayed where available; current expiration and renewal status remain subject to independent confirmation.';
   const disclaimer=document.querySelector('.reference-snapshot');
   if(disclaimer)disclaimer.textContent='Official credential badge images and previously recorded credential links are shown where available. Current expiration or renewal status has not been independently rechecked. Credentials without a matching badge retain text labels.';
 }
