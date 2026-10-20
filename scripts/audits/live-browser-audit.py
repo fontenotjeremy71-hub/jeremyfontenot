@@ -221,7 +221,7 @@ async def inspect_page(context, route: str, semaphore: asyncio.Semaphore):
                     }
                     return false;
                   };
-                  const interactions = [...document.querySelectorAll('a[href], button')].filter(el => !el.disabled && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length)).map((el, index) => {
+                  const interactions = [...document.querySelectorAll('a[href], button')].filter(el => !el.disabled && !el.closest('details:not([open])') && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length)).map((el, index) => {
                     const before = css(el);
                     const baseline = {outline: before.outline, boxShadow: before.boxShadow, borderColor: before.borderColor, backgroundColor: before.backgroundColor, color: before.color};
                     try { el.focus({preventScroll: true}); } catch {}
