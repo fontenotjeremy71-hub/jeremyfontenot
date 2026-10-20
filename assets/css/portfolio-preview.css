@@ -104,3 +104,28 @@ a:focus-visible,button:focus-visible{outline-color:var(--teal);outline-offset:4p
 @media(max-width:700px){.page-heading:after{display:none}.site-header{-webkit-backdrop-filter:none;backdrop-filter:none}.section-head:before{margin-bottom:15px}.site-footer:after{font-size:23px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media print{body{background:#fff!important;color:#111!important}.site-header{position:static;box-shadow:none}.site-header:after,.site-footer:before,.site-footer:after,.page-heading:after{display:none}.panel,.card,.project-card{box-shadow:none!important;break-inside:avoid}}
+
+
+/* Portfolio signature: a restrained technical-instrument visual language.
+   Geometry is CSS-only to keep every page fast, original, and dependency-free. */
+body[data-current="home"] .hero{isolation:isolate}
+body[data-current="home"] .hero:before{content:"";position:absolute;inset:0 0 auto auto;width:min(60vw,840px);height:640px;z-index:-1;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 49px,rgba(69,184,220,.045) 50px),repeating-linear-gradient(0deg,transparent 0 49px,rgba(69,184,220,.045) 50px);-webkit-mask-image:radial-gradient(ellipse at 70% 48%,#000 0,transparent 73%);mask-image:radial-gradient(ellipse at 70% 48%,#000 0,transparent 73%)}
+body[data-current="home"] .hero h1{max-width:850px;font-weight:720;font-size:clamp(3rem,5.8vw,5.8rem);line-height:1.05}
+body[data-current="home"] .hero .lead{max-width:620px}
+body[data-current="home"] .portfolio-lab-overview{position:relative;padding-top:48px;border-top:1px solid rgba(56,189,248,.14)}
+body[data-current="home"] .portfolio-lab-overview:before{content:"FIELD NOTES / HOMELAB ARCHITECTURE";position:absolute;top:11px;left:28px;font:600 10px/1.4 ui-monospace,Consolas,monospace;letter-spacing:.15em;color:#69bbcb}
+body[data-current="projects"] #page-content>.page-heading,body[data-current="evidence"] #page-content>.page-heading{padding-bottom:28px;border-bottom:1px solid rgba(22,214,197,.14)}
+body[data-current="projects"] [data-project]{position:relative;isolation:isolate;overflow:hidden}
+body[data-current="projects"] [data-project]:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;z-index:1;background:linear-gradient(90deg,var(--blue),var(--teal) 65%,transparent);opacity:.55}
+body[data-current="projects"] [data-project]:after{content:"↗";position:absolute;right:18px;top:15px;color:rgba(22,214,197,.25);font:500 29px/1 ui-monospace,Consolas,monospace;pointer-events:none}
+body[data-current="projects"] [data-project]:hover:before{opacity:1;background:linear-gradient(90deg,var(--blue),var(--teal),var(--magenta))}
+body[data-current="certifications"] .credential{border-color:rgba(56,189,248,.15)}
+body[data-current="certifications"] .credential-badge-link{background:radial-gradient(circle,rgba(22,214,197,.09),transparent 72%)}
+body[data-current="certifications"] .credential-badge-link:hover{filter:drop-shadow(0 0 12px rgba(56,189,248,.14))}
+body[data-current="home-lab"] .topology,body[data-current="home-lab"] .diagram{border-radius:14px}
+:is(.document,.readable) :is(pre,code){font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+:is(.document,.readable) pre{max-width:100%;overflow:auto;border-left:3px solid rgba(22,214,197,.6)}
+:is(.document,.readable) :is(h2,h3){scroll-margin-top:115px}
+#page-content a:not(.button):not(.brand):not(.credential-badge-link):focus-visible{border-radius:2px}
+@media(max-width:700px){body[data-current="home"] .hero h1{font-size:clamp(2.9rem,11vw,4.2rem)}body[data-current="home"] .hero:before{width:100%;height:460px}body[data-current="home"] .portfolio-lab-overview:before{left:18px}}
+@media(forced-colors:active){body[data-current="projects"] [data-project]:before{background:CanvasText}.accent{color:CanvasText!important;-webkit-text-fill-color:CanvasText!important}}
