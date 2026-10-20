@@ -105,7 +105,7 @@ function repairProjectNavigation(){
   const page=document.body.dataset.current;
   // The generated macOS evidence gallery contains a nested anchor: HTML parser
   // leaves an empty clickable parent before the descriptive screenshot link.
-  if(page==='macos-abm-intune-runbook'){
+  if(page==='projects/macos-abm-intune-runbook'){
     for(const a of document.querySelectorAll('a[href*="evidence-board-security.webp"]')){
       if(!a.textContent.trim()&&!a.querySelector('img'))a.remove();
     }
@@ -115,7 +115,7 @@ function repairProjectNavigation(){
   for(const a of document.querySelectorAll('a[href="#validation"]')){
     if(a.textContent.trim()==='Validation & results')a.textContent='Results and discussion';
   }
-  if(page==='windows-autopilot-intune'){
+  if(page==='projects/windows-autopilot-intune'){
     for(const a of document.querySelectorAll('a[href="/macos-abm-intune-runbook.html"]')){
       if(a.textContent.includes('Read case study'))a.textContent='Explore related macOS project ↗';
     }
