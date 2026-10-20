@@ -31,9 +31,9 @@ function addPortfolioPortrait(){
   const figure=document.createElement('figure');
   figure.className='portfolio-portrait';
   const photo=document.createElement('img');
-  photo.src='/assets/images/jeremy-fontenot-cutout.svg';
+  photo.src='/assets/images/jeremy-fontenot-ear-corrected.svg';
   photo.alt='Jeremy C. Fontenot, professional portrait';
-  photo.width=650;photo.height=867;photo.loading=page==='home'?'eager':'lazy';
+  photo.width=736;photo.height=752;photo.loading=page==='home'?'eager':'lazy';
   photo.decoding='async';
   figure.append(photo);
   host.append(figure);
