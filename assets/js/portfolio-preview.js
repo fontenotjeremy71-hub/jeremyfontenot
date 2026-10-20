@@ -40,6 +40,62 @@ function addPortfolioPortrait(){
 }
 addPortfolioPortrait();
 
+/* Reuse existing issuer badges and source-recorded verification links on the certifications page. */
+function enhanceCertificationBadges(){
+  if(document.body.dataset.current!=='certifications')return;
+  const badges={
+    'Azure Fundamentals':['microsoft-azure-fundamentals.avif','https://www.credly.com/badges/8838aad9-8b5f-49c1-b86c-ebc18dc9c78e/public_url'],
+    'IT Fundamentals+':['comptia-itf+.avif','https://www.credly.com/badges/e507d3b8-ea86-41e0-850a-13125c605600/public_url'],
+    'A+':['comptia-a+.avif','https://www.credly.com/badges/ed5a8406-ac3c-452e-b16a-7391121a9017/public_url'],
+    'Server+':['comptia-server+.avif','https://www.credly.com/badges/b66d70df-dc88-41d0-a6ab-69121db024cb/public_url'],
+    'MTA Windows Server Administration Fundamentals':['mta-windows-server.avif','https://www.credly.com/badges/5d2fc462-e31b-4a19-84ba-879b482702c8/public_url'],
+    'MTA Networking Fundamentals':['mta-networking.avif','https://www.credly.com/badges/e04b2e18-a633-4888-8ca3-7c29b11cc5e1/public_url'],
+    'MTA Security Fundamentals':['mta-security.avif','https://www.credly.com/badges/55677dea-a367-4d81-9797-cfb7acc303f2/public_url'],
+    'Linux Essentials':['lpi_badge.png','https://www.credly.com/badges/e04654a2-97ae-4fdf-a0fb-0b6781fa15da/public_url'],
+    'IT Support Professional Certificate':['google-it-support.avif','https://coursera.org/share/7c60238042c8b222b94183692de1d75b'],
+    'Introduction to Cybersecurity':['cisco.avif','https://www.credly.com/badges/612a8588-58c0-46f3-b68c-c10de91dcbdc/public_url']
+  };
+  for(const card of document.querySelectorAll('.credential')){
+    const name=card.querySelector('h3')?.textContent.trim();
+    const match=badges[name];if(!match)continue;
+    const mark=card.querySelector('.credential-mark');if(!mark)continue;
+    const link=document.createElement('a');
+    link.className='credential-badge-link';
+    link.href=match[1];link.target='_blank';link.rel='noopener noreferrer';
+    link.setAttribute('aria-label','View credential for '+name);
+    const img=document.createElement('img');
+    img.src='/assets/certifications/badges/'+match[0];
+    img.alt=name+' credential badge';
+    img.width=88;img.height=88;img.loading='lazy';img.decoding='async';
+    img.addEventListener('error',()=>{link.replaceWith(mark);});
+    link.append(img);mark.replaceWith(link);
+    const details=card.querySelector('div:last-child');
+    if(details){
+      const source=details.querySelector('p:last-child');
+      if(source?.textContent.includes('Listed in verified source resume'))source.textContent='Credential recorded in portfolio resume';
+      const verify=document.createElement('a');
+      verify.className='credential-verify';
+      verify.href=match[1];verify.target='_blank';verify.rel='noopener noreferrer';
+      verify.textContent='View credential ↗';details.append(verify);
+    }
+  }
+  const school=[...document.querySelectorAll('.panel')].find(x=>x.textContent.includes('MyComputerCareer'));
+  if(school && !school.querySelector('.school-badge')){
+    const a=document.createElement('a');a.className='school-badge';
+    a.href='/assets/certifications/badges/Jeremy_Chant_Fontenot_WCITP1_thumb_web.png';
+    a.target='_blank';a.rel='noopener noreferrer';
+    a.setAttribute('aria-label','View WCITP award image');
+    const img=document.createElement('img');
+    img.src='/assets/certifications/badges/Jeremy_Chant_Fontenot_WCITP1_thumb_web.avif';
+    img.alt='WCITP award';img.width=85;img.height=85;img.loading='lazy';
+    a.append(img);school.append(a);
+  }
+  const disclaimer=document.querySelector('.reference-snapshot');
+  if(disclaimer)disclaimer.textContent='Official credential badge images and previously recorded credential links are shown where available. Current expiration or renewal status has not been independently rechecked. Credentials without a matching badge retain text labels.';
+}
+enhanceCertificationBadges();
+
+
 function evidenceRender(){if(!$('#evidence-results'))return;const list=filterEvidence(window.EVIDENCE||[],$('#evidence-search').value,$('#evidence-project').value,$('#evidence-type').value,$('#evidence-technology')?.value||'',$('#evidence-skill')?.value||'');const page=pageSlice(list,evidencePage,16);evidencePage=page.page;$('#evidence-count').textContent=list.length.toLocaleString()+' source references';$('#evidence-page').textContent='Page '+(page.page+1)+' of '+page.total;$('#evidence-prev').disabled=page.page===0;$('#evidence-next').disabled=page.page===page.total-1;$('#evidence-results').innerHTML=page.items.length?page.items.map(e=>`<article class="evidence-row"><div><div class="tags"><span class="tag">${escapeHTML(e.type)}</span><span class="tag">${escapeHTML(e.technology)}</span></div><h3 style="margin-top:12px">${escapeHTML(e.name)}</h3><p>${escapeHTML(e.description)}</p>${e.result?`<p><strong>Recorded result:</strong> ${escapeHTML(e.result)}</p>`:''}<details><summary>Scope & provenance</summary><div class="document"><p><strong>Skill:</strong> ${escapeHTML(e.skill)}</p><p><strong>Project:</strong> ${escapeHTML(e.project)}</p><p>${escapeHTML(e.limitations||'Inspect the original record for its exact scope. A file listing does not establish new technical validation.')}</p><p><code>${escapeHTML(e.path)}</code></p></div></details></div><div class="evidence-actions"><a href="${escapeHTML(e.url)}" target="_blank" rel="noopener noreferrer" class="text-link">Open source ↗</a></div></article>`).join(''):'<p class="empty">No evidence matches these filters. Try a broader search or choose All projects.</p>';}
 function projectRender(){const cards=$$('[data-project]');const filtered=new Set(filterProjects(cards.map((el,i)=>({i,category:el.dataset.category,search:el.dataset.search})),$('#project-search')?.value||'',category).map(x=>x.i));cards.forEach((el,i)=>el.hidden=!filtered.has(i));if($('#project-count'))$('#project-count').textContent=filtered.size+' of '+cards.length+' projects';if($('#project-empty'))$('#project-empty').hidden=filtered.size!==0;}
 function closeMenu(){const menu=$('#primary-nav'),toggle=$('.nav-toggle');if(menu)menu.classList.remove('open');if(toggle)toggle.setAttribute('aria-expanded','false');}
