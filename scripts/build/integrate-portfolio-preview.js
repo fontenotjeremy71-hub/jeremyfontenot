@@ -35,7 +35,7 @@ const projectEvidence = {
 };
 function createHumanSiteMap(){
   const navKeys=['home','about','experience','skills','certifications','projects','home-lab','evidence','resume','contact'];
-  const isProject=k=>k.startsWith('projects/')||(routes[k]&&/^(windows-laps-gpo|entra-cloud-sync|on-prem-home-lab|windows-admin-center-lab|scvmm-2022|azure-arc-hybrid-management|app01-storage-expansion|cross-platform-administration|servicenow-request-fulfillment|m365-messaging-security|windows-autopilot-intune|macos-abm-intune-runbook|m365-graph-administration-lab)\\.html$/.test(routes[k]));
+  const isProject=k=>k.startsWith('projects/')||(routes[k]&&/^(windows-laps-gpo|entra-cloud-sync|on-prem-home-lab|windows-admin-center-lab|scvmm-2022|azure-arc-hybrid-management|app01-storage-expansion|cross-platform-administration|servicenow-request-fulfillment|m365-messaging-security|windows-autopilot-intune|macos-abm-intune-runbook|m365-graph-administration-lab)\.html$/.test(routes[k]));
   const groups=[
     ['Main navigation',navKeys.filter(k=>routes[k])],
     ['Projects and case studies',Object.keys(routes).filter(k=>!navKeys.includes(k)&&isProject(k))],
@@ -45,9 +45,9 @@ function createHumanSiteMap(){
   const present=new Set(Object.values(routes).map(x=>'/'+x));
   present.add('/');
   const existing=read('sitemap.xml');
-  const extras=[...new Set([...existing.matchAll(/<loc>https:\/\/jeremyfontenot\\.online(\\/[^<]*)<\/loc>/g)].map(m=>m[1]))]
-    .filter(x=>!present.has(x)&&!present.has(x.replace(/\\/$/,'/index.html'))&&!/\\.(?:xml|json|txt)$/i.test(x));
-  const titleOf=x=>x.replace(/^\\//,'').replace(/\\/index\\.html$/,'/').replace(/\\.html$/,'').replace(/[\\/_-]+/g,' ').replace(/\\b\\w/g,c=>c.toUpperCase())||'Home';
+  const extras=[...new Set([...existing.matchAll(/<loc>https:\/\/jeremyfontenot\.online(\/[^<]*)<\/loc>/g)].map(m=>m[1]))]
+    .filter(x=>!present.has(x)&&!present.has(x.replace(/\/$/,'/index.html'))&&!/\.(?:xml|json|txt)$/i.test(x));
+  const titleOf=x=>x.replace(/^\//,'').replace(/\/index\.html$/,'/').replace(/\.html$/,'').replace(/[\/_-]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase())||'Home';
   const section=(title,links)=>'<section class="site-map-group"><h2>'+escape(title)+'</h2><div class="doc-grid">'+links.join('')+'</div></section>';
   const blocks=groups.map(([title,keys])=>section(title,keys.map(k=>'<a href="'+href(k)+'">'+escape(pages[k]?.title||k)+'</a>')));
   if(extras.length)blocks.push(section('Additional published resources',extras.sort().map(u=>'<a href="'+escape(u)+'">'+escape(titleOf(u))+'</a>')));
