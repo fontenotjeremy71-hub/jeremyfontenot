@@ -392,3 +392,17 @@ background:rgba(7,17,31,.88);color:#dcecff;font-size:.68rem;font-weight:900;lett
 .macos-evidence-board{margin:0;border:1px solid rgba(94,231,255,.18);border-radius:22px;background:linear-gradient(145deg,rgba(16,34,57,.94),rgba(7,18,32,.94));overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.28)}
 .macos-evidence-board a{display:block}.macos-evidence-board img{display:block;width:100%;height:auto}.macos-evidence-board figcaption{padding:18px 20px;color:#afc0d4;line-height:1.55}.macos-evidence-board figcaption strong{color:#fff}
 @media(max-width:850px){.macos-shot-grid{grid-template-columns:1fr}}
+
+
+/* Unified identity for legacy evidence and technical-source pages.
+   Keep existing layouts intact; align palette, readability and focus treatment. */
+:root{--cyan:#6cdbfb;--magenta:#bf69b4;--brand-glow:0 10px 28px rgba(191,105,180,.09)}
+body{background:radial-gradient(ellipse 52% 600px at 87% -130px,rgba(16,174,215,.075),transparent 75%),radial-gradient(ellipse 35% 480px at -12% 33%,rgba(191,105,180,.027),transparent 75%),linear-gradient(180deg,#07111f,#081321 55%,#07101d)}
+::selection{background:rgba(16,174,215,.3);color:#fff}
+:focus-visible{outline:3px solid #6cdbfb;outline-offset:4px}
+:is(h1,h2,h3){text-wrap:balance}
+:is(main,article) :is(p,li){overflow-wrap:break-word}
+:is(main,article) pre{max-width:100%;overflow:auto}
+:is(img,svg,video){max-width:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media print{body{background:white!important;color:black!important}a{color:inherit!important}}
