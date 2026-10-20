@@ -52,3 +52,11 @@ body{overflow-wrap:anywhere}.panel,.script-info,.script-info>div{min-width:0}@me
 .school-badge{display:inline-flex;margin-top:15px;padding:5px;border-radius:10px;background:rgba(0,184,255,.05)}
 .school-badge img{width:85px;height:85px;object-fit:contain}
 @media(max-width:420px){.credential{grid-template-columns:78px minmax(0,1fr);gap:12px}.credential-badge-link{min-height:78px}.credential-badge-link img{width:74px;height:74px}}
+
+/* Human-facing site map: organized directory, rather than one unbroken link wall. */
+.site-map-directory{display:grid;gap:34px;margin:12px 0 70px}
+.site-map-group{min-width:0}
+.site-map-group h2{font-size:clamp(1.35rem,2.2vw,1.8rem);margin:0 0 14px;color:var(--text)}
+.site-map-group .doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:10px}
+.site-map-group .doc-grid a{display:flex;align-items:center;min-height:48px;padding:12px 15px;border:1px solid #294053;border-radius:8px;background:#0c1726;overflow-wrap:anywhere}
+.site-map-group .doc-grid a:hover,.site-map-group .doc-grid a:focus-visible{border-color:var(--blue);background:#10273a}
