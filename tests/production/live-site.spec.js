@@ -81,3 +81,19 @@ test('live human site map stays organized and all listed local destinations resp
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
   await page.screenshot({path:path.join('artifacts/production-screenshots',info.project.name+'-site-map.png'),fullPage:true,animations:'disabled'});
 });
+
+
+test('signature design is consistent across major portfolio pages',async({page,request},info)=>{
+  const sections=['/','/about.html','/experience.html','/skills.html','/certifications.html','/projects.html','/home-lab-overview.html','/evidence-browser.html','/resume.html','/contact.html','/architecture.html','/automation.html','/troubleshooting.html','/documentation.html','/site-map.html'];
+  for(const url of sections){
+    const r=await page.goto(url,{waitUntil:'domcontentloaded'});
+    expect(r?.status(),url+' must be published').toBe(200);
+    await expect(page.locator('#main')).toBeVisible();
+    await expect(page.locator('header.site-header')).toBeVisible();
+    await expect(page.locator('h1').first()).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),url+' must not overflow').toBe(true);
+    const css=await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundImage);
+    expect(css,url+' must render signature background').toContain('radial-gradient');
+  }
+  await page.screenshot({path:path.join('artifacts/production-screenshots',info.project.name+'-global-design.png'),fullPage:true,animations:'disabled'});
+});
