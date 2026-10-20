@@ -44,3 +44,23 @@ test('public navigation destinations respond and essential assets load',async({p
     expect(r.status(),target+' must load').toBe(200);
   }
 });
+
+
+test('live education page uses authentic matching certification badge images',async({page,request},info)=>{
+  const response=await page.goto('/certifications.html',{waitUntil:'domcontentloaded'});
+  expect(response?.status()).toBe(200);
+  await expect(page.locator('.credential')).toHaveCount(11);
+  await expect(page.locator('.credential .credential-badge-link img')).toHaveCount(10);
+  const images=page.locator('.credential .credential-badge-link img');
+  for(let i=0;i<await images.count();i++){
+    const img=images.nth(i);
+    await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0),{timeout:25000}).toBe(true);
+    const url=await img.getAttribute('src');
+    expect(url).toContain('/assets/certifications/badges/');
+    const imageResponse=await request.get(url);
+    expect(imageResponse.status(),url+' should load').toBe(200);
+  }
+  await expect(page.locator('.credential .credential-verify')).toHaveCount(10);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+  await page.screenshot({path:path.join('artifacts/production-screenshots',info.project.name+'-certifications.png'),fullPage:true,animations:'disabled'});
+});
