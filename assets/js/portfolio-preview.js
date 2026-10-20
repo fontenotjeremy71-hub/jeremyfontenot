@@ -101,7 +101,28 @@ enhanceCertificationBadges();
 function evidenceRender(){if(!$('#evidence-results'))return;const list=filterEvidence(window.EVIDENCE||[],$('#evidence-search').value,$('#evidence-project').value,$('#evidence-type').value,$('#evidence-technology')?.value||'',$('#evidence-skill')?.value||'');const page=pageSlice(list,evidencePage,16);evidencePage=page.page;$('#evidence-count').textContent=list.length.toLocaleString()+' source references';$('#evidence-page').textContent='Page '+(page.page+1)+' of '+page.total;$('#evidence-prev').disabled=page.page===0;$('#evidence-next').disabled=page.page===page.total-1;$('#evidence-results').innerHTML=page.items.length?page.items.map(e=>`<article class="evidence-row"><div><div class="tags"><span class="tag">${escapeHTML(e.type)}</span><span class="tag">${escapeHTML(e.technology)}</span></div><h3 style="margin-top:12px">${escapeHTML(e.name)}</h3><p>${escapeHTML(e.description)}</p>${e.result?`<p><strong>Recorded result:</strong> ${escapeHTML(e.result)}</p>`:''}<details><summary>Scope & provenance</summary><div class="document"><p><strong>Skill:</strong> ${escapeHTML(e.skill)}</p><p><strong>Project:</strong> ${escapeHTML(e.project)}</p><p>${escapeHTML(e.limitations||'Inspect the original record for its exact scope. A file listing does not establish new technical validation.')}</p><p><code>${escapeHTML(e.path)}</code></p></div></details></div><div class="evidence-actions"><a href="${escapeHTML(e.url)}" target="_blank" rel="noopener noreferrer" class="text-link">Open source ↗</a></div></article>`).join(''):'<p class="empty">No evidence matches these filters. Try a broader search or choose All projects.</p>';}
 function projectRender(){const cards=$$('[data-project]');const filtered=new Set(filterProjects(cards.map((el,i)=>({i,category:el.dataset.category,search:el.dataset.search})),$('#project-search')?.value||'',category).map(x=>x.i));cards.forEach((el,i)=>el.hidden=!filtered.has(i));if($('#project-count'))$('#project-count').textContent=filtered.size+' of '+cards.length+' projects';if($('#project-empty'))$('#project-empty').hidden=filtered.size!==0;}
 function closeMenu(){const menu=$('#primary-nav'),toggle=$('.nav-toggle');if(menu)menu.classList.remove('open');if(toggle)toggle.setAttribute('aria-expanded','false');}
+function repairProjectNavigation(){
+  const page=document.body.dataset.current;
+  // The generated macOS evidence gallery contains a nested anchor: HTML parser
+  // leaves an empty clickable parent before the descriptive screenshot link.
+  if(page==='macos-abm-intune-runbook'){
+    for(const a of document.querySelectorAll('a[href*="evidence-board-security.webp"]')){
+      if(!a.textContent.trim()&&!a.querySelector('img'))a.remove();
+    }
+  }
+  // A section jump is not direct evidence; distinguish narrative analysis from
+  // retained artifacts so link text makes an accurate promise.
+  for(const a of document.querySelectorAll('a[href="#validation"]')){
+    if(a.textContent.trim()==='Validation & results')a.textContent='Results and discussion';
+  }
+  if(page==='windows-autopilot-intune'){
+    for(const a of document.querySelectorAll('a[href="/macos-abm-intune-runbook.html"]')){
+      if(a.textContent.includes('Read case study'))a.textContent='Explore related macOS project ↗';
+    }
+  }
+}
 function setupPage(){
+ repairProjectNavigation();
  const current=document.body.dataset.current;$$('#primary-nav a').forEach(a=>{const active=window.PAGES?.[current]?.active;const staticActive=current.startsWith('projects/')||current.startsWith('automation')||current.startsWith('documentation')||current.startsWith('troubleshooting')||current.startsWith('additional')?'Projects':current==='architecture'?'Home Lab':current==='gallery'?'Evidence':null;const yes=active?a.textContent===active:staticActive?a.textContent===staticActive:a.dataset.route===current;if(yes)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
  category='All';evidencePage=0;
  if($('#project-search')){$('#project-search').addEventListener('input',projectRender);$$('[data-category-filter]').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.categoryFilter;$$('[data-category-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));projectRender();}));projectRender();}
