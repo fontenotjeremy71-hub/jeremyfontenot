@@ -200,3 +200,131 @@ body[data-current="site-map"] .site-map-group{border-left:2px solid rgba(22,214,
 body[data-current="site-map"] .site-map-group:nth-child(3n+2){border-left-color:rgba(0,184,255,.3)}
 body[data-current="site-map"] .site-map-group:nth-child(3n){border-left-color:rgba(217,70,168,.24)}
 @media(max-width:700px){body[data-current="about"] .page-heading{min-height:0}body[data-current="contact"] .grid.grid-2>.panel{min-height:230px}body[data-current="site-map"] .site-map-group{padding-left:14px}}
+
+
+/* PR #114 refinement: page-specific technical instrument panels.
+   All motifs are CSS-only, decorative, and intentionally do not imply live telemetry.
+   The original page heading remains readable and unchanged. */
+@media (min-width:1100px){
+ body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::after{
+   width:292px;height:220px;top:6px;border-radius:12px;
+   padding:188px 14px 12px;letter-spacing:.12em;
+   background-color:#0a1a2b;
+   background-image:var(--technical-art);
+   background-repeat:no-repeat;
+   box-shadow:inset 0 0 0 1px rgba(100,209,238,.08),inset 0 0 45px rgba(0,184,255,.035),0 16px 55px rgba(0,0,0,.12);
+ }
+ body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::before{
+   content:"JF";right:17px;top:14px;color:rgba(135,216,239,.24);
+   font-size:34px;letter-spacing:-.08em;
+ }
+ /* Identity workflow: directory hub, service desk endpoints, routing paths. */
+ body[data-current="experience"]{
+ --diagram-label:"IDENTITY  /  SERVICE DESK";
+ --technical-art:
+ radial-gradient(circle at 50% 46%,#0b1b2b 0 12px,#58cde4 13px 14px,transparent 15px),
+ radial-gradient(circle at 20% 25%,#59d7eb 0 5px,transparent 6px),
+ radial-gradient(circle at 80% 25%,#24d5bd 0 5px,transparent 6px),
+ radial-gradient(circle at 20% 72%,#59d7eb 0 5px,transparent 6px),
+ radial-gradient(circle at 80% 72%,#d946a8 0 3px,transparent 4px),
+ linear-gradient(30deg,transparent 47%,rgba(81,192,224,.45) 47.3% 47.8%,transparent 48.1%),
+ linear-gradient(150deg,transparent 47%,rgba(81,192,224,.45) 47.3% 47.8%,transparent 48.1%),
+ linear-gradient(210deg,transparent 47%,rgba(32,214,197,.34) 47.3% 47.8%,transparent 48.1%),
+ linear-gradient(330deg,transparent 47%,rgba(32,214,197,.34) 47.3% 47.8%,transparent 48.1%),
+ repeating-linear-gradient(90deg,transparent 0 28px,rgba(76,193,222,.05) 29px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+ /* Capability matrix: rows of organized skills rather than a generic node map. */
+ body[data-current="skills"]{
+ --diagram-label:"SKILLS  /  CAPABILITY MATRIX";
+ --technical-art:
+ linear-gradient(90deg,transparent 10%,#24d5bd 10% 39%,transparent 39%) 0 41px/100% 8px,
+ linear-gradient(90deg,transparent 10%,#59d7eb 10% 69%,transparent 69%) 0 72px/100% 8px,
+ linear-gradient(90deg,transparent 10%,#59d7eb 10% 54%,transparent 54%) 0 103px/100% 8px,
+ linear-gradient(90deg,transparent 10%,#24d5bd 10% 81%,transparent 81%) 0 134px/100% 8px,
+ linear-gradient(90deg,transparent 10%,#d946a8 10% 31%,transparent 31%) 0 165px/100% 4px,
+ repeating-linear-gradient(0deg,transparent 0 30px,rgba(76,193,222,.10) 30px 31px),
+ repeating-linear-gradient(90deg,transparent 0 28px,rgba(76,193,222,.045) 29px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+ /* Credential: concentric validation seal, with a central verified core. */
+ body[data-current="certifications"]{
+ --diagram-label:"CREDENTIALS  /  LEARNING";
+ --technical-art:
+ radial-gradient(circle at 50% 47%,#22d6c5 0 6px,transparent 7px),
+ radial-gradient(circle at 50% 47%,transparent 0 23px,rgba(114,226,250,.8) 24px 25px,transparent 26px),
+ radial-gradient(circle at 50% 47%,transparent 0 48px,rgba(114,226,250,.33) 49px 50px,transparent 51px),
+ radial-gradient(circle at 50% 47%,transparent 0 68px,rgba(217,70,168,.25) 69px 70px,transparent 71px),
+ linear-gradient(90deg,transparent 49.7%,rgba(114,226,250,.18) 50%,transparent 50.3%),
+ linear-gradient(0deg,transparent 46.7%,rgba(114,226,250,.18) 47%,transparent 47.3%),
+ repeating-linear-gradient(90deg,transparent 0 28px,rgba(76,193,222,.045) 29px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+ /* Projects: a three-stage delivery pipeline with connected milestones. */
+ body[data-current="projects"]{
+ --diagram-label:"PROJECTS  /  BUILD → VALIDATE";
+ --technical-art:
+ radial-gradient(circle at 17% 47%,#59d7eb 0 8px,transparent 9px),
+ radial-gradient(circle at 50% 47%,#24d5bd 0 8px,transparent 9px),
+ radial-gradient(circle at 83% 47%,#59d7eb 0 8px,transparent 9px),
+ linear-gradient(90deg,transparent 17%,rgba(114,226,250,.6) 17% 83%,transparent 83%) center 47%/100% 2px,
+ linear-gradient(90deg,transparent 15%,rgba(114,226,250,.17) 15% 19%,transparent 19% 48%,rgba(32,214,197,.19) 48% 52%,transparent 52% 81%,rgba(114,226,250,.17) 81% 85%,transparent 85%) center 47%/100% 70px,
+ repeating-linear-gradient(0deg,transparent 0 29px,rgba(76,193,222,.055) 30px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+ /* Home lab: distinct server racks and a network backbone. */
+ body[data-current="home-lab"]{
+ --diagram-label:"HOME LAB  /  HYBRID TOPOLOGY";
+ --technical-art:
+ repeating-linear-gradient(0deg,transparent 0 15px,rgba(22,214,197,.7) 16px 18px,transparent 19px 24px) 22% 39%/43px 92px,
+ repeating-linear-gradient(0deg,transparent 0 15px,rgba(114,226,250,.7) 16px 18px,transparent 19px 24px) 73% 39%/43px 92px,
+ linear-gradient(rgba(114,226,250,.4),rgba(114,226,250,.4)) 22% 40%/46px 96px,
+ linear-gradient(rgba(114,226,250,.4),rgba(114,226,250,.4)) 73% 40%/46px 96px,
+ radial-gradient(circle at 50% 67%,#24d5bd 0 6px,transparent 7px),
+ linear-gradient(90deg,transparent 22%,rgba(114,226,250,.45) 22% 73%,transparent 73%) center 67%/100% 2px,
+ repeating-linear-gradient(90deg,transparent 0 28px,rgba(76,193,222,.05) 29px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+ /* Evidence: document outlines and a traceability chain. */
+ body[data-current="evidence"]{
+ --diagram-label:"EVIDENCE  /  TRACEABILITY";
+ --technical-art:
+ linear-gradient(rgba(114,226,250,.48),rgba(114,226,250,.48)) 25% 42%/55px 76px,
+ linear-gradient(rgba(114,226,250,.48),rgba(114,226,250,.48)) 70% 52%/55px 76px,
+ repeating-linear-gradient(0deg,transparent 0 9px,rgba(114,226,250,.35) 10px 11px,transparent 12px 16px) 25% 42%/37px 56px,
+ repeating-linear-gradient(0deg,transparent 0 9px,rgba(32,214,197,.35) 10px 11px,transparent 12px 16px) 70% 52%/37px 56px,
+ linear-gradient(28deg,transparent 49%,rgba(32,214,197,.5) 49.3% 49.8%,transparent 50.1%),
+ radial-gradient(circle at 48% 48%,#d946a8 0 3px,transparent 4px),
+ repeating-linear-gradient(90deg,transparent 0 28px,rgba(76,193,222,.05) 29px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+ /* Resume: ascending career milestones. */
+ body[data-current="resume"]{
+ --diagram-label:"RESUME  /  CAREER PATH";
+ --technical-art:
+ radial-gradient(circle at 18% 69%,#59d7eb 0 6px,transparent 7px),
+ radial-gradient(circle at 43% 52%,#24d5bd 0 6px,transparent 7px),
+ radial-gradient(circle at 68% 34%,#59d7eb 0 6px,transparent 7px),
+ linear-gradient(145deg,transparent 46%,rgba(114,226,250,.65) 46.3% 46.8%,transparent 47.1%),
+ repeating-linear-gradient(0deg,transparent 0 29px,rgba(76,193,222,.065) 30px),
+ repeating-linear-gradient(90deg,transparent 0 28px,rgba(76,193,222,.05) 29px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+ /* Contact: two-way signal and a restrained destination marker. */
+ body[data-current="contact"]{
+ --diagram-label:"CONTACT  /  CONNECT";
+ --technical-art:
+ radial-gradient(circle at 50% 45%,#24d5bd 0 6px,transparent 7px),
+ radial-gradient(circle at 50% 45%,transparent 0 27px,rgba(114,226,250,.56) 28px 29px,transparent 30px),
+ radial-gradient(circle at 50% 45%,transparent 0 54px,rgba(114,226,250,.26) 55px 56px,transparent 57px),
+ radial-gradient(circle at 50% 45%,transparent 0 81px,rgba(217,70,168,.19) 82px 83px,transparent 84px),
+ linear-gradient(90deg,transparent 49.7%,rgba(114,226,250,.18) 50%,transparent 50.3%),
+ repeating-linear-gradient(90deg,transparent 0 28px,rgba(76,193,222,.05) 29px),
+ linear-gradient(145deg,#102b3d,#08111f);
+ }
+}
+/* Suppress the decorative graphics in forced-color environments. */
+@media(forced-colors:active){
+ body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::before,
+ body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::after{display:none}
+}
