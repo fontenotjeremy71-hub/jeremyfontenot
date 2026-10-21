@@ -115,6 +115,13 @@ function shell(key, page) {
       'Production service desk: incident and service request triage, ticket documentation, escalation, and knowledge management using Ivanti, Jira, and ServiceNow. Separately, personal ServiceNow administration labs demonstrate request fulfillment, catalog tasks, approvals, assignment controls, and escalation; later lab phases remain in progress.'
     );
   }
+  if (key === 'home') {
+    // Keep the core Proxmox group distinct from other documented lab systems.
+    const oldFoot = '</div><div class="blueprint-foot">DOCUMENTED CONFIGURATION<br>Personal nonproduction environment · no uptime claim</div>';
+    const systemMap = '</div><div class="blueprint-label" style="margin-top:20px;text-align:left">ADDITIONAL DOCUMENTED LAB SYSTEMS · PLACEMENT VARIES</div><div class="vm-grid"><div class="vm"><b><i class="dot"></i>HVHOST01</b><span>Hyper-V host → APP01 workload</span></div><div class="vm"><b><i class="dot"></i>VMM01</b><span>SCVMM management server</span></div><div class="vm"><b><i class="dot"></i>SYNC01</b><span>Earlier identity sync environment</span></div><div class="vm"><b><i class="dot"></i>macOS Monterey</b><span>Cross-platform client / lab</span></div></div><div class="blueprint-foot">DOCUMENTED SYSTEM MAP<br>Core Proxmox inventory plus additional lab systems; placements and simultaneous operation not asserted · personal nonproduction environment</div>';
+    body = body.replace(oldFoot, systemMap);
+    body = body.replace('Retained core lab overview: Dell PowerEdge R710 running Proxmox, with pfSense, DC01, WS01 and Linux01 virtual machines. This is a documentation diagram, not live telemetry.', 'Documented lab system map: Dell R710 Proxmox core includes pfSense, DC01, WS01 and Linux01. Additional systems include HVHOST01 with APP01, VMM01, SYNC01 and macOS Monterey. Their physical placement and simultaneous operation are not asserted.');
+  }
   body = body.replace(/<a\b[^>]*>Endpoint and management-plane proof<\/a>/g, '<a href="/projects/windows-autopilot-intune/evidence/">Endpoint and management-plane proof</a>');
   body = body.replace(/C:\\Users\\[^\\<\s]+/gi, '%USERPROFILE%');
   body = body.replaceAll('https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx', '/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx');
