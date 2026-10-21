@@ -6,6 +6,7 @@ const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
 const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
 const widths=[375,768,1366,1920];
 test.describe('Sitewide responsive route sweep',()=>{
+ test.skip(({ },testInfo)=>testInfo.project.name!=='desktop','Run all four requested widths once, not once per Playwright project');
  test('all sitemap routes: browser load, overflow, console errors at four widths',async({browser})=>{
   test.setTimeout(20*60*1000);
   const results=[];
