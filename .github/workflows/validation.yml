@@ -50,6 +50,18 @@ jobs:
       - name: Validate every published target and CTA contract
         run: npm run check
 
+      - name: Audit all local HTML and discover internal routes
+        run: node scripts/audits/sitewide-static-audit.js
+
+      - name: Preserve sitewide static audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sitewide-static-audit-${{ github.sha }}
+          path: artifacts/browser-validation/sitewide-static-audit.json
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Verify PowerShell 7
         shell: pwsh
         run: |
