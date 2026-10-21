@@ -53,12 +53,17 @@ jobs:
       - name: Audit all local HTML and discover internal routes
         run: node scripts/audits/sitewide-static-audit.js
 
+      - name: Classify detected audit findings
+        run: node scripts/audits/classify-sitewide-findings.js
+
       - name: Preserve sitewide static audit
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sitewide-static-audit-${{ github.sha }}
-          path: artifacts/browser-validation/sitewide-static-audit.json
+          path: |
+            artifacts/browser-validation/sitewide-static-audit.json
+            artifacts/browser-validation/sitewide-findings-triage.json
           if-no-files-found: ignore
           retention-days: 14
 
