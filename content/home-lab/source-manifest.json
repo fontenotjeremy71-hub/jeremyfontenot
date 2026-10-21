@@ -738,6 +738,26 @@
     {
       "path": "scripts/validation/validate-powershell.ps1",
       "reason": "Repository validation tooling or its recovery documentation; not technical home-lab evidence or a new capability claim."
+    },
+    {
+      "path": "scripts/audits/home-lab-topology.test.js",
+      "reason": "Repository CI regression test that checks documented topology completeness; not collected operational or Home Lab evidence."
+    },
+    {
+      "path": "scripts/audits/sitewide-static-audit.js",
+      "reason": "Repository-wide static site QA tooling, not technical Home Lab evidence."
+    },
+    {
+      "path": "tests/playwright/sitewide-responsive.spec.js",
+      "reason": "Browser-based repository-wide responsive QA tool; not an operational Home Lab evidence record."
+    },
+    {
+      "path": "scripts/audits/classify-sitewide-findings.js",
+      "reason": "QA finding classifier and validation result generator, not operational Home Lab evidence."
+    },
+    {
+      "path": "scripts/audits/sync-sitewide-matrix.js",
+      "reason": "Repository audit matrix synchronization tooling; not an evidence record."
     }
   ]
 }
