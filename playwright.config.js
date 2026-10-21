@@ -3,7 +3,7 @@ module.exports = defineConfig({
   testDir: './tests/playwright',
   timeout: 45000,
   workers: process.env.CI ? 2 : 1,
-  reporter: [['list'], ['html', {outputFolder:'artifacts/browser-validation',open:'never'}]],
+  reporter: [['list'], ['html', {outputFolder:'artifacts/playwright-html-report',open:'never'}]],
   use: {
     baseURL: 'http://127.0.0.1:4173',
     browserName:'chromium',
