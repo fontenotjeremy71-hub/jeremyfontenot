@@ -8,7 +8,7 @@ Professional portfolio for an experienced Service Desk / IT Support professional
 
 1. Home — positioning and role fit
 2. Systems Administration Readiness — what I can contribute now
-3. Projects — eight curated case studies in intentional order
+3. Projects — 13 public projects, including curated case studies
 4. Proof — direct claim-to-artifact validation
 5. Resume — professional experience and credentials
 6. Contact — hiring contact paths
