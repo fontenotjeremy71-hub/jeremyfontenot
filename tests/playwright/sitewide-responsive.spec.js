@@ -3,10 +3,11 @@ const {test,expect}=require('@playwright/test');
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'../..');
 const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
-const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
+const audit=JSON.parse(fs.readFileSync(path.join(root,'artifacts/browser-validation/sitewide-static-audit.json'),'utf8'));
+const urls=audit.pages.map(p=>p.url);
 const widths=[375,768,1366,1920];
 test.describe('Sitewide responsive route sweep',()=>{
- test('all sitemap routes: browser load, overflow, console errors at four widths',async({browser},testInfo)=>{
+ test('all discovered routes: browser load, overflow, console errors at four widths',async({browser},testInfo)=>{
   test.skip(testInfo.project.name!=='desktop','Audit four viewport widths once');
   test.setTimeout(20*60*1000);
   const results=[];
