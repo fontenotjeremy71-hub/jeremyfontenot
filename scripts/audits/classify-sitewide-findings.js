@@ -4,6 +4,8 @@ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypt
 const root=path.resolve(__dirname,'../..'),sourceRoot='evidence-library/preserved-sharepoint/source/';
 const audit=JSON.parse(fs.readFileSync(path.join(root,'artifacts/browser-validation/sitewide-static-audit.json'),'utf8'));
 const findings=[],sourceCache=new Map();
+const siteCore=fs.readFileSync(path.join(root,'assets/js/site-core.js'),'utf8');
+const navInjectedByCore=siteCore.includes('<nav class=\\"nav\\"') || siteCore.includes('<nav class="nav"');
 function inspect(route){
  if(sourceCache.has(route))return sourceCache.get(route);
  const pathname=path.join(root,route),exists=fs.existsSync(pathname);
@@ -22,6 +24,7 @@ for(const page of audit.pages)for(const issue of page.issues){
  let classification='BLOCKED — EVIDENCE REQUIRED',reason='Insufficient file-specific evidence to dismiss finding.';
  if(!info.exists){reason='Route file absent from repository.';}
  else if(issue==='missing navigation'&&info.hasNav){classification='FALSE POSITIVE — VERIFIED';reason='The file contains an HTML nav element.';}
+ else if(issue==='missing navigation'&&!preserved&&navInjectedByCore&&info.raw.includes('src="/assets/js/site-core.js')){classification='FALSE POSITIVE — VERIFIED';reason='This HTML includes site-core.js, whose source defines a Primary landmark nav in its generated header; browser behavior remains separately verified by Playwright.';}
  else if(issue==='missing navigation'&&preserved&&info.sourceExport){classification='EXPECTED BEHAVIOR — VERIFIED';reason='This exact source file contains SharePoint export markers and lacks a native nav. Original export is preserved; wrapper navigation still requires separate visual verification.';}
  else if(issue==='shared stylesheet not identified (manual review)'&&preserved&&info.sourceExport){classification='EXPECTED BEHAVIOR — VERIFIED';reason='This exact SharePoint-export source retains independent styling; absence of portfolio shared stylesheet is intentional. Wrapper presentation is not visually verified.';}
  else if(issue.startsWith('missing local asset ')&&preserved&&info.offlineSrc>0&&issue.endsWith('/site-relative')){classification='EXPECTED BEHAVIOR — VERIFIED';reason='This exact source file contains src/href="site-relative" offline SharePoint placeholder; original cannot be mutated. Public wrapper/reference accessibility remains separately testable.';}
