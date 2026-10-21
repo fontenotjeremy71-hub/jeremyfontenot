@@ -94,6 +94,12 @@ function shell(key, page) {
   }
   // Sitewide career copy corrections sourced from verified current-role tool usage.
   // Keep this in the generator so npm run build:preview preserves the published corrections.
+  if (key === 'home') {
+    body = body.replace(
+      'PowerShell, Microsoft Graph, ServiceNow, and evidence-driven troubleshooting.',
+      'Enterprise ticketing with Ivanti, Jira, and ServiceNow; separate PowerShell, Microsoft Graph, and ServiceNow administration lab work backed by evidence.'
+    );
+  }
   if (key === 'experience' || key === 'resume') {
     body = body.replace(
       'Active Directory account management, password resets, new-user setup, permissions, Windows and application troubleshooting, connectivity support, KB documentation, and Tier 2/3 escalation. Primary healthcare support includes Ivanti, Epic, MyChart, and Vocera.',
