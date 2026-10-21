@@ -6,6 +6,14 @@ const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
 const audit=JSON.parse(fs.readFileSync(path.join(root,'artifacts/browser-validation/sitewide-static-audit.json'),'utf8'));
 const urls=audit.pages.map(p=>p.url);
 const widths=[375,768,1366,1920];
+const triageFile=path.join(root,'artifacts/browser-validation/sitewide-findings-triage.json');
+const visualPending=new Set(fs.existsSync(triageFile)
+ ?JSON.parse(fs.readFileSync(triageFile,'utf8')).items
+   .filter(f=>f.disposition==='BLOCKED — VISUAL INSPECTION UNAVAILABLE')
+   .map(f=>new URL(f.url).pathname)
+ :[]);
+const screenshotDir=path.join(root,'artifacts/browser-validation/visual-review-screenshots');
+
 test.describe('Sitewide responsive route sweep',()=>{
  test('all discovered routes: browser load, overflow, console errors at four widths',async({browser},testInfo)=>{
   test.skip(testInfo.project.name!=='desktop','Audit four viewport widths once');
@@ -31,6 +39,11 @@ test.describe('Sitewide responsive route sweep',()=>{
       if(status!==200)issues.push('HTTP '+status);
       if(pageErrors.length)issues.push(...pageErrors.slice(0,3));
       if(badResponses.length)issues.push(...badResponses.slice(0,3));
+      if(visualPending.has(address.pathname)){
+        fs.mkdirSync(screenshotDir,{recursive:true});
+        const label=address.pathname.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').slice(0,110)||'homepage';
+        await page.screenshot({path:path.join(screenshotDir,label+'-'+width+'.png'),fullPage:true,animations:'disabled'});
+      }
     }catch(e){issues.push('navigation error: '+e.message.slice(0,160));}
     const isPreservedSource=address.pathname.startsWith(preservedPrefix);
     let limitation=null;
