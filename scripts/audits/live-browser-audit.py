@@ -100,7 +100,7 @@ async def detect_edge_block(page, status: int | None, url: str) -> bool:
         marker = await page.locator("body").inner_text(timeout=1000)
     except Exception:
         return False
-    return bool(re.search(r"(?:just a moment|verify you are human|cloudflare|cf-chl-|attention required)", marker, re.I))
+    return bool(re.search(r"(?:just a moment|verify you are human|cloudflare ray id|cf-chl-|attention required)", marker, re.I))
 
 
 def semantic_error(label: str, target: str, title: str, heading: str, sample: str, context: str = "main") -> str | None:
