@@ -746,6 +746,10 @@
     {
       "path": "scripts/audits/sitewide-static-audit.js",
       "reason": "Repository-wide static site QA tooling, not technical Home Lab evidence."
+    },
+    {
+      "path": "tests/playwright/sitewide-responsive.spec.js",
+      "reason": "Browser-based repository-wide responsive QA tool; not an operational Home Lab evidence record."
     }
   ]
 }
