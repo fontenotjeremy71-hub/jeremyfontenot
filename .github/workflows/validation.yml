@@ -93,6 +93,7 @@ jobs:
           name: browser-validation-${{ github.sha }}
           path: |
             artifacts/browser-validation/
+            artifacts/playwright-html-report/
             test-results/
           if-no-files-found: ignore
           retention-days: 7
