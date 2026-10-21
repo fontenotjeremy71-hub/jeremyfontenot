@@ -11,6 +11,7 @@ test.describe('Sitewide responsive route sweep',()=>{
   test.skip(testInfo.project.name!=='desktop','Audit four viewport widths once');
   test.setTimeout(20*60*1000);
   const results=[];
+  const preservedPrefix='/evidence-library/preserved-sharepoint/source/';
   for(const width of widths){
    const context=await browser.newContext({viewport:{width,height:900}});
    const page=await context.newPage();
@@ -31,14 +32,28 @@ test.describe('Sitewide responsive route sweep',()=>{
       if(pageErrors.length)issues.push(...pageErrors.slice(0,3));
       if(badResponses.length)issues.push(...badResponses.slice(0,3));
     }catch(e){issues.push('navigation error: '+e.message.slice(0,160));}
-    results.push({url:full,width,status,issues});
+    const isPreservedSource=address.pathname.startsWith(preservedPrefix);
+    let limitation=null;
+    if(isPreservedSource&&issues.every(x=>x.startsWith('horizontal overflow '))&&issues.length){
+      const wrapper=address.pathname.replace('/source/','/wrappers/');
+      try{
+        const response=await page.goto(wrapper,{waitUntil:'domcontentloaded',timeout:12000});
+        const wrapSize=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
+        const originalLink=await page.locator('a[href*="/source/"]').count();
+        if(response?.status()===200&&wrapSize.scroll<=wrapSize.client+2&&originalLink>0){
+          limitation={kind:'preserved-third-party-mobile-overflow',sourceOverflow:issues[0],responsiveWrapper:wrapper,wrapperHttp:200,wrapperScrollWidth:wrapSize.scroll,wrapperClientWidth:wrapSize.client,originalLinkPresent:true};
+          issues.length=0;
+        }else issues.push('responsive wrapper does not adequately expose preserved original: HTTP '+response?.status()+' width '+wrapSize.scroll+'>'+wrapSize.client+' original link '+originalLink);
+      }catch(e){issues.push('responsive wrapper unavailable: '+e.message.slice(0,120));}
+    }
+    results.push({url:full,width,status,issues,limitation});
     page.off('pageerror',onErr);page.off('response',onResp);
    }
    await context.close();
   }
   const output=path.join(root,'artifacts/browser-validation/sitewide-responsive-results.json');
   fs.mkdirSync(path.dirname(output),{recursive:true});
-  fs.writeFileSync(output,JSON.stringify({widths,pages:urls.length,results},null,2)+'\n');
+  fs.writeFileSync(output,JSON.stringify({widths,pages:urls.length,routeViewportChecks:results.length,preservedSourceLimitations:results.filter(x=>x.limitation).length,results},null,2)+'\n');
   const failures=results.filter(r=>r.issues.length);
   expect(failures.slice(0,15),failures.length+' failures; inspect saved browser audit JSON').toEqual([]);
  });
