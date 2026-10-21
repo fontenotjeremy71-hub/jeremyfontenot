@@ -160,10 +160,10 @@
     "contact": "contact.html"
   },
   "files": {
-    "index.html": "d8404d5b0ad3579e3c5361bfaf5e9aea99f8b691390587bd9f927b8deb5d97e6",
+    "index.html": "6325f9169a9ba0c201ea43e3ef36c7d7931ca1b1711866be055244372c82d72e",
     "home-lab-overview.html": "3a704c99f69bb725c9f79ffd63dfbd749d4cc4238fef2d36e880e10b62e6e6ec",
     "evidence-browser.html": "f5c27aa149cbe87890339df6bd5bd81a602df9db9b3c8d4da46c90216c5fb9a1",
-    "skills.html": "f2afe533197a5bb65f97abb4d12ca096307ede189f559f882adc8adeef49e123",
+    "skills.html": "fc18739a89c67b76aadc354065f09493db176b7a623edfe028f5d61c4316a28d",
     "architecture.html": "b5cf80c80a7eaadd1145f5d7b8c2d3d201143482fdaacbf10440b2d13815e6ed",
     "automation.html": "5df61f7633436e2e807ce1cf31517a26853112791f60e767c050b4eb05a5875d",
     "troubleshooting.html": "4ab3bfc62cf9a7f8783fd82b356ee44a9ad8b86f3dbe725f19a9e91080e69dde",
@@ -284,7 +284,7 @@
     "macos-abm-intune-runbook.html": "b8e73a275dd03b1dbbb599b40f5c6e02bbdf387e1784e8dc6eb71aaf9e29e847",
     "m365-graph-administration-lab.html": "96ff4557c8e50bdce22559d62c458bf861f8c4178b586eef9115889d4ebf93ee",
     "about.html": "7f1219b4e2d8fee9d3fb4e2354a5484b85c03218e117204d99da1d2c72dd958e",
-    "experience.html": "07ef558bd28030b080a0e231ebd46a055446f15db20624eb15944f17de745831",
+    "experience.html": "238d7c91d54af8713c7dda657f52a85af093167c93cac8ac1f76e5435c227eaf",
     "certifications.html": "75b37e394ff39136c6e8f92fa51392232d1ce09de7395536cce6f8718d2df33d",
     "portfolio-documents/automation-azure-arc-validation.html": "a4deeeff94253cde5b8da2f03f1690117f645a11bd5a5ac7a6103a3a0593b7c9",
     "portfolio-documents/automation-test-cloudsyncadstate.html": "346cd58a258c783c045015d5a09c7181118fd7f36ea7ae9596a4c8b41bde1851",
@@ -316,7 +316,7 @@
     "portfolio-documents/original-microsoft-365.html": "fc189d3a40e745069925515d1242f203a2853abf073c31133e309281d044f008",
     "portfolio-documents/original-microsoft-365-evidence-catalog.html": "64cc15e9f49fd073c79c6cdfbc5b85c7019eb5ae1f233acbdd7ea8ea2384a110",
     "portfolio-documents/original-dashboard.html": "eaa382308781bc026de82f35203450099c970e5457cd16364b3f7738513ab231",
-    "resume.html": "edfac988952c5e93208cb42998d97bbfcca08ad5c71cec425e21900b6e014b8a",
+    "resume.html": "eace61832bcaed0372afea235f089c20b511699777d8841a30494f8d2df543d9",
     "contact.html": "6598c86c2e8725fd9564629e1be32fd1a848778387f256188b34f00356fb5d6a",
     "assets/js/portfolio-evidence-data.js": "f4bb04ed15624664725a786d168a07d356b9e624ab52a0b6dfbbe7f870f7a214",
     "sitemap.xml": "b8d4a0029f1def6abb54811139e6e6b105799bb31e92642800f70ed92b2c217c"
