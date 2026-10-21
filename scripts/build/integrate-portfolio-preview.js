@@ -92,6 +92,29 @@ function shell(key, page) {
       return article;
     });
   }
+  // Sitewide career copy corrections sourced from verified current-role tool usage.
+  // Keep this in the generator so npm run build:preview preserves the published corrections.
+  if (key === 'home') {
+    body = body.replace(
+      'PowerShell, Microsoft Graph, ServiceNow, and evidence-driven troubleshooting.',
+      'Enterprise ticketing with Ivanti, Jira, and ServiceNow; separate PowerShell, Microsoft Graph, and ServiceNow administration lab work backed by evidence.'
+    );
+  }
+  if (key === 'experience' || key === 'resume') {
+    body = body.replace(
+      'Active Directory account management, password resets, new-user setup, permissions, Windows and application troubleshooting, connectivity support, KB documentation, and Tier 2/3 escalation. Primary healthcare support includes Ivanti, Epic, MyChart, and Vocera.',
+      'Provide enterprise service desk support across client environments, including Active Directory account management, password resets, new-user provisioning, permissions, Windows and application troubleshooting, and connectivity support. Triage and manage incidents and service requests using Ivanti, Jira, and ServiceNow; document resolutions and knowledge base articles, and coordinate Tier 2/3 escalations. Support healthcare applications including Epic, MyChart, and Vocera. Responsibilities reflect support-role access rather than unrestricted systems administration.'
+    );
+  }
+  if (key === 'experience') {
+    body = body.replace('<span class="tag">Ivanti</span><span class="tag">Epic</span>', '<span class="tag">Ivanti</span><span class="tag">Jira</span><span class="tag">ServiceNow</span><span class="tag">Epic</span>');
+  }
+  if (key === 'skills') {
+    body = body.replace(
+      'ServiceNow request fulfillment, catalog tasks, approval, assignment controls, and escalation. The separate administration lab has unfinished phases.',
+      'Production service desk: incident and service request triage, ticket documentation, escalation, and knowledge management using Ivanti, Jira, and ServiceNow. Separately, personal ServiceNow administration labs demonstrate request fulfillment, catalog tasks, approvals, assignment controls, and escalation; later lab phases remain in progress.'
+    );
+  }
   body = body.replace(/<a\b[^>]*>Endpoint and management-plane proof<\/a>/g, '<a href="/projects/windows-autopilot-intune/evidence/">Endpoint and management-plane proof</a>');
   body = body.replace(/C:\\Users\\[^\\<\s]+/gi, '%USERPROFILE%');
   body = body.replaceAll('https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx', '/assets/documents/Jeremy-Fontenot-On-Premises-Home-Lab-Documentation.docx');
