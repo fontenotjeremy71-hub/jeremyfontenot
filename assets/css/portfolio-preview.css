@@ -78,7 +78,54 @@ p{max-width:78ch}
 .nav-links a,.nav-current{transition:color .2s ease,border-color .2s ease}
 .nav-links a:hover{color:#eefcff}
 .page-heading{position:relative;isolation:isolate}
-.page-heading:after{content:"";position:absolute;z-index:-1;right:0;top:5%;width:min(29vw,285px);aspect-ratio:1;border:1px solid rgba(22,214,197,.08);border-radius:50%;box-shadow:0 0 0 34px rgba(0,184,255,.018),0 0 0 70px rgba(217,70,168,.012);pointer-events:none}
+/* Page-specific technical hero signature — no remote assets or invented live status.
+   Existing Home/About portraits and branding remain unchanged. */
+body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::after{
+  content:var(--diagram-label,"SYSTEMS / CONNECTED");
+  position:absolute;right:0;top:6px;z-index:-1;
+  box-sizing:border-box;width:clamp(190px,24vw,292px);height:220px;
+  border:1px solid rgba(76,193,222,.21);border-radius:8px;
+  box-shadow:inset 0 0 45px rgba(0,184,255,.035),0 16px 55px rgba(0,0,0,.12);
+  background:
+    radial-gradient(circle at 19% 29%,#72e2fa 0 4px,transparent 5px),
+    radial-gradient(circle at 78% 27%,#20d6c5 0 5px,transparent 6px),
+    radial-gradient(circle at 52% 64%,#72e2fa 0 6px,transparent 7px),
+    radial-gradient(circle at 83% 76%,#d946a8 0 3px,transparent 4px),
+    linear-gradient(27deg,transparent 39.6%,rgba(76,193,222,.35) 40%,rgba(76,193,222,.35) 40.4%,transparent 40.8%),
+    linear-gradient(153deg,transparent 47.6%,rgba(32,214,197,.25) 48%,rgba(32,214,197,.25) 48.4%,transparent 48.8%),
+    repeating-linear-gradient(0deg,transparent 0 29px,rgba(76,193,222,.055) 30px),
+    repeating-linear-gradient(90deg,transparent 0 29px,rgba(76,193,222,.055) 30px),
+    linear-gradient(145deg,rgba(13,31,49,.94),rgba(8,17,31,.92));
+  color:#81cfe4;font:600 10px/1.5 ui-monospace,Consolas,monospace;
+  letter-spacing:.15em;padding:188px 13px 12px;white-space:nowrap;
+  pointer-events:none;opacity:.82;
+}
+body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::before{
+  content:"JF";position:absolute;right:17px;top:17px;z-index:-1;
+  color:rgba(135,216,239,.14);font:800 43px/1 system-ui,sans-serif;
+  letter-spacing:-.09em;pointer-events:none;
+}
+body[data-current="experience"]{--diagram-label:"SERVICE DESK / IDENTITY"}
+body[data-current="skills"]{--diagram-label:"CAPABILITY / CONNECTED"}
+body[data-current="certifications"]{--diagram-label:"CREDENTIALS / VERIFIED"}
+body[data-current="projects"]{--diagram-label:"PROJECTS / EVIDENCE"}
+body[data-current="home-lab"]{--diagram-label:"HYBRID / INFRASTRUCTURE"}
+body[data-current="evidence"]{--diagram-label:"EVIDENCE / TRACEABLE"}
+body[data-current="resume"]{--diagram-label:"CAREER / SYSTEMS"}
+body[data-current="contact"]{--diagram-label:"CONTACT / CONNECT"}
+@media(min-width:1100px){
+  body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait){padding-right:clamp(220px,27vw,330px);min-height:240px}
+  body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait) .lead{max-width:680px}
+}
+@media(max-width:1099px){
+  body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::before,
+  body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::after{display:none}
+}
+@media print{
+  body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::before,
+  body:not([data-current="home"]):not([data-current="about"]) .page-heading:not(.with-portrait)::after{display:none}
+}
+
 .page-heading h1,.hero h1{letter-spacing:-.062em}
 .eyebrow{letter-spacing:.19em}
 .eyebrow:before{background:linear-gradient(90deg,var(--teal),var(--magenta));width:25px}
