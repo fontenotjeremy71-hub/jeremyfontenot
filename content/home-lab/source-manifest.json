@@ -750,6 +750,10 @@
     {
       "path": "tests/playwright/sitewide-responsive.spec.js",
       "reason": "Browser-based repository-wide responsive QA tool; not an operational Home Lab evidence record."
+    },
+    {
+      "path": "scripts/audits/classify-sitewide-findings.js",
+      "reason": "QA finding classifier and validation result generator, not operational Home Lab evidence."
     }
   ]
 }
