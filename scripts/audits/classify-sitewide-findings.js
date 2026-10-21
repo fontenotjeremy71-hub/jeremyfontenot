@@ -13,7 +13,8 @@ const rules={
 const findings=[];
 for(const p of audit.pages)for(const issue of p.issues){
  let classification,reason;
- if(issue.startsWith('missing local asset ')){classification='Confirmed defect requiring correction';reason='Scanner resolved an internal resource to a file absent from repository; verify whether source link is a non-file placeholder and correct its generator or derived navigation.';}
+ if(issue==='missing local asset /evidence-library/preserved-sharepoint/source/docs/business/sharepoint/Artifacts/site-relative' && p.route.startsWith(base)){classification='Expected behavior';reason='Verified in preserved Home export: site-relative is an offline placeholder in source img src attributes, while public sanitized derivatives use unavailable-preserved-asset.svg; original evidence must remain byte-preserved.';}
+ else if(issue.startsWith('missing local asset ')){classification='Confirmed defect requiring correction';reason='Resolved local resource absent from repository, not a verified preserved placeholder; fix published source or generator.';}
  else if(rules[issue]) [classification,reason]=rules[issue](p);
  else {classification='Requires technical evidence';reason='Unrecognized heuristic; cannot close without source review.';}
  findings.push({route:p.route,url:p.url,issue,classification,reason,corrected:false});
