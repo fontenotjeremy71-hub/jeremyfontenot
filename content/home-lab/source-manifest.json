@@ -738,6 +738,10 @@
     {
       "path": "scripts/validation/validate-powershell.ps1",
       "reason": "Repository validation tooling or its recovery documentation; not technical home-lab evidence or a new capability claim."
+    },
+    {
+      "path": "scripts/audits/home-lab-topology.test.js",
+      "reason": "Repository CI regression test that checks documented topology completeness; not collected operational or Home Lab evidence."
     }
   ]
 }
