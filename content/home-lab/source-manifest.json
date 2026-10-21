@@ -754,6 +754,10 @@
     {
       "path": "scripts/audits/classify-sitewide-findings.js",
       "reason": "QA finding classifier and validation result generator, not operational Home Lab evidence."
+    },
+    {
+      "path": "scripts/audits/sync-sitewide-matrix.js",
+      "reason": "Repository audit matrix synchronization tooling; not an evidence record."
     }
   ]
 }
