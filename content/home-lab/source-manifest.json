@@ -462,6 +462,17 @@
       ],
       "skill": "Scoped Active Directory identity and group-membership administration using least-privilege delegation.",
       "task": "Delegate and validate bounded Active Directory Service Desk rights for password reset, account unlock, forced password change, and membership changes to one approved group."
+    },
+    {
+      "path": "projects/on-prem-home-lab/adm-lt01-hybrid-administration.md",
+      "collection": "on-prem-home-lab",
+      "reason": "Sanitized supporting ADM-LT01 hybrid administration workstation configuration and read-only validation summary; no raw transcripts or independent screenshots.",
+      "technologyRelationships": [
+        "windows-server",
+        "networking",
+        "automation",
+        "security"
+      ]
     }
   ],
   "reviewedExclusionRoots": [
