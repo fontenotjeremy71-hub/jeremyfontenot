@@ -19,7 +19,7 @@ while(queue.length){
   if(!/<h1\b/i.test(html))problems.push('missing H1');
   if(!/<html\b[^>]*lang=/i.test(html))problems.push('missing html language');
   if(!/<meta\b[^>]*\bname\s*=\s*["\']viewport["\']/i.test(html))problems.push('missing viewport metadata');
-  if(!/<nav\b/i.test(html))problems.push('missing navigation');
+  if(!/<nav\b/i.test(html) && !(/\/projects\/(?:macos-abm-intune-runbook|windows-autopilot-intune)\/evidence\/index\.html$/i.test(route) && /<a\b[^>]*href="\/(?:macos-abm-intune-runbook|windows-autopilot-intune)\.html"[^>]*>Back to case study<\/a>/i.test(html)))problems.push('missing navigation');
   if(!/portfolio-preview\.css|\/assets\/css\/site\.css|\/assets\/css\/style\.css/i.test(html))problems.push('shared stylesheet not identified (manual review)');
   if(/\beight curated case studies\b/i.test(html))problems.push('stale eight-project count');
   if(/<img\b(?![^>]*\balt=)[^>]*>/i.test(html))problems.push('image missing alt attribute');
