@@ -352,3 +352,12 @@ These items should not increase the public project count unless a deliberate por
 1. Finish ServiceNow Administration & ITSM Lab Phases 5–10 and publish it only after the Phase 10 evidence audit.
 2. Package Cloudflare hardening evidence and decide whether it becomes a standalone case study.
 3. Update this registry whenever project status, publication state, evidence package, material claim boundaries, or next milestones change. Historical dates are optional metadata unless technically material.
+
+## Supporting Home Lab Evidence — ADM-LT01 Hybrid Administration Workstation
+
+- **Scope:** Dedicated Windows PowerShell 5.1 administrative workstation in the personal nonproduction hybrid lab; supporting evidence for the existing On-Premises Microsoft Home Lab project, not a new numbered public project.
+- **Status:** VALIDATED for read-only access to AD DS, DNS, DHCP, Group Policy, Hyper-V, Azure subscription inventory, Microsoft Graph organization, Exchange Online accepted domains, Teams tenant information, and SharePoint Online tenant/site queries.
+- **Documentation:** `docs/workstations/adm-lt01-hybrid-administration.md`.
+- **Public discovery:** Home Lab overview links to the GitHub documentation.
+- **Evidence boundary:** Sanitized summary from interactive command outputs; no independent screenshot or raw transcript artifact is committed. Cloud access tokens and live authentication are not persistent. No production administration claims.
+- **Next milestone:** Capture and review sanitized command-output evidence if independent proof is needed; keep the existing thirteen-project portfolio count unchanged.
