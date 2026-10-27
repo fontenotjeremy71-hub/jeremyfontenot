@@ -357,7 +357,7 @@ These items should not increase the public project count unless a deliberate por
 
 - **Scope:** Dedicated Windows PowerShell 5.1 administrative workstation in the personal nonproduction hybrid lab; supporting evidence for the existing On-Premises Microsoft Home Lab project, not a new numbered public project.
 - **Status:** VALIDATED for read-only access to AD DS, DNS, DHCP, Group Policy, Hyper-V, Azure subscription inventory, Microsoft Graph organization, Exchange Online accepted domains, Teams tenant information, and SharePoint Online tenant/site queries.
-- **Documentation:** `projects/on-prem-home-lab/adm-lt01-hybrid-administration.md`.
+- **Documentation:** `docs/workstations/adm-lt01-hybrid-administration.md`.
 - **Public discovery:** Home Lab overview links to the GitHub documentation.
 - **Evidence boundary:** Sanitized summary from interactive command outputs; no independent screenshot or raw transcript artifact is committed. Cloud access tokens and live authentication are not persistent. No production administration claims.
 - **Next milestone:** Capture and review sanitized command-output evidence if independent proof is needed; keep the existing thirteen-project portfolio count unchanged.
