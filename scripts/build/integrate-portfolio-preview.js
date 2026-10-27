@@ -129,6 +129,11 @@ function shell(key, page) {
 }
 const outputs = {};
 for (const [key, relative] of Object.entries(routes)) outputs[relative] = shell(key, pages[key]);
+// Keep the ADM-LT01 supporting case study in the generated Home Lab page.
+const admSection = '<section class="section" aria-labelledby="adm-lt01-title"><p class="eyebrow">Validated workstation administration</p><h2 id="adm-lt01-title">ADM-LT01 · Hybrid administration workstation</h2><p>Configured a dedicated Windows PowerShell administration workstation for VPN-based Active Directory, DNS, DHCP, Group Policy, and Hyper-V management, plus authenticated Microsoft Azure, Graph, Exchange Online, Teams, and SharePoint Online queries. The work is documented as personal-lab validation, not production administration.</p><p><a href="https://github.com/fontenotjeremy71-hub/jeremyfontenot/blob/main/docs/workstations/adm-lt01-hybrid-administration.md">Read the ADM-LT01 configuration and validation record</a></p></section>';
+const admAnchor = '<section class="section"><h2>Infrastructure case studies</h2>';
+if (!outputs['home-lab-overview.html'].includes(admAnchor)) throw new Error('ADM-LT01 insertion anchor missing');
+outputs['home-lab-overview.html'] = outputs['home-lab-overview.html'].replace(admAnchor, admSection + admAnchor);
 outputs['assets/js/portfolio-evidence-data.js'] = 'window.EVIDENCE=' + JSON.stringify(chunks('evidence').flat()) + ';\n';
 // Defer scripts execute in document order: load data before initialization.
 outputs[routes.evidence] = outputs[routes.evidence].replace('<script defer src="/assets/js/portfolio-preview.js"></script><script defer src="/assets/js/portfolio-evidence-data.js"></script>', '<script defer src="/assets/js/portfolio-evidence-data.js"></script><script defer src="/assets/js/portfolio-preview.js"></script>');
