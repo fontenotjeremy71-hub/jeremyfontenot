@@ -18,7 +18,7 @@ while(queue.length){
   if(!title.trim())problems.push('missing title');if(!description.trim())problems.push('missing description');
   if(!/<h1\b/i.test(html))problems.push('missing H1');
   if(!/<html\b[^>]*lang=/i.test(html))problems.push('missing html language');
-  if(!/<meta\s+name="viewport"/i.test(html))problems.push('missing viewport metadata');
+  if(!/<meta\b[^>]*\bname\s*=\s*["\']viewport["\']/i.test(html))problems.push('missing viewport metadata');
   if(!/<nav\b/i.test(html))problems.push('missing navigation');
   if(!/portfolio-preview\.css|\/assets\/css\/site\.css|\/assets\/css\/style\.css/i.test(html))problems.push('shared stylesheet not identified (manual review)');
   if(/\beight curated case studies\b/i.test(html))problems.push('stale eight-project count');
