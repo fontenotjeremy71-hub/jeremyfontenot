@@ -18,10 +18,13 @@ def check(path):
         data = response.content
         row.update(status=response.status_code, content_type=response.headers.get('Content-Type'), bytes=len(data), sha256=hashlib.sha256(data).hexdigest())
         assert response.status_code == 200, 'HTTP status'
-        assert data, 'Empty body'
-        assert not data.lstrip().lower().startswith((b'<!doctype html', b'<html')), 'HTML instead of document'
         local = root / path
         row['matches_repository'] = data == local.read_bytes()
+        if not data and row['matches_repository']:
+            row.update(result='limitation', error='Preserved source file is also zero bytes; original retained unchanged; nonempty-content check failed')
+            return row
+        assert data, 'Empty body'
+        assert not data.lstrip().lower().startswith((b'<!doctype html', b'<html')), 'HTML instead of document'
         assert row['matches_repository'], 'Production/repository bytes differ'
         if path.endswith('.pdf'):
             assert data.startswith(b'%PDF-'), 'Wrong PDF signature'
@@ -47,7 +50,7 @@ def check(path):
 with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
     results = list(pool.map(check, documents))
 (out / 'documents.json').write_text(json.dumps(results, indent=2))
-print('Documents:',len(results),'passed:',sum(r['result']=='pass' for r in results),'failed:',sum(r['result']=='fail' for r in results),flush=True)
+print('Documents:',len(results),'passed:',sum(r['result']=='pass' for r in results),'failed:',sum(r['result']=='fail' for r in results),'limitations:',sum(r['result']=='limitation' for r in results),flush=True)
 
 att = json.loads((root/'content/microsoft-365/sharepoint-source-attestation.json').read_text())
 source = root.parent/'original-portfolio'

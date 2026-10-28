@@ -19,7 +19,7 @@ const origin='https://jeremyfontenot.online';
         await go('/');
         const toggle=page.locator('.nav-toggle');
         if(await toggle.isVisible()){await toggle.click();await expect(toggle).toHaveAttribute('aria-expanded','true');}
-        await page.locator('header a').filter({hasText:item.text.trim()}).first().click();
+        await page.locator(`header a[href="${item.href}"]`).first().click();
         await expect(page).toHaveURL(origin+item.href);
         await expect(page.locator('h1').first()).toBeVisible();
       });
@@ -44,6 +44,9 @@ const origin='https://jeremyfontenot.online';
     await check('Evidence scope disclosure',async()=>{await page.locator('.evidence-row summary').first().click();await expect(page.locator('.evidence-row details').first()).toHaveAttribute('open','');});
     for(const route of ['/projects/windows-autopilot-intune/evidence/','/projects/macos-abm-intune-runbook/evidence/','/evidence-library/preserved-sharepoint/'])await check('Evidence index navigation '+route,async()=>{await go(route);expect(await page.locator('a[href]').count()).toBeGreaterThan(1);const a=page.locator('a[href="/"]').first();await a.click();await expect(page).toHaveURL(origin+'/');});
     await check('Gallery open/close/focus',async()=>{await go('/gallery.html');const opener=page.locator('[data-image]').first();await opener.click();await expect(page.locator('dialog')).toBeVisible();await page.locator('#close-image').click();await expect(page.locator('dialog')).not.toBeVisible();await expect(opener).toBeFocused();});
+    await check('Verified resume PDF download',async()=>{await go('/resume.html');const pending=page.waitForEvent('download');await page.locator('a[download]').first().click();const download=await pending;expect(download.suggestedFilename()).toMatch(/\.pdf$/);expect(await download.failure()).toBeNull();});
+    await check('Print control calls browser print',async()=>{await go('/resume.html');await page.evaluate(()=>{window.__qaPrintCalled=false;window.print=()=>{window.__qaPrintCalled=true;};});await page.locator('[data-print]').click();expect(await page.evaluate(()=>window.__qaPrintCalled)).toBe(true);});
+    await check('Back to top control',async()=>{await go('/projects.html');await page.locator('footer').scrollIntoViewIfNeeded();await page.locator('.back-top').click();await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBe(0);});
     await go('/projects.html');await page.screenshot({path:output+'/projects-'+viewport.width+'.png',fullPage:true});
     await context.close();
     console.log(viewport.width,checks.length,'checks recorded');
