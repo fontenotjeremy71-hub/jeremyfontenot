@@ -22,6 +22,14 @@ This portfolio is a skills-validation portfolio intended to demonstrate hands-on
 
 The primary purpose of retained evidence is to prove that a configuration, administration task, troubleshooting scenario, or workflow was personally performed and successfully validated.
 
+### Master presentation rule — skills proof, not environment lifecycle
+
+This portfolio exists solely to substantiate technical skills with documented work and validation. Public project and evidence labels must **not** categorize work as "historical" or "active." Expired Microsoft 365 subscriptions, discontinued trials, powered-off lab systems, and unavailable environments do not diminish completed, verified technical work. Describe what was configured, tested, and demonstrated; retain accurate lab-versus-production claim boundaries without lifecycle labels.
+
+Preserve all original evidence without rewriting or redacting source artifacts. The owner has verified 636 recovered ASPX paths against Git blob hashes locally; this does not establish original-byte verification of the separate 802-record SharePoint HTML export inventory. Maintain provenance and verification distinctions. Review potential public exposure of reusable credentials or third-party data separately from preservation, and refer any specific concern to the owner rather than silently changing evidence.
+
+This rule is mandatory for all portfolio content, QA, reviews, migrations, and automation; see repository-root `AGENTS.md` for implementation requirements.
+
 ### Evidence priorities
 
 Evaluate projects primarily by:
