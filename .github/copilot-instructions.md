@@ -8,6 +8,8 @@ This is a public, static, evidence-backed IT portfolio. Present Jeremy C. Fonten
 
 ## Operating rules
 
+- **Master skills-proof policy:** Portfolio projects demonstrate configured, administered, troubleshot, and validated skills, not environment lifecycle. Do not use "historical" or "active" as public-facing project/evidence classifications. Do not downgrade verified work because a lab or subscription expired. Preserve original source evidence byte-for-byte and keep lab-versus-production claims accurate. Refer to `AGENTS.md` and `MASTER-PORTFOLIO-REGISTRY.md` for governing details.
+
 - Complete only the assigned phase.
 - Work on a dedicated branch and open a pull request; never commit directly to `main` and never merge.
 - Preserve every evidence artifact. Do not delete, archive, hide, overwrite, or classify evidence as historical.
