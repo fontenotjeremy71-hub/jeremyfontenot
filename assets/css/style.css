@@ -30,3 +30,17 @@ a:not(.button):hover{color:var(--accent-cyan-text)}
 .project-card:hover,.panel:hover{border-color:#49c2c880}
 .button.primary{background:#973e8d;border-color:#49c2c8;color:#fff}
 .button.primary:hover{background:#b44ca5;color:#fff}
+
+/* Compact desktop homepage hero: keep the introduction and CTAs visible sooner. */
+@media(min-width:1001px){
+  .hero{padding-block:44px 46px}
+  .hero-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:42px;align-items:center}
+  .hero h1{font-size:clamp(2.8rem,3.55vw,3.7rem);line-height:1.08;max-width:21ch;margin-bottom:.48em}
+  .hero .eyebrow{margin-bottom:16px}
+  .hero .title-role{margin-bottom:12px}
+  .hero .tech-strip{margin:12px 0 12px;gap:8px}
+  .hero .lead{font-size:16px;line-height:1.55;margin-bottom:12px}
+  .hero .actions{margin:18px 0 12px}
+  .hero .portrait-orbit{max-width:310px}
+  .hero .hero-caption{margin-top:24px}
+}
