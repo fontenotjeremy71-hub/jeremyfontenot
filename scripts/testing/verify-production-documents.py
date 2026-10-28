@@ -1,5 +1,5 @@
 """Read-only published document and preserved-source audit. Run from repo root."""
-import concurrent.futures, csv, difflib, hashlib, io, json, pathlib, subprocess, urllib.parse, zipfile
+import concurrent.futures, csv, difflib, hashlib, io, json, pathlib, re, subprocess, urllib.parse, zipfile
 import requests
 from pypdf import PdfReader
 
@@ -87,7 +87,19 @@ def verify_published_export(row):
             record['diff']='\n'.join(difflib.unified_diff(expected.splitlines(),actual.splitlines()))[-5000:]
             if row['path'].endswith('source/projects/collaboration-sharepoint.html'):
                 (out/'sharepoint-response-sample.html').write_bytes(response.content)
-        assert record['sha256']==row['current_sha256'], 'Published derivative differs from repository'
+            # Offline comparison only: retain raw response/hash and remove exactly
+            # the CDN annotations observed in the captured response. This does not
+            # change requests, execute scripts, or bypass any browser challenge.
+            normalized=re.sub(r'<a href="https://jeremyfontenot\.online/cdn-cgi/content\?id=[^"]+" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>','',actual)
+            def cdn_script(match):
+                script=match.group(0)
+                return '' if script.startswith('<script>(function(){function c(){var b=a.contentDocument') and 'window.__CF$cv$params' in script and '/cdn-cgi/challenge-platform/scripts/jsd/main.js' in script else script
+            normalized=re.sub(r'<script>[\s\S]*?</script>',cdn_script,normalized)
+            record['payload_sha256_after_known_cdn_annotations']=hashlib.sha256(normalized.encode('utf-8')).hexdigest()
+            assert record['payload_sha256_after_known_cdn_annotations']==row['current_sha256'], 'Source payload differs beyond observed CDN security annotations'
+            record['raw_byte_comparison']='limitation: CDN security annotations change wire bytes; exact payload comparison passed after offline annotation removal'
+        else:
+            record['raw_byte_comparison']='pass'
         record['result']='pass'
     except Exception as e:
         record.update(result='fail',error=str(e))
