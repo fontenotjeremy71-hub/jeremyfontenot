@@ -4,6 +4,20 @@
 
 This public repository presents Jeremy C. Fontenot as an experienced IT support professional with demonstrated junior systems administration capability. Build a clear, accessible, evidence-backed portfolio without overstating production experience.
 
+## Master portfolio evidence and skills-presentation policy
+
+**Owner-approved governing rule:** This portfolio exists to prove technical skills through documented implementation, administration, troubleshooting, and validation. It is not an environment uptime, subscription, or operational-status dashboard.
+
+- Present projects and evidence by **skill demonstrated → work performed → validation result → supporting proof**. Keep claims accurate to what the evidence establishes.
+- **Never label projects or evidence as "historical" or "active"** in public-facing titles, descriptions, badges, navigation, or status fields. Do not use those terms to classify evidence or projects.
+- Do not downgrade, hide, relabel, or invalidate completed and validated work because a tenant subscription expired, a trial ended, a virtual machine was shut down, or a lab is no longer accessible.
+- Treat captured, verified lab results as durable proof of the skills demonstrated at the time. Do not require ongoing access to the environment to retain an established claim.
+- Preserve recovered SharePoint source artifacts **byte-for-byte**; do not rewrite, redact, normalize, or replace originals. Derived browsing formats may be created separately and clearly distinguished from source artifacts.
+- Preserve original paths, filenames, provenance, hashes, and verification reports. Keep the **636 locally recovered and Git-blob-verified ASPX paths** separate from the **802 inventoried SharePoint HTML exports**; the latter collection's original-byte verification is not established by the ASPX recovery.
+- Do not infer that personal lab work proves enterprise production responsibility. Preserve accurate task, scope, and validation boundaries without using environment-lifecycle labels.
+- The owner has approved publication of personal Microsoft 365 lab evidence as skill proof. Review for potentially reusable secrets or third-party personal data before public release; report any specific risk to the owner **without silently altering or withholding original source files**. Publication decisions remain separate from evidence preservation.
+- Apply this policy to future documentation, migrations, project reviews, site labels, evidence catalogs, and QA. Resolve conflicts in older wording in favor of this master policy while retaining evidence integrity and accurate technical claims.
+
 ## Scope and precedence
 
 These instructions apply to the entire repository. A more specific `AGENTS.md` may add local requirements, but it must not weaken the evidence-preservation, security, claim-boundary, review, or validation rules below.
