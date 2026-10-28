@@ -11,7 +11,7 @@ const origin='https://jeremyfontenot.online';
     const context=await browser.newContext({viewport});
     const page=await context.newPage();
     const check=async(name,fn)=>{try{await fn();checks.push({viewport:viewport.width,name,result:'pass'});}catch(e){checks.push({viewport:viewport.width,name,result:'fail',error:e.message});}fs.writeFileSync(output+'/navigation.json',JSON.stringify(checks,null,2));};
-    const go=async path=>{const r=await page.goto(origin+path,{waitUntil:'domcontentloaded'});expect(r.status()).toBe(200);await expect(page.locator('main')).toBeVisible();};
+    const go=async path=>{const r=await page.goto(origin+path,{waitUntil:'load'});expect(r.status()).toBe(200);await expect(page.locator('main')).toBeVisible();};
     await go('/');
     const nav=await page.locator('header a[href]').evaluateAll(a=>a.map(x=>({text:x.textContent,href:x.getAttribute('href')})));
     for(const item of nav){
@@ -35,6 +35,7 @@ const origin='https://jeremyfontenot.online';
     for(const category of await page.locator('[data-category-filter]').evaluateAll(a=>a.map(x=>x.dataset.categoryFilter)))await check('Project category '+category,async()=>{await page.locator(`[data-category-filter="${category}"]`).click();await expect(page.locator(`[data-category-filter="${category}"]`)).toHaveAttribute('aria-pressed','true');expect(await page.locator('[data-project]:visible').count()).toBeGreaterThan(0);});
     await check('Project search matching/empty/reset',async()=>{await go('/projects.html');await page.locator('#project-search').fill('Windows LAPS');await expect(page.locator('[data-project]:visible')).toHaveCount(1);await page.locator('#project-search').fill('zzzz-no-result');await expect(page.locator('#project-empty')).toBeVisible();await page.locator('#project-search').fill('');await expect(page.locator('[data-project]:visible')).toHaveCount(13);});
     await go('/evidence-browser.html');
+    await expect(page.locator('.evidence-row')).toHaveCount(16);
     for(const id of ['evidence-project','evidence-type','evidence-technology','evidence-skill']){
       const values=await page.locator('#'+id+' option').evaluateAll(a=>a.map(x=>x.value).filter(Boolean));
       for(const value of values)await check(id+' = '+value,async()=>{const total=await page.evaluate(({id,value})=>window.EVIDENCE.filter(e=>e[id.replace('evidence-','')]===value).length,{id,value});await page.locator('#'+id).selectOption(value);await expect(page.locator('.evidence-row')).toHaveCount(Math.min(16,total));await expect(page.locator('#evidence-count')).toHaveText(total.toLocaleString('en-US')+' source references');if(!total)await expect(page.locator('#evidence-results')).toContainText('No evidence matches');await expect(page.locator('#evidence-page')).toContainText('Page 1');await page.locator('#'+id).selectOption('');});
