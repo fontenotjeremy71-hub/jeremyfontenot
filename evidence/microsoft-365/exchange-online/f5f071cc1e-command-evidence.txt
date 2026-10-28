@@ -1,0 +1,94 @@
+PROJECT 3 - PUBLIC SANITIZED COMMAND EVIDENCE
+============================================
+
+This public derivative preserves the validated administrative results while
+removing tenant-specific user principal names, object identifiers, and other
+unnecessary identifiers from the published portfolio.
+
+Exchange Online
+---------------
+Shared mailbox:
+DisplayName          : IT Support Shared
+PrimarySmtpAddress   : <shared-mailbox-smtp>
+RecipientTypeDetails : SharedMailbox
+
+Full Access:
+User         : <lab-administrator>
+AccessRights : FullAccess
+Deny         : False
+IsInherited  : False
+
+Send As:
+Trustee      : <lab-administrator>
+AccessRights : SendAs
+IsInherited  : False
+
+Send on Behalf resolution:
+DisplayName        : Lab Administrator
+PrimarySmtpAddress : <lab-administrator>
+RecipientType      : UserMailbox
+
+Distribution group:
+DisplayName          : Project 3 Distribution List
+PrimarySmtpAddress   : <distribution-group-smtp>
+RecipientTypeDetails : MailUniversalDistributionGroup
+
+Members:
+- Lab Administrator
+- Lab Test Member
+
+Transport rule:
+Name           : Project 3 - External Sender Pilot
+State          : Enabled
+Mode           : Enforce
+Priority       : 0
+FromScope      : NotInOrganization
+SentTo         : <lab-administrator>
+PrependSubject : [ EXTERNAL]
+
+Microsoft Graph licensing
+-------------------------
+Subscribed SKU:
+SkuPartNumber : DEVELOPERPACK_V2_E5
+EnabledUnits  : 25
+
+Project 3 License Test effective assignment:
+SkuId           : <redacted-sku-id>
+State           : Active
+Error           : None
+AssignedByGroup : null (Graph metadata at capture time)
+
+Project 3 E5 Licensing group:
+Id                    : <redacted-group-object-id>
+SecurityEnabled       : true
+MailEnabled           : false
+GroupTypes            : []
+MembershipRule        : null
+AssignedLicenses      : [] (Graph metadata at capture time)
+LicenseProcessingState: null
+
+Observed service behavior:
+A direct license-removal attempt returned:
+"User license is inherited from a group membership and it cannot be removed directly from the user"
+
+This conflicts with the Graph assignment metadata above and is documented as a
+platform-state discrepancy.
+
+Conditional Access
+------------------
+Pre-remediation error:
+Sign-in error code : 53003
+Failure reason     : Access blocked by Conditional Access policies
+
+Post-remediation successful sign-in:
+User                       : Project 3 License Test
+Application                : My Apps
+Status                     : Success
+Authentication requirement : Multifactor authentication
+Additional details         : MFA requirement satisfied by claim in the token
+
+Post-remediation CA evaluation:
+- Multifactor authentication for Microsoft partners and vendors: Success
+- Secure password change on high user risk: Not applied
+- Reauthentication on sign-in risk: Not applied
+- Security info registration for Microsoft partners and vendors: Not applied

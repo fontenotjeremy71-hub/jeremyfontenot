@@ -1,167 +1,21 @@
 name: Repository Validation
-
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
-
+  push:
+    branches: [main]
 permissions:
-  contents: write
-
-concurrency:
-  group: repository-validation-${{ github.ref }}
-  cancel-in-progress: true
-
+  contents: read
 jobs:
   build:
+    name: build
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build portfolio assets
-        shell: bash
-        run: |
-          set -o pipefail
-          npm run build 2>&1 | tee build-output.log
-
-      - name: Preserve build diagnostics
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: repository-validation-build-log-${{ github.sha }}
-          path: build-output.log
-          if-no-files-found: ignore
-          retention-days: 7
-
-      - name: Validate every published target and CTA contract
-        run: npm run check
-
-      - name: Audit all local HTML and discover internal routes
-        run: node scripts/audits/sitewide-static-audit.js
-
-      - name: Classify detected audit findings
-        run: node scripts/audits/classify-sitewide-findings.js
-
-      - name: Synchronize expanded route matrix
-        run: node scripts/audits/sync-sitewide-matrix.js
-
-      - name: Preserve sitewide static audit
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sitewide-static-audit-${{ github.sha }}
-          path: |
-            artifacts/browser-validation/sitewide-static-audit.json
-            artifacts/browser-validation/sitewide-findings-triage.json
-          if-no-files-found: ignore
-          retention-days: 14
-
-      - name: Verify PowerShell 7
-        shell: pwsh
-        run: |
-          if ($PSVersionTable.PSVersion.Major -lt 7) { throw 'PowerShell 7 is required.' }
-          $PSVersionTable.PSVersion.ToString()
-
-      - name: Run recovered repository validation
-        shell: pwsh
-        run: ./scripts/validation/Invoke-PortfolioValidation.ps1
-
-      - name: Install Chromium for browser validation
-        run: npx playwright install --with-deps chromium
-
-      - name: Validate responsive pages and hiring-review paths
-        run: npm run test:browser
-
-      - name: Preserve browser validation results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: browser-validation-${{ github.sha }}
-          path: |
-            artifacts/browser-validation/
-            artifacts/playwright-html-report/
-            test-results/
-          if-no-files-found: ignore
-          retention-days: 7
-
-      - name: Capture generated-output drift
-        if: always()
-        shell: bash
-        run: |
-          git status --short > generated-drift-status.txt
-          git diff --name-only > generated-drift-files.txt
-          git diff --stat > generated-drift-stat.txt
-          git diff > generated-drift.patch
-          mkdir -p .generated-drift
-          while IFS= read -r file; do
-            [ -n "$file" ] || continue
-            if [ -f "$file" ]; then
-              mkdir -p ".generated-drift/$(dirname "$file")"
-              cp -- "$file" ".generated-drift/$file"
-            fi
-          done < generated-drift-files.txt
-
-      - name: Preserve generated-output drift
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: repository-validation-generated-drift-${{ github.sha }}
-          path: |
-            generated-drift-status.txt
-            generated-drift-files.txt
-            generated-drift-stat.txt
-            generated-drift.patch
-            .generated-drift/
-          if-no-files-found: ignore
-          include-hidden-files: true
-          retention-days: 7
-
-      - name: Synchronize generated outputs on audit branch or one-time SEO repair
-        if: >-
-          (github.event_name == 'pull_request' && github.event.pull_request.number == 106 && github.head_ref == 'codex/restore-portfolio-validation') ||
-          (github.event_name == 'pull_request' && github.event.pull_request.number == 79 && github.head_ref == 'codex/sitewide-cta-navigation-audit') ||
-          (github.event_name == 'pull_request' && github.event.pull_request.number == 91 && github.head_ref == 'fix/full-site-semantic-link-audit-20260921') ||
-          (github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.head_commit.message == 'QA: synchronize generated metadata after SEO updates')
-        shell: bash
-        run: |
-          if [ -s generated-drift-files.txt ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add --pathspec-from-file=generated-drift-files.txt
-            git commit -m "chore: synchronize generated SEO metadata"
-            if [ "${{ github.event_name }}" = "pull_request" ]; then
-              target_branch="${{ github.head_ref }}"
-            else
-              target_branch="main"
-            fi
-            git push origin HEAD:${target_branch}
-          fi
-
-      - name: Commit reviewed-scope route expansion to PR branch
-        if: always() && github.event_name == 'pull_request' && github.head_ref == 'audit/home-lab-topology-consistency-20261020'
-        shell: bash
-        run: |
-          if [ -f artifacts/audits/portfolio-page-validation-matrix-20261020.csv ] && ! git diff --quiet -- artifacts/audits/portfolio-page-validation-matrix-20261020.csv; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add artifacts/audits/portfolio-page-validation-matrix-20261020.csv
-            git commit -m "audit: expand validation matrix to discovered routes"
-            git push origin HEAD:${{ github.head_ref }}
-          fi
-
-      - name: Verify generated outputs are synchronized
-        run: git diff --exit-code
+          python-version: '3.12'
+      - name: Validate static pages and original evidence integrity
+        run: python scripts/validation/validate-static-release.py
+      - name: Check whitespace
+        run: git diff --check

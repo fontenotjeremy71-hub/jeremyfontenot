@@ -1,0 +1,12 @@
+Project: Windows Autopilot & Intune MDM Provisioning
+Evidence: BitLocker OS volume validation
+Date: 2026-09-22
+
+Conversion Status    : Fully Encrypted
+Percentage Encrypted : 100.0%
+Encryption Method    : XTS-AES 128
+Protection Status    : Protection On
+Lock Status          : Unlocked
+Key Protectors       : Numerical Password, TPM
+
+No recovery password or recovery key value is included.
