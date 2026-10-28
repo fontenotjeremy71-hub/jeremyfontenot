@@ -64,9 +64,33 @@ for row in csv.DictReader(io.StringIO(inventory.read_text())):
     available=[p for p in candidates if p.is_file()]
     current=hashlib.sha256(target.read_bytes()).hexdigest() if target.is_file() else None
     original=next((p for p in available if hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256']),None)
-    integrity.append({'path':row['site_rel'],'source_rel':row['source_rel'],'inventory_sha256':row['sha256'],'current_sha256':current,'source_matches_inventory':original.relative_to(source).as_posix() if original else None,'current_matches_original_hash':current==row['sha256'],'source_available':bool(available)})
+    source_match=original.relative_to(source).as_posix() if original else None
+    if not source_match:
+        migration_commit='8193e98c01c56ec2220abb52b12062d79eb2fdbc'
+        historic=subprocess.run(['git','-C',str(source),'show',migration_commit+':'+row['site_rel']],capture_output=True)
+        if historic.returncode==0 and hashlib.sha256(historic.stdout).hexdigest()==row['sha256']:
+            source_match=migration_commit+':'+row['site_rel']
+    integrity.append({'path':row['site_rel'],'source_rel':row['source_rel'],'inventory_sha256':row['sha256'],'current_sha256':current,'source_matches_inventory':source_match,'current_matches_original_hash':current==row['sha256'],'source_available':bool(available)})
 assert len(integrity)==att['expectedRecords']
 (out/'sharepoint-integrity.json').write_text(json.dumps({'attestation':att,'records':integrity},indent=2))
 print('SharePoint:',len(integrity),'source-authenticated:',sum(bool(r['source_matches_inventory']) for r in integrity),'current-original-matches:',sum(r['current_matches_original_hash'] for r in integrity),flush=True)
+def verify_published_export(row):
+    record={'path':row['path']}
+    try:
+        response=requests.get('https://jeremyfontenot.online/'+urllib.parse.quote(row['path'],safe='/'),timeout=45)
+        record.update(status=response.status_code,bytes=len(response.content),sha256=hashlib.sha256(response.content).hexdigest())
+        assert response.status_code==200
+        assert response.content
+        assert record['sha256']==row['current_sha256'], 'Published derivative differs from repository'
+        record['result']='pass'
+    except Exception as e:
+        record.update(result='fail',error=str(e))
+    return record
+with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
+    exports=list(pool.map(verify_published_export,integrity))
+(out/'sharepoint-production.json').write_text(json.dumps(exports,indent=2))
+print('Published SharePoint:',len(exports),'passed:',sum(r['result']=='pass' for r in exports),'failed:',sum(r['result']=='fail' for r in exports),flush=True)
+if any(r['result']=='fail' for r in exports):
+    raise SystemExit(1)
 if any(r['result'] == 'fail' for r in results):
     raise SystemExit(1)
