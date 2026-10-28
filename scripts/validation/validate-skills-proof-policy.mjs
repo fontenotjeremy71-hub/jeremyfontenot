@@ -17,12 +17,12 @@ for (const route of routes) {
     if (!node.tagName) return;
     const attrs = Object.fromEntries((node.attrs || []).map(x => [x.name, x.value]));
     if (attrs['data-skills-proof-policy'] === 'true') policy = true;
-    if (['h1','h2','h3','h4','button'].includes(node.tagName) || /(?:^|\\s)status(?:\\s|$)/.test(attrs.class || '')) {
-      const value = textOf(node).replace(/\\s+/g, ' ').trim();
-      if (/\\b(?:historical|active)\\b/i.test(value) && !/active directory/i.test(value)) failures.push(route + ': lifecycle classification in presentation: ' + value.slice(0,120));
+    if (['h1','h2','h3','h4','button'].includes(node.tagName) || /(?:^|\s)status(?:\s|$)/.test(attrs.class || '')) {
+      const value = textOf(node).replace(/\s+/g, ' ').trim();
+      if (/\b(?:historical|active)\b/i.test(value) && !/active directory/i.test(value)) failures.push(route + ': lifecycle classification in presentation: ' + value.slice(0,120));
     }
   });
   if (!policy) failures.push(route + ': skills-proof policy statement missing');
 }
-if (failures.length) { console.error(failures.join('\\n')); process.exitCode = 1; }
+if (failures.length) { console.error(failures.join('\n')); process.exitCode = 1; }
 else console.log('Skills-proof presentation policy passed (' + routes.length + ' generated pages).');
