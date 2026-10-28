@@ -47,6 +47,9 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+      - name: Enforce skills-first portfolio presentation policy
+        run: node scripts/validation/validate-skills-proof-policy.mjs
+
       - name: Validate every published target and CTA contract
         run: npm run check
 
