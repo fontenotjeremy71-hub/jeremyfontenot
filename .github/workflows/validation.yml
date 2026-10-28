@@ -19,3 +19,6 @@ jobs:
         run: python scripts/validation/validate-static-release.py
       - name: Check whitespace
         run: git diff --check
+      - name: Verify current production responses for verification-only fixes
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'fix/static-production-')
+        run: python scripts/validation/validate-static-release.py --base-url https://jeremyfontenot.online

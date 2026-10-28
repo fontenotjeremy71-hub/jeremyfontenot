@@ -78,7 +78,7 @@ if '--base-url' in sys.argv:
                     if actual.signature()!=expected.signature():
                         fields=('links','IDs','redirects','h1 count','text')
                         changed=[label for label,a,b in zip(fields,actual.signature(),expected.signature()) if a!=b]
-                        return name+': HTML differs in '+', '.join(changed)
+                        return name+': HTML differs in '+', '.join(changed)+'; extra links='+repr(sorted(set(actual.links)-set(expected.links)))+'; missing links='+repr(sorted(set(expected.links)-set(actual.links)))+'; final URL='+response.url+'; preview='+data[:180].decode('utf-8',errors='replace')
                 elif data!=(ROOT/name).read_bytes():return name+': response differs from released bytes'
         except Exception as e:return name+': '+str(e)
     with ThreadPoolExecutor(max_workers=6) as pool:
