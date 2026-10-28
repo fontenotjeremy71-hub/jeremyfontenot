@@ -9,16 +9,24 @@ ROOT = Path(__file__).resolve().parents[2]
 class Page(HTMLParser):
     def __init__(self, text):
         super().__init__(convert_charrefs=True)
-        self.links=[]; self.ids=set(); self.refresh=[]; self.h1=0
+        self.links=[]; self.ids=set(); self.refresh=[]; self.h1=0; self.text=[]; self.ignored=0
         self.feed(text)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
+        if tag in ('script','style'): self.ignored+=1
+        if tag=='script' and a.get('src','').startswith('https://static.cloudflareinsights.com/'): return
         if 'id' in a: self.ids.add(a['id'])
         if tag=='h1': self.h1+=1
         for key in ('href','src'):
             if key in a: self.links.append(a[key])
         if tag=='meta' and a.get('http-equiv','').lower()=='refresh':
             self.refresh.append(a.get('content','').split('url=',1)[-1])
+    def handle_endtag(self, tag):
+        if tag in ('script','style'): self.ignored=max(0,self.ignored-1)
+    def handle_data(self, data):
+        if not self.ignored: self.text.append(data)
+    def signature(self):
+        return (sorted(self.links), self.ids, self.refresh, self.h1, ' '.join(' '.join(self.text).split()))
 files=json.loads((ROOT/'docs/static-release/site-files.json').read_text())
 manifest=json.loads((ROOT/'docs/static-release/original-files.json').read_text())
 errors=[]; targets=set(files); download_targets=set(); pages={}
@@ -56,14 +64,22 @@ for url in ET.parse(ROOT/'sitemap.xml').getroot().iter('{http://www.sitemaps.org
     if not (ROOT/target).is_file():errors.append('Sitemap missing '+target)
 if '--base-url' in sys.argv:
     base=sys.argv[sys.argv.index('--base-url')+1].rstrip('/')+'/'
-    # Test exact response bytes for shipped site assets and all direct local proof targets.
+    # Cloudflare may minify HTML and inject its existing analytics beacon.
+    # Compare HTML content/links/IDs/redirects; require exact bytes for all other assets.
     live_targets=set(files)|download_targets|{'CNAME'}
     def check(name):
         try:
             with urlopen(Request(urljoin(base,name),headers={'User-Agent':'Portfolio-Release-Validation/1.0','Cache-Control':'no-cache'}),timeout=40) as response:
                 data=response.read()
                 if response.status!=200:return name+': HTTP '+str(response.status)
-                if data!=(ROOT/name).read_bytes():return name+': response differs from released bytes'
+                if name.endswith('.html'):
+                    actual=Page(data.decode('utf-8'))
+                    expected=Page((ROOT/name).read_text())
+                    if actual.signature()!=expected.signature():
+                        fields=('links','IDs','redirects','h1 count','text')
+                        changed=[label for label,a,b in zip(fields,actual.signature(),expected.signature()) if a!=b]
+                        return name+': HTML differs in '+', '.join(changed)
+                elif data!=(ROOT/name).read_bytes():return name+': response differs from released bytes'
         except Exception as e:return name+': '+str(e)
     with ThreadPoolExecutor(max_workers=6) as pool:
         errors.extend(x for x in pool.map(check,sorted(live_targets)) if x)
