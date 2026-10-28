@@ -1,0 +1,39 @@
+Windows LAPS Schema Attribute Validation
+========================================
+
+Purpose
+-------
+Validate that the Active Directory schema contains the modern Microsoft
+Windows LAPS attributes required for Active Directory-backed password
+management.
+
+Validation command
+------------------
+
+Get-ADObject `
+    -SearchBase (Get-ADRootDSE).SchemaNamingContext `
+    -LDAPFilter "(lDAPDisplayName=msLAPS-*)" `
+    -Properties lDAPDisplayName |
+    Select-Object Name,lDAPDisplayName
+
+Validated schema attributes
+---------------------------
+
+msLAPS-EncryptedDSRMPassword
+msLAPS-EncryptedDSRMPasswordHistory
+msLAPS-EncryptedPassword
+msLAPS-EncryptedPasswordHistory
+msLAPS-Password
+msLAPS-PasswordExpirationTime
+
+Result
+------
+PASS
+
+The Active Directory schema contains the modern Microsoft Windows LAPS
+schema attributes required for Windows LAPS functionality.
+
+Security / Portfolio Note
+-------------------------
+This evidence contains schema metadata only. No managed local administrator
+passwords, credentials, secrets, or sensitive directory values are exposed.

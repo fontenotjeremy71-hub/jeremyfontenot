@@ -1,0 +1,26 @@
+Windows LAPS Final Encrypted Retrieval Validation
+================================================
+
+Purpose
+-------
+Validate successful authorized retrieval of Windows LAPS metadata from the encrypted Active Directory-backed password source.
+
+Sanitized result
+----------------
+ComputerName        : WS01
+Account             : LocalAdmin
+PasswordUpdateTime  : 9/11/2026 7:06:17 PM
+ExpirationTimestamp : 10/11/2026 7:06:17 PM
+Source              : EncryptedPassword
+DecryptionStatus    : Success
+AuthorizedDecryptor : JFAD\GG-LAPS-Password-Readers
+
+Result
+------
+PASS
+
+The delegated reader path successfully accessed the Windows LAPS record and decrypted the protected password data as designed.
+
+Security / Portfolio Note
+-------------------------
+The managed password value is intentionally omitted. No password, credential, token, or authentication secret is published.
