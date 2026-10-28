@@ -1,0 +1,43 @@
+name: Production Completion QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/testing/production-interaction-qa.js'
+      - 'scripts/testing/verify-production-documents.py'
+      - '.github/workflows/production-completion-qa.yml'
+permissions:
+  contents: read
+jobs:
+  production-completion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Install read-only document tooling
+        run: |
+          python -m pip install requests pypdf
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+      - name: Fetch pinned original source read-only
+        run: |
+          git clone https://github.com/jeremyfontenot/JeremyFontenot.github.io.git ../original-portfolio
+          git -C ../original-portfolio checkout 5581bd7bf9c61ff77000ac04aa39fcbb04ed004f
+      - name: Verify every published document and preserved source
+        run: python scripts/testing/verify-production-documents.py
+      - name: Verify desktop and mobile production interactions
+        if: always()
+        run: node scripts/testing/production-interaction-qa.js
+      - name: Preserve exact results and PDF renders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-completion-qa
+          path: artifacts/production-completion/
+          retention-days: 14
