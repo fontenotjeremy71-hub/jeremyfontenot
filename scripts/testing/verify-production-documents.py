@@ -1,5 +1,5 @@
 """Read-only published document and preserved-source audit. Run from repo root."""
-import concurrent.futures, csv, hashlib, io, json, pathlib, subprocess, urllib.parse, zipfile
+import concurrent.futures, csv, difflib, hashlib, io, json, pathlib, subprocess, urllib.parse, zipfile
 import requests
 from pypdf import PdfReader
 
@@ -81,6 +81,12 @@ def verify_published_export(row):
         record.update(status=response.status_code,bytes=len(response.content),sha256=hashlib.sha256(response.content).hexdigest())
         assert response.status_code==200
         assert response.content
+        if record['sha256']!=row['current_sha256']:
+            expected=(root/row['path']).read_text()
+            actual=response.content.decode('utf-8')
+            record['diff']='\n'.join(difflib.unified_diff(expected.splitlines(),actual.splitlines()))[-5000:]
+            if row['path'].endswith('source/projects/collaboration-sharepoint.html'):
+                (out/'sharepoint-response-sample.html').write_bytes(response.content)
         assert record['sha256']==row['current_sha256'], 'Published derivative differs from repository'
         record['result']='pass'
     except Exception as e:
