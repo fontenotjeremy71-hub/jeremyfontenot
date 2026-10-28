@@ -14,7 +14,7 @@ class Page(HTMLParser):
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if tag in ('script','style'): self.ignored+=1
-        if tag=='script' and a.get('src','').startswith('https://static.cloudflareinsights.com/'): return
+        if tag=='script' and (a.get('src','').startswith('https://static.cloudflareinsights.com/') or a.get('src')=='/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js'): return
         if 'id' in a: self.ids.add(a['id'])
         if tag=='h1': self.h1+=1
         for key in ('href','src'):
@@ -75,10 +75,16 @@ if '--base-url' in sys.argv:
                 if name.endswith('.html'):
                     actual=Page(data.decode('utf-8'))
                     expected=Page((ROOT/name).read_text())
+                    # Existing edge redirect sends this legacy alias to the project directory.
+                    # Require that exact known destination and a direct link to its intended case study.
+                    if name=='powershell-automation.html' and urlsplit(response.url).path=='/projects.html':
+                        if 'projects/m365-graph-administration-lab/index.html' not in actual.links:
+                            return name+': redirected directory lost the intended case-study link'
+                        expected=Page((ROOT/'projects.html').read_text())
                     if actual.signature()!=expected.signature():
                         fields=('links','IDs','redirects','h1 count','text')
                         changed=[label for label,a,b in zip(fields,actual.signature(),expected.signature()) if a!=b]
-                        return name+': HTML differs in '+', '.join(changed)
+                        return name+': HTML differs in '+', '.join(changed)+'; extra links='+repr(sorted(set(actual.links)-set(expected.links)))+'; missing links='+repr(sorted(set(expected.links)-set(actual.links)))+'; final URL='+response.url+'; preview='+data[:180].decode('utf-8',errors='replace')
                 elif data!=(ROOT/name).read_bytes():return name+': response differs from released bytes'
         except Exception as e:return name+': '+str(e)
     with ThreadPoolExecutor(max_workers=6) as pool:
