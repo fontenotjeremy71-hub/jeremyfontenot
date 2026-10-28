@@ -95,6 +95,13 @@ def verify_published_export(row):
                 script=match.group(0)
                 return '' if script.startswith('<script>(function(){function c(){var b=a.contentDocument') and 'window.__CF$cv$params' in script and '/cdn-cgi/challenge-platform/scripts/jsd/main.js' in script else script
             normalized=re.sub(r'<script>[\s\S]*?</script>',cdn_script,normalized)
+            # The CDN also applies reversible obfuscation to public email text.
+            # Compare its decoded value with the source already in this repo.
+            def email_text(match):
+                data=bytes.fromhex(match.group(1))
+                return bytes(b^data[0] for b in data[1:]).decode('utf-8')
+            normalized=re.sub(r'<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</a>',email_text,normalized)
+            normalized=normalized.replace('<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>','')
             record['payload_sha256_after_known_cdn_annotations']=hashlib.sha256(normalized.encode('utf-8')).hexdigest()
             assert record['payload_sha256_after_known_cdn_annotations']==row['current_sha256'], 'Source payload differs beyond observed CDN security annotations'
             record['raw_byte_comparison']='limitation: CDN security annotations change wire bytes; exact payload comparison passed after offline annotation removal'
