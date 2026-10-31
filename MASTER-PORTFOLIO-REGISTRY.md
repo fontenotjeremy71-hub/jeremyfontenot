@@ -120,7 +120,7 @@ The continued availability of a temporary lab environment is not required to pre
 
 ## Current Public Portfolio Set
 
-The current `main` branch and deployed project routing define **13 public projects**. The repository `projects/README.md`, `assets/js/routes-projects.js`, and the non-JavaScript `projects.html` shell are synchronized on the 13-project state and use "Thirteen projects" where the count is presented.
+The current `main` branch and deployed project routing define **14 public projects**. The repository `projects/README.md`, `assets/js/routes-projects.js`, and the non-JavaScript `projects.html` shell are previously synchronized on the 13-project state; the new Grafana case study is being integrated and use "Thirteen projects" where the count is presented.
 
 ---
 
@@ -293,11 +293,23 @@ The current `main` branch and deployed project routing define **13 public projec
 - **Next Milestone:** Maintenance-only. Graph write operations or broader automation are optional future enhancements only when they serve a legitimate administrative requirement.
 - **Notes / Claim Boundaries:** Read-only delegated administration/reporting is currently proven. Live CSV exports are intentionally not public because they may contain UPNs, object IDs, device identifiers, and tenant-specific data. Do not imply write automation or broader Graph coverage that has not been validated.
 
+## 14 — Grafana OSS + Microsoft Entra SSO
+
+- **Project Name:** Grafana OSS + Microsoft Entra Single Sign-On
+- **Current Status:** IN PROGRESS — primary HTTPS and cloud SSO implementation validated; public evidence image transfer and negative access test remain pending.
+- **GitHub Repository Path:** `projects/grafana-entra-sso/`
+- **Portfolio URL:** https://jeremyfontenot.online/projects/grafana-entra-sso/
+- **Evidence Status:** Source screenshots and command-output validation observed October 31, 2026; public case study and README created; public image archive not yet committed.
+- **Evidence Location:** `projects/grafana-entra-sso/README.md`; public case-study validation section. Screenshots to follow after secure upload.
+- **Last Validated:** October 31, 2026 during interactive home-lab operation.
+- **Next Milestone:** Commit reviewed screenshot evidence, verify public links and site deployment, and test denial for an unassigned Entra identity.
+- **Notes / Claim Boundaries:** Ubuntu 26.04 LTS, Grafana OSS 13.3.0, Cloudflare DNS-01/Let's Encrypt, Certbot renewal *simulation* and deploy hook, Microsoft Entra OAuth SSO, Viewer role, restricted enterprise-application assignment, My Apps tile. No public Grafana exposure, production SLA, independent fresh tile authentication claim, or completed unassigned-account negative test.
+
 ---
 
 # Active / Unpublished Portfolio Work
 
-## 14 — ServiceNow Administration & ITSM Lab
+## Unpublished — ServiceNow Administration & ITSM Lab
 
 - **Project Name:** ServiceNow Administration & ITSM Lab
 - **Current Status:** IN PROGRESS — Phases 1–4 completed and validated; Phases 5–10 not started per current repository checkpoint.
@@ -341,7 +353,7 @@ These items should not increase the public project count unless a deliberate por
 
 # Registry-Level Discrepancies / NEEDS VERIFICATION
 
-1. **RESOLVED — Public project count shell mismatch:** `projects.html`, `assets/js/routes-projects.js`, and `projects/README.md` are synchronized on the authoritative 13-project state.
+1. **RESOLVED — Public project count shell mismatch:** `projects.html`, `assets/js/routes-projects.js`, and `projects/README.md` are historically synchronized for the 13-project baseline; Project 14 Grafana SSO has since been added to the current directory.
 2. **RESOLVED — Microsoft 365 Messaging & Security status mismatch:** `evidence-library/projects/m365-messaging-security/README.md`, current routing, and `projects/README.md` now consistently represent the project as COMPLETE. Existing evidence limitations and the Microsoft Graph licensing-metadata discrepancy remain explicitly documented.
 3. **RESOLVED — ServiceNow Request Fulfillment:** The intended REQ → RITM → approval → Procurement SCTASK → Field Services SCTASK → automatic RITM/REQ closure workflow is complete and validated. Further ServiceNow administration is tracked separately.
 4. **ServiceNow Administration & ITSM Lab:** Phases 1–4 are validated, but the project is not yet part of the authoritative 13-project public set.
@@ -360,4 +372,4 @@ These items should not increase the public project count unless a deliberate por
 - **Documentation:** `docs/workstations/adm-lt01-hybrid-administration.md`.
 - **Public discovery:** Home Lab overview links to the GitHub documentation.
 - **Evidence boundary:** Sanitized summary from interactive command outputs; no independent screenshot or raw transcript artifact is committed. Cloud access tokens and live authentication are not persistent. No production administration claims.
-- **Next milestone:** Capture and review sanitized command-output evidence if independent proof is needed; keep the existing thirteen-project portfolio count unchanged.
+- **Next milestone:** Capture and review sanitized command-output evidence if independent proof is needed; do not count this supporting workstation record as a separate project.
