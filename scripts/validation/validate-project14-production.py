@@ -18,7 +18,7 @@ chrome=next((shutil.which(x) for x in ('google-chrome','chromium','chromium-brow
 if not chrome:raise SystemExit('UNAVAILABLE: Chrome required for production visual captures')
 common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--force-prefers-reduced-motion']
 for width in (390,768,1440):
- for label,route in [('home','/'),('projects','/projects.html'),('gallery','/projects/grafana-entra-sso/index.html')]:
+ for label,route in [('home','/'),('projects','/projects.html'),('gallery','/projects/grafana-entra-sso/index.html'),('skills','/skills.html')]:
   with tempfile.TemporaryDirectory() as profile:
-   subprocess.run(common+['--user-data-dir='+profile,f'--window-size={width},{25000 if label=="gallery" else 1100}','--virtual-time-budget=8000','--screenshot='+str(out/f'{label}-{width}.png'),'https://jeremyfontenot.online'+route],capture_output=True,text=True,timeout=50,check=True)
-print('Captured production home/projects/gallery at 390, 768, 1440 widths; inspect artifacts for visual results')
+   subprocess.run(common+['--user-data-dir='+profile,f'--window-size={width},{25000 if label=="gallery" else (8000 if label=="skills" else 1100)}','--virtual-time-budget=8000','--screenshot='+str(out/f'{label}-{width}.png'),'https://jeremyfontenot.online'+route],capture_output=True,text=True,timeout=50,check=True)
+print('Captured production home/projects/gallery/skills at 390, 768, 1440 widths; inspect artifacts for visual results')
