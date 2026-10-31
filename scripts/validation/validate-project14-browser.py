@@ -27,7 +27,9 @@ for(const width of [390,768,1440]) for(const path of ['/index.html','/projects.h
  if(!d.querySelector('a.skip')||!d.querySelector('nav[aria-label="Primary"]'))issues.push('navigation landmarks');
  if(path.includes('grafana-entra')){
  const images=[...d.querySelectorAll('#evidence img')];if(images.length!==10)issues.push('gallery count');
- for(const im of images){im.loading='eager';try{await im.decode()}catch(e){issues.push('image decode '+im.src)}if(!im.naturalWidth||!im.alt)issues.push('invalid image '+im.src)}
+ for(const im of images)im.loading='eager';
+ for(let attempt=0;attempt<100&&!images.every(im=>im.complete);attempt++)await new Promise(resolve=>setTimeout(resolve,100));
+ for(const im of images)if(!im.complete||!im.naturalWidth||!im.alt)issues.push('invalid or undecoded image '+im.src);
  for(const heading of d.querySelectorAll('#evidence h4'))if(heading.getBoundingClientRect().width>w.innerWidth)issues.push('heading overflow');
  }
  if(path==='/projects.html'&&!d.body.innerText.includes('14 projects shown'))issues.push('project count');
@@ -38,7 +40,7 @@ const failed=results.some(r=>r.issues.length);document.getElementById('result').
 }catch(e){document.getElementById('result').textContent='FAIL '+e.stack}})();</script></body></html>'''
 # A temporary harness in the site root is removed even on a failed browser check.
 with tempfile.NamedTemporaryFile(mode='w',suffix='.html',prefix='qa-browser-',dir=ROOT,delete=False) as f:f.write(harness);harness_path=Path(f.name)
-common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars']
+common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--disable-background-timer-throttling','--disable-renderer-backgrounding','--run-all-compositor-stages-before-draw']
 try:
  with tempfile.TemporaryDirectory() as profile:
   result=subprocess.run(common+['--user-data-dir='+profile,'--virtual-time-budget=30000','--dump-dom',local+'/'+harness_path.name],capture_output=True,text=True,timeout=90)
