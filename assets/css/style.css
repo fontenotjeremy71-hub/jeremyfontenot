@@ -44,3 +44,6 @@ a:not(.button):hover{color:var(--accent-cyan-text)}
   .hero .portrait-orbit{max-width:310px}
   .hero .hero-caption{margin-top:24px}
 }
+
+/* Project 14 original-evidence gallery. */
+.evidence-group{margin-top:36px}.evidence-group>h3{color:var(--accent-text);margin-bottom:20px}.evidence-group h4{font-size:1.12rem;line-height:1.35;margin:0 0 14px}.evidence-group .panel{align-self:start}.evidence-filename{display:block;overflow-wrap:anywhere;margin-top:12px;font-size:11px}.evidence-group .evidence-image{background:var(--bg);object-fit:contain}.evidence-group a{overflow-wrap:anywhere}
