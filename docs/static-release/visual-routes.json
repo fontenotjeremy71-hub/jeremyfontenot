@@ -1,0 +1,400 @@
+{
+  "routes": [
+    {
+      "path": "404.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "about.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "active-directory-lab.html",
+      "kind": "redirect",
+      "redirect_to": "projects/on-prem-home-lab/index.html"
+    },
+    {
+      "path": "additional-labs.html",
+      "kind": "redirect",
+      "redirect_to": "projects.html"
+    },
+    {
+      "path": "app01-storage-expansion.html",
+      "kind": "redirect",
+      "redirect_to": "projects/app01-storage-expansion/index.html"
+    },
+    {
+      "path": "architecture.html",
+      "kind": "redirect",
+      "redirect_to": "documentation.html"
+    },
+    {
+      "path": "automation.html",
+      "kind": "redirect",
+      "redirect_to": "projects/m365-graph-administration-lab/index.html"
+    },
+    {
+      "path": "azure-arc-hybrid-management.html",
+      "kind": "redirect",
+      "redirect_to": "projects/azure-arc-hybrid-management/index.html"
+    },
+    {
+      "path": "certifications.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "contact.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "cross-platform-administration.html",
+      "kind": "redirect",
+      "redirect_to": "skills.html"
+    },
+    {
+      "path": "dashboard.html",
+      "kind": "redirect",
+      "redirect_to": "proof.html"
+    },
+    {
+      "path": "documentation.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "entra-cloud-sync.html",
+      "kind": "redirect",
+      "redirect_to": "projects/entra-cloud-sync/index.html"
+    },
+    {
+      "path": "evidence-browser.html",
+      "kind": "redirect",
+      "redirect_to": "evidence.html"
+    },
+    {
+      "path": "evidence-catalog/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence-catalog/originals.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/index.html",
+      "kind": "redirect",
+      "redirect_to": "../../../../projects/azure-arc-hybrid-management/index.html"
+    },
+    {
+      "path": "evidence-library/projects/on-prem-home-lab/scvmm-2022/index.html",
+      "kind": "redirect",
+      "redirect_to": "../../../../projects/scvmm-2022/index.html"
+    },
+    {
+      "path": "evidence.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/claim-map.html",
+      "kind": "redirect",
+      "redirect_to": "../proof.html"
+    },
+    {
+      "path": "evidence/home-lab/backup-recovery/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/home-lab/hyper-v-scvmm/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/home-lab/linux-macos/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/home-lab/networking-pfsense/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/home-lab/windows-server/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/index.html",
+      "kind": "redirect",
+      "redirect_to": "../evidence-catalog/index.html"
+    },
+    {
+      "path": "evidence/microsoft-365/automation/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/microsoft-365/entra-id/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/microsoft-365/exchange-online/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/microsoft-365/intune/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/other-projects/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "evidence/servicenow/index.html",
+      "kind": "catalog",
+      "redirect_to": null
+    },
+    {
+      "path": "experience.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "gallery.html",
+      "kind": "redirect",
+      "redirect_to": "proof.html"
+    },
+    {
+      "path": "home-lab-operations-proof.html",
+      "kind": "redirect",
+      "redirect_to": "projects/home-lab-operations-proof/index.html"
+    },
+    {
+      "path": "home-lab-overview.html",
+      "kind": "redirect",
+      "redirect_to": "home-lab.html"
+    },
+    {
+      "path": "home-lab.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "home-lab/evidence-catalog.html",
+      "kind": "redirect",
+      "redirect_to": "../evidence-catalog/index.html"
+    },
+    {
+      "path": "home-lab/index.html",
+      "kind": "redirect",
+      "redirect_to": "../projects/on-prem-home-lab/index.html"
+    },
+    {
+      "path": "index.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "infrastructure.html",
+      "kind": "redirect",
+      "redirect_to": "home-lab.html"
+    },
+    {
+      "path": "m365-graph-administration-lab.html",
+      "kind": "redirect",
+      "redirect_to": "projects/m365-graph-administration-lab/index.html"
+    },
+    {
+      "path": "m365-messaging-security.html",
+      "kind": "redirect",
+      "redirect_to": "projects/m365-messaging-security/index.html"
+    },
+    {
+      "path": "macos-abm-intune-runbook.html",
+      "kind": "redirect",
+      "redirect_to": "projects/macos-abm-intune-runbook/index.html"
+    },
+    {
+      "path": "macvm01.html",
+      "kind": "redirect",
+      "redirect_to": "projects/home-lab-operations-proof/index.html"
+    },
+    {
+      "path": "microsoft-365/evidence-catalog.html",
+      "kind": "redirect",
+      "redirect_to": "../evidence-catalog/index.html"
+    },
+    {
+      "path": "microsoft-365/index.html",
+      "kind": "redirect",
+      "redirect_to": "../evidence-catalog/index.html"
+    },
+    {
+      "path": "network-segmentation.html",
+      "kind": "redirect",
+      "redirect_to": "projects/on-prem-home-lab/index.html"
+    },
+    {
+      "path": "on-prem-home-lab.html",
+      "kind": "redirect",
+      "redirect_to": "projects/on-prem-home-lab/index.html"
+    },
+    {
+      "path": "powershell-automation.html",
+      "kind": "redirect",
+      "redirect_to": "projects/m365-graph-administration-lab/index.html"
+    },
+    {
+      "path": "projects.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/app01-storage-expansion/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/azure-arc-hybrid-management/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/entra-cloud-sync/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/grafana-entra-sso/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/home-lab-operations-proof/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/m365-graph-administration-lab/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/m365-messaging-security/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/macos-abm-intune-runbook/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/on-prem-home-lab/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/scvmm-2022/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/servicenow-request-fulfillment/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/windows-admin-center-lab/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/windows-autopilot-intune/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "projects/windows-laps-gpo/index.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
+      "path": "proof.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "resume.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "scvmm-2022.html",
+      "kind": "redirect",
+      "redirect_to": "projects/scvmm-2022/index.html"
+    },
+    {
+      "path": "servicenow-request-fulfillment.html",
+      "kind": "redirect",
+      "redirect_to": "projects/servicenow-request-fulfillment/index.html"
+    },
+    {
+      "path": "site-map.html",
+      "kind": "redirect",
+      "redirect_to": "projects.html"
+    },
+    {
+      "path": "skills.html",
+      "kind": "page",
+      "redirect_to": null
+    },
+    {
+      "path": "systems-administration.html",
+      "kind": "redirect",
+      "redirect_to": "skills.html"
+    },
+    {
+      "path": "systems-skills/evidence-map.html",
+      "kind": "redirect",
+      "redirect_to": "../skills.html"
+    },
+    {
+      "path": "systems-skills/index.html",
+      "kind": "redirect",
+      "redirect_to": "../skills.html"
+    },
+    {
+      "path": "troubleshooting.html",
+      "kind": "redirect",
+      "redirect_to": "projects/home-lab-operations-proof/index.html"
+    },
+    {
+      "path": "windows-admin-center-lab.html",
+      "kind": "redirect",
+      "redirect_to": "projects/windows-admin-center-lab/index.html"
+    },
+    {
+      "path": "windows-autopilot-intune.html",
+      "kind": "redirect",
+      "redirect_to": "projects/windows-autopilot-intune/index.html"
+    },
+    {
+      "path": "windows-laps-gpo.html",
+      "kind": "redirect",
+      "redirect_to": "projects/windows-laps-gpo/index.html"
+    }
+  ],
+  "preserved_source_html": "Original HTML artifacts linked as explicit downloads; immutable bytes retained."
+}

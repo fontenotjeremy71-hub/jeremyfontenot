@@ -3,6 +3,7 @@ from pathlib import Path
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
 import argparse,json,os,shutil,subprocess,tempfile,threading
+from browser_cdp import Browser
 ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser();p.add_argument('--base-url');p.add_argument('--output',default='browser-review');args=p.parse_args()
 chrome=next((shutil.which(x) for x in ('google-chrome','chromium','chromium-browser') if shutil.which(x)),None)
@@ -53,11 +54,15 @@ try:
   if '<pre id="result">PASS ' not in result.stdout:
    print(result.stdout[-6000:]);print(result.stderr[-1500:]);raise SystemExit('FAIL: responsive browser assertions')
   print('PASS: 12 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 14-project count')
- for width in (390,768,1440):
-  for label,route in [('case-study','/projects/grafana-entra-sso/index.html'),('gallery','/projects/grafana-entra-sso/index.html'),('skills','/skills.html')]:
-   with tempfile.TemporaryDirectory() as profile:
-    cmd=common+['--user-data-dir='+profile,'--window-size='+str(width)+(','+('25000' if label=='gallery' else ('8000' if label=='skills' else '1100'))),'--virtual-time-budget=5000','--screenshot='+str(output/f'{label}-{width}.png'),base+route]
-    subprocess.run(cmd,capture_output=True,text=True,timeout=45,check=True)
+ browser=Browser(chrome)
+ try:
+  for width in (390,768,1440):
+   browser.viewport(width)
+   for label,route in [('case-study','/projects/grafana-entra-sso/index.html'),('gallery','/projects/grafana-entra-sso/index.html'),('skills','/skills.html')]:
+    browser.navigate(base+route)
+    browser.evaluate("(async()=>{for(const im of document.images)im.loading='eager';await Promise.all([...document.images].map(im=>im.decode().catch(()=>{})));return true})()")
+    browser.screenshot(output/f'{label}-{width}.png')
+ finally:browser.close()
  print('Screenshots:',output)
 finally:
  harness_path.unlink(missing_ok=True);server.shutdown()

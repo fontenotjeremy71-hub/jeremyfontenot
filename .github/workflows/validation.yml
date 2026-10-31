@@ -27,6 +27,14 @@ jobs:
         with:
           name: project14-browser-review
           path: browser-review/
+      - name: Audit every linked route, redirect, visual layout and footer
+        run: python scripts/validation/validate-visual-site.py --output visual-site-review
+      - name: Retain complete site visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: complete-site-visual-review
+          path: visual-site-review/
       - name: Check whitespace
         run: git diff --check
       - name: Verify current production responses for verification-only fixes
