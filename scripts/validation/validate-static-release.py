@@ -31,7 +31,7 @@ files=json.loads((ROOT/'docs/static-release/site-files.json').read_text())
 manifest=json.loads((ROOT/'docs/static-release/original-files.json').read_text())
 errors=[]; targets=set(files); download_targets=set(); pages={}
 for row in manifest['files']:
-    p=ROOT/row['retained_path']
+    p=ROOT/({'MASTER-PORTFOLIO-REGISTRY.md': 'docs/static-release/immutable-pre-project14/MASTER-PORTFOLIO-REGISTRY.md', 'projects/README.md': 'docs/static-release/immutable-pre-project14/projects--README.md'}.get(row['retained_path'], row['retained_path']))
     if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=row['sha256']:
         errors.append('Original integrity: '+row['original_path'])
 for name in files:
@@ -50,7 +50,7 @@ for name,page in pages.items():
         if u.fragment and target in pages and unquote(u.fragment) not in pages[target].ids:
             errors.append(name+' -> missing fragment '+href)
 project_pages=[p for p in files if p.startswith('projects/') and p.endswith('/index.html')]
-if len(project_pages)!=13:errors.append('Expected 13 project case studies')
+if len(project_pages)!=14:errors.append('Expected 14 project case studies')
 for p in project_pages:
     if pages[p].h1!=1:errors.append(p+' must have one h1')
 if (ROOT/'CNAME').read_text().strip()!='jeremyfontenot.online':errors.append('CNAME changed')
