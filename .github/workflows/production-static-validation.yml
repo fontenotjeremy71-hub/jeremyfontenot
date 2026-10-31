@@ -39,3 +39,11 @@ jobs:
           PY
       - name: Verify deployed routes, downloads and exact release bytes
         run: python scripts/validation/validate-static-release.py --base-url https://jeremyfontenot.online
+      - name: Verify Project 14 production PNG responses and capture responsive views
+        run: python scripts/validation/validate-project14-production.py --output production-browser-review
+      - name: Retain production evidence and visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: project14-production-review
+          path: production-browser-review/

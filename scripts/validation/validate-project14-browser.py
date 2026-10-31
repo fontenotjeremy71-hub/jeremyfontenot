@@ -40,7 +40,7 @@ const failed=results.some(r=>r.issues.length);document.getElementById('result').
 }catch(e){document.getElementById('result').textContent='FAIL '+e.stack}})();</script></body></html>'''
 # A temporary harness in the site root is removed even on a failed browser check.
 with tempfile.NamedTemporaryFile(mode='w',suffix='.html',prefix='qa-browser-',dir=ROOT,delete=False) as f:f.write(harness);harness_path=Path(f.name)
-common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--disable-background-timer-throttling','--disable-renderer-backgrounding','--run-all-compositor-stages-before-draw']
+common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--disable-background-timer-throttling','--disable-renderer-backgrounding','--run-all-compositor-stages-before-draw','--force-prefers-reduced-motion']
 try:
  with tempfile.TemporaryDirectory() as profile:
   result=subprocess.run(common+['--user-data-dir='+profile,'--virtual-time-budget=30000','--dump-dom',local+'/'+harness_path.name],capture_output=True,text=True,timeout=90)
