@@ -54,6 +54,7 @@ checks=r'''(async()=>{
  if(new Set(ids).size!==ids.length)issues.push('duplicate IDs');
  if(document.querySelectorAll('h1').length!==1)issues.push('primary heading');
  if(document.documentElement.scrollWidth>innerWidth+1)issues.push('horizontal overflow '+document.documentElement.scrollWidth+'/'+innerWidth);
+ if(document.querySelectorAll('a.skip').length!==1)issues.push('skip control count');
  if(!document.querySelector('main')||!document.querySelector('a.skip')||!document.querySelector('nav[aria-label="Primary"]'))issues.push('landmarks');
  const footer=document.querySelector('footer.site-footer');if(!footer||getComputedStyle(footer.querySelector('.footer-directory')).display!=='grid')issues.push('unbranded footer');
  if(!document.querySelector('footer a.footer-top[href="#top"]'))issues.push('footer top control');
@@ -62,6 +63,8 @@ checks=r'''(async()=>{
  await Promise.race([Promise.all(images.map(im=>im.decode().catch(()=>{}))),new Promise(resolve=>setTimeout(resolve,10000))]);
  for(const im of images)if(!im.complete||!im.naturalWidth)issues.push('image '+im.getAttribute('src'));
  const menu=document.querySelector('.nav-toggle');if(innerWidth<=800){menu.click();if(menu.getAttribute('aria-expanded')!=='true')issues.push('mobile menu');document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));if(menu.getAttribute('aria-expanded')!=='false')issues.push('menu escape');}
+ if(document.body.dataset.pageKind==='catalog'&&!document.querySelector('.catalog-group,.artifact-collection,.source-list'))issues.push('unframed artifact collection');
+ if(location.pathname.endsWith('/proof.html')&&document.querySelectorAll('.proof-map-card').length!==14)issues.push('complete styled proof map');
  const search=document.querySelector('#evidence-search');if(search){search.value='Grafana';search.dispatchEvent(new Event('input',{bubbles:true}));const feature=document.querySelector('#grafana-entra-proof');if(!feature||feature.hidden||!feature.classList.contains('panel')||!feature.classList.contains('evidence-feature'))issues.push('SSO evidence styling/search');if(!document.querySelector('#search-count').textContent.startsWith('1 '))issues.push('evidence count');search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));}
  const source=document.querySelector('[data-source-list]');if(source){if([...source.children].filter(x=>!x.hidden).length!==50)issues.push('inventory pagination');const input=document.querySelector('#source-search');input.value='grafana';input.dispatchEvent(new Event('input',{bubbles:true}));const shown=[...source.children].filter(x=>!x.hidden);if(shown.some(x=>!x.textContent.toLowerCase().includes('grafana')))issues.push('inventory search');input.value='';input.dispatchEvent(new Event('input',{bubbles:true}));}
  scrollTo(0,document.documentElement.scrollHeight);await new Promise(r=>setTimeout(r,70));if(scrollY>550&&document.querySelector('[data-back-to-top]').dataset.visible!=='true')issues.push('floating top control');footer.querySelector('.footer-top').click();await new Promise(r=>setTimeout(r,100));if(scrollY>2)issues.push('back to top behavior');
