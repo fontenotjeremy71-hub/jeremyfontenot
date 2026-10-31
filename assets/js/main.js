@@ -59,3 +59,52 @@ if (projectFilters.length) {
     if (projectCount) projectCount.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'} shown`;
   }));
 }
+
+// The original catalog remains complete in HTML; search and paging improve navigation.
+const sourceList = document.querySelector('[data-source-list]');
+if (sourceList) {
+  const sourceItems = Array.from(sourceList.children);
+  const sourceSearch = document.getElementById('source-search');
+  const sourceCount = document.getElementById('source-count');
+  const sourcePage = document.querySelector('[data-source-page]');
+  const sourcePrevious = document.querySelector('[data-source-prev]');
+  const sourceNext = document.querySelector('[data-source-next]');
+  let currentSourcePage = 0;
+  const pageSize = 50;
+  const renderSources = () => {
+    const query = sourceSearch.value.trim().toLocaleLowerCase();
+    const matches = sourceItems.filter(item => item.textContent.toLocaleLowerCase().includes(query));
+    const pageCount = Math.max(1, Math.ceil(matches.length / pageSize));
+    currentSourcePage = Math.min(currentSourcePage, pageCount - 1);
+    const visible = new Set(matches.slice(currentSourcePage * pageSize, (currentSourcePage + 1) * pageSize));
+    sourceItems.forEach(item => { item.hidden = !visible.has(item); });
+    sourceCount.textContent = `${matches.length} original artifacts · ${visible.size} on this page`;
+    sourcePage.textContent = `Page ${currentSourcePage + 1} of ${pageCount}`;
+    sourcePrevious.disabled = currentSourcePage === 0;
+    sourceNext.disabled = currentSourcePage === pageCount - 1;
+  };
+  document.querySelector('[data-inventory-tools]').hidden = false;
+  document.querySelector('[data-inventory-pagination]').hidden = false;
+  sourceSearch.addEventListener('input', () => { currentSourcePage = 0; renderSources(); });
+  sourcePrevious.addEventListener('click', () => { currentSourcePage--; renderSources(); sourceSearch.focus(); });
+  sourceNext.addEventListener('click', () => { currentSourcePage++; renderSources(); sourceSearch.focus(); });
+  renderSources();
+}
+
+const topControl = document.querySelector('[data-back-to-top]');
+if (topControl) {
+  const syncTopControl = () => {
+    const visible = window.scrollY > 550;
+    topControl.dataset.visible = String(visible);
+    topControl.tabIndex = visible ? 0 : -1;
+    topControl.setAttribute('aria-hidden', String(!visible));
+  };
+  window.addEventListener('scroll', syncTopControl, { passive: true });
+  syncTopControl();
+}
+
+// Keep the initial evidence count in sync with the actual searchable collection.
+if (search) {
+  const initialCount = document.getElementById('search-count');
+  initialCount.textContent = `${document.querySelectorAll('[data-search-item]').length} evidence groups shown`;
+}

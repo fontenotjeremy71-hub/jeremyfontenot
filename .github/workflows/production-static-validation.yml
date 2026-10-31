@@ -47,3 +47,11 @@ jobs:
         with:
           name: project14-production-review
           path: production-browser-review/
+      - name: Verify every production route, redirect, visual layout and footer
+        run: python scripts/validation/validate-visual-site.py --base-url https://jeremyfontenot.online --output production-visual-review
+      - name: Retain complete production visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: complete-production-visual-review
+          path: production-visual-review/
