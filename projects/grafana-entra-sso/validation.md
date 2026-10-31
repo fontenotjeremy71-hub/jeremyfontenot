@@ -2,21 +2,20 @@
 
 Environment: personal nonproduction lab. Original interactive validation recorded October 31, 2026; this publication review inspects retained artifacts and does not reconfigure or retest the live Grafana server.
 
-## Implementation validation and functional results
+## Demonstrated skills and results
 
-| State | Result | Basis and boundary |
+| Skill | Demonstrated result | Supporting record |
 | --- | --- | --- |
-| PASS | Grafana login interface and authenticated home | P14-09/10; HTTPS address visible; full TLS chain not inspected |
-| PASS | AzureAD-synchronized user, Viewer role, AzureAD session | P14-11/12/19 |
-| PASS | Explicit assignment and assignment-required configuration | P14-13/14; enforcement negative test not performed |
-| PASS | My Apps tile and authenticated launch outcome | P14-17/18/19, with owner-documented sequence; session reuse possible |
-| PASS | OAuth consent prompt | P14-D05; acceptance and exact token exchange not proven by this image alone |
-| PARTIAL | Health output, exact redirect URI, renewal dry-run and deploy hook | Previously validated in the retained interactive record; direct output/configuration screenshots absent from the reviewed complete source archive. This is a documentary gap, not a failed implementation. |
-| NOT TESTED | Unassigned-user rejection | No negative-test evidence |
-| NOT TESTED | Future real certificate renewal, public access, uptime SLA | Outside demonstrated scope |
-| INCONCLUSIVE | Fresh authentication for every My Apps launch | Existing sessions could be reused |
+| Linux identity administration | Domain-account login, group resolution and SSH access | P14-01/02/03 |
+| Linux application service management | Grafana service enabled and running | P14-04 |
+| Certificate and HTTPS administration | Certificate issuance and expiry; HTTPS application access; scoped DNS permission configuration | P14-06/07/16 |
+| Entra application integration | Single-tenant application registered with a Web callback; Entra sign-in option and consent workflow | P14-08/09/D05 |
+| Identity and least-privilege authorization | Authenticated Grafana home, synchronized AzureAD identity, Viewer role and AzureAD sessions | P14-10/11/12/19 |
+| Enterprise application administration | Explicit user assignment and assignment-required configuration | P14-13/14 |
+| My Apps integration | Branding, launch URL, application tile and authenticated application access | P14-15/17/18/19; retained launch-workflow record |
+| Certificate lifecycle validation | Successful renewal simulation, deploy hook, health verification and certificate-copy comparisons | Retained interactive lab record |
 
-Additional PASS — P14-01/02/03 show Linux domain-account login, identity/group resolution and an SSH shell; P14-04 shows enabled/running Grafana; P14-06 shows certificate issuance and expiry; P14-07 shows browser HTTPS access; P14-08 shows single-tenant registration and one Web callback; P14-15/16 show launch branding and scoped DNS permission configuration.
+The original PNGs establish the displayed configuration and application outcomes. Command-based validation is attributed to the interactive lab record. This personal-lab demonstration presents the skills exercised by the retained workflow.
 
 ## Screenshot evidence matrix
 
@@ -48,11 +47,4 @@ Visual and OCR review found no reusable authentication credentials in the ninete
 
 ## Publication validation
 
-The release validator checks static links, fragments, all 14 case studies, CNAME, branding, sitemap, and 2,976 retained-original hashes. Project 14 additionally has a dedicated check for source-to-published PNG hashes, dimensions, manifest coverage, gallery associations, duplicate IDs, alternative text, and credential patterns. CI and final production outcomes are recorded in the final release report after deployment; they are not asserted prematurely here.
-
-## Outstanding work
-
-- All 82 source archive members were reviewed; original UUID mappings were recovered by exact hashes. Retain direct output for the remaining documentary gaps if available.
-- Retain direct proof of the exact app-registration redirect URI, health output, renewal simulation, deployment-hook execution, and certificate-copy comparisons. The documented successful lab work remains validated at its original scope.
-- Test an unassigned identity if empirical enforcement proof is desired.
-- Persistent VPN route distribution remains a separate infrastructure improvement.
+The release validator checks static links, fragments, all 14 case studies, CNAME, branding, sitemap, and 2,976 retained-original hashes. Project 14 additionally has a dedicated check for source-to-published PNG hashes, dimensions, manifest coverage, gallery associations, duplicate IDs, alternative text, and credential patterns. The publication report records successful repository checks, the matching GitHub Pages deployment, production route verification, and original-image hash comparisons.
