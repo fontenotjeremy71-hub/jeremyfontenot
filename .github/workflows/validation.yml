@@ -17,6 +17,16 @@ jobs:
           python-version: '3.12'
       - name: Validate static pages and original evidence integrity
         run: python scripts/validation/validate-static-release.py
+      - name: Validate Project 14 screenshot integrity and gallery
+        run: python scripts/validation/validate-project14-evidence.py
+      - name: Validate responsive pages and actual PNG rendering in Chrome
+        run: python scripts/validation/validate-project14-browser.py --output browser-review
+      - name: Retain responsive visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: project14-browser-review
+          path: browser-review/
       - name: Check whitespace
         run: git diff --check
       - name: Verify current production responses for verification-only fixes
