@@ -2,6 +2,7 @@
 from pathlib import Path
 from urllib.request import Request,urlopen
 import argparse,hashlib,json,shutil,subprocess,tempfile
+from browser_cdp import Browser
 ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser();p.add_argument('--output',default='production-browser-review');args=p.parse_args()
 out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=True)
@@ -16,9 +17,13 @@ for r in m['files']:
 print('PASS: 19/19 production PNGs; HTTP 200, image/png, nonempty valid PNG signature, exact original size and SHA-256')
 chrome=next((shutil.which(x) for x in ('google-chrome','chromium','chromium-browser') if shutil.which(x)),None)
 if not chrome:raise SystemExit('UNAVAILABLE: Chrome required for production visual captures')
-common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--force-prefers-reduced-motion']
-for width in (390,768,1440):
- for label,route in [('home','/'),('projects','/projects.html'),('gallery','/projects/grafana-entra-sso/index.html'),('skills','/skills.html')]:
-  with tempfile.TemporaryDirectory() as profile:
-   subprocess.run(common+['--user-data-dir='+profile,f'--window-size={width},{25000 if label=="gallery" else (8000 if label=="skills" else 1100)}','--virtual-time-budget=8000','--screenshot='+str(out/f'{label}-{width}.png'),'https://jeremyfontenot.online'+route],capture_output=True,text=True,timeout=50,check=True)
+browser=Browser(chrome)
+try:
+ for width in (390,768,1440):
+  browser.viewport(width)
+  for label,route in [('home','/'),('projects','/projects.html'),('gallery','/projects/grafana-entra-sso/index.html'),('skills','/skills.html')]:
+   browser.navigate('https://jeremyfontenot.online'+route)
+   browser.evaluate("(async()=>{for(const im of document.images)im.loading='eager';await Promise.all([...document.images].map(im=>im.decode().catch(()=>{})));return true})()")
+   browser.screenshot(out/f'{label}-{width}.png')
+finally:browser.close()
 print('Captured production home/projects/gallery/skills at 390, 768, 1440 widths; inspect artifacts for visual results')
