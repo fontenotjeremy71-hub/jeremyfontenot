@@ -109,6 +109,8 @@
   "projects/app01-storage-expansion/index.html",
   "projects/azure-arc-hybrid-management/index.html",
   "projects/entra-cloud-sync/index.html",
+  "projects/grafana-entra-sso/README.md",
+  "projects/grafana-entra-sso/index.html",
   "projects/home-lab-operations-proof/index.html",
   "projects/m365-graph-administration-lab/index.html",
   "projects/m365-messaging-security/index.html",
