@@ -1,7 +1,7 @@
 """Validate the published Project 14 provenance, PNG bytes and gallery contract."""
 from pathlib import Path
 from html.parser import HTMLParser
-import hashlib,json,re,struct,zlib
+import hashlib,json,re,struct,zlib,csv
 ROOT=Path(__file__).resolve().parents[2]
 PROJECT=ROOT/'projects/grafana-entra-sso'
 class Gallery(HTMLParser):
@@ -27,8 +27,10 @@ def png_dimensions(data):
     return size
 m=json.loads((PROJECT/'evidence-manifest.json').read_text());g=Gallery((PROJECT/'index.html').read_text())
 assert len(g.ids)==len(set(g.ids)),'Duplicate HTML IDs'
-assert len(m['files'])==10,'Expected ten reviewed screenshot records'
+assert len(m['files'])==19,'Expected nineteen reviewed screenshot records'
 assert {p.name for p in (PROJECT/'evidence').glob('*.png')}=={r['published_filename'] for r in m['files']},'Unregistered image'
+inventory=list(csv.DictReader((PROJECT/'SOURCE-SCREENSHOT-INVENTORY.csv').open()))
+assert len(inventory)==82 and sum(r['publication_state']=='published' for r in inventory)==19,'Incomplete source review inventory'
 site=set(json.loads((ROOT/'docs/static-release/site-files.json').read_text()))
 for r in m['files']:
     path=PROJECT/'evidence'/r['published_filename'];data=path.read_bytes()
@@ -36,7 +38,7 @@ for r in m['files']:
     assert hashlib.sha256(data).hexdigest()==r['sha256'],path
     assert png_dimensions(data)==(r['width'],r['height']),path
     assert not r['modified'] and not r['redacted'],path
-    assert r['source_member']==r['original_filename']==r['published_filename'],path
+    assert r['source_member']=='Original-Chat-Screenshots/'+r['original_filename'],path
     assert r['url']=='https://jeremyfontenot.online/projects/grafana-entra-sso/evidence/'+path.name,path
     rel='evidence/'+path.name
     assert rel in g.links and rel in g.images,path
@@ -46,4 +48,4 @@ for path in [PROJECT/'index.html',*PROJECT.glob('*.md'),PROJECT/'evidence-manife
     text=path.read_text()
     for pattern in (r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',r'(?i)Bearer\s+[A-Za-z0-9_.-]{20,}',r'eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.',r'(?i)(?:client_secret|api_token|password)\s*[=:]\s*[\"\x27]?[A-Za-z0-9_+/-]{16,}'):
         assert not re.search(pattern,text),'Potential credential in '+str(path)
-print('PASS: 10 PNGs, CRCs, dimensions, SHA-256, provenance, gallery links, alt text, lazy loading, unique IDs, site-manifest coverage, and credential-pattern scan')
+print('PASS: 19 PNGs, CRCs, dimensions, SHA-256, provenance, gallery links, alt text, lazy loading, unique IDs, site-manifest coverage, and credential-pattern scan')

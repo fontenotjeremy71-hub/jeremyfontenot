@@ -1,5 +1,5 @@
 # Project 14 — Grafana OSS + Microsoft Entra SSO
-**Environment:** Personal nonproduction lab, October 31, 2026. **Status:** Core authentication and HTTPS workflows validated; ten original screenshot artifacts published in this release. Additional command/configuration proof and a negative access test remain outstanding.
+**Environment:** Personal nonproduction lab, October 31, 2026. **Status:** Core authentication and HTTPS workflows validated; nineteen original screenshot artifacts published in this release. Renewal/health-output and exact callback proof plus a negative access test remain outstanding.
 
 ## Objective
 Use Grafana OSS as a real self-hosted relying-party application to demonstrate Microsoft Entra OAuth 2.0 / OIDC SSO, least-privilege authorization, private-network access, and a trusted TLS deployment with automatic certificate-renewal simulation.
@@ -28,10 +28,10 @@ The following is retained session documentation, not newly executed commands. Th
 
 ## Limitations / next verification
 - **Outstanding:** negative sign-in test with a separate unassigned Entra account. Do not claim unassigned access was empirically denied.
-- **Published:** ten reviewed original screenshots in [the evidence register](SCREENSHOT-EVIDENCE-REGISTER.md), preserved byte-for-byte. The additional 72 staging screenshots were not supplied; certificate-lifecycle and app-registration configuration screenshot proof remains unavailable.
+- **Published:** nineteen reviewed original screenshots in [the evidence register](SCREENSHOT-EVIDENCE-REGISTER.md), preserved byte-for-byte. All 82 archive members were reviewed. Service status, certificate issuance, HTTPS access, app-registration overview, launch branding and scoped DNS permissions now have direct proof. Exact redirect-URI, health, and renewal-hook output screenshots remain absent.
 - **Not proven:** a future real renewal, automatic launch-time fresh re-authentication, external/public access, uptime SLA, enterprise fleet scale, Grafana administrator entitlement for the Entra user.
 - A static VPN route was created in Windows ActiveStore. Long-term VPN route push / persistence is a separate infrastructure improvement.
 - Never commit `/etc/grafana/secrets/entra-client-secret`, Cloudflare API token files, `privkey.pem`, OAuth tokens, or unredacted secrets.
 
 ## Evidence provenance and privacy
-This document reflects screenshots and command output provided during an interactive configuration session on October 31, 2026. Ten original PNGs are included without redaction; the owner authorized identifiers and internal IP addresses. The [integrity manifest](evidence-manifest.json) records their received filenames, hashes, claims, categories, and URLs. The broader requested screenshot review remains partial because the staging archive was unavailable. The exact commands and values not retained in this repository are source-reported, not reconstructed logs.
+This document reflects screenshots and command output provided during an interactive configuration session on October 31, 2026. Nineteen original PNGs are included without redaction; the owner authorized identifiers and internal IP addresses. The [integrity manifest](evidence-manifest.json) records their received filenames, hashes, claims, categories, and URLs. All 82 source PNG members were reviewed and the original UUID mapping recovered by SHA-256 identity. The exact commands and values not retained in this repository are source-reported, not reconstructed logs.

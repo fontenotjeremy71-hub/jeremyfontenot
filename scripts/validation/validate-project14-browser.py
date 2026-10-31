@@ -26,7 +26,7 @@ for(const width of [390,768,1440]) for(const path of ['/index.html','/projects.h
  const ids=[...d.querySelectorAll('[id]')].map(x=>x.id);if(new Set(ids).size!==ids.length)issues.push('duplicate IDs');
  if(!d.querySelector('a.skip')||!d.querySelector('nav[aria-label="Primary"]'))issues.push('navigation landmarks');
  if(path.includes('grafana-entra')){
- const images=[...d.querySelectorAll('#evidence img')];if(images.length!==10)issues.push('gallery count');
+ const images=[...d.querySelectorAll('#evidence img')];if(images.length!==19)issues.push('gallery count');
  for(const im of images)im.loading='eager';
  for(let attempt=0;attempt<100&&!images.every(im=>im.complete);attempt++)await new Promise(resolve=>setTimeout(resolve,100));
  for(const im of images)if(!im.complete||!im.naturalWidth||!im.alt)issues.push('invalid or undecoded image '+im.src);
@@ -49,9 +49,9 @@ try:
    print(result.stdout[-6000:]);print(result.stderr[-1500:]);raise SystemExit('FAIL: responsive browser assertions')
   print('PASS: 9 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 14-project count')
  for width in (390,768,1440):
-  for label,route in [('case-study','/projects/grafana-entra-sso/index.html'),('gallery','/projects/grafana-entra-sso/index.html#evidence')]:
+  for label,route in [('case-study','/projects/grafana-entra-sso/index.html'),('gallery','/projects/grafana-entra-sso/index.html')]:
    with tempfile.TemporaryDirectory() as profile:
-    cmd=common+['--user-data-dir='+profile,'--window-size='+str(width)+',1100','--virtual-time-budget=5000','--screenshot='+str(output/f'{label}-{width}.png'),base+route]
+    cmd=common+['--user-data-dir='+profile,'--window-size='+str(width)+(','+('25000' if label=='gallery' else '1100')),'--virtual-time-budget=5000','--screenshot='+str(output/f'{label}-{width}.png'),base+route]
     subprocess.run(cmd,capture_output=True,text=True,timeout=45,check=True)
  print('Screenshots:',output)
 finally:

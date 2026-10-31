@@ -296,13 +296,13 @@ The current `main` branch and deployed project routing define **14 public projec
 ## 14 — Grafana OSS + Microsoft Entra SSO
 
 - **Project Name:** Grafana OSS + Microsoft Entra Single Sign-On
-- **Current Status:** IN PROGRESS — primary HTTPS and cloud SSO implementation validated; ten original screenshots published in this release; additional command/configuration screenshot proof and negative access test remain pending.
+- **Current Status:** IN PROGRESS — primary HTTPS and cloud SSO implementation validated; nineteen original screenshots published in this release; renewal/health-output and exact callback screenshot proof and negative access test remain pending.
 - **GitHub Repository Path:** `projects/grafana-entra-sso/`
 - **Portfolio URL:** https://jeremyfontenot.online/projects/grafana-entra-sso/
-- **Evidence Status:** Source screenshots and command-output validation observed October 31, 2026; public case study and README created; ten reviewed original PNGs included with source hashes and claim boundaries.
+- **Evidence Status:** Source screenshots and command-output validation observed October 31, 2026; public case study and README created; nineteen reviewed original PNGs included with source hashes and claim boundaries.
 - **Evidence Location:** `projects/grafana-entra-sso/evidence/`; case-study gallery, `SCREENSHOT-EVIDENCE-REGISTER.md`, `evidence-manifest.json`, and `validation.md`.
 - **Last Validated:** October 31, 2026 during interactive home-lab operation.
-- **Next Milestone:** Review missing command/configuration screenshots and test denial for an unassigned Entra identity; publication verification is recorded in the final release report.
+- **Next Milestone:** Retain direct renewal/health output and exact callback proof and test denial for an unassigned Entra identity; publication verification is recorded in the final release report.
 - **Notes / Claim Boundaries:** Ubuntu 26.04 LTS, Grafana OSS 13.3.0, Cloudflare DNS-01/Let's Encrypt, Certbot renewal *simulation* and deploy hook, Microsoft Entra OAuth SSO, Viewer role, restricted enterprise-application assignment, My Apps tile. No public Grafana exposure, production SLA, independent fresh tile authentication claim, or completed unassigned-account negative test.
 
 ---

@@ -19,6 +19,6 @@ The portfolio currently includes fourteen public projects. "Complete" means the 
 11. Windows Autopilot & Intune MDM Provisioning — **COMPLETE**
 12. macOS ABM to Intune Enterprise Runbook — **COMPLETE** (Microsoft-side configuration real where validated; ABM/ADE and endpoint-dependent work explicitly simulated/documented)
 13. Microsoft 365 Graph Administration Lab — **COMPLETE** (validated read-only Microsoft Graph administration and reporting automation across seven scripts)
-14. Grafana OSS + Microsoft Entra SSO — **IN PROGRESS** (live OAuth sign-in, Viewer authorization, My Apps launch, HTTPS, and simulated certificate renewal validated; ten original screenshots published; additional command/configuration screenshot proof and negative assignment test pending)
+14. Grafana OSS + Microsoft Entra SSO — **IN PROGRESS** (live OAuth sign-in, Viewer authorization, My Apps launch, HTTPS, and simulated certificate renewal validated; nineteen original screenshots published; renewal/health-output and exact callback screenshot proof and negative assignment test pending)
 
 The public numbering reflects hiring relevance and portfolio organization, not build date. Evidence and historical project files are preserved even when they are not the primary recruiter entry point.
