@@ -18,7 +18,7 @@ base=(args.base_url or local).rstrip('/')
 if args.base_url:raise SystemExit('Use the production HTTP validator plus direct browser review for remote sites')
 harness='''<!doctype html><html><body><pre id="result">RUNNING</pre><iframe id="site" style="border:0;height:1000px"></iframe><script>
 (async()=>{const results=[];const f=document.querySelector('iframe');try{
-for(const width of [390,768,1440]) for(const path of ['/index.html','/projects.html','/projects/grafana-entra-sso/index.html']){
+for(const width of [390,768,1440]) for(const path of ['/index.html','/projects.html','/skills.html','/projects/grafana-entra-sso/index.html']){
  f.style.width=width+'px';await new Promise((resolve,reject)=>{f.onload=resolve;f.onerror=reject;f.src=path});
  const d=f.contentDocument;const w=f.contentWindow;let issues=[];
  if(d.documentElement.scrollWidth>w.innerWidth+1)issues.push('horizontal overflow');
@@ -31,6 +31,11 @@ for(const width of [390,768,1440]) for(const path of ['/index.html','/projects.h
  for(let attempt=0;attempt<100&&!images.every(im=>im.complete);attempt++)await new Promise(resolve=>setTimeout(resolve,100));
  for(const im of images)if(!im.complete||!im.naturalWidth||!im.alt)issues.push('invalid or undecoded image '+im.src);
  for(const heading of d.querySelectorAll('#evidence h4'))if(heading.getBoundingClientRect().width>w.innerWidth)issues.push('heading overflow');
+ }
+ if(path==='/skills.html'){
+  const card=d.querySelector('#cap-application-sso');
+  if(!card||!card.querySelector('a[href="projects/grafana-entra-sso/index.html"]')||!card.querySelector('a[href$="P14-12-Grafana-Entra-Role-Assignment-Verified.png"]'))issues.push('missing SSO skill/proof association');
+  if(!d.querySelector('#cap-linux-https'))issues.push('missing Linux/HTTPS skills');
  }
  if(path==='/projects.html'&&!d.body.innerText.includes('14 projects shown'))issues.push('project count');
  if(width===390){const button=d.querySelector('.nav-toggle');button.click();if(button.getAttribute('aria-expanded')!=='true')issues.push('mobile menu');}
@@ -47,11 +52,11 @@ try:
   (output/'browser-dom.html').write_text(result.stdout)
   if '<pre id="result">PASS ' not in result.stdout:
    print(result.stdout[-6000:]);print(result.stderr[-1500:]);raise SystemExit('FAIL: responsive browser assertions')
-  print('PASS: 9 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 14-project count')
+  print('PASS: 12 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 14-project count')
  for width in (390,768,1440):
-  for label,route in [('case-study','/projects/grafana-entra-sso/index.html'),('gallery','/projects/grafana-entra-sso/index.html')]:
+  for label,route in [('case-study','/projects/grafana-entra-sso/index.html'),('gallery','/projects/grafana-entra-sso/index.html'),('skills','/skills.html')]:
    with tempfile.TemporaryDirectory() as profile:
-    cmd=common+['--user-data-dir='+profile,'--window-size='+str(width)+(','+('25000' if label=='gallery' else '1100')),'--virtual-time-budget=5000','--screenshot='+str(output/f'{label}-{width}.png'),base+route]
+    cmd=common+['--user-data-dir='+profile,'--window-size='+str(width)+(','+('25000' if label=='gallery' else ('8000' if label=='skills' else '1100'))),'--virtual-time-budget=5000','--screenshot='+str(output/f'{label}-{width}.png'),base+route]
     subprocess.run(cmd,capture_output=True,text=True,timeout=45,check=True)
  print('Screenshots:',output)
 finally:
