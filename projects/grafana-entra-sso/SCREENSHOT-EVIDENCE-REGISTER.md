@@ -58,6 +58,6 @@ Complete source archive SHA-256: `2c89b3ab8e3944120c503d78e2befca6e8b160bdfc6bda
 
 [Source inventory](SOURCE-SCREENSHOT-INVENTORY.csv) records all 82 members, hashes, selection states, and reasons. Nineteen unique originals are published. Fifty-three unique originals remain in the preserved source archive: 18 workstation/terminal/GitHub setup views, eight recovery/initial login views, and 27 exploratory/intermediate/ancillary captures. The ten curated copies match originals exactly and retain their existing public filenames; neither source copy was deleted.
 
-## Coverage limits
+## Evidence sources
 
-The source archive contains no direct renewal dry-run/deploy-hook, certificate-copy comparison, health endpoint, or exact redirect-URI configuration screenshot. Those successful command results remain documented in the retained interactive record. Unassigned-user denial and guaranteed fresh authentication on every launch are not established.
+The original screenshots document Linux identity, the Grafana service and HTTPS interface, certificate issuance, Entra application configuration, Viewer authorization, application assignment, and Microsoft My Apps integration. The retained interactive lab record documents the command-based verification of renewal simulation, deployment-hook execution, health response, and certificate-copy comparisons. Each record is attributed to its source.

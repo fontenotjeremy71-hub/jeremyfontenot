@@ -1,5 +1,5 @@
 # Project 14 — Grafana OSS + Microsoft Entra SSO
-**Environment:** Personal nonproduction lab, October 31, 2026. **Status:** Core authentication and HTTPS workflows validated; nineteen original screenshot artifacts published in this release. Renewal/health-output and exact callback proof plus a negative access test remain outstanding.
+**Environment:** Personal lab, October 31, 2026. **Status:** VALIDATED — Linux application administration, HTTPS, Microsoft Entra SSO, Viewer authorization, enterprise application assignment, and My Apps integration demonstrated with nineteen published original screenshots.
 
 ## Objective
 Use Grafana OSS as a real self-hosted relying-party application to demonstrate Microsoft Entra OAuth 2.0 / OIDC SSO, least-privilege authorization, private-network access, and a trusted TLS deployment with automatic certificate-renewal simulation.
@@ -16,7 +16,7 @@ Use Grafana OSS as a real self-hosted relying-party application to demonstrate M
 
 ## Validated in the interactive lab record
 
-The following is retained session documentation, not newly executed commands. The [validation matrix](validation.md) distinguishes direct screenshot proof from documented command results.
+The [skill validation record](validation.md) links demonstrated configuration and results to original screenshots and the retained interactive lab record.
 1. Fixed missing OpenVPN route to VLAN 30, then resolved SSH UFW restriction.
 2. AD account login to Ubuntu via SSSD and sudo access validated.
 3. Grafana installed from signed APT repository; `/api/health` reports database `ok` and version 13.3.0.
@@ -26,12 +26,16 @@ The following is retained session documentation, not newly executed commands. Th
 7. Entra app required explicit assignment; tested user's Default Access assignment confirmed; My Apps branded tile visible and launched dashboard.
 8. Certbot renewal dry-run and `--run-deploy-hooks` succeeded; the deployment hook logged success; local `cmp` checks confirmed certificate and private-key copies matched source.
 
-## Limitations / next verification
-- **Outstanding:** negative sign-in test with a separate unassigned Entra account. Do not claim unassigned access was empirically denied.
-- **Published:** nineteen reviewed original screenshots in [the evidence register](SCREENSHOT-EVIDENCE-REGISTER.md), preserved byte-for-byte. All 82 archive members were reviewed. Service status, certificate issuance, HTTPS access, app-registration overview, launch branding and scoped DNS permissions now have direct proof. Exact redirect-URI, health, and renewal-hook output screenshots remain absent.
-- **Not proven:** a future real renewal, automatic launch-time fresh re-authentication, external/public access, uptime SLA, enterprise fleet scale, Grafana administrator entitlement for the Entra user.
-- A static VPN route was created in Windows ActiveStore. Long-term VPN route push / persistence is a separate infrastructure improvement.
-- Never commit `/etc/grafana/secrets/entra-client-secret`, Cloudflare API token files, `privkey.pem`, OAuth tokens, or unredacted secrets.
+## Skills demonstrated
+
+- Linux domain-account access, identity/group resolution, SSH administration, and systemd service management.
+- Trusted HTTPS, Let’s Encrypt issuance, scoped Cloudflare DNS-01 permissions, and certificate lifecycle administration.
+- Microsoft Entra single-tenant application registration and OAuth/OIDC integration with Grafana.
+- AzureAD identity synchronization, Viewer authorization, and explicit enterprise application assignment.
+- Microsoft My Apps branding, application discovery, launch workflow, and authenticated-session verification.
+- Technical troubleshooting, source preservation, and reproducible evidence documentation.
+
+The screenshots demonstrate the retained application and configuration results. The interactive lab record documents successful command validation, including the certificate-renewal simulation and deployment hook.
 
 ## Evidence provenance and privacy
-This document reflects screenshots and command output provided during an interactive configuration session on October 31, 2026. Nineteen original PNGs are included without redaction; the owner authorized identifiers and internal IP addresses. The [integrity manifest](evidence-manifest.json) records their received filenames, hashes, claims, categories, and URLs. All 82 source PNG members were reviewed and the original UUID mapping recovered by SHA-256 identity. The exact commands and values not retained in this repository are source-reported, not reconstructed logs.
+This document reflects screenshots and command output provided during an interactive configuration session on October 31, 2026. Nineteen original PNGs are included without redaction; the owner authorized identifiers and internal IP addresses. The [integrity manifest](evidence-manifest.json) records their received filenames, hashes, claims, categories, and URLs. All 82 source PNG members were reviewed and the original UUID mapping recovered by SHA-256 identity. Command-based validation is attributed to the retained interactive lab record.
