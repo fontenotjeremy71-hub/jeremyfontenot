@@ -3,7 +3,7 @@ import base64,hashlib,json,os,socket,struct,subprocess,tempfile,time,urllib.requ
 from urllib.parse import urlsplit
 class Browser:
  def __init__(self,executable):
-  self.profile=tempfile.TemporaryDirectory();self.sequence=0;self.events=[]
+  self.profile=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.sequence=0;self.events=[]
   with socket.socket() as s:s.bind(('127.0.0.1',0));self.port=s.getsockname()[1]
   self.process=subprocess.Popen([executable,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--force-prefers-reduced-motion','--no-first-run','--no-default-browser-check','--user-data-dir='+self.profile.name,'--remote-debugging-port='+str(self.port),'about:blank'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
   for _ in range(150):
