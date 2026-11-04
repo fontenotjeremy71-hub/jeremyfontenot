@@ -38,7 +38,7 @@ for(const width of [390,768,1440]) for(const path of ['/index.html','/projects.h
   if(!card||!card.querySelector('a[href="projects/grafana-entra-sso/index.html"]')||!card.querySelector('a[href$="P14-12-Grafana-Entra-Role-Assignment-Verified.png"]'))issues.push('missing SSO skill/proof association');
   if(!d.querySelector('#cap-linux-https'))issues.push('missing Linux/HTTPS skills');
  }
- if(path==='/projects.html'&&!d.body.innerText.includes('14 projects shown'))issues.push('project count');
+ if(path==='/projects.html'&&!d.body.innerText.includes('15 projects shown'))issues.push('project count');
  if(width===390){const button=d.querySelector('.nav-toggle');button.click();if(button.getAttribute('aria-expanded')!=='true')issues.push('mobile menu');}
  results.push({width,path,issues});
 }
@@ -48,12 +48,12 @@ const failed=results.some(r=>r.issues.length);document.getElementById('result').
 with tempfile.NamedTemporaryFile(mode='w',suffix='.html',prefix='qa-browser-',dir=ROOT,delete=False) as f:f.write(harness);harness_path=Path(f.name)
 common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--disable-background-timer-throttling','--disable-renderer-backgrounding','--run-all-compositor-stages-before-draw','--force-prefers-reduced-motion']
 try:
- with tempfile.TemporaryDirectory() as profile:
+ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as profile:
   result=subprocess.run(common+['--user-data-dir='+profile,'--virtual-time-budget=30000','--dump-dom',local+'/'+harness_path.name],capture_output=True,text=True,timeout=90)
   (output/'browser-dom.html').write_text(result.stdout)
   if '<pre id="result">PASS ' not in result.stdout:
    print(result.stdout[-6000:]);print(result.stderr[-1500:]);raise SystemExit('FAIL: responsive browser assertions')
-  print('PASS: 12 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 14-project count')
+  print('PASS: 12 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 15-project count')
  browser=Browser(chrome)
  try:
   for width in (390,768,1440):

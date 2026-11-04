@@ -256,6 +256,11 @@
       "redirect_to": "projects/m365-graph-administration-lab/index.html"
     },
     {
+      "path": "project-15.html",
+      "kind": "project",
+      "redirect_to": null
+    },
+    {
       "path": "projects.html",
       "kind": "page",
       "redirect_to": null
