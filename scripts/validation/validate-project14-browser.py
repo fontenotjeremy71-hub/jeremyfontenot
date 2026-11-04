@@ -38,7 +38,7 @@ for(const width of [390,768,1440]) for(const path of ['/index.html','/projects.h
   if(!card||!card.querySelector('a[href="projects/grafana-entra-sso/index.html"]')||!card.querySelector('a[href$="P14-12-Grafana-Entra-Role-Assignment-Verified.png"]'))issues.push('missing SSO skill/proof association');
   if(!d.querySelector('#cap-linux-https'))issues.push('missing Linux/HTTPS skills');
  }
- if(path==='/projects.html'&&!d.body.innerText.includes('14 projects shown'))issues.push('project count');
+ if(path==='/projects.html'&&!d.body.innerText.includes('15 projects shown'))issues.push('project count');
  if(width===390){const button=d.querySelector('.nav-toggle');button.click();if(button.getAttribute('aria-expanded')!=='true')issues.push('mobile menu');}
  results.push({width,path,issues});
 }
