@@ -48,12 +48,12 @@ const failed=results.some(r=>r.issues.length);document.getElementById('result').
 with tempfile.NamedTemporaryFile(mode='w',suffix='.html',prefix='qa-browser-',dir=ROOT,delete=False) as f:f.write(harness);harness_path=Path(f.name)
 common=[chrome,'--headless','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--hide-scrollbars','--disable-background-timer-throttling','--disable-renderer-backgrounding','--run-all-compositor-stages-before-draw','--force-prefers-reduced-motion']
 try:
- with tempfile.TemporaryDirectory() as profile:
+ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as profile:
   result=subprocess.run(common+['--user-data-dir='+profile,'--virtual-time-budget=30000','--dump-dom',local+'/'+harness_path.name],capture_output=True,text=True,timeout=90)
   (output/'browser-dom.html').write_text(result.stdout)
   if '<pre id="result">PASS ' not in result.stdout:
    print(result.stdout[-6000:]);print(result.stderr[-1500:]);raise SystemExit('FAIL: responsive browser assertions')
-  print('PASS: 12 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 14-project count')
+  print('PASS: 12 page/viewport combinations; PNG decoding; unique IDs; overflow; landmarks; mobile menu; 15-project count')
  browser=Browser(chrome)
  try:
   for width in (390,768,1440):
