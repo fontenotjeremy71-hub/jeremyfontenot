@@ -3,7 +3,7 @@
 **Purpose:** Authoritative source-of-truth registry for Jeremy Fontenot's IT portfolio work.  
 **Primary portfolio:** https://jeremyfontenot.online  
 **Primary GitHub repository:** `fontenotjeremy71-hub/jeremyfontenot`  
-**Registry last reconciled:** 2026-10-04  
+**Registry last reconciled:** 2026-11-05  
 **Status rule:** The current GitHub repository and live portfolio take precedence over older chats when they conflict. Only unresolved facts that are materially relevant to a technical claim, evidence location, publication state, or project scope should be marked `NEEDS VERIFICATION`; missing historical dates are not remediation items unless the date itself is technically material.
 
 ## Authority and Maintenance Rules
@@ -120,7 +120,17 @@ The continued availability of a temporary lab environment is not required to pre
 
 ## Current Public Portfolio Set
 
-The current `main` branch and deployed project routing define **14 public projects**. The current literal HTML homepage, project directory, and `projects/README.md` include Grafana as Project 14. Preserved, unused presentation source files may retain prior project counts and are not loaded by the current site.
+The current `main` branch and deployed project routing define **15 public projects**. The current literal HTML homepage, project directory, and `projects/README.md` include Grafana as Project 14 and JF Automation & Scripting Dashboard as Project 15. Preserved, unused presentation source files may retain prior project counts and are not loaded by the current site.
+
+---
+
+## 15 — JF Automation & Scripting Dashboard
+
+- **Public case study:** `project-15.html`.
+- **Public status:** VALIDATED within the personal-lab and developer-tenant scope documented by the case study.
+- **Scope:** Local PowerShell 7 administration dashboard with Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and guarded Active Directory provisioning. The portfolio displays evidence rather than executing local scripts.
+- **Evidence:** Five original PASS screenshots linked from the case study and evidence directory.
+- **Publication:** Included in the 15-project public directory, homepage, skills, proof, home-lab, evidence, and documentation pages.
 
 ---
 
@@ -353,10 +363,10 @@ These items should not increase the public project count unless a deliberate por
 
 # Registry-Level Discrepancies / NEEDS VERIFICATION
 
-1. **RESOLVED — Public project count shell mismatch:** `projects.html`, `assets/js/routes-projects.js`, and `projects/README.md` are historically synchronized for the 13-project baseline; Project 14 Grafana SSO has since been added to the current directory.
+1. **RESOLVED — Public project count shell mismatch:** `projects.html`, `assets/js/routes-projects.js`, and `projects/README.md` are historically synchronized for the 13-project baseline; Projects 14 Grafana SSO and 15 JF Automation & Scripting Dashboard have since been added to the current directory.
 2. **RESOLVED — Microsoft 365 Messaging & Security status mismatch:** `evidence-library/projects/m365-messaging-security/README.md`, current routing, and `projects/README.md` now consistently represent the project as COMPLETE. Existing evidence limitations and the Microsoft Graph licensing-metadata discrepancy remain explicitly documented.
 3. **RESOLVED — ServiceNow Request Fulfillment:** The intended REQ → RITM → approval → Procurement SCTASK → Field Services SCTASK → automatic RITM/REQ closure workflow is complete and validated. Further ServiceNow administration is tracked separately.
-4. **ServiceNow Administration & ITSM Lab:** Phases 1–4 are validated, but the project is not yet part of the authoritative 13-project public set.
+4. **ServiceNow Administration & ITSM Lab:** Phases 1–4 are validated, but the project is not yet part of the authoritative 15-project public set.
 5. **Cloudflare hardening:** Operationally meaningful, but no confirmed dedicated case-study/evidence package exists yet.
 
 # Immediate Registry Priorities
