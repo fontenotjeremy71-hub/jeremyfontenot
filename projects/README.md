@@ -4,7 +4,7 @@ Project folders and public case-study pages contain the implementation record be
 
 ## Public project set
 
-The portfolio currently includes fourteen public projects. "Complete" means the planned portfolio project, validation, and documentation are finished; it does not expand any claim beyond the explicit lab or simulation boundaries on each project page. Projects marked **IN PROGRESS** remain active learning and implementation environments.
+The portfolio currently includes fifteen public projects. "Complete" means the planned portfolio project, validation, and documentation are finished; it does not expand any claim beyond the explicit lab or simulation boundaries on each project page. Projects marked **IN PROGRESS** remain active learning and implementation environments.
 
 1. Windows LAPS & Advanced Group Policy — **COMPLETE**
 2. Microsoft Entra Hybrid Identity & Cloud Sync — **COMPLETE**
@@ -20,5 +20,6 @@ The portfolio currently includes fourteen public projects. "Complete" means the 
 12. macOS ABM to Intune Enterprise Runbook — **COMPLETE** (Microsoft-side configuration real where validated; ABM/ADE and endpoint-dependent work explicitly simulated/documented)
 13. Microsoft 365 Graph Administration Lab — **COMPLETE** (validated read-only Microsoft Graph administration and reporting automation across seven scripts)
 14. Grafana OSS + Microsoft Entra SSO — **VALIDATED** (Linux application administration, trusted HTTPS, Entra OAuth sign-in, Viewer authorization, enterprise application assignment, and My Apps integration; nineteen original screenshots published)
+15. JF Automation & Scripting Dashboard — **VALIDATED** (local PowerShell 7 administration dashboard, Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and guarded Active Directory provisioning; five original PASS screenshots linked from the public case study)
 
 The public numbering reflects hiring relevance and portfolio organization, not build date. Evidence and historical project files are preserved even when they are not the primary recruiter entry point.
