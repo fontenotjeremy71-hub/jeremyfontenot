@@ -124,16 +124,6 @@ The current `main` branch and deployed project routing define **15 public projec
 
 ---
 
-## 15 — JF Automation & Scripting Dashboard
-
-- **Public case study:** `project-15.html`.
-- **Public status:** VALIDATED within the personal-lab and developer-tenant scope documented by the case study.
-- **Scope:** Local PowerShell 7 administration dashboard with Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and guarded Active Directory provisioning. The portfolio displays evidence rather than executing local scripts.
-- **Evidence:** Five original PASS screenshots linked from the case study and evidence directory.
-- **Publication:** Included in the 15-project public directory, homepage, skills, proof, home-lab, evidence, and documentation pages.
-
----
-
 ## 01 — Windows LAPS & Advanced Group Policy
 
 - **Project Name:** Windows LAPS & Advanced Group Policy
@@ -332,7 +322,17 @@ The current `main` branch and deployed project routing define **15 public projec
 - **Next Milestone:** Complete Phase 05 — Flow Designer Automation, then Phases 06–09, followed by Phase 10 final validation/evidence consolidation/publication.
 - **Notes / Claim Boundaries:** Personal ServiceNow PDI. This project is intentionally distinct from the earlier Request Fulfillment project: it demonstrates platform administration, incident routing, SLA administration, notifications/escalation, Flow Designer, UI policies/business rules, knowledge, catalog administration, and reporting. It does not represent employer-owned production ServiceNow administration.
 
-## 15 — Cloudflare Free-Plan Site Hardening
+## 15 — JF Automation & Scripting Dashboard
+
+- **Public case study:** `project-15.html`.
+- **Public status:** VALIDATED within the personal-lab and developer-tenant scope documented by the case study.
+- **Scope:** Local PowerShell 7 administration dashboard with Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and guarded Active Directory provisioning. The portfolio displays evidence rather than executing local scripts.
+- **Evidence:** Five original PASS screenshots linked from the case study and evidence directory.
+- **Publication:** Included in the 15-project public directory, homepage, skills, proof, home-lab, evidence, and documentation pages.
+
+---
+
+## Supporting operational work — Cloudflare Free-Plan Site Hardening
 
 - **Project Name:** Cloudflare Free-Plan Site Hardening
 - **Current Status:** SUBSTANTIALLY COMPLETE OPERATIONAL WORK — not currently a dedicated public portfolio project.
