@@ -137,3 +137,72 @@ a{transition:color .18s ease,border-color .18s ease,background .18s ease}a svg{f
 @media(max-width:620px){.graph-case-study .graph-hero{padding:30px 22px}.graph-case-study .graph-hero h1{font-size:clamp(2.3rem,10vw,3.4rem)}.graph-stat-grid{gap:8px}.graph-stat-grid>div{padding:17px 13px}.graph-case-study .graph-development{padding:24px 18px}.graph-proof-grid,.graph-flow{grid-template-columns:1fr}.graph-hero-art{width:190px}.graph-case-study .scope{padding:22px}.graph-proof-grid .proof{padding:21px}}
 @media(prefers-reduced-motion:reduce){.graph-proof-grid .proof:hover{transform:none}}
 @media print{.graph-case-study .graph-hero,.graph-case-study .graph-development,.graph-flow-step,.graph-stat-grid>div{background:#fff;color:#111}.graph-case-study .graph-hero h1 span{color:#111}.graph-hero-art{display:none}}
+
+
+/* Project 13 signature refinement — intentionally scoped to the Graph case study. */
+.graph-case-study{--graph-ice:#a5f4f4;--graph-cyan:#79dce3;--graph-violet:#b66eb8;--graph-line:#36556c}
+.graph-case-study main.wrap{max-width:1220px}
+.graph-case-study .graph-hero{grid-template-columns:minmax(0,1.42fr) minmax(240px,.72fr);min-height:450px;gap:24px;padding:65px clamp(28px,5vw,70px);border-color:#4b7183;border-radius:24px;background:radial-gradient(ellipse at 82% 33%,#19566b80,transparent 43%),radial-gradient(ellipse at 10% 95%,#5d245d30,transparent 44%),linear-gradient(128deg,#14263b 0%,#0b1422 75%);box-shadow:0 25px 75px #0004,inset 0 1px 0 #ffffff0c}
+.graph-case-study .graph-hero:after{content:"";position:absolute;right:0;top:0;height:1px;width:45%;background:linear-gradient(90deg,transparent,#8ae3e8,transparent)}
+.graph-case-study .graph-hero-copy{position:relative;z-index:1}
+.graph-case-study .graph-hero h1{max-width:none;font-size:clamp(2.45rem,4.6vw,4.75rem);letter-spacing:-.057em;line-height:1.04;margin:19px 0 24px}
+.graph-case-study .graph-hero h1 span{display:block}
+.graph-case-study .graph-hero h1 .graph-hero-pretitle,.graph-case-study .graph-hero h1 .graph-hero-last{color:#f4f9ff}
+.graph-case-study .graph-hero h1 .graph-hero-title{color:var(--graph-ice);font-size:.89em;white-space:normal}
+.graph-case-study .graph-hero-lead{max-width:53ch;color:#c9d8e7;font-size:16px}
+.graph-case-study .graph-hero-actions .button{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.graph-case-study .graph-hero-art{width:min(100%,340px);filter:drop-shadow(0 0 30px #39c9d52e)}
+.graph-case-study .graph-orbit-one{border-color:#79e4e5a0;box-shadow:0 0 45px #4ed9e526,inset 0 0 30px #44cdd81e}
+.graph-case-study .graph-orbit-two{border-color:#ba78c38c}
+.graph-case-study .graph-core{width:49%;border-radius:28%;gap:6px;background:linear-gradient(140deg,#226579,#0c2133);box-shadow:0 0 70px #43d1dd40,inset 0 1px 0 #ffffff2b}
+.graph-case-study .graph-core .graph-core-icon{font-size:clamp(42px,5vw,72px);line-height:1;letter-spacing:-.095em;color:#fff;margin:0}
+.graph-case-study .graph-core .graph-core-label{font:700 9px ui-monospace,monospace;letter-spacing:.16em;color:#b1f5f6;margin:0}
+.graph-case-study .graph-node{border-color:#648ca0;background:#152a40;font-size:11px}
+.graph-case-study .graph-stat-grid{gap:14px;margin:16px 0 25px}
+.graph-case-study .graph-stat-grid .graph-stat{position:relative;overflow:hidden;padding:20px 21px 22px;border:1px solid #38576f;border-radius:14px;background:linear-gradient(145deg,#1a2e45,#101b2c);box-shadow:inset 0 1px 0 #ffffff0b}
+.graph-case-study .graph-stat:before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#69cbd6,#b26cb1 80%,transparent)}
+.graph-case-study .graph-stat-verified:before{background:linear-gradient(90deg,#5ee2b7,#9df6dc 80%,transparent)}
+.graph-case-study .graph-stat-kicker{display:flex!important;align-items:center;justify-content:space-between;gap:8px;margin:0 0 13px!important;color:#99bacb!important;font:700 10px ui-monospace,monospace!important;letter-spacing:.11em}
+.graph-case-study .graph-status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#67edbd;box-shadow:0 0 12px #67edbd88}
+.graph-case-study .graph-stat-grid strong{font-size:clamp(30px,3vw,43px);font-variant-numeric:tabular-nums}
+.graph-case-study .graph-stat-grid .graph-stat>span:last-child{font-size:12px;line-height:1.5;margin-top:11px}
+.graph-case-study .contents{position:sticky;top:0;z-index:15;backdrop-filter:blur(16px);background:#0e1a2aee;border-color:#35566b;box-shadow:0 10px 25px #0003}
+.graph-case-study .contents a{font-weight:650}
+.graph-case-study .graph-narrative{padding-block:56px}
+.graph-case-study .graph-narrative h2,.graph-case-study .graph-development h2,.graph-case-study .graph-architecture-section h2,.graph-case-study .graph-evidence h2{font-size:clamp(1.55rem,2.7vw,2.35rem);line-height:1.2;letter-spacing:-.035em}
+.graph-case-study .graph-development{padding:clamp(26px,4vw,49px);border-radius:22px;background:radial-gradient(ellipse at 100% 0%,#1b52624b,transparent 53%),linear-gradient(145deg,#162940,#10192b);box-shadow:0 24px 48px #0002}
+.graph-case-study .graph-validation-card{margin-top:25px;padding:clamp(20px,3vw,35px);border-radius:16px}
+.graph-validation-head{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.graph-validation-head h3{font-size:1.3rem!important;margin:0 0 12px}
+.graph-validation-ring{width:108px;height:108px;flex:none;border:7px solid #65d8b7;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle,#164239,#0d2430);box-shadow:0 0 0 6px #61d9b014,0 0 35px #65d8b71d}
+.graph-validation-ring strong{font-size:25px;color:#b7ffe6;line-height:1.2}
+.graph-validation-ring span{font:700 9px ui-monospace,monospace;letter-spacing:.13em;color:#a7dfd0}
+.graph-source-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:25px}
+.graph-case-study .graph-validation-card .graph-source-links .text-link{display:flex;flex-direction:column;gap:7px;justify-content:center;min-height:73px;margin:0;padding:13px 17px;border:1px solid #44667c;border-radius:10px;background:#10293b;text-decoration:none;font-size:13px;font-weight:650;transition:border-color .2s,background .2s}
+.graph-case-study .graph-source-links .text-link span{font:700 10px ui-monospace,monospace;color:#8be4e6;letter-spacing:.09em}
+.graph-case-study .graph-source-links .text-link:hover{background:#173e4b;border-color:#91e7e9}
+.graph-case-study .graph-architecture-section{padding-block:65px}
+.graph-case-study .graph-flow{gap:18px;margin:33px 0 25px}
+.graph-case-study .graph-flow-step{min-height:210px;padding:24px 20px;border-color:#42687b;background:radial-gradient(ellipse at 80% 0%,#1a4d5b66,transparent 65%),linear-gradient(145deg,#182e44,#101c2c)}
+.graph-case-study .graph-flow-step:not(:last-child):after{right:-19px;top:47%;width:20px;text-align:center;font-weight:800}
+.graph-case-study .graph-flow-step>span{font-size:10px;letter-spacing:.11em;margin-bottom:17px}
+.graph-flow-symbol{width:48px;height:48px;display:grid;place-items:center;margin-bottom:20px;border-radius:13px;background:#1d5260;border:1px solid #75dce0;color:#d6ffff;font:750 20px ui-monospace,monospace;box-shadow:0 0 24px #57d5dc15}
+.graph-case-study .graph-flow-step strong{font-size:16px;line-height:1.3}
+.graph-case-study .graph-flow-step small{font-size:12px}
+.graph-case-study .graph-evidence{padding-top:62px}
+.graph-case-study .graph-proof-grid{gap:20px;margin-top:32px}
+.graph-case-study .graph-proof-grid .proof{position:relative;padding:26px 27px;gap:12px;border-radius:15px;background:radial-gradient(ellipse at 100% 0%,#2d41603d,transparent 60%),linear-gradient(155deg,#17273b,#101927)}
+.graph-case-study .graph-proof-grid .proof:before{content:"";position:absolute;top:0;left:27px;width:46px;height:2px;background:linear-gradient(90deg,#83e3e4,#b77abc)}
+.graph-evidence-head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.graph-evidence-index,.graph-evidence-type{font:700 10px ui-monospace,monospace;letter-spacing:.09em;color:#9de3e8}
+.graph-evidence-type{color:#a9d7bf;font-size:9px}
+.graph-case-study .graph-proof-grid .proof h3{font-size:21px}
+.graph-case-study .graph-proof-grid .proof .text-link{display:inline-flex;align-items:center;min-height:40px;font-weight:700;word-break:break-word}
+.graph-case-study .graph-proof-grid .proof details{background:#101c2d;border-color:#38536a}
+.graph-case-study .graph-proof-grid .proof summary{cursor:pointer}
+.graph-case-study .graph-proof-grid .proof details[open]{border-color:#6dbac2}
+@media(max-width:1020px){.graph-case-study .graph-hero{grid-template-columns:minmax(0,1fr) minmax(200px,.6fr);padding:45px 32px}.graph-case-study .graph-hero h1{font-size:clamp(2.3rem,4.8vw,3.9rem)}.graph-case-study .graph-hero-art{width:245px}.graph-case-study .graph-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.graph-case-study .graph-flow-step:after{display:none}}
+@media(max-width:760px){.graph-case-study .graph-hero{grid-template-columns:1fr;padding:34px 26px}.graph-case-study .graph-hero-art{width:225px}.graph-case-study .graph-hero h1{font-size:clamp(2.5rem,8vw,4rem)}.graph-case-study .graph-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.graph-case-study .contents{position:relative;top:auto}.graph-case-study .graph-source-links{grid-template-columns:1fr}}
+@media(max-width:600px){.graph-case-study .graph-hero{padding:27px 20px}.graph-case-study .graph-hero h1{font-size:clamp(2.25rem,9vw,3.25rem)}.graph-case-study .graph-hero-art{width:185px}.graph-case-study .graph-stat-grid .graph-stat{padding:15px 12px}.graph-case-study .graph-stat-kicker{font-size:8px!important}.graph-case-study .graph-validation-head{align-items:flex-start}.graph-validation-ring{width:78px;height:78px;border-width:5px}.graph-validation-ring strong{font-size:19px}.graph-case-study .graph-flow,.graph-case-study .graph-proof-grid{grid-template-columns:1fr}.graph-case-study .graph-flow-step{min-height:180px}.graph-case-study .graph-narrative{padding-block:35px}}
+@media(prefers-reduced-motion:reduce){.graph-case-study .graph-source-links .text-link{transition:none}}
+@media print{.graph-case-study .contents{position:static}.graph-validation-ring{box-shadow:none}}
