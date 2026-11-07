@@ -82,4 +82,3 @@ Describe "Export-JFGraphUsers Successful Export" {
         Should -Invoke Get-MgUser -Exactly -Times 1
     }
 }
-
