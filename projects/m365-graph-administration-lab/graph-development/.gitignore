@@ -1,0 +1,11 @@
+# Generated Microsoft Graph reports
+/reports/
+
+# Local credentials and configuration
+.env
+.env.*
+*.secret
+*.secrets.json
+
+# Pester test artifacts
+/TestResults/
