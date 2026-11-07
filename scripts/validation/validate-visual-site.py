@@ -65,6 +65,15 @@ checks=r'''(async()=>{
  const menu=document.querySelector('.nav-toggle');if(innerWidth<=800){menu.click();if(menu.getAttribute('aria-expanded')!=='true')issues.push('mobile menu');document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));if(menu.getAttribute('aria-expanded')!=='false')issues.push('menu escape');}
  if(document.body.dataset.pageKind==='catalog'&&!document.querySelector('.catalog-group,.artifact-collection,.source-list'))issues.push('unframed artifact collection');
  if(location.pathname.endsWith('/proof.html')&&document.querySelectorAll('.proof-map-card').length!==15)issues.push('complete styled proof map');
+ if(location.pathname.endsWith('/projects.html')){
+  const cards=[...document.querySelectorAll('.project-directory article')];
+  if(cards.length!==15)issues.push('project directory count '+cards.length+'/15');
+  if(!cards.some(card=>card.querySelector('a[href="project-15.html"]')))issues.push('Project 15 directory link');
+ }
+ if(location.pathname.endsWith('/project-15.html')){
+  if(!document.querySelector('h1')?.textContent.includes('Scripting Dashboard'))issues.push('Project 15 case study heading');
+  if(document.querySelectorAll('#evidence img').length!==5)issues.push('Project 15 original screenshot count');
+ }
  const search=document.querySelector('#evidence-search');if(search){search.value='Grafana';search.dispatchEvent(new Event('input',{bubbles:true}));const feature=document.querySelector('#grafana-entra-proof');if(!feature||feature.hidden||!feature.classList.contains('panel')||!feature.classList.contains('evidence-feature'))issues.push('SSO evidence styling/search');if(!document.querySelector('#search-count').textContent.startsWith('1 '))issues.push('evidence count');search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));}
  const source=document.querySelector('[data-source-list]');if(source){if([...source.children].filter(x=>!x.hidden).length!==50)issues.push('inventory pagination');const input=document.querySelector('#source-search');input.value='grafana';input.dispatchEvent(new Event('input',{bubbles:true}));const shown=[...source.children].filter(x=>!x.hidden);if(shown.some(x=>!x.textContent.toLowerCase().includes('grafana')))issues.push('inventory search');input.value='';input.dispatchEvent(new Event('input',{bubbles:true}));}
  scrollTo(0,document.documentElement.scrollHeight);await new Promise(r=>setTimeout(r,70));if(scrollY>550&&document.querySelector('[data-back-to-top]').dataset.visible!=='true')issues.push('floating top control');footer.querySelector('.footer-top').click();await new Promise(r=>setTimeout(r,100));if(scrollY>2)issues.push('back to top behavior');

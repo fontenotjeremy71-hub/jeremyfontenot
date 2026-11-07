@@ -49,10 +49,19 @@ for name,page in pages.items():
         if target.startswith('evidence/') and not target.endswith('.html'):download_targets.add(target)
         if u.fragment and target in pages and unquote(u.fragment) not in pages[target].ids:
             errors.append(name+' -> missing fragment '+href)
+# The first fourteen case studies live in projects/*/index.html; Project 15
+# is intentionally published at the top-level project-15.html route.
 project_pages=[p for p in files if p.startswith('projects/') and p.endswith('/index.html')]
-if len(project_pages)!=14:errors.append('Expected 14 project case studies')
+project_pages+=['project-15.html'] if 'project-15.html' in files else []
+if len(project_pages)!=15:errors.append('Expected 15 project case studies; found '+str(len(project_pages)))
 for p in project_pages:
-    if pages[p].h1!=1:errors.append(p+' must have one h1')
+    if p not in pages:errors.append('Missing case study page '+p)
+    elif pages[p].h1!=1:errors.append(p+' must have one h1')
+project_directory=Page((ROOT/'projects.html').read_text())
+if set(project_pages)-set(project_directory.links):
+    errors.append('Project directory missing case studies: '+', '.join(sorted(set(project_pages)-set(project_directory.links))))
+if 'project-15.html' not in [urlsplit(x).path for x in project_directory.links]:
+    errors.append('Project 15 missing from project directory')
 if (ROOT/'CNAME').read_text().strip()!='jeremyfontenot.online':errors.append('CNAME changed')
 if not (ROOT/'.nojekyll').exists():errors.append('Missing .nojekyll')
 css=(ROOT/'assets/css/style.css').read_text().lower()
