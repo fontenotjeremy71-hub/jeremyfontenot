@@ -80,3 +80,60 @@ a{transition:color .18s ease,border-color .18s ease,background .18s ease}a svg{f
 
 /* One consistent return-to-top control: retain the floating button, hide the redundant footer link. */
 .footer-top{display:none}
+
+
+/* Project 13 — Graph case study: scoped, accessible, responsive editorial layout. */
+.graph-case-study .graph-hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(230px,.75fr);align-items:center;gap:30px;isolation:isolate;padding:74px 36px 54px;margin:22px 0 0;border:1px solid #36556a;border-radius:22px;background:radial-gradient(ellipse at 83% 25%,#1a50604d,transparent 46%),linear-gradient(135deg,#122137,#0a111d 70%);overflow:hidden}
+.graph-case-study .graph-hero:before{position:absolute;inset:0;content:"";background-image:linear-gradient(#78d9dd0b 1px,transparent 1px),linear-gradient(90deg,#78d9dd0b 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:-1}
+.graph-case-study .graph-hero .eyebrow{color:#8adde3;font-size:11px;letter-spacing:.2em}
+.graph-case-study .graph-hero h1{font-size:clamp(2.5rem,5.4vw,4.9rem);line-height:1.06;letter-spacing:-.055em;max-width:13ch;margin:20px 0}
+.graph-case-study .graph-hero h1 span{display:block;color:#8adde3}
+.graph-case-study .graph-hero-lead{font-size:clamp(15px,1.7vw,18px);line-height:1.75;max-width:54ch;color:#c7d7e8}
+.graph-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.graph-hero-art{position:relative;width:min(100%,330px);aspect-ratio:1;margin:auto;display:grid;place-items:center}
+.graph-orbit{position:absolute;border:1px solid #5bd6d77d;border-radius:50%;inset:12%;box-shadow:0 0 45px #36c7cc18,inset 0 0 30px #36c7cc13}
+.graph-orbit-two{inset:0;border-style:dashed;border-color:#b44ca58a;transform:rotate(-24deg)}
+.graph-core{width:46%;aspect-ratio:1;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:26%;font-size:clamp(38px,5vw,65px);font-weight:850;letter-spacing:-.09em;color:#f4fcff;background:linear-gradient(145deg,#174d61,#10182d);border:1px solid #79e0e1;box-shadow:0 0 65px #50d5dc30}
+.graph-core span{font-size:9px;letter-spacing:.2em;color:#9fe8ed;margin-top:6px}
+.graph-node{position:absolute;display:grid;place-items:center;min-width:57px;height:42px;padding:0 10px;border-radius:10px;border:1px solid #57758b;background:#14253a;color:#dcfaff;font:700 12px ui-monospace,monospace;box-shadow:0 9px 20px #0005}
+.graph-node-a{top:7%;left:9%}.graph-node-b{right:0;top:36%}.graph-node-c{bottom:6%;left:20%}
+.graph-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0 26px}
+.graph-stat-grid>div{padding:22px 18px;border:1px solid #365268;border-radius:13px;background:linear-gradient(160deg,#182b3f,#101827)}
+.graph-stat-grid strong{display:block;font-size:clamp(24px,3vw,38px);line-height:1.1;letter-spacing:-.05em;color:#92e6e9}
+.graph-stat-grid strong span{font-size:.6em;color:#c4d5e4}
+.graph-stat-grid>div>span{display:block;margin-top:10px;font-size:12px;color:#c4d5e4}
+.graph-case-study .contents{position:relative;margin:25px 0 10px;gap:10px;padding:12px;background:#0f1c2d}
+.graph-case-study .contents a{padding:9px 13px;border:1px solid #35516a;border-radius:8px;text-decoration:none;transition:background .2s,border-color .2s}
+.graph-case-study .contents a:hover,.graph-case-study .contents a:focus-visible{background:#17384a;border-color:#8adde3}
+.graph-case-study .section{scroll-margin-top:100px}
+.graph-case-study .graph-narrative{max-width:100%;border-bottom:1px solid #2c4055}
+.graph-case-study .graph-narrative>p:not(.eyebrow){max-width:85ch}
+.graph-case-study .graph-development{padding:42px 34px;margin:24px 0;border:1px solid #34566d;border-radius:20px;background:linear-gradient(145deg,#13253b,#0e1726)}
+.graph-case-study .graph-development>p:not(.eyebrow){max-width:80ch}
+.graph-case-study .graph-validation-card{position:relative;border-color:#3e7182;background:linear-gradient(125deg,#152c3d,#131b2d);padding:30px}
+.graph-pass-badge{display:inline-flex;align-items:center;gap:12px;margin-bottom:17px;padding:8px 13px;border:1px solid #56bca4;border-radius:100px;color:#a3f5d3;background:#11392f;font:700 12px ui-monospace,monospace;letter-spacing:.08em}
+.graph-pass-badge strong{font-size:17px}
+.graph-case-study .graph-validation-card .text-link{display:inline-flex;margin:7px 0;line-height:1.5}
+.graph-case-study .graph-validation-card br{display:none}
+.graph-case-study .graph-architecture-section{padding:35px 0}
+.graph-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:30px 0 20px}
+.graph-flow-step{position:relative;min-height:145px;padding:24px 18px;border:1px solid #3d6578;border-radius:13px;background:linear-gradient(145deg,#183247,#111c2e)}
+.graph-flow-step:not(:last-child):after{content:"→";position:absolute;right:-16px;top:43%;z-index:2;color:#8adde3;font-size:24px}
+.graph-flow-step span{display:block;color:#9ee4e6;font:700 12px ui-monospace,monospace;margin-bottom:19px}
+.graph-flow-step strong,.graph-flow-step small{display:block}
+.graph-flow-step strong{font-size:16px}.graph-flow-step small{color:#b3c7d8;margin-top:8px;line-height:1.6}
+.graph-flow-note,.graph-evidence-intro{color:#b8cadc;max-width:80ch}
+.graph-case-study .scope{border-radius:13px;border:1px solid #6b4a7b;border-left:4px solid #b44ca5;margin:24px 0;padding:28px 32px}
+.graph-case-study .graph-evidence{padding-top:40px;scroll-margin-top:90px}
+.graph-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin:26px 0}
+.graph-proof-grid .proof{margin:0;padding:25px;display:flex;flex-direction:column;gap:8px;background:linear-gradient(155deg,#17273b,#101927);border-color:#35506b;transition:border-color .2s,transform .2s}
+.graph-proof-grid .proof:hover{border-color:#79d9dd;transform:translateY(-2px)}
+.graph-proof-grid .proof h3{font-size:18px;margin:0;color:#e9f6fa}
+.graph-proof-grid .proof p{font-size:13px;line-height:1.7}
+.graph-proof-grid .proof small{font-size:11px;color:#aebfd1;line-height:1.65}
+.graph-proof-grid .proof details{margin-top:auto}
+.graph-case-study :is(a,summary):focus-visible{outline:2px solid #8adde3;outline-offset:4px}
+@media(max-width:850px){.graph-case-study .graph-hero{grid-template-columns:1fr;padding:40px 28px}.graph-hero-art{width:230px}.graph-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.graph-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.graph-flow-step:after{display:none}}
+@media(max-width:620px){.graph-case-study .graph-hero{padding:30px 22px}.graph-case-study .graph-hero h1{font-size:clamp(2.3rem,10vw,3.4rem)}.graph-stat-grid{gap:8px}.graph-stat-grid>div{padding:17px 13px}.graph-case-study .graph-development{padding:24px 18px}.graph-proof-grid,.graph-flow{grid-template-columns:1fr}.graph-hero-art{width:190px}.graph-case-study .scope{padding:22px}.graph-proof-grid .proof{padding:21px}}
+@media(prefers-reduced-motion:reduce){.graph-proof-grid .proof:hover{transform:none}}
+@media print{.graph-case-study .graph-hero,.graph-case-study .graph-development,.graph-flow-step,.graph-stat-grid>div{background:#fff;color:#111}.graph-case-study .graph-hero h1 span{color:#111}.graph-hero-art{display:none}}
