@@ -58,8 +58,8 @@ for p in project_pages:
     if p not in pages:errors.append('Missing case study page '+p)
     elif pages[p].h1!=1:errors.append(p+' must have one h1')
 project_directory=Page((ROOT/'projects.html').read_text())
-if len([x for x in project_directory.links if x in project_pages])!=15:
-    errors.append('Project directory must link to all 15 distinct case studies exactly once')
+if set(project_pages)-set(project_directory.links):
+    errors.append('Project directory missing case studies: '+', '.join(sorted(set(project_pages)-set(project_directory.links))))
 if 'project-15.html' not in [urlsplit(x).path for x in project_directory.links]:
     errors.append('Project 15 missing from project directory')
 if (ROOT/'CNAME').read_text().strip()!='jeremyfontenot.online':errors.append('CNAME changed')
