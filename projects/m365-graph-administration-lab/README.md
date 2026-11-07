@@ -27,6 +27,10 @@ This lab demonstrates Microsoft 365, Microsoft Entra ID, Microsoft Intune, Micro
 | `Get-EntraStaleAccounts.ps1` | Potentially stale account analysis using sign-in activity | Validated |
 | `Get-IntuneManagedDeviceInventory.ps1` | Intune managed-device inventory | Validated |
 
+## Graph development extension
+
+The [`graph-development/`](graph-development/) application adds a read-only JSON user export with delegated `User.Read.All` scope validation and **8 locally passing Pester tests** (3 function, 5 report). The tests use mocks and synthetic data; a separate live execution retrieved 24 directory users. Generated reports are excluded from version control. See the [extension README](graph-development/README.md) for setup, execution, security boundaries, and test commands.
+
 ## Validated environment snapshot
 
 - Verified domains: 3
@@ -87,13 +91,20 @@ m365-graph-administration-lab/
 │   ├── Get-EntraRoleInventory.ps1
 │   ├── Get-EntraStaleAccounts.ps1
 │   └── Get-IntuneManagedDeviceInventory.ps1
-└── docs/
-    └── Troubleshooting.md
+├── docs/
+│   └── Troubleshooting.md
+└── graph-development/
+    ├── README.md
+    ├── .gitignore
+    ├── src/Export-JFGraphUsers.ps1
+    └── tests/
+        ├── GraphFunction.Tests.ps1
+        └── GraphReport.Tests.ps1
 ```
 
 ## Completion and claim boundary
 
-The intended portfolio scope is complete: seven read-only administration/reporting scripts were validated across Microsoft 365, Entra ID, and Intune. The project demonstrates delegated Microsoft Graph authentication, required-scope handling, read-only administration/reporting, CSV output, pagination, and documented troubleshooting. It does not claim Graph write automation or broader administrative coverage that was not validated.
+The original portfolio scope is complete: seven read-only administration/reporting scripts were validated across Microsoft 365, Entra ID, and Intune. The project demonstrates delegated Microsoft Graph authentication, required-scope handling, read-only administration/reporting, CSV output, pagination, and documented troubleshooting. It does not claim Graph write automation or broader administrative coverage that was not validated.
 
 ## Security and publication notes
 
