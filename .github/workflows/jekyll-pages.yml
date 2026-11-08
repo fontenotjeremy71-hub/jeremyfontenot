@@ -1,0 +1,56 @@
+name: Jekyll Portfolio Deployment
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: jekyll-pages-deployment
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: jekyll-pilot
+      - name: Render all root pages using managed layout
+        run: python jekyll-pilot/tools/prepare_pages.py
+      - name: Build Jekyll project collection and site
+        working-directory: jekyll-pilot
+        run: bundle exec jekyll build --destination ../_jekyll-generated
+      - name: Assemble complete evidence-preserving site
+        run: python jekyll-pilot/tools/assemble_site.py
+      - name: Verify all published pages, project evidence and internal references
+        run: python jekyll-pilot/tools/verify_site.py
+      - uses: actions/configure-pages@v5
+      - name: Upload generated GitHub Pages publication
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site-jekyll/
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy site to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
