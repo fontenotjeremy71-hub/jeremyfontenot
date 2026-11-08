@@ -16,47 +16,40 @@ permissions:
 jobs:
   pilot-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
           working-directory: jekyll-pilot
-      - name: Build isolated Jekyll pilot
+      - name: Generate shared-layout wrappers for the complete site
+        run: python jekyll-pilot/tools/prepare_pages.py
+      - name: Build managed Jekyll pages
         working-directory: jekyll-pilot
-        run: bundle exec jekyll build --destination ../_jekyll-preview
-      - name: Verify migrated About page
+        run: bundle exec jekyll build --destination ../_jekyll-generated
+      - name: Verify generated structured project directory
         run: |
-          test -s _jekyll-preview/about.html
-          grep -q 'A support foundation' _jekyll-preview/about.html
-          grep -q 'site-header' _jekyll-preview/about.html
-      - name: Verify generated 15-project directory
-        run: |
-          test -s _jekyll-preview/projects.html
-          test "$(grep -o 'class="panel" data-category=' _jekyll-preview/projects.html | wc -l)" -eq 15
-          grep -q '15 projects shown' _jekyll-preview/projects.html
-          grep -q 'project-15.html' _jekyll-preview/projects.html
-      - name: Verify migrated case study pages and shared navigation
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          root = Path('_jekyll-preview')
-          entries = sorted(Path('jekyll-pilot/_projects').glob('*.md'))
-          assert len(entries) == 15, f'Expected 15 records, got {len(entries)}'
-          for entry in entries:
-              match = re.search(r'^case_study_url: "([^"]+)"', entry.read_text(encoding='utf-8'), re.M)
-              assert match, f'Missing case_study_url: {entry}'
-              page = root / match.group(1).lstrip('/')
-              assert page.is_file(), f'Missing generated case study: {page}'
-              html = page.read_text(encoding='utf-8')
-              assert '<header class="site-header">' in html, f'Missing shared header: {page}'
-              assert 'href="/projects.html"' in html, f'Broken nested navigation: {page}'
-              assert f'href="https://jeremyfontenot.online{match.group(1)}"' in html, f'Incorrect canonical URL: {page}'
-          print('All 15 case studies generated with shared layout and correct canonical URLs.')
-          PY
-      - uses: actions/upload-artifact@v4
+          test -s _jekyll-generated/index.html
+          test -s _jekyll-generated/about.html
+          test -s _jekyll-generated/projects.html
+          test "$(grep -o 'class="panel" data-category=' _jekyll-generated/projects.html | wc -l)" -eq 15
+          grep -q '15 projects shown' _jekyll-generated/projects.html
+      - name: Assemble complete static publication with original evidence
+        run: python jekyll-pilot/tools/assemble_site.py
+      - name: Verify public routes, evidence integrity, SEO and internal links
+        run: python jekyll-pilot/tools/verify_site.py
+      - name: Upload complete Jekyll publication for review
+        uses: actions/upload-artifact@v4
         with:
-          name: jekyll-pilot-preview
-          path: _jekyll-preview/
+          name: jekyll-complete-site-preview
+          path: site-jekyll/
+          if-no-files-found: error
+          retention-days: 7
