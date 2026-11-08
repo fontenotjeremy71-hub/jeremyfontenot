@@ -32,7 +32,10 @@ files=json.loads((ROOT/'docs/static-release/site-files.json').read_text())
 manifest=json.loads((ROOT/'docs/static-release/original-files.json').read_text())
 errors=[]; targets=set(files); download_targets=set(); pages={}
 for row in manifest['files']:
-    p=ROOT/({'MASTER-PORTFOLIO-REGISTRY.md': 'docs/static-release/immutable-pre-project14/MASTER-PORTFOLIO-REGISTRY.md', 'projects/README.md': 'docs/static-release/immutable-pre-project14/projects--README.md'}.get(row['retained_path'], row['retained_path']))
+    p=ROOT/({'MASTER-PORTFOLIO-REGISTRY.md': 'docs/static-release/immutable-pre-project14/MASTER-PORTFOLIO-REGISTRY.md', 'projects/README.md': 'docs/static-release/immutable-pre-project14/projects--README.md',
+        'config/publication-manifest.json': 'docs/static-release/immutable-pre-project14/config--publication-manifest.json',
+        'scripts/build/prepare-public-site.js': 'docs/static-release/immutable-pre-project14/scripts--build--prepare-public-site.js',
+        'scripts/audits/validate-sitemap.js': 'docs/static-release/immutable-pre-project14/scripts--audits--validate-sitemap.js'}.get(row['retained_path'], row['retained_path']))
     if not p.is_file():
         errors.append('Original integrity: '+row['original_path'])
         continue
