@@ -37,6 +37,29 @@ jobs:
           test "$(grep -o 'class="panel" data-category=' _jekyll-preview/projects.html | wc -l)" -eq 15
           grep -q '15 projects shown' _jekyll-preview/projects.html
           grep -q 'project-15.html' _jekyll-preview/projects.html
+      - name: Verify migrated case study pages and shared navigation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('_jekyll-preview')
+          entries = sorted(Path('jekyll-pilot/_projects').glob('*.md'))
+          assert len(entries) == 15, f'Expected 15 project records; got {len(entries)}'
+          for entry in entries:
+              match = re.search(r'^case_study_url: "([^"]+)"
+        with:
+          name: jekyll-pilot-preview
+          path: _jekyll-preview/
+, entry.read_text(encoding='utf-8'), re.M)
+              assert match, f'Missing case_study_url: {entry}'
+              page = root / match.group(1).lstrip('/')
+              assert page.is_file(), f'Missing generated case study: {page}'
+              html = page.read_text(encoding='utf-8')
+              assert '<header class="site-header">' in html, f'Missing shared header: {page}'
+              assert 'href="/projects.html"' in html, f'Broken nested navigation: {page}'
+              assert f'href="https://jeremyfontenot.online{match.group(1)}"' in html, f'Incorrect canonical URL: {page}'
+          print('All 15 case studies generated with shared layout and correct canonical URLs.')
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: jekyll-pilot-preview
