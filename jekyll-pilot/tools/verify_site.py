@@ -57,6 +57,14 @@ def main() -> None:
                 if not original.is_file() or hashlib.sha256(target.read_bytes()).digest() != hashlib.sha256(original.read_bytes()).digest():
                     problems.append(f"{record.name}: original evidence bytes changed")
 
+    homepage = (BUILD / "index.html").read_text(encoding="utf-8")
+    featured_cards = homepage.count('<article class="project-card"')
+    if featured_cards != 8:
+        problems.append(f"Expected eight collection-driven featured cards, found {featured_cards}")
+    if 'id="project15-feature"' not in homepage:
+        problems.append("Featured Project 15 is missing from the homepage")
+    if "15 project case studies" not in homepage:
+        problems.append("Homepage's dynamic collection count is not 15")
     root_pages = list(ROOT.glob("*.html"))
     if len(root_pages) < 40:
         problems.append(f"Only {len(root_pages)} root HTML pages found")
