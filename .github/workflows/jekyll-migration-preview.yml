@@ -44,13 +44,9 @@ jobs:
           import re
           root = Path('_jekyll-preview')
           entries = sorted(Path('jekyll-pilot/_projects').glob('*.md'))
-          assert len(entries) == 15, f'Expected 15 project records; got {len(entries)}'
+          assert len(entries) == 15, f'Expected 15 records, got {len(entries)}'
           for entry in entries:
-              match = re.search(r'^case_study_url: "([^"]+)"
-        with:
-          name: jekyll-pilot-preview
-          path: _jekyll-preview/
-, entry.read_text(encoding='utf-8'), re.M)
+              match = re.search(r'^case_study_url: "([^"]+)"', entry.read_text(encoding='utf-8'), re.M)
               assert match, f'Missing case_study_url: {entry}'
               page = root / match.group(1).lstrip('/')
               assert page.is_file(), f'Missing generated case study: {page}'
