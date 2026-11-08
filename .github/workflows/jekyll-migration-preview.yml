@@ -31,6 +31,12 @@ jobs:
           test -s _jekyll-preview/about.html
           grep -q 'A support foundation' _jekyll-preview/about.html
           grep -q 'site-header' _jekyll-preview/about.html
+      - name: Verify generated 15-project directory
+        run: |
+          test -s _jekyll-preview/projects.html
+          test "$(grep -o 'class="panel" data-category=' _jekyll-preview/projects.html | wc -l)" -eq 15
+          grep -q '15 projects shown' _jekyll-preview/projects.html
+          grep -q 'project-15.html' _jekyll-preview/projects.html
       - uses: actions/upload-artifact@v4
         with:
           name: jekyll-pilot-preview
