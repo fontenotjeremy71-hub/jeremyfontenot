@@ -21,6 +21,7 @@ class Quiet(SimpleHTTPRequestHandler):
 
 CHECKS = r"""(() => {
   const css = [...document.styleSheets].some(x => x.href && x.href.includes('assets/css/style.css'));
+  const experience = [...document.styleSheets].some(x => x.href && x.href.includes('assets/css/experience.css'));
   const header = document.querySelector('header.site-header');
   const footer = document.querySelector('footer.site-footer');
   const logo = document.querySelector('header.site-header img');
@@ -30,6 +31,10 @@ CHECKS = r"""(() => {
     footer: !!footer,
     main: !!document.querySelector('main#main'),
     css,
+    experience,
+    bodyFontPx: parseFloat(getComputedStyle(document.body).fontSize),
+    cards: document.querySelectorAll('.project-card').length,
+    directoryCards: document.querySelectorAll('.project-directory .panel').length,
     logo: !!logo && logo.complete && logo.naturalWidth > 0,
     overflow: document.documentElement.scrollWidth - innerWidth
   };
@@ -73,7 +78,13 @@ def main() -> None:
                         browser.events = []
                         browser.navigate(base + route)
                         state = browser.evaluate(CHECKS)
-                        issues = [name for name in ("header", "footer", "main", "css", "logo") if not state.get(name)]
+                        issues = [name for name in ("header", "footer", "main", "css", "experience", "logo") if not state.get(name)]
+                        if state.get("bodyFontPx", 0) < 16:
+                            issues.append(f"body font too small ({state.get('bodyFontPx')}px)")
+                        if route == "/" and state.get("cards") != 8:
+                            issues.append(f"featured cards {state.get('cards')} != 8")
+                        if route == "/projects.html" and state.get("directoryCards") != 15:
+                            issues.append(f"directory cards {state.get('directoryCards')} != 15")
                         if state.get("overflow", 0) > 6:
                             issues.append(f"horizontal overflow {state['overflow']}px")
                         if browser.events:
