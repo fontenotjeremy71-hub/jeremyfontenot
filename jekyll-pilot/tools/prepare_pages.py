@@ -46,6 +46,14 @@ def main() -> None:
         title = clean(title_match.group(1)) if title_match else source.stem.replace("-", " ").title()
         description = clean(desc_match.group(1)) if desc_match else "Jeremy Fontenot technical portfolio"
         content = match.group(1)
+        # Preserve original HTTP refresh redirects and 404 noindex behavior.
+        head = re.search(r"<head\\b[^>]*>(.*?)</head\\s*>", original, re.I | re.S)
+        head_html = head.group(1) if head else ""
+        redirect = re.search(
+            r'<meta\\b(?=[^>]*\\bhttp-equiv=["\\\']refresh["\\\'])[^>]*\\bcontent=["\\\'][^"\\\']*?url=([^"\\\']+)',
+            head_html, re.I | re.S,
+        )
+        noindex = bool(re.search(r'<meta\\b(?=[^>]*\\bname=["\\\']robots["\\\'])[^>]*noindex', head_html, re.I | re.S))
         if source.name == "index.html":
             content = content.replace(
                 "<strong>15 project case studies</strong>",
@@ -59,6 +67,10 @@ def main() -> None:
             "\ndescription: " + json.dumps(description, ensure_ascii=False) +
             "\npermalink: /" + source.name + "\n---\n"
         )
+        if redirect:
+            front = front[:-4] + "redirect_to: " + json.dumps("/" + redirect.group(1).lstrip("/")) + "\nnoindex: true\n---\n"
+        elif noindex:
+            front = front[:-4] + "noindex: true\n---\n"
         (GENERATED / source.name).write_text(front + content + "\n", encoding="utf-8")
         rendered.append(source.name)
     print(f"Generated {len(rendered)} shared-layout root pages: {', '.join(rendered)}")
