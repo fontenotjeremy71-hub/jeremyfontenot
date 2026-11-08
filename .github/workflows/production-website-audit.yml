@@ -1,41 +1,32 @@
 name: Production Website Audit
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '17 12 * * *'
-
 permissions:
   contents: read
-
 concurrency:
   group: production-website-audit
   cancel-in-progress: false
-
 jobs:
   production-audit:
-    name: Live links, assets and responsive browser audit
+    name: Live Jekyll mobile, tablet and desktop browser audit
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - name: Check out published source
-        uses: actions/checkout@v4
-      - name: Configure Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify installed Chrome
-        run: |
-          command -v google-chrome || command -v chromium || command -v chromium-browser
-      - name: Validate production HTML, links and asset bytes
-        run: python scripts/validation/validate-static-release.py --base-url https://jeremyfontenot.online
-      - name: Audit live production browser at mobile, tablet and desktop widths
-        run: python scripts/validation/validate-visual-site.py --base-url https://jeremyfontenot.online --output production-browser-review
-      - name: Upload production audit evidence
+      - name: Verify deployed Jekyll routes and exact evidence bytes
+        run: python jekyll-pilot/tools/verify_live.py --attempts 2
+      - name: Audit all 15 case studies using real Chrome
+        run: python jekyll-pilot/tools/browser_smoke.py --base-url https://jeremyfontenot.online --output jekyll-production-browser-review
+      - name: Retain responsive browser screenshots and checks
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: production-browser-review
-          path: production-browser-review/
-          if-no-files-found: warn
+          name: jekyll-production-browser-review
+          path: jekyll-production-browser-review/
+          if-no-files-found: ignore
           retention-days: 14

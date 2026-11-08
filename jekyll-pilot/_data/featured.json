@@ -1,0 +1,108 @@
+[
+  {
+    "rank": 1,
+    "number": 1,
+    "summary": "Sanitized retrieval output records an EncryptedPassword source and successful authorized decryption.",
+    "evidence_url": "/evidence/microsoft-365/entra-id/0e934b257c-12-laps-final-retrieval-success.txt",
+    "evidence_label": "Inspect the authorized retrieval result →",
+    "featured_category": "Identity & access",
+    "tags": [
+      "AD DS",
+      "Group Policy",
+      "Least privilege"
+    ]
+  },
+  {
+    "rank": 2,
+    "number": 11,
+    "summary": "Post-Autopilot output records Entra join, successful device authentication, and an Azure AD primary refresh token.",
+    "evidence_url": "/evidence/microsoft-365/intune/b04e255888-01-dsregcmd-sanitized.txt",
+    "evidence_label": "Inspect the device and SSO output →",
+    "featured_category": "Endpoint management",
+    "tags": [
+      "Entra ID",
+      "Intune",
+      "Windows"
+    ]
+  },
+  {
+    "rank": 3,
+    "number": 8,
+    "summary": "The retained Linux01 record documents an SSSD responder conflict, the correction, and successful AD identity lookup and SSH afterward.",
+    "evidence_url": "/evidence/home-lab/linux-macos/f880f11e73-linux01-sssd-remediation-validation.md.txt",
+    "evidence_label": "Read the remediation record →",
+    "featured_category": "Troubleshooting",
+    "tags": [
+      "Linux",
+      "SSSD",
+      "AD integration"
+    ]
+  },
+  {
+    "rank": 4,
+    "number": 13,
+    "summary": "Seven retained reporting scripts plus a new read-only Graph JSON export application, validated with eight passing Pester tests. Original code and test files are publicly inspectable; tenant data stays private.",
+    "evidence_url": "/evidence/microsoft-365/entra-id/bc535e1a5d-Get-EntraRoleInventory.ps1.txt",
+    "evidence_label": "Inspect the directory-role reporting code →",
+    "featured_category": "PowerShell & Graph",
+    "tags": [
+      "PowerShell",
+      "Microsoft Graph",
+      "Reporting"
+    ]
+  },
+  {
+    "rank": 5,
+    "number": 5,
+    "summary": "Managed-host console capture records HVHOST01 with host status OK and one virtual machine.",
+    "evidence_url": "/evidence/home-lab/hyper-v-scvmm/09692a22e4-scvmm-hvhost01-managed.png",
+    "evidence_label": "Inspect supporting artifact →",
+    "featured_category": "Virtualization",
+    "tags": [
+      "Hyper-V",
+      "SCVMM",
+      "Windows Server"
+    ]
+  },
+  {
+    "rank": 6,
+    "number": 10,
+    "summary": "Sanitized Exchange output records shared-mailbox permissions and delegation; licensing discrepancies remain documented.",
+    "evidence_url": "/evidence/microsoft-365/exchange-online/f5f071cc1e-command-evidence.txt",
+    "evidence_label": "Inspect supporting artifact →",
+    "featured_category": "Microsoft 365",
+    "tags": [
+      "Exchange Online",
+      "M365",
+      "Security"
+    ]
+  },
+  {
+    "rank": 7,
+    "number": 14,
+    "summary": "A private Ubuntu-hosted Grafana application uses trusted HTTPS, Entra OAuth, assigned-user access, and a My Apps launch tile.",
+    "evidence_url": "/projects/grafana-entra-sso/evidence/P14-12-Grafana-Entra-Role-Assignment-Verified.png",
+    "evidence_label": "Inspect AzureAD identity and Viewer proof →",
+    "featured_category": "Identity & SSO",
+    "tags": [
+      "Microsoft Entra",
+      "OAuth / OIDC",
+      "TLS"
+    ]
+  },
+  {
+    "rank": 8,
+    "number": 15,
+    "summary": "A PowerShell 7 dashboard demonstrates Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection and guarded AD provisioning.",
+    "evidence_url": "/evidence/project-15/Project-15-Cloud-Sync-AD-State-PASS.png",
+    "evidence_label": "Inspect original PASS evidence →",
+    "featured_category": "PowerShell & automation",
+    "tags": [
+      "PowerShell 7",
+      "Microsoft Graph",
+      "Hybrid administration"
+    ],
+    "secondary_url": "/project-15.html",
+    "secondary_label": "View all five validation screenshots and case study →"
+  }
+]

@@ -1,0 +1,72 @@
+name: Jekyll Migration Preview
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'jekyll-pilot/**'
+      - '.github/workflows/jekyll-migration-preview.yml'
+  push:
+    branches: ['feature/jekyll-migration-20261108']
+    paths:
+      - 'jekyll-pilot/**'
+      - '.github/workflows/jekyll-migration-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pilot-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: jekyll-pilot
+      - name: Generate shared-layout wrappers for the complete site
+        run: python jekyll-pilot/tools/prepare_pages.py
+      - name: Build managed Jekyll pages
+        working-directory: jekyll-pilot
+        run: bundle exec jekyll build --destination ../_jekyll-generated
+      - name: Verify generated structured project directory
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('_jekyll-generated')
+          for rel in ('index.html', 'about.html', 'projects.html'):
+              assert (root/rel).is_file(), f'Missing generated {rel}'
+          body = (root/'projects.html').read_text(encoding='utf-8')
+          cards = body.count('class="panel" data-category=')
+          print(f'Jekyll project cards: {cards}', flush=True)
+          print(f'Project status excerpt: {body[body.find("id=\\\"project-count\\\"")-80:body.find("id=\\\"project-count\\\"")+120]}', flush=True)
+          assert cards == 15, f'Expected 15 project cards, got {cards}'
+          assert '15 projects shown' in body, 'Missing dynamic 15-project status'
+          PY
+      - name: Assemble complete static publication with original evidence
+        run: python jekyll-pilot/tools/assemble_site.py
+      - name: Verify public routes, evidence integrity, SEO and internal links
+        run: python jekyll-pilot/tools/verify_site.py
+      - name: Check responsive Jekyll pages in real Chrome
+        run: python jekyll-pilot/tools/browser_smoke.py --output jekyll-browser-review
+      - name: Upload rendered mobile, tablet, desktop screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jekyll-responsive-browser-review
+          path: jekyll-browser-review/
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Upload complete Jekyll publication for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: jekyll-complete-site-preview
+          path: site-jekyll/
+          if-no-files-found: error
+          retention-days: 7

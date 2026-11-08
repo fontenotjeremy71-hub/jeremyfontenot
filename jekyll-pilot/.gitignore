@@ -1,0 +1,4 @@
+# Generated Jekyll wrappers and build products
+/generated-pages/
+/_site/
+/.jekyll-cache/
