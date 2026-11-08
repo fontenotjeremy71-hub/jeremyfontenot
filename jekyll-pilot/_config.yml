@@ -4,6 +4,7 @@ markdown: kramdown
 exclude:
   - Gemfile
   - Gemfile.lock
+  - tools
 
 collections:
   projects:
