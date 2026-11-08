@@ -53,6 +53,16 @@ jobs:
         run: python jekyll-pilot/tools/assemble_site.py
       - name: Verify public routes, evidence integrity, SEO and internal links
         run: python jekyll-pilot/tools/verify_site.py
+      - name: Check responsive Jekyll pages in real Chrome
+        run: python jekyll-pilot/tools/browser_smoke.py --output jekyll-browser-review
+      - name: Upload rendered mobile, tablet, desktop screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jekyll-responsive-browser-review
+          path: jekyll-browser-review/
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Upload complete Jekyll publication for review
         uses: actions/upload-artifact@v4
         with:
