@@ -89,6 +89,13 @@ def main() -> None:
         markup = page.read_text(encoding="utf-8")
         if '<header class="site-header">' not in markup or '<footer class="site-footer">' not in markup:
             problems.append(f"Missing shared branded header/footer: {page}")
+        rel = generated_page.relative_to(JEKYLL).as_posix()
+        canonical_route = "/" if rel == "index.html" else "/" + rel
+        if canonical_route.endswith("/index.html"):
+            canonical_route = canonical_route[:-len("index.html")]
+        expected_canonical = 'href="https://jeremyfontenot.online' + canonical_route + '"'
+        if expected_canonical not in markup:
+            problems.append(f"Incorrect canonical SEO URL: {rel}")
         refs = References()
         refs.feed(markup)
         for url in refs.urls:
