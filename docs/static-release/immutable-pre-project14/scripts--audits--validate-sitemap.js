@@ -1,0 +1,104 @@
+const fs = require('node:fs');
+const path = require('node:path');
+
+const sitemapPath = path.join(process.cwd(), 'sitemap.xml');
+const xml = fs.readFileSync(sitemapPath, 'utf8');
+const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].trim());
+
+const expected = [
+  "https://jeremyfontenot.online/",
+  "https://jeremyfontenot.online/systems-administration.html",
+  "https://jeremyfontenot.online/projects.html",
+  "https://jeremyfontenot.online/proof.html",
+  "https://jeremyfontenot.online/dashboard.html",
+  "https://jeremyfontenot.online/resume.html",
+  "https://jeremyfontenot.online/contact.html",
+  "https://jeremyfontenot.online/windows-laps-gpo.html",
+  "https://jeremyfontenot.online/entra-cloud-sync.html",
+  "https://jeremyfontenot.online/m365-messaging-security.html",
+  "https://jeremyfontenot.online/windows-autopilot-intune.html",
+  "https://jeremyfontenot.online/macos-abm-intune-runbook.html",
+  "https://jeremyfontenot.online/m365-graph-administration-lab.html",
+  "https://jeremyfontenot.online/on-prem-home-lab.html",
+  "https://jeremyfontenot.online/home-lab-operations-proof.html",
+  "https://jeremyfontenot.online/active-directory-lab.html",
+  "https://jeremyfontenot.online/network-segmentation.html",
+  "https://jeremyfontenot.online/macvm01.html",
+  "https://jeremyfontenot.online/windows-admin-center-lab.html",
+  "https://jeremyfontenot.online/infrastructure.html",
+  "https://jeremyfontenot.online/app01-storage-expansion.html",
+  "https://jeremyfontenot.online/servicenow-request-fulfillment.html",
+  "https://jeremyfontenot.online/evidence-library/",
+  "https://jeremyfontenot.online/evidence/",
+  "https://jeremyfontenot.online/evidence/claim-map.html",
+  "https://jeremyfontenot.online/home-lab/",
+  "https://jeremyfontenot.online/home-lab/evidence-catalog.html",
+  "https://jeremyfontenot.online/microsoft-365/",
+  "https://jeremyfontenot.online/microsoft-365/evidence-catalog.html",
+  "https://jeremyfontenot.online/systems-skills/",
+  "https://jeremyfontenot.online/systems-skills/evidence-map.html",
+  "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/scvmm-2022/",
+  "https://jeremyfontenot.online/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/",
+  "https://jeremyfontenot.online/projects/windows-laps-gpo/evidence/",
+  "https://jeremyfontenot.online/projects/windows-autopilot-intune/evidence/",
+  "https://jeremyfontenot.online/projects/macos-abm-intune-runbook/evidence/"
+];
+
+const previewManifest = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content/site/preview/generated-hashes.json'), 'utf8'));
+for (const [key, route] of Object.entries(previewManifest.routes)) {
+  const url = 'https://jeremyfontenot.online/' + (key === 'home' ? '' : route);
+  if (!expected.includes(url)) expected.push(url);
+}
+
+const forbiddenPatterns = [
+  '/evidence-library/preserved-sharepoint/',
+  '/wrappers/',
+  '/source-html/',
+  '/assets/projects/evidence/preserved/'
+];
+
+const failures = [];
+const duplicates = urls.filter((url, index) => urls.indexOf(url) !== index);
+if (duplicates.length) failures.push(`Duplicate sitemap URLs: ${[...new Set(duplicates)].join(', ')}`);
+
+const forbidden = urls.filter((url) => forbiddenPatterns.some((pattern) => url.includes(pattern)));
+if (forbidden.length) failures.push(`Preserved/raw evidence leaked into sitemap: ${forbidden.slice(0, 10).join(', ')}`);
+
+const missing = expected.filter((url) => !urls.includes(url));
+const unexpected = urls.filter((url) => !expected.includes(url));
+if (missing.length) failures.push(`Missing canonical portfolio URLs: ${missing.join(', ')}`);
+if (unexpected.length) failures.push(`Unexpected sitemap URLs: ${unexpected.join(', ')}`);
+
+function sourceText(relative) {
+  return fs.readFileSync(path.join(process.cwd(), relative), 'utf8');
+}
+
+const requiredDiscoveryRoutes = new Set();
+const siteCore = sourceText('assets/js/site-core.js');
+const navMatch = siteCore.match(/const links=\[(.*?)\];return/s);
+if (navMatch) {
+  for (const match of navMatch[1].matchAll(/\['[^']+','([^']+)'\]/g)) requiredDiscoveryRoutes.add(match[1]);
+}
+
+const projectRoutes = sourceText('assets/js/routes-projects.js');
+const projectsMatch = projectRoutes.match(/const projects=\[(.*?)\];\nconst supportLinks=/s);
+if (projectsMatch) {
+  for (const match of projectsMatch[1].matchAll(/\['\d+','[^']*','[^']*','[^']*','[^']*','([^']+)'\]/g)) requiredDiscoveryRoutes.add(match[1]);
+}
+
+for (const route of requiredDiscoveryRoutes) {
+  const cleanRoute = route.split('#')[0];
+  if (!cleanRoute.startsWith('/')) continue;
+  const requiredUrl = `https://jeremyfontenot.online${cleanRoute}`;
+  if (!urls.includes(requiredUrl)) {
+    failures.push(`Navbar/project discovery route missing from sitemap: ${requiredUrl}`);
+  }
+}
+
+if (failures.length) {
+  console.error('Sitemap validation failed.');
+  failures.forEach((failure) => console.error(`- ${failure}`));
+  process.exit(1);
+}
+
+console.log(`Sitemap validation passed: ${urls.length} canonical portfolio URLs.`);
