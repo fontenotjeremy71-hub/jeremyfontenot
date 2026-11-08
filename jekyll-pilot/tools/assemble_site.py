@@ -48,7 +48,10 @@ def main() -> None:
         relative = page.relative_to(JEKYLL_OUTPUT).as_posix()
         if relative == "404.html":
             continue
-        url = BASE_URL + ("/" if relative == "index.html" else "/" + quote(relative))
+        canonical = "/" if relative == "index.html" else "/" + relative
+        if canonical.endswith("/index.html"):
+            canonical = canonical[:-len("index.html")]
+        url = BASE_URL + quote(canonical, safe="/")
         if url in known:
             continue
         row = ET.SubElement(root, ns + "url")
