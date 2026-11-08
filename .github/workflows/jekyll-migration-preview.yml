@@ -1,0 +1,37 @@
+name: Jekyll Migration Preview
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'jekyll-pilot/**'
+      - '.github/workflows/jekyll-migration-preview.yml'
+  push:
+    branches: ['feature/jekyll-migration-20261108']
+    paths:
+      - 'jekyll-pilot/**'
+      - '.github/workflows/jekyll-migration-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pilot-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: jekyll-pilot
+      - name: Build isolated Jekyll pilot
+        working-directory: jekyll-pilot
+        run: bundle exec jekyll build --destination ../_jekyll-preview
+      - name: Verify migrated About page
+        run: |
+          test -s _jekyll-preview/about.html
+          grep -q 'A support foundation' _jekyll-preview/about.html
+          grep -q 'site-header' _jekyll-preview/about.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jekyll-pilot-preview
+          path: _jekyll-preview/
