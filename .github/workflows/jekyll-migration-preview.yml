@@ -37,11 +37,18 @@ jobs:
         run: bundle exec jekyll build --destination ../_jekyll-generated
       - name: Verify generated structured project directory
         run: |
-          test -s _jekyll-generated/index.html
-          test -s _jekyll-generated/about.html
-          test -s _jekyll-generated/projects.html
-          test "$(grep -o 'class="panel" data-category=' _jekyll-generated/projects.html | wc -l)" -eq 15
-          grep -q '15 projects shown' _jekyll-generated/projects.html
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('_jekyll-generated')
+          for rel in ('index.html', 'about.html', 'projects.html'):
+              assert (root/rel).is_file(), f'Missing generated {rel}'
+          body = (root/'projects.html').read_text(encoding='utf-8')
+          cards = body.count('class="panel" data-category=')
+          print(f'Jekyll project cards: {cards}', flush=True)
+          print(f'Project status excerpt: {body[body.find("id=\\\"project-count\\\"")-80:body.find("id=\\\"project-count\\\"")+120]}', flush=True)
+          assert cards == 15, f'Expected 15 project cards, got {cards}'
+          assert '15 projects shown' in body, 'Missing dynamic 15-project status'
+          PY
       - name: Assemble complete static publication with original evidence
         run: python jekyll-pilot/tools/assemble_site.py
       - name: Verify public routes, evidence integrity, SEO and internal links
