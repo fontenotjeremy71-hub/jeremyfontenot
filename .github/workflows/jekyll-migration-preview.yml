@@ -4,11 +4,13 @@ on:
     branches: [main]
     paths:
       - 'jekyll-pilot/**'
+      - 'assets/css/experience.css'
       - '.github/workflows/jekyll-migration-preview.yml'
   push:
-    branches: ['feature/jekyll-migration-20261108']
+    branches: ['feature/jekyll-migration-20261108', 'feature/jekyll-visual-refinement-20261108']
     paths:
       - 'jekyll-pilot/**'
+      - 'assets/css/experience.css'
       - '.github/workflows/jekyll-migration-preview.yml'
   workflow_dispatch:
 permissions:
