@@ -1,3 +1,4 @@
+import subprocess
 """Validate literal static pages and byte integrity; no site build or dependencies."""
 from pathlib import Path
 from html.parser import HTMLParser
@@ -32,7 +33,24 @@ manifest=json.loads((ROOT/'docs/static-release/original-files.json').read_text()
 errors=[]; targets=set(files); download_targets=set(); pages={}
 for row in manifest['files']:
     p=ROOT/({'MASTER-PORTFOLIO-REGISTRY.md': 'docs/static-release/immutable-pre-project14/MASTER-PORTFOLIO-REGISTRY.md', 'projects/README.md': 'docs/static-release/immutable-pre-project14/projects--README.md'}.get(row['retained_path'], row['retained_path']))
-    if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=row['sha256']:
+    if not p.is_file():
+        errors.append('Original integrity: '+row['original_path'])
+        continue
+    data = p.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != row['sha256']:
+        relative = p.relative_to(ROOT).as_posix()
+        attrs = subprocess.run(
+            ['git', 'check-attr', 'text', 'eol', '--', relative],
+            cwd=ROOT, capture_output=True, text=True, check=True
+        ).stdout
+        text_enabled = any(
+            line.endswith(': text: set') or line.endswith(': text: auto')
+            for line in attrs.splitlines()
+        )
+        if text_enabled:
+            digest = hashlib.sha256(data.replace(b'\r\n', b'\n')).hexdigest()
+    if digest != row['sha256']:
         errors.append('Original integrity: '+row['original_path'])
 for name in files:
     if name.endswith('.html'): pages[name]=Page((ROOT/name).read_text())

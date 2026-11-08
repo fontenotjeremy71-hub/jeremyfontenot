@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jeremyfontenot.online/about.html</loc>
@@ -13,40 +13,40 @@
     <loc>https://jeremyfontenot.online/documentation.html</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/home-lab/backup-recovery/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/home-lab/backup-recovery/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/home-lab/hyper-v-scvmm/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/home-lab/hyper-v-scvmm/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/home-lab/linux-macos/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/home-lab/linux-macos/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/home-lab/networking-pfsense/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/home-lab/networking-pfsense/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/home-lab/windows-server/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/home-lab/windows-server/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/microsoft-365/automation/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/microsoft-365/automation/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/microsoft-365/entra-id/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/microsoft-365/entra-id/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/microsoft-365/exchange-online/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/microsoft-365/exchange-online/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/microsoft-365/intune/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/microsoft-365/intune/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/other-projects/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/other-projects/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence/servicenow/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence/servicenow/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/evidence-catalog/index.html</loc>
+    <loc>https://jeremyfontenot.online/evidence-catalog/</loc>
   </url>
   <url>
     <loc>https://jeremyfontenot.online/evidence.html</loc>
@@ -58,46 +58,46 @@
     <loc>https://jeremyfontenot.online/home-lab.html</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/index.html</loc>
+    <loc>https://jeremyfontenot.online/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/app01-storage-expansion/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/app01-storage-expansion/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/azure-arc-hybrid-management/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/azure-arc-hybrid-management/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/entra-cloud-sync/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/entra-cloud-sync/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/home-lab-operations-proof/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/home-lab-operations-proof/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/m365-graph-administration-lab/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/m365-graph-administration-lab/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/m365-messaging-security/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/m365-messaging-security/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/macos-abm-intune-runbook/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/macos-abm-intune-runbook/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/on-prem-home-lab/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/on-prem-home-lab/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/scvmm-2022/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/scvmm-2022/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/servicenow-request-fulfillment/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/servicenow-request-fulfillment/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/windows-admin-center-lab/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/windows-admin-center-lab/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/windows-autopilot-intune/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/windows-autopilot-intune/</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/windows-laps-gpo/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/windows-laps-gpo/</loc>
   </url>
   <url>
     <loc>https://jeremyfontenot.online/projects.html</loc>
@@ -112,7 +112,7 @@
     <loc>https://jeremyfontenot.online/skills.html</loc>
   </url>
   <url>
-    <loc>https://jeremyfontenot.online/projects/grafana-entra-sso/index.html</loc>
+    <loc>https://jeremyfontenot.online/projects/grafana-entra-sso/</loc>
   </url>
   <url>
     <loc>https://jeremyfontenot.online/project-15.html</loc>

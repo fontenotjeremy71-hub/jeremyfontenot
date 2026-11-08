@@ -104,9 +104,307 @@ function copyDirectory(relativePath) {
   if (status.isSymbolicLink()) throw new Error(`Publication directory cannot be a symbolic link: ${resolved.relativePath}`);
   if (!status.isDirectory()) throw new Error(`Required public directory is missing: ${resolved.relativePath}`);
   assertNoSymlinks(resolved.source, resolved.relativePath, 'Publication directory');
-  fs.cpSync(resolved.source, resolved.target, {recursive: true, force: true, dereference: false});
+  fs.cpSync(resolved.source, resolved.target, {
+    recursive: true,
+    force: true,
+    dereference: false,
+    filter: (source) => !source.toLowerCase().endsWith('.bak')
+  });
 }
 
+function normalizeArchivedWebsiteLinks() {
+  const archiveDirectory = path.join(
+    outputDirectory,
+    'archive/pre-site-upgrade-20260602'
+  );
+
+  if (!fs.existsSync(archiveDirectory)) return;
+
+  const archivePages = [
+    'contact.html',
+    'dashboard.html',
+    'index.html',
+    'microsoft-365-lab.html',
+    'projects.html',
+    'proof.html',
+    'resume.html'
+  ];
+
+  const historicalEvidence = {
+    'evidence-library/proxmox/proxmox-host-evidence.md':
+      'evidence-library/proxmox/proxmox-host-validation-report-2026.md',
+    'evidence-library/network/network-validation-lab-notes.md':
+      'evidence-library/network/network-infrastructure-validation-report-2026.md',
+    'evidence-library/network/firewall-rules-evidence.md':
+      'evidence-library/network/firewall-rule-validation-report-2026.md',
+    'evidence-library/network/dhcp-dns-evidence.md':
+      'evidence-library/network/dhcp-dns-validation-report-2026.md',
+    'evidence-library/automation/provisioning-change-record-evidence.md':
+      'evidence-library/automation/provisioning-change-record-2026.md',
+    'evidence-library/incidents/incident-summary-evidence.md':
+      'evidence-library/incidents/dns-resolution-outage-incident-summary-2026.md'
+  };
+  let corrected = 0;
+
+  for (const page of archivePages) {
+    const file = path.join(archiveDirectory, page);
+    if (!fs.existsSync(file)) continue;
+
+    const original = fs.readFileSync(file, 'utf8');
+
+    const updated = original.replace(
+      /\b(href|src)(\s*=\s*)(["'])([^"']+)\3/gi,
+      (match, attribute, separator, quote, link) => {
+        if (
+          !link.startsWith('./') ||
+          link.startsWith('./#')
+        ) {
+          return match;
+        }
+
+        const relative = link.slice(2);
+        const pathname = relative.split(/[?#]/, 1)[0];
+
+        const replacement = historicalEvidence[pathname];
+
+        if (replacement) {
+          const target = path.join(outputDirectory, replacement);
+
+          if (fs.existsSync(target) && fs.statSync(target).isFile()) {
+            corrected++;
+            const suffix = relative.slice(pathname.length);
+            return `${attribute}${separator}${quote}/${replacement}${suffix}${quote}`;
+          }
+        }
+
+        if (!pathname || pathname.startsWith('../')) {
+          return match;
+        }
+
+        const rootTarget = path.resolve(outputDirectory, pathname);
+        const archiveTarget = path.resolve(archiveDirectory, pathname);
+
+        if (
+          !isDescendant(outputDirectory, rootTarget) ||
+          fs.existsSync(archiveTarget) ||
+          !fs.existsSync(rootTarget)
+        ) {
+          return match;
+        }
+
+        corrected++;
+        return `${attribute}${separator}${quote}/${relative}${quote}`;
+      }
+    );
+
+    if (updated !== original) {
+      fs.writeFileSync(file, updated, 'utf8');
+    }
+  }
+
+  console.log(`Normalized ${corrected} archived website references.`);
+}
+function normalizeCopiedProjectPageLinks() {
+  const projectRoots = [
+    'evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management',
+    'evidence-library/projects/on-prem-home-lab/scvmm-2022'
+  ];
+
+  const homeLabPage = path.join(
+    outputDirectory,
+    'docs/source-pages/home-lab-operations-proof.html'
+  );
+
+  if (fs.existsSync(homeLabPage)) {
+    const original = fs.readFileSync(homeLabPage, 'utf8');
+
+    const updated = original.replace(
+      /\b(href|src)(\s*=\s*)(["'])(\.\/[^"']+)\3/gi,
+      (match, attribute, separator, quote, link) => {
+        const pathname = link.split(/[?#]/, 1)[0];
+        const target = path.resolve(outputDirectory, pathname);
+
+        if (
+          !isDescendant(outputDirectory, target) ||
+          !fs.existsSync(target) ||
+          !fs.statSync(target).isFile()
+        ) {
+          return match;
+        }
+
+        const suffix = link.slice(pathname.length);
+        const publishedPath = '/' +
+          path.relative(outputDirectory, target).replace(/\\/g, '/');
+
+        return `${attribute}${separator}${quote}${publishedPath}${suffix}${quote}`;
+      }
+    );
+
+    if (updated !== original) {
+      fs.writeFileSync(homeLabPage, updated, 'utf8');
+    }
+  }
+
+  let corrected = 0;
+
+  for (const projectRoot of projectRoots) {
+    const originalDirectory = path.join(outputDirectory, projectRoot);
+    const copiedPage = path.join(
+      outputDirectory,
+      'docs/source-pages',
+      projectRoot,
+      'index.html'
+    );
+
+    if (!fs.existsSync(copiedPage)) continue;
+
+    const original = fs.readFileSync(copiedPage, 'utf8');
+
+    const updated = original.replace(
+      /\b(href|src)(\s*=\s*)(["'])([^"']+)\3/gi,
+      (match, attribute, separator, quote, link) => {
+        if (
+          !link.startsWith('./') &&
+          !link.startsWith('../')
+        ) {
+          return match;
+        }
+
+        const pathname = link.split(/[?#]/, 1)[0];
+        if (!pathname) return match;
+
+        const target = path.resolve(originalDirectory, pathname);
+        const copiedTarget = path.resolve(
+          path.dirname(copiedPage),
+          pathname
+        );
+
+        if (
+          !isDescendant(outputDirectory, target) ||
+          fs.existsSync(copiedTarget) ||
+          !fs.existsSync(target) ||
+          !fs.statSync(target).isFile()
+        ) {
+          return match;
+        }
+
+        const publishedPath = '/' +
+          path.relative(outputDirectory, target).replace(/\\/g, '/');
+
+        const suffix = link.slice(pathname.length);
+
+        corrected++;
+
+        return `${attribute}${separator}${quote}${publishedPath}${suffix}${quote}`;
+      }
+    );
+
+    if (updated !== original) {
+      fs.writeFileSync(copiedPage, updated, 'utf8');
+    }
+  }
+
+  console.log(`Normalized ${corrected} copied project-page references.`);
+}
+function normalizeHistoricalFragmentLinks() {
+  const corrections = new Map([
+    [
+      'docs/source-pages/evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/index.html',
+      [
+        ['../../../../systems-administration.html#capabilities', '/skills.html#cap-microsoft-cloud'],
+        ['../../../../proof.html#azure-arc-proof', '/proof.html#azure-arc-proof']
+      ]
+    ],
+    [
+      'docs/source-pages/evidence-library/projects/on-prem-home-lab/scvmm-2022/index.html',
+      [
+        ['../../../../systems-administration.html#capabilities', '/skills.html#cap-virtualization'],
+        ['../../../../proof.html#scvmm-proof', '/proof.html#scvmm-proof']
+      ]
+    ],
+    [
+      'evidence-library/projects/on-prem-home-lab/infrastructure-validation-2026-07/index.html',
+      [
+        ['../../../../on-prem-home-lab.html#restore', '/docs/source-pages/on-prem-home-lab.html#restore']
+      ]
+    ]
+  ]);
+
+  const historicalPages = [
+    'cross-platform-administration.html',
+    'home-lab-overview.html',
+    'm365-graph-administration-lab.html',
+    'on-prem-home-lab.html',
+    'projects.html',
+    'scvmm-2022.html',
+    'windows-laps-gpo.html'
+  ];
+
+  for (const page of historicalPages) {
+    const mappings = [];
+
+    if (page !== 'scvmm-2022.html') {
+      mappings.push([
+        '/windows-admin-center-lab.html#validation',
+        '/docs/source-pages/windows-admin-center-lab.html#validation'
+      ]);
+    }
+
+    if (['home-lab-overview.html', 'projects.html', 'scvmm-2022.html'].includes(page)) {
+      mappings.push([
+        '/app01-storage-expansion.html#validation',
+        '/docs/source-pages/app01-storage-expansion.html#validation'
+      ]);
+    }
+
+    corrections.set(`docs/source-pages/${page}`, mappings);
+  }
+
+  let corrected = 0;
+
+  for (const [relativePage, mappings] of corrections) {
+    const file = path.join(outputDirectory, relativePage);
+    if (!fs.existsSync(file)) {
+      throw new Error(`Historical fragment source missing: ${relativePage}`);
+    }
+
+    let html = fs.readFileSync(file, 'utf8');
+
+    for (const [oldLink, newLink] of mappings) {
+      const targetPath = newLink.split('#')[0].replace(/^\//, '');
+      const fragment = newLink.split('#')[1];
+      const targetFile = path.join(outputDirectory, targetPath);
+
+      if (!fs.existsSync(targetFile)) {
+        throw new Error(`Fragment destination missing: ${newLink}`);
+      }
+
+      const targetHtml = fs.readFileSync(targetFile, 'utf8');
+      const escapedFragment = fragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const anchorPattern = new RegExp(
+        `\\bid\\s*=\\s*["']${escapedFragment}["']`,
+        'i'
+      );
+
+      if (!anchorPattern.test(targetHtml)) {
+        throw new Error(`Fragment destination anchor missing: ${newLink}`);
+      }
+
+      const occurrences = html.split(oldLink).length - 1;
+
+      if (occurrences === 0) {
+        throw new Error(`Expected historical reference missing: ${relativePage} -> ${oldLink}`);
+      }
+
+      html = html.split(oldLink).join(newLink);
+      corrected += occurrences;
+    }
+
+    fs.writeFileSync(file, html, 'utf8');
+  }
+
+  console.log(`Normalized ${corrected} historical fragment references.`);
+}
 function materializeSharePointCompatibilityAssets() {
   const seen = new Set();
   for (const mapping of sharePointCompatibility.mappings) {
@@ -273,6 +571,9 @@ try {
 
   for (const directory of manifest.directories) copyDirectory(directory);
   materializeSharePointCompatibilityAssets();
+  normalizeArchivedWebsiteLinks();
+  normalizeCopiedProjectPageLinks();
+  normalizeHistoricalFragmentLinks();
 
   ensureReadinessInPrimaryNavigation();
   assertNoSymlinks(outputDirectory, path.basename(outputDirectory), 'Publication output');
