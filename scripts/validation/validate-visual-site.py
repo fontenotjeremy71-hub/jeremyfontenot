@@ -58,6 +58,7 @@ checks=r'''(async()=>{
  if(!document.querySelector('main')||!document.querySelector('a.skip')||!document.querySelector('nav[aria-label="Primary"]'))issues.push('landmarks');
  const footer=document.querySelector('footer.site-footer');if(!footer||getComputedStyle(footer.querySelector('.footer-directory')).display!=='grid')issues.push('unbranded footer');
  if(document.querySelectorAll('footer a.footer-top[href="#top"],a[data-back-to-top][href="#top"]').length!==1)issues.push('duplicate or missing back-to-top control');
+ if(!document.querySelector('a[data-back-to-top][href="#top"]'))issues.push('floating back-to-top missing');
  if(getComputedStyle(document.documentElement).getPropertyValue('--accent-cyan').trim()!=='#49c2c8')issues.push('brand palette');
  const images=[...document.images];for(const im of images)im.loading='eager';
  await Promise.race([Promise.all(images.map(im=>im.decode().catch(()=>{}))),new Promise(resolve=>setTimeout(resolve,10000))]);
