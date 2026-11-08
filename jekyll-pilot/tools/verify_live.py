@@ -55,8 +55,10 @@ def main() -> None:
                         failures.append(f"{path}: missing {marker!r}")
             sitemap = download(base + "/sitemap.xml").decode("utf-8", errors="replace")
             for case_study in route_map:
-                if case_study.startswith("/projects/") and base + case_study not in sitemap:
-                    failures.append(f"sitemap missing {case_study}")
+                if case_study.startswith("/projects/"):
+                    canonical = case_study[:-len("index.html")] if case_study.endswith("/index.html") else case_study
+                    if base + canonical not in sitemap:
+                        failures.append(f"sitemap missing {canonical}")
             with ThreadPoolExecutor(max_workers=6) as pool:
                 futures = {pool.submit(download, base + evidence): evidence for evidence in evidence_urls}
                 for future in as_completed(futures):
