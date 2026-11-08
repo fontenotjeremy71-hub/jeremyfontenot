@@ -54,3 +54,14 @@ jobs:
       - name: Deploy site to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+  verify-production:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify deployed Jekyll routes and unchanged evidence
+        run: python jekyll-pilot/tools/verify_live.py --attempts 8
