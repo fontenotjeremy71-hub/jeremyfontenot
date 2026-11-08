@@ -5,7 +5,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - tools
+  - projects
+  - project-15.html
 
 collections:
   projects:
-    output: false
+    output: true
