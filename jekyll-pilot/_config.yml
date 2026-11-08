@@ -1,0 +1,6 @@
+title: Jeremy C. Fontenot
+url: https://jeremyfontenot.online
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
