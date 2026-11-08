@@ -26,8 +26,8 @@ def clean(text: str) -> str:
     return html.unescape(re.sub(r"\s+", " ", text)).strip()
 
 def attr(tag: str, name: str) -> str:
-    """Extract an HTML attribute from the retained source wrapper."""
-    match = re.search(r"\\b" + re.escape(name) + r'\\s*=\\s*"([^"]*)"', tag, re.I)
+    """Extract one double-quoted source HTML attribute."""
+    match = re.search(r"\b" + re.escape(name) + r'\s*=\s*"([^"]*)"', tag, re.I)
     return html.unescape(match.group(1)) if match else ""
 
 def main() -> None:
@@ -54,8 +54,8 @@ def main() -> None:
         title = clean(title_match.group(1)) if title_match else source.stem.replace("-", " ").title()
         description = clean(desc_match.group(2)) if desc_match else "Jeremy Fontenot technical portfolio"
         content = match.group(1)
-        body_tag = re.search(r"<body\\b[^>]*>", original, re.I)
-        main_tag = re.search(r"<main\\b[^>]*>", original, re.I)
+        body_tag = re.search(r"<body\b[^>]*>", original, re.I)
+        main_tag = re.search(r"<main\b[^>]*>", original, re.I)
         body_markup = body_tag.group(0) if body_tag else ""
         main_markup = main_tag.group(0) if main_tag else ""
         body_kind = attr(body_markup, "data-page-kind") or "page"
@@ -104,12 +104,12 @@ def main() -> None:
             "\ndescription: " + json.dumps(description, ensure_ascii=False) +
             "\npermalink: /" + source.name + "\n---\n"
         )
-        page_attributes = "body_kind: " + json.dumps(body_kind) + "\\n"
+        page_attributes = "body_kind: " + json.dumps(body_kind) + "\n"
         if body_class:
-            page_attributes += "body_class: " + json.dumps(body_class) + "\\n"
+            page_attributes += "body_class: " + json.dumps(body_class) + "\n"
         if main_classes:
-            page_attributes += "main_classes: " + json.dumps(main_classes) + "\\n"
-        front = front[:-4] + page_attributes.replace("\\\\n", "\\n") + "---\\n"
+            page_attributes += "main_classes: " + json.dumps(main_classes) + "\n"
+        front = front[:-4] + page_attributes + "---\n"
         if redirect:
             front = front[:-4] + "redirect_to: " + json.dumps("/" + redirect.group(1).lstrip("/")) + "\nnoindex: true\n---\n"
         elif noindex:
