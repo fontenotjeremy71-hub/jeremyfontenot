@@ -5,8 +5,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - tools
-  - projects/*
-  - project-15.html
 
 collections:
   projects:
