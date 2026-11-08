@@ -42,9 +42,12 @@ def main() -> None:
             skipped.append(source.name)
             continue
         title_match = TITLE.search(original)
-        desc_match = DESCRIPTION.search(original)
+        # Meta attributes may appear in either order (content before name or vice versa).
+        meta_tags = re.findall(r"<meta\\b[^>]*>", original, re.I | re.S)
+        desc_tag = next((tag for tag in meta_tags if re.search(r'\\bname=["\\\']description["\\\']', tag, re.I)), "")
+        desc_match = re.search(r'\\bcontent=(["\\\'])(.*?)\\1', desc_tag, re.I | re.S)
         title = clean(title_match.group(1)) if title_match else source.stem.replace("-", " ").title()
-        description = clean(desc_match.group(1)) if desc_match else "Jeremy Fontenot technical portfolio"
+        description = clean(desc_match.group(2)) if desc_match else "Jeremy Fontenot technical portfolio"
         content = match.group(1)
         # Preserve original HTTP refresh redirects and 404 noindex behavior.
         head = re.search(r"<head\\b[^>]*>(.*?)</head\\s*>", original, re.I | re.S)
