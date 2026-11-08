@@ -65,6 +65,28 @@ def main() -> None:
             content = content.replace(
                 "15 documented projects", "{{ site.projects.size }} documented projects"
             )
+        if source.name == "index.html":
+            # Replace the eight hand-maintained homepage cards with collection-driven
+            # cards using the owner's existing curated text and preserved evidence.
+            featured = """\n
+{% for feature in site.data.featured %}
+{% assign project = site.projects | where: "number", feature.number | first %}
+{% if project %}
+<article class="project-card"{% if project.number == 15 %} id="project15-feature"{% endif %}>
+<p class="number">{{ project.number | prepend: '0' | slice: -2, 2 }} / {{ feature.featured_category | escape }}</p>
+<h3><a href="{{ project.case_study_url | relative_url }}">{{ project.title | escape }}</a></h3>
+<p>{{ feature.summary | escape }}</p>
+<div class="tags">{% for tag in feature.tags %}<span class="tag">{{ tag | escape }}</span>{% endfor %}</div>
+<a class="text-link" href="{{ feature.evidence_url | relative_url }}">{{ feature.evidence_label | escape }}</a>
+{% if feature.secondary_url %}<p class="note"><a href="{{ feature.secondary_url | relative_url }}">{{ feature.secondary_label | escape }}</a></p>{% endif %}
+</article>
+{% endif %}
+{% endfor %}
+"""
+            selected = content.index('<p class="eyebrow">Selected work</p>')
+            start = content.index('<div class="grid">', selected) + len('<div class="grid">')
+            end = content.index('</div></section>', start)
+            content = content[:start] + featured + content[end:]
         front = (
             "---\nlayout: default\ntitle: " + json.dumps(title, ensure_ascii=False) +
             "\ndescription: " + json.dumps(description, ensure_ascii=False) +
