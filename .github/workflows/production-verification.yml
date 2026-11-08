@@ -1,0 +1,27 @@
+name: Production Portfolio Verification
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 11 * * *'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate deployed pages, links, evidence files, and original integrity
+        run: python scripts/validation/validate-static-release.py --base-url https://jeremyfontenot.online
+      - name: Validate production visual routes and navigation
+        run: python scripts/validation/validate-visual-site.py --base-url https://jeremyfontenot.online --output production-visual-review
+      - name: Retain production visual audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-visual-review
+          path: production-visual-review/
+          if-no-files-found: ignore
