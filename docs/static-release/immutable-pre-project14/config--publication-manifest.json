@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "outputDirectory": "site",
+  "requiredRootFiles": [
+    "CNAME",
+    "robots.txt",
+    "sitemap.xml",
+    "projects/windows-laps-gpo/troubleshooting.md",
+    "projects/windows-laps-gpo/validation.md"
+  ],
+  "optionalRootFiles": [
+    ".nojekyll",
+    "favicon.ico"
+  ],
+  "rootExtensions": [
+    ".html"
+  ],
+  "directories": [
+    "assets",
+    "evidence-library",
+    "systems-skills",
+    "microsoft-365",
+    "home-lab",
+    "evidence",
+    "projects/windows-laps-gpo/evidence",
+    "projects/entra-cloud-sync/evidence",
+    "projects/windows-autopilot-intune/evidence",
+    "projects/macos-abm-intune-runbook/evidence",
+    "portfolio-documents"
+  ],
+  "forbiddenOutputRoots": [
+    ".git",
+    ".github",
+    "artifacts",
+    "config",
+    "content",
+    "schemas",
+    "scripts",
+    "tests",
+    "legacy-site-backup",
+    "sorted-documents",
+    "node_modules"
+  ]
+}
