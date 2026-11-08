@@ -57,7 +57,8 @@ checks=r'''(async()=>{
  if(document.querySelectorAll('a.skip').length!==1)issues.push('skip control count');
  if(!document.querySelector('main')||!document.querySelector('a.skip')||!document.querySelector('nav[aria-label="Primary"]'))issues.push('landmarks');
  const footer=document.querySelector('footer.site-footer');if(!footer||getComputedStyle(footer.querySelector('.footer-directory')).display!=='grid')issues.push('unbranded footer');
- if(!document.querySelector('footer a.footer-top[href="#top"]'))issues.push('footer top control');
+ if(document.querySelectorAll('footer a.footer-top[href="#top"],a[data-back-to-top][href="#top"]').length!==1)issues.push('duplicate or missing back-to-top control');
+ if(!document.querySelector('a[data-back-to-top][href="#top"]'))issues.push('floating back-to-top missing');
  if(getComputedStyle(document.documentElement).getPropertyValue('--accent-cyan').trim()!=='#49c2c8')issues.push('brand palette');
  const images=[...document.images];for(const im of images)im.loading='eager';
  await Promise.race([Promise.all(images.map(im=>im.decode().catch(()=>{}))),new Promise(resolve=>setTimeout(resolve,10000))]);
@@ -76,7 +77,7 @@ checks=r'''(async()=>{
  }
  const search=document.querySelector('#evidence-search');if(search){search.value='Grafana';search.dispatchEvent(new Event('input',{bubbles:true}));const feature=document.querySelector('#grafana-entra-proof');if(!feature||feature.hidden||!feature.classList.contains('panel')||!feature.classList.contains('evidence-feature'))issues.push('SSO evidence styling/search');if(!document.querySelector('#search-count').textContent.startsWith('1 '))issues.push('evidence count');search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));}
  const source=document.querySelector('[data-source-list]');if(source){if([...source.children].filter(x=>!x.hidden).length!==50)issues.push('inventory pagination');const input=document.querySelector('#source-search');input.value='grafana';input.dispatchEvent(new Event('input',{bubbles:true}));const shown=[...source.children].filter(x=>!x.hidden);if(shown.some(x=>!x.textContent.toLowerCase().includes('grafana')))issues.push('inventory search');input.value='';input.dispatchEvent(new Event('input',{bubbles:true}));}
- scrollTo(0,document.documentElement.scrollHeight);await new Promise(r=>setTimeout(r,70));if(scrollY>550&&document.querySelector('[data-back-to-top]').dataset.visible!=='true')issues.push('floating top control');footer.querySelector('.footer-top').click();await new Promise(r=>setTimeout(r,100));if(scrollY>2)issues.push('back to top behavior');
+ scrollTo(0,document.documentElement.scrollHeight);await new Promise(r=>setTimeout(r,70));if(scrollY>550&&document.querySelector('[data-back-to-top]').dataset.visible!=='true')issues.push('floating top control');document.querySelector('[data-back-to-top]').click();await new Promise(r=>setTimeout(r,100));if(scrollY>2)issues.push('back to top behavior');
  return {url:location.href,title:document.title,width:innerWidth,height:document.documentElement.scrollHeight,images:images.length,issues};
 })()'''
 def lane(width):
