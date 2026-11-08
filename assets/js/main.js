@@ -93,6 +93,8 @@ if (sourceList) {
 
 const topControl = document.querySelector('[data-back-to-top]');
 if (topControl) {
+  // Keep one visible back-to-top control. Without JavaScript, the footer link remains available.
+  document.querySelectorAll('.footer-top').forEach(link => link.remove());
   const syncTopControl = () => {
     const visible = window.scrollY > 550;
     topControl.dataset.visible = String(visible);
