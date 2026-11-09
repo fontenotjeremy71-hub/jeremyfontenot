@@ -1,0 +1,68 @@
+---
+layout: default
+---
+{% assign total_projects = site.projects.size %}
+{% assign previous_number = page.number | minus: 1 %}
+{% assign next_number = page.number | plus: 1 %}
+{% assign previous_project = site.projects | where: "number", previous_number | first %}
+{% assign next_project = site.projects | where: "number", next_number | first %}
+<div class="case-study-shell{% if page.number <= 12 %} case-study-shell--standard{% else %} case-study-shell--signature{% endif %}" data-case-study-number="{{ page.number }}">
+  <nav class="case-study-breadcrumb" aria-label="Project breadcrumb">
+    <a href="{{ '/projects.html' | relative_url }}">← All projects</a>
+    <span aria-hidden="true">/</span>
+    <span>Project {{ page.number | prepend: '0' | slice: -2, 2 }} of {{ total_projects }}</span>
+    <span aria-hidden="true">/</span>
+    <span>{{ page.category | escape }}</span>
+  </nav>
+  {% if page.number <= 12 %}
+  <div class="case-study-layout">
+    <div class="case-study-document">{{ content }}</div>
+    <aside class="case-study-aside" aria-label="Project overview and evidence">
+      <div class="case-study-overview">
+        <div class="case-study-overview-topline">
+          <span>PROJECT / {{ page.number | prepend: '0' | slice: -2, 2 }}</span>
+          <span>TECHNICAL CASE STUDY</span>
+        </div>
+        <p class="case-study-aside-eyebrow">Project at a glance</p>
+        <h2>From task to evidence.</h2>
+        <p class="case-study-abstract">{{ page.summary | escape }}</p>
+        <p class="case-study-aside-eyebrow">Technologies</p>
+        <div class="tags case-study-skills">{% for tag in page.tags %}<span class="tag">{{ tag | escape }}</span>{% endfor %}</div>
+        <div class="case-study-overview-actions">
+          <a class="case-study-action case-study-action--primary" href="{{ page.evidence_url | relative_url }}">Inspect primary evidence <span aria-hidden="true">↗</span></a>
+          <a class="case-study-action" href="#validation">Browse supporting proof <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="case-study-overview-note">Lab scope, validation limits, and artifact provenance are documented in this case study.</p>
+      </div>
+    </aside>
+  </div>
+  {% else %}
+  <div class="case-study-document case-study-document--signature">{{ content }}</div>
+  <aside class="case-study-signature-context" aria-label="Project overview and direct evidence">
+    <div>
+      <p class="case-study-aside-eyebrow">Project at a glance / {{ page.number | prepend: '0' | slice: -2, 2 }}</p>
+      <p>{{ page.summary | escape }}</p>
+      <div class="tags">{% for tag in page.tags %}<span class="tag">{{ tag | escape }}</span>{% endfor %}</div>
+    </div>
+    <a class="case-study-action case-study-action--primary" href="{{ page.evidence_url | relative_url }}">Inspect primary evidence <span aria-hidden="true">↗</span></a>
+  </aside>
+  {% endif %}
+  <nav class="case-study-neighbors" aria-label="Explore adjacent case studies">
+    {% if previous_project %}
+    <a class="case-study-neighbor" href="{{ previous_project.case_study_url | relative_url }}">
+      <span>← Previous project · {{ previous_project.number | prepend: '0' | slice: -2, 2 }}</span>
+      <strong>{{ previous_project.title | escape }}</strong>
+    </a>
+    {% endif %}
+    <a class="case-study-neighbor case-study-neighbor--all" href="{{ '/projects.html' | relative_url }}">
+      <span>Browse the portfolio</span>
+      <strong>All {{ total_projects }} projects ↗</strong>
+    </a>
+    {% if next_project %}
+    <a class="case-study-neighbor" href="{{ next_project.case_study_url | relative_url }}">
+      <span>Next project · {{ next_project.number | prepend: '0' | slice: -2, 2 }} →</span>
+      <strong>{{ next_project.title | escape }}</strong>
+    </a>
+    {% endif %}
+  </nav>
+</div>
