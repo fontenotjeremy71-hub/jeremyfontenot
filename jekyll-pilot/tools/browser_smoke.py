@@ -32,6 +32,13 @@ CHECKS = r"""(() => {
   const projectGrid = document.querySelector('.project-directory');
   const featuredLayout = document.querySelector('.featured-project-grid');
   const summary = document.querySelector('.project-directory .panel:not(.panel--featured) > p:not(.number)');
+  const caseStudy = document.querySelector('.case-study-shell');
+  const workflow = document.querySelector('.case-study-process-grid');
+  const evidenceGrid = document.querySelector('.case-study-shell--standard #validation');
+  const proof = document.querySelector('.case-study-shell--standard .proof');
+  const caseStudyContext = document.querySelector('.case-study-overview, .case-study-signature-context');
+  const caseStudyBody = document.querySelector('.case-study-document');
+  const countColumns = el => el ? getComputedStyle(el).gridTemplateColumns.split(/\\s+/).filter(Boolean).length : 0;
   const heroHeadingLines = heroHeading ?
     Math.round(heroHeading.getBoundingClientRect().height / parseFloat(getComputedStyle(heroHeading).lineHeight)) : null;
   return {
@@ -58,6 +65,19 @@ CHECKS = r"""(() => {
     featureEvidenceLink: !!featured?.querySelector('.project-actions a[href*="/evidence/"]'),
     featureCaseStudyLink: !!featured?.querySelector('.project-actions a[href="/project-15.html"]'),
     summaryFontPx: summary ? parseFloat(getComputedStyle(summary).fontSize) : 0,
+    caseStudyNumber: caseStudy ? Number(caseStudy.dataset.caseStudyNumber) : 0,
+    caseStudyStandard: !!document.querySelector('.case-study-shell--standard'),
+    caseStudySignature: !!document.querySelector('.case-study-shell--signature'),
+    caseStudyContextVisible: !!caseStudyContext && getComputedStyle(caseStudyContext).display !== 'none',
+    caseStudyWorkflowStages: document.querySelectorAll('.case-study-process-step').length,
+    caseStudyWorkflowColumns: countColumns(workflow),
+    caseStudyEvidenceColumns: countColumns(evidenceGrid),
+    caseStudyProofCount: document.querySelectorAll('.case-study-shell--standard #validation > .proof').length,
+    caseStudyProofFontSize: proof ? parseFloat(getComputedStyle(proof.querySelector('p')).fontSize) : 0,
+    caseStudyHasBreadcrumb: !!document.querySelector('.case-study-breadcrumb a[href="/projects.html"]'),
+    caseStudyHasNeighbors: !!document.querySelector('.case-study-neighbors a[href="/projects.html"]'),
+    caseStudyPrimaryEvidence: !!caseStudyContext?.querySelector('a[href^="/evidence/"], a[href^="/projects/"]'),
+    caseStudyBodyText: caseStudyBody?.innerText?.length || 0,
     overflow: document.documentElement.scrollWidth - innerWidth
   };
 })()"""
@@ -145,6 +165,27 @@ def main() -> None:
                             })()""")
                             if filter_result["automationCount"] != 2 or not filter_result["automationValid"] or not filter_result["featuredAutomation"] or filter_result["resetCount"] != 15:
                                 issues.append(f"Project category filtering regression: {filter_result}")
+                        if state.get("caseStudyNumber"):
+                            n = state["caseStudyNumber"]
+                            if not state["caseStudyHasBreadcrumb"] or not state["caseStudyHasNeighbors"]:
+                                issues.append("missing shared project navigation")
+                            if not state["caseStudyContextVisible"] or not state["caseStudyPrimaryEvidence"]:
+                                issues.append("project briefing or primary evidence link missing")
+                            if state["caseStudyBodyText"] < 120:
+                                issues.append("case-study content missing")
+                            if n <= 12:
+                                if not state["caseStudyStandard"] or state["caseStudyWorkflowStages"] != 2:
+                                    issues.append("standard case study workflow sections not grouped correctly")
+                                if state["caseStudyProofCount"] < 1:
+                                    issues.append("technical evidence cards missing")
+                                if state["caseStudyProofFontSize"] < 15:
+                                    issues.append("proof text too small")
+                                if width == 1440 and state["caseStudyWorkflowColumns"] != 2:
+                                    issues.append("desktop implementation/checks grid is not two columns")
+                                if width <= 768 and state["caseStudyWorkflowColumns"] != 1:
+                                    issues.append("mobile implementation/checks grid is not one column")
+                            elif not state["caseStudySignature"]:
+                                issues.append("signature project design missing")
                         if route == "/projects/m365-graph-administration-lab/index.html" and "graph-case-study" not in state.get("bodyClass", ""):
                             issues.append("Project 13 signature layout class missing")
                         if route == "/skills.html" and "skills-page" not in state.get("mainClass", ""):
@@ -158,7 +199,7 @@ def main() -> None:
                         if issues:
                             failures.append(f"{width}px {route}: {', '.join(issues)}")
                         results.append({"width": width, "route": route, "status": state, "issues": issues})
-                        if route in ("/", "/projects.html", "/project-15.html", "/projects/grafana-entra-sso/index.html", "/projects/m365-graph-administration-lab/index.html", "/skills.html", "/evidence.html"):
+                        if route in ("/", "/projects.html", "/project-15.html", "/projects/grafana-entra-sso/index.html", "/projects/m365-graph-administration-lab/index.html", "/projects/windows-laps-gpo/index.html", "/projects/scvmm-2022/index.html", "/projects/macos-abm-intune-runbook/index.html", "/project-15.html", "/skills.html", "/evidence.html"):
                             label = "home" if route == "/" else route.strip("/").replace("/", "--").replace(".html", "")
                             browser.screenshot(output / f"{label}-{width}.png")
                     except Exception as exc:
