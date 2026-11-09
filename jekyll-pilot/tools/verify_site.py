@@ -141,6 +141,34 @@ def main() -> None:
             problems.append(f"Project 15 presentation token {token}: expected {expected}, found {found}")
     if '/assets/css/project15.css?v=p15-1' not in project15_published:
         problems.append("Project 15 case-study stylesheet is missing")
+    # Project 13 keeps the original read-only Graph illustration and eight
+    # source artifacts. The new design CSS must only be linked on this page.
+    graph_source = (PROJECTS / "13-projects-m365-graph-administration-lab.md").read_text(encoding="utf-8")
+    graph_page_path = BUILD / "projects/m365-graph-administration-lab/index.html"
+    graph_page = graph_page_path.read_text(encoding="utf-8")
+    if '/assets/css/project13.css?v=g13-1' not in graph_page:
+        problems.append("Project 13 isolated refinement stylesheet missing")
+    for marker in ('class="graph-hero-art"', 'class="graph-flow"', 'class="graph-stat-grid"', 'class="graph-proof-grid"'):
+        if marker not in graph_page:
+            problems.append(f"Project 13 original Graph element missing: {marker}")
+    graph_artifacts = re.findall(r'<article class="proof"[^>]*>.*?</article>', graph_source, re.S)
+    if len(graph_artifacts) != 8 or graph_page.count('<article class="proof"') != 8:
+        problems.append("Project 13 evidence cards differ from eight original source records")
+    for artifact in graph_artifacts:
+        artifact_href = re.search(r'<a class="text-link" href="([^"]+)"', artifact)
+        if not artifact_href:
+            problems.append("Project 13 evidence card missing its source link")
+            continue
+        relative_url = artifact_href.group(1)
+        if f'href="{relative_url}"' not in graph_page:
+            problems.append(f"Project 13 evidence route changed: {relative_url}")
+            continue
+        published_source = (graph_page_path.parent / relative_url).resolve()
+        original_source = (ROOT / "projects/m365-graph-administration-lab" / relative_url).resolve()
+        if not original_source.is_file() or not published_source.is_file():
+            problems.append(f"Project 13 supporting artifact not found: {relative_url}")
+        elif hashlib.sha256(original_source.read_bytes()).digest() != hashlib.sha256(published_source.read_bytes()).digest():
+            problems.append(f"Project 13 supporting artifact bytes changed: {relative_url}")
     root_pages = list(ROOT.glob("*.html"))
     if len(root_pages) < 40:
         problems.append(f"Only {len(root_pages)} root HTML pages found")
@@ -149,7 +177,7 @@ def main() -> None:
             problems.append(f"Missing retained root route: {source.name}")
     if (BUILD / ".nojekyll").exists():
         problems.append("Production publication must not contain .nojekyll")
-    for rel in ("assets/css/style.css", "assets/css/experience.css", "assets/css/project15.css", "assets/js/main.js", "favicon.ico", "CNAME"):
+    for rel in ("assets/css/style.css", "assets/css/experience.css", "assets/css/project15.css", "assets/css/project13.css", "assets/js/main.js", "favicon.ico", "CNAME"):
         if not (BUILD / rel).is_file():
             problems.append(f"Missing public asset: {rel}")
 
