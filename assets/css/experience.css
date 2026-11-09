@@ -719,9 +719,11 @@ img, video, iframe { max-width: 100%; }
   color: #bdcede;
 }
 .case-study-shell--standard .contents {
-  position: sticky;
-  top: 99px;
-  z-index: 40;
+  /* In the multi-row case-study grid, sticky navigation overlaps scope and
+     evidence while scrolling. Keep it in normal document flow. */
+  position: static;
+  top: auto;
+  z-index: auto;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -939,8 +941,10 @@ img, video, iframe { max-width: 100%; }
   padding: 0 13px 10px;
 }
 .case-study-aside {
-  position: sticky;
-  top: 116px;
+  /* The briefing spans several CSS grid rows; sticky would float over the
+     full-width evidence gallery. Normal flow keeps its column unobstructed. */
+  position: static;
+  top: auto;
   align-self: start;
   min-width: 0;
   padding-top: 38px;

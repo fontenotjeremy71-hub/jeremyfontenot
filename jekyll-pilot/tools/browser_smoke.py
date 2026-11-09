@@ -191,6 +191,37 @@ def main() -> None:
                                         issues.append("evidence gallery does not span the desktop content width")
                                 if width <= 768 and state["caseStudyWorkflowColumns"] != 1:
                                     issues.append("mobile implementation/checks grid is not one column")
+                                if width == 1440:
+                                    proof_scroll = browser.evaluate("""(() => {
+                                        const aside = document.querySelector('.case-study-aside');
+                                        const nav = document.querySelector('.case-study-shell--standard .contents');
+                                        const first = document.querySelector('#validation > .proof');
+                                        const validation = document.querySelector('#validation');
+                                        if (!aside || !nav || !first || !validation) return {missing: true};
+                                        const target = validation.getBoundingClientRect().top + window.scrollY + 55;
+                                        window.scrollTo({top: target, behavior: 'instant'});
+                                        const a = aside.getBoundingClientRect();
+                                        const p = first.getBoundingClientRect();
+                                        const intersects = a.left < p.right && a.right > p.left &&
+                                            a.top < p.bottom && a.bottom > p.top;
+                                        const x = Math.min(p.right - 24, p.left + p.width / 2);
+                                        const y = Math.min(p.bottom - 20, Math.max(p.top + 60, 125));
+                                        const hit = document.elementFromPoint(x, y);
+                                        return {
+                                            missing: false,
+                                            asidePosition: getComputedStyle(aside).position,
+                                            navigationPosition: getComputedStyle(nav).position,
+                                            intersects,
+                                            evidenceReachable: !!hit?.closest('.proof'),
+                                            scrollY: Math.round(window.scrollY)
+                                        };
+                                    })()""")
+                                    if proof_scroll.get("missing") or proof_scroll.get("asidePosition") != "static" or proof_scroll.get("navigationPosition") != "static":
+                                        issues.append(f"case-study briefing or navigation is still sticky: {proof_scroll}")
+                                    if proof_scroll.get("intersects") or not proof_scroll.get("evidenceReachable"):
+                                        issues.append(f"case-study card obscures evidence while scrolling: {proof_scroll}")
+                                    if route == "/projects/windows-laps-gpo/index.html":
+                                        browser.screenshot(output / "windows-laps-1440-scrolled-evidence.png")
                             elif not state["caseStudySignature"]:
                                 issues.append("signature project design missing")
                         if route == "/projects/m365-graph-administration-lab/index.html" and "graph-case-study" not in state.get("bodyClass", ""):
