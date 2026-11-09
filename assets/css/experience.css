@@ -118,8 +118,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 /* Intro: a recognizably technical, editorial hero rather than a generic landing block. */
 .hero { padding-block: clamp(62px, 6.5vw, 110px) clamp(66px, 7vw, 112px); }
 .hero-grid {
-  grid-template-columns: minmax(0, 1.13fr) minmax(0, .87fr);
-  gap: clamp(32px, 6vw, 90px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: clamp(30px, 3.4vw, 52px);
   align-items: center;
 }
 .hero-grid > * { min-width: 0; }
@@ -138,12 +138,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-radius: 5px;
 }
 .hero h1 {
-  font-size: clamp(3.1rem, 5.2vw, 5.65rem);
-  line-height: 1.045;
-  max-width: 15ch;
+  font-size: clamp(2.95rem, 4.05vw, 4.3rem);
+  line-height: 1.075;
+  max-width: none;
   font-weight: 800;
   margin-bottom: 25px;
-  letter-spacing: -.062em;
+  letter-spacing: -.057em;
+  text-wrap: pretty;
 }
 .hero h1 .accent {
   background: linear-gradient(102deg, #b8f5f0 0%, #77d8df 48%, #9db9f6 100%);
@@ -177,8 +178,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .hero .actions { gap: 13px; margin-block: 29px 18px; }
 .hero .text-link { font-size: 14px; }
 .portrait-orbit {
-  width: min(100%, 390px);
-  max-width: 390px;
+  width: min(100%, 430px);
+  max-width: 430px;
   padding: 16px;
   margin: 14px auto 18px;
   border: 1px solid rgba(126, 220, 227, .48);
@@ -434,9 +435,9 @@ img, video, iframe { max-width: 100%; }
 /* Keep the redesigned proportions on laptop and tablet without clipping. */
 @media (max-width: 1100px) {
   .nav { gap: 16px; }
-  .hero-grid { gap: 38px; }
-  .hero h1 { font-size: clamp(2.8rem, 5.1vw, 4.75rem); }
-  .portrait-orbit { width: min(100%, 340px); }
+  .hero-grid { grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr); gap: 30px; }
+  .hero h1 { font-size: clamp(2.75rem, 4.25vw, 3.65rem); max-width: none; }
+  .portrait-orbit { width: min(100%, 390px); max-width: 390px; }
   .grid { gap: 20px; }
   .panel, .project-card { padding: 29px; }
   .footer-directory { grid-template-columns: 1.6fr 1fr 1fr .8fr; }
@@ -450,9 +451,9 @@ img, video, iframe { max-width: 100%; }
   .nav-links { width: 100%; gap: 12px 22px; }
   .nav-links a { font-size: 14px; padding-block: 9px; }
   .hero { padding-block: 55px 64px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 45px; }
-  .hero h1 { font-size: clamp(2.9rem, 9vw, 4.5rem); max-width: 17ch; }
-  .portrait-orbit { width: min(100%, 320px); max-width: 320px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero h1 { font-size: clamp(2.75rem, 8.4vw, 4.25rem); max-width: 18ch; }
+  .portrait-orbit { width: min(100%, 340px); max-width: 340px; }
   .hero-caption { margin-top: 23px; }
   .metrics { margin-bottom: 16px; }
   .metrics > div { padding: 23px !important; }
@@ -471,7 +472,7 @@ img, video, iframe { max-width: 100%; }
   .brand small { font-size: 10px; }
   .brand img { width: 42px; height: 42px; }
   .hero { padding-top: 48px; }
-  .hero h1 { font-size: clamp(2.6rem, 10vw, 3.45rem); }
+  .hero h1 { font-size: clamp(2.5rem, 9vw, 3.25rem); line-height: 1.1; max-width: 18ch; }
   .hero .lead { font-size: 16px; }
   .hero .eyebrow { font-size: 10px; letter-spacing: .10em; }
   .hero .actions { align-items: stretch; }
