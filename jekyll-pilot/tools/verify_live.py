@@ -47,7 +47,16 @@ def main() -> None:
     project15_pngs = set(re.findall(r'evidence/project-15/[^"\s<>]+\.png', original_source))
     if len(project15_pngs) != 8:
         raise RuntimeError(f"Project 15 source must contain 8 PNGs; found {len(project15_pngs)}")
-    evidence_urls = sorted(set(evidence_urls) | {"/" + name for name in project15_pngs})
+    graph_source = (PROJECTS / "13-projects-m365-graph-administration-lab.md").read_text(encoding="utf-8")
+    graph_artifacts = re.findall(r'<article class="proof"[^>]*>.*?</article>', graph_source, re.S)
+    graph_evidence = set()
+    for record in graph_artifacts:
+        match = re.search(r'href="\.\./\.\./(evidence/[^"]+)"', record)
+        if match:
+            graph_evidence.add("/" + match.group(1))
+    if len(graph_artifacts) != 8 or len(graph_evidence) != 8:
+        raise RuntimeError(f"Expected eight original Graph artifacts, found {len(graph_evidence)}")
+    evidence_urls = sorted(set(evidence_urls) | {"/" + name for name in project15_pngs} | graph_evidence)
     failures: list[str] = []
     for attempt in range(max(args.attempts, 1)):
         failures.clear()
@@ -58,6 +67,18 @@ def main() -> None:
                 for marker in (expected, 'name="generator" content="Jekyll"', "site-header", "site-footer"):
                     if marker not in body:
                         failures.append(f"{path}: missing {marker!r}")
+            graph_page = pages["/projects/m365-graph-administration-lab/index.html"]
+            for marker in (
+                '/assets/css/project13.css?v=g13-1',
+                'class="graph-hero-art"',
+                'class="graph-flow"',
+                'class="graph-stat-grid"',
+                'class="graph-proof-grid"',
+            ):
+                if marker not in graph_page:
+                    failures.append(f"Live Project 13 page missing {marker!r}")
+            if graph_page.count('<article class="proof"') != 8:
+                failures.append("Live Project 13 does not contain eight retained evidence records")
             project15_page = pages["/project-15.html"]
             for marker in (
                 '/assets/css/project15.css?v=p15-1',

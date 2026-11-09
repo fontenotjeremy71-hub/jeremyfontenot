@@ -47,6 +47,12 @@ CHECKS = r"""(() => {
   const p15LeadValidation = p15Validation?.querySelector('.project15-visual-card--lead');
   const p15Images = p15?.querySelectorAll('.project15-image-link img') || [];
   const p15Style = [...document.styleSheets].some(x => x.href && x.href.includes('/assets/css/project15.css'));
+  const p13 = document.querySelector('.case-study-shell[data-case-study-number="13"]');
+  const graphProofs = p13?.querySelectorAll('.graph-proof-grid .proof') || [];
+  const graphGrid = p13?.querySelector('.graph-proof-grid');
+  const graphFlow = p13?.querySelector('.graph-flow');
+  const graphNav = p13?.querySelector('.contents');
+  const graphStyle = [...document.styleSheets].some(x => x.href && x.href.includes('/assets/css/project13.css?v=g13-1'));
   const heroHeadingLines = heroHeading ?
     Math.round(heroHeading.getBoundingClientRect().height / parseFloat(getComputedStyle(heroHeading).lineHeight)) : null;
   return {
@@ -88,6 +94,20 @@ CHECKS = r"""(() => {
     caseStudyHasNeighbors: !!document.querySelector('.case-study-neighbors a[href="/projects.html"]'),
     caseStudyPrimaryEvidence: !!caseStudyContext?.querySelector('a[href^="/evidence/"], a[href^="/projects/"]'),
     caseStudyBodyText: caseStudyBody?.innerText?.length || 0,
+    project13Css: graphStyle,
+    project13HeroRetained: !!p13?.querySelector('.graph-hero-art .graph-core'),
+    project13Stats: p13?.querySelectorAll('.graph-stat-grid .graph-stat').length || 0,
+    project13FlowStages: p13?.querySelectorAll('.graph-flow .graph-flow-step').length || 0,
+    project13ProofCount: graphProofs.length,
+    project13SourceLinks: p13?.querySelectorAll('.graph-source-links a').length || 0,
+    project13EvidenceLinks: [...graphProofs].filter(card => !!card.querySelector('a.text-link[href]')).length,
+    project13Provenance: [...graphProofs].filter(card => !!card.querySelector('details summary')).length,
+    project13EvidenceFontPx: graphProofs.length ? parseFloat(getComputedStyle(graphProofs[0].querySelector('p')).fontSize) : 0,
+    project13EvidenceNoteFontPx: graphProofs.length ? parseFloat(getComputedStyle(graphProofs[0].querySelector('small')).fontSize) : 0,
+    project13EvidenceColumns: countColumns(graphGrid),
+    project13FlowColumns: countColumns(graphFlow),
+    project13NavigationPosition: graphNav ? getComputedStyle(graphNav).position : '',
+    project13EvidenceActionHeight: graphProofs.length ? Math.round(graphProofs[0].querySelector('a.text-link').getBoundingClientRect().height) : 0,
     project15Css: p15Style,
     project15Metrics: p15?.querySelectorAll('.project15-highlights > div').length || 0,
     project15InterfaceCount: p15Interfaces?.querySelectorAll('.project15-visual-card').length || 0,
@@ -275,8 +295,32 @@ def main() -> None:
                                 browser.evaluate(f"document.querySelector('{anchor}').scrollIntoView({{behavior:'instant',block:'start'}})")
                                 if width in (360, 1440):
                                     browser.screenshot(output / f"project-15-{location}-{width}.png")
-                        if route == "/projects/m365-graph-administration-lab/index.html" and "graph-case-study" not in state.get("bodyClass", ""):
-                            issues.append("Project 13 signature layout class missing")
+                        if route == "/projects/m365-graph-administration-lab/index.html":
+                            if not state.get("project13Css") or "graph-case-study" not in state.get("bodyClass", ""):
+                                issues.append("Graph case-study refinement layer is missing")
+                            if not state.get("project13HeroRetained") or state.get("project13Stats") != 4:
+                                issues.append("Graph hero/metrics were not preserved")
+                            expected = {"project13FlowStages": 4, "project13ProofCount": 8,
+                                        "project13SourceLinks": 4, "project13EvidenceLinks": 8,
+                                        "project13Provenance": 8}
+                            for key, count in expected.items():
+                                if state.get(key) != count:
+                                    issues.append(f"Graph {key}: expected {count}, found {state.get(key)}")
+                            if state.get("project13EvidenceFontPx", 0) < 16 or state.get("project13EvidenceNoteFontPx", 0) < 12.5:
+                                issues.append("Graph evidence descriptions or provenance notes remain too small")
+                            if state.get("project13EvidenceActionHeight", 0) < 44:
+                                issues.append("Graph evidence links have too small a click target")
+                            if state.get("project13NavigationPosition") != "static":
+                                issues.append("Graph section navigation can obscure the page on scroll")
+                            if state.get("project13EvidenceColumns") != (2 if width > 900 else 1):
+                                issues.append(f"Graph evidence responsive grid incorrect at {width}px")
+                            if state.get("project13FlowColumns") != (4 if width > 1020 else 1 if width <= 520 else 2):
+                                issues.append(f"Graph architecture columns incorrect at {width}px: {state.get('project13FlowColumns')}")
+                            for location, anchor in (("architecture", "#graph-architecture"),
+                                                     ("evidence", "#validation")):
+                                browser.evaluate(f"document.querySelector('{anchor}').scrollIntoView({{behavior:'instant',block:'start'}})")
+                                if width in (360, 768, 1440):
+                                    browser.screenshot(output / f"project13-{location}-{width}.png")
                         if route == "/skills.html" and "skills-page" not in state.get("mainClass", ""):
                             issues.append("skills page styling hook missing")
                         if route == "/evidence.html" and "evidence-page" not in state.get("mainClass", ""):
