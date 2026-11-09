@@ -6,7 +6,7 @@ summary: "Implemented Ubuntu-hosted Grafana with trusted HTTPS, Microsoft Entra 
 case_study_url: "/projects/grafana-entra-sso/index.html"
 evidence_url: "/projects/grafana-entra-sso/evidence/P14-12-Grafana-Entra-Role-Assignment-Verified.png"
 tags: ["Microsoft Entra", "Grafana OSS", "OAuth / OIDC", "TLS"]
-layout: default
+layout: case-study
 permalink: "/projects/grafana-entra-sso/index.html"
 ---
 <div class="page-heading"><p class="eyebrow">PROJECT 14 / IDENTITY &amp; ACCESS</p><h1>Grafana OSS + Microsoft Entra Single Sign-On</h1><p>Nonproduction hybrid identity lab: secure a Linux-hosted application and validate cloud SSO end-to-end.</p></div>

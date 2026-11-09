@@ -6,7 +6,7 @@ summary: "PowerShell 7 dashboard with eight administration cards, seven validate
 case_study_url: "/project-15.html"
 evidence_url: "/evidence/microsoft-365/entra-id/bc535e1a5d-Get-EntraRoleInventory.ps1.txt"
 tags: ["PowerShell 7", "Automation", "Microsoft Graph"]
-layout: default
+layout: case-study
 permalink: "/project-15.html"
 ---
 <div class="page-heading"><p class="eyebrow">PROJECT 15 / POWERSHELL &amp; AUTOMATION</p><h1>JF Automation &amp; <span class="accent">Scripting Dashboard</span></h1><p class="lead">A local PowerShell 7 administration dashboard connecting repeatable hybrid-infrastructure checks, Microsoft cloud inventory, Windows LAPS validation, and guarded Active Directory provisioning.</p></div>
