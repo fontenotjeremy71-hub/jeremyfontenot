@@ -74,7 +74,9 @@
 }
 .project15-case-study .project15-highlights strong {
   color: #a6eff2;
-  font: 750 clamp(26px, 3vw, 40px)/1.15 inherit;
+  font-weight: 750;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.15;
   letter-spacing: -.035em;
 }
 .project15-case-study .project15-highlights span {
