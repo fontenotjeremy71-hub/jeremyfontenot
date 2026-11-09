@@ -74,6 +74,44 @@ def main() -> None:
         problems.append("Project 15 feature layout is incomplete")
     if 'href="/project-15.html"' not in directory:
         problems.append("Project 15 case-study link is missing")
+    # The case study layout must render every collection record, preserve all
+    # original proof cards, and keep a single stable URL per project.
+    for item in records:
+        source = item.read_text(encoding="utf-8")
+        number_match = re.search(r'^number:\s*(\d+)', source, re.M)
+        target_match = re.search(r'^case_study_url: "([^"]+)"', source, re.M)
+        if not number_match or not target_match:
+            problems.append(f"{item.name}: missing numbered study URL")
+            continue
+        number = int(number_match.group(1))
+        target = BUILD / target_match.group(1).lstrip("/")
+        if not target.is_file():
+            continue
+        study_markup = target.read_text(encoding="utf-8")
+        if f'data-case-study-number="{number}"' not in study_markup:
+            problems.append(f"{item.name}: missing shared case-study layout")
+        if 'class="case-study-breadcrumb"' not in study_markup:
+            problems.append(f"{item.name}: missing portfolio breadcrumb")
+        if 'class="case-study-neighbors"' not in study_markup:
+            problems.append(f"{item.name}: missing related-project navigation")
+        if 'Inspect primary evidence' not in study_markup:
+            problems.append(f"{item.name}: missing direct evidence action")
+        if number <= 12:
+            if 'class="case-study-shell case-study-shell--standard"' not in study_markup:
+                problems.append(f"{item.name}: incorrect standard case-study shell")
+            if study_markup.count('class="case-study-process-step') != 2:
+                problems.append(f"{item.name}: expected two grouped workflow stages")
+            if 'class="case-study-overview"' not in study_markup:
+                problems.append(f"{item.name}: missing technical briefing rail")
+            source_claims = len(re.findall(r'<article class="proof"', source))
+            published_claims = len(re.findall(r'<article class="proof"', study_markup))
+            if source_claims != published_claims:
+                problems.append(f"{item.name}: evidence-card count changed: {source_claims} -> {published_claims}")
+        else:
+            if 'class="case-study-shell case-study-shell--signature"' not in study_markup:
+                problems.append(f"{item.name}: signature visual treatment was not retained")
+            if 'class="case-study-signature-context"' not in study_markup:
+                problems.append(f"{item.name}: shared signature overview missing")
     root_pages = list(ROOT.glob("*.html"))
     if len(root_pages) < 40:
         problems.append(f"Only {len(root_pages)} root HTML pages found")
