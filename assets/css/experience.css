@@ -1015,6 +1015,39 @@ img, video, iframe { max-width: 100%; }
   font-size: 12px;
   line-height: 1.7;
 }
+/* On desktop, the introductory story and sticky briefing share the upper
+   columns; supporting evidence then spans the complete page width. This makes
+   every evidence card inspectable without an unused right-hand gutter. */
+@media (min-width: 1001px) {
+  .case-study-shell--standard .case-study-layout {
+    grid-template-areas:
+      "hero brief"
+      "sections brief"
+      "workflow brief"
+      "limits brief"
+      "proof proof";
+    row-gap: 0;
+  }
+  .case-study-shell--standard .case-study-document { display: contents; }
+  .case-study-shell--standard .page-heading { grid-area: hero; }
+  .case-study-shell--standard .contents { grid-area: sections; }
+  .case-study-shell--standard section#implementation { grid-area: workflow; }
+  .case-study-shell--standard .scope { grid-area: limits; }
+  .case-study-shell--standard .case-study-aside { grid-area: brief; }
+  .case-study-shell--standard section#validation {
+    grid-area: proof;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-top: 12px;
+    margin-top: 15px;
+  }
+  .case-study-shell--standard #validation > .proof:only-of-type {
+    grid-column: 1 / -1;
+  }
+  .case-study-shell--standard #validation > .proof:last-of-type:nth-of-type(odd) {
+    grid-column: 1 / -1;
+  }
+}
 /* Signature case studies retain their dedicated, proven Graph/Grafana/Dashboard
    layouts. They also receive consistent project breadcrumbs and discovery. */
 .case-study-document--signature { padding-top: 15px; }
