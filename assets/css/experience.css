@@ -351,6 +351,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 /* Project 15 concludes the directory as a purposeful feature, not an orphaned card. */
+/* The filtering script controls hidden on every card, including the full-width card. */
+.project-directory .panel[hidden] { display: none !important; }
 .project-directory .panel--featured {
   grid-column: 1 / -1;
   display: block;
