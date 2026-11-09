@@ -10,16 +10,20 @@ The 15 case studies now live entirely in `_projects/`. Each Markdown record cont
 - `title`, `category`, `summary` and `tags` — drive the project directory.
 - `case_study_url` and matching `permalink` — preserve project page URLs.
 - `evidence_url` — direct public evidence path; the file must already exist in the original repository.
-- HTML below the closing `---` — the complete case study, rendered inside the shared layout.
+- `layout: case-study` — all 15 projects share the same project breadcrumb, direct evidence action, and previous/next navigation, while retaining source content.
+- HTML below the closing `---` — the complete original case-study narrative, rendered inside the shared layout.
 
 The projects page automatically sorts and counts collection entries. The homepage metrics also use `site.projects.size`. The homepage’s curated selected-work cards come from `_data/featured.json`; edit this file to feature or reorder projects without touching page HTML.
 
 ## Edit the global visual design
 
 - `_layouts/default.html` — the shared branded HTML shell, navigation, footers, canonical URLs and SEO metadata.
+- `_layouts/case-study.html` — the 15-project design layer with metadata, contextual actions, evidence entry point, and adjacent-project navigation. Projects 01–12 use a technical briefing sidebar and two-column implementation/control stages; projects 13–15 keep their existing signature heroes and galleries.
 - `../assets/css/style.css` — the preserved legacy visual foundation, intentionally unchanged.
 - `../assets/css/experience.css` — the additive Signal & Structure refinement layer for managed Jekyll pages, controlling typography, project-card hierarchy, responsive layout and modern navigation. Prefer edits here instead of modifying the historical CSS.
 - `../assets/js/main.js` — interactive navigation, project filters and back-to-top behavior.
+
+The technical content and original evidence remain unchanged; workflow-stage wrappers in the first twelve projects only group the already documented implementation and troubleshooting text for easier reading. Evidence cards expand to the full desktop width; mobile readers get a single-column layout. Update the shared case-study layout and scoped CSS to redesign all future projects without duplicating page chrome.
 
 The shared layout also retains page-specific body and main CSS classes (e.g. the Graph administration, Skills and Evidence templates) through Jekyll front matter, so existing specialty styling is preserved.
 
