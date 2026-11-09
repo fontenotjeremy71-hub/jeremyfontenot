@@ -25,6 +25,11 @@ CHECKS = r"""(() => {
   const header = document.querySelector('header.site-header');
   const footer = document.querySelector('footer.site-footer');
   const logo = document.querySelector('header.site-header img');
+  const heroHeading = document.querySelector('.hero h1');
+  const portrait = document.querySelector('.hero .portrait-orbit');
+  const portraitImage = portrait?.querySelector('img');
+  const heroHeadingLines = heroHeading ?
+    Math.round(heroHeading.getBoundingClientRect().height / parseFloat(getComputedStyle(heroHeading).lineHeight)) : null;
   return {
     title: document.title,
     header: !!header,
@@ -38,6 +43,9 @@ CHECKS = r"""(() => {
     bodyClass: document.body.className,
     mainClass: document.querySelector('main#main')?.className || '',
     logo: !!logo && logo.complete && logo.naturalWidth > 0,
+    heroHeadingLines,
+    portraitWidth: portrait ? Math.round(portrait.getBoundingClientRect().width) : null,
+    portraitReady: !!portraitImage && portraitImage.complete && portraitImage.naturalWidth > 0,
     overflow: document.documentElement.scrollWidth - innerWidth
   };
 })()"""
@@ -89,6 +97,14 @@ def main() -> None:
                             issues.append(f"body font too small ({state.get('bodyFontPx')}px)")
                         if route == "/" and state.get("cards") != 8:
                             issues.append(f"featured cards {state.get('cards')} != 8")
+                        if route == "/":
+                            if not state.get("portraitReady"):
+                                issues.append("hero portrait failed to load")
+                            if width == 1440 and (state.get("portraitWidth") or 0) < 370:
+                                issues.append(f"portrait too small on desktop ({state.get('portraitWidth')}px)")
+                            if width == 1440 and (state.get("heroHeadingLines") or 999) > 4:
+                                issues.append(f"headline wraps too much on desktop ({state.get('heroHeadingLines')} lines)")
+                            print(f"Hero {width}px: {state.get('heroHeadingLines')} heading lines, {state.get('portraitWidth')}px portrait", flush=True)
                         if route == "/projects.html" and state.get("directoryCards") != 15:
                             issues.append(f"directory cards {state.get('directoryCards')} != 15")
                         if route == "/projects/m365-graph-administration-lab/index.html" and "graph-case-study" not in state.get("bodyClass", ""):
