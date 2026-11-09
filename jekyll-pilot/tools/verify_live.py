@@ -42,7 +42,12 @@ def main() -> None:
         evidence = re.search(r'^evidence_url: "([^"]+)"', raw, re.M).group(1)
         route_map[case_study] = "site-footer"
         evidence_urls.append(evidence)
-    evidence_urls = sorted(set(evidence_urls))
+    # Check all eight original dashboard and PASS screenshots in production.
+    original_source = (PROJECTS / "15-project-15.md").read_text(encoding="utf-8")
+    project15_pngs = set(re.findall(r'evidence/project-15/[^"\s<>]+\.png', original_source))
+    if len(project15_pngs) != 8:
+        raise RuntimeError(f"Project 15 source must contain 8 PNGs; found {len(project15_pngs)}")
+    evidence_urls = sorted(set(evidence_urls) | {"/" + name for name in project15_pngs})
     failures: list[str] = []
     for attempt in range(max(args.attempts, 1)):
         failures.clear()
@@ -53,6 +58,17 @@ def main() -> None:
                 for marker in (expected, 'name="generator" content="Jekyll"', "site-header", "site-footer"):
                     if marker not in body:
                         failures.append(f"{path}: missing {marker!r}")
+            project15_page = pages["/project-15.html"]
+            for marker in (
+                '/assets/css/project15.css?v=p15-1',
+                'class="project15-highlights"',
+                'class="grid project15-gallery project15-gallery--interfaces"',
+                'class="grid project15-gallery project15-gallery--validation"',
+                'class="grid project15-resources"',
+                'Current portfolio publication',
+            ):
+                if marker not in project15_page:
+                    failures.append(f"Live Project 15 page missing {marker!r}")
             sitemap = download(base + "/sitemap.xml").decode("utf-8", errors="replace")
             for case_study in route_map:
                 if case_study.startswith("/projects/"):
