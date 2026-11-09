@@ -51,7 +51,7 @@ def main() -> None:
     graph_artifacts = re.findall(r'<article class="proof"[^>]*>.*?</article>', graph_source, re.S)
     graph_evidence = set()
     for record in graph_artifacts:
-        match = re.search(r'href="\\.\\./\\.\\./(evidence/[^"]+)"', record)
+        match = re.search(r'href="\.\./\.\./(evidence/[^"]+)"', record)
         if match:
             graph_evidence.add("/" + match.group(1))
     if len(graph_artifacts) != 8 or len(graph_evidence) != 8:
