@@ -17,8 +17,11 @@ The projects page automatically sorts and counts collection entries. The homepag
 ## Edit the global visual design
 
 - `_layouts/default.html` — the shared branded HTML shell, navigation, footers, canonical URLs and SEO metadata.
-- `../assets/css/style.css` — the existing navy/teal/cyan/orchid design system.
+- `../assets/css/style.css` — the preserved legacy visual foundation, intentionally unchanged.
+- `../assets/css/experience.css` — the additive Signal & Structure refinement layer for managed Jekyll pages, controlling typography, project-card hierarchy, responsive layout and modern navigation. Prefer edits here instead of modifying the historical CSS.
 - `../assets/js/main.js` — interactive navigation, project filters and back-to-top behavior.
+
+The shared layout also retains page-specific body and main CSS classes (e.g. the Graph administration, Skills and Evidence templates) through Jekyll front matter, so existing specialty styling is preserved.
 
 The remaining top-level legacy page *content* is wrapped automatically from its existing HTML source by `tools/prepare_pages.py`. This avoids editing dozens of duplicate headers. Changes to these pages' main sections will appear in the Jekyll site, while their outer headers/footers are replaced by the common layout.
 
