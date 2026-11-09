@@ -28,6 +28,10 @@ CHECKS = r"""(() => {
   const heroHeading = document.querySelector('.hero h1');
   const portrait = document.querySelector('.hero .portrait-orbit');
   const portraitImage = portrait?.querySelector('img');
+  const featured = document.querySelector('.project-directory .panel--featured');
+  const projectGrid = document.querySelector('.project-directory');
+  const featuredLayout = document.querySelector('.featured-project-grid');
+  const summary = document.querySelector('.project-directory .panel:not(.panel--featured) > p:not(.number)');
   const heroHeadingLines = heroHeading ?
     Math.round(heroHeading.getBoundingClientRect().height / parseFloat(getComputedStyle(heroHeading).lineHeight)) : null;
   return {
@@ -46,6 +50,14 @@ CHECKS = r"""(() => {
     heroHeadingLines,
     portraitWidth: portrait ? Math.round(portrait.getBoundingClientRect().width) : null,
     portraitReady: !!portraitImage && portraitImage.complete && portraitImage.naturalWidth > 0,
+    featuredExists: !!featured,
+    featuredIsLast: !!featured && featured === projectGrid?.querySelector('.panel:last-of-type'),
+    featuredWidth: featured ? Math.round(featured.getBoundingClientRect().width) : 0,
+    directoryWidth: projectGrid ? Math.round(projectGrid.getBoundingClientRect().width) : 0,
+    featureColumnCount: featuredLayout ? getComputedStyle(featuredLayout).gridTemplateColumns.split(' ').length : 0,
+    featureEvidenceLink: !!featured?.querySelector('.project-actions a[href*="/evidence/"]'),
+    featureCaseStudyLink: !!featured?.querySelector('.project-actions a[href="/project-15.html"]'),
+    summaryFontPx: summary ? parseFloat(getComputedStyle(summary).fontSize) : 0,
     overflow: document.documentElement.scrollWidth - innerWidth
   };
 })()"""
@@ -105,8 +117,34 @@ def main() -> None:
                             if width == 1440 and (state.get("heroHeadingLines") or 999) > 3:
                                 issues.append(f"headline wraps too much on desktop ({state.get('heroHeadingLines')} lines)")
                             print(f"Hero {width}px: {state.get('heroHeadingLines')} heading lines, {state.get('portraitWidth')}px portrait", flush=True)
-                        if route == "/projects.html" and state.get("directoryCards") != 15:
-                            issues.append(f"directory cards {state.get('directoryCards')} != 15")
+                        if route == "/projects.html":
+                            if state.get("directoryCards") != 15:
+                                issues.append(f"directory cards {state.get('directoryCards')} != 15")
+                            if not state.get("featuredExists") or not state.get("featuredIsLast"):
+                                issues.append("Project 15 featured card missing or not last")
+                            if not state.get("featureEvidenceLink") or not state.get("featureCaseStudyLink"):
+                                issues.append("Project 15 evidence or case-study link missing")
+                            if state.get("summaryFontPx", 0) < 16:
+                                issues.append(f"Project summary font remains too small ({state.get('summaryFontPx')}px)")
+                            if width >= 801:
+                                if abs(state.get("directoryWidth", 0) - state.get("featuredWidth", 0)) > 5:
+                                    issues.append(f"Project 15 not full-width ({state.get('featuredWidth')}px vs {state.get('directoryWidth')}px)")
+                                if state.get("featureColumnCount") != 2:
+                                    issues.append("Project 15 needs two content columns on desktop")
+                            elif state.get("featureColumnCount") != 1:
+                                issues.append("Project 15 needs one content column on mobile")
+                            filter_result = browser.evaluate("""(() => {
+                                const all = document.querySelector('[data-project-filter="All projects"]');
+                                const automation = document.querySelector('[data-project-filter="Automation"]');
+                                automation.click();
+                                const visibleAutomation = [...document.querySelectorAll('.project-directory .panel')].filter(card => getComputedStyle(card).display !== 'none');
+                                const featuredAutomation = getComputedStyle(document.querySelector('.panel--featured')).display !== 'none';
+                                all.click();
+                                const visibleReset = [...document.querySelectorAll('.project-directory .panel')].filter(card => getComputedStyle(card).display !== 'none');
+                                return { automationCount: visibleAutomation.length, automationValid: visibleAutomation.every(card => card.dataset.category === 'Automation'), featuredAutomation, resetCount: visibleReset.length };
+                            })()""")
+                            if filter_result["automationCount"] != 2 or not filter_result["automationValid"] or not filter_result["featuredAutomation"] or filter_result["resetCount"] != 15:
+                                issues.append(f"Project category filtering regression: {filter_result}")
                         if route == "/projects/m365-graph-administration-lab/index.html" and "graph-case-study" not in state.get("bodyClass", ""):
                             issues.append("Project 13 signature layout class missing")
                         if route == "/skills.html" and "skills-page" not in state.get("mainClass", ""):

@@ -65,6 +65,15 @@ def main() -> None:
         problems.append("Featured Project 15 is missing from the homepage")
     if "15 project case studies" not in homepage:
         problems.append("Homepage's dynamic collection count is not 15")
+    directory = (BUILD / "projects.html").read_text(encoding="utf-8")
+    if directory.count('<article class="panel') != 15:
+        problems.append("Project directory does not contain exactly 15 case studies")
+    if directory.count("panel--featured") != 1:
+        problems.append("Project directory must contain exactly one featured project")
+    if "Featured case study" not in directory or "Technical focus" not in directory:
+        problems.append("Project 15 feature layout is incomplete")
+    if 'href="/project-15.html"' not in directory:
+        problems.append("Project 15 case-study link is missing")
     root_pages = list(ROOT.glob("*.html"))
     if len(root_pages) < 40:
         problems.append(f"Only {len(root_pages)} root HTML pages found")
