@@ -102,7 +102,7 @@ def main() -> None:
                                 issues.append("hero portrait failed to load")
                             if width == 1440 and (state.get("portraitWidth") or 0) < 370:
                                 issues.append(f"portrait too small on desktop ({state.get('portraitWidth')}px)")
-                            if width == 1440 and (state.get("heroHeadingLines") or 999) > 4:
+                            if width == 1440 and (state.get("heroHeadingLines") or 999) > 3:
                                 issues.append(f"headline wraps too much on desktop ({state.get('heroHeadingLines')} lines)")
                             print(f"Hero {width}px: {state.get('heroHeadingLines')} heading lines, {state.get('portraitWidth')}px portrait", flush=True)
                         if route == "/projects.html" and state.get("directoryCards") != 15:
