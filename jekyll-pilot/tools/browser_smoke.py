@@ -72,6 +72,8 @@ CHECKS = r"""(() => {
     caseStudyWorkflowStages: document.querySelectorAll('.case-study-process-step').length,
     caseStudyWorkflowColumns: countColumns(workflow),
     caseStudyEvidenceColumns: countColumns(evidenceGrid),
+    caseStudyEvidenceWidth: evidenceGrid ? Math.round(evidenceGrid.getBoundingClientRect().width) : 0,
+    caseStudyLayoutWidth: caseStudy ? Math.round(caseStudy.querySelector('.case-study-layout')?.getBoundingClientRect().width || 0) : 0,
     caseStudyProofCount: document.querySelectorAll('.case-study-shell--standard #validation > .proof').length,
     caseStudyProofFontSize: proof ? parseFloat(getComputedStyle(proof.querySelector('p')).fontSize) : 0,
     caseStudyHasBreadcrumb: !!document.querySelector('.case-study-breadcrumb a[href="/projects.html"]'),
@@ -180,8 +182,13 @@ def main() -> None:
                                     issues.append("technical evidence cards missing")
                                 if state["caseStudyProofFontSize"] < 15:
                                     issues.append("proof text too small")
-                                if width == 1440 and state["caseStudyWorkflowColumns"] != 2:
-                                    issues.append("desktop implementation/checks grid is not two columns")
+                                if width == 1440:
+                                    if state["caseStudyWorkflowColumns"] != 2:
+                                        issues.append("desktop implementation/checks grid is not two columns")
+                                    if state["caseStudyEvidenceColumns"] != 2:
+                                        issues.append("desktop evidence gallery is not two columns")
+                                    if abs(state["caseStudyEvidenceWidth"] - state["caseStudyLayoutWidth"]) > 8:
+                                        issues.append("evidence gallery does not span the desktop content width")
                                 if width <= 768 and state["caseStudyWorkflowColumns"] != 1:
                                     issues.append("mobile implementation/checks grid is not one column")
                             elif not state["caseStudySignature"]:
