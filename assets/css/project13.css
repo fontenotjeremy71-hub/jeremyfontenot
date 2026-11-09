@@ -1,0 +1,345 @@
+/*
+ * Project 13 / Microsoft Graph — evidence and responsive refinement
+ * Scoped to the existing Graph case study. The hero, original SVG-like CSS
+ * architecture diagram, 8 source artifacts, URLs, and claims are untouched.
+ */
+.graph-case-study .case-study-shell[data-case-study-number="13"] {
+  --graph-ice: #a7edf0;
+  --graph-border: rgba(128, 196, 213, .43);
+  --graph-secondary: #c4d9e6;
+  --graph-layer: #162b40;
+}
+/* Preserve the original Graph hero and orbit illustration. Adjust the
+   connective rhythm between the sections rather than replacing either. */
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-stat-grid {
+  margin-bottom: clamp(25px, 3.6vw, 46px);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .contents {
+  position: static;
+  top: auto;
+  z-index: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0 0 clamp(32px, 4vw, 55px);
+  padding: 13px 15px;
+  border: 1px solid rgba(125, 180, 201, .36);
+  border-radius: 14px;
+  background: rgba(16, 33, 50, .94);
+  box-shadow: 0 13px 32px rgba(0, 5, 16, .12);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .contents a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 13px;
+  color: #c2e7ed;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  border-radius: 10px;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .contents a:hover {
+  color: #fff;
+  border-color: #83cbd5;
+  background: rgba(54, 135, 154, .22);
+}
+/* Strong hierarchy without rewriting existing project observations. */
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-narrative {
+  padding-block: clamp(35px, 5vw, 72px);
+  border-bottom: 1px solid rgba(132, 174, 198, .25);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-narrative h2,
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-development h2,
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-architecture-section h2,
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-evidence h2 {
+  font-size: clamp(1.75rem, 2.8vw, 2.55rem);
+  line-height: 1.19;
+  letter-spacing: -.042em;
+  margin-bottom: 17px;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-narrative h2:not(:first-of-type) {
+  margin-top: clamp(30px, 4vw, 55px);
+  padding-top: 26px;
+  border-top: 1px solid rgba(127, 173, 192, .2);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-narrative > p:not(.eyebrow),
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-development > p:not(.eyebrow),
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-architecture-section > p:not(.eyebrow) {
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: var(--graph-secondary);
+  max-width: 83ch;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-development {
+  margin-block: clamp(32px, 4.5vw, 60px);
+  padding: clamp(26px, 4vw, 52px);
+  border-color: rgba(115, 193, 207, .4);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-validation-card {
+  padding: clamp(23px, 3.4vw, 39px);
+  border: 1px solid rgba(118, 200, 211, .52);
+  border-radius: 17px;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-validation-card p {
+  font-size: 15.5px;
+  line-height: 1.82;
+  color: #cadde6;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-source-links {
+  gap: 12px;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-source-links .text-link {
+  min-width: 0;
+  min-height: 80px;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+/* Keep the original four-step design and its sequencing. */
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-architecture-section {
+  padding-block: clamp(40px, 5vw, 72px);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow {
+  margin-block: 26px;
+  gap: clamp(12px, 1.8vw, 23px);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow-step {
+  min-width: 0;
+  padding: clamp(20px, 2.2vw, 27px);
+  border-radius: 15px;
+  border-color: rgba(125, 187, 205, .53);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow-step strong {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow-step small {
+  color: #b5d3e0;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .scope {
+  margin-block: clamp(30px, 4.5vw, 62px);
+  padding: clamp(24px, 3.3vw, 38px);
+  border-color: rgba(191, 113, 185, .42);
+  border-left: 4px solid #b44ca5;
+  background: linear-gradient(130deg, #1a2e45, #152337 80%);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .scope p {
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+/* Evidence gallery: readable claims first, trustworthy artifact routes second.
+   No content, hashes, counts, or provenance text is changed. */
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-evidence {
+  padding-top: clamp(38px, 5vw, 78px);
+  border-top: 1px solid rgba(136, 184, 204, .24);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-evidence-intro {
+  max-width: 83ch;
+  color: #c4d9e6;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 28px);
+  align-items: stretch;
+  margin-top: clamp(23px, 3.3vw, 38px);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(24px, 2.6vw, 36px);
+  border: 1px solid var(--graph-border);
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 94% 0%, rgba(75, 165, 188, .09), transparent 61%),
+    linear-gradient(150deg, #1b3046, #121f32 79%);
+  box-shadow: 0 14px 40px rgba(0, 4, 14, .22);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof::before {
+  width: 75px;
+  height: 3px;
+  left: clamp(24px, 2.6vw, 36px);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-evidence-head {
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 0 15px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid rgba(128, 181, 201, .21);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-evidence-index {
+  color: #9ae5e9;
+  font: 700 11px/1.6 ui-monospace, Consolas, monospace;
+  letter-spacing: .12em;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-evidence-type {
+  color: #b3e4d3;
+  font: 700 10px/1.6 ui-monospace, Consolas, monospace;
+  letter-spacing: .07em;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof h3 {
+  font-size: clamp(1.35rem, 1.8vw, 1.6rem);
+  line-height: 1.2;
+  margin: 0;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof p {
+  font-size: 16px;
+  line-height: 1.83;
+  color: #d2e3ee;
+  margin: 0;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof .text-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  min-height: 48px;
+  margin: 3px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #5c9aaf;
+  border-radius: 10px;
+  color: #c5f4f4;
+  background: rgba(30, 85, 100, .28);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof .text-link:hover {
+  background: rgba(48, 117, 127, .38);
+  border-color: #a6f4ef;
+  color: #fff;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof > small {
+  color: #b8d1df;
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof details {
+  width: 100%;
+  margin-top: auto;
+  border: 1px solid rgba(103, 162, 182, .46);
+  border-radius: 10px;
+  background: rgba(8, 23, 38, .39);
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof details[open] {
+  background: rgba(10, 32, 49, .73);
+  border-color: #83c9d5;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 45px;
+  gap: 12px;
+  padding: 12px 14px;
+  color: #d0eff1;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 750;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof summary::after {
+  content: "+";
+  color: #9ee5ec;
+  font: 750 18px/1 ui-monospace, Consolas, monospace;
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof details[open] summary::after {
+  content: "−";
+}
+.graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof details p {
+  padding: 1px 14px 15px;
+  color: #bfd2df;
+  font-size: 12.5px;
+  line-height: 1.78;
+  overflow-wrap: anywhere;
+}
+/* At tablet widths, prioritize the content over the two-card grid. */
+@media (max-width: 900px) {
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-narrative > p:not(.eyebrow),
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-development > p:not(.eyebrow) {
+    font-size: 16px;
+  }
+}
+@media (max-width: 760px) {
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-stat-grid .graph-stat {
+    padding: 18px 15px;
+    min-width: 0;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-stat-grid .graph-stat > span:last-child {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow-step {
+    min-height: 0;
+    padding: 21px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-source-links {
+    grid-template-columns: 1fr;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-validation-head {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+@media (max-width: 520px) {
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .contents {
+    padding: 12px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .contents a {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+    min-width: 0;
+    font-size: 12px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-stat-grid {
+    gap: 10px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-stat-grid .graph-stat {
+    padding: 14px 11px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow {
+    grid-template-columns: 1fr;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-flow-step {
+    min-height: 0;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-validation-card {
+    padding: 20px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof {
+    padding: 23px 21px;
+  }
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof::before {
+    left: 21px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .graph-case-study .case-study-shell[data-case-study-number="13"] .graph-proof-grid .proof:hover {
+    transform: none;
+  }
+}
