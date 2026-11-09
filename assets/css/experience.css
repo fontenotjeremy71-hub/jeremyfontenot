@@ -779,14 +779,14 @@ img, video, iframe { max-width: 100%; }
   font: 700 10px/1.5 ui-monospace, Consolas, monospace;
   letter-spacing: .1em;
   text-transform: uppercase;
-  content: "01 / Configure";
+  content: "01 / Implementation";
 }
 .case-study-process-step--diagnostic {
   border-color: rgba(174, 119, 181, .35);
   background: linear-gradient(140deg, rgba(31, 39, 63, .98), rgba(18, 30, 47, .96));
 }
 .case-study-process-step--diagnostic::before {
-  content: "02 / Investigate";
+  content: "02 / Control checks";
   border-color: rgba(193, 128, 190, .4);
   color: #ebbbdf;
   background: rgba(180, 76, 165, .12);
@@ -916,6 +916,20 @@ img, video, iframe { max-width: 100%; }
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+}
+.case-study-shell--standard .proof summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.case-study-shell--standard .proof summary::after {
+  content: "+";
+  font: 800 18px/1 ui-monospace, Consolas, monospace;
+  color: #8de3e8;
+}
+.case-study-shell--standard .proof details[open] summary::after {
+  content: "−";
 }
 .case-study-shell--standard .proof details p {
   font-size: 12px;
