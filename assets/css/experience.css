@@ -374,6 +374,12 @@ code, pre { overflow-wrap: anywhere; }
 pre { max-width: 100%; overflow-x: auto; }
 img, video, iframe { max-width: 100%; }
 
+/* The Graph case study has an existing sticky contents menu. Keep it visible below
+   the new persistent desktop masthead rather than hiding underneath it. */
+@media (min-width: 801px) {
+  .graph-case-study .contents { top: 86px; }
+}
+
 /* Accessible, generous actions and clear opt-in interaction. */
 .button {
   min-height: 51px;
