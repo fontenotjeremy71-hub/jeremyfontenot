@@ -39,6 +39,14 @@ CHECKS = r"""(() => {
   const caseStudyContext = document.querySelector('.case-study-overview, .case-study-signature-context');
   const caseStudyBody = document.querySelector('.case-study-document');
   const countColumns = el => el ? getComputedStyle(el).gridTemplateColumns.split(/\s+/).filter(Boolean).length : 0;
+  const p15 = document.querySelector('.case-study-shell[data-case-study-number="15"]');
+  const p15Interfaces = p15?.querySelector('.project15-gallery--interfaces');
+  const p15Validation = p15?.querySelector('.project15-gallery--validation');
+  const p15Resources = p15?.querySelector('.project15-resources');
+  const p15LeadInterface = p15Interfaces?.querySelector('.project15-visual-card--lead');
+  const p15LeadValidation = p15Validation?.querySelector('.project15-visual-card--lead');
+  const p15Images = p15?.querySelectorAll('.project15-image-link img') || [];
+  const p15Style = [...document.styleSheets].some(x => x.href && x.href.includes('/assets/css/project15.css'));
   const heroHeadingLines = heroHeading ?
     Math.round(heroHeading.getBoundingClientRect().height / parseFloat(getComputedStyle(heroHeading).lineHeight)) : null;
   return {
@@ -80,6 +88,22 @@ CHECKS = r"""(() => {
     caseStudyHasNeighbors: !!document.querySelector('.case-study-neighbors a[href="/projects.html"]'),
     caseStudyPrimaryEvidence: !!caseStudyContext?.querySelector('a[href^="/evidence/"], a[href^="/projects/"]'),
     caseStudyBodyText: caseStudyBody?.innerText?.length || 0,
+    project15Css: p15Style,
+    project15Metrics: p15?.querySelectorAll('.project15-highlights > div').length || 0,
+    project15InterfaceCount: p15Interfaces?.querySelectorAll('.project15-visual-card').length || 0,
+    project15ValidationCount: p15Validation?.querySelectorAll('.project15-visual-card').length || 0,
+    project15Workstreams: p15?.querySelectorAll('.project15-workstreams .panel').length || 0,
+    project15ResourceCount: p15Resources?.querySelectorAll('.project15-resource-card').length || 0,
+    project15ImageCount: p15Images.length,
+    project15ImagesAccessible: [...p15Images].every(img => !!img.getAttribute('alt') && !!img.closest('a')?.getAttribute('href')?.endsWith('.png')),
+    project15CurrentArchitecture: !!p15?.querySelector('.project15-publication-note'),
+    project15InterfaceColumns: countColumns(p15Interfaces),
+    project15ValidationColumns: countColumns(p15Validation),
+    project15ResourceColumns: countColumns(p15Resources),
+    project15InterfaceWidth: p15Interfaces ? Math.round(p15Interfaces.getBoundingClientRect().width) : 0,
+    project15LeadInterfaceWidth: p15LeadInterface ? Math.round(p15LeadInterface.getBoundingClientRect().width) : 0,
+    project15ValidationWidth: p15Validation ? Math.round(p15Validation.getBoundingClientRect().width) : 0,
+    project15LeadValidationWidth: p15LeadValidation ? Math.round(p15LeadValidation.getBoundingClientRect().width) : 0,
     overflow: document.documentElement.scrollWidth - innerWidth
   };
 })()"""
@@ -224,6 +248,33 @@ def main() -> None:
                                         browser.screenshot(output / "windows-laps-1440-scrolled-evidence.png")
                             elif not state["caseStudySignature"]:
                                 issues.append("signature project design missing")
+                        if route == "/project-15.html":
+                            if not state["project15Css"] or "project15-case-study" not in state["bodyClass"]:
+                                issues.append("Project 15's isolated design layer is missing")
+                            expected = {"project15Metrics": 3, "project15InterfaceCount": 3,
+                                        "project15ValidationCount": 5, "project15Workstreams": 8,
+                                        "project15ResourceCount": 3, "project15ImageCount": 8}
+                            for key, count in expected.items():
+                                if state.get(key) != count:
+                                    issues.append(f"Project 15 {key}: expected {count}, found {state.get(key)}")
+                            if not state["project15ImagesAccessible"] or not state["project15CurrentArchitecture"]:
+                                issues.append("Project 15 image links/alt text or publication context missing")
+                            columns = 1 if width <= 800 else 2
+                            for key in ("project15InterfaceColumns", "project15ValidationColumns"):
+                                if state.get(key) != columns:
+                                    issues.append(f"Project 15 responsive grid {key}: {state.get(key)} != {columns}")
+                            expected_resources = 1 if width <= 800 else 3
+                            if state["project15ResourceColumns"] != expected_resources:
+                                issues.append(f"Project 15 resource grid expected {expected_resources} columns")
+                            if width == 1440:
+                                if abs(state["project15InterfaceWidth"] - state["project15LeadInterfaceWidth"]) > 5:
+                                    issues.append("Lead dashboard screenshot does not span the full gallery width")
+                                if abs(state["project15ValidationWidth"] - state["project15LeadValidationWidth"]) > 5:
+                                    issues.append("Lead validation screenshot does not span the full gallery width")
+                            for location, anchor in (("interface", "#dashboard-implementation"), ("proof", "#evidence")):
+                                browser.evaluate(f"document.querySelector('{anchor}').scrollIntoView({{behavior:'instant',block:'start'}})")
+                                if width in (360, 1440):
+                                    browser.screenshot(output / f"project-15-{location}-{width}.png")
                         if route == "/projects/m365-graph-administration-lab/index.html" and "graph-case-study" not in state.get("bodyClass", ""):
                             issues.append("Project 13 signature layout class missing")
                         if route == "/skills.html" and "skills-page" not in state.get("mainClass", ""):
