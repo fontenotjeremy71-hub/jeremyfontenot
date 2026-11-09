@@ -116,8 +116,8 @@ def main() -> None:
     # screenshots by filename and content digest, not by visual assumptions.
     project15_source = (PROJECTS / "15-project-15.md").read_text(encoding="utf-8")
     project15_published = (BUILD / "project-15.html").read_text(encoding="utf-8")
-    captures = sorted(set(re.findall(r'evidence/project-15/[^"\\s<>]+\\.png', project15_source)))
-    published_captures = sorted(set(re.findall(r'evidence/project-15/[^"\\s<>]+\\.png', project15_published)))
+    captures = sorted(set(re.findall(r'evidence/project-15/[^"\s<>]+\.png', project15_source)))
+    published_captures = sorted(set(re.findall(r'evidence/project-15/[^"\s<>]+\.png', project15_published)))
     if len(captures) != 8 or captures != published_captures:
         problems.append(f"Project 15 screenshot references were changed: {len(captures)} original, {len(published_captures)} published")
     for relative in captures:
