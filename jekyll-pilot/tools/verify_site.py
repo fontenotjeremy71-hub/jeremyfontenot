@@ -73,7 +73,7 @@ def main() -> None:
             problems.append(f"Missing retained root route: {source.name}")
     if (BUILD / ".nojekyll").exists():
         problems.append("Production publication must not contain .nojekyll")
-    for rel in ("assets/css/style.css", "assets/js/main.js", "favicon.ico", "CNAME"):
+    for rel in ("assets/css/style.css", "assets/css/experience.css", "assets/js/main.js", "favicon.ico", "CNAME"):
         if not (BUILD / rel).is_file():
             problems.append(f"Missing public asset: {rel}")
 
@@ -87,6 +87,10 @@ def main() -> None:
             problems.append(f"Jekyll page was not published: {page}")
             continue
         markup = page.read_text(encoding="utf-8")
+        if '/assets/css/experience.css?v=signal-1' not in markup:
+            problems.append(f"Visual design stylesheet missing from {page.relative_to(BUILD)}")
+        if 'name="theme-color" content="#080d16"' not in markup:
+            problems.append(f"Branded browser theme missing from {page.relative_to(BUILD)}")
         if '<header class="site-header">' not in markup or '<footer class="site-footer">' not in markup:
             problems.append(f"Missing shared branded header/footer: {page}")
         rel = generated_page.relative_to(JEKYLL).as_posix()
