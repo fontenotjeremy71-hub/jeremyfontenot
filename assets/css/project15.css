@@ -1,0 +1,367 @@
+/* Project 15 — focused case-study presentation.
+   Preserves original capture files, technical claims and URLs.
+   Loaded only for the Project 15 Jekyll page. */
+.project15-case-study .case-study-shell[data-case-study-number="15"] {
+  --p15-ice: #a5ecee;
+  --p15-ink: #0f1b2b;
+  --p15-border: rgba(115, 179, 202, .38);
+  --p15-panel: #172a40;
+}
+.project15-case-study .case-study-shell[data-case-study-number="15"] .case-study-document {
+  min-width: 0;
+}
+.project15-case-study .project15-hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(95, 166, 191, .38);
+  border-radius: 24px;
+  margin: 18px 0 27px;
+  padding: clamp(32px, 4.6vw, 68px);
+  background:
+    radial-gradient(ellipse at 89% 3%, rgba(178, 82, 161, .18), transparent 61%),
+    radial-gradient(ellipse at 4% 90%, rgba(73, 194, 200, .105), transparent 52%),
+    linear-gradient(130deg, #1a3045 0%, #101d30 65%, #0b1626 100%);
+  box-shadow: 0 20px 58px rgba(0, 3, 15, .28);
+}
+.project15-case-study .project15-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: clamp(32px, 4.6vw, 68px);
+  height: 3px;
+  width: 110px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #75d6df, #bb5daa);
+}
+.project15-case-study .project15-hero .eyebrow {
+  color: #a4e5eb;
+  margin-bottom: 17px;
+  font-size: 11px;
+  letter-spacing: .13em;
+}
+.project15-case-study .project15-hero h1 {
+  max-width: 18ch;
+  margin: 0 0 22px;
+  font-size: clamp(2.8rem, 4.5vw, 4.65rem);
+  line-height: 1.07;
+  letter-spacing: -.053em;
+}
+.project15-case-study .project15-hero .lead {
+  max-width: 68ch;
+  margin-bottom: 0;
+  color: #cee1eb;
+  font-size: clamp(16px, 1.55vw, 19px);
+  line-height: 1.76;
+}
+.project15-case-study .project15-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  padding: 20px 0 0;
+  border-top: 1px solid rgba(123, 180, 201, .26);
+  margin-top: 32px;
+}
+.project15-case-study .project15-highlights > div {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  padding: 4px clamp(12px, 2vw, 28px);
+  border-left: 1px solid rgba(118, 183, 195, .25);
+}
+.project15-case-study .project15-highlights > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.project15-case-study .project15-highlights strong {
+  color: #a6eff2;
+  font: 750 clamp(26px, 3vw, 40px)/1.15 inherit;
+  letter-spacing: -.035em;
+}
+.project15-case-study .project15-highlights span {
+  color: #c4d4e2;
+  font-size: 12px;
+  line-height: 1.55;
+  font-weight: 600;
+}
+.project15-case-study .project15-section-nav {
+  display: flex;
+  position: static;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px;
+  margin-bottom: clamp(48px, 6vw, 80px);
+  background: rgba(18, 37, 58, .83);
+  border-color: rgba(109, 177, 192, .35);
+}
+.project15-case-study .project15-section-nav a {
+  min-height: 43px;
+  padding: 10px 14px;
+  border: 1px solid rgba(99, 161, 181, .23);
+  border-radius: 9px;
+  color: #c7e4ea;
+  font-size: 13px;
+  font-weight: 700;
+}
+.project15-case-study .project15-section-nav a:hover {
+  background: rgba(55, 133, 150, .22);
+  border-color: #82cbd3;
+  color: white;
+}
+.project15-case-study .project15-section {
+  padding-block: clamp(55px, 5vw, 80px);
+}
+.project15-case-study .project15-section h2,
+.project15-case-study #architecture h2 {
+  font-size: clamp(2rem, 3vw, 2.95rem);
+  line-height: 1.18;
+  letter-spacing: -.045em;
+  margin-bottom: 18px;
+}
+.project15-case-study .project15-section > p,
+.project15-case-study #architecture > p {
+  font-size: 16px;
+  line-height: 1.88;
+  max-width: 83ch;
+  color: #c2d6e4;
+}
+.project15-case-study .project15-publication-note {
+  margin: 31px 0 0;
+  padding: clamp(23px, 3vw, 32px);
+  border: 1px solid rgba(118, 197, 208, .44);
+  border-left: 4px solid #6dd2d7;
+  border-radius: 4px 15px 15px 4px;
+  background: linear-gradient(120deg, rgba(30, 71, 83, .39), rgba(21, 37, 57, .85));
+}
+.project15-case-study .project15-publication-note h3 {
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  margin: 5px 0 10px;
+}
+.project15-case-study .project15-publication-note p:last-child {
+  color: #cadddf;
+  font-size: 14px;
+  line-height: 1.78;
+  margin: 0;
+}
+.project15-case-study .project15-eyebrow {
+  color: #a5e8ea;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font: 750 11px/1.5 ui-monospace, Consolas, monospace;
+  margin-bottom: 4px;
+}
+.project15-case-study .project15-gallery {
+  display: grid;
+  gap: clamp(19px, 2.4vw, 30px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  padding-top: 15px;
+}
+.project15-case-study .project15-visual-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 13px;
+  overflow: hidden;
+  border: 1px solid var(--p15-border);
+  border-radius: 18px;
+  padding: clamp(22px, 2.8vw, 35px);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(82, 174, 197, .09), transparent 61%),
+    linear-gradient(150deg, #1b3048, #122036 76%);
+}
+.project15-case-study .project15-visual-card:hover {
+  border-color: #75c7d2;
+}
+.project15-case-study .project15-visual-card .number {
+  color: #a4dfe8;
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+.project15-case-study .project15-visual-card h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.22;
+  letter-spacing: -.035em;
+}
+.project15-case-study .project15-visual-card > p:not(.number) {
+  margin: 0;
+  font-size: 14.5px;
+  color: #c7d9e4;
+  line-height: 1.8;
+}
+.project15-case-study .project15-image-link {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  margin-top: auto;
+  color: #c0f6f5;
+  text-decoration: none;
+}
+.project15-case-study .project15-image-link img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: 410px;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center center;
+  border: 1px solid rgba(133, 179, 199, .35);
+  border-radius: 12px !important;
+  background: #0a1422;
+  box-shadow: 0 12px 32px rgba(0, 4, 12, .28);
+}
+.project15-case-study .project15-image-link .text-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 0 0;
+  border-top: 1px solid rgba(139, 190, 207, .21);
+}
+.project15-case-study .project15-image-link:hover .text-link { color: white; }
+.project15-case-study .project15-visual-card--lead {
+  grid-column: 1 / -1;
+  background:
+    radial-gradient(ellipse at 96% 4%, rgba(183, 81, 163, .14), transparent 57%),
+    linear-gradient(140deg, #1c344a, #131f35);
+}
+.project15-case-study .project15-gallery--interfaces .project15-visual-card--lead {
+  order: -1;
+  display: grid;
+  grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  grid-template-areas: "meta preview" "heading preview" "description preview";
+  gap: 12px clamp(25px, 4vw, 60px);
+  padding: clamp(29px, 4vw, 48px);
+}
+.project15-case-study .project15-gallery--interfaces .project15-visual-card--lead .number { grid-area: meta; }
+.project15-case-study .project15-gallery--interfaces .project15-visual-card--lead h3 { grid-area: heading; font-size: clamp(1.7rem, 2.65vw, 2.4rem); }
+.project15-case-study .project15-gallery--interfaces .project15-visual-card--lead > p:not(.number) { grid-area: description; font-size: 16px; }
+.project15-case-study .project15-gallery--interfaces .project15-visual-card--lead .project15-image-link { grid-area: preview; margin: 0; }
+.project15-case-study .project15-gallery--interfaces .project15-visual-card--lead img { max-height: 490px; }
+.project15-case-study .project15-gallery--validation .project15-visual-card--lead {
+  display: grid;
+  grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+  grid-template-areas: "heading preview";
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+}
+.project15-case-study .project15-gallery--validation .project15-visual-card--lead h3 {
+  grid-area: heading;
+  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+}
+.project15-case-study .project15-gallery--validation .project15-visual-card--lead .project15-image-link {
+  grid-area: preview;
+}
+.project15-case-study .project15-gallery--validation .project15-visual-card--lead img { max-height: 430px; }
+.project15-case-study .project15-workstreams {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.project15-case-study .project15-workstreams .panel {
+  border-color: rgba(125, 178, 205, .32);
+  border-radius: 15px;
+  padding: clamp(22px, 2.4vw, 31px);
+}
+.project15-case-study .project15-workstreams h3 { font-size: 1.36rem; margin: 4px 0 10px; }
+.project15-case-study .project15-workstreams p:not(.number) {
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+.project15-case-study .project15-workstreams .text-link { font-size: 13px; }
+.project15-case-study .project15-proof-note {
+  display: block;
+  border-left: 3px solid #b45ba4;
+  background: rgba(25, 43, 65, .8);
+  padding: 17px 21px;
+  margin-top: 25px;
+  border-radius: 0 12px 12px 0;
+  font-size: 14px;
+}
+.project15-case-study .project15-resources {
+  margin-top: clamp(34px, 4vw, 55px);
+  padding-top: clamp(28px, 3.4vw, 42px);
+  border-top: 1px solid rgba(131, 182, 204, .27);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.project15-case-study .project15-resource-card {
+  padding: 26px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 12px;
+  border-color: rgba(100, 160, 180, .36);
+}
+.project15-case-study .project15-resource-card h3 { font-size: clamp(1.2rem, 1.55vw, 1.42rem); margin: 0; }
+.project15-case-study .project15-resource-card p { font-size: 14px; line-height: 1.7; margin: 0; }
+.project15-case-study .project15-resource-card .text-link {
+  display: block;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(117, 173, 193, .25);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1050px) {
+  .project15-case-study .project15-gallery--interfaces .project15-visual-card--lead,
+  .project15-case-study .project15-gallery--validation .project15-visual-card--lead {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .project15-case-study .project15-gallery--interfaces .project15-visual-card--lead .number,
+  .project15-case-study .project15-gallery--interfaces .project15-visual-card--lead h3,
+  .project15-case-study .project15-gallery--interfaces .project15-visual-card--lead > p:not(.number),
+  .project15-case-study .project15-gallery--interfaces .project15-visual-card--lead .project15-image-link,
+  .project15-case-study .project15-gallery--validation .project15-visual-card--lead h3,
+  .project15-case-study .project15-gallery--validation .project15-visual-card--lead .project15-image-link {
+    grid-area: auto;
+  }
+}
+@media (max-width: 800px) {
+  .project15-case-study .project15-hero { padding: 31px 25px; }
+  .project15-case-study .project15-hero h1 { font-size: clamp(2.25rem, 7vw, 3.5rem); }
+  .project15-case-study .project15-gallery,
+  .project15-case-study .project15-workstreams,
+  .project15-case-study .project15-resources { grid-template-columns: 1fr; }
+  .project15-case-study .project15-gallery .project15-visual-card--lead { grid-column: auto; }
+  .project15-case-study .project15-highlights { gap: 0; }
+  .project15-case-study .project15-highlights > div { padding-inline: 13px; }
+}
+@media (max-width: 520px) {
+  .project15-case-study .project15-hero { padding: 26px 20px; border-radius: 18px; }
+  .project15-case-study .project15-hero::before { left: 20px; }
+  .project15-case-study .project15-hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .project15-case-study .project15-highlights {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .project15-case-study .project15-highlights > div {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 0 0 10px;
+    border-left: 0;
+    border-bottom: 1px solid rgba(118, 183, 195, .22);
+  }
+  .project15-case-study .project15-highlights > div:last-child { border-bottom: 0; }
+  .project15-case-study .project15-highlights strong { min-width: 45px; }
+  .project15-case-study .project15-visual-card { padding: 21px; }
+  .project15-case-study .project15-gallery--interfaces .project15-visual-card--lead { padding: 23px; }
+  .project15-case-study .project15-section-nav { padding: 12px; }
+  .project15-case-study .project15-section-nav a { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project15-case-study .project15-visual-card { transition: none; }
+}
