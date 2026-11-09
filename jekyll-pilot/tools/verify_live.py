@@ -56,7 +56,13 @@ def main() -> None:
             graph_evidence.add("/" + match.group(1))
     if len(graph_artifacts) != 8 or len(graph_evidence) != 8:
         raise RuntimeError(f"Expected eight original Graph artifacts, found {len(graph_evidence)}")
-    evidence_urls = sorted(set(evidence_urls) | {"/" + name for name in project15_pngs} | graph_evidence)
+    # Each Project 14 screenshot must be served with its original bytes.
+    grafana_source = (PROJECTS / "14-projects-grafana-entra-sso.md").read_text(encoding="utf-8")
+    grafana_pngs = set(re.findall(r'src="(evidence/[^"]+\.png)"', grafana_source))
+    if len(grafana_pngs) != 19:
+        raise RuntimeError(f"Expected 19 original Project 14 screenshots; found {len(grafana_pngs)}")
+    grafana_evidence = {"/projects/grafana-entra-sso/" + image for image in grafana_pngs}
+    evidence_urls = sorted(set(evidence_urls) | {"/" + name for name in project15_pngs} | graph_evidence | grafana_evidence)
     failures: list[str] = []
     for attempt in range(max(args.attempts, 1)):
         failures.clear()
@@ -79,6 +85,18 @@ def main() -> None:
                     failures.append(f"Live Project 13 page missing {marker!r}")
             if graph_page.count('<article class="proof"') != 8:
                 failures.append("Live Project 13 does not contain eight retained evidence records")
+            grafana_page = pages["/projects/grafana-entra-sso/index.html"]
+            for token in (
+                '/assets/css/project14.css?v=g14-1',
+                'class="page-heading project14-hero"',
+                'class="project14-architecture-flow"',
+                'class="grid project14-results"',
+                'class="project14-evidence-index"',
+            ):
+                if token not in grafana_page:
+                    failures.append(f"Live Project 14 missing {token!r}")
+            if grafana_page.count('class="grid project14-gallery"') != 6 or grafana_page.count('class="evidence-image"') != 19:
+                failures.append("Live Project 14 evidence galleries or 19 original images missing")
             project15_page = pages["/project-15.html"]
             for marker in (
                 '/assets/css/project15.css?v=p15-1',

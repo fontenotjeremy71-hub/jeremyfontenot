@@ -53,6 +53,15 @@ CHECKS = r"""(() => {
   const graphFlow = p13?.querySelector('.graph-flow');
   const graphNav = p13?.querySelector('.contents');
   const graphStyle = [...document.styleSheets].some(x => x.href && x.href.includes('/assets/css/project13.css?v=g13-1'));
+  const p14 = document.querySelector('.case-study-shell[data-case-study-number="14"]');
+  const p14Style = [...document.styleSheets].some(x => x.href && x.href.includes('/assets/css/project14.css?v=g14-1'));
+  const p14Gallery = p14?.querySelector('.project14-gallery');
+  const p14Results = p14?.querySelector('.project14-results');
+  const p14Flow = p14?.querySelector('.project14-flow-grid');
+  const p14Groups = p14?.querySelectorAll('.project14-evidence-chapter') || [];
+  const p14Pics = p14?.querySelectorAll('.project14-gallery .evidence-image') || [];
+  const p14Odd = p14?.querySelector('#evidence-b .project14-gallery > .panel:last-child');
+  const p14OddParent = p14Odd?.parentElement;
   const heroHeadingLines = heroHeading ?
     Math.round(heroHeading.getBoundingClientRect().height / parseFloat(getComputedStyle(heroHeading).lineHeight)) : null;
   return {
@@ -94,6 +103,24 @@ CHECKS = r"""(() => {
     caseStudyHasNeighbors: !!document.querySelector('.case-study-neighbors a[href="/projects.html"]'),
     caseStudyPrimaryEvidence: !!caseStudyContext?.querySelector('a[href^="/evidence/"], a[href^="/projects/"]'),
     caseStudyBodyText: caseStudyBody?.innerText?.length || 0,
+    project14Css: p14Style,
+    project14BodyClass: document.body.classList.contains('grafana-case-study'),
+    project14Hero: !!p14?.querySelector('.project14-hero .project14-hero-graphic'),
+    project14Metrics: p14?.querySelectorAll('.project14-hero-metrics > div').length || 0,
+    project14FlowSteps: p14?.querySelectorAll('.project14-flow-step').length || 0,
+    project14Chapters: p14Groups.length,
+    project14ChapterCounts: [...p14Groups].map(g => g.querySelectorAll('.project14-gallery > .panel').length),
+    project14EvidenceImages: p14Pics.length,
+    project14AltAndLinks: [...p14Pics].every(img => img.hasAttribute('alt') && img.alt.length > 10 && !!img.closest('a')?.href?.endsWith('.png')),
+    project14ResultCards: p14?.querySelectorAll('.project14-results > .panel').length || 0,
+    project14ResultsColumns: countColumns(p14Results),
+    project14GalleryColumns: countColumns(p14Gallery),
+    project14FlowColumns: countColumns(p14Flow),
+    project14SectionNavPosition: p14 ? getComputedStyle(p14.querySelector('.project14-section-nav')).position : '',
+    project14OddCardWidth: p14Odd ? Math.round(p14Odd.getBoundingClientRect().width) : 0,
+    project14OddGalleryWidth: p14OddParent ? Math.round(p14OddParent.getBoundingClientRect().width) : 0,
+    project14EvidenceTextSize: p14Pics.length ? parseFloat(getComputedStyle(p14Pics[0].closest('.panel').querySelector('p:not(.number)')).fontSize) : 0,
+    project14PictureWidth: p14Pics.length ? Math.round(p14Pics[0].getBoundingClientRect().width) : 0,
     project13Css: graphStyle,
     project13HeroRetained: !!p13?.querySelector('.graph-hero-art .graph-core'),
     project13Stats: p13?.querySelectorAll('.graph-stat-grid .graph-stat').length || 0,
@@ -295,6 +322,39 @@ def main() -> None:
                                 browser.evaluate(f"document.querySelector('{anchor}').scrollIntoView({{behavior:'instant',block:'start'}})")
                                 if width in (360, 1440):
                                     browser.screenshot(output / f"project-15-{location}-{width}.png")
+                        if route == "/projects/grafana-entra-sso/index.html":
+                            if not state.get("project14Css") or not state.get("project14BodyClass"):
+                                issues.append("Project 14 dedicated design layer missing")
+                            if not state.get("project14Hero") or state.get("project14Metrics") != 3:
+                                issues.append("Project 14 branded identity hero incomplete")
+                            expected = {"project14FlowSteps": 4, "project14Chapters": 6,
+                                        "project14EvidenceImages": 19, "project14ResultCards": 3}
+                            for key, count in expected.items():
+                                if state.get(key) != count:
+                                    issues.append(f"Project 14 {key} expected {count}, got {state.get(key)}")
+                            if state.get("project14ChapterCounts") != [4, 3, 3, 4, 2, 3]:
+                                issues.append(f"Grafana evidence group sequence mismatch: {state.get('project14ChapterCounts')}")
+                            if not state.get("project14AltAndLinks"):
+                                issues.append("Grafana screenshot alt text or original PNG links missing")
+                            if state.get("project14SectionNavPosition") != "static":
+                                issues.append("Grafana section navigation may obscure evidence when scrolling")
+                            if state.get("project14EvidenceTextSize", 0) < 15:
+                                issues.append("Grafana evidence descriptions too small")
+                            if state.get("project14GalleryColumns") != (2 if width > 900 else 1):
+                                issues.append("Grafana evidence gallery is not responsive")
+                            if state.get("project14ResultsColumns") != (2 if width > 800 else 1):
+                                issues.append("Grafana results grid is not responsive")
+                            if state.get("project14FlowColumns") != (4 if width > 1050 else 1 if width <= 520 else 2):
+                                issues.append(f"Grafana architecture flow incorrect at {width}px")
+                            if width == 1440 and abs(state.get("project14OddCardWidth", 0) - state.get("project14OddGalleryWidth", 0)) > 8:
+                                issues.append("Three-card Grafana evidence chapter still has an orphaned final card")
+                            if width == 360 and state.get("project14PictureWidth", 0) < 220:
+                                issues.append("Grafana evidence screenshot too small at phone width")
+                            for label, selector in (("identity-path", ".project14-architecture-flow"),
+                                                    ("supporting-proof", "#evidence-c")):
+                                browser.evaluate(f"document.querySelector('{selector}').scrollIntoView({{behavior:'instant',block:'start'}})")
+                                if width in (360, 768, 1440):
+                                    browser.screenshot(output / f"project14-{label}-{width}.png")
                         if route == "/projects/m365-graph-administration-lab/index.html":
                             if not state.get("project13Css") or "graph-case-study" not in state.get("bodyClass", ""):
                                 issues.append("Graph case-study refinement layer is missing")
