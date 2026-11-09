@@ -138,7 +138,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-radius: 5px;
 }
 .hero h1 {
-  font-size: clamp(2.95rem, 4.05vw, 4.3rem);
+  font-size: clamp(2.8rem, 3.55vw, 3.95rem);
   line-height: 1.075;
   max-width: none;
   font-weight: 800;
@@ -177,7 +177,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .hero .actions { gap: 13px; margin-block: 29px 18px; }
 .hero .text-link { font-size: 14px; }
-.portrait-orbit {
+.hero .portrait-orbit {
   width: min(100%, 430px);
   max-width: 430px;
   padding: 16px;
@@ -437,7 +437,7 @@ img, video, iframe { max-width: 100%; }
   .nav { gap: 16px; }
   .hero-grid { grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr); gap: 30px; }
   .hero h1 { font-size: clamp(2.75rem, 4.25vw, 3.65rem); max-width: none; }
-  .portrait-orbit { width: min(100%, 390px); max-width: 390px; }
+  .hero .portrait-orbit { width: min(100%, 390px); max-width: 390px; }
   .grid { gap: 20px; }
   .panel, .project-card { padding: 29px; }
   .footer-directory { grid-template-columns: 1.6fr 1fr 1fr .8fr; }
@@ -453,7 +453,7 @@ img, video, iframe { max-width: 100%; }
   .hero { padding-block: 55px 64px; }
   .hero-grid { grid-template-columns: 1fr; gap: 36px; }
   .hero h1 { font-size: clamp(2.75rem, 8.4vw, 4.25rem); max-width: 18ch; }
-  .portrait-orbit { width: min(100%, 340px); max-width: 340px; }
+  .hero .portrait-orbit { width: min(100%, 340px); max-width: 340px; }
   .hero-caption { margin-top: 23px; }
   .metrics { margin-bottom: 16px; }
   .metrics > div { padding: 23px !important; }
