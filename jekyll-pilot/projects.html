@@ -7,12 +7,22 @@ permalink: /projects.html
 <div class="page-heading"><p class="eyebrow">Jeremy Fontenot / Technical portfolio</p><h1>Infrastructure projects. Evidence you can inspect.</h1><p>Browse {{ site.projects.size }} case studies by technical area. Each project links to its implementation narrative and a direct supporting artifact.</p></div><div class="project-filter-block"><p class="eyebrow">Browse by capability</p><div aria-label="Filter projects" class="project-filters" role="group"><button aria-pressed="true" class="filter-button" data-project-filter="All projects" type="button">All projects</button><button aria-pressed="false" class="filter-button" data-project-filter="Identity &amp; Access" type="button">Identity &amp; Access</button><button aria-pressed="false" class="filter-button" data-project-filter="Windows Infrastructure" type="button">Windows Infrastructure</button><button aria-pressed="false" class="filter-button" data-project-filter="Cloud &amp; M365" type="button">Cloud &amp; M365</button><button aria-pressed="false" class="filter-button" data-project-filter="Virtualization" type="button">Virtualization</button><button aria-pressed="false" class="filter-button" data-project-filter="Endpoint Management" type="button">Endpoint Management</button><button aria-pressed="false" class="filter-button" data-project-filter="Automation" type="button">Automation</button><button aria-pressed="false" class="filter-button" data-project-filter="ITSM" type="button">ITSM</button></div><p aria-live="polite" class="project-status" id="project-count" role="status">{{ site.projects.size }} projects shown</p></div><div class="grid project-directory">
 {% assign ordered_projects = site.projects | sort: "number" %}
 {% for project in ordered_projects %}
-<article class="panel" data-category="{{ project.category | escape }}">
+<article class="panel{% if project.number == 15 %} panel--featured{% endif %}" data-category="{{ project.category | escape }}"{% if project.number == 15 %} aria-label="Featured project 15: {{ project.title | escape }}"{% endif %}>
+{% if project.number == 15 %}
+<div class="featured-project-kicker"><span class="featured-project-badge">Featured case study</span><span class="featured-project-counter">PROJECT 15 / {{ site.projects.size }}</span></div>
+<div class="featured-project-grid"><div class="featured-project-copy">
+{% endif %}
 <p class="number">PROJECT {{ project.number | prepend: '0' | slice: -2, 2 }} / {{ project.category | upcase | escape }}</p>
 <h2><a href="{{ project.case_study_url | relative_url }}">{{ project.title | escape }}</a></h2>
 <p>{{ project.summary | escape }}</p>
+{% if project.number == 15 %}
+</div><div class="featured-project-details"><p class="featured-project-label">Technical focus</p>
+{% endif %}
 <div class="tags">{% for tag in project.tags %}<span class="tag">{{ tag | escape }}</span>{% endfor %}</div>
 <div class="project-actions"><a href="{{ project.case_study_url | relative_url }}">Explore case study →</a><a class="text-link" href="{{ project.evidence_url | relative_url }}">View direct evidence ↗</a></div>
+{% if project.number == 15 %}
+</div></div>
+{% endif %}
 </article>
 {% endfor %}
 </div>
