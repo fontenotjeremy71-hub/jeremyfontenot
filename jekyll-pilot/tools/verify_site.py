@@ -112,6 +112,35 @@ def main() -> None:
                 problems.append(f"{item.name}: signature visual treatment was not retained")
             if 'class="case-study-signature-context"' not in study_markup:
                 problems.append(f"{item.name}: shared signature overview missing")
+    # Project 15 has an isolated presentation layer. Validate the original
+    # screenshots by filename and content digest, not by visual assumptions.
+    project15_source = (PROJECTS / "15-project-15.md").read_text(encoding="utf-8")
+    project15_published = (BUILD / "project-15.html").read_text(encoding="utf-8")
+    captures = sorted(set(re.findall(r'evidence/project-15/[^"\\s<>]+\\.png', project15_source)))
+    published_captures = sorted(set(re.findall(r'evidence/project-15/[^"\\s<>]+\\.png', project15_published)))
+    if len(captures) != 8 or captures != published_captures:
+        problems.append(f"Project 15 screenshot references were changed: {len(captures)} original, {len(published_captures)} published")
+    for relative in captures:
+        original = ROOT / relative
+        built = BUILD / relative
+        if not original.is_file() or not built.is_file():
+            problems.append(f"Project 15 screenshot missing: {relative}")
+        elif hashlib.sha256(original.read_bytes()).digest() != hashlib.sha256(built.read_bytes()).digest():
+            problems.append(f"Project 15 original screenshot bytes changed: {relative}")
+    for token, expected in (
+        ('class="project15-highlights"', 1),
+        ('class="grid project15-gallery project15-gallery--interfaces"', 1),
+        ('class="grid project15-gallery project15-gallery--validation"', 1),
+        ('class="grid project15-resources"', 1),
+        ('class="project15-publication-note"', 1),
+        ('class="panel project15-resource-card"', 3),
+        ('class="panel project15-visual-card', 8),
+    ):
+        found = project15_published.count(token)
+        if found != expected:
+            problems.append(f"Project 15 presentation token {token}: expected {expected}, found {found}")
+    if '/assets/css/project15.css?v=p15-1' not in project15_published:
+        problems.append("Project 15 case-study stylesheet is missing")
     root_pages = list(ROOT.glob("*.html"))
     if len(root_pages) < 40:
         problems.append(f"Only {len(root_pages)} root HTML pages found")
@@ -120,7 +149,7 @@ def main() -> None:
             problems.append(f"Missing retained root route: {source.name}")
     if (BUILD / ".nojekyll").exists():
         problems.append("Production publication must not contain .nojekyll")
-    for rel in ("assets/css/style.css", "assets/css/experience.css", "assets/js/main.js", "favicon.ico", "CNAME"):
+    for rel in ("assets/css/style.css", "assets/css/experience.css", "assets/css/project15.css", "assets/js/main.js", "favicon.ico", "CNAME"):
         if not (BUILD / rel).is_file():
             problems.append(f"Missing public asset: {rel}")
 
