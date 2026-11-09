@@ -35,6 +35,8 @@ CHECKS = r"""(() => {
     bodyFontPx: parseFloat(getComputedStyle(document.body).fontSize),
     cards: document.querySelectorAll('.project-card').length,
     directoryCards: document.querySelectorAll('.project-directory .panel').length,
+    bodyClass: document.body.className,
+    mainClass: document.querySelector('main#main')?.className || '',
     logo: !!logo && logo.complete && logo.naturalWidth > 0,
     overflow: document.documentElement.scrollWidth - innerWidth
   };
@@ -61,7 +63,11 @@ def main() -> None:
         threading.Thread(target=server.serve_forever, daemon=True).start()
         base = f"http://127.0.0.1:{server.server_port}"
     records = sorted((ROOT / "jekyll-pilot/_projects").glob("*.md"))
-    routes = ["/", "/projects.html", "/about.html", "/project-15.html"]
+    routes = [
+        "/", "/projects.html", "/about.html", "/skills.html", "/evidence.html",
+        "/resume.html", "/contact.html", "/experience.html", "/certifications.html",
+        "/home-lab.html", "/documentation.html", "/proof.html", "/project-15.html",
+    ]
     for record in records:
         matched = re.search(r'^case_study_url: "([^"]+)"', record.read_text(encoding="utf-8"), re.M)
         if matched and matched.group(1) not in routes:
@@ -85,6 +91,12 @@ def main() -> None:
                             issues.append(f"featured cards {state.get('cards')} != 8")
                         if route == "/projects.html" and state.get("directoryCards") != 15:
                             issues.append(f"directory cards {state.get('directoryCards')} != 15")
+                        if route == "/projects/m365-graph-administration-lab/index.html" and "graph-case-study" not in state.get("bodyClass", ""):
+                            issues.append("Project 13 signature layout class missing")
+                        if route == "/skills.html" and "skills-page" not in state.get("mainClass", ""):
+                            issues.append("skills page styling hook missing")
+                        if route == "/evidence.html" and "evidence-page" not in state.get("mainClass", ""):
+                            issues.append("evidence page styling hook missing")
                         if state.get("overflow", 0) > 6:
                             issues.append(f"horizontal overflow {state['overflow']}px")
                         if browser.events:
@@ -92,7 +104,7 @@ def main() -> None:
                         if issues:
                             failures.append(f"{width}px {route}: {', '.join(issues)}")
                         results.append({"width": width, "route": route, "status": state, "issues": issues})
-                        if route in ("/", "/projects.html", "/project-15.html", "/projects/grafana-entra-sso/index.html"):
+                        if route in ("/", "/projects.html", "/project-15.html", "/projects/grafana-entra-sso/index.html", "/projects/m365-graph-administration-lab/index.html", "/skills.html", "/evidence.html"):
                             label = "home" if route == "/" else route.strip("/").replace("/", "--").replace(".html", "")
                             browser.screenshot(output / f"{label}-{width}.png")
                     except Exception as exc:
