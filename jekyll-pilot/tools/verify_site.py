@@ -169,6 +169,42 @@ def main() -> None:
             problems.append(f"Project 13 supporting artifact not found: {relative_url}")
         elif hashlib.sha256(original_source.read_bytes()).digest() != hashlib.sha256(published_source.read_bytes()).digest():
             problems.append(f"Project 13 supporting artifact bytes changed: {relative_url}")
+    # Grafana/Entra Project 14: verify every original image and all six
+    # evidence chapters are still present, and their published PNGs are
+    # byte-identical to the source retained in the repository.
+    grafana_source = (PROJECTS / "14-projects-grafana-entra-sso.md").read_text(encoding="utf-8")
+    grafana_page_path = BUILD / "projects/grafana-entra-sso/index.html"
+    grafana_page = grafana_page_path.read_text(encoding="utf-8")
+    original_p14 = re.findall(r'src="(evidence/[^"]+\.png)"', grafana_source)
+    published_p14 = re.findall(r'src="(evidence/[^"]+\.png)"', grafana_page)
+    if len(original_p14) != 19 or published_p14 != original_p14:
+        problems.append(f"Project 14 screenshots changed or missing: original={len(original_p14)} published={len(published_p14)}")
+    for evidence_path in original_p14:
+        original_file = ROOT / "projects/grafana-entra-sso" / evidence_path
+        published_file = grafana_page_path.parent / evidence_path
+        if not original_file.is_file() or not published_file.is_file():
+            problems.append(f"Project 14 evidence image missing: {evidence_path}")
+        elif hashlib.sha256(original_file.read_bytes()).digest() != hashlib.sha256(published_file.read_bytes()).digest():
+            problems.append(f"Project 14 original PNG changed: {evidence_path}")
+    if '/assets/css/project14.css?v=g14-1' not in grafana_page:
+        problems.append("Project 14 isolated stylesheet missing")
+    if 'class="page-heading project14-hero"' not in grafana_page:
+        problems.append("Project 14 redesigned hero missing")
+    if 'class="project14-architecture-flow"' not in grafana_page:
+        problems.append("Project 14 documented authentication architecture missing")
+    if 'class="grid project14-results"' not in grafana_page or grafana_page.count('class="grid project14-gallery"') != 6:
+        problems.append("Project 14 results or six evidence galleries missing")
+    expected_p14 = {"evidence-a": 4, "evidence-b": 3, "evidence-c": 3,
+                    "evidence-d": 4, "evidence-e": 2, "evidence-f": 3}
+    for chapter_id, count in expected_p14.items():
+        start = grafana_page.find('id="' + chapter_id + '"')
+        if start < 0:
+            problems.append(f"Project 14 chapter missing: {chapter_id}")
+            continue
+        chapter = grafana_page[start:grafana_page.find('</div></section>', start)]
+        cards = chapter.count('<article class="panel"')
+        if cards != count:
+            problems.append(f"Project 14 chapter {chapter_id}: expected {count} PNG cards, found {cards}")
     root_pages = list(ROOT.glob("*.html"))
     if len(root_pages) < 40:
         problems.append(f"Only {len(root_pages)} root HTML pages found")
@@ -177,7 +213,7 @@ def main() -> None:
             problems.append(f"Missing retained root route: {source.name}")
     if (BUILD / ".nojekyll").exists():
         problems.append("Production publication must not contain .nojekyll")
-    for rel in ("assets/css/style.css", "assets/css/experience.css", "assets/css/project15.css", "assets/css/project13.css", "assets/js/main.js", "favicon.ico", "CNAME"):
+    for rel in ("assets/css/style.css", "assets/css/experience.css", "assets/css/project15.css", "assets/css/project13.css", "assets/css/project14.css", "assets/js/main.js", "favicon.ico", "CNAME"):
         if not (BUILD / rel).is_file():
             problems.append(f"Missing public asset: {rel}")
 
