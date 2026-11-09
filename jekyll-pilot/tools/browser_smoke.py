@@ -38,7 +38,7 @@ CHECKS = r"""(() => {
   const proof = document.querySelector('.case-study-shell--standard .proof');
   const caseStudyContext = document.querySelector('.case-study-overview, .case-study-signature-context');
   const caseStudyBody = document.querySelector('.case-study-document');
-  const countColumns = el => el ? getComputedStyle(el).gridTemplateColumns.split(/\\s+/).filter(Boolean).length : 0;
+  const countColumns = el => el ? getComputedStyle(el).gridTemplateColumns.split(/\s+/).filter(Boolean).length : 0;
   const heroHeadingLines = heroHeading ?
     Math.round(heroHeading.getBoundingClientRect().height / parseFloat(getComputedStyle(heroHeading).lineHeight)) : null;
   return {
