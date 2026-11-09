@@ -87,7 +87,7 @@ def main() -> None:
             problems.append(f"Jekyll page was not published: {page}")
             continue
         markup = page.read_text(encoding="utf-8")
-        if '/assets/css/experience.css?v=signal-1' not in markup:
+        if '/assets/css/experience.css?v=signal-2' not in markup:
             problems.append(f"Visual design stylesheet missing from {page.relative_to(BUILD)}")
         if 'name="theme-color" content="#080d16"' not in markup:
             problems.append(f"Branded browser theme missing from {page.relative_to(BUILD)}")
