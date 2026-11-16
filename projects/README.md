@@ -18,8 +18,8 @@ The portfolio currently includes fifteen public projects. "Complete" means the p
 10. Microsoft 365 Messaging & Security Administration — **COMPLETE**
 11. Windows Autopilot & Intune MDM Provisioning — **COMPLETE**
 12. macOS ABM to Intune Enterprise Runbook — **COMPLETE** (Microsoft-side configuration real where validated; ABM/ADE and endpoint-dependent work explicitly simulated/documented)
-13. Microsoft 365 Graph Administration Lab — **COMPLETE** (validated read-only Microsoft Graph administration and reporting automation across seven scripts)
+13. Microsoft 365 Graph Administration Lab — **COMPLETE** (seven previously validated read-only administration scripts plus a PowerShell 7 JSON export extension; eight mocked-data Pester tests passed and a separate live delegated retrieval returned 24 users at test time; tenant reports remain private)
 14. Grafana OSS + Microsoft Entra SSO — **VALIDATED** (Linux application administration, trusted HTTPS, Entra OAuth sign-in, Viewer authorization, enterprise application assignment, and My Apps integration; nineteen original screenshots published)
-15. JF Automation & Scripting Dashboard — **VALIDATED** (local PowerShell 7 administration dashboard, Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and guarded Active Directory provisioning; five original PASS screenshots linked from the public case study)
+15. JF Automation & Scripting Dashboard — **VALIDATED** (local PowerShell 7 administration dashboard, Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and review-first Active Directory provisioning with dry-run by default and an explicit apply mode for authorized lab changes; supporting script evidence documents an apply-mode test; five original PASS screenshots linked from the public case study)
 
 The public numbering reflects hiring relevance and portfolio organization, not build date. Evidence and historical project files are preserved even when they are not the primary recruiter entry point.
