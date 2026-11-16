@@ -3,7 +3,7 @@
 **Purpose:** Authoritative source-of-truth registry for Jeremy Fontenot's IT portfolio work.  
 **Primary portfolio:** https://jeremyfontenot.online  
 **Primary GitHub repository:** `fontenotjeremy71-hub/jeremyfontenot`  
-**Registry last reconciled:** 2026-11-05  
+**Registry last reconciled:** 2026-11-16  
 **Status rule:** The current GitHub repository and live portfolio take precedence over older chats when they conflict. Only unresolved facts that are materially relevant to a technical claim, evidence location, publication state, or project scope should be marked `NEEDS VERIFICATION`; missing historical dates are not remediation items unless the date itself is technically material.
 
 ## Authority and Maintenance Rules
@@ -287,11 +287,11 @@ The current `main` branch and deployed project routing define **15 public projec
 - **Completion Date:** Not required for portfolio validation
 - **GitHub Repository Path:** `projects/m365-graph-administration-lab/`
 - **Portfolio URL:** https://jeremyfontenot.online/m365-graph-administration-lab.html
-- **Evidence Status:** STRONG — seven validated read-only scripts, delegated authentication, scope handling, CSV/report output, Intune inventory, and documented Graph troubleshooting are preserved.
-- **Evidence Location:** `projects/m365-graph-administration-lab/scripts/`; `projects/m365-graph-administration-lab/docs/`; public proof anchor `/proof.html#m365-graph-admin-proof`
-- **Last Validated:** Seven scripts are documented as validated. Exact historical execution dates for each script are not required unless a date becomes technically material.
+- **Evidence Status:** STRONG — seven previously validated read-only administration scripts, delegated authentication, scope handling, CSV/report output, Intune inventory, documented Graph troubleshooting, and a separate PowerShell 7 JSON export extension are preserved. The extension has eight passing mocked-data Pester tests and a separate point-in-time live delegated retrieval.
+- **Evidence Location:** `projects/m365-graph-administration-lab/scripts/`; `projects/m365-graph-administration-lab/docs/`; `projects/m365-graph-administration-lab/graph-development/` (runbook, source, and tests); public proof anchor `/proof.html#m365-graph-admin-proof`
+- **Last Validated:** The seven original scripts retain their prior validation record; the newer extension passed 8/8 local Pester tests using mocked data, and a separate delegated session retrieved 24 users at test time. The Pester run did not rerun the original seven scripts or validate live tenant behavior.
 - **Next Milestone:** Maintenance-only. Graph write operations or broader automation are optional future enhancements only when they serve a legitimate administrative requirement.
-- **Notes / Claim Boundaries:** Read-only delegated administration/reporting is currently proven. Live CSV exports are intentionally not public because they may contain UPNs, object IDs, device identifiers, and tenant-specific data. Do not imply write automation or broader Graph coverage that has not been validated.
+- **Notes / Claim Boundaries:** Read-only delegated administration/reporting and a read-only JSON user export are documented. The extension's Pester tests use mocked Graph commands and synthetic records; the separate 24-user retrieval is a point-in-time live observation. Live CSV/JSON exports are intentionally not public because they may contain UPNs, object IDs, device identifiers, and tenant-specific data. Do not imply Graph write automation or broader Graph coverage that has not been validated.
 
 ## 14 — Grafana OSS + Microsoft Entra SSO
 
