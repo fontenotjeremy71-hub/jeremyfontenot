@@ -326,7 +326,7 @@ The current `main` branch and deployed project routing define **15 public projec
 
 - **Public case study:** `project-15.html`.
 - **Public status:** VALIDATED within the personal-lab and developer-tenant scope documented by the case study.
-- **Scope:** Local PowerShell 7 administration dashboard with Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and guarded Active Directory provisioning. The portfolio displays evidence rather than executing local scripts.
+- **Scope:** Local PowerShell 7 administration dashboard with Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection, and dry-run-only Active Directory provisioning review; no account creation or modification is claimed. The portfolio displays evidence rather than executing local scripts.
 - **Evidence:** Five original PASS screenshots linked from the case study and evidence directory.
 - **Publication:** Included in the 15-project public directory, homepage, skills, proof, home-lab, evidence, and documentation pages.
 
