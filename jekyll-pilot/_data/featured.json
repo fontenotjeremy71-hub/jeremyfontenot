@@ -93,7 +93,7 @@
   {
     "rank": 8,
     "number": 15,
-    "summary": "A PowerShell 7 dashboard demonstrates Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection and guarded AD provisioning.",
+    "summary": "A PowerShell 7 dashboard demonstrates Microsoft Graph inventory, hybrid identity checks, Windows LAPS validation, Azure Arc inspection and review-first AD provisioning with dry-run by default and an explicit lab-only apply mode.",
     "evidence_url": "/evidence/project-15/Project-15-Cloud-Sync-AD-State-PASS.png",
     "evidence_label": "Inspect original PASS evidence →",
     "featured_category": "PowerShell & automation",
