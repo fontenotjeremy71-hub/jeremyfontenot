@@ -72,4 +72,4 @@ The controlled hybrid identity lifecycle test successfully validated Active Dire
 
 The controlled identity lifecycle test is COMPLETE.
 
-The broader portfolio project remains IN PROGRESS until final portfolio presentation material and evidence files are organized and committed.
+The Microsoft Entra Hybrid Identity & Cloud Sync portfolio project is COMPLETE. Its completed scope is the documented, controlled Cloud Sync OU and identity lifecycle described above; this status does not imply tenant-wide synchronization or coverage beyond the tested scope.
