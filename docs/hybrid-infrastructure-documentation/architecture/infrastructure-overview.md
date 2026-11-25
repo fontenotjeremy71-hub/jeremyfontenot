@@ -1,6 +1,6 @@
 # Infrastructure Overview
 
-## Core Guest Inventory
+## Recorded Core Guest Inventory
 
 I use four primary Proxmox guests to provide the core network, identity, Windows client, and Linux services in my lab.
 
@@ -19,7 +19,7 @@ I assign DC01 `10.10.20.10/24` and WS01 `10.10.20.100/24` on the core LAN. I ass
 
 I use `10.10.40.0/24` for OpenVPN remote administration. pfSense routes traffic between the core LAN and Linux VLAN and provides the VPN gateway for remote clients.
 
-## Infrastructure Layers and Administrative Responsibility
+## Distinct Layers and Administrative Responsibility
 
 | Infrastructure layer | Systems and platforms | My administrative responsibility |
 |---|---|---|
