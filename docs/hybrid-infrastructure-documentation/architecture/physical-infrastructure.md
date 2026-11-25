@@ -2,7 +2,7 @@
 
 ## Physical Platform
 
-I operate my lab on a Dell PowerEdge R710. I run Proxmox VE 9.2.3 on the host. My host inventory records an x86_64 system with two Intel Xeon L5520 processors.
+I operate my lab on a Dell PowerEdge R710. I run Proxmox VE on the host. My host inventory records an x86_64 system with two Intel Xeon L5520 processors.
 
 | Component | Host-reported configuration |
 |---|---|
