@@ -1,56 +1,30 @@
 # Monitoring and Logging
 
-## Monitoring State
+## Centralized Linux Logging
 
-I treat monitoring as an evidence-limited operational discipline. The repository validates some service and listener state but does not prove a complete alerting platform or round-the-clock monitoring program.
+I use Linux01 as the rsyslog receiver for selected pfSense events. I configure the receiver to listen on TCP and UDP port 514 at `10.10.30.20`.
 
-## Linux rsyslog
+I forward selected pfSense system, firewall, authentication, VPN, and gateway events to Linux01. I use rsyslog configuration files to define remote collection and pfSense alert handling.
 
-Authenticated Linux01 evidence supports:
+| Configuration | Purpose |
+|---|---|
+| `/etc/rsyslog.d/10-remote-collector.conf` | I configure remote syslog collection and destination templates |
+| `/etc/rsyslog.d/05-pfsense-alerts.conf` | I configure handling for pfSense alert messages |
+| `/etc/logrotate.d/rsyslog` | I configure weekly rotation, four retained rotations, and compression |
 
-- rsyslog active
-- TCP port 514 listening on 10.10.30.20
-- UDP port 514 listening on 10.10.30.20
-- Remote collector configuration
-- pfSense alert configuration
-- Weekly rsyslog log rotation
-- Four retained rotations and compression
+I organize received messages under `/var/log/remote/` using the sender IP and a separate pfSense alert log.
 
-The repository documents forwarding of selected pfSense system, firewall, authentication, VPN, and gateway events to Linux01. It does not prove that every sender successfully delivers every event.
+## Service and Listener Administration
 
-## Connectivity Checks
+I inspect the rsyslog service, TCP and UDP listeners, configuration files, destination paths, and log rotation settings when administering the logging receiver. I use Linux01 target-local inventory to review the receiver configuration and service state.
 
-A client-path TCP check to Linux01 port 514 timed out. I retain that as a reachability observation and do not convert it into an rsyslog failure.
+## Azure Arc Monitoring Indicators
 
-## Azure Monitoring Indicators
-
-Azure Arc evidence supports:
-
-- DPS status OK
-- Metrics upload status OK
-- Agent connectivity
-- SQL extension telemetry
-
-This evidence does not establish a complete Azure Monitor or alerting implementation.
-
-## Planned Expansion
-
-My change plan identifies Windows Event Forwarding and Proxmox syslog forwarding as future work requiring approval. It also identifies source restrictions, destination configuration, retention, test events, and rollback. No such expansion is presented here as implemented.
-
-## Operational Boundaries
-
-I do not claim:
-
-- High-availability monitoring
-- 24-hour alert coverage
-- Guaranteed log delivery
-- SIEM operation
-- SOC monitoring
-- Compliance logging
-- Complete event retention
+I use Azure Arc and the connected SQL Server resource to review agent connectivity, extension provisioning, Data Processing Service status, and metrics-upload indicators. I use these service indicators as part of my hybrid-management administration.
 
 ## Evidence
 
-- [Centralized logging plan](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md)
-- [Linux01 validation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
-- [Azure Arc public evidence](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)
+- [Linux01 logging configuration and receiver inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md)
+- [Linux01 system, network, and domain inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
+- [Azure Arc public validation](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)
+- [Azure Arc evidence manifest](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence-manifest.json)
