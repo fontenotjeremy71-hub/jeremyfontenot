@@ -26,7 +26,7 @@ I removed the rejected directive, disabled the conflicting NSS, PAM, and PAC soc
 
 ## Centralized Logging
 
-I use Linux01 as the rsyslog receiver for selected pfSense events. I configure the receiver to listen on TCP and UDP port 514 at `10.10.30.20` and use the following configuration files:
+I configured Linux01 as the rsyslog receiver for selected pfSense events. I configured the receiver to listen on TCP and UDP port 514 at `10.10.30.20` and used the following configuration files:
 
 | Configuration file | Purpose |
 |---|---|
@@ -34,7 +34,7 @@ I use Linux01 as the rsyslog receiver for selected pfSense events. I configure t
 | `/etc/rsyslog.d/05-pfsense-alerts.conf` | pfSense alert-message handling |
 | `/etc/logrotate.d/rsyslog` | Weekly rotation, four retained rotations, and compression |
 
-I use the remote log destination templates `/var/log/remote/%FROMHOST-IP%/messages.log` and `/var/log/remote/pfsense-alerts.log` to organize received messages.
+I configured the remote log destination templates `/var/log/remote/%FROMHOST-IP%/messages.log` and `/var/log/remote/pfsense-alerts.log` to organize messages by sender and log type.
 
 ## Administrative Work
 
@@ -44,4 +44,4 @@ I administer Linux network settings, SSH access, packages and services, domain i
 
 - [Linux01 system, network, and domain inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
 - [Linux01 SSSD remediation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
-- [Centralized logging configuration and expansion record](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md)
+- [Linux01 target-local inventory validation](https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/blob/main/evidence/linux01-local-inventory-validation-20260626-035220.md)

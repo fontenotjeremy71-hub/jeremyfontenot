@@ -36,4 +36,3 @@ I use the VMM console from my VPN-connected administration workstation to connec
 - [WS01 Remote Desktop and DNS screenshot](../../../evidence-library/projects/on-prem-home-lab/screenshots/figure-07-dc01-to-ws01-rdp-dns-validation.png)
 - [Linux01 SSSD and SSH authentication remediation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
 - [SCVMM screenshot and evidence manifest](../../../evidence-library/projects/on-prem-home-lab/scvmm-2022/evidence-manifest.json)
-- [Azure Arc remote-management evidence](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)

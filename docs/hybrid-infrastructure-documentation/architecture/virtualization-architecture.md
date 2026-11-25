@@ -2,14 +2,7 @@
 
 ## Proxmox Virtualization Layer
 
-I use Proxmox VE on my Dell PowerEdge R710 as the base virtualization platform for the core lab systems.
-
-| VMID | Guest | Operating system or role | vCPU | Memory | Disk | Network placement |
-|---|---|---|---:|---:|---:|---|
-| 100 | pfsense-fw | pfSense firewall and routing | 2 | 4 GB | 32 GB | vmbr0, vmbr1 |
-| 200 | dc01 | Windows Server 2022 domain controller | 2 | 4 GB | 80 GB | vmbr1 |
-| 300 | ws01 | Windows 10 Pro domain client | 2 | 4 GB | 80 GB | vmbr1 |
-| 400 | linux01 | Ubuntu 26.04 LTS | 2 | 2 GB | 40 GB | vmbr1, VLAN 30 |
+I use Proxmox VE on my Dell PowerEdge R710 as the base virtualization platform for the core lab systems. I configured the core guest set around pfSense, DC01, WS01, and Linux01. The shared VMIDs, guest roles, resource allocations, and bridge placement are recorded in the [Infrastructure Overview](infrastructure-overview.md#recorded-core-guest-inventory) and [Infrastructure Inventory](../reference/infrastructure-inventory.md#core-guest-inventory).
 
 I use the Proxmox interface to review VM configuration, allocated resources, bridge placement, guest-agent integration, snapshots, storage, and backup jobs.
 

@@ -2,7 +2,7 @@
 
 ## Recorded Core Guest Inventory
 
-I use four primary Proxmox guests to provide the core network, identity, Windows client, and Linux services in my lab.
+I configured four primary Proxmox guests to provide the core network, identity, Windows client, and Linux services in my lab.
 
 | VMID | Hostname | Guest system or role | vCPU | Memory | Disk | Network placement |
 |---|---|---|---:|---:|---:|---|
@@ -11,7 +11,7 @@ I use four primary Proxmox guests to provide the core network, identity, Windows
 | 300 | ws01 | Windows 10 Pro domain-joined client | 2 | 4 GB | 80 GB | vmbr1 |
 | 400 | linux01 | Ubuntu 26.04 LTS domain-integrated Linux system | 2 | 2 GB | 40 GB | vmbr1, VLAN tag 30 |
 
-I use DC01 for the `ad.jeremyfontenot.online` domain, DNS, and DHCP services. I use WS01 as my domain-joined Windows client. I integrate Linux01 with the Active Directory domain through realmd, SSSD, and Kerberos.
+I configured DC01 for the `ad.jeremyfontenot.online` domain, DNS, and DHCP services. I use WS01 as my domain-joined Windows client. I integrated Linux01 with the Active Directory domain through realmd, SSSD, and Kerberos.
 
 ## Network and Identity Relationships
 
@@ -23,14 +23,14 @@ I use `10.10.40.0/24` for OpenVPN remote administration. pfSense routes traffic 
 
 | Infrastructure layer | Systems and platforms | My administrative responsibility |
 |---|---|---|
-| Physical | Dell PowerEdge R710 | I maintain the compute, memory, storage, and physical network platform that hosts Proxmox VE |
+| Physical | Dell PowerEdge R710 | I administer the compute, memory, storage, and physical network platform that hosts Proxmox VE |
 | Hypervisor | Proxmox VE | I manage virtual machines, virtual disks, Linux bridges, VLAN-aware networking, snapshots, backup jobs, and restore exercises |
-| Network | pfSense, vmbr0, vmbr1, core LAN, Linux VLAN, OpenVPN | I configure network segmentation, routing, remote access, and the firewall gateway relationships between lab networks |
+| Network | pfSense, vmbr0, vmbr1, core LAN, Linux VLAN, OpenVPN | I configure network segmentation, routing, remote access, and firewall gateway relationships between lab networks |
 | Windows identity | DC01, Active Directory Domain Services, DNS, DHCP, Group Policy | I administer the AD domain, directory roles, name resolution, address assignment, organizational units, and Group Policy |
 | Windows endpoint | WS01 | I manage domain membership, workstation networking, Remote Desktop, Group Policy application, and file-share access |
-| Linux services | Linux01, Ubuntu, realmd, SSSD, Kerberos, rsyslog | I administer Linux networking, Active Directory identity integration, SSH access, service troubleshooting, and centralized log reception |
+| Linux services | Linux01, Ubuntu, realmd, SSSD, Kerberos, rsyslog | I administer Linux networking, Active Directory identity integration, SSH access, service troubleshooting, and syslog receiver configuration |
 | Nested virtualization | HVHOST01, Hyper-V, VMM01, SCVMM, APP01 | I manage the Hyper-V host through SCVMM and operate the APP01 guest through VMM lifecycle and console tools |
-| Hybrid and cloud management | SYNC01, Microsoft Entra Connect, Azure Arc, Windows Admin Center | I administer directory synchronization services and connect supported Windows management systems and SQL resources to Azure Arc |
+| Hybrid identity and cloud management | SYNC01, Microsoft Entra Cloud Sync, Microsoft Entra Connect Sync, Azure Arc, Windows Admin Center | I administer two separate tenant-specific synchronization implementations and connect supported Windows management systems and SQL resources to Azure Arc |
 
 ## Architecture Diagram
 

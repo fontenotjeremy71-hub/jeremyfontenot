@@ -4,14 +4,7 @@
 
 I use Proxmox VE on my Dell PowerEdge R710 as the base hypervisor for my lab. I manage the host, virtual machines, virtual networking, storage, snapshots, and scheduled backup jobs through the Proxmox management interface and API.
 
-## Core Virtual Machines
-
-| VMID | Name | Guest role | vCPU | Memory | Disk | Bridge placement |
-|---|---|---|---:|---:|---:|---|
-| 100 | pfsense-fw | pfSense firewall and routing | 2 | 4 GB | 32 GB | vmbr0, vmbr1 |
-| 200 | dc01 | Windows Server 2022 domain controller | 2 | 4 GB | 80 GB | vmbr1 |
-| 300 | ws01 | Windows 10 Pro domain client | 2 | 4 GB | 80 GB | vmbr1 |
-| 400 | linux01 | Ubuntu 26.04 LTS | 2 | 2 GB | 40 GB | vmbr1, VLAN 30 |
+I manage the core guest set—pfSense, DC01, WS01, and Linux01—through Proxmox. The authoritative VMIDs, guest roles, resource allocations, and bridge placement are listed in the [Infrastructure Overview](../architecture/infrastructure-overview.md#recorded-core-guest-inventory) and [Infrastructure Inventory](../reference/infrastructure-inventory.md#core-guest-inventory).
 
 ## Virtual Networking
 

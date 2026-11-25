@@ -2,9 +2,9 @@
 
 ## Centralized Linux Logging
 
-I use Linux01 as the rsyslog receiver for selected pfSense events. I configure the receiver to listen on TCP and UDP port 514 at `10.10.30.20`.
+I configured Linux01 as the rsyslog receiver for selected pfSense events. I configured the receiver to listen on TCP and UDP port 514 at `10.10.30.20`.
 
-I forward selected pfSense system, firewall, authentication, VPN, and gateway events to Linux01. I use rsyslog configuration files to define remote collection and pfSense alert handling.
+I configured pfSense to forward selected system, firewall, authentication, VPN, and gateway events to Linux01. I use rsyslog configuration files to define remote collection and pfSense alert handling.
 
 | Configuration | Purpose |
 |---|---|
@@ -12,11 +12,11 @@ I forward selected pfSense system, firewall, authentication, VPN, and gateway ev
 | `/etc/rsyslog.d/05-pfsense-alerts.conf` | I configure handling for pfSense alert messages |
 | `/etc/logrotate.d/rsyslog` | I configure weekly rotation, four retained rotations, and compression |
 
-I organize received messages under `/var/log/remote/` using the sender IP and a separate pfSense alert log.
+I configure destination templates under `/var/log/remote/` to organize messages by sender IP and route pfSense alert messages to a dedicated log file.
 
 ## Service and Listener Administration
 
-I inspect the rsyslog service, TCP and UDP listeners, configuration files, destination paths, and log rotation settings when administering the logging receiver. I use Linux01 target-local inventory to review the receiver configuration and service state.
+I inspect the rsyslog service, TCP and UDP listeners, configuration files, destination paths, and log rotation settings when administering the logging receiver. I use Linux01 target-local inventory to review the receiver configuration and service listener state.
 
 ## Azure Arc Monitoring Indicators
 
@@ -24,7 +24,7 @@ I use Azure Arc and the connected SQL Server resource to review agent connectivi
 
 ## Evidence
 
-- [Linux01 logging configuration and receiver inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md)
+- [Linux01 target-local inventory validation](https://github.com/fontenotjeremy71-hub/jeremy-homelab-ops/blob/main/evidence/linux01-local-inventory-validation-20260626-035220.md)
 - [Linux01 system, network, and domain inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
 - [Azure Arc public validation](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)
 - [Azure Arc evidence manifest](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence-manifest.json)

@@ -14,8 +14,9 @@ I use this reference for the IP networks, gateways, host addresses, and service 
 | pfSense core gateway | 10.10.20.1 | Default gateway for the core LAN |
 | DC01 | 10.10.20.10 | Domain controller, DNS, and DHCP server |
 | WS01 | 10.10.20.100 | Domain-joined Windows client |
+| MACVM01 | 10.10.20.101 | macOS Monterey virtual machine integrated with Active Directory |
 | HVHOST01 | 10.10.20.102 | Hyper-V management host |
-| SYNC01 | 10.10.20.105 | Microsoft Entra Connect server |
+| SYNC01 | 10.10.20.105 | Microsoft Entra synchronization implementation host |
 | Linux VLAN 30 | 10.10.30.0/24 | Linux infrastructure network |
 | pfSense Linux gateway | 10.10.30.1 | Default gateway for Linux VLAN 30 |
 | Linux01 | 10.10.30.20/24 | Ubuntu Linux system and rsyslog receiver |
@@ -45,4 +46,4 @@ I assign Linux01 VLAN tag 30 on `vmbr1`.
 |---|---|---|
 | Active Directory DNS | 10.10.20.10 | I use DC01 to resolve `ad.jeremyfontenot.online` and internal host records |
 | DHCP | 10.10.20.10 | I use DC01 to provide DHCP settings to WS01 |
-| rsyslog | 10.10.30.20:514 TCP/UDP | I use Linux01 to receive selected pfSense log events |
+| rsyslog | 10.10.30.20:514 TCP/UDP | I configure Linux01 to receive selected pfSense syslog events |

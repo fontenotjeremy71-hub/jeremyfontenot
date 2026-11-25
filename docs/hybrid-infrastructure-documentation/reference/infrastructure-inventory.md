@@ -26,8 +26,21 @@ I maintain this inventory to show how my physical host, virtualization platform,
 | HVHOST01 | Windows Server 2022 with Hyper-V | I administer the nested Hyper-V host and its guest workloads |
 | VMM01 | Windows Server 2022 with SCVMM 2022 | I use System Center Virtual Machine Manager to manage HVHOST01 and APP01 |
 | APP01 | Hyper-V guest | I manage the guest lifecycle and console through SCVMM |
-| SYNC01 | Windows Server with Microsoft Entra Connect | I administer directory synchronization and Entra Connect Health services |
-| MACVM01 | macOS Monterey virtual machine | I use the system for macOS and Active Directory integration work |
+| SYNC01 | Windows Server 2022 | I used SYNC01 for separate Microsoft Entra Cloud Sync and Entra Connect Sync implementations targeting different tenants |
+| MACVM01 | macOS Monterey 12.7.6 virtual machine | I configured macOS network connectivity and Active Directory computer-object integration |
+
+## MACVM01 Network and Directory Integration
+
+| Setting | MACVM01 configuration |
+|---|---|
+| Hostname | MACVM01 |
+| Operating system | macOS Monterey 12.7.6 |
+| IPv4 address | 10.10.20.101 |
+| Default gateway | 10.10.20.1 |
+| DNS server | 10.10.20.10 |
+| Active Directory domain | ad.jeremyfontenot.online |
+
+I configured MACVM01 to use the core-LAN gateway and DC01 for DNS. I also created and verified its Active Directory computer object.
 
 ## Storage Inventory
 
@@ -42,4 +55,6 @@ I maintain this inventory to show how my physical host, virtualization platform,
 - [DC01 system and role inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/dc01-system-and-role-validation.md)
 - [WS01 system and domain inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/ws01-system-and-domain-validation.md)
 - [Linux01 system, network, and domain inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
+- [MACVM01 network configuration](../../../evidence-library/projects/on-prem-home-lab/macos-active-directory-integration/macvm01-network-configuration-public.txt)
+- [MACVM01 Active Directory computer object](../../../evidence-library/projects/on-prem-home-lab/macos-active-directory-integration/MACVM01-AD-computer-object-public.txt)
 - [Azure Arc public validation](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)

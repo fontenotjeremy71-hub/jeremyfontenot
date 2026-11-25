@@ -2,13 +2,22 @@
 
 ## Purpose
 
-I maintain this documentation as a technical record of my personal hybrid infrastructure lab. It describes the systems I operate, the ways those systems depend on one another, and the evidence that supports the documented configuration.
+I built and administered a personal hybrid infrastructure lab to demonstrate hands-on systems administration and infrastructure operations skills. This documentation records the architecture I designed, the systems I configured, the administrative work I performed, and the technical outcomes I verified.
 
-I document my hybrid infrastructure architecture, administrative work, implementations, integrations, troubleshooting practices, and supporting evidence from this repository. My technical statements describe what I built and operated and remain connected to the repository evidence that supports them.
+I use first-person descriptions throughout so the work is presented as my own implementation and administration experience. The documentation focuses on demonstrated skills across virtualization, networking, Windows Server, Active Directory, Linux, Microsoft Entra ID, Azure Arc, automation, backup and recovery, monitoring, logging, and troubleshooting.
 
-## Scope
+## Skills Demonstrated
 
-I document the physical and virtual infrastructure, network relationships, Windows and Linux administration, hybrid identity and cloud integration, backup and recovery, monitoring and logging, automation, and operational procedures in my lab.
+| Skill area | Work I document | Documentation |
+|---|---|---|
+| Infrastructure architecture | Physical compute, storage, virtualization layers, guest roles, and system relationships | [Infrastructure Overview](architecture/infrastructure-overview.md) · [Physical Infrastructure](architecture/physical-infrastructure.md) · [Virtualization Architecture](architecture/virtualization-architecture.md) |
+| Virtualization and systems management | Proxmox VE, VM lifecycle, Hyper-V, SCVMM, virtual networking, and guest administration | [Proxmox](infrastructure/proxmox.md) · [Virtualization Architecture](architecture/virtualization-architecture.md) |
+| Networking and security | pfSense, routing, VLAN segmentation, DNS, DHCP, OpenVPN, and remote network access | [Network Architecture](architecture/network-architecture.md) · [pfSense](infrastructure/pfsense.md) · [Network Reference](reference/network-reference.md) |
+| Windows Server and identity | AD DS, FSMO roles, DNS, DHCP, Group Policy, computer objects, Remote Desktop, and file-share permissions | [Windows Server and Active Directory](infrastructure/windows-server-and-active-directory.md) |
+| Linux administration | Ubuntu, realmd, SSSD, Kerberos, SSH, rsyslog, service management, and troubleshooting | [Linux Administration](infrastructure/linux-administration.md) |
+| Hybrid identity and cloud | Separate Microsoft Entra tenant integrations using Cloud Sync and Entra Connect Sync, plus Azure Arc and Windows Admin Center | [Hybrid Identity and Cloud Integration](infrastructure/hybrid-identity-and-cloud-integration.md) |
+| Automation and administration | PowerShell, PowerShell Remoting, SSH, reusable connection functions, Microsoft Graph, and administrative tooling | [Automation and PowerShell](operations/automation-and-powershell.md) |
+| Backup, recovery, and operations | Proxmox backup configuration, isolated restore exercises, monitoring, logging, and troubleshooting | [Backup and Recovery](operations/backup-and-recovery.md) · [Monitoring and Logging](operations/monitoring-and-logging.md) · [Troubleshooting](operations/troubleshooting.md) |
 
 ## Documentation
 
@@ -40,3 +49,7 @@ I document the physical and virtual infrastructure, network relationships, Windo
 - [Infrastructure Inventory](reference/infrastructure-inventory.md)
 - [Network Reference](reference/network-reference.md)
 - [Service and Evidence Reference](reference/service-and-evidence-reference.md)
+
+## How I Use This Documentation
+
+I organize the material so a reader can understand the architecture first, review the systems and technologies I administered, and then follow the operational procedures and supporting evidence. The inventory and reference pages provide shared technical values so individual technology pages do not need to repeat entire infrastructure tables.

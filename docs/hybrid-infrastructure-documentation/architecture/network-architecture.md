@@ -2,7 +2,7 @@
 
 ## Network Overview
 
-I organize my lab network around pfSense. I use it to route between the core LAN and Linux VLAN, provide the OpenVPN remote-access gateway, and connect the internal networks to the upstream network. I use Proxmox Linux bridges to connect the firewall and guest interfaces to their network segments.
+I designed my lab network around pfSense. I configured it to route between the core LAN and Linux VLAN, provide the OpenVPN remote-access gateway, and connect the internal networks to the upstream network. I used Proxmox Linux bridges to connect the firewall and guest interfaces to their network segments.
 
 ## Network Segments
 
@@ -13,7 +13,7 @@ I organize my lab network around pfSense. I use it to route between the core LAN
 | Linux VLAN 30 | 10.10.30.0/24 | 10.10.30.1 | Linux01 and Linux administration services |
 | Remote-access VPN | 10.10.40.0/24 | 10.10.40.1 | OpenVPN remote administrative connectivity |
 
-I assign DC01 `10.10.20.10/24` and WS01 `10.10.20.100/24` on the core LAN. I assign Linux01 `10.10.30.20/24` on VLAN 30. I use DC01 at `10.10.20.10` for internal DNS and DHCP services.
+I assigned DC01 `10.10.20.10/24` and WS01 `10.10.20.100/24` on the core LAN. I assigned Linux01 `10.10.30.20/24` on VLAN 30. I used DC01 at `10.10.20.10` for internal DNS and DHCP services.
 
 ## Network Topology
 
@@ -35,28 +35,28 @@ flowchart TB
 
 ## Proxmox Network Bridges
 
-I use two Proxmox Linux bridges to connect the physical host, pfSense, and virtual machines.
+I used two Proxmox Linux bridges to connect the physical host, pfSense, and virtual machines.
 
 | Bridge | Host configuration | Network role |
 |---|---|---|
-| `vmbr0` | Static address `192.168.0.242/24`, gateway `192.168.0.1`, bridge port `nic0` | I use this bridge for Proxmox management and the pfSense WAN connection to the upstream network |
-| `vmbr1` | Manual addressing, no physical bridge ports, VLAN-aware, VLAN IDs 2–4094 | I use this bridge for the pfSense LAN and internal guest interfaces |
+| `vmbr0` | Static address `192.168.0.242/24`, gateway `192.168.0.1`, bridge port `nic0` | I used this bridge for Proxmox management and the pfSense WAN connection to the upstream network |
+| `vmbr1` | Manual addressing, no physical bridge ports, VLAN-aware, VLAN IDs 2–4094 | I used this bridge for the pfSense LAN and internal guest interfaces |
 
-I connect the pfSense WAN interface through `vmbr0`. I connect the pfSense LAN and internal guest interfaces through `vmbr1`. I assign Linux01 VLAN tag 30 so its virtual interface belongs to the Linux VLAN.
+I connected the pfSense WAN interface through `vmbr0`. I connected the pfSense LAN and internal guest interfaces through `vmbr1`. I assigned Linux01 VLAN tag 30 so its virtual interface belonged to the Linux VLAN.
 
 ## Routing and DNS
 
-I use pfSense to route traffic between the core LAN and Linux VLAN. The core LAN uses `10.10.20.1` as its gateway, and the Linux VLAN uses `10.10.30.1`.
+I configured pfSense to route traffic between the core LAN and Linux VLAN. The core LAN uses `10.10.20.1` as its gateway, and the Linux VLAN uses `10.10.30.1`.
 
-I use DC01 at `10.10.20.10` as the DNS server for `ad.jeremyfontenot.online`. I configure WS01 to obtain DHCP network settings from DC01 and use DC01 for DNS. I configure Linux01 to use DC01 for DNS across the routed connection.
+I configured DC01 at `10.10.20.10` as the DNS server for `ad.jeremyfontenot.online`. I configured WS01 to obtain DHCP network settings from DC01 and use DC01 for DNS. I configured Linux01 to use DC01 for DNS across the routed connection.
 
 ## Remote Administration
 
-I use pfSense OpenVPN remote access with the `10.10.40.0/24` address space. From my VPN client at `10.10.40.2`, I route traffic through `10.10.40.1` to reach the core LAN and Linux VLAN.
+I configured pfSense OpenVPN remote access with the `10.10.40.0/24` address space. From my VPN client at `10.10.40.2`, I routed traffic through `10.10.40.1` to reach the core LAN and Linux VLAN.
 
 ## Centralized Logging
 
-I configure pfSense to forward selected system, firewall, authentication, VPN, and gateway events to Linux01 at `10.10.30.20:514`. I configure Linux01 rsyslog to receive the forwarded messages over TCP and UDP.
+I configured pfSense to forward selected system, firewall, authentication, VPN, and gateway events to Linux01 at `10.10.30.20:514`. I configured Linux01 rsyslog to listen for the forwarded messages over TCP and UDP.
 
 ## Evidence
 

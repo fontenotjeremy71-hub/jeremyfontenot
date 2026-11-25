@@ -2,7 +2,7 @@
 
 ## Proxmox Backup Job
 
-I use the Proxmox backup job `backup-critical-lab-vms` to create scheduled snapshot-mode backups of my core lab virtual machines.
+I configured the Proxmox backup job `backup-critical-lab-vms` to create scheduled snapshot-mode backups of my core lab virtual machines.
 
 | Setting | Configuration |
 |---|---|
@@ -14,13 +14,13 @@ I use the Proxmox backup job `backup-critical-lab-vms` to create scheduled snaps
 | Storage target | backup-hdd |
 | Included VMIDs | 100, 200, 300, 400 |
 
-The job covers pfSense, DC01, WS01, and Linux01. I use `backup-hdd` as the separate Proxmox directory storage for backup archives.
+The job covers pfSense, DC01, WS01, and Linux01. I used `backup-hdd` as the separate Proxmox directory storage for backup archives.
 
 ## Storage and Backup Administration
 
-I keep Proxmox virtual-machine disks on `local-lvm` and backup archives on `backup-hdd`. I review the backup job configuration, target storage, archive inventory, and VM coverage as part of my virtualization administration.
+I kept Proxmox virtual-machine disks on `local-lvm` and backup archives on `backup-hdd`. I reviewed the backup job configuration, target storage, archive inventory, and VM coverage as part of my virtualization administration.
 
-I use VM snapshots for point-in-time guest recovery and scheduled backup archives for stored recovery copies. I treat snapshot management and backup management as related but separate operations.
+I used VM snapshots for point-in-time guest recovery and scheduled backup archives for stored recovery copies. I treated snapshot management and backup management as related but separate operations.
 
 ## Linux01 Restore Exercise
 
