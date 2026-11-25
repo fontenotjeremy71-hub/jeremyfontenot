@@ -1,23 +1,48 @@
 # Network Reference
 
-| Name | Address or route | Use |
+I use this reference for the IP networks, gateways, host addresses, and service endpoints in my lab.
+
+## Network Addressing
+
+| Network or system | Address | Purpose |
 |---|---|---|
-| Core LAN | 10.10.20.0/24 | DC01, WS01, core Windows services |
-| DC01 | 10.10.20.10 | Domain controller, DNS, DHCP |
+| Upstream network | 192.168.0.0/24 | Upstream segment for Proxmox management and pfSense WAN |
+| Upstream gateway | 192.168.0.1 | Default gateway for the Proxmox host |
+| Proxmox management | 192.168.0.242/24 | Proxmox host management address on vmbr0 |
+| pfSense WAN | 192.168.0.205 | Firewall WAN address on the upstream network |
+| Core LAN | 10.10.20.0/24 | Windows infrastructure and core services |
+| pfSense core gateway | 10.10.20.1 | Default gateway for the core LAN |
+| DC01 | 10.10.20.10 | Domain controller, DNS, and DHCP server |
 | WS01 | 10.10.20.100 | Domain-joined Windows client |
-| pfSense core gateway | 10.10.20.1 | Core LAN gateway |
-| Linux VLAN | 10.10.30.0/24 | Linux01 |
-| Linux01 | 10.10.30.20/24 | Ubuntu infrastructure and rsyslog receiver |
-| Linux01 gateway | 10.10.30.1 | Linux VLAN gateway |
-| VPN network | 10.10.40.0/24 | Remote administrative route context |
-| VPN route | 10.10.20.0/24 via 10.10.40.1 | Route observed from 10.10.40.2 |
-| Proxmox management | 192.168.0.242 | Proxmox management interface |
-| rsyslog | 10.10.30.20:514 | TCP and UDP listener |
+| HVHOST01 | 10.10.20.102 | Hyper-V management host |
+| SYNC01 | 10.10.20.105 | Microsoft Entra Connect server |
+| Linux VLAN 30 | 10.10.30.0/24 | Linux infrastructure network |
+| pfSense Linux gateway | 10.10.30.1 | Default gateway for Linux VLAN 30 |
+| Linux01 | 10.10.30.20/24 | Ubuntu Linux system and rsyslog receiver |
+| VPN network | 10.10.40.0/24 | OpenVPN remote administration network |
+| VPN gateway | 10.10.40.1 | Tunnel-side gateway for remote routes |
+| VPN client | 10.10.40.2 | Windows administration workstation VPN address |
 
-## DNS
+## Remote Routes
 
-The domain DNS root is `ad.jeremyfontenot.online`. DC01's IPv4 address is the public DNS resolver recorded for WS01 and Linux01.
+| Destination network | Next hop | Use |
+|---|---|---|
+| 10.10.20.0/24 | 10.10.40.1 | I use this VPN route to reach the core LAN |
+| 10.10.30.0/24 | 10.10.40.1 | I use this VPN route to reach the Linux VLAN |
 
-## Address Boundary
+## Proxmox Bridges
 
-Linux01 is supported in the current evidence as 10.10.30.20/24. Older 10.10.20.x Linux01 evidence is not silently merged into the current inventory.
+| Bridge | Configuration |
+|---|---|
+| `vmbr0` | I use the static host address `192.168.0.242/24`, gateway `192.168.0.1`, and bridge port `nic0` for upstream connectivity |
+| `vmbr1` | I use a VLAN-aware bridge with no physical bridge ports for pfSense LAN and internal guest interfaces |
+
+I assign Linux01 VLAN tag 30 on `vmbr1`.
+
+## DNS and Logging
+
+| Service | Endpoint | Use |
+|---|---|---|
+| Active Directory DNS | 10.10.20.10 | I use DC01 to resolve `ad.jeremyfontenot.online` and internal host records |
+| DHCP | 10.10.20.10 | I use DC01 to provide DHCP settings to WS01 |
+| rsyslog | 10.10.30.20:514 TCP/UDP | I use Linux01 to receive selected pfSense log events |
