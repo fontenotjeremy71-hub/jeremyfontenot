@@ -1,53 +1,36 @@
 # Hybrid Identity and Cloud Integration
 
-## Scope
+## Active Directory Identity Integration
 
-I use the lab to document hybrid infrastructure management, but I separate the evidence by platform and observed state.
+I use the Active Directory domain `ad.jeremyfontenot.online` as the identity foundation for my Windows and Linux lab systems. I administer domain services on DC01 and integrate Linux01 with the domain through realmd, SSSD, and Kerberos.
 
-## Active Directory to Linux
+I use SSSD for Linux identity resolution and SSH authentication. I diagnosed and corrected an SSSD responder and socket configuration conflict on Linux01, then verified directory identity lookup and a new AD-authenticated SSH session.
 
-Linux01 is the clearest direct domain-integration implementation. Evidence supports realmd configuration for `ad.jeremyfontenot.online`, SSSD as the identity client, Kerberos configuration, and AD identity lookup. I remediated an SSSD responder/socket conflict and validated a new AD-authenticated SSH session on Linux01.
+## Microsoft Entra Connect
+
+I operate Microsoft Entra Connect on SYNC01 at `10.10.20.105`. I administer the ADSync service and Azure AD Connect Health agent, review their service state and event logs, and troubleshoot the DNS and outbound HTTPS dependencies used by the synchronization and health services.
+
+I use target-side connectivity checks to resolve update and health endpoints, verify outbound TCP 443 connectivity, and run the Entra Connect Health connectivity test for the Sync role. I use these checks to investigate agent registration and health-data reporting.
 
 ## Azure Arc
 
-HVHOST01 and VMM01 are represented as Azure Arc connected machines in the personal lab. Public evidence supports:
+I connect HVHOST01 and VMM01 to Azure Arc. On HVHOST01, I administer the Connected Machine agent and its supporting services, review agent connectivity, and verify outbound access to `gbl.his.arc.azure.com` over TCP 443.
 
-- HVHOST01 Connected status
-- Connected Machine agent version 1.67.03504.3207
-- Automatic upgrade enabled
-- Arc services running on HVHOST01
-- Successful TCP 443 connectivity to `gbl.his.arc.azure.com`
-- VMM01 Connected status
-- VMM01 SQL Server 2022 resource in connected mode
-- SQL Windows Agent extension provisioned successfully
-- DPS and metrics upload status OK
-- Automatic backups disabled
-
-The direct VMM01 credential was rejected for a remote PowerShell collection. I preserve that access boundary and do not claim that local service, SQL, or telemetry state was directly re-read in that collection.
+I use Azure Arc to represent the VMM01 SQL Server 2022 Developer instance as a connected SQL resource. I review the SQL Server extension, its provisioning result, and the DPS and metrics-upload indicators.
 
 ## Windows Admin Center
 
-Windows Admin Center evidence shows HVHOST01 and VMM01 as Arc-connected systems. The public evidence separates Windows and Azure signed-in contexts and removes account identifiers.
+I use Windows Admin Center to review server connections and Azure Arc connection state for HVHOST01 and VMM01. I maintain separate Windows and Azure sign-in contexts when using the management interface.
 
-## System Center Virtual Machine Manager
+![Windows Admin Center connections showing Azure Arc-connected systems](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/windows-admin-center-arc-connections-public.png)
 
-SCVMM 2022 evidence supports:
+![HVHOST01 Azure Arc overview](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/hvhost01-arc-overview-public.png)
 
-- SCVMM installation completed
-- HVHOST01 managed with host status OK
-- APP01 discovered
-- APP01 remote start
-- APP01 VM Viewer session
-
-The evidence does not establish live migration, clustering, high availability, Storage Spaces Direct, or direct Proxmox management through SCVMM.
-
-## Claim Boundaries
-
-I do not claim Microsoft Entra Connect synchronization, production Microsoft 365 administration, tenant ownership, Exchange mail flow, Intune fleet management, or completed Microsoft 365 Graph administration unless separate direct evidence supports it. Azure resource state is limited to the public captured context.
+![VMM01 SQL Server resource in Azure Arc](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/screenshots/vmm01-sql-instance-overview-public.png)
 
 ## Evidence
 
-- [Azure Arc public evidence](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)
-- [Azure Arc evidence manifest](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence-manifest.json)
-- [SCVMM evidence manifest](../../../evidence-library/projects/on-prem-home-lab/scvmm-2022/evidence-manifest.json)
-- [Linux01 domain integration](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
+- [Linux01 Active Directory integration](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
+- [Linux01 SSSD remediation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
+- [Azure Arc public validation](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)
+- [Azure Arc screenshots and evidence manifest](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence-manifest.json)
