@@ -1,23 +1,12 @@
 # Automation and PowerShell
 
-## Administrative Use
+## Administrative Automation
 
-I use scripts and command-line tooling for infrastructure inventory, connectivity testing, evidence capture, identity validation, Linux diagnostics, and repository integrity checks.
+I use PowerShell and command-line tools to administer Windows systems, collect infrastructure inventory, inspect network configuration, validate identity services, troubleshoot connectivity, and maintain the documentation repository.
 
-## Read-Only Collection
+## Windows Administration
 
-My operational workflow prioritizes read-only collection. Evidence summaries identify:
-
-- Proxmox inventory through read-only API objects
-- DC01 target-local role and system inventory
-- WS01 target-local system, network, and domain inventory
-- Linux01 target-local system, network, and domain inventory
-- Route and DNS discovery
-- Repository and evidence validation
-
-## PowerShell Examples
-
-The evidence supporting target-state inventory uses commands and result objects equivalent to:
+I use Windows PowerShell and PowerShell 7 for local and remote administration. My Active Directory workflow includes domain, forest, domain-controller, DNS, DHCP, and Group Policy administration.
 
 ```powershell
 Get-CimInstance Win32_OperatingSystem
@@ -26,43 +15,36 @@ Get-ADDomain
 Get-ADForest
 Get-ADDomainController
 Resolve-DnsName ad.jeremyfontenot.online -Server 10.10.20.10
-nltest /dclist:ad.jeremyfontenot.online
+Test-NetConnection ws01.ad.jeremyfontenot.online -Port 3389
 ```
 
-I document these as evidence-oriented administrative checks, not as proof that all related modules or systems are continuously healthy.
+I use PowerShell remoting to administer Windows servers and use SSH for Linux and Proxmox administration.
+
+## Reusable Administration Profile
+
+I maintain reusable PowerShell profile functions to simplify connections to my lab systems and cloud administration services.
+
+| Function | Administrative use |
+|---|---|
+| `Connect-DC01` | I open a remote PowerShell session to DC01 |
+| `Connect-HVHOST01` | I open a remote PowerShell session to HVHOST01 |
+| `Connect-LabSSH` | I connect to Proxmox or Linux01 over SSH |
+| `Connect-Proxmox` | I connect to the Proxmox host |
+| `Connect-Linux01` | I connect to Linux01 |
+| `Connect-LabAzure` | I authenticate to Azure for lab administration |
+| `Connect-LabGraph` | I connect to Microsoft Graph |
+| `Connect-LabExchange`, `Connect-LabTeams`, `Connect-LabSharePoint` | I connect to the corresponding Microsoft 365 administration services |
 
 ## Linux Diagnostics
 
-The Linux SSSD remediation used a diagnostic and validation sequence to identify:
-
-- Failed service units
-- Socket state
-- Configuration validation
-- AD identity lookup
-- Authenticated SSH access
-
-I used a backup copy of the original SSSD configuration and retained diagnostic hashes for integrity.
+I use Linux service and socket inspection, SSSD configuration validation, directory identity lookup, SSH testing, and log review to troubleshoot Linux01. During the SSSD remediation, I inspected failed units and responder sockets, corrected the configuration conflict, restarted the service, and verified domain identity access.
 
 ## Repository Validation
 
-The repository includes PowerShell and JSON validation tooling for:
-
-- Repository structure
-- Evidence hashes
-- Evidence claims
-- Evidence metadata
-- Content
-- HTML
-- Links
-- JSON
-- Accessibility
-
-## Execution Boundaries
-
-I do not claim that an automation script was executed successfully unless repository evidence supports it. Timeout observations, missing PowerShell modules, and credential rejection remain result states rather than hidden failures.
+I use PowerShell and JSON validation tooling in the repository to check documentation structure, evidence hashes, evidence metadata, content, HTML, links, JSON, and accessibility.
 
 ## Evidence
 
-- [PowerShell inventory summary](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md)
-- [SSSD remediation record](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
+- [Home lab inventory and validation workflow](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md)
+- [Linux01 SSSD remediation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
 - [Azure Arc validation script](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation.ps1)
