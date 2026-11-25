@@ -1,33 +1,39 @@
 # Remote Access
 
-## Remote Administration
+## OpenVPN Remote Administration
 
-I use remote administration across Windows and Linux systems. Evidence supports RDP and WinRM-related troubleshooting and administration, while also recording access boundaries.
+I use pfSense OpenVPN remote access to connect my Windows 11 administration workstation, LT-JF01, to my lab networks. I use the `10.10.40.0/24` VPN address space and the tunnel gateway `10.10.40.1`.
 
-## VPN Route
+I configure the OpenVPN client for service-based startup so the VPN connection can be established before Windows sign-in. I use the OpenVPN Windows service and interactive service to support the client connection workflow.
 
-The retained route evidence includes a route for `10.10.20.0/24` through `10.10.40.1` from `10.10.40.2`. This demonstrates a captured VPN route on the management workstation, not a complete validation of pfSense VPN configuration or tunnel health.
+| VPN setting | Value |
+|---|---|
+| VPN network | 10.10.40.0/24 |
+| Client address | 10.10.40.2 |
+| Tunnel gateway | 10.10.40.1 |
+| Core LAN route | 10.10.20.0/24 via 10.10.40.1 |
+| Linux VLAN route | 10.10.30.0/24 via 10.10.40.1 |
 
 ## Windows Remote Administration
 
-WS01 evidence includes RDP enablement, firewall/network configuration, DNS validation, and a DC01-to-WS01 RDP test. The lab evidence distinguishes successful remote access work from a separate NLA-related troubleshooting case.
+I use Remote Desktop to administer Windows clients and servers. I configure WS01 for Remote Desktop, review its Windows firewall rules, and test TCP port 3389 and DNS resolution from DC01.
 
-HVHOST01 direct evidence supports a successful WinRM validation and Azure Arc agent validation. VMM01 direct WinRM connection was available, but the current credential was rejected for remote PowerShell; I retain that as an access limitation.
+I use PowerShell remoting and WinRM for remote Windows administration, including management sessions to DC01, HVHOST01, and SYNC01.
 
 ## Linux Remote Administration
 
-Linux01 evidence supports SSH identity integration. The SSSD remediation case records a successful AD-authenticated SSH session after remediation.
+I use SSH to administer Linux01. I integrate SSH authentication with Active Directory through SSSD and verify an AD-authenticated SSH session after SSSD remediation.
 
-## Security Boundary
+## SCVMM Remote Console Access
 
-I do not publish VPN credentials, private keys, certificates, tokens, recovery codes, tenant values, account names, or raw authentication logs. Public network addresses are limited to the network ranges already included in the reviewed evidence.
+I use the VMM console from my VPN-connected administration workstation to connect to VMM01. I validate the management path to the VMM service and use SCVMM to control APP01 and open its Virtual Machine Viewer console.
 
-## Validation State
-
-The public evidence includes successful route, RDP, WinRM, or SSH observations only where directly supported. Timeouts and credential rejection remain limitations rather than proof of a service outage or firewall failure.
+![APP01 console session through SCVMM](../../../evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-vm-viewer.png)
 
 ## Evidence
 
-- [WS01 evidence manifest](../../../evidence-library/projects/on-prem-home-lab/screenshots/screenshots-manifest.json)
-- [Linux01 SSSD remediation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
-- [Azure Arc public evidence](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)
+- [VPN route and home lab network inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md)
+- [WS01 Remote Desktop and DNS screenshot](../../../evidence-library/projects/on-prem-home-lab/screenshots/figure-07-dc01-to-ws01-rdp-dns-validation.png)
+- [Linux01 SSSD and SSH authentication remediation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
+- [SCVMM screenshot and evidence manifest](../../../evidence-library/projects/on-prem-home-lab/scvmm-2022/evidence-manifest.json)
+- [Azure Arc remote-management evidence](../../../evidence-library/projects/on-prem-home-lab/azure-arc-hybrid-management/evidence/azure-arc-validation-public.txt)
