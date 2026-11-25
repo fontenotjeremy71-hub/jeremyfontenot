@@ -1,49 +1,47 @@
 # pfSense
 
-## Role
+## Firewall and Routing Platform
 
-pfSense is VM 100 on Proxmox. The documented architecture assigns it to routing and firewall duties at the interface between the core LAN, Linux VLAN, and VPN network.
+I use pfSense as VM 100 on Proxmox VE. I connect its WAN and LAN virtual interfaces through `vmbr0` and `vmbr1` and use pfSense as the routing and firewall platform for my lab networks.
 
-## Captured State
+| VM setting | Allocation |
+|---|---|
+| VMID | 100 |
+| vCPU | 2 |
+| Memory | 4 GB |
+| Disk | 32 GB |
+| Proxmox bridges | vmbr0 and vmbr1 |
 
-The VM inventory records:
+## Network Interfaces
 
-- 2 vCPU
-- 4 GB RAM
-- 32 GB disk
-- vmbr0 and vmbr1 bridge placement
-- Running state
-- Guest agent not configured or responding in the captured inventory
+| Network interface or segment | Address | Purpose |
+|---|---|---|
+| WAN | 192.168.0.205 | I connect pfSense to the upstream 192.168.0.0/24 network |
+| Core LAN | 10.10.20.1/24 | I use this as the default gateway for DC01, WS01, and core Windows services |
+| Linux VLAN | 10.10.30.1/24 | I use this as the gateway for Linux01 on VLAN 30 |
+| OpenVPN | 10.10.40.0/24 | I use this network for remote administrative clients |
 
-The public evidence does not expose or claim every pfSense interface, NAT rule, firewall rule, DHCP setting, or VPN certificate.
+## Routing and Network Segmentation
 
-## Network Functions
+I use pfSense to route traffic between the core LAN and Linux VLAN. I keep the Windows infrastructure on `10.10.20.0/24` and Linux01 on `10.10.30.0/24`, with pfSense providing the gateway for each network.
 
-I use pfSense as the lab routing and security boundary. Repository evidence supports:
+I connect the WAN interface to the upstream network through `vmbr0`. I connect the internal LAN and VLAN-aware guest network through `vmbr1`.
 
-- The core LAN relationship.
-- A separate Linux VLAN.
-- A remote-access VPN route for the 10.10.20.0/24 network.
-- pfSense log generation and forwarding planning to Linux01.
+## OpenVPN Remote Access
 
-## Validation State
+I use pfSense OpenVPN remote access to connect my administration workstation to the lab. I assign VPN clients addresses from `10.10.40.0/24` and use `10.10.40.1` as the tunnel-side gateway for routes into the internal networks.
 
-Repository validation reports a timeout when a management workstation attempted TCP 443 to the pfSense LAN address. I do not interpret that timeout as evidence that the HTTPS service or firewall is unavailable. The public evidence does not provide a complete firewall-rule or VPN-policy validation.
+## Centralized Logging
 
-## Backup and Restore
+I configure pfSense to forward selected system, firewall, authentication, VPN, and gateway events to Linux01 at `10.10.30.20` on port `514`. I use Linux01 rsyslog to receive and organize those messages.
 
-pfSense is included in the primary Proxmox backup job and retained in restore-related evidence. Separate restore records describe isolated testing, service checks, and cleanup. Those results should not be generalized beyond the tested scope.
+## Backup Integration
 
-## Evidence Gaps
-
-- Complete exported firewall-rule inventory.
-- NAT configuration.
-- Interface-address and DHCP inventory.
-- OpenVPN server configuration.
-- Certificate inventory.
-- Tunnel-route validation beyond the retained route observation.
+I include pfSense VM 100 in the Proxmox backup job `backup-critical-lab-vms`, which uses snapshot mode, zstd compression, and the `backup-hdd` storage target.
 
 ## Evidence
 
-- [Platform inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md)
-- [Home lab inventory and validation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md)
+- [Proxmox platform inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md)
+- [Home lab network inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/home-lab-inventory-validation.md)
+- [Proxmox network bridge configuration](../../../evidence-library/projects/on-prem-home-lab/validated-2026-06-21/text/proxmox-network-validation-sanitized.txt)
+- [Linux01 rsyslog configuration record](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md)
