@@ -1,39 +1,56 @@
 # Virtualization Architecture
 
-## Proxmox Host
+## Proxmox Virtualization Layer
 
-I use Proxmox VE as the primary virtualization platform. The read-only inventory validates the platform version and the running state of the primary virtual machines.
+I use Proxmox VE on my Dell PowerEdge R710 as the base virtualization platform for the core lab systems.
 
-| VMID | Hostname | Operating system or role | Recorded state |
-|---|---|---|---|
-| 100 | pfsense-fw | pfSense firewall and routing | Running |
-| 200 | dc01 | Windows Server 2022 domain controller | Running |
-| 300 | ws01 | Windows 10 Pro domain client | Running |
-| 400 | linux01 | Ubuntu 26.04 LTS | Running |
+| VMID | Guest | Operating system or role | vCPU | Memory | Disk | Network placement |
+|---|---|---|---:|---:|---:|---|
+| 100 | pfsense-fw | pfSense firewall and routing | 2 | 4 GB | 32 GB | vmbr0, vmbr1 |
+| 200 | dc01 | Windows Server 2022 domain controller | 2 | 4 GB | 80 GB | vmbr1 |
+| 300 | ws01 | Windows 10 Pro domain client | 2 | 4 GB | 80 GB | vmbr1 |
+| 400 | linux01 | Ubuntu 26.04 LTS | 2 | 2 GB | 40 GB | vmbr1, VLAN 30 |
 
-The inventory also records each VM's bridge placement, vCPU, memory, disk allocation, and guest-agent state. The guest agents for pfsense-fw, dc01, and ws01 are not configured or responding in that captured object; Linux01 has a responding configured guest agent.
+I use the Proxmox interface to review VM configuration, allocated resources, bridge placement, guest-agent integration, snapshots, storage, and backup jobs.
 
-## Nested or Management Platforms
+## Nested Hyper-V and SCVMM
 
-Repository evidence separately documents:
+I use HVHOST01 as a Windows Server Hyper-V host and VMM01 as my System Center Virtual Machine Manager management server. I installed the SCVMM management server and console, added HVHOST01 to the managed host inventory, and used VMM to discover APP01 on the Hyper-V host.
 
-- HVHOST01, a Windows host used with Hyper-V and Azure Arc.
-- VMM01, a Windows management system with System Center Virtual Machine Manager and Azure integration.
-- APP01, a Windows application system with storage expansion evidence.
-- MACVM01, a macOS virtual-machine identity and network integration case.
+I use VMM to control APP01 remotely and open an interactive Virtual Machine Viewer session to the guest. I also use the VMM networking workspace to administer logical network and host networking relationships.
 
-I treat these as evidence-backed subsystems. I do not infer that they are part of every primary inventory capture unless the relevant evidence supports that relationship.
+```mermaid
+flowchart TB
+    R710[Dell PowerEdge R710]
+    PVE[Proxmox VE]
+    HV[HVHOST01<br/>Windows Server / Hyper-V]
+    VMM[VMM01<br/>SCVMM 2022]
+    APP[APP01<br/>Hyper-V guest]
+    R710 --> PVE
+    PVE --> HV
+    PVE --> VMM
+    HV --> APP
+    VMM -. manages .-> HV
+    VMM -. controls .-> APP
+```
 
-## Virtual Lifecycle Administration
+## Virtual Machine Lifecycle
 
-My work includes VM inventory review, snapshot review, backup job review, isolated restore testing, network isolation, guest validation, and cleanup. A restore exercise is not equivalent to an ongoing restore program.
+I manage virtual machine lifecycle tasks through inventory review, provisioning, startup and shutdown operations, snapshot creation, backup configuration, isolated restore testing, guest inspection, and cleanup.
 
-## Guest Validation Boundary
+For my Linux01 restore exercise, I restored source VM 400 to temporary VM 401. I isolated the temporary VM network before boot, checked the Ubuntu guest and QEMU Guest Agent, then shut down and removed the temporary VM.
 
-The Proxmox inventory establishes VM configuration and running state at the time of capture. It does not by itself prove guest service health, firewall policy, domain health, or the success of every backup task.
+## Screenshots
+
+I use the following screenshots to show the Hyper-V host and guest management work I perform through SCVMM.
+
+![HVHOST01 managed through SCVMM](../../../evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-hvhost01-managed.png)
+
+![APP01 interactive VM Viewer session](../../../evidence-library/projects/on-prem-home-lab/scvmm-2022/screenshots/scvmm-app01-vm-viewer.png)
 
 ## Evidence
 
 - [Proxmox platform inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-platform-inventory.md)
 - [Proxmox backup configuration](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-backup-configuration.md)
-- [Restore validation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.md)
+- [Proxmox restore exercise](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/proxmox-restore-validation.md)
+- [SCVMM screenshot and evidence manifest](../../../evidence-library/projects/on-prem-home-lab/scvmm-2022/evidence-manifest.json)
