@@ -1,55 +1,47 @@
 # Linux Administration
 
-## Linux01
+## Linux01 Platform
 
-Linux01 is VM 400. Direct evidence supports Ubuntu 26.04 LTS, Linux kernel 7.0.0-22-generic, x86_64 architecture, and VLAN 30 placement.
+I run Linux01 as VM 400 on Proxmox VE. I use Ubuntu 26.04 LTS on the system and connect its virtual network interface to VLAN 30.
 
-The current interface has:
+| Setting | Linux01 configuration |
+|---|---|
+| Hostname | Linux01 |
+| Operating system | Ubuntu 26.04 LTS |
+| Interface | ens18 |
+| IPv4 address | 10.10.30.20/24 |
+| Default gateway | 10.10.30.1 |
+| DNS server | 10.10.20.10 |
+| Active Directory domain | ad.jeremyfontenot.online |
 
-- Interface: ens18 UP
-- IPv4: 10.10.30.20/24
-- Gateway: 10.10.30.1
-- DNS: 10.10.20.10
-- Domain: ad.jeremyfontenot.online
+## Active Directory Integration
 
-The evidence identifies the older 10.10.20.x address as an earlier addressing context, not the current Linux01 address.
+I integrate Linux01 with `ad.jeremyfontenot.online` through realmd, SSSD, and Kerberos. I use SSSD for identity lookups and domain-backed authentication, and I use SSH for remote Linux administration.
 
-## Directory Integration
+## SSSD Configuration and Troubleshooting
 
-I documented realmd/SSSD/Kerberos integration with the Active Directory domain. realmd reports active-directory server software and SSSD client software, and domain identity resolution was observed as resolved.
+I diagnosed an SSSD configuration conflict involving direct responder activation and the NSS, PAM, and PAC sockets. SSSD 2.12 rejected the `config_file_version = 2` directive during configuration validation.
 
-## SSSD Remediation
+I removed the rejected directive, disabled the conflicting NSS, PAM, and PAC sockets, restarted `sssd.service`, and cleared the failed-unit state. I then checked the SSSD configuration, service state, AD identity lookup, and a new AD-authenticated SSH session.
 
-For Linux01, I identified a resolver/socket conflict:
+## Centralized Logging
 
-- NSS, PAM, and PAC sockets were enabled and failed.
-- The SSSD configuration used direct responder activation.
-- SSSD 2.12 rejected `config_file_version = 2`.
+I use Linux01 as the rsyslog receiver for selected pfSense events. I configure the receiver to listen on TCP and UDP port 514 at `10.10.30.20` and use the following configuration files:
 
-I removed only the rejected directive and disabled the conflicting NSS, PAM, and PAC sockets. I then restarted SSSD and cleared failed-unit state.
+| Configuration file | Purpose |
+|---|---|
+| `/etc/rsyslog.d/10-remote-collector.conf` | Remote syslog receiver and destination configuration |
+| `/etc/rsyslog.d/05-pfsense-alerts.conf` | pfSense alert-message handling |
+| `/etc/logrotate.d/rsyslog` | Weekly rotation, four retained rotations, and compression |
 
-Post-remediation evidence supports:
+I use the remote log destination templates `/var/log/remote/%FROMHOST-IP%/messages.log` and `/var/log/remote/pfsense-alerts.log` to organize received messages.
 
-- sssd.service enabled and active/running
-- Zero failed units
-- SSSD configuration validation passed
-- AD identity lookup passed
-- A new AD-authenticated SSH session passed
+## Administrative Work
 
-This result is limited to Linux01.
-
-## Logging
-
-Target-local inventory validates rsyslog state, TCP and UDP listeners on 10.10.30.20:514, remote collector configuration, pfSense alert configuration, and log rotation.
-
-Centralized logging expansion for Windows and Proxmox remains a change plan rather than a completed implementation.
-
-## Administrative Responsibilities
-
-My Linux work includes network configuration, SSH administration, package and service validation, system-state inventory, AD identity integration, SSSD troubleshooting, rsyslog configuration review, log rotation, and file integrity capture.
+I administer Linux network settings, SSH access, packages and services, domain identity integration, SSSD configuration, rsyslog listeners, log rotation, and system inventory. I use service state, socket listeners, configuration validation, identity lookup, and log review to troubleshoot Linux services.
 
 ## Evidence
 
-- [Linux01 system, network, and domain validation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
-- [Linux01 SSSD remediation validation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
-- [Centralized logging plan](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md)
+- [Linux01 system, network, and domain inventory](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-system-network-domain-validation.md)
+- [Linux01 SSSD remediation](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/direct-evidence/linux01-sssd-remediation-validation.md)
+- [Centralized logging configuration and expansion record](../../../evidence-library/projects/on-prem-home-lab/current-validated-state/source-summaries/centralized-logging-expansion.md)
