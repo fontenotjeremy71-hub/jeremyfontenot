@@ -8,7 +8,7 @@ I document my hybrid infrastructure architecture, administrative work, implement
 
 ## Scope
 
-This documentation covers the physical and virtual infrastructure, network relationships, Windows and Linux administration, hybrid identity and cloud integration, backup and recovery work, monitoring and logging, automation, and operational procedures in my lab.
+I document the physical and virtual infrastructure, network relationships, Windows and Linux administration, hybrid identity and cloud integration, backup and recovery, monitoring and logging, automation, and operational procedures in my lab.
 
 ## Documentation
 
